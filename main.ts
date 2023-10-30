@@ -121,7 +121,17 @@ function menu_select_menu() {
             }
         }
     }
-        basic.showNumber(1)
+    if (selected_menu == 1){
+
+    } else if (selected_menu == 2) {
+
+    } else if (selected_menu == 3) {
+
+    } else if (selected_menu == 4) {
+
+    } else {
+
+    }
 }
 loading_animation()
 music.setBuiltInSpeakerEnabled(false)
