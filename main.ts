@@ -480,6 +480,95 @@ function radio_main() {
     basic.pause(350)
     menu_select = true
     while (menu_select == true) {
+        if (radio_type == 1) {
+            basic.showLeds(`
+            . . . . .
+            . . # . .
+            . # # . .
+            . . # . .
+            . . # . .
+            `)
+        } else if (radio_type == 2) {
+            basic.showLeds(`
+            . . . . .
+            . . . . .
+            # . . . #
+            # # # # #
+            . . . . .
+            `)
+        } else if (radio_type == 3) {
+            basic.showLeds(`
+            . . . . .
+            . . . # #
+            . . . . #
+            # . # . #
+            # # # . #
+            `)
+        } else if (radio_type == 4) {
+            basic.showLeds(`
+            . . . . .
+            . . . . #
+            # # . . .
+            . . # . .
+            # . # . .
+            `)
+        } else {
+            basic.showLeds(`
+            . . . . .
+            . . . . .
+            . . . . .
+            . . . . .
+            . . . . .
+            `)
+        }
+        draw_menu()
+        if (radio_type == 1) {
+            led.plot(0, 0)
+        } else if (radio_type == 2) {
+            led.plot(1, 0)
+        } else if (radio_type == 3) {
+            led.plot(2, 0)
+        } else if (radio_type == 4) {
+            led.plot(3, 0)
+        } else {
+            led.plot(4, 0)
+        }
+        waiting_for_input = true
+        while (waiting_for_input == true) {
+            if (input.buttonIsPressed(Button.A)) {
+                if (radio_type == 1) {
+                    radio_type = 5
+                    waiting_for_input = false
+                } else {
+                    radio_type += -1
+                    waiting_for_input = false
+                }
+            }
+            if (input.buttonIsPressed(Button.B)) {
+                if (radio_type == 5) {
+                    radio_type = 1
+                    waiting_for_input = false
+                } else {
+                    radio_type += 1
+                    waiting_for_input = false
+                }
+            }
+        }
+    }
+    game.addScore(1)
+    if (radio_type == 1) {
+
+    }
+    if (radio_type == 2) {
+
+    }
+    if (radio_type == 3) {
+
+    }
+    if (radio_type == 4) {
+
+    }
+    if (radio_type == 5) {
         
     }
 }
