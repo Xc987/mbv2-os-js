@@ -122,12 +122,127 @@ function menu_select_menu() {
         }
     }
     if (selected_menu == 1){
-
+        menu_select = true
+        game_select_menu()
     } else if (selected_menu == 2) {
 
     } else if (selected_menu == 3) {
 
     } else if (selected_menu == 4) {
+
+    } else {
+
+    }
+}
+function game_select_menu() {
+    while (menu_select == true) {
+        if (game_mode == 1) {
+            basic.showLeds(`
+        . . . . .
+        . . # . .
+        . . . . .
+        . . . . .
+        . . # . .
+        `)
+        } else if (game_mode == 2) {
+            basic.showLeds(`
+        . . . . .
+        . . . # .
+        . . . # .
+        . . . . .
+        . . . # .
+        `)
+        } else if (game_mode == 3) {
+            basic.showLeds(`
+            . . . . .
+            . . . . .
+            . . . . .
+            . . . . .
+            . # # . .`)
+        } else if (game_mode == 4) {
+            basic.showLeds(`
+            . . . . .
+            . . . . .
+            . . . . .
+            . . . . .
+            . . # . .
+            `)
+        } else if (game_mode == 5) {
+            basic.showLeds(`
+        . . . . .
+        . . . . .
+        . . . # .
+        # . . . .
+        # . . . .
+        `)
+        } else if (game_mode == 6) {
+            basic.showLeds(`
+        . . . . .
+        . . . . .
+        . . . . #
+        . . . . .
+        . . # . .
+        `)
+        } else {
+            basic.showLeds(`
+        . . . . .
+        . . . . .
+        . . # . .
+        . . . . .
+        # . . . .
+        `)
+        }
+        draw_menu()
+        if (game_mode == 1) {
+            led.plot(0, 0)
+        } else if (game_mode == 2) {
+            led.plot(1, 0)
+        } else if (game_mode == 3) {
+            led.plot(2, 0)
+        } else if (game_mode == 4) {
+            led.plot(2, 0)
+        } else if (game_mode == 5) {
+            led.plot(2, 0)
+        } else if (game_mode == 6) {
+            led.plot(3, 0)
+        } else {
+            led.plot(4, 0)
+        }
+        let waiting_for_input = true
+        while (waiting_for_input == true) {
+            if (input.buttonIsPressed(Button.A)) {
+                if (game_mode == 1) {
+                    game_mode = 7
+                    waiting_for_input = false
+                } else {
+                    game_mode += -1
+                    waiting_for_input = false
+                }
+            } else if (input.buttonIsPressed(Button.B)) {
+                if (game_mode == 7) {
+                    game_mode = 1
+                    waiting_for_input = false
+                } else {
+                    game_mode += 1
+                    waiting_for_input = false
+                }
+            } else if (input.logoIsPressed()) {
+                waiting_for_input = false
+                menu_select = false
+            }
+        }
+    }
+    if (game_mode == 1) {
+
+    } else if (game_mode == 2) {
+
+    } else if (game_mode == 3) {
+
+    } else if (game_mode == 4) {
+
+    } else if (game_mode == 5) {
+
+    } else if (game_mode == 6) {
 
     } else {
 
