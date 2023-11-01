@@ -830,7 +830,7 @@ let menu_select = true
 let waiting_for_input = true
 
 let acc: number
-let time: number
+let time = 0
 let killed: number[] = []
 let enemyX: number[] = []
 let enemyY: number[] = []
@@ -842,6 +842,40 @@ let py: number
 
 menu_select_menu()
 
+input.onButtonPressed(Button.A, function() {
+    if (game_mode == 1) {
+        if (px > 0) {
+            led.unplot(px,py)
+            px += -1
+        }
+    }
+}) //On button A pressed.
+
+input.onButtonPressed(Button.B, function() {
+    if (game_mode == 1) {
+        if (px < 4) {
+            led.unplot(px,py)
+            px += 1
+        }
+    }
+}) //On button B pressed
+
+input.onButtonPressed(Button.AB, function() {
+    if (game_mode == 1) {
+        shoot = 1
+        music.play(music.createSoundExpression(
+            WaveShape.Sawtooth,
+            4707,
+            1,
+            255,
+            0,
+            150,
+            SoundExpressionEffect.None,
+            InterpolationCurve.Linear
+        ), music.PlaybackMode.InBackground)
+    }
+}) //On button AB pressed
+
 basic.forever(function() {
     if (game_mode == 1) {
         led.plotBrightness(px,py,255)
@@ -852,7 +886,7 @@ basic.forever(function() {
             }
         }
         if (shoot == 1) {
-            led.plotBrightness(px,py,20)
+            led.plotBrightness(px,my,20)
             for (let index3 = 0; index3 <= 4; index3++) {
                 if (killed[index3] == 0 && (px == enemyX[index3] && my == enemyY[index3])) {
                     killed[index3] = 1
@@ -869,7 +903,7 @@ basic.forever(function() {
                 }
             }
             basic.pause(25)
-            led.unplot(px,py)
+            led.unplot(px,my)
             my += -1
         }
         if (time > speed) {
@@ -888,7 +922,7 @@ basic.forever(function() {
                 if  (enemyY[index5] > 4) {
                     basic.clearScreen()
                     music.play(music.createSoundExpression(
-                        WaveShape.Sine,
+                        WaveShape.Sawtooth,
                         321,
                         0,
                         255,
@@ -897,7 +931,7 @@ basic.forever(function() {
                         SoundExpressionEffect.None,
                         InterpolationCurve.Linear
                     ), music.PlaybackMode.InBackground)
-                    datalogger.createCV("Space Invaders", acc)
+                    datalogger.log(datalogger.createCV("Space Invaders", acc))
                     basic.showString("S:")
                     basic.showNumber(acc)
                     control.reset()
@@ -918,4 +952,4 @@ basic.forever(function() {
         }
 
     }
-}) //Space Invaders game.
+}) //Space Invaders game. // Game-Mode = 1
