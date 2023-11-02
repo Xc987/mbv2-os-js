@@ -253,19 +253,25 @@ function game_select_menu() {
         menu_select = true
         menu_select_menu()
     } else if (game_mode == 1) {
-        px = 2
-        py = 4
-        my = 3
-        shoot = 0
-        speed = 50
+        px_1 = 2
+        py_1 = 4
+        my_1 = 3
+        shoot_1 = 0
+        speed_1 = 50
         for (let index2 = 0; index2 <= 4; index2++) {
-            enemyX[index2] = randint(0,4)
-            enemyY[index2] = index2 * -1
-            killed[index2] = 0
+            enemyX_1[index2] = randint(0,4)
+            enemyY_1[index2] = index2 * -1
+            killed_1[index2] = 0
         }
         basic.clearScreen()
     } else if (game_mode == 2) {
-
+        bird_2 = game.createSprite(0,2)
+        bird_2.set(LedSpriteProperty.Blink, 150)
+        bird_move = true
+        obstacles_2 = []
+        let index_2 = 0
+        interval_2 = 1200
+        game_mode_2()
     } else if (game_mode == 3) {
 
     } else if (game_mode == 4) {
@@ -816,6 +822,7 @@ function settings_select_menu() {
         menu_select_menu()
     }
 } // Settings selection.
+
 loading_animation()
 music.setBuiltInSpeakerEnabled(false)
 let selected_menu = 1
@@ -829,40 +836,56 @@ let logged_data = false
 let menu_select = true
 let waiting_for_input = true
 
-let acc: number
-let time = 0
-let killed: number[] = []
-let enemyX: number[] = []
-let enemyY: number[] = []
-let speed: number
-let shoot: number
-let my: number
-let px: number
-let py: number
+let acc_1 = 0
+let time_1 = 0
+let killed_1: number[] = []
+let enemyX_1: number[] = []
+let enemyY_1: number[] = []
+let speed_1: number
+let shoot_1: number
+let my_1: number
+let px_1: number
+let py_1: number
+
+let bird_move = false
+let obstacles_2: game.LedSprite[] = []
+let bird_2: game.LedSprite = null
+let interval_2: number
+let ticks_2 = 0
+let score_2 = 0
+let empty_obstacle_2 = 0
 
 menu_select_menu()
 
 input.onButtonPressed(Button.A, function() {
     if (game_mode == 1) {
-        if (px > 0) {
-            led.unplot(px,py)
-            px += -1
+        if (px_1 > 0) {
+            led.unplot(px_1,py_1)
+            px_1 += -1
+        }
+    }
+    if (game_mode == 2) {
+        if (bird_move == true) {
+            bird_2.change(LedSpriteProperty.Y, 1)
         }
     }
 }) //On button A pressed.
-
 input.onButtonPressed(Button.B, function() {
     if (game_mode == 1) {
-        if (px < 4) {
-            led.unplot(px,py)
-            px += 1
+        if (px_1 < 4) {
+            led.unplot(px_1,py_1)
+            px_1 += 1
+        }
+    }
+    if (game_mode == 2) {
+        if (bird_move == true) {
+            bird_2.change(LedSpriteProperty.Y, -1)
         }
     }
 }) //On button B pressed
-
 input.onButtonPressed(Button.AB, function() {
     if (game_mode == 1) {
-        shoot = 1
+        shoot_1 = 1
         music.play(music.createSoundExpression(
             WaveShape.Sawtooth,
             4707,
@@ -878,18 +901,18 @@ input.onButtonPressed(Button.AB, function() {
 
 basic.forever(function() {
     if (game_mode == 1) {
-        led.plotBrightness(px,py,255)
+        led.plotBrightness(px_1,py_1,255)
         for (let index2 = 0; index2 <= 4; index2++) {
-            if (killed[index2] == 0) {
-                led.unplot(enemyX[index2], enemyY[index2] -1)
-                led.plot(enemyX[index2],enemyY[index2])
+            if (killed_1[index2] == 0) {
+                led.unplot(enemyX_1[index2], enemyY_1[index2] -1)
+                led.plot(enemyX_1[index2],enemyY_1[index2])
             }
         }
-        if (shoot == 1) {
-            led.plotBrightness(px,my,20)
+        if (shoot_1 == 1) {
+            led.plotBrightness(px_1,my_1,20)
             for (let index3 = 0; index3 <= 4; index3++) {
-                if (killed[index3] == 0 && (px == enemyX[index3] && my == enemyY[index3])) {
-                    killed[index3] = 1
+                if (killed_1[index3] == 0 && (px_1 == enemyX_1[index3] && my_1 == enemyY_1[index3])) {
+                    killed_1[index3] = 1
                     music.play(music.createSoundExpression(
                         WaveShape.Noise,
                         2294,
@@ -903,23 +926,23 @@ basic.forever(function() {
                 }
             }
             basic.pause(25)
-            led.unplot(px,my)
-            my += -1
+            led.unplot(px_1,my_1)
+            my_1 += -1
         }
-        if (time > speed) {
-            time = 0
-            acc += 1
+        if (time_1 > speed_1) {
+            time_1 = 0
+            acc_1 += 1
             for (let index4 = 0; index4 <= 4; index4++) {
-                enemyY[index4] = enemyY[index4] + 1
+                enemyY_1[index4] = enemyY_1[index4] + 1
             }
         }
-        if (my < 0) {
-            shoot = 0
-            my = 5
+        if (my_1 < 0) {
+            shoot_1 = 0
+            my_1 = 5
         }
         for (let index5 = 0; index5 <= 4; index5++) {
-            if (killed[index5] == 0){
-                if  (enemyY[index5] > 4) {
+            if (killed_1[index5] == 0){
+                if  (enemyY_1[index5] > 4) {
                     basic.clearScreen()
                     music.play(music.createSoundExpression(
                         WaveShape.Sawtooth,
@@ -931,25 +954,56 @@ basic.forever(function() {
                         SoundExpressionEffect.None,
                         InterpolationCurve.Linear
                     ), music.PlaybackMode.InBackground)
-                    datalogger.log(datalogger.createCV("Space Invaders", acc))
+                    datalogger.log(datalogger.createCV("Space Invaders", acc_1))
                     basic.showString("S:")
-                    basic.showNumber(acc)
+                    basic.showNumber(acc_1)
                     control.reset()
                 }
             }
         }
-        time += 1
-        if (acc % 5 == 0) {
-            speed += -3
-            acc += 1
+        time_1 += 1
+        if (acc_1 % 5 == 0) {
+            speed_1 += -3
+            acc_1 += 1
         }
         for (let index6 = 0; index6 <= 4; index6++) {
-            if (enemyY[index6] > 4) {
-                enemyY[index6] = -1
-                enemyX[index6] = randint(0,4)
-                killed[index6] = 0
+            if (enemyY_1[index6] > 4) {
+                enemyY_1[index6] = -1
+                enemyX_1[index6] = randint(0,4)
+                killed_1[index6] = 0
             }
         }
 
     }
-}) //Space Invaders game. // Game-Mode = 1
+}) //Space Invaders game. // Game_Mode = 1
+
+function game_mode_2() {
+    while (obstacles_2.length > 0 && obstacles_2[0].get(LedSpriteProperty.X) == 0) {
+        obstacles_2.removeAt(0).delete()
+    }
+    for (let obstacle_2 of obstacles_2) {
+        obstacle_2.change(LedSpriteProperty.X, -1)
+    }
+    if (ticks_2 % 3 == 0) {
+        empty_obstacle_2 = randint(0, 4)
+        for (let index_2 = 0; index_2 <= 4; index_2++) {
+            if (index_2 != empty_obstacle_2) {
+                obstacles_2.push(game.createSprite(4, index_2))
+            }
+        }
+    }
+    for (let obstacle_2 of obstacles_2) {
+        if (obstacle_2.get(LedSpriteProperty.X) == bird_2.get(LedSpriteProperty.X) && obstacle_2.get(LedSpriteProperty.Y) == bird_2.get(LedSpriteProperty.Y)) {
+            game.pause()
+            basic.clearScreen()
+            basic.showString("S:")
+            basic.showNumber(score_2)
+            control.reset()
+        }
+    }
+    ticks_2 += 1
+    score_2 += 0.25
+    interval_2 += -0.2
+    basic.pause(interval_2)
+    game_mode_2()
+}
