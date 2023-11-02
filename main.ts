@@ -267,7 +267,7 @@ function game_select_menu() {
     } else if (game_mode == 2) {
         bird_2 = game.createSprite(0,2)
         bird_2.set(LedSpriteProperty.Blink, 150)
-        bird_move = true
+        bird_move_2 = true
         obstacles_2 = []
         let index_2 = 0
         interval_2 = 1200
@@ -805,7 +805,7 @@ function settings_select_menu() {
                         basic.showIcon(IconNames.Yes)
                         datalogger.deleteLog  
                         datalogger.includeTimestamp(FlashLogTimeStampFormat.Minutes)
-                        datalogger.setColumnTitles("Space Invaders", "Flappys Bird", "Pong", "Cars Game", "Dinasour Game", "Jumping Rope", "Pac-Man")
+                        datalogger.setColumnTitles("Space Invaders", "Flappy Bird", "Pong", "Cars Game", "Dinasour Game", "Jumping Rope", "Pac-Man")
                     } else {
                         basic.showIcon(IconNames.No)
                     }
@@ -821,7 +821,72 @@ function settings_select_menu() {
         menu_select = true
         menu_select_menu()
     }
-} // Settings selection.
+} //Settings selection.
+
+
+input.onButtonPressed(Button.A, function () {
+    if (game_mode == 1) {
+        if (px_1 > 0) {
+            led.unplot(px_1, py_1)
+            px_1 += -1
+        }
+    }
+    if (game_mode == 2) {
+        if (bird_move_2 == true) {
+            bird_2.change(LedSpriteProperty.Y, 1)
+            music.play(music.createSoundExpression(
+                WaveShape.Sawtooth,
+                891,
+                1198,
+                255,
+                0,
+                200,
+                SoundExpressionEffect.None,
+                InterpolationCurve.Linear
+            ), music.PlaybackMode.InBackground)
+        }
+    }
+}) //On button A pressed.
+input.onButtonPressed(Button.B, function () {
+    if (game_mode == 1) {
+        if (px_1 < 4) {
+            led.unplot(px_1, py_1)
+            px_1 += 1
+        }
+    }
+    if (game_mode == 2) {
+        if (bird_move_2 == true) {
+            bird_2.change(LedSpriteProperty.Y, -1)
+            music.play(music.createSoundExpression(
+                WaveShape.Sawtooth,
+                891,
+                1198,
+                255,
+                0,
+                200,
+                SoundExpressionEffect.None,
+                InterpolationCurve.Linear
+            ), music.PlaybackMode.InBackground)
+        }
+    }
+}) //On button B pressed
+input.onButtonPressed(Button.AB, function () {
+    if (game_mode == 1) {
+        shoot_1 = 1
+        music.play(music.createSoundExpression(
+            WaveShape.Sawtooth,
+            4707,
+            1,
+            255,
+            0,
+            150,
+            SoundExpressionEffect.None,
+            InterpolationCurve.Linear
+        ), music.PlaybackMode.InBackground)
+    }
+}) //On button AB pressed
+
+
 
 loading_animation()
 music.setBuiltInSpeakerEnabled(false)
@@ -847,7 +912,7 @@ let my_1: number
 let px_1: number
 let py_1: number
 
-let bird_move = false
+let bird_move_2 = false
 let obstacles_2: game.LedSprite[] = []
 let bird_2: game.LedSprite = null
 let interval_2: number
@@ -857,47 +922,6 @@ let empty_obstacle_2 = 0
 
 menu_select_menu()
 
-input.onButtonPressed(Button.A, function() {
-    if (game_mode == 1) {
-        if (px_1 > 0) {
-            led.unplot(px_1,py_1)
-            px_1 += -1
-        }
-    }
-    if (game_mode == 2) {
-        if (bird_move == true) {
-            bird_2.change(LedSpriteProperty.Y, 1)
-        }
-    }
-}) //On button A pressed.
-input.onButtonPressed(Button.B, function() {
-    if (game_mode == 1) {
-        if (px_1 < 4) {
-            led.unplot(px_1,py_1)
-            px_1 += 1
-        }
-    }
-    if (game_mode == 2) {
-        if (bird_move == true) {
-            bird_2.change(LedSpriteProperty.Y, -1)
-        }
-    }
-}) //On button B pressed
-input.onButtonPressed(Button.AB, function() {
-    if (game_mode == 1) {
-        shoot_1 = 1
-        music.play(music.createSoundExpression(
-            WaveShape.Sawtooth,
-            4707,
-            1,
-            255,
-            0,
-            150,
-            SoundExpressionEffect.None,
-            InterpolationCurve.Linear
-        ), music.PlaybackMode.InBackground)
-    }
-}) //On button AB pressed
 
 basic.forever(function() {
     if (game_mode == 1) {
@@ -996,6 +1020,16 @@ function game_mode_2() {
         if (obstacle_2.get(LedSpriteProperty.X) == bird_2.get(LedSpriteProperty.X) && obstacle_2.get(LedSpriteProperty.Y) == bird_2.get(LedSpriteProperty.Y)) {
             game.pause()
             basic.clearScreen()
+            music.play(music.createSoundExpression(
+                WaveShape.Sawtooth,
+                321,
+                0,
+                255,
+                0,
+                100,
+                SoundExpressionEffect.None,
+                InterpolationCurve.Linear
+            ), music.PlaybackMode.InBackground)
             basic.showString("S:")
             basic.showNumber(score_2)
             control.reset()
@@ -1006,4 +1040,4 @@ function game_mode_2() {
     interval_2 += -0.2
     basic.pause(interval_2)
     game_mode_2()
-}
+} //Flappy Bird game. // Game_mode = 2
