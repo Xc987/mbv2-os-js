@@ -1,39 +1,39 @@
 function loading_animation() {
     led.plot(2, 0)
-    basic.pause(50)
+    basic.pause(30)
     led.unplot(2, 0)
     led.plot(3, 0)
-    basic.pause(50)
+    basic.pause(30)
     led.unplot(3, 0)
     led.plot(4, 1)
-    basic.pause(50)
+    basic.pause(30)
     led.unplot(4, 1)
     led.plot(4, 2)
-    basic.pause(50)
+    basic.pause(30)
     led.unplot(4, 2)
     led.plot(4, 3)
-    basic.pause(50)
+    basic.pause(30)
     led.unplot(4, 3)
     led.plot(3, 4)
-    basic.pause(50)
+    basic.pause(30)
     led.unplot(3, 4)
     led.plot(2, 4)
-    basic.pause(50)
+    basic.pause(30)
     led.unplot(2, 4)
     led.plot(1, 4)
-    basic.pause(50)
+    basic.pause(30)
     led.unplot(1, 4)
     led.plot(0, 3)
-    basic.pause(50)
+    basic.pause(30)
     led.unplot(0, 3)
     led.plot(0, 2)
-    basic.pause(50)
+    basic.pause(30)
     led.unplot(0, 2)
     led.plot(0, 1)
-    basic.pause(50)
+    basic.pause(30)
     led.unplot(0, 1)
     led.plot(1, 0)
-    basic.pause(50)
+    basic.pause(30)
     led.unplot(1, 0)
 } //Draw loading animation.
 function draw_menu(){
@@ -273,7 +273,7 @@ function game_select_menu() {
         interval_2 = 1200
         game_mode_2()
     } else if (game_mode == 3) {
-
+        game_mode_3()
     } else if (game_mode == 4) {
 
     } else if (game_mode == 5) {
@@ -403,25 +403,27 @@ function tool_select_menu () {
             }
         }
     }
+    basic.clearScreen()
+    let tool_type = 1
     if (selected_tool == 0) {
         menu_select = true
         menu_select_menu()
     } else if (selected_tool == 1) {
-
+        tool_temparature()
     } else if (selected_tool == 2) {
-
+        tool_light_level()
     } else if (selected_tool == 3) {
-
+        tool_sound_level()
     } else if (selected_tool == 4) {
-
+        tool_compass()
     } else if (selected_tool == 5) {
-
+        tool_accX()
     } else if (selected_tool == 6) {
-
+        tool_accY()
     } else if (selected_tool == 7) {
-
+        tool_accZ()
     } else {
-
+        tool_record()
     }
 } //Tool selection
 function turtle_main() {
@@ -823,7 +825,6 @@ function settings_select_menu() {
     }
 } //Settings selection.
 
-
 input.onButtonPressed(Button.A, function () {
     if (game_mode == 1) {
         if (px_1 > 0) {
@@ -844,6 +845,20 @@ input.onButtonPressed(Button.A, function () {
                 SoundExpressionEffect.None,
                 InterpolationCurve.Linear
             ), music.PlaybackMode.InBackground)
+        }
+    }
+    if (game_mode == 3) {
+        if (bar_x_3 > 0) {
+            led.unplot(bar_x_3 + 1, 4)
+            bar_x_3 = bar_x_3 - 1
+            led.plot(bar_x_3, 4)
+        }
+    }
+    if (game_mode == 4) {
+        if (car_move_4 == true) {
+            if (playerCar_4.get(LedSpriteProperty.X) > 0) {
+                playerCar_4.change(LedSpriteProperty.X, -1)
+            }
         }
     }
 }) //On button A pressed.
@@ -869,6 +884,20 @@ input.onButtonPressed(Button.B, function () {
             ), music.PlaybackMode.InBackground)
         }
     }
+    if (game_mode == 3) {
+        if (bar_x_3 < 3) {
+            led.unplot(bar_x_3, 4)
+            bar_x_3 = bar_x_3 + 1
+            led.plot(bar_x_3 + 1, 4)
+        }
+    }
+    if (game_mode == 4) {
+        if (car_move_4 == true) {
+            if (playerCar_4.get(LedSpriteProperty.X) < 4) {
+                playerCar_4.change(LedSpriteProperty.X, 1)
+            }
+        }
+    }
 }) //On button B pressed
 input.onButtonPressed(Button.AB, function () {
     if (game_mode == 1) {
@@ -886,20 +915,20 @@ input.onButtonPressed(Button.AB, function () {
     }
 }) //On button AB pressed
 
-
-
 loading_animation()
 music.setBuiltInSpeakerEnabled(false)
 let selected_menu = 1
 let game_mode = 0
 let selected_tool = 0
 let selected_setting = 0
+let tool_type = 1
 let settings_brightness = 5
 let settings_music = false
 let settings_volume = 5
 let logged_data = false
 let menu_select = true
 let waiting_for_input = true
+
 
 let acc_1 = 0
 let time_1 = 0
@@ -920,8 +949,14 @@ let ticks_2 = 0
 let score_2 = 0
 let empty_obstacle_2 = 0
 
-menu_select_menu()
+let bar_x_3 = 0
 
+let playerCar_4: game.LedSprite = null
+let var_4: number
+let gameOn_4 = false
+let car_move_4 = false
+
+menu_select_menu()
 
 basic.forever(function() {
     if (game_mode == 1) {
@@ -999,8 +1034,7 @@ basic.forever(function() {
         }
 
     }
-}) //Space Invaders game. // Game_Mode = 1
-
+}) //Space Invaders game. // game_Mode = 1
 function game_mode_2() {
     while (obstacles_2.length > 0 && obstacles_2[0].get(LedSpriteProperty.X) == 0) {
         obstacles_2.removeAt(0).delete()
@@ -1040,4 +1074,469 @@ function game_mode_2() {
     interval_2 += -0.2
     basic.pause(interval_2)
     game_mode_2()
-} //Flappy Bird game. // Game_mode = 2
+} //Flappy Bird game. // game_mode = 2
+function game_mode_3() {
+    basic.clearScreen()
+    let point_3 = 0
+    let interval_step_3 = 1
+    let interval_3 = 400
+    let ball_x_3 = 3
+    let ball_y_3 = 4
+    let ball_dx_3 = -1
+    let ball_dy_3 = -1
+    bar_x_3 = 0
+    led.plot(ball_x_3,ball_y_3)
+    led.plot(bar_x_3, 4)
+    led.plot(bar_x_3 + 1, 4)
+    let in_game_3 = true
+    while (in_game_3 == true) {
+        if (ball_x_3 + ball_dx_3 > 4) {
+            ball_dx_3 = ball_dx_3 * -1
+        } else if (ball_x_3 + ball_dx_3 < 0) {
+            ball_dx_3 = ball_dx_3 * -1
+        }
+        if (ball_y_3 + ball_dy_3 < 0) {
+            ball_dy_3 = ball_dy_3 * -1
+        } else if (ball_y_3 + ball_dy_3 > 3) {
+            if (led.point(ball_x_3 + ball_dx_3, ball_y_3 + ball_dy_3)) {
+                ball_dy_3 = ball_dy_3 * -1
+                point_3 = point_3 + 1
+                music.play(music.createSoundExpression(
+                    WaveShape.Square,
+                    223,
+                    1,
+                    79,
+                    39,
+                    150,
+                    SoundExpressionEffect.None,
+                    InterpolationCurve.Linear
+                ), music.PlaybackMode.InBackground)
+                if (interval_3 - interval_step_3 >= 0) {
+                    interval_3 = interval_3 - interval_step_3
+                }
+            } else {
+                in_game_3 = false
+            }
+        }
+        if (in_game_3 == true) {
+            led.plot(ball_x_3 + ball_dx_3, ball_y_3 + ball_dy_3)
+            led.unplot(ball_x_3, ball_y_3)
+            ball_x_3 = ball_x_3 + ball_dx_3
+            ball_y_3 = ball_y_3 + ball_dy_3
+            basic.pause(interval_3)
+        } else {
+            music.play(music.createSoundExpression(
+                WaveShape.Sawtooth,
+                321,
+                0,
+                255,
+                0,
+                100,
+                SoundExpressionEffect.None,
+                InterpolationCurve.Linear
+            ), music.PlaybackMode.InBackground)
+            basic.clearScreen()
+            basic.showString("S:")
+            basic.showNumber(point_3)
+            control.reset()
+        }
+    }
+} //Ping-Pong game. // game_mode = 3
+basic.forever(function() {
+    if (game_mode == 4) {
+        var_4 = 5000
+        game.setScore(0)
+        playerCar_4 = game.createSprite(2, 4)
+        car_move_4 = true
+        gameOn_4 = true
+        while (gameOn_4 == true) {
+            basic.pause(100)
+        }
+        game.pause()
+        music.play(music.createSoundExpression(
+            WaveShape.Sawtooth,
+            321,
+            0,
+            255,
+            0,
+            100,
+            SoundExpressionEffect.None,
+            InterpolationCurve.Linear
+        ), music.PlaybackMode.InBackground)
+        basic.clearScreen()
+        basic.showString("S:")
+        basic.showNumber(game.score())
+        control.reset()
+    }
+}) //Cars game. // game_mode = 4
+function game_mode_4(car_4: game.LedSprite) {
+    basic.pause(randint(0,var_4))
+    while (gameOn_4 == true) {
+        if (car_4.get(LedSpriteProperty.Y) == 4) {
+            if (playerCar_4.isTouching(car_4)) {
+                gameOn_4 = false
+            } else {
+                music.play(music.createSoundExpression(
+                    WaveShape.Noise,
+                    2294,
+                    2294,
+                    238,
+                    0,
+                    200,
+                    SoundExpressionEffect.None,
+                    InterpolationCurve.Linear
+                ), music.PlaybackMode.InBackground)
+                game.setScore(game.score() + 1)
+                var_4 += -1
+                car_4.set(LedSpriteProperty.Y, 0)
+                basic.pause(randint(0, var_4))
+            }
+        } else {
+            car_4.change(LedSpriteProperty.Y, 1)
+            basic.pause(500)
+        }
+    }
+    game_mode_4(car_4)
+} //Cars game. //Control 0-4 cars // game_mode = 4
+basic.forever(function() {
+    if (game_mode == 4) {
+        basic.pause(100)
+        if (gameOn_4 == true) {
+            let car0_4 = game.createSprite(0, 0)
+            car0_4.set(LedSpriteProperty.Brightness, 20)
+            game_mode_4(car0_4)
+        }
+    }
+}) //Cars game. // Car 0 // game_mode = 4
+basic.forever(function () {
+    if (game_mode == 4) {
+        basic.pause(100)
+        if (gameOn_4 == true) {
+            let car1_4 = game.createSprite(1, 0)
+            car1_4.set(LedSpriteProperty.Brightness, 20)
+            game_mode_4(car1_4)
+        }
+    }
+}) //Cars game. // Car 1 // game_mode = 4
+basic.forever(function () {
+    if (game_mode == 4) {
+        basic.pause(100)
+        if (gameOn_4 == true) {
+            let car2_4 = game.createSprite(2, 0)
+            car2_4.set(LedSpriteProperty.Brightness, 20)
+            game_mode_4(car2_4)
+        }
+    }
+}) //Cars game. // Car 2 // game_mode = 4
+basic.forever(function () {
+    if (game_mode == 4) {
+        basic.pause(100)
+        if (gameOn_4 == true) {
+            let car3_4 = game.createSprite(3, 0)
+            car3_4.set(LedSpriteProperty.Brightness, 20)
+            game_mode_4(car3_4)
+        }
+    }
+}) //Cars game. // Car 3 // game_mode = 4
+basic.forever(function () {
+    if (game_mode == 4) {
+        basic.pause(100)
+        if (gameOn_4 == true) {
+            let car4_4 = game.createSprite(4, 0)
+            car4_4.set(LedSpriteProperty.Brightness, 20)
+            game_mode_4(car4_4)
+        }
+    }
+}) //Cars game. // Car 4 // game_mode = 4
+
+
+function tool_temparature() {
+    while (true) {
+        if (tool_type == 1) {
+            basic.showNumber(input.temperature())
+            if (input.logoIsPressed()) {
+                basic.clearScreen()
+                tool_type = 2
+                game.addScore(1)
+                basic.pause(500)
+            }
+        }
+        if (tool_type == 2) {
+            led.plotBarGraph(input.temperature(), 50)
+            if (input.logoIsPressed()) {
+                basic.clearScreen()
+                tool_type = 1
+                game.addScore(1)
+                basic.pause(500)
+            }
+        }
+    }
+} //Show temperature // Selected_tool = 1
+function tool_light_level() {
+    while (true) {
+        if (tool_type == 1) {
+            basic.showNumber(input.lightLevel())
+            if (input.logoIsPressed()) {
+                basic.clearScreen()
+                tool_type = 2
+                game.addScore(1)
+                basic.pause(500)
+            }
+        }
+        if (tool_type == 2) {
+            led.plotBarGraph(input.lightLevel(), 255)
+            if (input.logoIsPressed()) {
+                basic.clearScreen()
+                tool_type = 1
+                game.addScore(1)
+                basic.pause(500)
+            }
+        }
+    }
+} //Show light level // Selected_tool = 2
+function tool_sound_level() {
+    while (true) {
+        if (tool_type == 1) {
+            basic.showNumber(input.soundLevel())
+        }
+        if (tool_type == 2) {
+            led.plotBarGraph(
+                input.soundLevel(),
+                0
+            )
+        }
+        if (input.logoIsPressed()) {
+            basic.pause(100)
+            if (tool_type == 1) {
+                basic.clearScreen()
+                tool_type = 2
+            }
+            basic.pause(100)
+            if (tool_type == 1) {
+                basic.clearScreen()
+                tool_type = 1
+            }
+        }
+    }
+} //Show sound level // Selected_tool = 3
+function tool_compass() {
+    while (true) {
+        if (input.compassHeading() <= 90 && input.compassHeading() >= 45) {
+            basic.showArrow(ArrowNames.NorthEast)
+        } else if (input.compassHeading() <= 135 && input.compassHeading() >= 90) {
+            basic.showArrow(ArrowNames.East)
+        } else if (input.compassHeading() <= 180 && input.compassHeading() >= 135) {
+            basic.showArrow(ArrowNames.SouthEast)
+        } else if (input.compassHeading() <= 225 && input.compassHeading() >= 180) {
+            basic.showArrow(ArrowNames.South)
+        } else if (input.compassHeading() <= 270 && input.compassHeading() >= 225) {
+            basic.showArrow(ArrowNames.SouthWest)
+        } else if (input.compassHeading() <= 315 && input.compassHeading() >= 270) {
+            basic.showArrow(ArrowNames.West)
+        } else if (input.compassHeading() <= 360 && input.compassHeading() >= 315) {
+            basic.showArrow(ArrowNames.NorthWest)
+        } else {
+            basic.showArrow(ArrowNames.North)
+        }
+    }
+} //Compass // Selected_tool = 4
+function tool_accX() {
+    while (true) {
+        if (tool_type == 1) {
+            basic.showNumber(input.acceleration(Dimension.X))
+            if (input.logoIsPressed()) {
+                basic.clearScreen()
+                tool_type = 2
+                game.addScore(1)
+                basic.pause(500)
+            }
+        }
+        if (tool_type == 2) {
+            led.plotBarGraph(input.acceleration(Dimension.X), 0)
+            if (input.logoIsPressed()) {
+                basic.clearScreen()
+                tool_type = 1
+                game.addScore(1)
+                basic.pause(500)
+            }
+        }
+    }
+} //Show acceleration(mg) X // Selected_tool = 5
+function tool_accY() {
+    while (true) {
+        if (tool_type == 1) {
+            basic.showNumber(input.acceleration(Dimension.Y))
+            if (input.logoIsPressed()) {
+                basic.clearScreen()
+                tool_type = 2
+                game.addScore(1)
+                basic.pause(500)
+            }
+        }
+        if (tool_type == 2) {
+            led.plotBarGraph(input.acceleration(Dimension.Y), 0)
+            if (input.logoIsPressed()) {
+                basic.clearScreen()
+                tool_type = 1
+                game.addScore(1)
+                basic.pause(500)
+            }
+        }
+    }
+} //Show acceleration(mg) Y // Selected_tool = 6
+function tool_accZ() {
+    while (true) {
+        if (tool_type == 1) {
+            basic.showNumber(input.acceleration(Dimension.Z))
+            if (input.logoIsPressed()) {
+                basic.clearScreen()
+                tool_type = 2
+                game.addScore(1)
+                basic.pause(500)
+            }
+        }
+        if (tool_type == 2) {
+            led.plotBarGraph(input.acceleration(Dimension.Z), 0)
+            if (input.logoIsPressed()) {
+                basic.clearScreen()
+                tool_type = 1
+                game.addScore(1)
+                basic.pause(500)
+            }
+        }
+    }
+} //Show acceleration(mg) Z // Selected_tool = 7
+function tool_record() {
+    let tool_record_volume = 5
+    record.setSampleRate(22000)
+    while (true) {
+        if (tool_type == 1) {
+            basic.showLeds(`
+            . . . . .
+            . # . # .
+            . # . . .
+            # # # . .
+            . # . . .
+            `)
+            led.plot(1,0)
+            led.plotBrightness(2,0,20)
+            led.plotBrightness(3,0,20)
+        } else if (tool_type == 2) {
+            basic.showLeds(`
+            . . . . .
+            . . # # .
+            . . # . #
+            # # # . .
+            # # # . .
+            `)
+            led.plotBrightness(1,0,20)
+            led.plot(2,0)
+            led.plotBrightness(3,0,20)
+        } else if (tool_type == 3) {
+            if (tool_record_volume == 1) {
+                basic.showLeds(`
+                . . . . .
+                . . . . .
+                # . . . .
+                # . . . .
+                . . . . .
+                `)
+                led.plotBrightness(2,1,20)
+                record.setSampleRate(4400)
+            } else if (tool_record_volume == 2) {
+                basic.showLeds(`
+                . . . . .
+                . . . . .
+                # . . . .
+                # . . . .
+                . . . . .
+                `)
+                led.plotBrightness(2, 1, 20)
+                led.plotBrightness(3,2,20)
+                record.setSampleRate(8800)
+            } else if (tool_record_volume == 3) {
+                basic.showLeds(`
+                . . . . .
+                . . . . .
+                # . . . .
+                # . . . .
+                . . . . .
+                `)
+                led.plotBrightness(2, 1, 20)
+                led.plotBrightness(3, 2, 20)
+                led.plotBrightness(3, 3, 20)
+                record.setSampleRate(13200)
+            } else if (tool_record_volume == 4) {
+                basic.showLeds(`
+                . . . . .
+                . . . . .
+                # . . . .
+                # . . . .
+                . . . . .
+                `)
+                led.plotBrightness(2, 1, 20)
+                led.plotBrightness(3, 2, 20)
+                led.plotBrightness(3, 3, 20)
+                led.plotBrightness(2, 4, 20)
+                record.setSampleRate(17600)
+            } else {
+                basic.showLeds(`
+                . . . . .
+                . . # . .
+                # . . # .
+                # . . # .
+                . . # . .
+                `)
+                record.setSampleRate(22000)
+            }
+            led.plot(3,0)
+            led.plotBrightness(2,0,20)
+            led.plotBrightness(1,0,20)
+        }
+        waiting_for_input = true
+        while (waiting_for_input == true) {
+            if (input.buttonIsPressed(Button.A)) {
+                if (tool_type == 1) {
+                    tool_type = 3
+                    waiting_for_input = false
+                } else {
+                    tool_type += -1
+                    waiting_for_input = false
+                }
+            }
+            if (input.buttonIsPressed(Button.B)) {
+                if (tool_type == 3) {
+                    tool_type = 1
+                    waiting_for_input = false
+                } else {
+                    tool_type += 1
+                    waiting_for_input = false
+                }
+            }
+            if (input.logoIsPressed()) {
+                if (tool_type == 1) {
+                    record.startRecording(record.BlockingState.Nonblocking)
+                    basic.clearScreen()
+                    while (record.audioStatus(record.AudioStatus.Recording)) {
+                        loading_animation()
+                    }
+                }
+               if (tool_type == 2) {
+                   record.playAudio(record.BlockingState.Nonblocking)
+                   basic.clearScreen()
+                   while (record.audioStatus(record.AudioStatus.Playing)) {
+                       loading_animation()
+                   }
+               }
+               if (tool_type == 3) {
+                   if (tool_record_volume == 5) {
+                       tool_record_volume = 1
+                   } else {
+                       tool_record_volume += 1
+                   }
+               }
+               waiting_for_input = false
+            }
+        }
+    }
+} //Record and play sound files // Selected_tool = 8
