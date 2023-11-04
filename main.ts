@@ -274,10 +274,12 @@ function game_select_menu() {
         game_mode_2()
     } else if (game_mode == 3) {
         game_mode_3()
-    } else if (game_mode == 4) {
-
     } else if (game_mode == 5) {
-
+        player_5 = [game.createSprite(0,3), game.createSprite(0,4)]
+        score_5 = 0
+        obstacles_5 = []
+        is_game_over_5 = false
+        player_move_5 = true
     } else if (game_mode == 6) {
 
     } else {
@@ -861,6 +863,41 @@ input.onButtonPressed(Button.A, function () {
             }
         }
     }
+    if (game_mode == 5) {
+        if (player_move_5 == true) {
+            if (!(is_game_over_5)) {
+                if (!(is_game_over_5)) {
+                    player_5[1].change(LedSpriteProperty.Y, -1)
+                    player_5[0].change(LedSpriteProperty.Y, -1)
+                }
+                basic.pause(215)
+                if (!(is_game_over_5)) {
+                    player_5[1].change(LedSpriteProperty.Y, -1)
+                    player_5[0].change(LedSpriteProperty.Y, -1)
+                }
+                basic.pause(215)
+                if (!(is_game_over_5)) {
+                    player_5[1].change(LedSpriteProperty.Y, -1)
+                    player_5[0].change(LedSpriteProperty.Y, -1)
+                }
+                basic.pause(215)
+                if (!(is_game_over_5)) {
+                    player_5[1].change(LedSpriteProperty.Y, 1)
+                    player_5[0].change(LedSpriteProperty.Y, 1)
+                }
+                basic.pause(215)
+                if (!(is_game_over_5)) {
+                    player_5[1].change(LedSpriteProperty.Y, 1)
+                    player_5[0].change(LedSpriteProperty.Y, 1)
+                }
+                basic.pause(215)
+                if (!(is_game_over_5)) {
+                    player_5[1].change(LedSpriteProperty.Y, 1)
+                    player_5[0].change(LedSpriteProperty.Y, 1)
+                }
+            }
+        }
+    }
 }) //On button A pressed.
 input.onButtonPressed(Button.B, function () {
     if (game_mode == 1) {
@@ -895,6 +932,15 @@ input.onButtonPressed(Button.B, function () {
         if (car_move_4 == true) {
             if (playerCar_4.get(LedSpriteProperty.X) < 4) {
                 playerCar_4.change(LedSpriteProperty.X, 1)
+            }
+        }
+    }
+    if (game_mode == 5) {
+        if (player_move_5 == true) {
+            if (!(is_game_over_5)) {
+                player_5[0].change(LedSpriteProperty.Y, 1)
+                basic.pause(750)
+                player_5[0].change(LedSpriteProperty.Y, -1)
             }
         }
     }
@@ -955,6 +1001,14 @@ let playerCar_4: game.LedSprite = null
 let var_4: number
 let gameOn_4 = false
 let car_move_4 = false
+
+let generate_obstacles_5 = 0
+let dummy_variable_5: game.LedSprite[] = []
+let is_game_over_5 = false
+let obstacles_5: game.LedSprite[][] = []
+let player_5: game.LedSprite[] = []
+let score_5: number
+let player_move_5 = false
 
 menu_select_menu()
 
@@ -1249,6 +1303,96 @@ basic.forever(function () {
     }
 }) //Cars game. // Car 4 // game_mode = 4
 
+function gameOver() {
+    is_game_over_5 = true
+    for (let obstacle_group_3 of obstacles_5) {
+        for (let an_obstacle_sprite_3 of obstacle_group_3) {
+            obstacle_group_3.removeAt(obstacle_group_3.indexOf(an_obstacle_sprite_3)).delete()
+        }
+        dummy_variable_5 = obstacles_5.removeAt(obstacles_5.indexOf(obstacle_group_3))
+    }
+    for (let player_sprite_2 of player_5) {
+        player_5.removeAt(player_5.indexOf(player_sprite_2)).delete()
+    }
+    basic.clearScreen()
+    basic.showString("S:")
+    basic.showNumber(score_5)
+    control.reset()
+}
+basic.forever(function() {
+    if (game_mode == 5) {
+        if (!(is_game_over_5)) {
+            basic.pause(225)
+            for (let obstacle_group_1 of obstacles_5) {
+                for (let an_obstacle_sprite_1 of obstacle_group_1) {
+                    if (an_obstacle_sprite_1.get(LedSpriteProperty.X) == 0) {
+                        obstacle_group_1.removeAt(obstacle_group_1.indexOf(an_obstacle_sprite_1)).delete()
+                        score_5 += 1
+                        music.play(music.createSoundExpression(
+                            WaveShape.Noise,
+                            2294,
+                            2294,
+                            238,
+                            0,
+                            200,
+                            SoundExpressionEffect.None,
+                            InterpolationCurve.Linear
+                        ), music.PlaybackMode.UntilDone)
+                    } else {
+                        an_obstacle_sprite_1.change(LedSpriteProperty.X, -1)
+                    }
+                }
+                if (obstacle_group_1.length == 0) {
+                    dummy_variable_5 = obstacles_5.removeAt(obstacles_5.indexOf(obstacle_group_1))
+                }
+            }
+        }
+    }
+})
+basic.forever(function() {
+    if (game_mode == 5) {
+        if (!(is_game_over_5)) {
+            basic.pause(1750)
+            generate_obstacles_5 = randint(0, 4)
+            if (generate_obstacles_5 == 0) {
+                obstacles_5.push([game.createSprite(4, 3), game.createSprite(4, 4)])
+            } else if (generate_obstacles_5 == 1) {
+                obstacles_5.push([game.createSprite(4, 4)])
+            } else if (generate_obstacles_5 == 2) {
+                obstacles_5.push([game.createSprite(4, 3)])
+            } else if (generate_obstacles_5 == 3) {
+                obstacles_5.push([game.createSprite(4, 2)])
+            } else {
+                obstacles_5.push([game.createSprite(4, 1)])
+            }
+        }
+    }
+})
+basic.forever(function() {
+    if (game_mode == 5) {
+        if (!(is_game_over_5)) {
+            for (let obstacle_group_2 of obstacles_5) {
+                for (let an_obstacle_sprite_2 of obstacle_group_2) {
+                    for (let player_sprite_1 of player_5) {
+                        if (an_obstacle_sprite_2.isTouching(player_sprite_1)) {
+                            music.play(music.createSoundExpression(
+                                WaveShape.Sawtooth,
+                                321,
+                                0,
+                                255,
+                                0,
+                                100,
+                                SoundExpressionEffect.None,
+                                InterpolationCurve.Linear
+                            ), music.PlaybackMode.UntilDone)
+                            gameOver()
+                        }
+                    }
+                }
+            }
+        }
+    }
+})
 
 function tool_temparature() {
     while (true) {
