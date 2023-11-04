@@ -281,9 +281,16 @@ function game_select_menu() {
         is_game_over_5 = false
         player_move_5 = true
     } else if (game_mode == 6) {
-
+        basic.clearScreen()
+        game_mode_6()
     } else {
-
+        basic.clearScreen()
+        ghost_7 = game.createSprite(0,0)
+        pac_man_7 = game.createSprite(2,2)
+        food_7 = game.createSprite(4,4)
+        ghost_7.set(LedSpriteProperty.Blink,200)
+        food_7.set(LedSpriteProperty.Brightness, 20)
+        game_mode_7()
     }
 } //Game selection.
 function tool_select_menu () {
@@ -574,6 +581,10 @@ function radio_main() {
                     waiting_for_input = false
                 }
             }
+            if (input.logoIsPressed()) {
+                menu_select = false
+                waiting_for_input = false
+            }
         }
     }
     game.addScore(1)
@@ -581,7 +592,10 @@ function radio_main() {
 
     }
     if (radio_type == 2) {
-
+        inputlist = [">"]
+        abc_id = 1
+        abc_loop = true
+        string_radio()
     }
     if (radio_type == 3) {
 
@@ -898,6 +912,10 @@ input.onButtonPressed(Button.A, function () {
             }
         }
     }
+    if (game_mode == 6) {
+        l_6 = 0
+        s_6 = 0
+    }
 }) //On button A pressed.
 input.onButtonPressed(Button.B, function () {
     if (game_mode == 1) {
@@ -961,6 +979,386 @@ input.onButtonPressed(Button.AB, function () {
     }
 }) //On button AB pressed
 
+function string_radio() {
+    basic.clearScreen()
+    abc = [
+        "NUL",
+        "a",
+        "A",
+        "b",
+        "c",
+        "C",
+        "d",
+        "e",
+        "E",
+        "f",
+        "g",
+        "G",
+        "h",
+        "i",
+        "I",
+        "j",
+        "k",
+        "K",
+        "l",
+        "L",
+        "m",
+        "n",
+        "N",
+        "o",
+        "p",
+        "r",
+        "s",
+        "S",
+        "t",
+        "u",
+        "U",
+        "v",
+        "z",
+        "Z",
+        " ",
+        ".",
+        ",",
+        "!",
+        "?"]
+        abc_loop = true
+    basic.pause(500)
+    while (abc_loop == true) {
+        if (input.buttonIsPressed(Button.A)) {
+            music.play(music.tonePlayable(262, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
+            if (abc_id == 1) {
+                abc_id = 38
+            } else {
+                abc_id += -1
+            }
+        }
+        if (input.buttonIsPressed(Button.B)) {
+            music.play(music.tonePlayable(262, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
+            if (abc_id == 38) {
+                abc_id = 1
+            } else {
+                abc_id += 1
+            }
+        }
+        if (input.buttonIsPressed(Button.AB)) {
+            abc_loop = false
+        }
+        if (input.logoIsPressed()) {
+            inputlist.push(abc[abc_id])
+            music.play(music.tonePlayable(523, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
+            basic.pause(100)
+        }
+        if (abc_id == 1) {
+            basic.showLeds(`
+                . . . . .
+                . # # # .
+                # . . # .
+                # . . # .
+                . # # # #
+                `)
+        } else if (abc_id == 2) {
+            basic.showLeds(`
+                . # # # .
+                . . . . .
+                . # # # .
+                # . . # .
+                . # # # #
+                `)
+        } else if (abc_id == 3) {
+            basic.showLeds(`
+                # . . . .
+                # . . . .
+                # # # . .
+                # . . # .
+                # # # . .
+                `)
+        } else if (abc_id == 4) {
+            basic.showLeds(`
+                . . . . .
+                . # # . .
+                # . . . .
+                # . . . .
+                . # # . .
+                `)
+        } else if (abc_id == 5) {
+            basic.showLeds(`
+                . # . . .
+                . . . . .
+                . # # . .
+                # . . . .
+                . # # . .
+                `)
+        } else if (abc_id == 6) {
+            basic.showLeds(`
+                . . . # .
+                . . . # .
+                . # # # .
+                # . . # .
+                . # # # .
+                `)
+        } else if (abc_id == 7) {
+            basic.showLeds(`
+                . # # . .
+                # . . # .
+                # # # . .
+                # . . . .
+                . # # # .
+                `)
+        } else if (abc_id == 8) {
+            basic.showLeds(`
+                # # # . #
+                # . . . #
+                # # # . #
+                # . . . .
+                # # # . .
+                `)
+        } else if (abc_id == 9) {
+            basic.showLeds(`
+                . . # # .
+                . # . . .
+                # # # . .
+                . # . . .
+                . # . . .
+                `)
+        } else if (abc_id == 10) {
+            basic.showLeds(`
+                . # # # .
+                # . . # .
+                . # # # .
+                . . . # .
+                . # # . .
+                `)
+        } else if (abc_id == 11) {
+            basic.showLeds(`
+                # # # . #
+                # . . . .
+                # . # # .
+                # . . # .
+                # # # # .
+                `)
+        } else if (abc_id == 12) {
+            basic.showLeds(`
+                # . . . .
+                # . . . .
+                # # # . .
+                # . . # .
+                # . . # .
+                `)
+        } else if (abc_id == 13) {
+            basic.showLeds(`
+                . . # . .
+                . . . . .
+                . . # . .
+                . . # . .
+                . . # . .
+                `)
+        } else if (abc_id == 14) {
+            basic.showLeds(`
+                . # # # .
+                . . . . .
+                . . # . .
+                . . # . .
+                . . # . .
+                `)
+        } else if (abc_id == 15) {
+            basic.showLeds(`
+                . . # . .
+                . . . . .
+                . . # . .
+                . . # . .
+                # # . . .
+                `)
+        } else if (abc_id == 16) {
+            basic.showLeds(`
+                # . . . .
+                # . # . .
+                # # . . .
+                # . # . .
+                # . . # .
+                `)
+        } else if (abc_id == 17) {
+            basic.showLeds(`
+                # . . . .
+                # . # . .
+                # # . . #
+                # . # . .
+                # . . # .
+                `)
+        } else if (abc_id == 18) {
+            basic.showLeds(`
+                . # . . .
+                . # . . .
+                . # . . .
+                . # . . .
+                . # # # .
+                `)
+        } else if (abc_id == 19) {
+            basic.showLeds(`
+                . # . . #
+                . # . . .
+                . # . . .
+                . # . . .
+                . # # # .
+                `)
+        } else if (abc_id == 20) {
+            basic.showLeds(`
+                . . . . .
+                # # . # #
+                # . # . #
+                # . . . #
+                # . . . #
+                `)
+        } else if (abc_id == 21) {
+            basic.showLeds(`
+                . . . . .
+                # # # . .
+                # . . # .
+                # . . # .
+                # . . # .
+                `)
+        } else if (abc_id == 22) {
+            basic.showLeds(`
+                . . . . #
+                # # # . .
+                # . . # .
+                # . . # .
+                # . . # .
+                `)
+        } else if (abc_id == 23) {
+            basic.showLeds(`
+                . . . . .
+                . # # . .
+                # . . # .
+                # . . # .
+                . # # . .
+                `)
+        } else if (abc_id == 24) {
+            basic.showLeds(`
+                . . . . .
+                # # # . .
+                # . . # .
+                # # # . .
+                # . . . .
+                `)
+        } else if (abc_id == 25) {
+            basic.showLeds(`
+                . . . . .
+                # . # # .
+                # # . . .
+                # . . . .
+                # . . . .
+                `)
+        } else if (abc_id == 26) {
+            basic.showLeds(`
+                . . . . .
+                . . # # .
+                . # . . .
+                . . # . .
+                # # . . .
+                `)
+        } else if (abc_id == 27) {
+            basic.showLeds(`
+                # . . . .
+                . . # # .
+                . # . . .
+                . . # . .
+                # # . . .
+                `)
+        } else if (abc_id == 28) {
+            basic.showLeds(`
+                . # . . .
+                . # . . .
+                . # # # .
+                . # . . .
+                . . # # .
+                `)
+        } else if (abc_id == 29) {
+            basic.showLeds(`
+                . . . . .
+                # . . # .
+                # . . # .
+                # . . # .
+                . # # # #
+                `)
+        } else if (abc_id == 30) {
+            basic.showLeds(`
+                . # # . .
+                . . . . .
+                # . . # .
+                # . . # .
+                . # # # #
+                `)
+        } else if (abc_id == 31) {
+            basic.showLeds(`
+                . . . . .
+                # . . . #
+                # . . . #
+                . # . # .
+                . . # . .
+                `)
+        } else if (abc_id == 32) {
+            basic.showLeds(`
+                . . . . .
+                # # # # .
+                . . # . .
+                . # . . .
+                # # # # .
+                `)
+        } else if (abc_id == 33) {
+            basic.showLeds(`
+                . . . . #
+                # # # # .
+                . . # . .
+                . # . . .
+                # # # # .
+                `)
+        } else if (abc_id == 34) {
+            basic.showLeds(`
+                . . . . .
+                . . . . .
+                # . . . #
+                # # # # #
+                . . . . .
+                `)
+        } else if (abc_id == 35) {
+            basic.showLeds(`
+                . . . . .
+                . . . . .
+                . . . . .
+                . . # . .
+                . . . . .
+                `)
+        } else if (abc_id == 36) {
+            basic.showLeds(`
+                . . . . .
+                . . . . .
+                . . . . .
+                . . # . .
+                . # . . .
+                `)
+        } else if (abc_id == 37) {
+            basic.showLeds(`
+                . . # . .
+                . . # . .
+                . . # . .
+                . . . . .
+                . . # . .
+                `)
+        } else {
+            basic.showLeds(`
+                . # # # .
+                # . . . #
+                . . # # .
+                . . . . .
+                . . # . .
+                `)
+        }
+    }
+    text_radio = ">" + inputlist[1] + inputlist[2] + inputlist[3] + inputlist[4] + inputlist[5] + inputlist[6] + inputlist[7] + inputlist[8] + inputlist[9] + inputlist[10] + inputlist[11] + inputlist[12] + inputlist[13] + inputlist[14] + inputlist[15] + inputlist[16] + inputlist[17] + inputlist[18] + inputlist[19] + inputlist[20] + inputlist[21] + inputlist[22] + inputlist[23] + inputlist[24] + inputlist[25] + inputlist[26] + inputlist[27] + inputlist[28] + inputlist[29] + inputlist[30] + inputlist[31] + inputlist[32] + inputlist[33] + inputlist[34] + inputlist[35] + inputlist[36] + inputlist[37] + inputlist[38] + inputlist[39] + inputlist[40] + inputlist[41] + inputlist[42] + inputlist[43] + inputlist[44] + inputlist[45] + inputlist[46] + inputlist[47] + inputlist[48] + inputlist[49] + inputlist[50]
+    radio.sendString(text_radio)
+}
+
+
 loading_animation()
 music.setBuiltInSpeakerEnabled(false)
 let selected_menu = 1
@@ -973,6 +1371,11 @@ let settings_music = false
 let settings_volume = 5
 let logged_data = false
 let menu_select = true
+let abc_loop = false
+let abc_id = 1
+let abc: string[] = []
+let inputlist: string[] = []
+let text_radio = ""
 let waiting_for_input = true
 
 
@@ -1009,6 +1412,19 @@ let obstacles_5: game.LedSprite[][] = []
 let player_5: game.LedSprite[] = []
 let score_5: number
 let player_move_5 = false
+
+let i_6 = 90
+let s_6 = 0
+let j_6 = 0
+let l_6 = 0
+let h_6 = [4,4,2,1,2]
+let x_6 = [2,3,4,4,4,3,2,1,0,0,0,1]
+let y_6 = [0,0,1,2,3,4,4,4,3,2,1,0]
+
+let interval_7 = 1000
+let ghost_7: game.LedSprite = null
+let pac_man_7: game.LedSprite = null
+let food_7: game.LedSprite = null
 
 menu_select_menu()
 
@@ -1118,6 +1534,7 @@ function game_mode_2() {
                 SoundExpressionEffect.None,
                 InterpolationCurve.Linear
             ), music.PlaybackMode.InBackground)
+            datalogger.log(datalogger.createCV("Flappy Bird", score_2))
             basic.showString("S:")
             basic.showNumber(score_2)
             control.reset()
@@ -1189,6 +1606,7 @@ function game_mode_3() {
                 SoundExpressionEffect.None,
                 InterpolationCurve.Linear
             ), music.PlaybackMode.InBackground)
+            datalogger.log(datalogger.createCV("Pong", point_3))
             basic.clearScreen()
             basic.showString("S:")
             basic.showNumber(point_3)
@@ -1217,6 +1635,7 @@ basic.forever(function() {
             SoundExpressionEffect.None,
             InterpolationCurve.Linear
         ), music.PlaybackMode.InBackground)
+        datalogger.log(datalogger.createCV("Cars Game", game.score()))
         basic.clearScreen()
         basic.showString("S:")
         basic.showNumber(game.score())
@@ -1302,7 +1721,6 @@ basic.forever(function () {
         }
     }
 }) //Cars game. // Car 4 // game_mode = 4
-
 function gameOver() {
     is_game_over_5 = true
     for (let obstacle_group_3 of obstacles_5) {
@@ -1315,10 +1733,11 @@ function gameOver() {
         player_5.removeAt(player_5.indexOf(player_sprite_2)).delete()
     }
     basic.clearScreen()
+    datalogger.log(datalogger.createCV("Dinasour Game", score_5))
     basic.showString("S:")
     basic.showNumber(score_5)
     control.reset()
-}
+} //Dinasour game // gameOver function// game_mode = 5
 basic.forever(function() {
     if (game_mode == 5) {
         if (!(is_game_over_5)) {
@@ -1348,7 +1767,7 @@ basic.forever(function() {
             }
         }
     }
-})
+}) //Dinasour game // Score function // game_mode = 5
 basic.forever(function() {
     if (game_mode == 5) {
         if (!(is_game_over_5)) {
@@ -1367,7 +1786,7 @@ basic.forever(function() {
             }
         }
     }
-})
+}) //Dinasour game // generate obstacles // game_mode = 5
 basic.forever(function() {
     if (game_mode == 5) {
         if (!(is_game_over_5)) {
@@ -1392,7 +1811,114 @@ basic.forever(function() {
             }
         }
     }
-})
+}) //Dinasour game // call gameOver function // game_mode = 5
+function game_mode_6() {
+    while (!(j_6 == 0 && l_6 == 6)) {
+        let w = 0
+        basic.pause(i_6)
+        if (j_6) {
+            led.unplot(2, h_6[j_6])
+            j_6 += 1
+            if (j_6 > 3) {
+                j_6 = 0
+            }
+        }
+        led.plot(2, h_6[j_6])
+        if (w == 0) {
+            led.unplot(x_6[l_6], y_6[l_6])
+            l_6 += 1
+            if (l_6 == 12) {
+                l_6 = 0
+            }
+            led.plot(x_6[l_6], y_6[l_6])
+        }
+        if (!(j_6) && input.buttonIsPressed(Button.B)) {
+            j_6 = 1
+        }
+        if (l_6 == 6) {
+            music.play(music.createSoundExpression(WaveShape.Square, 400, 600, 255, 0, 100, SoundExpressionEffect.Warble, InterpolationCurve.Linear), music.PlaybackMode.InBackground)
+            s_6 += 1
+            i_6 += -0.5
+        }
+    }
+    datalogger.log(datalogger.createCV("Jumping Rope", s_6))
+    basic.showNumber(s_6)
+    basic.clearScreen()
+    game_mode_6()
+} //Jumping rope game // game_mode = 6
+function game_mode_7() {
+    while (true) {
+        basic.pause(interval_7)
+        if (ghost_7.get(LedSpriteProperty.X) < pac_man_7.get(LedSpriteProperty.X)) {
+            ghost_7.change(LedSpriteProperty.X, 1)
+        } else if (ghost_7.get(LedSpriteProperty.X) > pac_man_7.get(LedSpriteProperty.X)) {
+            ghost_7.change(LedSpriteProperty.X, -1)
+        }
+        if (ghost_7.get(LedSpriteProperty.Y) < pac_man_7.get(LedSpriteProperty.Y)) {
+            ghost_7.change(LedSpriteProperty.Y, 1)
+        } else if (ghost_7.get(LedSpriteProperty.Y) > pac_man_7.get(LedSpriteProperty.Y)) {
+            ghost_7.change(LedSpriteProperty.Y, -1)
+        }
+        if (input.acceleration(Dimension.X) > 200) {
+            pac_man_7.change(LedSpriteProperty.X, 1)
+        } else if (input.acceleration(Dimension.X) < -200) {
+            pac_man_7.change(LedSpriteProperty.X, -1)
+        }
+        if (input.acceleration(Dimension.Y) > 200) {
+            pac_man_7.change(LedSpriteProperty.Y, 1)
+        } else if (input.acceleration(Dimension.Y) < -200) {
+            pac_man_7.change(LedSpriteProperty.Y, -1)
+        }
+        if (pac_man_7.isTouching(food_7)) {
+            music.play(music.createSoundExpression(
+                WaveShape.Noise,
+                2294,
+                2294,
+                255,
+                0,
+                200,
+                SoundExpressionEffect.None,
+                InterpolationCurve.Linear
+            ), music.PlaybackMode.InBackground)
+            game.addScore(1)
+            interval_7 += -10
+            food_7.set(LedSpriteProperty.X, randint(0, 4))
+            food_7.set(LedSpriteProperty.Y, randint(0, 4))
+            if (food_7.get(LedSpriteProperty.X) > 2 && food_7.get(LedSpriteProperty.Y) > 2) {
+                ghost_7.set(LedSpriteProperty.X, 0)
+                ghost_7.set(LedSpriteProperty.Y, 0)
+            } else if (food_7.get(LedSpriteProperty.X) < 2 && food_7.get(LedSpriteProperty.Y) < 2) {
+                ghost_7.set(LedSpriteProperty.X, 4)
+                ghost_7.set(LedSpriteProperty.Y, 4)
+            } else if (food_7.get(LedSpriteProperty.X) > 2 && food_7.get(LedSpriteProperty.Y) < 2) {
+                ghost_7.set(LedSpriteProperty.X, 0)
+                ghost_7.set(LedSpriteProperty.Y, 4)
+            } else {
+                ghost_7.set(LedSpriteProperty.X, 4)
+                ghost_7.set(LedSpriteProperty.Y, 0)
+            }
+        }
+        if (ghost_7.isTouching(pac_man_7)) {
+            game.pause()
+            music.play(music.createSoundExpression(
+                WaveShape.Sawtooth,
+                321,
+                0,
+                255,
+                0,
+                100,
+                SoundExpressionEffect.None,
+                InterpolationCurve.Linear
+            ), music.PlaybackMode.UntilDone)
+            datalogger.log(datalogger.createCV("Pac-Man", game.score()))
+            basic.clearScreen()
+            basic.showString("S:")
+            basic.showNumber(game.score())
+            control.reset()
+        }
+    }
+    game_mode_7()
+} //Pac-Man game // game_mode = 7
 
 function tool_temparature() {
     while (true) {
