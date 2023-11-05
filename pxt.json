@@ -8,7 +8,8 @@
         "datalogger": "*",
         "radio-broadcast": "*",
         "audio-recording": "*",
-        "microturtle": "github:microsoft/pxt-microturtle#v0.0.9"
+        "microturtle": "github:microsoft/pxt-microturtle#v0.0.9",
+        "microbit-pxt-clicks": "github:bsiever/microbit-pxt-clicks#v0.2.2"
     },
     "files": [
         "main.ts",
