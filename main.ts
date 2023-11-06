@@ -472,7 +472,7 @@ function turtle_main() {
 } //Turtle extension.
 function radio_main() {
     let group = 1
-    let radio_type = 1
+    radio_type = 1
     menu_select = true
     radio.setGroup(1)
     while (menu_select == true) {
@@ -598,8 +598,7 @@ function radio_main() {
         string_radio()
     }
     if (radio_type == 3) {
-        radio_number = 0
-        number_radio()
+        string_radio()
     }
     if (radio_type == 4) {
 
@@ -1004,6 +1003,37 @@ input.onButtonPressed(Button.AB, function () {
         ), music.PlaybackMode.InBackground)
     }
 }) //On button AB pressed
+input.onPinPressed(TouchPin.P0, function() {
+    if (settings_music == false) {
+        music.setBuiltInSpeakerEnabled(true)
+        music.play(music.tonePlayable(294, music.beat(BeatFraction.Quarter)), music.PlaybackMode.UntilDone)
+        music.play(music.tonePlayable(494, music.beat(BeatFraction.Quarter)), music.PlaybackMode.UntilDone)
+        settings_music = true
+    } else if (settings_music == true) {
+        music.play(music.tonePlayable(494, music.beat(BeatFraction.Quarter)), music.PlaybackMode.UntilDone)
+        music.play(music.tonePlayable(294, music.beat(BeatFraction.Quarter)), music.PlaybackMode.UntilDone)
+        music.setBuiltInSpeakerEnabled(false)
+        settings_music = false
+    }
+})
+input.onPinPressed(TouchPin.P2, function() {
+    if (settings_brightness == 1) {
+        led.setBrightness(50)
+        settings_brightness = 2
+    } else if (settings_brightness == 2) {
+        led.setBrightness(100)
+        settings_brightness = 3
+    } else if (settings_brightness == 3) {
+        led.setBrightness(150)
+        settings_brightness = 4
+    } else if (settings_brightness == 4) {
+        led.setBrightness(200)
+        settings_brightness = 5
+    } else {
+        led.setBrightness(255)
+        settings_brightness =1
+    }
+})
 
 
 function string_radio() {
@@ -1381,8 +1411,11 @@ function string_radio() {
                 `)
         }
     }
-    text_radio = ">" + inputlist[1] + inputlist[2] + inputlist[3] + inputlist[4] + inputlist[5] + inputlist[6] + inputlist[7] + inputlist[8] + inputlist[9] + inputlist[10] + inputlist[11] + inputlist[12] + inputlist[13] + inputlist[14] + inputlist[15] + inputlist[16] + inputlist[17] + inputlist[18] + inputlist[19] + inputlist[20] + inputlist[21] + inputlist[22] + inputlist[23] + inputlist[24] + inputlist[25] + inputlist[26] + inputlist[27] + inputlist[28] + inputlist[29] + inputlist[30] + inputlist[31] + inputlist[32] + inputlist[33] + inputlist[34] + inputlist[35] + inputlist[36] + inputlist[37] + inputlist[38] + inputlist[39] + inputlist[40] + inputlist[41] + inputlist[42] + inputlist[43] + inputlist[44] + inputlist[45] + inputlist[46] + inputlist[47] + inputlist[48] + inputlist[49] + inputlist[50]
-    radio.sendString(text_radio)
+    text_radio = ">" + inputlist[0] + inputlist[1] + inputlist[2] + inputlist[3] + inputlist[4] + inputlist[5] + inputlist[6] + inputlist[7] + inputlist[8] + inputlist[9] + inputlist[10] + inputlist[11] + inputlist[12] + inputlist[13] + inputlist[14] + inputlist[15] + inputlist[16] + inputlist[17] + inputlist[18] + inputlist[19] + inputlist[20] + inputlist[21] + inputlist[22] + inputlist[23] + inputlist[24] + inputlist[25] + inputlist[26] + inputlist[27] + inputlist[28] + inputlist[29] + inputlist[30] + inputlist[31] + inputlist[32] + inputlist[33] + inputlist[34] + inputlist[35] + inputlist[36] + inputlist[37] + inputlist[38] + inputlist[39] + inputlist[40] + inputlist[41] + inputlist[42] + inputlist[43] + inputlist[44] + inputlist[45] + inputlist[46] + inputlist[47] + inputlist[48] + inputlist[49] + inputlist[50]
+    if (radio_type == 2) {
+        radio.sendString(text_radio)
+    }
+    number_radio()
 } //Send string using radio.
 function number_radio() {
     basic.clearScreen()
@@ -1538,7 +1571,12 @@ function number_radio() {
                     }
                 }
             }
-            radio.sendNumber(number_send)
+            if (radio_type == 1) {
+                radio.sendNumber(number_send)
+            } else if (radio_type == 3) {
+                radio.sendValue(text_radio, number_send)
+            }
+            
         }
         if (num == 1) {
             basic.showLeds(`
@@ -1622,7 +1660,7 @@ function number_radio() {
             `)
         }
     }
-}
+} //Send number using radio.
 function settings_test_input() {
     while (true) {
         if (input.buttonIsPressed(Button.A)) {
@@ -1773,6 +1811,7 @@ let game_mode = 0
 let selected_tool = 0
 let selected_setting = 0
 let tool_type = 1
+let radio_type = 1
 let settings_brightness = 5
 let settings_music = false
 let settings_volume = 5
