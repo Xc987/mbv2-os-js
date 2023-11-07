@@ -359,7 +359,7 @@ function tool_select_menu () {
         # . . . .
         # # # . .
             `)
-        } else {
+        } else if (selected_tool == 8){
             basic.showLeds(`
         . . . . .
         . . # # .
@@ -367,6 +367,14 @@ function tool_select_menu () {
         # # # . .
         # # # . .
             `)
+        } else {
+        basic.showLeds(`
+        . . . . .
+        . # . . .
+        # # # . .
+        . # . . .
+        . . . # #
+        `)
         }
         draw_menu()
         if (selected_tool == 0) {
@@ -384,6 +392,8 @@ function tool_select_menu () {
         } else if (selected_tool == 6) {
             led.plot(2, 0)
         } else if (selected_tool == 7) {
+            led.plot(2, 0)
+        } else if (selected_tool == 8) {
             led.plot(3, 0)
         } else {
             led.plot(4, 0)
@@ -392,14 +402,14 @@ function tool_select_menu () {
         while (waiting_for_input == true) {
             if (input.buttonIsPressed(Button.A)) {
                 if (selected_tool == 0) {
-                    selected_tool = 8
+                    selected_tool = 9
                     waiting_for_input = false
                 } else {
                     selected_tool += -1
                     waiting_for_input = false
                 }
             } else if (input.buttonIsPressed(Button.B)) {
-                if (selected_tool == 8) {
+                if (selected_tool == 9) {
                     selected_tool = 0
                     waiting_for_input = false
                 } else {
@@ -431,10 +441,179 @@ function tool_select_menu () {
         tool_accY()
     } else if (selected_tool == 7) {
         tool_accZ()
-    } else {
+    } else if (selected_tool == 8) {
         tool_record()
+    }  else {
+        menu_select = true
+        tool_calculator_menu()
     }
 } //Tool selection
+function tool_calculator_menu() {
+    while (menu_select == true) {
+        if (selected_math == 1) {
+            basic.showLeds(`
+        . . . . .
+        . . . . .
+        . # . . .
+        # # # . .
+        . # . . .
+        `)
+        } else if (selected_math == 2) {
+            basic.showLeds(`
+        . . . . .
+        . . . . .
+        . . . . .
+        # # # . .
+        . . . . .
+        `)
+        } else if (selected_math == 3) {
+            basic.showLeds(`
+        . . . . .
+        . . . . .
+        # . # . .
+        . # . . .
+        # . # . .
+        `)
+        } else if (selected_math == 4) {
+            basic.showLeds(`
+        . . . . .
+        . . . . .
+        . . # . .
+        . # . . .
+        # . . . .
+            `)
+        } else if (selected_math == 5) {
+            basic.showLeds(`
+        . . . . .
+        . . . . .
+        . . . . .
+        . # . . .
+        # . # . .
+        `)
+        } else if (selected_math == 6) {
+            basic.showLeds(`
+        . . . . .
+        . # # # .
+        . # . . .
+        # # . . .
+        . # . . .
+        `)
+        } else if (selected_math == 7) {
+            basic.showLeds(`
+        . . . . .
+        . . # # .
+        . # . . .
+        . . # . .
+        # # . . .
+        `)
+        } else if (selected_math == 8) {
+            basic.showLeds(`
+        . . . . .
+        . # # . .
+        # . . . .
+        # . . . .
+        . # # . .
+            `)
+        } else if (selected_math == 9) {
+            basic.showLeds(`
+        . . . . .
+        . # . . .
+        # # # . .
+        . # . . .
+        . # . . .
+            `)
+        } else if (selected_math == 10){
+            basic.showLeds(`
+        . . . . .
+        # # # . #
+        # . # . #
+        # # # . #
+        # . . . #
+        `) 
+        } else {
+            basic.showLeds(`
+            . . . . .
+            . # # # .
+            # . . . #
+            . . # # .
+            . . # . .
+            `)
+        }
+        draw_menu()
+        if (selected_math == 1) {
+            led.plot(0, 0)
+        } else if (selected_math == 2) {
+            led.plot(1, 0)
+        } else if (selected_math == 3) {
+            led.plot(2, 0)
+        } else if (selected_math == 4) {
+            led.plot(2, 0)
+        } else if (selected_math == 5) {
+            led.plot(2, 0)
+        } else if (selected_math == 6) {
+            led.plot(2, 0)
+        } else if (selected_math == 7) {
+            led.plot(2, 0)
+        } else if (selected_math == 8) {
+            led.plot(2, 0)
+        } else if (selected_math == 9) {
+            led.plot(2, 0)
+        } else if (selected_math == 10) {
+            led.plot(3, 0)
+        } else {
+            led.plot(4, 0)
+        }
+        waiting_for_input = true
+        while (waiting_for_input == true) {
+            if (input.buttonIsPressed(Button.A)) {
+                if (selected_math == 1) {
+                    selected_math = 11
+                    waiting_for_input = false
+                } else {
+                    selected_math += -1
+                    waiting_for_input = false
+                }
+            } else if (input.buttonIsPressed(Button.B)) {
+                if (selected_math == 11) {
+                    selected_math = 1
+                    waiting_for_input = false
+                } else {
+                    selected_math += 1
+                    waiting_for_input = false
+                }
+            } else if (input.logoIsPressed()) {
+                waiting_for_input = false
+                menu_select = false
+            }
+        }
+    }
+    if (selected_math == 1) {
+        math_xy()
+    } else if (selected_math == 2) {
+        math_xy()
+    } else if (selected_math == 3) {
+        math_xy()
+    } else if (selected_math == 4) {
+        math_xy()
+    } else if (selected_math == 5) {
+        math_xy()
+    } else if (selected_math == 6) {
+        math_x()
+    } else if (selected_math == 7) {
+        math_x()
+    } else if (selected_math == 8) {
+        math_x()
+    } else if (selected_math == 9) {
+        math_x()
+    } else if (selected_math == 10) {
+        basic.clearScreen()
+        basic.showNumber(Math.PI)
+        menu_select = true
+        tool_calculator_menu()
+    } else {
+        math_xy()
+    }
+} //Calculator type selection
 function turtle_main() {
     let pen_up = false
     turtle.setPosition(2, 2)
@@ -1015,26 +1194,61 @@ input.onPinPressed(TouchPin.P0, function() {
         music.setBuiltInSpeakerEnabled(false)
         settings_music = false
     }
-})
+}) //On Pin0 pressed
+input.onPinPressed(TouchPin.P1, function () {
+    if (settings_volume == 1) {
+        music.setVolume(50)
+        music.play(music.tonePlayable(220, music.beat(BeatFraction.Eighth)), music.PlaybackMode.UntilDone)
+        basic.pause(20)
+        music.play(music.tonePlayable(220, music.beat(BeatFraction.Eighth)), music.PlaybackMode.UntilDone)
+        settings_volume = 2
+    } else if (settings_volume == 2) {
+        music.setVolume(100)
+        music.play(music.tonePlayable(349, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
+        settings_volume = 3
+    } else if (settings_volume == 3) {
+        music.setVolume(150)
+        music.play(music.tonePlayable(349, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
+        settings_volume = 4
+    } else if (settings_volume == 4) {
+        music.setVolume(200)
+        music.play(music.tonePlayable(349, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
+        settings_volume = 5
+    } else {
+        music.setVolume(255)
+        settings_volume = 1
+        music.play(music.tonePlayable(523, music.beat(BeatFraction.Eighth)), music.PlaybackMode.UntilDone)
+        basic.pause(20)
+        music.play(music.tonePlayable(523, music.beat(BeatFraction.Eighth)), music.PlaybackMode.UntilDone)
+    }
+}) //On pin1 pressed
 input.onPinPressed(TouchPin.P2, function() {
     if (settings_brightness == 1) {
         led.setBrightness(50)
+        music.play(music.tonePlayable(220, music.beat(BeatFraction.Eighth)), music.PlaybackMode.UntilDone)
+        basic.pause(20)
+        music.play(music.tonePlayable(220, music.beat(BeatFraction.Eighth)), music.PlaybackMode.UntilDone)
         settings_brightness = 2
     } else if (settings_brightness == 2) {
         led.setBrightness(100)
+        music.play(music.tonePlayable(349, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
         settings_brightness = 3
     } else if (settings_brightness == 3) {
         led.setBrightness(150)
+        music.play(music.tonePlayable(349, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
         settings_brightness = 4
     } else if (settings_brightness == 4) {
         led.setBrightness(200)
+        music.play(music.tonePlayable(349, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
         settings_brightness = 5
     } else {
         led.setBrightness(255)
+        music.play(music.tonePlayable(523, music.beat(BeatFraction.Eighth)), music.PlaybackMode.UntilDone)
+        basic.pause(20)
+        music.play(music.tonePlayable(523, music.beat(BeatFraction.Eighth)), music.PlaybackMode.UntilDone)
         settings_brightness =1
     }
-})
-
+}) //On pin2 pressed
 
 function string_radio() {
     basic.clearScreen()
@@ -1421,6 +1635,7 @@ function number_radio() {
     basic.clearScreen()
     basic.pause(500)
     let numberlist = [
+        0,
         1,
         2,
         3,
@@ -1430,155 +1645,84 @@ function number_radio() {
         7,
         8,
         9,
-        10
     ]
-    let tri = true
-    let tru = true
-    let num = 1
+    let num = 0
     let number_send = 0
     while (true) {
         if (input.buttonIsPressed(Button.A)) {
-            if (num == 1) {
-                num = 10
+            if (num == 0) {
+                num = 9
             } else {
                 num += -1
             }
         }
         if (input.buttonIsPressed(Button.B)) {
-            if (num == 10) {
-                num = 1
+            if (num == 9) {
+                num = 0
             } else {
                 num += 1
             }
         }
         if (input.logoIsPressed()) {
             music.play(music.tonePlayable(349, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
-            list.push(numberlist[num - 1])
+            list.push(numberlist[num])
         }
         if (input.buttonIsPressed(Button.AB)) {
-            while (tri == true) {
-                if (list.length == 1) {
-                    while (tru == true) {
-                        if (number_send == list[0]) {
-                            tru = false
-                        } else {
-                            number_send += 1
-                        }
-                    }
-                }
-                if (list.length == 2) {
-                    tru = true
-                    while (tru == true) {
-                        if (number_send == list[0] + list[1]) {
-                            tru = false
-                            tri = false
-                        } else {
-                            number_send += 1
-                        }
-                    }
-                }
-                if (list.length == 3) {
-                    tru = true
-                    while (tru == true) {
-                        if (number_send == list[0] + list[1] + list[2]) {
-                            tru = false
-                            tri = false
-                        } else {
-                            number_send += 1
-                        }
-                    }
-                }
-                if (list.length == 4) {
-                    tru = true
-                    while (tru == true) {
-                        if (number_send == list[0] + list[1] + (list[2] + list[3])) {
-                            tru = false
-                            tri = false
-                        } else {
-                            number_send += 1
-                        }
-                    }
-                }
-                if (list.length == 5) {
-                    tru = true
-                    while (tru == true) {
-                        if (number_send == list[0] + list[1] + (list[2] + list[3]) + list[4]) {
-                            tru = false
-                            tri = false
-                        } else {
-                            number_send += 1
-                        }
-                    }
-                }
-                if (list.length == 6) {
-                    tru = true
-                    while (tru == true) {
-                        if (number_send == list[0] + list[1] + (list[2] + list[3]) + (list[4] + list[5])) {
-                            tru = false
-                            tri = false
-                        } else {
-                            number_send += 1
-                        }
-                    }
-                }
-                if (list.length == 7) {
-                    tru = true
-                    while (tru == true) {
-                        if (number_send == list[0] + list[1] + (list[2] + list[3]) + (list[4] + list[5] + list[6])) {
-                            tru = false
-                            tri = false
-                        } else {
-                            number_send += 1
-                        }
-                    }
-                }
-                if (list.length == 8) {
-                    tru = true
-                    while (tru == true) {
-                        if (number_send == list[0] + list[1] + (list[2] + list[3]) + (list[4] + list[5] + (list[6] + list[7]))) {
-                            tru = false
-                            tri = false
-                        } else {
-                            number_send += 1
-                        }
-                    }
-                }
-                if (list.length == 9) {
-                    tru = true
-                    while (tru == true) {
-                        if (number_send == list[0] + list[1] + (list[2] + list[3]) + (list[4] + list[5] + (list[6] + list[7])) + list[8]) {
-                            tru = false
-                            tri = false
-                        } else {
-                            number_send += 1
-                        }
-                    }
-                }
-                if (list.length == 10) {
-                    tru = true
-                    while (tru == true) {
-                        if (number_send == list[0] + list[1] + (list[2] + list[3]) + (list[4] + list[5] + (list[6] + list[7])) + (list[8] + list[9])) {
-                            tru = false
-                            tri = false
-                        } else {
-                            number_send += 1
-                        }
-                    }
-                }
-                if (list.length >= 11) {
-                    while (true) {
-                        basic.showIcon(IconNames.No)
-                    }
-                }
+            if(list.length == 1) {
+                number_send = list[0]
+            } else if (list.length == 2) {
+                number_send = list[0] * 10 + list[1]
+            } else if (list.length == 3) {
+                number_send = list[0] * 100
+                number_send += list[1] * 10 + list[2]
+            } else if (list.length == 4) {
+                number_send = list[0] * 1000
+                number_send += list[1] * 100
+                number_send += list[2] * 10 + list[3]
+            } else if (list.length == 5) {
+                number_send = list[0] * 10000
+                number_send += list[1] * 1000
+                number_send += list[2] * 100
+                number_send += list[3] * 10 + list[4]
+            } else if (list.length == 6) {
+                number_send = list[0] * 100000
+                number_send += list[1] * 10000
+                number_send += list[2] * 1000
+                number_send += list[3] * 100
+                number_send += list[4] * 10 + list[5]
+            } else if (list.length == 7) {
+                number_send = list[0] * 1000000
+                number_send += list[1] * 100000
+                number_send += list[2] * 10000
+                number_send += list[3] * 1000
+                number_send += list[4] * 100
+                number_send += list[5] * 10 + list[6]
+            } else if (list.length == 8) {
+                number_send = list[0] * 10000000
+                number_send += list[1] * 1000000
+                number_send += list[2] * 100000
+                number_send += list[3] * 10000
+                number_send += list[4] * 1000
+                number_send += list[5] * 100
+                number_send += list[6] * 10 + list[7]
+            } else {
+                basic.showIcon(IconNames.No)
             }
             if (radio_type == 1) {
                 radio.sendNumber(number_send)
             } else if (radio_type == 3) {
                 radio.sendValue(text_radio, number_send)
             }
-            
         }
-        if (num == 1) {
+        if (num == 0) {
+            basic.showLeds(`
+            . # # # .
+            . # . # .
+            . # . # .
+            . # . # .
+            . # # # .
+            `)
+        } else if (num == 1) {
             basic.showLeds(`
             . . . # .
             . . # # .
@@ -1649,14 +1793,6 @@ function number_radio() {
             . # # # .
             . . . # .
             . # # # .
-            `)
-        } else if (num == 10) {
-            basic.showLeds(`
-            # . # # #
-            # . # . #
-            # . # . #
-            # . # . #
-            # . # # #
             `)
         }
     }
@@ -1804,12 +1940,14 @@ function settings_test_input() {
     }
 } // Test all inputs. ButtonAB, Pins0-2, Logo, Brightness, Sound, XYZ 
 
+
 loading_animation()
 music.setBuiltInSpeakerEnabled(false)
 let selected_menu = 1
 let game_mode = 0
 let selected_tool = 0
 let selected_setting = 0
+let selected_math = 1
 let tool_type = 1
 let radio_type = 1
 let settings_brightness = 5
@@ -1822,10 +1960,13 @@ let abc_id = 1
 let abc: string[] = []
 let inputlist: string[] = []
 let text_radio = ""
-let radio_number = 0
 let list: number[] = []
+let numberx: number[] = []
+let numbery: number[] = []
+let mathx = 0
+let mathy = 0
 let waiting_for_input = true
-
+let number_select = false
 
 let acc_1 = 0
 let time_1 = 0
@@ -2658,3 +2799,517 @@ function tool_record() {
         }
     }
 } //Record and play sound files // Selected_tool = 8
+function math_xy() {
+    basic.clearScreen()
+    basic.pause(100)
+    let numberlist = [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+    ]
+    mathx = 0
+    mathy = 0
+    let num = 0
+    number_select = true
+    while (number_select == true) {
+        if (input.buttonIsPressed(Button.A)) {
+            if (num == 0) {
+                num = 9
+            } else {
+                num += -1
+            }
+        }
+        if (input.buttonIsPressed(Button.B)) {
+            if (num == 9) {
+                num = 0
+            } else {
+                num += 1
+            }
+        }
+        if (input.logoIsPressed()) {
+            music.play(music.tonePlayable(349, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
+            numberx.push(numberlist[num])
+        }
+        if (input.buttonIsPressed(Button.AB)) {
+            if (numberx.length == 1) {
+                mathx = numberx[0]
+            } else if (numberx.length == 2) {
+                mathx = numberx[0] * 10 + numberx[1]
+            } else if (numberx.length == 3) {
+                mathx = numberx[0] * 100
+                mathx += numberx[1] * 10 + numberx[2]
+            } else if (numberx.length == 4) {
+                mathx = numberx[0] * 1000
+                mathx += numberx[1] * 100
+                mathx += numberx[2] * 10 + numberx[3]
+            } else if (numberx.length == 5) {
+                mathx = numberx[0] * 10000
+                mathx += numberx[1] * 1000
+                mathx += numberx[2] * 100
+                mathx += numberx[3] * 10 + numberx[4]
+            } else if (numberx.length == 6) {
+                mathx = numberx[0] * 100000
+                mathx += numberx[1] * 10000
+                mathx += numberx[2] * 1000
+                mathx += numberx[3] * 100
+                mathx += numberx[4] * 10 + numberx[5]
+            } else if (numberx.length == 7) {
+                mathx = numberx[0] * 1000000
+                mathx += numberx[1] * 100000
+                mathx += numberx[2] * 10000
+                mathx += numberx[3] * 1000
+                mathx += numberx[4] * 100
+                mathx += numberx[5] * 10 + numberx[6]
+            } else if (numberx.length == 8) {
+                mathx = numberx[0] * 10000000
+                mathx += numberx[1] * 1000000
+                mathx += numberx[2] * 100000
+                mathx += numberx[3] * 10000
+                mathx += numberx[4] * 1000
+                mathx += numberx[5] * 100
+                mathx += numberx[6] * 10 + numberx[7]
+            } else {
+                basic.showIcon(IconNames.No)
+            }
+            basic.clearScreen()
+            number_select = false
+        }
+        if (number_select == true) {
+            if (num == 0) {
+                basic.showLeds(`
+            . # # # .
+            . # . # .
+            . # . # .
+            . # . # .
+            . # # # .
+            `)
+            } else if (num == 1) {
+                basic.showLeds(`
+            . . . # .
+            . . # # .
+            . . . # .
+            . . . # .
+            . . . # .
+            `)
+            } else if (num == 2) {
+                basic.showLeds(`
+            . # # # .
+            . . . # .
+            . # # # .
+            . # . . .
+            . # # # .
+            `)
+            } else if (num == 3) {
+                basic.showLeds(`
+            . # # # .
+            . . . # .
+            . # # # .
+            . . . # .
+            . # # # .
+            `)
+            } else if (num == 4) {
+                basic.showLeds(`
+            . # . # .
+            . # . # .
+            . # # # .
+            . . . # .
+            . . . # .
+            `)
+            } else if (num == 5) {
+                basic.showLeds(`
+            . # # # .
+            . # . . .
+            . # # # .
+            . . . # .
+            . # # # .
+            `)
+            } else if (num == 6) {
+                basic.showLeds(`
+            . # # # .
+            . # . . .
+            . # # # .
+            . # . # .
+            . # # # .
+            `)
+            } else if (num == 7) {
+                basic.showLeds(`
+            . # # # .
+            . . . # .
+            . . . # .
+            . . . # .
+            . . . # .
+            `)
+            } else if (num == 8) {
+                basic.showLeds(`
+            . # # # .
+            . # . # .
+            . # # # .
+            . # . # .
+            . # # # .
+            `)
+            } else if (num == 9) {
+                basic.showLeds(`
+            . # # # .
+            . # . # .
+            . # # # .
+            . . . # .
+            . # # # .
+            `)
+            }
+        }
+    }
+    game.addScore(1)
+    basic.pause(500)
+    num = 0
+    number_select = true
+    while (number_select == true) {
+        if (input.buttonIsPressed(Button.A)) {
+            if (num == 0) {
+                num = 9
+            } else {
+                num += -1
+            }
+        }
+        if (input.buttonIsPressed(Button.B)) {
+            if (num == 9) {
+                num = 0
+            } else {
+                num += 1
+            }
+        }
+        if (input.logoIsPressed()) {
+            music.play(music.tonePlayable(349, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
+            numbery.push(numberlist[num])
+        }
+        if (input.buttonIsPressed(Button.AB)) {
+            if (numbery.length == 1) {
+                mathy = numbery[0]
+            } else if (numbery.length == 2) {
+                mathy = numbery[0] * 10 + numbery[1]
+            } else if (numbery.length == 3) {
+                mathy = numbery[0] * 100
+                mathy += numbery[1] * 10 + numbery[2]
+            } else if (numbery.length == 4) {
+                mathy = numbery[0] * 1000
+                mathy += numbery[1] * 100
+                mathy += numbery[2] * 10 + numbery[3]
+            } else if (numbery.length == 5) {
+                mathy = numbery[0] * 10000
+                mathy += numbery[1] * 1000
+                mathy += numbery[2] * 100
+                mathy += numbery[3] * 10 + numbery[4]
+            } else if (numbery.length == 6) {
+                mathy = numbery[0] * 100000
+                mathy += numbery[1] * 10000
+                mathy += numbery[2] * 1000
+                mathy += numbery[3] * 100
+                mathy += numbery[4] * 10 + numbery[5]
+            } else if (numbery.length == 7) {
+                mathy = numbery[0] * 1000000
+                mathy += numbery[1] * 100000
+                mathy += numbery[2] * 10000
+                mathy += numbery[3] * 1000
+                mathy += numbery[4] * 100
+                mathy += numbery[5] * 10 + numbery[6]
+            } else if (numbery.length == 8) {
+                mathy = numbery[0] * 10000000
+                mathy += numbery[1] * 1000000
+                mathy += numbery[2] * 100000
+                mathy += numbery[3] * 10000
+                mathy += numbery[4] * 1000
+                mathy += numbery[5] * 100
+                mathy += numberx[6] * 10 + numbery[7]
+            } else {
+                basic.showIcon(IconNames.No)
+            }
+            basic.clearScreen()
+            number_select = false
+        }
+        if (number_select == true) {
+            if (num == 0) {
+                basic.showLeds(`
+            . # # # .
+            . # . # .
+            . # . # .
+            . # . # .
+            . # # # .
+            `)
+            } else if (num == 1) {
+                basic.showLeds(`
+            . . . # .
+            . . # # .
+            . . . # .
+            . . . # .
+            . . . # .
+            `)
+            } else if (num == 2) {
+                basic.showLeds(`
+            . # # # .
+            . . . # .
+            . # # # .
+            . # . . .
+            . # # # .
+            `)
+            } else if (num == 3) {
+                basic.showLeds(`
+            . # # # .
+            . . . # .
+            . # # # .
+            . . . # .
+            . # # # .
+            `)
+            } else if (num == 4) {
+                basic.showLeds(`
+            . # . # .
+            . # . # .
+            . # # # .
+            . . . # .
+            . . . # .
+            `)
+            } else if (num == 5) {
+                basic.showLeds(`
+            . # # # .
+            . # . . .
+            . # # # .
+            . . . # .
+            . # # # .
+            `)
+            } else if (num == 6) {
+                basic.showLeds(`
+            . # # # .
+            . # . . .
+            . # # # .
+            . # . # .
+            . # # # .
+            `)
+            } else if (num == 7) {
+                basic.showLeds(`
+            . # # # .
+            . . . # .
+            . . . # .
+            . . . # .
+            . . . # .
+            `)
+            } else if (num == 8) {
+                basic.showLeds(`
+            . # # # .
+            . # . # .
+            . # # # .
+            . # . # .
+            . # # # .
+            `)
+            } else if (num == 9) {
+                basic.showLeds(`
+            . # # # .
+            . # . # .
+            . # # # .
+            . . . # .
+            . # # # .
+            `)
+            }
+        }
+
+    }
+    game.addScore(1)
+    basic.pause(400)
+    if (selected_math == 1) {
+        basic.showNumber(mathx + mathy)
+    } else if (selected_math == 2) {
+        basic.showNumber(mathx - mathy)
+    } else if (selected_math == 3) {
+        basic.showNumber(mathx * mathy)
+    } else if (selected_math == 4) {
+        basic.showNumber(mathx / mathy)
+    } else if (selected_math == 5) {
+        basic.showNumber(mathx ** mathy)
+    } else if (selected_math == 11) {
+        basic.showNumber(randint(mathx, mathy))
+    }
+} //Calculator with 2 variables // Selected_tool = 9
+function math_x() {
+    basic.clearScreen()
+    basic.pause(100)
+    let numberlist = [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+    ]
+    mathx = 0
+    mathy = 0
+    let num = 0
+    number_select = true
+    while (number_select == true) {
+        if (input.buttonIsPressed(Button.A)) {
+            if (num == 0) {
+                num = 9
+            } else {
+                num += -1
+            }
+        }
+        if (input.buttonIsPressed(Button.B)) {
+            if (num == 9) {
+                num = 0
+            } else {
+                num += 1
+            }
+        }
+        if (input.logoIsPressed()) {
+            music.play(music.tonePlayable(349, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
+            numberx.push(numberlist[num])
+        }
+        if (input.buttonIsPressed(Button.AB)) {
+            if (numberx.length == 1) {
+                mathx = numberx[0]
+            } else if (numberx.length == 2) {
+                mathx = numberx[0] * 10 + numberx[1]
+            } else if (numberx.length == 3) {
+                mathx = numberx[0] * 100
+                mathx += numberx[1] * 10 + numberx[2]
+            } else if (numberx.length == 4) {
+                mathx = numberx[0] * 1000
+                mathx += numberx[1] * 100
+                mathx += numberx[2] * 10 + numberx[3]
+            } else if (numberx.length == 5) {
+                mathx = numberx[0] * 10000
+                mathx += numberx[1] * 1000
+                mathx += numberx[2] * 100
+                mathx += numberx[3] * 10 + numberx[4]
+            } else if (numberx.length == 6) {
+                mathx = numberx[0] * 100000
+                mathx += numberx[1] * 10000
+                mathx += numberx[2] * 1000
+                mathx += numberx[3] * 100
+                mathx += numberx[4] * 10 + numberx[5]
+            } else if (numberx.length == 7) {
+                mathx = numberx[0] * 1000000
+                mathx += numberx[1] * 100000
+                mathx += numberx[2] * 10000
+                mathx += numberx[3] * 1000
+                mathx += numberx[4] * 100
+                mathx += numberx[5] * 10 + numberx[6]
+            } else if (numberx.length == 8) {
+                mathx = numberx[0] * 10000000
+                mathx += numberx[1] * 1000000
+                mathx += numberx[2] * 100000
+                mathx += numberx[3] * 10000
+                mathx += numberx[4] * 1000
+                mathx += numberx[5] * 100
+                mathx += numberx[6] * 10 + numberx[7]
+            } else {
+                basic.showIcon(IconNames.No)
+            }
+            basic.clearScreen()
+            number_select = false
+        }
+        if (number_select == true) {
+            if (num == 0) {
+                basic.showLeds(`
+            . # # # .
+            . # . # .
+            . # . # .
+            . # . # .
+            . # # # .
+            `)
+            } else if (num == 1) {
+                basic.showLeds(`
+            . . . # .
+            . . # # .
+            . . . # .
+            . . . # .
+            . . . # .
+            `)
+            } else if (num == 2) {
+                basic.showLeds(`
+            . # # # .
+            . . . # .
+            . # # # .
+            . # . . .
+            . # # # .
+            `)
+            } else if (num == 3) {
+                basic.showLeds(`
+            . # # # .
+            . . . # .
+            . # # # .
+            . . . # .
+            . # # # .
+            `)
+            } else if (num == 4) {
+                basic.showLeds(`
+            . # . # .
+            . # . # .
+            . # # # .
+            . . . # .
+            . . . # .
+            `)
+            } else if (num == 5) {
+                basic.showLeds(`
+            . # # # .
+            . # . . .
+            . # # # .
+            . . . # .
+            . # # # .
+            `)
+            } else if (num == 6) {
+                basic.showLeds(`
+            . # # # .
+            . # . . .
+            . # # # .
+            . # . # .
+            . # # # .
+            `)
+            } else if (num == 7) {
+                basic.showLeds(`
+            . # # # .
+            . . . # .
+            . . . # .
+            . . . # .
+            . . . # .
+            `)
+            } else if (num == 8) {
+                basic.showLeds(`
+            . # # # .
+            . # . # .
+            . # # # .
+            . # . # .
+            . # # # .
+            `)
+            } else if (num == 9) {
+                basic.showLeds(`
+            . # # # .
+            . # . # .
+            . # # # .
+            . . . # .
+            . # # # .
+            `)
+            }
+        }
+    }
+    game.addScore(1)
+    basic.pause(500)
+    num = 0
+
+    if (selected_math == 6) {
+        basic.showNumber(Math.sqrt(mathx))
+    } else if (selected_math == 7) {
+        basic.showNumber(Math.sin(mathx * Math.PI / 180))
+    } else if (selected_math == 8) {
+        basic.showNumber(Math.cos(mathx * Math.PI / 180))
+    } else if (selected_math == 9) {
+        basic.showNumber(Math.tan(mathx * Math.PI / 180))
+    }
+} //Calculator with 1 variable // Selected_tool = 9
