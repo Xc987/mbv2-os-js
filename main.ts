@@ -762,7 +762,7 @@ function tool_clock_menu() {
     } else {
         timer()
     }
-} //Calculator type selection
+} //Clock type selection
 function turtle_main() {
     let pen_up = false
     turtle.setPosition(2, 2)
@@ -1058,7 +1058,7 @@ function settings_select_menu() {
                 . # . # .
                 . # # # .
                 `)
-            } else if (settings_brightness == 4 ) {
+            } else if (settings_brightness == 4) {
                 led.setBrightness(200)
                 basic.showLeds(`
                 . . . . .
@@ -1067,7 +1067,7 @@ function settings_select_menu() {
                 . # . # .
                 . # # # .
                 `)
-            } else {
+            } else if (settings_brightness == 5) {
                 led.setBrightness(255)
                 basic.showLeds(`
                 . . . . .
@@ -1075,6 +1075,15 @@ function settings_select_menu() {
                 # . . . #
                 . # . # .
                 . # # # .
+                `)
+            } 
+            if (settings_auto_brigthness == true) {
+                basic.showLeds(`
+                . . . . .
+                . # # # .
+                . # . # .
+                . # # # .
+                . # . # .
                 `)
             }
         } else if (selected_setting == 4) {
@@ -1152,6 +1161,17 @@ function settings_select_menu() {
         }
         waiting_for_input = true
         while (waiting_for_input == true) {
+            if (input.isGesture(Gesture.Shake)) {
+                if (selected_setting == 3) {
+                    if (settings_auto_brigthness == false) {
+                        settings_auto_brigthness = true
+                        waiting_for_input = false
+                    } else {
+                        settings_auto_brigthness = false
+                        waiting_for_input = false
+                    }
+                }
+            }
             if (input.buttonIsPressed(Button.A)) {
                 if (selected_setting == 0) {
                     selected_setting = 7
@@ -1312,6 +1332,15 @@ input.onButtonPressed(Button.A, function () {
             led.plot(x_8, y_8)
         }
     }
+    if (crhonometer_run == true) {
+        running = !(running)
+        if (running) {
+            timeanddate.set24HourTime(0, 0, 0)
+        } else {
+            captured = timeanddate.time(timeanddate.TimeFormat.HHMMSS24hr)
+            basic.showString(captured)
+        }
+    }
 }) //On button A pressed.
 input.onButtonPressed(Button.B, function () {
     if (game_mode == 1) {
@@ -1365,6 +1394,11 @@ input.onButtonPressed(Button.B, function () {
                 x_8 = x_8 + 1
             }
             led.plot(x_8, y_8)
+        }
+    }
+    if (crhonometer_run == true) {
+        if (!(running)) {
+            basic.showString(captured)
         }
     }
 }) //On button B pressed
@@ -2147,6 +2181,27 @@ function settings_test_input() {
     }
 } // Test all inputs. ButtonAB, Pins0-2, Logo, Brightness, Sound, XYZ 
 
+basic.forever(function() {
+    if (settings_auto_brigthness == true) {
+        let vrs = input.lightLevel()
+        if (vrs >= 50) {
+            led.setBrightness(50)
+        }
+        if (vrs >= 100) {
+            led.setBrightness(100)
+        }
+        if (vrs >= 150) {
+            led.setBrightness(150)
+        }
+        if (vrs >= 200) {
+            led.setBrightness(200)
+        }
+        if (vrs >= 225) {
+            led.setBrightness(255)
+        }
+    }
+})
+
 let pin_lock = true
 if (input.logoIsPressed()) {
     loading_animation()
@@ -2165,6 +2220,7 @@ let selected_clock = 1
 let tool_type = 1
 let radio_type = 1
 let settings_brightness = 5
+let settings_auto_brigthness = false
 let settings_music = false
 let settings_volume = 5
 let logged_data = false
@@ -2181,7 +2237,10 @@ let mathx = 0
 let mathy = 0
 let waiting_for_input = true
 let number_select = false
-
+let running = false
+let captured = ""
+let crhonometer_run = false
+let vrs = input.lightLevel()
 
 let acc_1 = 0
 let time_1 = 0
@@ -3571,14 +3630,16 @@ function math_x() {
     }
 } //Calculator with 1 variable // Selected_tool = 9
 function signal() {
+    music.setBuiltInSpeakerEnabled(true)
     basic.clearScreen()
-    basic.pause(300)
+    basic.pause(200)
     basic.showString("H")
     basic.clearScreen()
     let hour = 0
     let minute = 0
+    let second = 0
     let signal_hour = 0
-    let signal = 0
+    let signal_minute = 0
     let number_select = true
     while (number_select == true) {
         if (input.buttonIsPressed(Button.A)) {
@@ -3594,6 +3655,9 @@ function signal() {
             } else {
                 hour += 1
             }
+        }
+        if (input.logoIsPressed()) {
+            number_select = false
         }
         if (hour == 0) {
             basic.showLeds(`
@@ -3739,12 +3803,980 @@ function signal() {
             # . . . #
             # . . . #
             `)
-        } 
+        } else if (hour == 18) {
+            basic.showLeds(`
+            # . # # #
+            # . # . #
+            # . # # #
+            # . # . #
+            # . # # #
+            `)
+        } else if (hour == 19) {
+            basic.showLeds(`
+            # . # # #
+            # . # . #
+            # . # # #
+            # . . . #
+            # . # # #
+            `)
+        } else if (hour == 20) {
+            basic.showLeds(`
+            # # # # #
+            . # # . #
+            # # # . #
+            # . # . #
+            # # # # #
+            `)
+        } else if (hour == 21) {
+            basic.showLeds(`
+            # # . . #
+            . # . # #
+            # # . . #
+            # . . . #
+            # # . . #
+            `)
+        } else if (hour == 22) {
+            basic.showLeds(`
+            # # . # #
+            . # . . #
+            # # . # #
+            # . . # .
+            # # . # #
+            `)
+        } else {
+            basic.showLeds(`
+            # # . # #
+            . # . . #
+            # # . # #
+            # . . . #
+            # # . # #
+            `)
+        }
+    }
+    basic.clearScreen()
+    basic.pause(200)
+    basic.showString("M")
+    basic.clearScreen()
+    number_select = true
+    while (number_select == true) {
+        if (input.buttonIsPressed(Button.A)) {
+            if (minute == 0) {
+                minute = 55
+            } else {
+                minute += -5
+            }
+        }
+        if (input.buttonIsPressed(Button.B)) {
+            if (minute == 55) {
+                minute = 0
+            } else {
+                minute += 5
+            }
+        }
+        if (input.logoIsPressed()) {
+            number_select = false
+        }
+        if (minute == 0) {
+            basic.showLeds(`
+            . # # # .
+            . # . # .
+            . # . # .
+            . # . # .
+            . # # # .
+            `)
+        } else if (minute == 5) {
+            basic.showLeds(`
+            . # # # .
+            . # . . .
+            . # # # .
+            . . . # .
+            . # # # .
+            `)
+        } else if (minute == 10) {
+            basic.showLeds(`
+            # . # # #
+            # . # . #
+            # . # . #
+            # . # . #
+            # . # # #
+            `)
+        } else if (minute == 15) {
+            basic.showLeds(`
+            # . . # #
+            # . . # .
+            # . . # #
+            # . . . #
+            # . . # #
+            `)
+        } else if (minute == 20) {
+            basic.showLeds(`
+            # # # # #
+            . # # . #
+            # # # . #
+            # . # . #
+            # # # # #
+            `)
+        } else if (minute == 25) {
+            basic.showLeds(`
+            # # . # #
+            . # . # .
+            # # . # #
+            # . . . #
+            # # . # #
+            `)
+        } else if (minute == 30) {
+            basic.showLeds(`
+            # # # # #
+            . # # . #
+            # # # . #
+            . # # . #
+            # # # # #
+            `)
+        } else if (minute == 35) {
+            basic.showLeds(`
+            # # . # #
+            . # . # .
+            # # . # #
+            . # . . #
+            # # . # #
+            `)
+        } else if (minute == 40) {
+            basic.showLeds(`
+            # . # # #
+            # . # . #
+            # # # . #
+            . # # . #
+            . # # # #
+            `)
+        } else if (minute == 45) {
+            basic.showLeds(`
+            # . . # #
+            # . . # .
+            # # . # #
+            . # . . #
+            . # . # #
+            `)
+        } else if (minute == 50) {
+            basic.showLeds(`
+            # # # # #
+            # . # . #
+            # # # . #
+            . # # . #
+            # # # # #
+            `)
+        } else {
+            basic.showLeds(`
+            # # . # #
+            # . . # .
+            # # . # #
+            . # . . #
+            # # . # #
+            `)
+        }
+    }
+    basic.clearScreen()
+    basic.pause(200)
+    basic.showString("HS")
+    basic.clearScreen()
+    number_select = true
+    while (number_select == true) {
+        if (input.buttonIsPressed(Button.A)) {
+            if (signal_hour == 0) {
+                signal_hour = 23
+            } else {
+                signal_hour += -1
+            }
+        }
+        if (input.buttonIsPressed(Button.B)) {
+            if (signal_hour == 23) {
+                signal_hour = 0
+            } else {
+                signal_hour += 1
+            }
+        }
+        if (input.logoIsPressed()) {
+            number_select = false
+        }
+        if (signal_hour == 0) {
+            basic.showLeds(`
+            . # # # .
+            . # . # .
+            . # . # .
+            . # . # .
+            . # # # .
+            `)
+        } else if (signal_hour == 1) {
+            basic.showLeds(`
+            . . . # .
+            . . # # .
+            . . . # .
+            . . . # .
+            . . . # .
+            `)
+        } else if (signal_hour == 2) {
+            basic.showLeds(`
+            . # # # .
+            . . . # .
+            . # # # .
+            . # . . .
+            . # # # .
+            `)
+        } else if (signal_hour == 3) {
+            basic.showLeds(`
+            . # # # .
+            . . . # .
+            . # # # .
+            . . . # .
+            . # # # .
+            `)
+        } else if (signal_hour == 4) {
+            basic.showLeds(`
+            . # . # .
+            . # . # .
+            . # # # .
+            . . . # .
+            . . . # .
+            `)
+        } else if (signal_hour == 5) {
+            basic.showLeds(`
+            . # # # .
+            . # . . .
+            . # # # .
+            . . . # .
+            . # # # .
+            `)
+        } else if (signal_hour == 6) {
+            basic.showLeds(`
+            . # # # .
+            . # . . .
+            . # # # .
+            . # . # .
+            . # # # .
+            `)
+        } else if (signal_hour == 7) {
+            basic.showLeds(`
+            . # # # .
+            . . . # .
+            . . . # .
+            . . . # .
+            . . . # .
+            `)
+        } else if (signal_hour == 8) {
+            basic.showLeds(`
+            . # # # .
+            . # . # .
+            . # # # .
+            . # . # .
+            . # # # .
+            `)
+        } else if (signal_hour == 9) {
+            basic.showLeds(`
+            . # # # .
+            . # . # .
+            . # # # .
+            . . . # .
+            . # # # .
+            `)
+        } else if (signal_hour == 10) {
+            basic.showLeds(`
+            # . # # #
+            # . # . #
+            # . # . #
+            # . # . #
+            # . # # #
+            `)
+        } else if (signal_hour == 11) {
+            basic.showLeds(`
+            # . . . #
+            # . . # #
+            # . . . #
+            # . . . #
+            # . . . #
+            `)
+        } else if (signal_hour == 12) {
+            basic.showLeds(`
+            # . # # #
+            # . . . #
+            # . # # #
+            # . # . .
+            # . # # #
+            `)
+        } else if (signal_hour == 13) {
+            basic.showLeds(`
+            # . # # #
+            # . . . #
+            # . # # #
+            # . . . #
+            # . # # #
+            `)
+        } else if (signal_hour == 14) {
+            basic.showLeds(`
+            # . # . #
+            # . # . #
+            # . # # #
+            # . . . #
+            # . . . #
+            `)
+        } else if (signal_hour == 15) {
+            basic.showLeds(`
+            # . # # #
+            # . # . .
+            # . # # #
+            # . . . #
+            # . # # #
+            `)
+        } else if (signal_hour == 16) {
+            basic.showLeds(`
+            # . # # #
+            # . # . .
+            # . # # #
+            # . # . #
+            # . # # #
+            `)
+        } else if (signal_hour == 17) {
+            basic.showLeds(`
+            # . # # #
+            # . . . #
+            # . . . #
+            # . . . #
+            # . . . #
+            `)
+        } else if (signal_hour == 18) {
+            basic.showLeds(`
+            # . # # #
+            # . # . #
+            # . # # #
+            # . # . #
+            # . # # #
+            `)
+        } else if (signal_hour == 19) {
+            basic.showLeds(`
+            # . # # #
+            # . # . #
+            # . # # #
+            # . . . #
+            # . # # #
+            `)
+        } else if (signal_hour == 20) {
+            basic.showLeds(`
+            # # # # #
+            . # # . #
+            # # # . #
+            # . # . #
+            # # # # #
+            `)
+        } else if (signal_hour == 21) {
+            basic.showLeds(`
+            # # . . #
+            . # . # #
+            # # . . #
+            # . . . #
+            # # . . #
+            `)
+        } else if (signal_hour == 22) {
+            basic.showLeds(`
+            # # . # #
+            . # . . #
+            # # . # #
+            # . . # .
+            # # . # #
+            `)
+        } else {
+            basic.showLeds(`
+            # # . # #
+            . # . . #
+            # # . # #
+            # . . . #
+            # # . # #
+            `)
+        }
+    }
+    basic.clearScreen()
+    basic.pause(200)
+    basic.showString("MS")
+    basic.clearScreen()
+    number_select = true
+    while (number_select == true) {
+        if (input.buttonIsPressed(Button.A)) {
+            if (signal_minute == 0) {
+                signal_minute = 55
+            } else {
+                signal_minute += -5
+            }
+        }
+        if (input.buttonIsPressed(Button.B)) {
+            if (signal_minute == 55) {
+                signal_minute = 0
+            } else {
+                signal_minute += 5
+            }
+        }
+        if (input.logoIsPressed()) {
+            number_select = false
+        }
+        if (signal_minute == 0) {
+            basic.showLeds(`
+            . # # # .
+            . # . # .
+            . # . # .
+            . # . # .
+            . # # # .
+            `)
+        } else if (signal_minute == 5) {
+            basic.showLeds(`
+            . # # # .
+            . # . . .
+            . # # # .
+            . . . # .
+            . # # # .
+            `)
+        } else if (signal_minute == 10) {
+            basic.showLeds(`
+            # . # # #
+            # . # . #
+            # . # . #
+            # . # . #
+            # . # # #
+            `)
+        } else if (signal_minute == 15) {
+            basic.showLeds(`
+            # . . # #
+            # . . # .
+            # . . # #
+            # . . . #
+            # . . # #
+            `)
+        } else if (signal_minute == 20) {
+            basic.showLeds(`
+            # # # # #
+            . # # . #
+            # # # . #
+            # . # . #
+            # # # # #
+            `)
+        } else if (signal_minute == 25) {
+            basic.showLeds(`
+            # # . # #
+            . # . # .
+            # # . # #
+            # . . . #
+            # # . # #
+            `)
+        } else if (signal_minute == 30) {
+            basic.showLeds(`
+            # # # # #
+            . # # . #
+            # # # . #
+            . # # . #
+            # # # # #
+            `)
+        } else if (signal_minute == 35) {
+            basic.showLeds(`
+            # # . # #
+            . # . # .
+            # # . # #
+            . # . . #
+            # # . # #
+            `)
+        } else if (signal_minute == 40) {
+            basic.showLeds(`
+            # . # # #
+            # . # . #
+            # # # . #
+            . # # . #
+            . # # # #
+            `)
+        } else if (signal_minute == 45) {
+            basic.showLeds(`
+            # . . # #
+            # . . # .
+            # # . # #
+            . # . . #
+            . # . # #
+            `)
+        } else if (signal_minute == 50) {
+            basic.showLeds(`
+            # # # # #
+            # . # . #
+            # # # . #
+            . # # . #
+            # # # # #
+            `)
+        } else {
+            basic.showLeds(`
+            # # . # #
+            # . . # .
+            # # . # #
+            . # . . #
+            # # . # #
+            `)
+        }
+    }
+    basic.clearScreen()
+    while (true) {
+        if (hour == signal_hour) {
+            if (minute == signal_minute) {
+                while (true) {
+                    basic.showIcon(IconNames.Yes)
+                    music.play(music.stringPlayable("E - E - - E E E ", 1000), music.PlaybackMode.UntilDone)
+                    music.play(music.stringPlayable("- E - E E E - - ", 1000), music.PlaybackMode.UntilDone)
+                    if (input.buttonIsPressed(Button.A) || input.buttonIsPressed(Button.B)) {
+                        control.reset()
+                    }
+                    if (input.logoIsPressed()) {
+                        control.reset()
+                    }
+                }
+            }
+        }
+        basic.pause(1000)
+        if (second == 59) {
+            second = 0
+            if (minute == 59) {
+                minute = 0
+                if (hour == 23) {
+                    hour = 0
+                } else {
+                    hour += 1
+                }
+            } else {
+                minute += 1
+            }
+        } else {
+            second += 1
+        }
     }
 }
 function chronometer() {
-
+    running = false
+    crhonometer_run = true
+    let dotLocation = 0
+    let xy = 0
+    let coords = [
+        11,
+        21,
+        31,
+        32,
+        33,
+        23,
+        13,
+        12
+    ]
+    while (true) {
+        if (running) {
+            basic.clearScreen()
+            xy = coords[dotLocation]
+            led.toggle(Math.idiv(xy, 10), xy % 10)
+            basic.pause(1000 / 8)
+            dotLocation = (dotLocation + 1) % 8
+        } else {
+            basic.showIcon(IconNames.No)
+        }
+    }
 }
 function timer() {
-
+    basic.clearScreen()
+    basic.pause(200)
+    basic.showString("H")
+    basic.clearScreen()
+    let hour = 0
+    let minute = 0
+    let second = 0
+    let numberlist = [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+    ]
+    let num = 0
+    number_select = true
+    while (number_select == true) {
+        if (input.buttonIsPressed(Button.A)) {
+            if (num == 0) {
+                num = 9
+            } else {
+                num += -1
+            }
+        }
+        if (input.buttonIsPressed(Button.B)) {
+            if (num == 9) {
+                num = 0
+            } else {
+                num += 1
+            }
+        }
+        if (input.logoIsPressed()) {
+            music.play(music.tonePlayable(349, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
+            list.push(numberlist[num])
+        }
+        if (input.buttonIsPressed(Button.AB)) {
+            if (list.length == 1) {
+                hour = list[0]
+            } else if (list.length == 2) {
+                hour = list[0] * 10 + list[1]
+            } else {
+                basic.showIcon(IconNames.No)
+            }
+            number_select = false
+        }
+        if (num == 0) {
+            basic.showLeds(`
+            . # # # .
+            . # . # .
+            . # . # .
+            . # . # .
+            . # # # .
+            `)
+        } else if (num == 1) {
+            basic.showLeds(`
+            . . . # .
+            . . # # .
+            . . . # .
+            . . . # .
+            . . . # .
+            `)
+        } else if (num == 2) {
+            basic.showLeds(`
+            . # # # .
+            . . . # .
+            . # # # .
+            . # . . .
+            . # # # .
+            `)
+        } else if (num == 3) {
+            basic.showLeds(`
+            . # # # .
+            . . . # .
+            . # # # .
+            . . . # .
+            . # # # .
+            `)
+        } else if (num == 4) {
+            basic.showLeds(`
+            . # . # .
+            . # . # .
+            . # # # .
+            . . . # .
+            . . . # .
+            `)
+        } else if (num == 5) {
+            basic.showLeds(`
+            . # # # .
+            . # . . .
+            . # # # .
+            . . . # .
+            . # # # .
+            `)
+        } else if (num == 6) {
+            basic.showLeds(`
+            . # # # .
+            . # . . .
+            . # # # .
+            . # . # .
+            . # # # .
+            `)
+        } else if (num == 7) {
+            basic.showLeds(`
+            . # # # .
+            . . . # .
+            . . . # .
+            . . . # .
+            . . . # .
+            `)
+        } else if (num == 8) {
+            basic.showLeds(`
+            . # # # .
+            . # . # .
+            . # # # .
+            . # . # .
+            . # # # .
+            `)
+        } else if (num == 9) {
+            basic.showLeds(`
+            . # # # .
+            . # . # .
+            . # # # .
+            . . . # .
+            . # # # .
+            `)
+        }
+    }
+    basic.clearScreen()
+    basic.pause(200)
+    basic.showString("M")
+    basic.clearScreen()
+    num = 0
+    list = []
+    number_select = true
+    while (number_select == true) {
+        if (input.buttonIsPressed(Button.A)) {
+            if (num == 0) {
+                num = 9
+            } else {
+                num += -1
+            }
+        }
+        if (input.buttonIsPressed(Button.B)) {
+            if (num == 9) {
+                num = 0
+            } else {
+                num += 1
+            }
+        }
+        if (input.logoIsPressed()) {
+            music.play(music.tonePlayable(349, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
+            list.push(numberlist[num])
+        }
+        if (input.buttonIsPressed(Button.AB)) {
+            if (list.length == 1) {
+                minute = list[0]
+            } else if (list.length == 2) {
+                minute = list[0] * 10 + list[1]
+            } else {
+                basic.showIcon(IconNames.No)
+            }
+            number_select = false
+        }
+        if (num == 0) {
+            basic.showLeds(`
+            . # # # .
+            . # . # .
+            . # . # .
+            . # . # .
+            . # # # .
+            `)
+        } else if (num == 1) {
+            basic.showLeds(`
+            . . . # .
+            . . # # .
+            . . . # .
+            . . . # .
+            . . . # .
+            `)
+        } else if (num == 2) {
+            basic.showLeds(`
+            . # # # .
+            . . . # .
+            . # # # .
+            . # . . .
+            . # # # .
+            `)
+        } else if (num == 3) {
+            basic.showLeds(`
+            . # # # .
+            . . . # .
+            . # # # .
+            . . . # .
+            . # # # .
+            `)
+        } else if (num == 4) {
+            basic.showLeds(`
+            . # . # .
+            . # . # .
+            . # # # .
+            . . . # .
+            . . . # .
+            `)
+        } else if (num == 5) {
+            basic.showLeds(`
+            . # # # .
+            . # . . .
+            . # # # .
+            . . . # .
+            . # # # .
+            `)
+        } else if (num == 6) {
+            basic.showLeds(`
+            . # # # .
+            . # . . .
+            . # # # .
+            . # . # .
+            . # # # .
+            `)
+        } else if (num == 7) {
+            basic.showLeds(`
+            . # # # .
+            . . . # .
+            . . . # .
+            . . . # .
+            . . . # .
+            `)
+        } else if (num == 8) {
+            basic.showLeds(`
+            . # # # .
+            . # . # .
+            . # # # .
+            . # . # .
+            . # # # .
+            `)
+        } else if (num == 9) {
+            basic.showLeds(`
+            . # # # .
+            . # . # .
+            . # # # .
+            . . . # .
+            . # # # .
+            `)
+        }
+    }
+    basic.clearScreen()
+    basic.pause(200)
+    basic.showString("S")
+    basic.clearScreen()
+    num = 0
+    list = []
+    number_select = true
+    while (number_select == true) {
+        if (input.buttonIsPressed(Button.A)) {
+            if (num == 0) {
+                num = 9
+            } else {
+                num += -1
+            }
+        }
+        if (input.buttonIsPressed(Button.B)) {
+            if (num == 9) {
+                num = 0
+            } else {
+                num += 1
+            }
+        }
+        if (input.logoIsPressed()) {
+            music.play(music.tonePlayable(349, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
+            list.push(numberlist[num])
+        }
+        if (input.buttonIsPressed(Button.AB)) {
+            if (list.length == 1) {
+                second = list[0]
+            } else if (list.length == 2) {
+                second = list[0] * 10 + list[1]
+            } else {
+                basic.showIcon(IconNames.No)
+            }
+            number_select = false
+        }
+        if (num == 0) {
+            basic.showLeds(`
+            . # # # .
+            . # . # .
+            . # . # .
+            . # . # .
+            . # # # .
+            `)
+        } else if (num == 1) {
+            basic.showLeds(`
+            . . . # .
+            . . # # .
+            . . . # .
+            . . . # .
+            . . . # .
+            `)
+        } else if (num == 2) {
+            basic.showLeds(`
+            . # # # .
+            . . . # .
+            . # # # .
+            . # . . .
+            . # # # .
+            `)
+        } else if (num == 3) {
+            basic.showLeds(`
+            . # # # .
+            . . . # .
+            . # # # .
+            . . . # .
+            . # # # .
+            `)
+        } else if (num == 4) {
+            basic.showLeds(`
+            . # . # .
+            . # . # .
+            . # # # .
+            . . . # .
+            . . . # .
+            `)
+        } else if (num == 5) {
+            basic.showLeds(`
+            . # # # .
+            . # . . .
+            . # # # .
+            . . . # .
+            . # # # .
+            `)
+        } else if (num == 6) {
+            basic.showLeds(`
+            . # # # .
+            . # . . .
+            . # # # .
+            . # . # .
+            . # # # .
+            `)
+        } else if (num == 7) {
+            basic.showLeds(`
+            . # # # .
+            . . . # .
+            . . . # .
+            . . . # .
+            . . . # .
+            `)
+        } else if (num == 8) {
+            basic.showLeds(`
+            . # # # .
+            . # . # .
+            . # # # .
+            . # . # .
+            . # # # .
+            `)
+        } else if (num == 9) {
+            basic.showLeds(`
+            . # # # .
+            . # . # .
+            . # # # .
+            . . . # .
+            . # # # .
+            `)
+        }
+    }
+    basic.clearScreen()
+    while (true) {
+        if (hour == 0) {
+            if (minute == 0) {
+                if (second == 0) {
+                    while (true) {
+                        basic.showIcon(IconNames.Yes)
+                        music.play(music.stringPlayable("E - E - - E E E ", 1000), music.PlaybackMode.UntilDone)
+                        music.play(music.stringPlayable("- E - E E E - - ", 1000), music.PlaybackMode.UntilDone)
+                        if (input.buttonIsPressed(Button.A) || input.buttonIsPressed(Button.B)) {
+                            control.reset()
+                        }
+                        if (input.logoIsPressed()) {
+                            control.reset()
+                        }
+                    }
+                }
+            }
+        }
+        basic.pause(1000)
+        if (second == 0) {
+            second = 59
+            if (minute == 0) {
+                minute = 59
+                if (hour == 0) {
+                    hour = 23
+                } else {
+                    hour += -1
+                }
+            } else {
+                minute += -1
+            }
+        } else {
+            second += -1
+        }
+    }
 }
