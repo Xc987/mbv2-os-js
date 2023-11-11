@@ -74,7 +74,7 @@ function loading_animation_rev() {
     basic.pause(30)
     led.unplot(3, 0)
 
-} //Draw loading_animation rev
+} //Draw loading animation reversed.
 function draw_menu(){
     led.plotBrightness(0, 0, 20)
     led.plotBrightness(1, 0, 20)
@@ -82,65 +82,195 @@ function draw_menu(){
     led.plotBrightness(3, 0, 20)
     led.plotBrightness(4, 0, 20)
 } //Draw navigation bar at the top.
+function draw_mini_menu() {
+    led.plotBrightness(1, 0, 20)
+    led.plotBrightness(2, 0, 20)
+    led.plotBrightness(3, 0, 20)
+} //Draw mini navigation bar at the top.
 function menu_select_menu() {
     while (menu_select == true) {
         if (selected_menu == 1) {
-            basic.showLeds(`
+            if (animation_scroll == true) {
+                if (abuttonpressed == true) {
+                    led.unplot(4,0)
+                    images.createImage(`
+                    . . . . .
+                    . . # . .
+                    . # # # .
+                    # # # # #
+                    # . . . #
+                    `).showImage(0)
+                    draw_menu()
+                    abuttonpressed = false
+                } else {
+                    led.unplot(4,0)
+                    images.createImage(`
+                    . . . . .
+                    . . # . .
+                    . # # # .
+                    # # # # #
+                    # . . . #
+                    `).scrollImage(1, 45)
+                    draw_menu()
+                }
+            } else {
+                basic.showLeds(`
         . . . . .
         . . # . .
         . # # # .
         # # # # #
         # . . . #
         `)
+        draw_menu()
+        }
+        led.plot(0,0)
         } else if (selected_menu == 2) {
-            basic.showLeds(`
+            if (animation_scroll == true) {
+                if (abuttonpressed == true) {
+                    led.unplot(0,0)
+                    images.createImage(`
+                    . . . . .
+                    . # . . .
+                    # . . . .
+                    . # . # .
+                    # . # . .
+                    `).showImage(0)
+                    draw_menu()
+                    abuttonpressed = false
+                } else {
+                    led.unplot(0,0)
+                    images.createImage(`
+                    . . . . .
+                    . # . . .
+                    # . . . .
+                    . # . # .
+                    # . # . .
+                    `).scrollImage(1, 45)
+                    draw_menu()
+                }
+            } else {
+                basic.showLeds(`
         . . . . .
         . # . . .
         # . . . .
         . # . # .
         # . # . .
         `)
+                draw_menu()
+            }
+            led.plot(1, 0)
         } else if (selected_menu == 3) {
-            basic.showLeds(`
+            if (animation_scroll == true) {
+                if (abuttonpressed == true) {
+                    led.unplot(1,0)
+                    images.createImage(`
+                    . . . . .
+                    . . # . .
+                    # # # # #
+                    . # # # .
+                    # . # . #
+                    `).showImage(0)
+                    draw_menu()
+                    abuttonpressed = false
+                } else {
+                    led.unplot(1,0)
+                    images.createImage(`
+                    . . . . .
+                    . . # . .
+                    # # # # #
+                    . # # # .
+                    # . # . #
+                    `).scrollImage(1, 45)
+                    draw_menu()
+                }
+            } else {
+                basic.showLeds(`
         . . . . .
         . . # . .
         # # # # #
         . # # # .
-        # . # . #`)
+        # . # . #
+        `)
+                draw_menu()
+            }
+            led.plot(2, 0)
         } else if (selected_menu == 4) {
-            basic.showLeds(`
+            if (animation_scroll == true) {
+                if (abuttonpressed == true) {
+                    led.unplot(2,0)
+                    images.createImage(`
+                    . . . . .
+                    . . . . #
+                    . . . . #
+                    . . # . #
+                    # . # . #
+                    `).showImage(0)
+                    draw_menu()
+                    abuttonpressed = false
+                } else {
+                    led.unplot(2,0)
+                    images.createImage(`
+                    . . . . .
+                    . . . . #
+                    . . . . #
+                    . . # . #
+                    # . # . #
+                    `).scrollImage(1, 45)
+                    draw_menu()
+                }
+            } else {
+                basic.showLeds(`
         . . . . .
         . . . . #
         . . . . #
         . . # . #
         # . # . #
-            `)
+        `)
+                draw_menu()
+            }
+            led.plot(3, 0)
         } else {
-            basic.showLeds(`
+            if (animation_scroll == true) {
+                if (abuttonpressed == true) {
+                    led.unplot(3,0)
+                    images.createImage(`
+                    . . . . .
+                    . # . # .
+                    # . . . .
+                    . # . # .
+                    # . # . .
+                    `).showImage(0)
+                    draw_menu()
+                    abuttonpressed = false
+                } else {
+                    led.unplot(3,0)
+                    images.createImage(`
+                    . . . . .
+                    . # . # .
+                    # . . . .
+                    . # . # .
+                    # . # . .
+                    `).scrollImage(1, 45)
+                    draw_menu()
+                }
+            } else {
+                basic.showLeds(`
         . . . . .
         . # . # .
         # . . . .
         . # . # .
         # . # . .
         `)
-        }
-        draw_menu()
-        if (selected_menu == 1){
-            led.plot(0,0)
-        } else if (selected_menu == 2){
-            led.plot(1,0)
-        } else if (selected_menu == 3){
-            led.plot(2,0)
-        } else if (selected_menu == 4){
-            led.plot(3,0)
-        } else {
-            led.plot(4,0)
+                draw_menu()
+            }
+            led.plot(4, 0)
         }
         waiting_for_input = true
         while (waiting_for_input == true) {
             if (input.buttonIsPressed(Button.A)){
+                abuttonpressed = true
                 if (selected_menu == 1) {
-                    selected_menu = 5
+                    selected_menu = 1
                     waiting_for_input = false
                 } else {
                     selected_menu += -1
@@ -148,7 +278,8 @@ function menu_select_menu() {
                 }
             } else if (input.buttonIsPressed(Button.B)) {
                 if (selected_menu == 5) {
-                    selected_menu = 1
+                    selected_menu = 5
+                    abuttonpressed = true
                     waiting_for_input = false
                 } else {
                     selected_menu += 1
@@ -161,16 +292,20 @@ function menu_select_menu() {
         }
     }
     if (selected_menu == 1){
+        abuttonpressed = true
         menu_select = true
         game_select_menu()
     } else if (selected_menu == 2) {
+        abuttonpressed= true
         menu_select = true
         tool_select_menu()
     } else if (selected_menu == 3) {
         turtle_main()
     } else if (selected_menu == 4) {
+        abuttonpressed = true
         radio_main()
     } else {
+        abuttonpressed = true
         menu_select = true
         settings_select_menu()
     }
@@ -178,107 +313,331 @@ function menu_select_menu() {
 function game_select_menu() {
     while (menu_select == true) {
         if (game_mode == 0) {
-            basic.showLeds(`
-        . . . . .
-        . # . . .
-        # # # # #
-        . # . . #
-        . . . # #
-        `)
-        } else if (game_mode == 1) {
-            basic.showLeds(`
-        . . . . .
-        . . # . .
-        . . . . .
-        . . . . .
-        . . # . .
-        `)
-        led.plotBrightness(2, 3, 20)
-        } else if (game_mode == 2) {
-            basic.showLeds(`
-        . . . . .
-        . . . # .
-        . . . # .
-        . . . . .
-        . . . # .
-            `)
-            led.plotBrightness(1, 3, 20)
-        } else if (game_mode == 3) {
-            basic.showLeds(`
-        . . . . .
-        . . . . .
-        . . . . .
-        . . . . .
-        . # # . .
-            `)
-            led.plotBrightness(3,3,20)
-        } else if (game_mode == 4) {
-            basic.showLeds(`
-        . . . . .
-        . . . . .
-        . . . . .
-        . . . . .
-        . . # . .
-        `)
-        } else if (game_mode == 5) {
-            basic.showLeds(`
-        . . . . .
-        . . . . .
-        . . . # .
-        # . . . .
-        # . . . .
-        `)
-        } else if (game_mode == 6) {
-            basic.showLeds(`
-        . . . . .
-        . . . . .
-        . . . . #
-        . . . . .
-        . . # . .
-        `)
-        } else if (game_mode == 7) {
-            basic.showLeds(`
-        . . . . .
-        . . . . .
-        . . # . .
-        . . . . .
-        # . . . .
-        `)
-            led.plotBrightness(4,4,20)
-        } else {
-            basic.showLeds(`
-        . . . . .
-        . . . . .
-        # . . . .
-        # # . . #
-        # # . # #
-            `)
-        }
-        draw_menu()
-        if (game_mode == 0) {
+            if (animation_scroll == true) {
+                if (abuttonpressed == true) {
+                    led.unplot(4, 0)
+                    images.createImage(`
+                    . . . . .
+                    . # . . .
+                    # # # # #
+                    . # . . #
+                    . . . # #
+                    `).showImage(0)
+                    draw_menu()
+                    abuttonpressed = false
+                } else {
+                    led.unplot(4, 0)
+                    images.createImage(`
+                    . . . . .
+                    . # . . .
+                    # # # # #
+                    . # . . #
+                    . . . # #
+                    `).scrollImage(1, 45)
+                    draw_menu()
+                }
+            } else {
+                basic.showLeds(`
+                . . . . .
+                . # . . .
+                # # # # #
+                . # . . #
+                . . . # #
+                `)
+                draw_menu()
+            }
             led.plot(0, 0)
         } else if (game_mode == 1) {
+            if (animation_scroll == true) {
+                if (abuttonpressed == true) {
+                    led.unplot(0, 0)
+                    images.createImage(`
+                    . . . . .
+                    . . # . .
+                    . . . . .
+                    . . . . .
+                    . . # . .
+                    `).showImage(0)
+                    draw_menu()
+                    abuttonpressed = false
+                } else {
+                    led.unplot(0, 0)
+                    images.createImage(`
+                    . . . . .
+                    . . # . .
+                    . . . . .
+                    . . . . .
+                    . . # . .
+                    `).scrollImage(1, 45)
+                    draw_menu()
+                }
+            } else {
+                basic.showLeds(`
+                . . . . .
+                . . # . .
+                . . . . .
+                . . . . .
+                . . # . .
+                `)
+                draw_menu()
+            }
             led.plot(1, 0)
+            led.plotBrightness(2,3,20)
         } else if (game_mode == 2) {
+            if (animation_scroll == true) {
+                if (abuttonpressed == true) {
+                    led.unplot(1, 0)
+                    images.createImage(`
+                    . . . . .
+                    . . . # .
+                    . . . # .
+                    . . . . .
+                    . . . # .
+                    `).showImage(0)
+                    draw_menu()
+                    abuttonpressed = false
+                } else {
+                    led.unplot(1, 0)
+                    images.createImage(`
+                    . . . . .
+                    . . . # .
+                    . . . # .
+                    . . . . .
+                    . . . # .
+                    `).scrollImage(1, 45)
+                    draw_menu()
+                }
+            } else {
+                basic.showLeds(`
+                . . . . .
+                . . . # .
+                . . . # .
+                . . . . .
+                . . . # .
+                `)
+                draw_menu()
+            }
             led.plot(2, 0)
+            led.plotBrightness(1, 3, 20)
         } else if (game_mode == 3) {
+            if (animation_scroll == true) {
+                if (abuttonpressed == true) {
+                    led.unplot(2, 0)
+                    images.createImage(`
+                    . . . . .
+                    . . . . .
+                    . . . . .
+                    . . . . .
+                    . # # . .
+                    `).showImage(0)
+                    draw_menu()
+                    abuttonpressed = false
+                } else {
+                    led.unplot(2, 0)
+                    images.createImage(`
+                    . . . . .
+                    . . . . .
+                    . . . . .
+                    . . . . .
+                    . # # . .
+                    `).scrollImage(1, 45)
+                    draw_menu()
+                }
+            } else {
+                basic.showLeds(`
+                . . . . .
+                . . . . .
+                . . . . .
+                . . . . .
+                . # # . .
+                `)
+                draw_menu()
+            }
             led.plot(2, 0)
+            led.plotBrightness(3, 3, 20)
         } else if (game_mode == 4) {
+            if (animation_scroll == true) {
+                if (abuttonpressed == true) {
+                    led.unplot(2, 0)
+                    images.createImage(`
+                    . . . . .
+                    . . . . .
+                    . . . . .
+                    . . . . .
+                    . . # . .
+                    `).showImage(0)
+                    draw_menu()
+                    abuttonpressed = false
+                } else {
+                    led.unplot(2, 0)
+                    images.createImage(`
+                    . . . . .
+                    . . . . .
+                    . . . . .
+                    . . . . .
+                    . . # . .
+                    `).scrollImage(1, 45)
+                    draw_menu()
+                }
+            } else {
+                basic.showLeds(`
+                . . . . .
+                . . . . .
+                . . . . .
+                . . . . .
+                . . # . .
+                `)
+                draw_menu()
+            }
             led.plot(2, 0)
         } else if (game_mode == 5) {
+            if (animation_scroll == true) {
+                if (abuttonpressed == true) {
+                    led.unplot(2, 0)
+                    images.createImage(`
+                    . . . . .
+                    . . . . .
+                    . . . # .
+                    # . . . .
+                    # . . . .
+                    `).showImage(0)
+                    draw_menu()
+                    abuttonpressed = false
+                } else {
+                    led.unplot(2, 0)
+                    images.createImage(`
+                    . . . . .
+                    . . . . .
+                    . . . # .
+                    # . . . .
+                    # . . . .
+                    `).scrollImage(1, 45)
+                    draw_menu()
+                }
+            } else {
+                basic.showLeds(`
+                . . . . .
+                . . . . .
+                . . . # .
+                # . . . .
+                # . . . .
+                `)
+                draw_menu()
+            }
             led.plot(2, 0)
         } else if (game_mode == 6) {
+            if (animation_scroll == true) {
+                if (abuttonpressed == true) {
+                    led.unplot(2, 0)
+                    images.createImage(`
+                    . . . . .
+                    . . . . .
+                    . . . . #
+                    . . . . .
+                    . . # . .
+                    `).showImage(0)
+                    draw_menu()
+                    abuttonpressed = false
+                } else {
+                    led.unplot(2, 0)
+                    images.createImage(`
+                    . . . . .
+                    . . . . .
+                    . . . . #
+                    . . . . .
+                    . . # . .
+                    `).scrollImage(1, 45)
+                    draw_menu()
+                }
+            } else {
+                basic.showLeds(`
+                . . . . .
+                . . . . .
+                . . . . #
+                . . . . .
+                . . # . .
+                `)
+                draw_menu()
+            }
             led.plot(2, 0)
         } else if (game_mode == 7) {
+            if (animation_scroll == true) {
+                if (abuttonpressed == true) {
+                    led.unplot(2, 0)
+                    images.createImage(`
+                    . . . . .
+                    . . . . .
+                    . . # . .
+                    . . . . .
+                    # . . . .
+                    `).showImage(0)
+                    draw_menu()
+                    abuttonpressed = false
+                } else {
+                    led.unplot(2, 0)
+                    images.createImage(`
+                    . . . . .
+                    . . . . .
+                    . . # . .
+                    . . . . .
+                    # . . . .
+                    `).scrollImage(1, 45)
+                    draw_menu()
+                }
+            } else {
+                basic.showLeds(`
+                . . . . .
+                . . . . .
+                . . # . .
+                . . . . .
+                # . . . .
+                `)
+                draw_menu()
+            }
             led.plot(3, 0)
-        } else if (game_mode == 8) {
+            led.plotBrightness(4,4,20)
+        } else {
+            if (animation_scroll == true) {
+                if (abuttonpressed == true) {
+                    led.unplot(3, 0)
+                    images.createImage(`
+                    . . . . .
+                    . . . . .
+                    # . . . .
+                    # # . . #
+                    # # . # #
+                    `).showImage(0)
+                    draw_menu()
+                    abuttonpressed = false
+                } else {
+                    led.unplot(3, 0)
+                    images.createImage(`
+                    . . . . .
+                    . . . . .
+                    # . . . .
+                    # # . . #
+                    # # . # #
+                    `).scrollImage(1, 45)
+                    draw_menu()
+                }
+            } else {
+                basic.showLeds(`
+                . . . . .
+                . . . . .
+                # . . . .
+                # # . . #
+                # # . # #
+                `)
+                draw_menu()
+            }
             led.plot(4, 0)
         }
         waiting_for_input = true
         while (waiting_for_input == true) {
             if (input.buttonIsPressed(Button.A)) {
+                abuttonpressed = true
                 if (game_mode == 0) {
-                    game_mode = 8
+                    game_mode = 0
                     waiting_for_input = false
                 } else {
                     game_mode += -1
@@ -286,7 +645,8 @@ function game_select_menu() {
                 }
             } else if (input.buttonIsPressed(Button.B)) {
                 if (game_mode == 8) {
-                    game_mode = 0
+                    game_mode = 8
+                    abuttonpressed = true
                     waiting_for_input = false
                 } else {
                     game_mode += 1
@@ -363,123 +723,397 @@ function game_select_menu() {
 function tool_select_menu () {
     while (menu_select == true) {
         if (selected_tool == 0) {
-            basic.showLeds(`
-        . . . . .
-        . # . . .
-        # # # # #
-        . # . . #
-        . . . # #
-        `)
-        } else if (selected_tool == 1) {
-            basic.showLeds(`
-        . . . . .
-        . # # . #
-        # . . . .
-        # . . . .
-        . # # . .
-        `)
-        } else if (selected_tool == 2) {
-            basic.showLeds(`
-        . . . . .
-        . # # # .
-        # . . . #
-        . # . # .
-        . # # # .
-        `)
-        } else if (selected_tool == 3) {
-            basic.showLeds(`
-        . . . . .
-        . # . # .
-        . # . . .
-        # # # . .
-        . # . . .
-            `)
-        } else if (selected_tool == 4) {
-            basic.showLeds(`
-        . . . . .
-        . . # . .
-        . # # # .
-        # . # . #
-        . . # . .
-        `)
-        } else if (selected_tool == 5) {
-            basic.showLeds(`
-        . . . . .
-        . . . . .
-        # . # . .
-        . # . . .
-        # . # . .
-        `)
-        } else if (selected_tool == 6) {
-            basic.showLeds(`
-        . . . . .
-        # . # . .
-        # # # . .
-        . # . . .
-        # # . . .
-        `)
-        } else if (selected_tool == 7) {
-            basic.showLeds(`
-        . . . . .
-        # # # . .
-        . # . . .
-        # . . . .
-        # # # . .
-            `)
-        } else if (selected_tool == 8){
-            basic.showLeds(`
-        . . . . .
-        . . # # .
-        . . # . #
-        # # # . .
-        # # # . .
-            `)
-        } else if (selected_tool == 9) {
-        basic.showLeds(`
-        . . . . .
-        . # . . .
-        # # # . .
-        . # . . .
-        . . . # #
-        `)
-        } else {
-        basic.showLeds(`
-        . . . . .
-        # . # . #
-        # . # # #
-        # . . . #
-        . # # # .
-        `)
-        }
-        draw_menu()
-        if (selected_tool == 0) {
+            if (animation_scroll == true) {
+                if (abuttonpressed == true) {
+                    led.unplot(4, 0)
+                    images.createImage(`
+                    . . . . .
+                    . # . . .
+                    # # # # #
+                    . # . . #
+                    . . . # #
+                    `).showImage(0)
+                    draw_menu()
+                    abuttonpressed = false
+                } else {
+                    led.unplot(4, 0)
+                    images.createImage(`
+                    . . . . .
+                    . # . . .
+                    # # # # #
+                    . # . . #
+                    . . . # #
+                    `).scrollImage(1, 45)
+                    draw_menu()
+                }
+            } else {
+                basic.showLeds(`
+                . . . . .
+                . # . . .
+                # # # # #
+                . # . . #
+                . . . # #
+                `)
+                draw_menu()
+            }
             led.plot(0, 0)
         } else if (selected_tool == 1) {
+            if (animation_scroll == true) {
+                if (abuttonpressed == true) {
+                    led.unplot(0, 0)
+                    images.createImage(`
+                    . . . . .
+                    . # # . #
+                    # . . . .
+                    # . . . .
+                    . # # . .
+                    `).showImage(0)
+                    draw_menu()
+                    abuttonpressed = false
+                } else {
+                    led.unplot(0, 0)
+                    images.createImage(`
+                    . . . . .
+                    . # # . #
+                    # . . . .
+                    # . . . .
+                    . # # . .
+                    `).scrollImage(1, 45)
+                    draw_menu()
+                }
+            } else {
+                basic.showLeds(`
+                . . . . .
+                . # # . .
+                # . . . .
+                # . . . .
+                . # # . .
+                `)
+                draw_menu()
+            }
             led.plot(1, 0)
         } else if (selected_tool == 2) {
+            if (animation_scroll == true) {
+                if (abuttonpressed == true) {
+                    led.unplot(1, 0)
+                    images.createImage(`
+                    . . . . .
+                    . # # # .
+                    # . . . #
+                    . # . # .
+                    . # # # .
+                    `).showImage(0)
+                    draw_menu()
+                    abuttonpressed = false
+                } else {
+                    led.unplot(1, 0)
+                    images.createImage(`
+                    . . . . .
+                    . # # # .
+                    # . . . #
+                    . # . # .
+                    . # # # .
+                    `).scrollImage(1, 45)
+                    draw_menu()
+                }
+            } else {
+                basic.showLeds(`
+                . . . . .
+                . # # # .
+                # . . . #
+                . # . # .
+                . # # # .
+                `)
+                draw_menu()
+            }
             led.plot(2, 0)
         } else if (selected_tool == 3) {
+            if (animation_scroll == true) {
+                if (abuttonpressed == true) {
+                    led.unplot(2, 0)
+                    images.createImage(`
+                    . . . . .
+                    . # . # .
+                    . # . . .
+                    # # # . .
+                    . # . . .
+                    `).showImage(0)
+                    draw_menu()
+                    abuttonpressed = false
+                } else {
+                    led.unplot(2, 0)
+                    images.createImage(`
+                    . . . . .
+                    . # . # .
+                    . # . . .
+                    # # # . .
+                    . # . . .
+                    `).scrollImage(1, 45)
+                    draw_menu()
+                }
+            } else {
+                basic.showLeds(`
+                . . . . .
+                . # . # .
+                . # . . .
+                # # # . .
+                . # . . .
+                `)
+                draw_menu()
+            }
             led.plot(2, 0)
         } else if (selected_tool == 4) {
+            if (animation_scroll == true) {
+                if (abuttonpressed == true) {
+                    led.unplot(2, 0)
+                    images.createImage(`
+                    . . . . .
+                    . . # . .
+                    . # # # .
+                    # . # . #
+                    . . # . .
+                    `).showImage(0)
+                    draw_menu()
+                    abuttonpressed = false
+                } else {
+                    led.unplot(2, 0)
+                    images.createImage(`
+                    . . . . .
+                    . . # . .
+                    . # # # .
+                    # . # . #
+                    . . # . .
+                    `).scrollImage(1, 45)
+                    draw_menu()
+                }
+            } else {
+                basic.showLeds(`
+                . . . . .
+                . . # . .
+                . # # # .
+                # . # . #
+                . . # . .
+                `)
+                draw_menu()
+            }
             led.plot(2, 0)
         } else if (selected_tool == 5) {
+            if (animation_scroll == true) {
+                if (abuttonpressed == true) {
+                    led.unplot(2, 0)
+                    images.createImage(`
+                    . . . . .
+                    . . . . .
+                    # . # . .
+                    . # . . .
+                    # . # . .
+                    `).showImage(0)
+                    draw_menu()
+                    abuttonpressed = false
+                } else {
+                    led.unplot(2, 0)
+                    images.createImage(`
+                    . . . . .
+                    . . . . .
+                    # . # . .
+                    . # . . .
+                    # . # . .
+                    `).scrollImage(1, 45)
+                    draw_menu()
+                }
+            } else {
+                basic.showLeds(`
+                . . . . .
+                . . . . .
+                # . # . .
+                . # . . .
+                # . # . .
+                `)
+                draw_menu()
+            }
             led.plot(2, 0)
         } else if (selected_tool == 6) {
+            if (animation_scroll == true) {
+                if (abuttonpressed == true) {
+                    led.unplot(2, 0)
+                    images.createImage(`
+                    . . . . .
+                    # . # . .
+                    # . # . .
+                    . # . . .
+                    # # . . .
+                    `).showImage(0)
+                    draw_menu()
+                    abuttonpressed = false
+                } else {
+                    led.unplot(2, 0)
+                    images.createImage(`
+                    . . . . .
+                    # . # . .
+                    # . # . .
+                    . # . . .
+                    # # . . .
+                    `).scrollImage(1, 45)
+                    draw_menu()
+                }
+            } else {
+                basic.showLeds(`
+                . . . . .
+                # . # . .
+                # . # . .
+                . # . . .
+                # # . . .
+                `)
+                draw_menu()
+            }
             led.plot(2, 0)
         } else if (selected_tool == 7) {
+            if (animation_scroll == true) {
+                if (abuttonpressed == true) {
+                    led.unplot(2, 0)
+                    images.createImage(`
+                    . . . . .
+                    # # # . .
+                    . # . . .
+                    # . . . .
+                    # # # . .
+                    `).showImage(0)
+                    draw_menu()
+                    abuttonpressed = false
+                } else {
+                    led.unplot(2, 0)
+                    images.createImage(`
+                    . . . . .
+                    # # # . .
+                    . # . . .
+                    # . . . .
+                    # # # . .
+                    `).scrollImage(1, 45)
+                    draw_menu()
+                }
+            } else {
+                basic.showLeds(`
+                . . . . .
+                # # # . .
+                . # . . .
+                # . . . .
+                # # # . .
+                `)
+                draw_menu()
+            }
             led.plot(2, 0)
-        } else if (selected_tool == 8) {
+        } else if (selected_tool == 8){
+            if (animation_scroll == true) {
+                if (abuttonpressed == true) {
+                    led.unplot(2, 0)
+                    images.createImage(`
+                    . . . . .
+                    . . # # .
+                    . . # . #
+                    # # # . .
+                    # # # . .
+                    `).showImage(0)
+                    draw_menu()
+                    abuttonpressed = false
+                } else {
+                    led.unplot(2, 0)
+                    images.createImage(`
+                    . . . . .
+                    . . # # .
+                    . . # . #
+                    # # # . .
+                    # # # . .
+                    `).scrollImage(1, 45)
+                    draw_menu()
+                }
+            } else {
+                basic.showLeds(`
+                . . . . .
+                . . # # .
+                . . # . #
+                # # # . .
+                # # # . .
+                `)
+                draw_menu()
+            }
             led.plot(2, 0)
         } else if (selected_tool == 9) {
+            if (animation_scroll == true) {
+                if (abuttonpressed == true) {
+                    led.unplot(2, 0)
+                    images.createImage(`
+                    . . . . .
+                    . # . . .
+                    # # # . .
+                    . # . . .
+                    . . . # #
+                    `).showImage(0)
+                    draw_menu()
+                    abuttonpressed = false
+                } else {
+                    led.unplot(2, 0)
+                    images.createImage(`
+                    . . . . .
+                    . # . . .
+                    # # # . .
+                    . # . . .
+                    . . . # #
+                    `).scrollImage(1, 45)
+                    draw_menu()
+                }
+            } else {
+                basic.showLeds(`
+                . . . . .
+                . # . . .
+                # # # . .
+                . # . . .
+                . . . # #
+                `)
+                draw_menu()
+            }
             led.plot(3, 0)
         } else {
+            if (animation_scroll == true) {
+                if (abuttonpressed == true) {
+                    led.unplot(3, 0)
+                    images.createImage(`
+                    . . . . .
+                    # . # . #
+                    # . # # #
+                    # . . . #
+                    . # # # .
+                    `).showImage(0)
+                    draw_menu()
+                    abuttonpressed = false
+                } else {
+                    led.unplot(3, 0)
+                    images.createImage(`
+                    . . . . .
+                    # . # . #
+                    # . # # #
+                    # . . . #
+                    . # # # .
+                    `).scrollImage(1, 45)
+                    draw_menu()
+                }
+            } else {
+                basic.showLeds(`
+                . . . . .
+                # . # . #
+                # . # # #
+                # . . . #
+                . # # # .
+                `)
+                draw_menu()
+            }
             led.plot(4, 0)
         }
         waiting_for_input = true
         while (waiting_for_input == true) {
             if (input.buttonIsPressed(Button.A)) {
+                abuttonpressed = true
                 if (selected_tool == 0) {
-                    selected_tool = 10
+                    selected_tool = 0
                     waiting_for_input = false
                 } else {
                     selected_tool += -1
@@ -487,7 +1121,8 @@ function tool_select_menu () {
                 }
             } else if (input.buttonIsPressed(Button.B)) {
                 if (selected_tool == 10) {
-                    selected_tool = 0
+                    selected_tool = 10
+                    abuttonpressed = true
                     waiting_for_input = false
                 } else {
                     selected_tool += 1
@@ -519,11 +1154,14 @@ function tool_select_menu () {
     } else if (selected_tool == 7) {
         tool_accZ()
     } else if (selected_tool == 8) {
+        abuttonpressed = true
         tool_record()
     }  else if (selected_tool == 9) {
+        abuttonpressed = true
         menu_select = true
         tool_calculator_menu()
     } else {
+        abuttonpressed =  true
         menu_select = true
         tool_clock_menu()
     }
@@ -531,123 +1169,397 @@ function tool_select_menu () {
 function tool_calculator_menu() {
     while (menu_select == true) {
         if (selected_math == 1) {
-            basic.showLeds(`
-        . . . . .
-        . . . . .
-        . # . . .
-        # # # . .
-        . # . . .
-        `)
-        } else if (selected_math == 2) {
-            basic.showLeds(`
-        . . . . .
-        . . . . .
-        . . . . .
-        # # # . .
-        . . . . .
-        `)
-        } else if (selected_math == 3) {
-            basic.showLeds(`
-        . . . . .
-        . . . . .
-        # . # . .
-        . # . . .
-        # . # . .
-        `)
-        } else if (selected_math == 4) {
-            basic.showLeds(`
-        . . . . .
-        . . . . .
-        . . # . .
-        . # . . .
-        # . . . .
-            `)
-        } else if (selected_math == 5) {
-            basic.showLeds(`
-        . . . . .
-        . . . . .
-        . . . . .
-        . # . . .
-        # . # . .
-        `)
-        } else if (selected_math == 6) {
-            basic.showLeds(`
-        . . . . .
-        . # # # .
-        . # . . .
-        # # . . .
-        . # . . .
-        `)
-        } else if (selected_math == 7) {
-            basic.showLeds(`
-        . . . . .
-        . . # # .
-        . # . . .
-        . . # . .
-        # # . . .
-        `)
-        } else if (selected_math == 8) {
-            basic.showLeds(`
-        . . . . .
-        . # # . .
-        # . . . .
-        # . . . .
-        . # # . .
-            `)
-        } else if (selected_math == 9) {
-            basic.showLeds(`
-        . . . . .
-        . # . . .
-        # # # . .
-        . # . . .
-        . # . . .
-            `)
-        } else if (selected_math == 10){
-            basic.showLeds(`
-        . . . . .
-        # # # . #
-        # . # . #
-        # # # . #
-        # . . . #
-        `) 
-        } else {
-            basic.showLeds(`
-            . . . . .
-            . # # # .
-            # . . . #
-            . . # # .
-            . . # . .
-            `)
-        }
-        draw_menu()
-        if (selected_math == 1) {
+            if (animation_scroll == true) {
+                if (abuttonpressed == true) {
+                    led.unplot(4, 0)
+                    images.createImage(`
+                    . . . . .
+                    . . . . .
+                    . # . . .
+                    # # # . .
+                    . # . . .
+                    `).showImage(0)
+                    draw_menu()
+                    abuttonpressed = false
+                } else {
+                    led.unplot(4, 0)
+                    images.createImage(`
+                    . . . . .
+                    . . . . .
+                    . # . . .
+                    # # # . .
+                    . # . . .
+                    `).scrollImage(1, 45)
+                    draw_menu()
+                }
+            } else {
+                basic.showLeds(`
+                . . . . .
+                . . . . .
+                . # . . .
+                # # # . .
+                . # . . .
+                `)
+                draw_menu()
+            }
             led.plot(0, 0)
         } else if (selected_math == 2) {
+            if (animation_scroll == true) {
+                if (abuttonpressed == true) {
+                    led.unplot(0, 0)
+                    images.createImage(`
+                    . . . . .
+                    . . . . .
+                    . . . . .
+                    # # # . .
+                    . . . . .
+                    `).showImage(0)
+                    draw_menu()
+                    abuttonpressed = false
+                } else {
+                    led.unplot(0, 0)
+                    images.createImage(`
+                    . . . . .
+                    . . . . .
+                    . . . . .
+                    # # # . .
+                    . . . . .
+                    `).scrollImage(1, 45)
+                    draw_menu()
+                }
+            } else {
+                basic.showLeds(`
+                . . . . .
+                . . . . .
+                . . . . .
+                # # # . .
+                . . . . .
+                `)
+                draw_menu()
+            }
             led.plot(1, 0)
         } else if (selected_math == 3) {
+            if (animation_scroll == true) {
+                if (abuttonpressed == true) {
+                    led.unplot(1, 0)
+                    images.createImage(`
+                    . . . . .
+                    . . . . .
+                    # . # . .
+                    . # . . .
+                    # . # . .
+                    `).showImage(0)
+                    draw_menu()
+                    abuttonpressed = false
+                } else {
+                    led.unplot(1, 0)
+                    images.createImage(`
+                    . . . . .
+                    . . . . .
+                    # . # . .
+                    . # . . .
+                    # . # . .
+                    `).scrollImage(1, 45)
+                    draw_menu()
+                }
+            } else {
+                basic.showLeds(`
+                . . . . .
+                . . . . .
+                # . # . .
+                . # . . .
+                # . # . .
+                `)
+                draw_menu()
+            }
             led.plot(2, 0)
         } else if (selected_math == 4) {
+            if (animation_scroll == true) {
+                if (abuttonpressed == true) {
+                    led.unplot(2, 0)
+                    images.createImage(`
+                    . . . . .
+                    . . . . .
+                    . . # . .
+                    . # . . .
+                    # . . . .
+                    `).showImage(0)
+                    draw_menu()
+                    abuttonpressed = false
+                } else {
+                    led.unplot(2, 0)
+                    images.createImage(`
+                    . . . . .
+                    . . . . .
+                    . . # . .
+                    . # . . .
+                    # . . . .
+                    `).scrollImage(1, 45)
+                    draw_menu()
+                }
+            } else {
+                basic.showLeds(`
+                . . . . .
+                . . . . .
+                . . # . .
+                . # . . .
+                # . . . .
+                `)
+                draw_menu()
+            }
             led.plot(2, 0)
         } else if (selected_math == 5) {
+            if (animation_scroll == true) {
+                if (abuttonpressed == true) {
+                    led.unplot(2, 0)
+                    images.createImage(`
+                    . . . . .
+                    . . . . .
+                    . . . . .
+                    . # . . .
+                    # . # . .
+                    `).showImage(0)
+                    draw_menu()
+                    abuttonpressed = false
+                } else {
+                    led.unplot(2, 0)
+                    images.createImage(`
+                    . . . . .
+                    . . . . .
+                    . . . . .
+                    . # . . .
+                    # . # . .
+                    `).scrollImage(1, 45)
+                    draw_menu()
+                }
+            } else {
+                basic.showLeds(`
+                . . . . .
+                . . . . .
+                . . . . .
+                . # . . .
+                # . # . .
+                `)
+                draw_menu()
+            }
             led.plot(2, 0)
         } else if (selected_math == 6) {
+            if (animation_scroll == true) {
+                if (abuttonpressed == true) {
+                    led.unplot(2, 0)
+                    images.createImage(`
+                    . . . . .
+                    . # # # .
+                    . # . . .
+                    # # . . .
+                    . # . . .
+                    `).showImage(0)
+                    draw_menu()
+                    abuttonpressed = false
+                } else {
+                    led.unplot(2, 0)
+                    images.createImage(`
+                    . . . . .
+                    . # # # .
+                    . # . . .
+                    # # . . .
+                    . # . . .
+                    `).scrollImage(1, 45)
+                    draw_menu()
+                }
+            } else {
+                basic.showLeds(`
+                . . . . .
+                . # # # .
+                . # . . .
+                # # . . .
+                . # . . .
+                `)
+                draw_menu()
+            }
             led.plot(2, 0)
         } else if (selected_math == 7) {
+            if (animation_scroll == true) {
+                if (abuttonpressed == true) {
+                    led.unplot(2, 0)
+                    images.createImage(`
+                    . . . . .
+                    . . # # .
+                    . # . . .
+                    . . # . .
+                    # # . . .
+                    `).showImage(0)
+                    draw_menu()
+                    abuttonpressed = false
+                } else {
+                    led.unplot(2, 0)
+                    images.createImage(`
+                    . . . . .
+                    . . # # .
+                    . # . . .
+                    . . # . .
+                    # # . . .
+                    `).scrollImage(1, 45)
+                    draw_menu()
+                }
+            } else {
+                basic.showLeds(`
+                . . . . .
+                . . # # .
+                . # . . .
+                . . # . .
+                # # . . .
+                `)
+                draw_menu()
+            }
             led.plot(2, 0)
         } else if (selected_math == 8) {
+            if (animation_scroll == true) {
+                if (abuttonpressed == true) {
+                    led.unplot(2, 0)
+                    images.createImage(`
+                    . . . . .
+                    . # # . .
+                    # . . . .
+                    # . . . .
+                    . # # . .
+                    `).showImage(0)
+                    draw_menu()
+                    abuttonpressed = false
+                } else {
+                    led.unplot(2, 0)
+                    images.createImage(`
+                    . . . . .
+                    . # # . .
+                    # . . . .
+                    # . . . .
+                    . # # . .
+                    `).scrollImage(1, 45)
+                    draw_menu()
+                }
+            } else {
+                basic.showLeds(`
+                . . . . .
+                . # # . .
+                # . . . .
+                # . . . .
+                . # # . .
+                `)
+                draw_menu()
+            }
             led.plot(2, 0)
         } else if (selected_math == 9) {
+            if (animation_scroll == true) {
+                if (abuttonpressed == true) {
+                    led.unplot(2, 0)
+                    images.createImage(`
+                    . . . . .
+                    . # . . .
+                    # # # . .
+                    . # . . .
+                    . # . . .
+                    `).showImage(0)
+                    draw_menu()
+                    abuttonpressed = false
+                } else {
+                    led.unplot(2, 0)
+                    images.createImage(`
+                    . . . . .
+                    . # . . .
+                    # # # . .
+                    . # . . .
+                    . # . . .
+                    `).scrollImage(1, 45)
+                    draw_menu()
+                }
+            } else {
+                basic.showLeds(`
+                . . . . .
+                . # . . .
+                # # # . .
+                . # . . .
+                . # . . .
+                `)
+                draw_menu()
+            }
             led.plot(2, 0)
-        } else if (selected_math == 10) {
+        } else if (selected_math == 10){
+            if (animation_scroll == true) {
+                if (abuttonpressed == true) {
+                    led.unplot(2, 0)
+                    images.createImage(`
+                    . . . . .
+                    # # # . #
+                    # . # . #
+                    # # # . #
+                    # . . . #
+                    `).showImage(0)
+                    draw_menu()
+                    abuttonpressed = false
+                } else {
+                    led.unplot(2, 0)
+                    images.createImage(`
+                    . . . . .
+                    # # # . #
+                    # . # . #
+                    # # # . #
+                    # . . . #
+                    `).scrollImage(1, 45)
+                    draw_menu()
+                }
+            } else {
+                basic.showLeds(`
+                . . . . .
+                # # # . #
+                # . # . #
+                # # # . #
+                # . . . #
+                `)
+                draw_menu()
+            }
             led.plot(3, 0)
         } else {
+            if (animation_scroll == true) {
+                if (abuttonpressed == true) {
+                    led.unplot(3, 0)
+                    images.createImage(`
+                    . . . . .
+                    . # # # .
+                    # . . . #
+                    . . # # .
+                    . . # . .
+                    `).showImage(0)
+                    draw_menu()
+                    abuttonpressed = false
+                } else {
+                    led.unplot(3, 0)
+                    images.createImage(`
+                    . . . . .
+                    . # # # .
+                    # . . . #
+                    . . # # .
+                    . . # . .
+                    `).scrollImage(1, 45)
+                    draw_menu()
+                }
+            } else {
+                basic.showLeds(`
+                . . . . .
+                . # # # .
+                # . . . #
+                . . # # .
+                . . # . .
+                `)
+                draw_menu()
+            }
             led.plot(4, 0)
         }
         waiting_for_input = true
         while (waiting_for_input == true) {
             if (input.buttonIsPressed(Button.A)) {
+                abuttonpressed = true
                 if (selected_math == 1) {
-                    selected_math = 11
+                    selected_math = 1
                     waiting_for_input = false
                 } else {
                     selected_math += -1
@@ -655,7 +1567,8 @@ function tool_calculator_menu() {
                 }
             } else if (input.buttonIsPressed(Button.B)) {
                 if (selected_math == 11) {
-                    selected_math = 1
+                    selected_math = 11
+                    abuttonpressed = true
                     waiting_for_input = false
                 } else {
                     selected_math += 1
@@ -697,45 +1610,117 @@ function tool_calculator_menu() {
 function tool_clock_menu() {
     while (menu_select == true) {
         if (selected_clock == 1) {
-            basic.showLeds(`
-        . . . . .
-        # # . # #
-        # # # # #
-        . # . # .
-        . # # # .
-        `)
-        } else if (selected_clock == 2) {
-            basic.showLeds(`
-        . . . . .
-        . . # . .
-        . . # # #
-        . . . . .
-        . . . . .
-        `)
-        } else {
-            basic.showLeds(`
-        . . . . .
-        # # . # #
-        # . # . #
-        # # . # #
-        . . . . .
-        `)
-        }
-        led.plotBrightness(1,0,20)
-        led.plotBrightness(2,0,20)
-        led.plotBrightness(3,0,20)
-        if (selected_clock == 1) {
+            if (animation_scroll == true) {
+                if (abuttonpressed == true) {
+                    led.unplot(3, 0)
+                    images.createImage(`
+                    . . . . .
+                    # # . # #
+                    # # # # #
+                    . # . # .
+                    . # # # .
+                    `).showImage(0)
+                    draw_mini_menu()
+                    abuttonpressed = false
+                } else {
+                    led.unplot(3, 0)
+                    images.createImage(`
+                    . . . . .
+                    # # . # #
+                    # # # # #
+                    . # . # .
+                    . # # # .
+                    `).scrollImage(1, 45)
+                    draw_mini_menu()
+                }
+            } else {
+                basic.showLeds(`
+                . . . . .
+                # # . # #
+                # # # # #
+                . # . # .
+                . # # # .
+                `)
+                draw_mini_menu()
+            }
             led.plot(1, 0)
         } else if (selected_clock == 2) {
+            if (animation_scroll == true) {
+                if (abuttonpressed == true) {
+                    led.unplot(1, 0)
+                    images.createImage(`
+                    . . . . .
+                    . . # . .
+                    . . # # #
+                    . . . . .
+                    . . . . .
+                    `).showImage(0)
+                    draw_mini_menu()
+                    abuttonpressed = false
+                } else {
+                    led.unplot(1, 0)
+                    images.createImage(`
+                    . . . . .
+                    . . # . .
+                    . . # # #
+                    . . . . .
+                    . . . . .
+                    `).scrollImage(1, 45)
+                    draw_mini_menu()
+                }
+            } else {
+                basic.showLeds(`
+                . . . . .
+                . . # . .
+                . . # # #
+                . . . . .
+                . . . . .
+                `)
+                draw_mini_menu()
+            }
             led.plot(2, 0)
-        } else if (selected_clock == 3) {
+        } else {
+            if (animation_scroll == true) {
+                if (abuttonpressed == true) {
+                    led.unplot(2, 0)
+                    images.createImage(`
+                    . . . . .
+                    # # . # #
+                    # . # . #
+                    # # . # #
+                    . . . . .
+                    `).showImage(0)
+                    draw_mini_menu()
+                    abuttonpressed = false
+                } else {
+                    led.unplot(2, 0)
+                    images.createImage(`
+                    . . . . .
+                    # # . # #
+                    # . # . #
+                    # # . # #
+                    . . . . .
+                    `).scrollImage(1, 45)
+                    draw_mini_menu()
+                }
+            } else {
+                basic.showLeds(`
+                . . . . .
+                # # . # #
+                # . # . #
+                # # . # #
+                . . . . .
+                `)
+                draw_mini_menu()
+            }
             led.plot(3, 0)
         }
         waiting_for_input = true
         while (waiting_for_input == true) {
             if (input.buttonIsPressed(Button.A)) {
+                abuttonpressed = true
                 if (selected_clock == 1) {
-                    selected_clock = 3
+                    selected_clock = 1
                     waiting_for_input = false
                 } else {
                     selected_clock += -1
@@ -743,7 +1728,8 @@ function tool_clock_menu() {
                 }
             } else if (input.buttonIsPressed(Button.B)) {
                 if (selected_clock == 3) {
-                    selected_clock = 1
+                    selected_clock = 3
+                    abuttonpressed = true
                     waiting_for_input = false
                 } else {
                     selected_clock += 1
@@ -837,45 +1823,180 @@ function radio_main() {
     menu_select = true
     while (menu_select == true) {
         if (radio_type == 1) {
-            basic.showLeds(`
-            . . . . .
-            . . # . .
-            . # # . .
-            . . # . .
-            . . # . .
-            `)
+            if (animation_scroll == true) {
+                if (abuttonpressed == true) {
+                    led.unplot(4, 0)
+                    images.createImage(`
+                    . . . . .
+                    . . # . .
+                    . # # . .
+                    . . # . .
+                    . . # . .
+                    `).showImage(0)
+                    draw_menu()
+                    abuttonpressed = false
+                } else {
+                    led.unplot(4, 0)
+                    images.createImage(`
+                    . . . . .
+                    . . # . .
+                    . # # . .
+                    . . # . .
+                    . . # . .
+                    `).scrollImage(1, 45)
+                    draw_menu()
+                }
+            } else {
+                basic.showLeds(`
+                . . . . .
+                . . # . .
+                . # # . .
+                . . # . .
+                . . # . .
+                `)
+                draw_menu()
+            }
+            led.plot(0, 0)
         } else if (radio_type == 2) {
-            basic.showLeds(`
-            . . . . .
-            . . . . .
-            # . . . #
-            # # # # #
-            . . . . .
-            `)
+            if (animation_scroll == true) {
+                if (abuttonpressed == true) {
+                    led.unplot(0, 0)
+                    images.createImage(`
+                    . . . . .
+                    . . . . .
+                    # . . . #
+                    # # # # #
+                    . . . . .
+                    `).showImage(0)
+                    draw_menu()
+                    abuttonpressed = false
+                } else {
+                    led.unplot(0, 0)
+                    images.createImage(`
+                    . . . . .
+                    . . . . .
+                    # . . . #
+                    # # # # #
+                    . . . . .
+                    `).scrollImage(1, 45)
+                    draw_menu()
+                }
+            } else {
+                basic.showLeds(`
+                . . . . .
+                . . . . .
+                # . . . #
+                # # # # #
+                . . . . .
+                `)
+                draw_menu()
+            }
+            led.plot(1, 0)
         } else if (radio_type == 3) {
-            basic.showLeds(`
-            . . . . .
-            . . . # #
-            . . . . #
-            # . # . #
-            # # # . #
-            `)
+            if (animation_scroll == true) {
+                if (abuttonpressed == true) {
+                    led.unplot(1, 0)
+                    images.createImage(`
+                    . . . . .
+                    . . . # #
+                    . . . . #
+                    # . # . #
+                    # # # . #
+                    `).showImage(0)
+                    draw_menu()
+                    abuttonpressed = false
+                } else {
+                    led.unplot(1, 0)
+                    images.createImage(`
+                    . . . . .
+                    . . . # #
+                    . . . . #
+                    # . # . #
+                    # # # . #
+                    `).scrollImage(1, 45)
+                    draw_menu()
+                }
+            } else {
+                basic.showLeds(`
+                . . . . .
+                . . . # #
+                . . . . #
+                # . # . #
+                # # # . #
+                `)
+                draw_menu()
+            }
+            led.plot(2, 0)
         } else if (radio_type == 4) {
-            basic.showLeds(`
-            . . . . .
-            . . . . #
-            # # . . .
-            . . # . .
-            # . # . .
-            `)
+            if (animation_scroll == true) {
+                if (abuttonpressed == true) {
+                    led.unplot(2, 0)
+                    images.createImage(`
+                    . . . . .
+                    . . . . #
+                    # # . . .
+                    . . # . .
+                    # . # . .
+                    `).showImage(0)
+                    draw_menu()
+                    abuttonpressed = false
+                } else {
+                    led.unplot(2, 0)
+                    images.createImage(`
+                    . . . . .
+                    . . . . #
+                    # # . . .
+                    . . # . .
+                    # . # . .
+                    `).scrollImage(1, 45)
+                    draw_menu()
+                }
+            } else {
+                basic.showLeds(`
+                . . . . .
+                . . . . #
+                # # . . .
+                . . # . .
+                # . # . .
+                `)
+                draw_menu()
+            }
+            led.plot(3, 0)
         } else {
-            basic.showLeds(`
-            . . . . .
-            . . . . .
-            . . . . .
-            . . . . .
-            . . . . .
-            `)
+            if (animation_scroll == true) {
+                if (abuttonpressed == true) {
+                    led.unplot(3, 0)
+                    images.createImage(`
+                    . . . . .
+                    . . . . .
+                    . . . . .
+                    . . . . .
+                    . . . . .
+                    `).showImage(0)
+                    draw_menu()
+                    abuttonpressed = false
+                } else {
+                    led.unplot(3, 0)
+                    images.createImage(`
+                    . . . . .
+                    . . . . .
+                    . . . . .
+                    . . . . .
+                    . . . . .
+                    `).scrollImage(1, 45)
+                    draw_menu()
+                }
+            } else {
+                basic.showLeds(`
+                . . . . .
+                . . . . .
+                . . . . .
+                . . . . .
+                . . . . .
+                `)
+                draw_menu()
+            }
+            led.plot(4, 0)
         }
         draw_menu()
         if (radio_type == 1) {
@@ -892,8 +2013,9 @@ function radio_main() {
         waiting_for_input = true
         while (waiting_for_input == true) {
             if (input.buttonIsPressed(Button.A)) {
+                abuttonpressed = true
                 if (radio_type == 1) {
-                    radio_type = 5
+                    radio_type = 1
                     waiting_for_input = false
                 } else {
                     radio_type += -1
@@ -902,7 +2024,8 @@ function radio_main() {
             }
             if (input.buttonIsPressed(Button.B)) {
                 if (radio_type == 5) {
-                    radio_type = 1
+                    radio_type = 5
+                    abuttonpressed = true
                     waiting_for_input = false
                 } else {
                     radio_type += 1
@@ -938,230 +2061,742 @@ function radio_main() {
 function settings_select_menu() {
     while (menu_select == true) {
         if (selected_setting == 0) {
-            basic.showLeds(`
-        . . . . .
-        . # . . .
-        # # # # #
-        . # . . #
-        . . . # #
-        `)
-        } else if (selected_setting == 1) {
-           if (settings_music == false){
-            basic.showLeds(`
-            . . . . .
-            . . # # .
-            . . # . #
-            # # # . .
-            # # # . .
-            `)
-            led.plotBrightness(0,3,20)
-            led.plotBrightness(0,4,20)
-            led.plotBrightness(1,3,20)
-            led.plotBrightness(1,4,20)
-            led.plotBrightness(2,1,20)
-            led.plotBrightness(2,2,20)
-            led.plotBrightness(2,3,20)
-            led.plotBrightness(2,4,20)
-            led.plotBrightness(3,1,20)
-            led.plotBrightness(4,2,20)
-           } else {
-            basic.showLeds(`
-            . . . . .
-            . . # # .
-            . . # . #
-            # # # . .
-            # # # . .
-            `)
-           }
-        } else if (selected_setting == 2) {
-            if (settings_volume == 1) {
-                basic.showLeds(`
-                . . . . .
-                . . . . .
-                # . . . .
-                # . . . .
-                . . . . .
-                `)
-                music.setVolume(50)
-                led.plotBrightness(2,1,20)
-            } else if (settings_volume == 2) {
-                basic.showLeds(`
-                . . . . .
-                . . . . .
-                # . . . .
-                # . . . .
-                . . . . .
-                `)
-                music.setVolume(100)
-                led.plotBrightness(2,1,20)
-                led.plotBrightness(3,2,20)
-            } else if (settings_volume == 3) {
-                basic.showLeds(`
-                . . . . .
-                . . . . .
-                # . . . .
-                # . . . .
-                . . . . .
-                `)
-                music.setVolume(150)
-                led.plotBrightness(2,1,20)
-                led.plotBrightness(3,2,20)
-                led.plotBrightness(3,3,20)
-            } else if (settings_volume == 4) {
-                basic.showLeds(`
-                . . . . .
-                . . . . .
-                # . . . .
-                # . . . .
-                . . . . .
-                `)
-                music.setVolume(200)
-                led.plotBrightness(2,1,20)
-                led.plotBrightness(3,2,20)
-                led.plotBrightness(3,3,20)
-                led.plotBrightness(2,4,20)
+            if (animation_scroll == true) {
+                if (abuttonpressed == true) {
+                    led.unplot(4, 0)
+                    images.createImage(`
+                    . . . . .
+                    . # . . .
+                    # # # # #
+                    . # . . #
+                    . . . # #
+                    `).showImage(0)
+                    draw_menu()
+                    abuttonpressed = false
+                } else {
+                    led.unplot(4, 0)
+                    images.createImage(`
+                    . . . . .
+                    . # . . .
+                    # # # # #
+                    . # . . #
+                    . . . # #
+                    `).scrollImage(1, 45)
+                    draw_menu()
+                }
             } else {
                 basic.showLeds(`
                 . . . . .
+                . # . . .
+                # # # # #
+                . # . . #
+                . . . # #
+                `)
+                draw_menu()
+            }
+            led.plot(0, 0)
+        } else if (selected_setting == 1) {
+            if (animation_scroll == true) {
+                if (abuttonpressed == true) {
+                    led.unplot(0, 0)
+                    if (settings_music == false) {
+                        images.createImage(`
+                        . . . . .
+                        . . # # .
+                        . . # . #
+                        # # # . .
+                        # # # . .
+                        `).showImage(0)
+                        led.plotBrightness(0, 3, 20)
+                        led.plotBrightness(0, 4, 20)
+                        led.plotBrightness(1, 3, 20)
+                        led.plotBrightness(1, 4, 20)
+                        led.plotBrightness(2, 1, 20)
+                        led.plotBrightness(2, 2, 20)
+                        led.plotBrightness(2, 3, 20)
+                        led.plotBrightness(2, 4, 20)
+                        led.plotBrightness(3, 1, 20)
+                        led.plotBrightness(4, 2, 20)
+                    } else {
+                        images.createImage(`
+                        . . . . .
+                        . . # # .
+                        . . # . #
+                        # # # . .
+                        # # # . .
+                        `).showImage(0)
+                    }
+                    draw_menu()
+                    abuttonpressed = false
+                } else {
+                    led.unplot(0, 0)
+                    if (settings_music == false) {
+                        images.createImage(`
+                        . . . . .
+                        . . # # .
+                        . . # . #
+                        # # # . .
+                        # # # . .
+                        `).scrollImage(1, 45)
+                        led.plotBrightness(0, 3, 20)
+                        led.plotBrightness(0, 4, 20)
+                        led.plotBrightness(1, 3, 20)
+                        led.plotBrightness(1, 4, 20)
+                        led.plotBrightness(2, 1, 20)
+                        led.plotBrightness(2, 2, 20)
+                        led.plotBrightness(2, 3, 20)
+                        led.plotBrightness(2, 4, 20)
+                        led.plotBrightness(3, 1, 20)
+                        led.plotBrightness(4, 2, 20)
+                    } else {
+                        images.createImage(`
+                        . . . . .
+                        . . # # .
+                        . . # . #
+                        # # # . .
+                        # # # . .
+                        `).scrollImage(1, 45)
+                    }
+                    draw_menu()
+                }
+            } else {
+                if (settings_music == false) {
+                    basic.showLeds(`
+                    . . . . .
+                    . . # # .
+                    . . # . #
+                    # # # . .
+                    # # # . .
+                    `)
+                    led.plotBrightness(0, 3, 20)
+                    led.plotBrightness(0, 4, 20)
+                    led.plotBrightness(1, 3, 20)
+                    led.plotBrightness(1, 4, 20)
+                    led.plotBrightness(2, 1, 20)
+                    led.plotBrightness(2, 2, 20)
+                    led.plotBrightness(2, 3, 20)
+                    led.plotBrightness(2, 4, 20)
+                    led.plotBrightness(3, 1, 20)
+                    led.plotBrightness(4, 2, 20)
+                } else {
+                    basic.showLeds(`
+                . . . . .
+                . . # # .
+                . . # . #
+                # # # . .
+                # # # . .
+                `)
+                }
+                draw_menu()
+            }
+            led.plot(1, 0)
+        } else if (selected_setting == 2) {
+            if (animation_scroll == true) {
+                if (abuttonpressed == true) {
+                    led.unplot(1, 0)
+                    if (settings_volume == 1) {
+                        images.createImage(`
+                . . . . .
+                . . . . .
+                # . . . .
+                # . . . .
+                . . . . .
+                `).showImage(0)
+                        music.setVolume(50)
+                        led.plotBrightness(2, 1, 20)
+                    } else if (settings_volume == 2) {
+                        images.createImage(`
+                . . . . .
+                . . . . .
+                # . . . .
+                # . . . .
+                . . . . .
+                `).showImage(0)
+                        music.setVolume(100)
+                        led.plotBrightness(2, 1, 20)
+                        led.plotBrightness(3, 2, 20)
+                    } else if (settings_volume == 3) {
+                        images.createImage(`
+                . . . . .
+                . . . . .
+                # . . . .
+                # . . . .
+                . . . . .
+                `).showImage(0)
+                        music.setVolume(150)
+                        led.plotBrightness(2, 1, 20)
+                        led.plotBrightness(3, 2, 20)
+                        led.plotBrightness(3, 3, 20)
+                    } else if (settings_volume == 4) {
+                        images.createImage(`
+                . . . . .
+                . . . . .
+                # . . . .
+                # . . . .
+                . . . . .
+                `).showImage(0)
+                        music.setVolume(200)
+                        led.plotBrightness(2, 1, 20)
+                        led.plotBrightness(3, 2, 20)
+                        led.plotBrightness(3, 3, 20)
+                        led.plotBrightness(2, 4, 20)
+                    } else {
+                        images.createImage(`
+                . . . . .
+                . . # . .
+                # . . # .
+                # . . # .
+                . . # . .
+                `).showImage(0)
+                        music.setVolume(255)
+                    }
+                    draw_menu()
+                    abuttonpressed = false
+                } else {
+                    led.unplot(1, 0)
+                    if (settings_volume == 1) {
+                        images.createImage(`
+                . . . . .
+                . . . . .
+                # . . . .
+                # . . . .
+                . . . . .
+                `).scrollImage(1, 45)
+                        music.setVolume(50)
+                        led.plotBrightness(2, 1, 20)
+                    } else if (settings_volume == 2) {
+                        images.createImage(`
+                . . . . .
+                . . . . .
+                # . . . .
+                # . . . .
+                . . . . .
+                `).scrollImage(1, 45)
+                        music.setVolume(100)
+                        led.plotBrightness(2, 1, 20)
+                        led.plotBrightness(3, 2, 20)
+                    } else if (settings_volume == 3) {
+                        images.createImage(`
+                . . . . .
+                . . . . .
+                # . . . .
+                # . . . .
+                . . . . .
+                `).scrollImage(1, 45)
+                        music.setVolume(150)
+                        led.plotBrightness(2, 1, 20)
+                        led.plotBrightness(3, 2, 20)
+                        led.plotBrightness(3, 3, 20)
+                    } else if (settings_volume == 4) {
+                        images.createImage(`
+                . . . . .
+                . . . . .
+                # . . . .
+                # . . . .
+                . . . . .
+                `).scrollImage(1, 45)
+                        music.setVolume(200)
+                        led.plotBrightness(2, 1, 20)
+                        led.plotBrightness(3, 2, 20)
+                        led.plotBrightness(3, 3, 20)
+                        led.plotBrightness(2, 4, 20)
+                    } else {
+                        images.createImage(`
+                . . . . .
+                . . # . .
+                # . . # .
+                # . . # .
+                . . # . .
+                `).scrollImage(1, 45)
+                        music.setVolume(255)
+                    }
+                    draw_menu()
+                }
+            } else {
+                if (settings_volume == 1) {
+                    basic.showLeds(`
+                . . . . .
+                . . . . .
+                # . . . .
+                # . . . .
+                . . . . .
+                `)
+                    music.setVolume(50)
+                    led.plotBrightness(2, 1, 20)
+                } else if (settings_volume == 2) {
+                    basic.showLeds(`
+                . . . . .
+                . . . . .
+                # . . . .
+                # . . . .
+                . . . . .
+                `)
+                    music.setVolume(100)
+                    led.plotBrightness(2, 1, 20)
+                    led.plotBrightness(3, 2, 20)
+                } else if (settings_volume == 3) {
+                    basic.showLeds(`
+                . . . . .
+                . . . . .
+                # . . . .
+                # . . . .
+                . . . . .
+                `)
+                    music.setVolume(150)
+                    led.plotBrightness(2, 1, 20)
+                    led.plotBrightness(3, 2, 20)
+                    led.plotBrightness(3, 3, 20)
+                } else if (settings_volume == 4) {
+                    basic.showLeds(`
+                . . . . .
+                . . . . .
+                # . . . .
+                # . . . .
+                . . . . .
+                `)
+                    music.setVolume(200)
+                    led.plotBrightness(2, 1, 20)
+                    led.plotBrightness(3, 2, 20)
+                    led.plotBrightness(3, 3, 20)
+                    led.plotBrightness(2, 4, 20)
+                } else {
+                    basic.showLeds(`
+                . . . . .
                 . . # . .
                 # . . # .
                 # . . # .
                 . . # . .
                 `)
-                music.setVolume(255)
+                    music.setVolume(255)
+                }
+                draw_menu()
             }
+            led.plot(2, 0)
         } else if (selected_setting == 3) {
-            if (settings_brightness == 1) {
-                led.setBrightness(50)
-                basic.showLeds(`
+            if (animation_scroll == true) {
+                if (abuttonpressed == true) {
+                    led.unplot(2, 0)
+                    if (settings_brightness == 1) {
+                        led.setBrightness(50)
+                        images.createImage(`
+                . . . . .
+                . . . . .
+                # . . . .
+                . # . # .
+                . # # # .
+                `).showImage(0)
+                    } else if (settings_brightness == 2) {
+                        led.setBrightness(100)
+                        images.createImage(`
+                . . . . .
+                . # . . .
+                # . . . .
+                . # . # .
+                . # # # .
+                `).showImage(0)
+                    } else if (settings_brightness == 3) {
+                        led.setBrightness(150)
+                        images.createImage(`
+                . . . . .
+                . # # . .
+                # . . . .
+                . # . # .
+                . # # # .
+                `).showImage(0)
+                    } else if (settings_brightness == 4) {
+                        led.setBrightness(200)
+                        images.createImage(`
+                . . . . .
+                . # # # .
+                # . . . .
+                . # . # .
+                . # # # .
+                `).showImage(0)
+                    } else if (settings_brightness == 5) {
+                        led.setBrightness(255)
+                        images.createImage(`
+                . . . . .
+                . # # # .
+                # . . . #
+                . # . # .
+                . # # # .
+                `).showImage(0)
+                    }
+                    if (settings_auto_brigthness == true) {
+                        images.createImage(`
+                . . . . .
+                . # # # .
+                . # . # .
+                . # # # .
+                . # . # .
+                `).showImage(0)
+                    }
+                    draw_menu()
+                    abuttonpressed = false
+                } else {
+                    led.unplot(2, 0)
+                    if (settings_brightness == 1) {
+                        led.setBrightness(50)
+                        images.createImage(`
+                . . . . .
+                . . . . .
+                # . . . .
+                . # . # .
+                . # # # .
+                `).scrollImage(1, 45)
+                    } else if (settings_brightness == 2) {
+                        led.setBrightness(100)
+                        images.createImage(`
+                . . . . .
+                . # . . .
+                # . . . .
+                . # . # .
+                . # # # .
+                `).scrollImage(1, 45)
+                    } else if (settings_brightness == 3) {
+                        led.setBrightness(150)
+                        images.createImage(`
+                . . . . .
+                . # # . .
+                # . . . .
+                . # . # .
+                . # # # .
+                `).scrollImage(1, 45)
+                    } else if (settings_brightness == 4) {
+                        led.setBrightness(200)
+                        images.createImage(`
+                . . . . .
+                . # # # .
+                # . . . .
+                . # . # .
+                . # # # .
+                `).scrollImage(1, 45)
+                    } else if (settings_brightness == 5) {
+                        led.setBrightness(255)
+                        images.createImage(`
+                . . . . .
+                . # # # .
+                # . . . #
+                . # . # .
+                . # # # .
+                `).scrollImage(1, 45)
+                    }
+                    if (settings_auto_brigthness == true) {
+                        images.createImage(`
+                . . . . .
+                . # # # .
+                . # . # .
+                . # # # .
+                . # . # .
+                `).scrollImage(1, 45)
+                    }
+                    draw_menu()
+                }
+            } else {
+                if (settings_brightness == 1) {
+                    led.setBrightness(50)
+                    basic.showLeds(`
                 . . . . .
                 . . . . .
                 # . . . .
                 . # . # .
                 . # # # .
                 `)
-            } else if (settings_brightness == 2) {
-                led.setBrightness(100)
-                basic.showLeds(`
+                } else if (settings_brightness == 2) {
+                    led.setBrightness(100)
+                    basic.showLeds(`
                 . . . . .
                 . # . . .
                 # . . . .
                 . # . # .
                 . # # # .
                 `)
-            } else if (settings_brightness == 3) {
-                led.setBrightness(150)
-                basic.showLeds(`
+                } else if (settings_brightness == 3) {
+                    led.setBrightness(150)
+                    basic.showLeds(`
                 . . . . .
                 . # # . .
                 # . . . .
                 . # . # .
                 . # # # .
                 `)
-            } else if (settings_brightness == 4) {
-                led.setBrightness(200)
-                basic.showLeds(`
+                } else if (settings_brightness == 4) {
+                    led.setBrightness(200)
+                    basic.showLeds(`
                 . . . . .
                 . # # # .
                 # . . . .
                 . # . # .
                 . # # # .
                 `)
-            } else if (settings_brightness == 5) {
-                led.setBrightness(255)
-                basic.showLeds(`
+                } else if (settings_brightness == 5) {
+                    led.setBrightness(255)
+                    basic.showLeds(`
                 . . . . .
                 . # # # .
                 # . . . #
                 . # . # .
                 . # # # .
                 `)
-            } 
-            if (settings_auto_brigthness == true) {
-                basic.showLeds(`
+                }
+                if (settings_auto_brigthness == true) {
+                    basic.showLeds(`
                 . . . . .
                 . # # # .
                 . # . # .
                 . # # # .
                 . # . # .
                 `)
+                }
+                draw_menu()
             }
+            led.plot(2, 0)
         } else if (selected_setting == 4) {
-            if (logged_data == false) {
-                basic.showLeds(`
+            if (animation_scroll == true) {
+                if (abuttonpressed == true) {
+                    led.unplot(2, 0)
+                    if (logged_data == false) {
+                        images.createImage(`
+                . . . . .
+                # . # . #
+                # # # # #
+                # . # . #
+                # # # # #
+                `).showImage(0)
+                    } else {
+                        basic.showIcon(IconNames.Yes)
+                    }
+                    draw_menu()
+                    abuttonpressed = false
+                } else {
+                    led.unplot(2, 0)
+                    if (logged_data == false) {
+                        images.createImage(`
+                . . . . .
+                # . # . #
+                # # # # #
+                # . # . #
+                # # # # #
+                `).scrollImage(1, 45)
+                    } else {
+                        basic.showIcon(IconNames.Yes)
+                    }
+                    draw_menu()
+                }
+            } else {
+                if (logged_data == false) {
+                    basic.showLeds(`
                 . . . . .
                 # . # . #
                 # # # # #
                 # . # . #
                 # # # # #
                 `)
-            } else {
-                basic.showIcon(IconNames.Yes)
+                } else {
+                    basic.showIcon(IconNames.Yes)
+                }
+                draw_menu()
             }
+            led.plot(2, 0)
         } else if (selected_setting == 5) {
-            basic.showLeds(`
-            . . . . .
-            . # # . #
-            # . . # .
-            # . . # .
-            . # # . .
-            `)
-        } else if (selected_setting == 6) {
-            basic.showLeds(`
-            . . . . .
-            . # # # .
-            . # . # .
-            . # # # .
-            . . . . .
-            `)
-        } else {
-            if (pin_lock == false) {
+            if (animation_scroll == true) {
+                if (abuttonpressed == true) {
+                    led.unplot(2, 0)
+                    images.createImage(`
+                    . . . . .
+                    . # # . #
+                    # . . # .
+                    # . . # .
+                    . # # . .
+                    `).showImage(0)
+                    draw_menu()
+                    abuttonpressed = false
+                } else {
+                    led.unplot(2, 0)
+                    images.createImage(`
+                    . . . . .
+                    . # # . #
+                    # . . # .
+                    # . . # .
+                    . # # . .
+                    `).scrollImage(1, 45)
+                    draw_menu()
+                }
+            } else {
                 basic.showLeds(`
+                . . . . .
+                . # # . #
+                # . . # .
+                # . . # .
+                . # # . .
+                `)
+                draw_menu()
+            }
+            led.plot(2, 0)
+        } else if (selected_setting == 6) {
+            if (animation_scroll == true) {
+                if (abuttonpressed == true) {
+                    led.unplot(2, 0)
+                    images.createImage(`
+                    . . . . .
+                    . # # # .
+                    . # . # .
+                    . # # # .
+                    . . . . .
+                    `).showImage(0)
+                    draw_menu()
+                    abuttonpressed = false
+                } else {
+                    led.unplot(2, 0)
+                    images.createImage(`
+                    . . . . .
+                    . # # # .
+                    . # . # .
+                    . # # # .
+                    . . . . .
+                    `).scrollImage(1, 45)
+                    draw_menu()
+                }
+            } else {
+                basic.showLeds(`
+                . . . . .
+                . # # # .
+                . # . # .
+                . # # # .
+                . . . . .
+                `)
+                draw_menu()
+            }
+            led.plot(2, 0)
+        } else if (selected_setting == 7) {
+            if (animation_scroll == true) {
+                if (abuttonpressed == true) {
+                    led.unplot(2, 0)
+                    if (pin_lock == false) {
+                        images.createImage(`
+            . . . . .
+            . . . . .
+            . . . . .
+            # # # # #
+            # . # . #
+            `).showImage(0)
+                    } else {
+                        images.createImage(`
+                . . . . .
+                . . . . .
+                . . . . .
+                # # # # #
+                # . # . #
+                `).showImage(0)
+                        led.plotBrightness(0, 4, 20)
+                        led.plotBrightness(0, 3, 20)
+                        led.plotBrightness(1, 3, 20)
+                        led.plotBrightness(2, 3, 20)
+                        led.plotBrightness(2, 4, 20)
+                        led.plotBrightness(3, 3, 20)
+                        led.plotBrightness(4, 3, 20)
+                        led.plotBrightness(4, 4, 20)
+                    }
+                    draw_menu()
+                    abuttonpressed = false
+                } else {
+                    led.unplot(2, 0)
+                    if (pin_lock == false) {
+                        images.createImage(`
+            . . . . .
+            . . . . .
+            . . . . .
+            # # # # #
+            # . # . #
+            `).scrollImage(1, 45)
+                    } else {
+                        images.createImage(`
+                . . . . .
+                . . . . .
+                . . . . .
+                # # # # #
+                # . # . #
+                `).scrollImage(1, 45)
+                        led.plotBrightness(0, 4, 20)
+                        led.plotBrightness(0, 3, 20)
+                        led.plotBrightness(1, 3, 20)
+                        led.plotBrightness(2, 3, 20)
+                        led.plotBrightness(2, 4, 20)
+                        led.plotBrightness(3, 3, 20)
+                        led.plotBrightness(4, 3, 20)
+                        led.plotBrightness(4, 4, 20)
+                    }
+                    draw_menu()
+                }
+            } else {
+                if (pin_lock == false) {
+                    basic.showLeds(`
             . . . . .
             . . . . .
             . . . . .
             # # # # #
             # . # . #
             `)
-            } else {
-                basic.showLeds(`
+                } else {
+                    basic.showLeds(`
                 . . . . .
                 . . . . .
                 . . . . .
                 # # # # #
                 # . # . #
                 `)
-                led.plotBrightness(0,4,20)
-                led.plotBrightness(0,3,20)
-                led.plotBrightness(1,3,20)
-                led.plotBrightness(2,3,20)
-                led.plotBrightness(2,4,20)
-                led.plotBrightness(3,3,20)
-                led.plotBrightness(4,3,20)
-                led.plotBrightness(4,4,20)
+                    led.plotBrightness(0, 4, 20)
+                    led.plotBrightness(0, 3, 20)
+                    led.plotBrightness(1, 3, 20)
+                    led.plotBrightness(2, 3, 20)
+                    led.plotBrightness(2, 4, 20)
+                    led.plotBrightness(3, 3, 20)
+                    led.plotBrightness(4, 3, 20)
+                    led.plotBrightness(4, 4, 20)
+                }
+                draw_menu()
             }
-        }
-        draw_menu()
-        if (selected_setting == 0) {
-            led.plot(0, 0)
-        } else if (selected_setting == 1) {
-            led.plot(1, 0)
-        } else if (selected_setting == 2) {
-            led.plot(2, 0)
-        } else if (selected_setting == 3) {
-            led.plot(2, 0)
-        } else if (selected_setting == 4) {
-            led.plot(2, 0)
-        } else if (selected_setting == 5) {
-            led.plot(2, 0)
-        } else if (selected_setting == 6) {
             led.plot(3, 0)
         } else {
+            if (animation_scroll == true) {
+                if (abuttonpressed == true) {
+                    led.unplot(3, 0)
+                    images.createImage(`
+                    . . . . .
+                    . . . # .
+                    # # # # #
+                    . . . # .
+                    . . . . .
+                    `).showImage(0)
+                    draw_menu()
+                    abuttonpressed = false
+                } else {
+                    led.unplot(3, 0)
+                    images.createImage(`
+                    . . . . .
+                    . . . # .
+                    # # # # #
+                    . . . # .
+                    . . . . .
+                    `).scrollImage(1, 45)
+                    draw_menu()
+                }
+            } else {
+                basic.showLeds(`
+                . . . . .
+                . . . # .
+                # # # # #
+                . . . # .
+                . . . . .
+                `)
+                draw_menu()
+            }
             led.plot(4, 0)
         }
         waiting_for_input = true
         while (waiting_for_input == true) {
             if (input.isGesture(Gesture.Shake)) {
+                abuttonpressed = true
                 if (selected_setting == 3) {
                     if (settings_auto_brigthness == false) {
                         settings_auto_brigthness = true
@@ -1173,16 +2808,18 @@ function settings_select_menu() {
                 }
             }
             if (input.buttonIsPressed(Button.A)) {
+                abuttonpressed = true
                 if (selected_setting == 0) {
-                    selected_setting = 7
+                    selected_setting = 0
                     waiting_for_input = false
                 } else {
                     selected_setting += -1
                     waiting_for_input = false
                 }
             } else if (input.buttonIsPressed(Button.B)) {
-                if (selected_setting == 7) {
-                    selected_setting = 0
+                if (selected_setting == 8) {
+                    selected_setting = 8
+                    abuttonpressed = true
                     waiting_for_input = false
                 } else {
                     selected_setting += 1
@@ -1190,6 +2827,7 @@ function settings_select_menu() {
                 }
             } else if (input.logoIsPressed()) {
                 if (selected_setting == 1) {
+                    abuttonpressed = true
                     if (settings_music == false) {
                         music.setBuiltInSpeakerEnabled(true)
                         music.play(music.tonePlayable(294, music.beat(BeatFraction.Quarter)), music.PlaybackMode.UntilDone)
@@ -1202,18 +2840,21 @@ function settings_select_menu() {
                         settings_music = false
                     }
                 } else if (selected_setting == 2) {
+                    abuttonpressed = true
                     if (settings_volume == 5) {
                         settings_volume = 1
                     } else {
                         settings_volume += 1
                     }
                 } else if (selected_setting == 3) {
+                    abuttonpressed = true
                     if (settings_brightness == 5) {
                         settings_brightness = 1
                     } else {
                         settings_brightness += 1
                     }
                 } else if (selected_setting == 4) {
+                    abuttonpressed = false
                     if (logged_data == false) {
                         logged_data = true
                         basic.showIcon(IconNames.Yes)
@@ -1224,12 +2865,21 @@ function settings_select_menu() {
                         basic.showIcon(IconNames.No)
                     }
                 } else if (selected_setting == 5) {
+                    abuttonpressed = true
                     input.calibrateCompass()
                 } else if (selected_setting == 7) {
+                    abuttonpressed = true
                     if (pin_lock == false) {
                         pin_lock = true
                     } else {
                         pin_lock = false
+                    }
+                } else if (selected_setting == 8) {
+                    abuttonpressed = true
+                    if (animation_scroll == true) {
+                        animation_scroll = false
+                    } else {
+                        animation_scroll = true
                     }
                 } else {
                     menu_select = false
@@ -1239,6 +2889,7 @@ function settings_select_menu() {
         }
     }
     if (selected_setting == 0) {
+        abuttonpressed = true
         menu_select = true
         menu_select_menu()
     }
@@ -2179,7 +3830,7 @@ function settings_test_input() {
     led.unplot(2,4)
     led.unplot(4,4)
     }
-} // Test all inputs. ButtonAB, Pins0-2, Logo, Brightness, Sound, XYZ 
+} //Test all inputs. ButtonAB, Pins0-2, Logo, Brightness, Sound, XYZ 
 
 basic.forever(function() {
     if (settings_auto_brigthness == true) {
@@ -2200,7 +3851,7 @@ basic.forever(function() {
             led.setBrightness(255)
         }
     }
-})
+}) //Automatic brighntess
 
 let pin_lock = true
 if (input.logoIsPressed()) {
@@ -2241,6 +3892,8 @@ let running = false
 let captured = ""
 let crhonometer_run = false
 let vrs = input.lightLevel()
+let animation_scroll = true
+let abuttonpressed = true
 
 let acc_1 = 0
 let time_1 = 0
@@ -2801,7 +4454,7 @@ function tryFall() {
         gameOver_8 = y_8 == 0
     }
     checkFullRow()
-}
+} //Tetris. // game_mode = 8
 function checkFullRow() {
     rowFull_8 = true
     for (let xx = 0; xx <= 5 - 1; xx++) {
@@ -2824,7 +4477,7 @@ function checkFullRow() {
             }
         }
     }
-}
+} //Tetris. // game_mode = 8
 function tool_temparature() {
     while (true) {
         if (tool_type == 1) {
@@ -2986,93 +4639,264 @@ function tool_record() {
     record.setSampleRate(22000)
     while (true) {
         if (tool_type == 1) {
-            basic.showLeds(`
-            . . . . .
-            . # . # .
-            . # . . .
-            # # # . .
-            . # . . .
-            `)
-            led.plot(1,0)
-            led.plotBrightness(2,0,20)
-            led.plotBrightness(3,0,20)
-        } else if (tool_type == 2) {
-            basic.showLeds(`
-            . . . . .
-            . . # # .
-            . . # . #
-            # # # . .
-            # # # . .
-            `)
-            led.plotBrightness(1,0,20)
-            led.plot(2,0)
-            led.plotBrightness(3,0,20)
-        } else if (tool_type == 3) {
-            if (tool_record_volume == 1) {
-                basic.showLeds(`
-                . . . . .
-                . . . . .
-                # . . . .
-                # . . . .
-                . . . . .
-                `)
-                led.plotBrightness(2,1,20)
-                record.setSampleRate(4400)
-            } else if (tool_record_volume == 2) {
-                basic.showLeds(`
-                . . . . .
-                . . . . .
-                # . . . .
-                # . . . .
-                . . . . .
-                `)
-                led.plotBrightness(2, 1, 20)
-                led.plotBrightness(3,2,20)
-                record.setSampleRate(8800)
-            } else if (tool_record_volume == 3) {
-                basic.showLeds(`
-                . . . . .
-                . . . . .
-                # . . . .
-                # . . . .
-                . . . . .
-                `)
-                led.plotBrightness(2, 1, 20)
-                led.plotBrightness(3, 2, 20)
-                led.plotBrightness(3, 3, 20)
-                record.setSampleRate(13200)
-            } else if (tool_record_volume == 4) {
-                basic.showLeds(`
-                . . . . .
-                . . . . .
-                # . . . .
-                # . . . .
-                . . . . .
-                `)
-                led.plotBrightness(2, 1, 20)
-                led.plotBrightness(3, 2, 20)
-                led.plotBrightness(3, 3, 20)
-                led.plotBrightness(2, 4, 20)
-                record.setSampleRate(17600)
+            if (animation_scroll == true) {
+                if (abuttonpressed == true) {
+                    led.unplot(3, 0)
+                    images.createImage(`
+                    . . . . .
+                    . # . # .
+                    . # . . .
+                    # # # . .
+                    . # . . .
+                    `).showImage(0)
+                    draw_mini_menu()
+                    abuttonpressed = false
+                } else {
+                    led.unplot(3, 0)
+                    images.createImage(`
+                    . . . . .
+                    . # . # .
+                    . # . . .
+                    # # # . .
+                    . # . . .
+                    `).scrollImage(1, 45)
+                    draw_mini_menu()
+                }
             } else {
                 basic.showLeds(`
                 . . . . .
+                . # . # .
+                . # . . .
+                # # # . .
+                . # . . .
+                `)
+                draw_mini_menu()
+            }
+            led.plot(1, 0)
+        } else if (tool_type == 2) {
+            if (animation_scroll == true) {
+                if (abuttonpressed == true) {
+                    led.unplot(1, 0)
+                    images.createImage(`
+                    . . . . .
+                    . . # # .
+                    . . # . #
+                    # # # . .
+                    # # # . .
+                    `).showImage(0)
+                    draw_mini_menu()
+                    abuttonpressed = false
+                } else {
+                    led.unplot(1, 0)
+                    images.createImage(`
+                    . . . . .
+                    . . # # .
+                    . . # . #
+                    # # # . .
+                    # # # . .
+                    `).scrollImage(1, 45)
+                    draw_mini_menu()
+                }
+            } else {
+                basic.showLeds(`
+                . . . . .
+                    . . # # .
+                    . . # . #
+                    # # # . .
+                    # # # . .
+                `)
+                draw_mini_menu()
+            }
+            led.plot(2, 0)
+        } else if (tool_type == 3) {
+            if (animation_scroll == true) {
+                if (abuttonpressed == true) {
+                    led.unplot(1, 0)
+                    if (tool_record_volume == 1) {
+                        images.createImage(`
+                . . . . .
+                . . . . .
+                # . . . .
+                # . . . .
+                . . . . .
+                `).showImage(0)
+                        led.plotBrightness(2, 1, 20)
+                        record.setSampleRate(4400)
+                    } else if (tool_record_volume == 2) {
+                        images.createImage(`
+                . . . . .
+                . . . . .
+                # . . . .
+                # . . . .
+                . . . . .
+                `).showImage(0)
+                        led.plotBrightness(2, 1, 20)
+                        led.plotBrightness(3, 2, 20)
+                        record.setSampleRate(8800)
+                    } else if (tool_record_volume == 3) {
+                        images.createImage(`
+                . . . . .
+                . . . . .
+                # . . . .
+                # . . . .
+                . . . . .
+                `).showImage(0)
+                        led.plotBrightness(2, 1, 20)
+                        led.plotBrightness(3, 2, 20)
+                        led.plotBrightness(3, 3, 20)
+                        record.setSampleRate(13200)
+                    } else if (tool_record_volume == 4) {
+                        images.createImage(`
+                . . . . .
+                . . . . .
+                # . . . .
+                # . . . .
+                . . . . .
+                `).showImage(0)
+                        led.plotBrightness(2, 1, 20)
+                        led.plotBrightness(3, 2, 20)
+                        led.plotBrightness(3, 3, 20)
+                        led.plotBrightness(2, 4, 20)
+                        record.setSampleRate(17600)
+                    } else {
+                        images.createImage(`
+                . . . . .
+                . . # . .
+                # . . # .
+                # . . # .
+                . . # . .
+                `).showImage(0)
+                        record.setSampleRate(22000)
+                    }
+                    draw_mini_menu()
+                    abuttonpressed = false
+                } else {
+                    led.unplot(1, 0)
+                    if (tool_record_volume == 1) {
+                        images.createImage(`
+                . . . . .
+                . . . . .
+                # . . . .
+                # . . . .
+                . . . . .
+                `).scrollImage(1, 45)
+                        led.plotBrightness(2, 1, 20)
+                        record.setSampleRate(4400)
+                    } else if (tool_record_volume == 2) {
+                        images.createImage(`
+                . . . . .
+                . . . . .
+                # . . . .
+                # . . . .
+                . . . . .
+                `).scrollImage(1, 45)
+                        led.plotBrightness(2, 1, 20)
+                        led.plotBrightness(3, 2, 20)
+                        record.setSampleRate(8800)
+                    } else if (tool_record_volume == 3) {
+                        images.createImage(`
+                . . . . .
+                . . . . .
+                # . . . .
+                # . . . .
+                . . . . .
+                `).scrollImage(1, 45)
+                        led.plotBrightness(2, 1, 20)
+                        led.plotBrightness(3, 2, 20)
+                        led.plotBrightness(3, 3, 20)
+                        record.setSampleRate(13200)
+                    } else if (tool_record_volume == 4) {
+                        images.createImage(`
+                . . . . .
+                . . . . .
+                # . . . .
+                # . . . .
+                . . . . .
+                `).scrollImage(1, 45)
+                        led.plotBrightness(2, 1, 20)
+                        led.plotBrightness(3, 2, 20)
+                        led.plotBrightness(3, 3, 20)
+                        led.plotBrightness(2, 4, 20)
+                        record.setSampleRate(17600)
+                    } else {
+                        images.createImage(`
+                . . . . .
+                . . # . .
+                # . . # .
+                # . . # .
+                . . # . .
+                `).scrollImage(1, 45)
+                        record.setSampleRate(22000)
+                    }
+                    draw_mini_menu()
+                }
+            } else {
+                if (tool_record_volume == 1) {
+                    basic.showLeds(`
+                . . . . .
+                . . . . .
+                # . . . .
+                # . . . .
+                . . . . .
+                `)
+                    led.plotBrightness(2, 1, 20)
+                    record.setSampleRate(4400)
+                } else if (tool_record_volume == 2) {
+                    basic.showLeds(`
+                . . . . .
+                . . . . .
+                # . . . .
+                # . . . .
+                . . . . .
+                `)
+                    led.plotBrightness(2, 1, 20)
+                    led.plotBrightness(3, 2, 20)
+                    record.setSampleRate(8800)
+                } else if (tool_record_volume == 3) {
+                    basic.showLeds(`
+                . . . . .
+                . . . . .
+                # . . . .
+                # . . . .
+                . . . . .
+                `)
+                    led.plotBrightness(2, 1, 20)
+                    led.plotBrightness(3, 2, 20)
+                    led.plotBrightness(3, 3, 20)
+                    record.setSampleRate(13200)
+                } else if (tool_record_volume == 4) {
+                    basic.showLeds(`
+                . . . . .
+                . . . . .
+                # . . . .
+                # . . . .
+                . . . . .
+                `)
+                    led.plotBrightness(2, 1, 20)
+                    led.plotBrightness(3, 2, 20)
+                    led.plotBrightness(3, 3, 20)
+                    led.plotBrightness(2, 4, 20)
+                    record.setSampleRate(17600)
+                } else {
+                    basic.showLeds(`
+                . . . . .
                 . . # . .
                 # . . # .
                 # . . # .
                 . . # . .
                 `)
-                record.setSampleRate(22000)
+                    record.setSampleRate(22000)
+                }
+                draw_mini_menu()
             }
-            led.plot(3,0)
-            led.plotBrightness(2,0,20)
-            led.plotBrightness(1,0,20)
+            led.plot(3, 0)
         }
         waiting_for_input = true
         while (waiting_for_input == true) {
             if (input.buttonIsPressed(Button.A)) {
+                abuttonpressed = true
                 if (tool_type == 1) {
-                    tool_type = 3
+                    tool_type = 1
                     waiting_for_input = false
                 } else {
                     tool_type += -1
@@ -3081,7 +4905,8 @@ function tool_record() {
             }
             if (input.buttonIsPressed(Button.B)) {
                 if (tool_type == 3) {
-                    tool_type = 1
+                    tool_type = 3
+                    abuttonpressed = true
                     waiting_for_input = false
                 } else {
                     tool_type += 1
@@ -3092,6 +4917,7 @@ function tool_record() {
                 if (tool_type == 1) {
                     record.startRecording(record.BlockingState.Nonblocking)
                     basic.clearScreen()
+                    abuttonpressed = true
                     while (record.audioStatus(record.AudioStatus.Recording)) {
                         loading_animation()
                     }
@@ -3099,11 +4925,13 @@ function tool_record() {
                if (tool_type == 2) {
                    record.playAudio(record.BlockingState.Nonblocking)
                    basic.clearScreen()
+                   abuttonpressed = true
                    while (record.audioStatus(record.AudioStatus.Playing)) {
                        loading_animation()
                    }
                }
                if (tool_type == 3) {
+                   abuttonpressed = true
                    if (tool_record_volume == 5) {
                        tool_record_volume = 1
                    } else {
@@ -4346,7 +6174,7 @@ function signal() {
             second += 1
         }
     }
-}
+} //Signal / Alarm clock // Selected_tool = 10
 function chronometer() {
     running = false
     crhonometer_run = true
@@ -4373,7 +6201,7 @@ function chronometer() {
             basic.showIcon(IconNames.No)
         }
     }
-}
+} // Chronometer // Selected_tool = 10
 function timer() {
     basic.clearScreen()
     basic.pause(200)
@@ -4779,4 +6607,4 @@ function timer() {
             second += -1
         }
     }
-}
+} // Timer // Selected_tool = 10
