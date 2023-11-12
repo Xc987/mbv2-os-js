@@ -635,10 +635,10 @@ function game_select_menu() {
             }
             led.plot(3, 0)
             led.plotBrightness(4,4,20)
-        } else {
+        } else if (game_mode == 8) {
             if (animation_scroll == true) {
                 if (abuttonpressed == true) {
-                    led.unplot(3, 0)
+                    led.unplot(2, 0)
                     images.createImage(`
                     . . . . .
                     . . . . .
@@ -649,7 +649,7 @@ function game_select_menu() {
                     draw_menu()
                     abuttonpressed = false
                 } else {
-                    led.unplot(3, 0)
+                    led.unplot(2, 0)
                     images.createImage(`
                     . . . . .
                     . . . . .
@@ -669,6 +669,41 @@ function game_select_menu() {
                 `)
                 draw_menu()
             }
+            led.plot(3, 0)
+        } else {
+            if (animation_scroll == true) {
+                if (abuttonpressed == true) {
+                    led.unplot(3, 0)
+                    images.createImage(`
+                    . . . . .
+                    . . . . .
+                    . # # # .
+                    . # # # .
+                    . # # # .
+                    `).showImage(0)
+                    draw_menu()
+                    abuttonpressed = false
+                } else {
+                    led.unplot(3, 0)
+                    images.createImage(`
+                    . . . . .
+                    . . . . .
+                    . # # # .
+                    . # # # .
+                    . # # # .
+                    `).scrollImage(1, 45)
+                    draw_menu()
+                }
+            } else {
+                basic.showLeds(`
+                . . . . .
+                . . . . .
+                . # # # .
+                . # # # .
+                . # # # .
+                `)
+                draw_menu()
+            }
             led.plot(4, 0)
         }
         waiting_for_input = true
@@ -683,8 +718,8 @@ function game_select_menu() {
                     waiting_for_input = false
                 }
             } else if (input.buttonIsPressed(Button.B)) {
-                if (game_mode == 8) {
-                    game_mode = 8
+                if (game_mode == 9) {
+                    game_mode = 9
                     abuttonpressed = true
                     waiting_for_input = false
                 } else {
@@ -739,7 +774,7 @@ function game_select_menu() {
         ghost_7.set(LedSpriteProperty.Blink,200)
         food_7.set(LedSpriteProperty.Brightness, 20)
         game_mode_7()
-    } else {
+    } else if (game_mode == 8) {
         gameon_8 = true
         basic.clearScreen()
         canFall_8 = true
@@ -757,6 +792,8 @@ function game_select_menu() {
         basic.showString("S:")
         basic.showNumber(score_8)
         control.reset()
+    } else {
+        game_mode_9()
     }
 } //Game selection.
 function tool_select_menu () {
@@ -2239,9 +2276,227 @@ function create_select_menu() {
     } else if (create_type == 2) {
         create_strig()
     } else {
-        
+        menu_select = true
+        abuttonpressed = true
+        create_music_menu()
     }
 } //Create type selection
+function create_music_menu() {
+    while (menu_select == true) {
+        if (selected_music == 1) {
+            if (animation_scroll == true) {
+                if (abuttonpressed == true) {
+                    led.unplot(4, 0)
+                    images.createImage(`
+                    . . . . .
+                    . # . . .
+                    . . # . #
+                    # . . . .
+                    . . . # .
+                    `).showImage(0)
+                    draw_menu()
+                    abuttonpressed = false
+                } else {
+                    led.unplot(4, 0)
+                    images.createImage(`
+                    . . . . .
+                    . # . . .
+                    . . # . #
+                    # . . . .
+                    . . . # .
+                    `).scrollImage(1, 45)
+                    draw_menu()
+                }
+            } else {
+                basic.showLeds(`
+        . . . . .
+        . # . . .
+        . . # . #
+        # . . . .
+        . . . # .
+        `)
+                draw_menu()
+            }
+            led.plot(0, 0)
+        } else if (selected_music == 2) {
+            if (animation_scroll == true) {
+                if (abuttonpressed == true) {
+                    led.unplot(0, 0)
+                    images.createImage(`
+                    . . . . .
+                    . . # # .
+                    . . # . #
+                    # # # . .
+                    # # # . .
+                    `).showImage(0)
+                    draw_menu()
+                    abuttonpressed = false
+                } else {
+                    led.unplot(0, 0)
+                    images.createImage(`
+                    . . . . .
+                    . . # # .
+                    . . # . #
+                    # # # . .
+                    # # # . .
+                    `).scrollImage(1, 45)
+                    draw_menu()
+                }
+            } else {
+                basic.showLeds(`
+        . . . . .
+        . . # # .
+        . . # . #
+        # # # . .
+        # # # . .
+        `)
+                draw_menu()
+            }
+            led.plot(1, 0)
+        } else if (selected_music == 3) {
+            if (animation_scroll == true) {
+                if (abuttonpressed == true) {
+                    led.unplot(1, 0)
+                    images.createImage(`
+                    . . . . .
+                    # . # . .
+                    # . # . .
+                    . # . . #
+                    . . . . #
+                    `).showImage(0)
+                    draw_menu()
+                    abuttonpressed = false
+                } else {
+                    led.unplot(1, 0)
+                    images.createImage(`
+                    . . . . .
+                    # . # . .
+                    # . # . .
+                    . # . . #
+                    . . . . #
+                    `).scrollImage(1, 45)
+                    draw_menu()
+                }
+            } else {
+                basic.showLeds(`
+        . . . . .
+        # . # . .
+        # . # . .
+        . # . . #
+        . . . . #
+        `)
+                draw_menu()
+            }
+            led.plot(2, 0)
+        } else if (selected_music == 4) {
+            if (animation_scroll == true) {
+                if (abuttonpressed == true) {
+                    led.unplot(2, 0)
+                    images.createImage(`
+                    . . . . .
+                    # # . . .
+                    # . # . #
+                    # # . # .
+                    # . # . #
+                    `).showImage(0)
+                    draw_menu()
+                    abuttonpressed = false
+                } else {
+                    led.unplot(2, 0)
+                    images.createImage(`
+                    . . . . .
+                    # # . . .
+                    # . # . #
+                    # # . # .
+                    # . # . #
+                    `).scrollImage(1, 45)
+                    draw_menu()
+                }
+            } else {
+                basic.showLeds(`
+        . . . . .
+        # # . . .
+        # . # . #
+        # # . # .
+        # . # . #
+        `)
+                draw_menu()
+            }
+            led.plot(3, 0)
+        } else if (selected_music == 5) {
+            if (animation_scroll == true) {
+                if (abuttonpressed == true) {
+                    led.unplot(3, 0)
+                    images.createImage(`
+                    . . . . .
+                    . . # . .
+                    . # # # .
+                    . . # . .
+                    . . . . .
+                    `).showImage(0)
+                    draw_menu()
+                    abuttonpressed = false
+                } else {
+                    led.unplot(3, 0)
+                    images.createImage(`
+                    . . . . .
+                    . . # . .
+                    . # # # .
+                    . . # . .
+                    . . . . .
+                    `).scrollImage(1, 45)
+                    draw_menu()
+                }
+            } else {
+                basic.showLeds(`
+            . . . . .
+            . . # . .
+            . # # # .
+            . . # . .
+            . . . . .
+        `)
+                draw_menu()
+            }
+            led.plot(4, 0)
+        }
+        waiting_for_input = true
+        while (waiting_for_input == true) {
+            if (input.buttonIsPressed(Button.A)) {
+                abuttonpressed = true
+                if (selected_music == 1) {
+                    selected_music = 1
+                    waiting_for_input = false
+                } else {
+                    selected_music += -1
+                    waiting_for_input = false
+                }
+            } else if (input.buttonIsPressed(Button.B)) {
+                if (selected_music == 6) {
+                    selected_music = 6
+                    abuttonpressed = true
+                    waiting_for_input = false
+                } else {
+                    selected_music += 1
+                    waiting_for_input = false
+                }
+            } else if (input.logoIsPressed()) {
+                waiting_for_input = false
+                menu_select = false
+            }
+        }
+    }
+    if (selected_music == 1) {
+        music_melody8()
+    } else if (selected_music == 2) {
+        music_melody()
+    } else if (selected_music == 3) {
+        music_melodyV2()
+    } else if (selected_music == 4) {
+        music_sFX()
+    } else {
+        
+    } 
+} //Menu selection at the start.
 function settings_select_menu() {
     while (menu_select == true) {
         if (selected_setting == 0) {
@@ -3176,6 +3431,16 @@ input.onButtonPressed(Button.A, function () {
             basic.showString(captured)
         }
     }
+    if (game_mode == 9) {
+        if (user_9 == 0) {
+            ax_9[stepA_9] = currX_9
+            ay_9[stepA_9] = currY_9
+            stepA_9 += 1
+            user_9 = 1
+            currX_9 = 2
+            currY_9 = 2
+        }
+    }
 }) //On button A pressed.
 input.onButtonPressed(Button.B, function () {
     if (game_mode == 1) {
@@ -3236,6 +3501,16 @@ input.onButtonPressed(Button.B, function () {
             basic.showString(captured)
         }
     }
+    if (game_mode == 9){
+        if (user_9 == 1) {
+            bx_9[stepB_9] = currX_9
+            by_9[stepB_9] = currY_9
+            stepB_9 += 1
+            user_9 = 0
+            currX_9 = 2
+            currY_9 = 2
+        }
+    }
 }) //On button B pressed
 input.onButtonPressed(Button.AB, function () {
     if (game_mode == 1) {
@@ -3250,6 +3525,9 @@ input.onButtonPressed(Button.AB, function () {
             SoundExpressionEffect.None,
             InterpolationCurve.Linear
         ), music.PlaybackMode.InBackground)
+    }
+    if (game_mode == 9) {
+        state_9 = 1
     }
 }) //On button AB pressed
 input.onPinPressed(TouchPin.P0, function() {
@@ -3353,6 +3631,7 @@ let selected_clock = 1
 let tool_type = 1
 let radio_type = 1
 let create_type = 1
+let selected_music = 1
 let settings_brightness = 5
 let settings_auto_brigthness = false
 let settings_music = false
@@ -3438,6 +3717,79 @@ let canFall_8 = false
 let delay_8 = 500
 let score_8 = 0
 let gameon_8 = false
+
+let i_9 = 0
+let by_9: number[] = []
+let bx_9: number[] = []
+let brightnessB_9 = 0
+let brightnessA_9 = 0
+let brightness_9 = 0
+let stepB_9 = 0
+let show_9 = 0
+let winner_9 = 0
+let currY_9 = 0
+let ay_9: number[] = []
+let currX_9 = 0
+let stepA_9 = 0
+let ax_9: number[] = []
+let user_9 = 0
+let winY_9: number[] = []
+let winX_9: number[] = []
+let state_9 = 0
+state_9 = -1
+winX_9 = [
+    1,
+    2,
+    3,
+    1,
+    2,
+    3,
+    1,
+    2,
+    3,
+    1,
+    1,
+    1,
+    2,
+    2,
+    2,
+    3,
+    3,
+    3,
+    1,
+    2,
+    3,
+    1,
+    2,
+    3
+]
+winY_9 = [
+    1,
+    1,
+    1,
+    2,
+    2,
+    2,
+    3,
+    3,
+    3,
+    1,
+    2,
+    3,
+    1,
+    2,
+    3,
+    1,
+    2,
+    3,
+    1,
+    2,
+    3,
+    3,
+    2,
+    1
+]
+
 
 menu_select_menu()
 
@@ -3967,6 +4319,202 @@ function checkFullRow() {
         }
     }
 } //Tetris. // game_mode = 8
+function game_mode_9() {
+    if (state_9 == 0) {
+        basic.showLeds(`
+            . # . # .
+            # # # # #
+            . # . # .
+            # # # # #
+            . # . # .
+            `)
+    } else if (state_9 == 1) {
+        basic.showLeds(`
+            . . . . .
+            . . . . .
+            . . . . .
+            . . . . .
+            . . . . .
+            `)
+        for (let i = 0; i <= 4; i++) {
+            led.plotBrightness(i, 0, 1)
+        }
+        for (let i = 0; i <= 4; i++) {
+            led.plotBrightness(i, 4, 1)
+        }
+        for (let i = 0; i <= 4; i++) {
+            led.plotBrightness(0, i, 1)
+        }
+        for (let i = 0; i <= 4; i++) {
+            led.plotBrightness(4, i, 1)
+        }
+        state_9 = 2
+        currX_9 = 2
+        currY_9 = 2
+    } else if (state_9 == 2) {
+        if (input.isGesture(Gesture.LogoUp)) {
+            if (currY_9 < 3) {
+                currY_9 += 1
+            }
+        } else if (input.isGesture(Gesture.LogoDown)) {
+            if (currY_9 > 1) {
+                currY_9 += -1
+            }
+        } else if (input.isGesture(Gesture.TiltLeft)) {
+            if (currX_9 > 1) {
+                currX_9 += -1
+            }
+        } else if (input.isGesture(Gesture.TiltRight)) {
+            if (currX_9 < 3) {
+                currX_9 += 1
+            }
+        }
+        if (show_9 == 0) {
+            brightness_9 = 0
+            show_9 = 1
+        } else {
+            if (user_9 == 0) {
+                brightness_9 = brightnessA_9
+            } else {
+                brightness_9 = brightnessB_9
+            }
+            show_9 = 0
+        }
+        clearall()
+        led.plotBrightness(currX_9, currY_9, brightness_9)
+        showall()
+        winner_check()
+    } else {
+        init()
+    }
+    basic.pause(500)
+    game_mode_9()
+} //Tic-Tac-Toe // game_mode = 9
+function init() {
+    state_9 = 0
+    user_9 = 0
+    winner_9 = -1
+    show_9 = 0
+    stepA_9 = 0
+    stepB_9 = 0
+    brightness_9 = 0
+    brightnessA_9 = 255
+    brightnessB_9 = 5
+    ax_9 = [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+    ]
+    ay_9 = [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+    ]
+    bx_9 = [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+    ]
+    by_9 = [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+    ]
+} //Tic-Tac-Toe // game_mode = 9
+function clearall() {
+    for (let i = 0; i <= 2; i++) {
+        led.plotBrightness(i + 1, 1, 0)
+        led.plotBrightness(i + 1, 2, 0)
+        led.plotBrightness(i + 1, 3, 0)
+    }
+} //Tic-Tac-Toe // game_mode = 9
+function winner_check() {
+    for (let index = 0; index <= 7; index++) {
+        i_9 = index
+        winner_case()
+        if (winner_9 != -1) {
+            break;
+        }
+    }
+    if (winner_9 != -1) {
+        state_9 = -1
+        led.setBrightness(255)
+        basic.showString("WINNER")
+        for (let index = 0; index < 3; index++) {
+            if (winner_9 == 0) {
+                basic.showString("A")
+            } else {
+                basic.showString("B")
+            }
+            basic.pause(100)
+            basic.showLeds(`
+                . . . . .
+                . . . . .
+                . . . . .
+                . . . . .
+                . . . . .
+                `)
+            basic.pause(100)
+        }
+    } else {
+        if (stepA_9 == 5) {
+            state_9 = -1
+            led.setBrightness(255)
+            basic.showString("TIE")
+        }
+    }
+} //Tic-Tac-Toe // game_mode = 9
+function winner_case() {
+    for (let check1 = 0; check1 <= 4; check1++) {
+        if (ax_9[check1] == winX_9[i_9 * 3 + 0] && ay_9[check1] == winY_9[i_9 * 3 + 0]) {
+            for (let check2 = 0; check2 <= 4; check2++) {
+                if (ax_9[check2] == winX_9[i_9 * 3 + 1] && ay_9[check2] == winY_9[i_9 * 3 + 1]) {
+                    for (let check3 = 0; check3 <= 4; check3++) {
+                        if (ax_9[check3] == winX_9[i_9 * 3 + 2] && ay_9[check3] == winY_9[i_9 * 3 + 2]) {
+                            check3 = 5
+                            winner_9 = 0
+                            return 1
+                        }
+                    }
+                    check2 = 5
+                }
+            }
+            check1 = 5
+        }
+    }
+    for (let check1 = 0; check1 <= 4; check1++) {
+        if (bx_9[check1] == winX_9[i_9 * 3 + 0] && by_9[check1] == winY_9[i_9 * 3 + 0]) {
+            for (let check2 = 0; check2 <= 4; check2++) {
+                if (bx_9[check2] == winX_9[i_9 * 3 + 1] && by_9[check2] == winY_9[i_9 * 3 + 1]) {
+                    for (let check3 = 0; check3 <= 4; check3++) {
+                        if (bx_9[check3] == winX_9[i_9 * 3 + 2] && by_9[check3] == winY_9[i_9 * 3 + 2]) {
+                            check3 = 5
+                            winner_9 = 1
+                            return 1
+                        }
+                    }
+                    check2 = 5
+                }
+            }
+            check1 = 5
+        }
+    }
+    return 0
+} //Tic-Tac-Toe // game_mode = 9
+function showall() {
+    for (let i = 0; i <= 4; i++) {
+        led.plotBrightness(ax_9[i], ay_9[i], brightnessA_9)
+        led.plotBrightness(bx_9[i], by_9[i], brightnessB_9)
+    }
+} //Tic-Tac-Toe // game_mode = 9
 
 
 function tool_temparature() {
@@ -6646,7 +7194,614 @@ function number_radio() {
         }
     }
 } //Send number using radio.
+function music_melody8() {
+    music.setBuiltInSpeakerEnabled(true)
+    basic.clearScreen()
+    basic.pause(300)
+    let num = 1
+    while (true) {
+        if (input.buttonIsPressed(Button.A)) {
+            if (num == 1) {
+                num = 10
+            } else {
+                num += -1
+            }
+        }
+        if (input.buttonIsPressed(Button.B)) {
+            if (num == 10) {
+                num = 1
+            } else {
+                num += 1
+            }
+        }
+        if (input.logoIsPressed()) {
+            if (num == 1) {
+                music.play(music.stringPlayable("C5 B A G F E D C ", 120), music.PlaybackMode.UntilDone)
+            } else if (num == 2) {
+                music.play(music.stringPlayable("C D E F G A B C5 ", 120), music.PlaybackMode.UntilDone)
+            } else if (num == 3) {
+                music.play(music.stringPlayable("E B C5 A B G A F ", 120), music.PlaybackMode.UntilDone)
+            } else if (num == 4) {
+                music.play(music.stringPlayable("A F E F D G E F ", 120), music.PlaybackMode.UntilDone)
+            } else if (num == 5) {
+                music.play(music.stringPlayable("C5 A B G A F G E ", 120), music.PlaybackMode.UntilDone)
+            } else if (num == 6) {
+                music.play(music.stringPlayable("G B A G C5 B A B ", 120), music.PlaybackMode.UntilDone)
+            } else if (num == 7) {
+                music.play(music.stringPlayable("B A G A G F A C5 ", 120), music.PlaybackMode.UntilDone)
+            } else if (num == 8) {
+                music.play(music.stringPlayable("G F G A - F E D ", 120), music.PlaybackMode.UntilDone)
+            } else if (num == 9) {
+                music.play(music.stringPlayable("E D G F B A C5 B ", 120), music.PlaybackMode.UntilDone)
+            } else {
+                music.play(music.stringPlayable("C5 G B A F A C5 B ", 120), music.PlaybackMode.UntilDone)
+            }
+        }
+        
+        if (num == 1) {
+            basic.showLeds(`
+            . . . # .
+            . . # # .
+            . . . # .
+            . . . # .
+            . . . # .
+            `)
+        } else if (num == 2) {
+            basic.showLeds(`
+            . # # # .
+            . . . # .
+            . # # # .
+            . # . . .
+            . # # # .
+            `)
+        } else if (num == 3) {
+            basic.showLeds(`
+            . # # # .
+            . . . # .
+            . # # # .
+            . . . # .
+            . # # # .
+            `)
+        } else if (num == 4) {
+            basic.showLeds(`
+            . # . # .
+            . # . # .
+            . # # # .
+            . . . # .
+            . . . # .
+            `)
+        } else if (num == 5) {
+            basic.showLeds(`
+            . # # # .
+            . # . . .
+            . # # # .
+            . . . # .
+            . # # # .
+            `)
+        } else if (num == 6) {
+            basic.showLeds(`
+            . # # # .
+            . # . . .
+            . # # # .
+            . # . # .
+            . # # # .
+            `)
+        } else if (num == 7) {
+            basic.showLeds(`
+            . # # # .
+            . . . # .
+            . . . # .
+            . . . # .
+            . . . # .
+            `)
+        } else if (num == 8) {
+            basic.showLeds(`
+            . # # # .
+            . # . # .
+            . # # # .
+            . # . # .
+            . # # # .
+            `)
+        } else if (num == 9) {
+            basic.showLeds(`
+            . # # # .
+            . # . # .
+            . # # # .
+            . . . # .
+            . # # # .
+            `)
+        } else if (num == 10) {
+            basic.showLeds(`
+            # . # # #
+            # . # . #
+            # . # . #
+            # . # . #
+            # . # # #
+            `)
+        }
+    }
+} //Built in mucic 8
+function music_melody() {
+    music.setBuiltInSpeakerEnabled(true)
+    basic.clearScreen()
+    basic.pause(300)
+    let num = 1
+    while (true) {
+        if (input.buttonIsPressed(Button.A)) {
+            if (num == 1) {
+                num = 20
+            } else {
+                num += -1
+            }
+        }
+        if (input.buttonIsPressed(Button.B)) {
+            if (num == 20) {
+                num = 1
+            } else {
+                num += 1
+            }
+        }
+        if (input.logoIsPressed()) {
+            if (num == 1) {
+                music._playDefaultBackground(music.builtInPlayableMelody(Melodies.Dadadadum), music.PlaybackMode.UntilDone)
+            } else if (num == 2) {
+                music._playDefaultBackground(music.builtInPlayableMelody(Melodies.Entertainer), music.PlaybackMode.UntilDone)
+            } else if (num == 3) {
+                music._playDefaultBackground(music.builtInPlayableMelody(Melodies.Prelude), music.PlaybackMode.UntilDone)
+            } else if (num == 4) {
+                music._playDefaultBackground(music.builtInPlayableMelody(Melodies.Ode), music.PlaybackMode.UntilDone)
+            } else if (num == 5) {
+                music._playDefaultBackground(music.builtInPlayableMelody(Melodies.Nyan), music.PlaybackMode.UntilDone)
+            } else if (num == 6) {
+                music._playDefaultBackground(music.builtInPlayableMelody(Melodies.Ringtone), music.PlaybackMode.UntilDone)
+            } else if (num == 7) {
+                music._playDefaultBackground(music.builtInPlayableMelody(Melodies.Funk), music.PlaybackMode.UntilDone)
+            } else if (num == 8) {
+                music._playDefaultBackground(music.builtInPlayableMelody(Melodies.Blues), music.PlaybackMode.UntilDone)
+            } else if (num == 9) {
+                music._playDefaultBackground(music.builtInPlayableMelody(Melodies.Birthday), music.PlaybackMode.UntilDone)
+            } else if (num == 10) {
+                music._playDefaultBackground(music.builtInPlayableMelody(Melodies.Wedding), music.PlaybackMode.UntilDone)
+            } else if (num == 11) {
+                music._playDefaultBackground(music.builtInPlayableMelody(Melodies.Funeral), music.PlaybackMode.UntilDone)
+            } else if (num == 12) {
+                music._playDefaultBackground(music.builtInPlayableMelody(Melodies.Punchline), music.PlaybackMode.UntilDone)
+            } else if (num == 13) {
+                music._playDefaultBackground(music.builtInPlayableMelody(Melodies.Baddy), music.PlaybackMode.UntilDone)
+            } else if (num == 14) {
+                music._playDefaultBackground(music.builtInPlayableMelody(Melodies.Chase), music.PlaybackMode.UntilDone)
+            } else if (num == 15) {
+                music._playDefaultBackground(music.builtInPlayableMelody(Melodies.BaDing), music.PlaybackMode.UntilDone)
+            } else if (num == 16) {
+                music._playDefaultBackground(music.builtInPlayableMelody(Melodies.Wawawawaa), music.PlaybackMode.UntilDone)
+            } else if (num == 17) {
+                music._playDefaultBackground(music.builtInPlayableMelody(Melodies.JumpUp), music.PlaybackMode.UntilDone)
+            } else if (num == 18) {
+                music._playDefaultBackground(music.builtInPlayableMelody(Melodies.JumpDown), music.PlaybackMode.UntilDone)
+            } else if (num == 19) {
+                music._playDefaultBackground(music.builtInPlayableMelody(Melodies.JumpUp), music.PlaybackMode.UntilDone)
+            } else {
+                music._playDefaultBackground(music.builtInPlayableMelody(Melodies.JumpDown), music.PlaybackMode.UntilDone)
+            }
+        }
 
+        if (num == 1) {
+            basic.showLeds(`
+            . . . # .
+            . . # # .
+            . . . # .
+            . . . # .
+            . . . # .
+            `)
+        } else if (num == 2) {
+            basic.showLeds(`
+            . # # # .
+            . . . # .
+            . # # # .
+            . # . . .
+            . # # # .
+            `)
+        } else if (num == 3) {
+            basic.showLeds(`
+            . # # # .
+            . . . # .
+            . # # # .
+            . . . # .
+            . # # # .
+            `)
+        } else if (num == 4) {
+            basic.showLeds(`
+            . # . # .
+            . # . # .
+            . # # # .
+            . . . # .
+            . . . # .
+            `)
+        } else if (num == 5) {
+            basic.showLeds(`
+            . # # # .
+            . # . . .
+            . # # # .
+            . . . # .
+            . # # # .
+            `)
+        } else if (num == 6) {
+            basic.showLeds(`
+            . # # # .
+            . # . . .
+            . # # # .
+            . # . # .
+            . # # # .
+            `)
+        } else if (num == 7) {
+            basic.showLeds(`
+            . # # # .
+            . . . # .
+            . . . # .
+            . . . # .
+            . . . # .
+            `)
+        } else if (num == 8) {
+            basic.showLeds(`
+            . # # # .
+            . # . # .
+            . # # # .
+            . # . # .
+            . # # # .
+            `)
+        } else if (num == 9) {
+            basic.showLeds(`
+            . # # # .
+            . # . # .
+            . # # # .
+            . . . # .
+            . # # # .
+            `)
+        } else if (num == 10) {
+            basic.showLeds(`
+            # . # # #
+            # . # . #
+            # . # . #
+            # . # . #
+            # . # # #
+            `)
+        } else if (num == 11) {
+            basic.showLeds(`
+            # . . . #
+            # . . # #
+            # . . . #
+            # . . . #
+            # . . . #
+            `)
+        } else if (num == 12) {
+            basic.showLeds(`
+            # . # # #
+            # . . . #
+            # . # # #
+            # . # . .
+            # . # # #
+            `)
+        } else if (num == 13) {
+            basic.showLeds(`
+            # . # # #
+            # . . . #
+            # . # # #
+            # . . . #
+            # . # # #
+            `)
+        } else if (num == 14) {
+            basic.showLeds(`
+            # . # . #
+            # . # . #
+            # . # # #
+            # . . . #
+            # . . . #
+            `)
+        } else if (num == 15) {
+            basic.showLeds(`
+            # . # # #
+            # . # . .
+            # . # # #
+            # . . . #
+            # . # # #
+            `)
+        } else if (num == 16) {
+            basic.showLeds(`
+            # . # # #
+            # . # . .
+            # . # # #
+            # . # . #
+            # . # # #
+            `)
+        } else if (num == 17) {
+            basic.showLeds(`
+            # . # # #
+            # . . . #
+            # . . . #
+            # . . . #
+            # . . . #
+            `)
+        } else if (num == 18) {
+            basic.showLeds(`
+            # . # # #
+            # . # . #
+            # . # # #
+            # . # . #
+            # . # # #
+            `)
+        } else if (num == 19) {
+            basic.showLeds(`
+            # . # # #
+            # . # . #
+            # . # # #
+            # . . . #
+            # . # # #
+            `)
+        } else if (num == 20) {
+            basic.showLeds(`
+            # # # # #
+            . # # . #
+            # # # . #
+            # . # . #
+            # # # # #
+            `)
+        }
+    }
+} //Built in music
+function music_melodyV2() {
+    music.setBuiltInSpeakerEnabled(true)
+    basic.clearScreen()
+    basic.pause(300)
+    let num = 1
+    while (true) {
+        if (input.buttonIsPressed(Button.A)) {
+            if (num == 1) {
+                num = 10
+            } else {
+                num += -1
+            }
+        }
+        if (input.buttonIsPressed(Button.B)) {
+            if (num == 10) {
+                num = 1
+            } else {
+                num += 1
+            }
+        }
+        if (input.logoIsPressed()) {
+            if (num == 1) {
+                music.play(music.builtinPlayableSoundEffect(soundExpression.giggle), music.PlaybackMode.UntilDone)
+            } else if (num == 2) {
+                music.play(music.builtinPlayableSoundEffect(soundExpression.happy), music.PlaybackMode.UntilDone)
+            } else if (num == 3) {
+                music.play(music.builtinPlayableSoundEffect(soundExpression.hello), music.PlaybackMode.UntilDone)
+            } else if (num == 4) {
+                music.play(music.builtinPlayableSoundEffect(soundExpression.mysterious), music.PlaybackMode.UntilDone)
+            } else if (num == 5) {
+                music.play(music.builtinPlayableSoundEffect(soundExpression.sad), music.PlaybackMode.UntilDone)
+            } else if (num == 6) {
+                music.play(music.builtinPlayableSoundEffect(soundExpression.slide), music.PlaybackMode.UntilDone)
+            } else if (num == 7) {
+                music.play(music.builtinPlayableSoundEffect(soundExpression.soaring), music.PlaybackMode.UntilDone)
+            } else if (num == 8) {
+                music.play(music.builtinPlayableSoundEffect(soundExpression.spring), music.PlaybackMode.UntilDone)
+            } else if (num == 9) {
+                music.play(music.builtinPlayableSoundEffect(soundExpression.twinkle), music.PlaybackMode.UntilDone)
+            } else {
+                music.play(music.builtinPlayableSoundEffect(soundExpression.yawn), music.PlaybackMode.UntilDone)
+            }
+        }
+
+        if (num == 1) {
+            basic.showLeds(`
+            . . . # .
+            . . # # .
+            . . . # .
+            . . . # .
+            . . . # .
+            `)
+        } else if (num == 2) {
+            basic.showLeds(`
+            . # # # .
+            . . . # .
+            . # # # .
+            . # . . .
+            . # # # .
+            `)
+        } else if (num == 3) {
+            basic.showLeds(`
+            . # # # .
+            . . . # .
+            . # # # .
+            . . . # .
+            . # # # .
+            `)
+        } else if (num == 4) {
+            basic.showLeds(`
+            . # . # .
+            . # . # .
+            . # # # .
+            . . . # .
+            . . . # .
+            `)
+        } else if (num == 5) {
+            basic.showLeds(`
+            . # # # .
+            . # . . .
+            . # # # .
+            . . . # .
+            . # # # .
+            `)
+        } else if (num == 6) {
+            basic.showLeds(`
+            . # # # .
+            . # . . .
+            . # # # .
+            . # . # .
+            . # # # .
+            `)
+        } else if (num == 7) {
+            basic.showLeds(`
+            . # # # .
+            . . . # .
+            . . . # .
+            . . . # .
+            . . . # .
+            `)
+        } else if (num == 8) {
+            basic.showLeds(`
+            . # # # .
+            . # . # .
+            . # # # .
+            . # . # .
+            . # # # .
+            `)
+        } else if (num == 9) {
+            basic.showLeds(`
+            . # # # .
+            . # . # .
+            . # # # .
+            . . . # .
+            . # # # .
+            `)
+        } else if (num == 10) {
+            basic.showLeds(`
+            # . # # #
+            # . # . #
+            # . # . #
+            # . # . #
+            # . # # #
+            `)
+        }
+    }
+} // Built in music V2
+function music_sFX() {
+    music.setBuiltInSpeakerEnabled(true)
+    basic.clearScreen()
+    basic.pause(300)
+    let num = 1
+    while (true) {
+        if (input.buttonIsPressed(Button.A)) {
+            if (num == 1) {
+                num = 10
+            } else {
+                num += -1
+            }
+        }
+        if (input.buttonIsPressed(Button.B)) {
+            if (num == 10) {
+                num = 1
+            } else {
+                num += 1
+            }
+        }
+        if (input.logoIsPressed()) {
+            if (num == 1) {
+                music.play(music.createSoundExpression(WaveShape.Square, 1600, 1, 255, 0, 300, SoundExpressionEffect.None, InterpolationCurve.Curve), music.PlaybackMode.UntilDone)
+            } else if (num == 2) {
+                music.play(music.createSoundExpression(WaveShape.Noise, 500, 499, 255, 0, 750, SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.UntilDone)
+            } else if (num == 3) {
+                music.play(music.createSoundExpression(WaveShape.Square, 400, 600, 255, 0, 100, SoundExpressionEffect.Warble, InterpolationCurve.Linear), music.PlaybackMode.UntilDone)
+            } else if (num == 4) {
+                music.play(music.createSoundExpression(WaveShape.Sine, 200, 600, 255, 0, 150, SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.UntilDone)
+            } else if (num == 5) {
+                music.play(music.createSoundExpression(WaveShape.Square, 200, 1, 255, 0, 100, SoundExpressionEffect.None, InterpolationCurve.Curve), music.PlaybackMode.UntilDone)
+            } else if (num == 6) {
+                music.play(music.createSoundExpression(WaveShape.Triangle, 300, 200, 255, 0, 75, SoundExpressionEffect.None, InterpolationCurve.Curve), music.PlaybackMode.UntilDone)
+            } else if (num == 7) {
+                music.play(music.createSoundExpression(WaveShape.Noise, 523, 1, 255, 0, 100, SoundExpressionEffect.Warble, InterpolationCurve.Logarithmic), music.PlaybackMode.UntilDone)
+            } else if (num == 8) {
+                music.play(music.createSoundExpression(WaveShape.Noise, 500, 1, 255, 0, 10, SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.UntilDone)
+            } else if (num == 9) {
+                music.play(music.createSoundExpression(WaveShape.Sine, 500, 500, 255, 0, 50, SoundExpressionEffect.Vibrato, InterpolationCurve.Linear), music.PlaybackMode.UntilDone)
+            } else {
+                music.play(music.createSoundExpression(WaveShape.Noise, 54, 54, 255, 0, 500, SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.UntilDone)
+            }
+        }
+
+        if (num == 1) {
+            basic.showLeds(`
+            . . . # .
+            . . # # .
+            . . . # .
+            . . . # .
+            . . . # .
+            `)
+        } else if (num == 2) {
+            basic.showLeds(`
+            . # # # .
+            . . . # .
+            . # # # .
+            . # . . .
+            . # # # .
+            `)
+        } else if (num == 3) {
+            basic.showLeds(`
+            . # # # .
+            . . . # .
+            . # # # .
+            . . . # .
+            . # # # .
+            `)
+        } else if (num == 4) {
+            basic.showLeds(`
+            . # . # .
+            . # . # .
+            . # # # .
+            . . . # .
+            . . . # .
+            `)
+        } else if (num == 5) {
+            basic.showLeds(`
+            . # # # .
+            . # . . .
+            . # # # .
+            . . . # .
+            . # # # .
+            `)
+        } else if (num == 6) {
+            basic.showLeds(`
+            . # # # .
+            . # . . .
+            . # # # .
+            . # . # .
+            . # # # .
+            `)
+        } else if (num == 7) {
+            basic.showLeds(`
+            . # # # .
+            . . . # .
+            . . . # .
+            . . . # .
+            . . . # .
+            `)
+        } else if (num == 8) {
+            basic.showLeds(`
+            . # # # .
+            . # . # .
+            . # # # .
+            . # . # .
+            . # # # .
+            `)
+        } else if (num == 9) {
+            basic.showLeds(`
+            . # # # .
+            . # . # .
+            . # # # .
+            . . . # .
+            . # # # .
+            `)
+        } else if (num == 10) {
+            basic.showLeds(`
+            # . # # #
+            # . # . #
+            # . # . #
+            # . # . #
+            # . # # #
+            `)
+        }
+    }
+} // Built in sFX
 
 function create_strig() {
     basic.clearScreen()
