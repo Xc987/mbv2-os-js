@@ -75,6 +75,7 @@ function loading_animation_rev() {
     led.unplot(3, 0)
 
 } //Draw loading animation reversed.
+
 function draw_menu(){
     led.plotBrightness(0, 0, 20)
     led.plotBrightness(1, 0, 20)
@@ -87,6 +88,719 @@ function draw_mini_menu() {
     led.plotBrightness(2, 0, 20)
     led.plotBrightness(3, 0, 20)
 } //Draw mini navigation bar at the top.
+
+function unid_if_0_9() {
+    unid = num
+    if (unid == 0) {
+        basic.showLeds(`
+            . # # # .
+            . # . # .
+            . # . # .
+            . # . # .
+            . # # # .
+            `)
+    } else if (unid == 1) {
+        basic.showLeds(`
+            . . . # .
+            . . # # .
+            . . . # .
+            . . . # .
+            . . . # .
+            `)
+    } else if (unid == 2) {
+        basic.showLeds(`
+            . # # # .
+            . . . # .
+            . # # # .
+            . # . . .
+            . # # # .
+            `)
+    } else if (unid == 3) {
+        basic.showLeds(`
+            . # # # .
+            . . . # .
+            . # # # .
+            . . . # .
+            . # # # .
+            `)
+    } else if (unid == 4) {
+        basic.showLeds(`
+            . # . # .
+            . # . # .
+            . # # # .
+            . . . # .
+            . . . # .
+            `)
+    } else if (unid == 5) {
+        basic.showLeds(`
+            . # # # .
+            . # . . .
+            . # # # .
+            . . . # .
+            . # # # .
+            `)
+    } else if (unid == 6) {
+        basic.showLeds(`
+            . # # # .
+            . # . . .
+            . # # # .
+            . # . # .
+            . # # # .
+            `)
+    } else if (unid == 7) {
+        basic.showLeds(`
+            . # # # .
+            . . . # .
+            . . . # .
+            . . . # .
+            . . . # .
+            `)
+    } else if (unid == 8) {
+        basic.showLeds(`
+            . # # # .
+            . # . # .
+            . # # # .
+            . # . # .
+            . # # # .
+            `)
+    } else if (unid == 9) {
+        basic.showLeds(`
+            . # # # .
+            . # . # .
+            . # # # .
+            . . . # .
+            . # # # .
+            `)
+    }
+} //Function to draw numbers from 0 to 9
+function unid_if_1_23() {
+    if (unid_type == 1) {
+        unid = num
+    } else if (unid_type == 2) {
+        unid = hour
+    } else if (unid_type == 3) {
+        unid = minute
+    } else if (unid_type == 4) {
+        unid = second
+    } else if (unid_type == 5) {
+        unid = signal_hour
+    } else if (unid_type == 6) {
+        unid = signal_minute
+    }
+    if (unid == 1) {
+        basic.showLeds(`
+            . . . # .
+            . . # # .
+            . . . # .
+            . . . # .
+            . . . # .
+            `)
+    } else if (unid == 2) {
+        basic.showLeds(`
+            . # # # .
+            . . . # .
+            . # # # .
+            . # . . .
+            . # # # .
+            `)
+    } else if (unid == 3) {
+        basic.showLeds(`
+            . # # # .
+            . . . # .
+            . # # # .
+            . . . # .
+            . # # # .
+            `)
+    } else if (unid == 4) {
+        basic.showLeds(`
+            . # . # .
+            . # . # .
+            . # # # .
+            . . . # .
+            . . . # .
+            `)
+    } else if (unid == 5) {
+        basic.showLeds(`
+            . # # # .
+            . # . . .
+            . # # # .
+            . . . # .
+            . # # # .
+            `)
+    } else if (unid == 6) {
+        basic.showLeds(`
+            . # # # .
+            . # . . .
+            . # # # .
+            . # . # .
+            . # # # .
+            `)
+    } else if (unid == 7) {
+        basic.showLeds(`
+            . # # # .
+            . . . # .
+            . . . # .
+            . . . # .
+            . . . # .
+            `)
+    } else if (unid == 8) {
+        basic.showLeds(`
+            . # # # .
+            . # . # .
+            . # # # .
+            . # . # .
+            . # # # .
+            `)
+    } else if (unid == 9) {
+        basic.showLeds(`
+            . # # # .
+            . # . # .
+            . # # # .
+            . . . # .
+            . # # # .
+            `)
+    } else if (unid == 10) {
+        basic.showLeds(`
+            # . # # #
+            # . # . #
+            # . # . #
+            # . # . #
+            # . # # #
+            `)
+    } else if (unid == 11) {
+        basic.showLeds(`
+            # . . . #
+            # . . # #
+            # . . . #
+            # . . . #
+            # . . . #
+            `)
+    } else if (unid == 12) {
+        basic.showLeds(`
+            # . # # #
+            # . . . #
+            # . # # #
+            # . # . .
+            # . # # #
+            `)
+    } else if (unid == 13) {
+        basic.showLeds(`
+            # . # # #
+            # . . . #
+            # . # # #
+            # . . . #
+            # . # # #
+            `)
+    } else if (unid == 14) {
+        basic.showLeds(`
+            # . # . #
+            # . # . #
+            # . # # #
+            # . . . #
+            # . . . #
+            `)
+    } else if (unid == 15) {
+        basic.showLeds(`
+            # . # # #
+            # . # . .
+            # . # # #
+            # . . . #
+            # . # # #
+            `)
+    } else if (unid == 16) {
+        basic.showLeds(`
+            # . # # #
+            # . # . .
+            # . # # #
+            # . # . #
+            # . # # #
+            `)
+    } else if (unid == 17) {
+        basic.showLeds(`
+            # . # # #
+            # . . . #
+            # . . . #
+            # . . . #
+            # . . . #
+            `)
+    } else if (unid == 18) {
+        basic.showLeds(`
+            # . # # #
+            # . # . #
+            # . # # #
+            # . # . #
+            # . # # #
+            `)
+    } else if (unid == 19) {
+        basic.showLeds(`
+            # . # # #
+            # . # . #
+            # . # # #
+            # . . . #
+            # . # # #
+            `)
+    } else if (unid == 20) {
+        basic.showLeds(`
+            # # # # #
+            . # # . #
+            # # # . #
+            # . # . #
+            # # # # #
+            `)
+    } else if (unid == 0) {
+        basic.showLeds(`
+            . # # # .
+            . # . # .
+            . # . # .
+            . # . # .
+            . # # # .
+            `)
+    } else if (unid == 5) {
+        basic.showLeds(`
+            . # # # .
+            . # . . .
+            . # # # .
+            . . . # .
+            . # # # .
+            `)
+    } else if (unid == 10) {
+        basic.showLeds(`
+            # . # # #
+            # . # . #
+            # . # . #
+            # . # . #
+            # . # # #
+            `)
+    } else if (unid == 15) {
+        basic.showLeds(`
+            # . . # #
+            # . . # .
+            # . . # #
+            # . . . #
+            # . . # #
+            `)
+    } else if (unid == 20) {
+        basic.showLeds(`
+            # # # # #
+            . # # . #
+            # # # . #
+            # . # . #
+            # # # # #
+            `)
+    } else if (unid == 25) {
+        basic.showLeds(`
+            # # . # #
+            . # . # .
+            # # . # #
+            # . . . #
+            # # . # #
+            `)
+    } else if (unid == 30) {
+        basic.showLeds(`
+            # # # # #
+            . # # . #
+            # # # . #
+            . # # . #
+            # # # # #
+            `)
+    } else if (unid == 35) {
+        basic.showLeds(`
+            # # . # #
+            . # . # .
+            # # . # #
+            . # . . #
+            # # . # #
+            `)
+    } else if (unid == 40) {
+        basic.showLeds(`
+            # . # # #
+            # . # . #
+            # # # . #
+            . # # . #
+            . # # # #
+            `)
+    } else if (unid == 45) {
+        basic.showLeds(`
+            # . . # #
+            # . . # .
+            # # . # #
+            . # . . #
+            . # . # #
+            `)
+    } else if (unid == 50) {
+        basic.showLeds(`
+            # # # # #
+            # . # . #
+            # # # . #
+            . # # . #
+            # # # # #
+            `)
+    } else if (unid == 55) {
+        basic.showLeds(`
+            # # . # #
+            # . . # .
+            # # . # #
+            . # . . #
+            # # . # #
+            `)
+    } else if (unid == 21) {
+        basic.showLeds(`
+            # # . . #
+            . # . # #
+            # # . . #
+            # . . . #
+            # # . . #
+            `)
+    } else if (unid == 22) {
+        basic.showLeds(`
+            # # . # #
+            . # . . #
+            # # . # #
+            # . . # .
+            # # . # #
+            `)
+    } else if (unid == 23) {
+        basic.showLeds(`
+            # # . # #
+            . # . . #
+            # # . # #
+            # . . . #
+            # # . # #
+            `)
+    }
+} //Function to draw numbers from 0 to 55
+function usid_if() {
+    usid = abc_id
+    if (usid == 1) {
+        basic.showLeds(`
+                . . . . .
+                . # # # .
+                # . . # .
+                # . . # .
+                . # # # #
+                `)
+    } else if (usid == 2) {
+        basic.showLeds(`
+                . # # # .
+                . . . . .
+                . # # # .
+                # . . # .
+                . # # # #
+                `)
+    } else if (usid == 3) {
+        basic.showLeds(`
+                # . . . .
+                # . . . .
+                # # # . .
+                # . . # .
+                # # # . .
+                `)
+    } else if (usid == 4) {
+        basic.showLeds(`
+                . . . . .
+                . # # . .
+                # . . . .
+                # . . . .
+                . # # . .
+                `)
+    } else if (usid == 5) {
+        basic.showLeds(`
+                . # . . .
+                . . . . .
+                . # # . .
+                # . . . .
+                . # # . .
+                `)
+    } else if (usid == 6) {
+        basic.showLeds(`
+                . . . # .
+                . . . # .
+                . # # # .
+                # . . # .
+                . # # # .
+                `)
+    } else if (usid == 7) {
+        basic.showLeds(`
+                . # # . .
+                # . . # .
+                # # # . .
+                # . . . .
+                . # # # .
+                `)
+    } else if (usid == 8) {
+        basic.showLeds(`
+                # # # . #
+                # . . . #
+                # # # . #
+                # . . . .
+                # # # . .
+                `)
+    } else if (usid == 9) {
+        basic.showLeds(`
+                . . # # .
+                . # . . .
+                # # # . .
+                . # . . .
+                . # . . .
+                `)
+    } else if (usid == 10) {
+        basic.showLeds(`
+                . # # # .
+                # . . # .
+                . # # # .
+                . . . # .
+                . # # . .
+                `)
+    } else if (usid == 11) {
+        basic.showLeds(`
+                # # # . #
+                # . . . .
+                # . # # .
+                # . . # .
+                # # # # .
+                `)
+    } else if (usid == 12) {
+        basic.showLeds(`
+                # . . . .
+                # . . . .
+                # # # . .
+                # . . # .
+                # . . # .
+                `)
+    } else if (usid == 13) {
+        basic.showLeds(`
+                . . # . .
+                . . . . .
+                . . # . .
+                . . # . .
+                . . # . .
+                `)
+    } else if (usid == 14) {
+        basic.showLeds(`
+                . # # # .
+                . . . . .
+                . . # . .
+                . . # . .
+                . . # . .
+                `)
+    } else if (usid == 15) {
+        basic.showLeds(`
+                . . # . .
+                . . . . .
+                . . # . .
+                . . # . .
+                # # . . .
+                `)
+    } else if (usid == 16) {
+        basic.showLeds(`
+                # . . . .
+                # . # . .
+                # # . . .
+                # . # . .
+                # . . # .
+                `)
+    } else if (usid == 17) {
+        basic.showLeds(`
+                # . . . .
+                # . # . .
+                # # . . #
+                # . # . .
+                # . . # .
+                `)
+    } else if (usid == 18) {
+        basic.showLeds(`
+                . # . . .
+                . # . . .
+                . # . . .
+                . # . . .
+                . # # # .
+                `)
+    } else if (usid == 19) {
+        basic.showLeds(`
+                . # . . #
+                . # . . .
+                . # . . .
+                . # . . .
+                . # # # .
+                `)
+    } else if (usid == 20) {
+        basic.showLeds(`
+                . . . . .
+                # # . # #
+                # . # . #
+                # . . . #
+                # . . . #
+                `)
+    } else if (usid == 21) {
+        basic.showLeds(`
+                . . . . .
+                # # # . .
+                # . . # .
+                # . . # .
+                # . . # .
+                `)
+    } else if (usid == 22) {
+        basic.showLeds(`
+                . . . . #
+                # # # . .
+                # . . # .
+                # . . # .
+                # . . # .
+                `)
+    } else if (usid == 23) {
+        basic.showLeds(`
+                . . . . .
+                . # # . .
+                # . . # .
+                # . . # .
+                . # # . .
+                `)
+    } else if (usid == 24) {
+        basic.showLeds(`
+                . . . . .
+                # # # . .
+                # . . # .
+                # # # . .
+                # . . . .
+                `)
+    } else if (usid == 25) {
+        basic.showLeds(`
+                . . . . .
+                # . # # .
+                # # . . .
+                # . . . .
+                # . . . .
+                `)
+    } else if (usid == 26) {
+        basic.showLeds(`
+                . . . . .
+                . . # # .
+                . # . . .
+                . . # . .
+                # # . . .
+                `)
+    } else if (usid == 27) {
+        basic.showLeds(`
+                # . . . .
+                . . # # .
+                . # . . .
+                . . # . .
+                # # . . .
+                `)
+    } else if (usid == 28) {
+        basic.showLeds(`
+                . # . . .
+                . # . . .
+                . # # # .
+                . # . . .
+                . . # # .
+                `)
+    } else if (usid == 29) {
+        basic.showLeds(`
+                . . . . .
+                # . . # .
+                # . . # .
+                # . . # .
+                . # # # #
+                `)
+    } else if (usid == 30) {
+        basic.showLeds(`
+                . # # . .
+                . . . . .
+                # . . # .
+                # . . # .
+                . # # # #
+                `)
+    } else if (usid == 31) {
+        basic.showLeds(`
+                . . . . .
+                # . . . #
+                # . . . #
+                . # . # .
+                . . # . .
+                `)
+    } else if (usid == 32) {
+        basic.showLeds(`
+                . . . . .
+                # # # # .
+                . . # . .
+                . # . . .
+                # # # # .
+                `)
+    } else if (usid == 33) {
+        basic.showLeds(`
+                . . . . #
+                # # # # .
+                . . # . .
+                . # . . .
+                # # # # .
+                `)
+    } else if (usid == 34) {
+        basic.showLeds(`
+                . . . . .
+                . . . . .
+                # . . . #
+                # # # # #
+                . . . . .
+                `)
+    } else if (usid == 35) {
+        basic.showLeds(`
+                . . . . .
+                . . . . .
+                . . . . .
+                . . # . .
+                . . . . .
+                `)
+    } else if (usid == 36) {
+        basic.showLeds(`
+                . . . . .
+                . . . . .
+                . . . . .
+                . . # . .
+                . # . . .
+                `)
+    } else if (usid == 37) {
+        basic.showLeds(`
+                . . # . .
+                . . # . .
+                . . # . .
+                . . . . .
+                . . # . .
+                `)
+    } else {
+        basic.showLeds(`
+                . # # # .
+                # . . . #
+                . . # # .
+                . . . . .
+                . . # . .
+                `)
+    }
+} //Function to draw letters from a to "?"
+
+function settings_music_draw() {
+    led.plotBrightness(0, 3, 20)
+    led.plotBrightness(0, 4, 20)
+    led.plotBrightness(1, 3, 20)
+    led.plotBrightness(1, 4, 20)
+    led.plotBrightness(2, 1, 20)
+    led.plotBrightness(2, 2, 20)
+    led.plotBrightness(2, 3, 20)
+    led.plotBrightness(2, 4, 20)
+    led.plotBrightness(3, 1, 20)
+    led.plotBrightness(4, 2, 20)
+} //Draw the music logo
+function settings_pinlock_draw() {
+    led.plotBrightness(0, 4, 20)
+    led.plotBrightness(0, 3, 20)
+    led.plotBrightness(1, 3, 20)
+    led.plotBrightness(2, 3, 20)
+    led.plotBrightness(2, 4, 20)
+    led.plotBrightness(3, 3, 20)
+    led.plotBrightness(4, 3, 20)
+    led.plotBrightness(4, 4, 20)
+} //Draw the pin-lock FlashLogTimeStampFormat
+
 function menu_select_menu() {
     while (menu_select == true) {
         if (selected_menu == 1) {
@@ -734,6 +1448,7 @@ function game_select_menu() {
     }
     if (game_mode == 0) {
         menu_select = true
+        abuttonpressed = true
         menu_select_menu()
     } else if (game_mode == 1) {
         px_1 = 2
@@ -1213,6 +1928,7 @@ function tool_select_menu () {
     basic.clearScreen()
     let tool_type = 1
     if (selected_tool == 0) {
+        abuttonpressed = true
         menu_select = true
         menu_select_menu()
     } else if (selected_tool == 1) {
@@ -2546,16 +3262,7 @@ function settings_select_menu() {
                         # # # . .
                         # # # . .
                         `).showImage(0)
-                        led.plotBrightness(0, 3, 20)
-                        led.plotBrightness(0, 4, 20)
-                        led.plotBrightness(1, 3, 20)
-                        led.plotBrightness(1, 4, 20)
-                        led.plotBrightness(2, 1, 20)
-                        led.plotBrightness(2, 2, 20)
-                        led.plotBrightness(2, 3, 20)
-                        led.plotBrightness(2, 4, 20)
-                        led.plotBrightness(3, 1, 20)
-                        led.plotBrightness(4, 2, 20)
+                        settings_music_draw()
                     } else {
                         images.createImage(`
                         . . . . .
@@ -2577,16 +3284,7 @@ function settings_select_menu() {
                         # # # . .
                         # # # . .
                         `).scrollImage(1, 45)
-                        led.plotBrightness(0, 3, 20)
-                        led.plotBrightness(0, 4, 20)
-                        led.plotBrightness(1, 3, 20)
-                        led.plotBrightness(1, 4, 20)
-                        led.plotBrightness(2, 1, 20)
-                        led.plotBrightness(2, 2, 20)
-                        led.plotBrightness(2, 3, 20)
-                        led.plotBrightness(2, 4, 20)
-                        led.plotBrightness(3, 1, 20)
-                        led.plotBrightness(4, 2, 20)
+                        settings_music_draw()
                     } else {
                         images.createImage(`
                         . . . . .
@@ -2607,16 +3305,7 @@ function settings_select_menu() {
                     # # # . .
                     # # # . .
                     `)
-                    led.plotBrightness(0, 3, 20)
-                    led.plotBrightness(0, 4, 20)
-                    led.plotBrightness(1, 3, 20)
-                    led.plotBrightness(1, 4, 20)
-                    led.plotBrightness(2, 1, 20)
-                    led.plotBrightness(2, 2, 20)
-                    led.plotBrightness(2, 3, 20)
-                    led.plotBrightness(2, 4, 20)
-                    led.plotBrightness(3, 1, 20)
-                    led.plotBrightness(4, 2, 20)
+                    settings_music_draw()
                 } else {
                     basic.showLeds(`
                 . . . . .
@@ -3127,14 +3816,7 @@ function settings_select_menu() {
                 # # # # #
                 # . # . #
                 `).showImage(0)
-                        led.plotBrightness(0, 4, 20)
-                        led.plotBrightness(0, 3, 20)
-                        led.plotBrightness(1, 3, 20)
-                        led.plotBrightness(2, 3, 20)
-                        led.plotBrightness(2, 4, 20)
-                        led.plotBrightness(3, 3, 20)
-                        led.plotBrightness(4, 3, 20)
-                        led.plotBrightness(4, 4, 20)
+                        settings_pinlock_draw()
                     }
                     draw_menu()
                     abuttonpressed = false
@@ -3156,14 +3838,7 @@ function settings_select_menu() {
                 # # # # #
                 # . # . #
                 `).scrollImage(1, 45)
-                        led.plotBrightness(0, 4, 20)
-                        led.plotBrightness(0, 3, 20)
-                        led.plotBrightness(1, 3, 20)
-                        led.plotBrightness(2, 3, 20)
-                        led.plotBrightness(2, 4, 20)
-                        led.plotBrightness(3, 3, 20)
-                        led.plotBrightness(4, 3, 20)
-                        led.plotBrightness(4, 4, 20)
+                        settings_pinlock_draw()
                     }
                     draw_menu()
                 }
@@ -3184,14 +3859,7 @@ function settings_select_menu() {
                 # # # # #
                 # . # . #
                 `)
-                    led.plotBrightness(0, 4, 20)
-                    led.plotBrightness(0, 3, 20)
-                    led.plotBrightness(1, 3, 20)
-                    led.plotBrightness(2, 3, 20)
-                    led.plotBrightness(2, 4, 20)
-                    led.plotBrightness(3, 3, 20)
-                    led.plotBrightness(4, 3, 20)
-                    led.plotBrightness(4, 4, 20)
+                    settings_pinlock_draw()
                 }
                 draw_menu()
             }
@@ -3337,7 +4005,6 @@ function settings_select_menu() {
         settings_test_input()
     }
 } //Settings selection.
-
 input.onButtonPressed(Button.A, function () {
     if (game_mode == 1) {
         if (px_1 > 0) {
@@ -3660,6 +4327,15 @@ let animation_scroll = true
 let abuttonpressed = true
 let download_radio = false
 let signal_radio = radio.receivedPacket(RadioPacketProperty.SignalStrength)
+let unid = 0
+let usid = 0
+let num = 0
+let hour = 0
+let minute = 0
+let second = 0
+let signal_hour = 0
+let signal_minute = 0
+let unid_type = 0
 
 
 let acc_1 = 0
@@ -4999,7 +5675,7 @@ function math_xy() {
     ]
     mathx = 0
     mathy = 0
-    let num = 0
+    num = 0
     number_select = true
     while (number_select == true) {
         if (input.buttonIsPressed(Button.A)) {
@@ -5064,89 +5740,7 @@ function math_xy() {
             basic.clearScreen()
             number_select = false
         }
-        if (number_select == true) {
-            if (num == 0) {
-                basic.showLeds(`
-            . # # # .
-            . # . # .
-            . # . # .
-            . # . # .
-            . # # # .
-            `)
-            } else if (num == 1) {
-                basic.showLeds(`
-            . . . # .
-            . . # # .
-            . . . # .
-            . . . # .
-            . . . # .
-            `)
-            } else if (num == 2) {
-                basic.showLeds(`
-            . # # # .
-            . . . # .
-            . # # # .
-            . # . . .
-            . # # # .
-            `)
-            } else if (num == 3) {
-                basic.showLeds(`
-            . # # # .
-            . . . # .
-            . # # # .
-            . . . # .
-            . # # # .
-            `)
-            } else if (num == 4) {
-                basic.showLeds(`
-            . # . # .
-            . # . # .
-            . # # # .
-            . . . # .
-            . . . # .
-            `)
-            } else if (num == 5) {
-                basic.showLeds(`
-            . # # # .
-            . # . . .
-            . # # # .
-            . . . # .
-            . # # # .
-            `)
-            } else if (num == 6) {
-                basic.showLeds(`
-            . # # # .
-            . # . . .
-            . # # # .
-            . # . # .
-            . # # # .
-            `)
-            } else if (num == 7) {
-                basic.showLeds(`
-            . # # # .
-            . . . # .
-            . . . # .
-            . . . # .
-            . . . # .
-            `)
-            } else if (num == 8) {
-                basic.showLeds(`
-            . # # # .
-            . # . # .
-            . # # # .
-            . # . # .
-            . # # # .
-            `)
-            } else if (num == 9) {
-                basic.showLeds(`
-            . # # # .
-            . # . # .
-            . # # # .
-            . . . # .
-            . # # # .
-            `)
-            }
-        }
+        unid_if_0_9()
     }
     game.addScore(1)
     basic.pause(500)
@@ -5215,90 +5809,7 @@ function math_xy() {
             basic.clearScreen()
             number_select = false
         }
-        if (number_select == true) {
-            if (num == 0) {
-                basic.showLeds(`
-            . # # # .
-            . # . # .
-            . # . # .
-            . # . # .
-            . # # # .
-            `)
-            } else if (num == 1) {
-                basic.showLeds(`
-            . . . # .
-            . . # # .
-            . . . # .
-            . . . # .
-            . . . # .
-            `)
-            } else if (num == 2) {
-                basic.showLeds(`
-            . # # # .
-            . . . # .
-            . # # # .
-            . # . . .
-            . # # # .
-            `)
-            } else if (num == 3) {
-                basic.showLeds(`
-            . # # # .
-            . . . # .
-            . # # # .
-            . . . # .
-            . # # # .
-            `)
-            } else if (num == 4) {
-                basic.showLeds(`
-            . # . # .
-            . # . # .
-            . # # # .
-            . . . # .
-            . . . # .
-            `)
-            } else if (num == 5) {
-                basic.showLeds(`
-            . # # # .
-            . # . . .
-            . # # # .
-            . . . # .
-            . # # # .
-            `)
-            } else if (num == 6) {
-                basic.showLeds(`
-            . # # # .
-            . # . . .
-            . # # # .
-            . # . # .
-            . # # # .
-            `)
-            } else if (num == 7) {
-                basic.showLeds(`
-            . # # # .
-            . . . # .
-            . . . # .
-            . . . # .
-            . . . # .
-            `)
-            } else if (num == 8) {
-                basic.showLeds(`
-            . # # # .
-            . # . # .
-            . # # # .
-            . # . # .
-            . # # # .
-            `)
-            } else if (num == 9) {
-                basic.showLeds(`
-            . # # # .
-            . # . # .
-            . # # # .
-            . . . # .
-            . # # # .
-            `)
-            }
-        }
-
+        unid_if_0_9
     }
     game.addScore(1)
     basic.pause(400)
@@ -5333,7 +5844,7 @@ function math_x() {
     ]
     mathx = 0
     mathy = 0
-    let num = 0
+    num = 0
     number_select = true
     while (number_select == true) {
         if (input.buttonIsPressed(Button.A)) {
@@ -5398,89 +5909,7 @@ function math_x() {
             basic.clearScreen()
             number_select = false
         }
-        if (number_select == true) {
-            if (num == 0) {
-                basic.showLeds(`
-            . # # # .
-            . # . # .
-            . # . # .
-            . # . # .
-            . # # # .
-            `)
-            } else if (num == 1) {
-                basic.showLeds(`
-            . . . # .
-            . . # # .
-            . . . # .
-            . . . # .
-            . . . # .
-            `)
-            } else if (num == 2) {
-                basic.showLeds(`
-            . # # # .
-            . . . # .
-            . # # # .
-            . # . . .
-            . # # # .
-            `)
-            } else if (num == 3) {
-                basic.showLeds(`
-            . # # # .
-            . . . # .
-            . # # # .
-            . . . # .
-            . # # # .
-            `)
-            } else if (num == 4) {
-                basic.showLeds(`
-            . # . # .
-            . # . # .
-            . # # # .
-            . . . # .
-            . . . # .
-            `)
-            } else if (num == 5) {
-                basic.showLeds(`
-            . # # # .
-            . # . . .
-            . # # # .
-            . . . # .
-            . # # # .
-            `)
-            } else if (num == 6) {
-                basic.showLeds(`
-            . # # # .
-            . # . . .
-            . # # # .
-            . # . # .
-            . # # # .
-            `)
-            } else if (num == 7) {
-                basic.showLeds(`
-            . # # # .
-            . . . # .
-            . . . # .
-            . . . # .
-            . . . # .
-            `)
-            } else if (num == 8) {
-                basic.showLeds(`
-            . # # # .
-            . # . # .
-            . # # # .
-            . # . # .
-            . # # # .
-            `)
-            } else if (num == 9) {
-                basic.showLeds(`
-            . # # # .
-            . # . # .
-            . # # # .
-            . . . # .
-            . # # # .
-            `)
-            }
-        }
+        unid_if_0_9()
     }
     game.addScore(1)
     basic.pause(500)
@@ -5502,11 +5931,12 @@ function signal() {
     basic.pause(200)
     basic.showString("H")
     basic.clearScreen()
-    let hour = 0
-    let minute = 0
-    let second = 0
-    let signal_hour = 0
-    let signal_minute = 0
+    hour = 0
+    minute = 0
+    second = 0
+    unid_type = 2
+    signal_hour = 0
+    signal_minute = 0
     let number_select = true
     while (number_select == true) {
         if (input.buttonIsPressed(Button.A)) {
@@ -5526,204 +5956,13 @@ function signal() {
         if (input.logoIsPressed()) {
             number_select = false
         }
-        if (hour == 0) {
-            basic.showLeds(`
-            . # # # .
-            . # . # .
-            . # . # .
-            . # . # .
-            . # # # .
-            `)
-        } else if (hour == 1) {
-            basic.showLeds(`
-            . . . # .
-            . . # # .
-            . . . # .
-            . . . # .
-            . . . # .
-            `)
-        } else if (hour == 2) {
-            basic.showLeds(`
-            . # # # .
-            . . . # .
-            . # # # .
-            . # . . .
-            . # # # .
-            `)
-        } else if (hour == 3) {
-            basic.showLeds(`
-            . # # # .
-            . . . # .
-            . # # # .
-            . . . # .
-            . # # # .
-            `)
-        } else if (hour == 4) {
-            basic.showLeds(`
-            . # . # .
-            . # . # .
-            . # # # .
-            . . . # .
-            . . . # .
-            `)
-        } else if (hour == 5) {
-            basic.showLeds(`
-            . # # # .
-            . # . . .
-            . # # # .
-            . . . # .
-            . # # # .
-            `)
-        } else if (hour == 6) {
-            basic.showLeds(`
-            . # # # .
-            . # . . .
-            . # # # .
-            . # . # .
-            . # # # .
-            `)
-        } else if (hour == 7) {
-            basic.showLeds(`
-            . # # # .
-            . . . # .
-            . . . # .
-            . . . # .
-            . . . # .
-            `)
-        } else if (hour == 8) {
-            basic.showLeds(`
-            . # # # .
-            . # . # .
-            . # # # .
-            . # . # .
-            . # # # .
-            `)
-        } else if (hour == 9) {
-            basic.showLeds(`
-            . # # # .
-            . # . # .
-            . # # # .
-            . . . # .
-            . # # # .
-            `)
-        } else if (hour == 10) {
-            basic.showLeds(`
-            # . # # #
-            # . # . #
-            # . # . #
-            # . # . #
-            # . # # #
-            `)
-        } else if (hour == 11) {
-            basic.showLeds(`
-            # . . . #
-            # . . # #
-            # . . . #
-            # . . . #
-            # . . . #
-            `)
-        } else if (hour == 12) {
-            basic.showLeds(`
-            # . # # #
-            # . . . #
-            # . # # #
-            # . # . .
-            # . # # #
-            `)
-        } else if (hour == 13) {
-            basic.showLeds(`
-            # . # # #
-            # . . . #
-            # . # # #
-            # . . . #
-            # . # # #
-            `)
-        } else if (hour == 14) {
-            basic.showLeds(`
-            # . # . #
-            # . # . #
-            # . # # #
-            # . . . #
-            # . . . #
-            `)
-        } else if (hour == 15) {
-            basic.showLeds(`
-            # . # # #
-            # . # . .
-            # . # # #
-            # . . . #
-            # . # # #
-            `)
-        } else if (hour == 16) {
-            basic.showLeds(`
-            # . # # #
-            # . # . .
-            # . # # #
-            # . # . #
-            # . # # #
-            `)
-        } else if (hour == 17) {
-            basic.showLeds(`
-            # . # # #
-            # . . . #
-            # . . . #
-            # . . . #
-            # . . . #
-            `)
-        } else if (hour == 18) {
-            basic.showLeds(`
-            # . # # #
-            # . # . #
-            # . # # #
-            # . # . #
-            # . # # #
-            `)
-        } else if (hour == 19) {
-            basic.showLeds(`
-            # . # # #
-            # . # . #
-            # . # # #
-            # . . . #
-            # . # # #
-            `)
-        } else if (hour == 20) {
-            basic.showLeds(`
-            # # # # #
-            . # # . #
-            # # # . #
-            # . # . #
-            # # # # #
-            `)
-        } else if (hour == 21) {
-            basic.showLeds(`
-            # # . . #
-            . # . # #
-            # # . . #
-            # . . . #
-            # # . . #
-            `)
-        } else if (hour == 22) {
-            basic.showLeds(`
-            # # . # #
-            . # . . #
-            # # . # #
-            # . . # .
-            # # . # #
-            `)
-        } else {
-            basic.showLeds(`
-            # # . # #
-            . # . . #
-            # # . # #
-            # . . . #
-            # # . # #
-            `)
-        }
+        unid_if_1_23()
     }
     basic.clearScreen()
     basic.pause(200)
     basic.showString("M")
     basic.clearScreen()
+    unid_type = 3
     number_select = true
     while (number_select == true) {
         if (input.buttonIsPressed(Button.A)) {
@@ -5743,108 +5982,13 @@ function signal() {
         if (input.logoIsPressed()) {
             number_select = false
         }
-        if (minute == 0) {
-            basic.showLeds(`
-            . # # # .
-            . # . # .
-            . # . # .
-            . # . # .
-            . # # # .
-            `)
-        } else if (minute == 5) {
-            basic.showLeds(`
-            . # # # .
-            . # . . .
-            . # # # .
-            . . . # .
-            . # # # .
-            `)
-        } else if (minute == 10) {
-            basic.showLeds(`
-            # . # # #
-            # . # . #
-            # . # . #
-            # . # . #
-            # . # # #
-            `)
-        } else if (minute == 15) {
-            basic.showLeds(`
-            # . . # #
-            # . . # .
-            # . . # #
-            # . . . #
-            # . . # #
-            `)
-        } else if (minute == 20) {
-            basic.showLeds(`
-            # # # # #
-            . # # . #
-            # # # . #
-            # . # . #
-            # # # # #
-            `)
-        } else if (minute == 25) {
-            basic.showLeds(`
-            # # . # #
-            . # . # .
-            # # . # #
-            # . . . #
-            # # . # #
-            `)
-        } else if (minute == 30) {
-            basic.showLeds(`
-            # # # # #
-            . # # . #
-            # # # . #
-            . # # . #
-            # # # # #
-            `)
-        } else if (minute == 35) {
-            basic.showLeds(`
-            # # . # #
-            . # . # .
-            # # . # #
-            . # . . #
-            # # . # #
-            `)
-        } else if (minute == 40) {
-            basic.showLeds(`
-            # . # # #
-            # . # . #
-            # # # . #
-            . # # . #
-            . # # # #
-            `)
-        } else if (minute == 45) {
-            basic.showLeds(`
-            # . . # #
-            # . . # .
-            # # . # #
-            . # . . #
-            . # . # #
-            `)
-        } else if (minute == 50) {
-            basic.showLeds(`
-            # # # # #
-            # . # . #
-            # # # . #
-            . # # . #
-            # # # # #
-            `)
-        } else {
-            basic.showLeds(`
-            # # . # #
-            # . . # .
-            # # . # #
-            . # . . #
-            # # . # #
-            `)
-        }
+        unid_if_1_23()
     }
     basic.clearScreen()
     basic.pause(200)
     basic.showString("HS")
     basic.clearScreen()
+    unid_type = 5
     number_select = true
     while (number_select == true) {
         if (input.buttonIsPressed(Button.A)) {
@@ -5864,204 +6008,13 @@ function signal() {
         if (input.logoIsPressed()) {
             number_select = false
         }
-        if (signal_hour == 0) {
-            basic.showLeds(`
-            . # # # .
-            . # . # .
-            . # . # .
-            . # . # .
-            . # # # .
-            `)
-        } else if (signal_hour == 1) {
-            basic.showLeds(`
-            . . . # .
-            . . # # .
-            . . . # .
-            . . . # .
-            . . . # .
-            `)
-        } else if (signal_hour == 2) {
-            basic.showLeds(`
-            . # # # .
-            . . . # .
-            . # # # .
-            . # . . .
-            . # # # .
-            `)
-        } else if (signal_hour == 3) {
-            basic.showLeds(`
-            . # # # .
-            . . . # .
-            . # # # .
-            . . . # .
-            . # # # .
-            `)
-        } else if (signal_hour == 4) {
-            basic.showLeds(`
-            . # . # .
-            . # . # .
-            . # # # .
-            . . . # .
-            . . . # .
-            `)
-        } else if (signal_hour == 5) {
-            basic.showLeds(`
-            . # # # .
-            . # . . .
-            . # # # .
-            . . . # .
-            . # # # .
-            `)
-        } else if (signal_hour == 6) {
-            basic.showLeds(`
-            . # # # .
-            . # . . .
-            . # # # .
-            . # . # .
-            . # # # .
-            `)
-        } else if (signal_hour == 7) {
-            basic.showLeds(`
-            . # # # .
-            . . . # .
-            . . . # .
-            . . . # .
-            . . . # .
-            `)
-        } else if (signal_hour == 8) {
-            basic.showLeds(`
-            . # # # .
-            . # . # .
-            . # # # .
-            . # . # .
-            . # # # .
-            `)
-        } else if (signal_hour == 9) {
-            basic.showLeds(`
-            . # # # .
-            . # . # .
-            . # # # .
-            . . . # .
-            . # # # .
-            `)
-        } else if (signal_hour == 10) {
-            basic.showLeds(`
-            # . # # #
-            # . # . #
-            # . # . #
-            # . # . #
-            # . # # #
-            `)
-        } else if (signal_hour == 11) {
-            basic.showLeds(`
-            # . . . #
-            # . . # #
-            # . . . #
-            # . . . #
-            # . . . #
-            `)
-        } else if (signal_hour == 12) {
-            basic.showLeds(`
-            # . # # #
-            # . . . #
-            # . # # #
-            # . # . .
-            # . # # #
-            `)
-        } else if (signal_hour == 13) {
-            basic.showLeds(`
-            # . # # #
-            # . . . #
-            # . # # #
-            # . . . #
-            # . # # #
-            `)
-        } else if (signal_hour == 14) {
-            basic.showLeds(`
-            # . # . #
-            # . # . #
-            # . # # #
-            # . . . #
-            # . . . #
-            `)
-        } else if (signal_hour == 15) {
-            basic.showLeds(`
-            # . # # #
-            # . # . .
-            # . # # #
-            # . . . #
-            # . # # #
-            `)
-        } else if (signal_hour == 16) {
-            basic.showLeds(`
-            # . # # #
-            # . # . .
-            # . # # #
-            # . # . #
-            # . # # #
-            `)
-        } else if (signal_hour == 17) {
-            basic.showLeds(`
-            # . # # #
-            # . . . #
-            # . . . #
-            # . . . #
-            # . . . #
-            `)
-        } else if (signal_hour == 18) {
-            basic.showLeds(`
-            # . # # #
-            # . # . #
-            # . # # #
-            # . # . #
-            # . # # #
-            `)
-        } else if (signal_hour == 19) {
-            basic.showLeds(`
-            # . # # #
-            # . # . #
-            # . # # #
-            # . . . #
-            # . # # #
-            `)
-        } else if (signal_hour == 20) {
-            basic.showLeds(`
-            # # # # #
-            . # # . #
-            # # # . #
-            # . # . #
-            # # # # #
-            `)
-        } else if (signal_hour == 21) {
-            basic.showLeds(`
-            # # . . #
-            . # . # #
-            # # . . #
-            # . . . #
-            # # . . #
-            `)
-        } else if (signal_hour == 22) {
-            basic.showLeds(`
-            # # . # #
-            . # . . #
-            # # . # #
-            # . . # .
-            # # . # #
-            `)
-        } else {
-            basic.showLeds(`
-            # # . # #
-            . # . . #
-            # # . # #
-            # . . . #
-            # # . # #
-            `)
-        }
+        unid_if_1_23()
     }
     basic.clearScreen()
     basic.pause(200)
     basic.showString("MS")
     basic.clearScreen()
+    unid_type = 6
     number_select = true
     while (number_select == true) {
         if (input.buttonIsPressed(Button.A)) {
@@ -6081,103 +6034,7 @@ function signal() {
         if (input.logoIsPressed()) {
             number_select = false
         }
-        if (signal_minute == 0) {
-            basic.showLeds(`
-            . # # # .
-            . # . # .
-            . # . # .
-            . # . # .
-            . # # # .
-            `)
-        } else if (signal_minute == 5) {
-            basic.showLeds(`
-            . # # # .
-            . # . . .
-            . # # # .
-            . . . # .
-            . # # # .
-            `)
-        } else if (signal_minute == 10) {
-            basic.showLeds(`
-            # . # # #
-            # . # . #
-            # . # . #
-            # . # . #
-            # . # # #
-            `)
-        } else if (signal_minute == 15) {
-            basic.showLeds(`
-            # . . # #
-            # . . # .
-            # . . # #
-            # . . . #
-            # . . # #
-            `)
-        } else if (signal_minute == 20) {
-            basic.showLeds(`
-            # # # # #
-            . # # . #
-            # # # . #
-            # . # . #
-            # # # # #
-            `)
-        } else if (signal_minute == 25) {
-            basic.showLeds(`
-            # # . # #
-            . # . # .
-            # # . # #
-            # . . . #
-            # # . # #
-            `)
-        } else if (signal_minute == 30) {
-            basic.showLeds(`
-            # # # # #
-            . # # . #
-            # # # . #
-            . # # . #
-            # # # # #
-            `)
-        } else if (signal_minute == 35) {
-            basic.showLeds(`
-            # # . # #
-            . # . # .
-            # # . # #
-            . # . . #
-            # # . # #
-            `)
-        } else if (signal_minute == 40) {
-            basic.showLeds(`
-            # . # # #
-            # . # . #
-            # # # . #
-            . # # . #
-            . # # # #
-            `)
-        } else if (signal_minute == 45) {
-            basic.showLeds(`
-            # . . # #
-            # . . # .
-            # # . # #
-            . # . . #
-            . # . # #
-            `)
-        } else if (signal_minute == 50) {
-            basic.showLeds(`
-            # # # # #
-            # . # . #
-            # # # . #
-            . # # . #
-            # # # # #
-            `)
-        } else {
-            basic.showLeds(`
-            # # . # #
-            # . . # .
-            # # . # #
-            . # . . #
-            # # . # #
-            `)
-        }
+        unid_if_1_23()
     }
     basic.clearScreen()
     while (true) {
@@ -6246,9 +6103,9 @@ function timer() {
     basic.pause(200)
     basic.showString("H")
     basic.clearScreen()
-    let hour = 0
-    let minute = 0
-    let second = 0
+    hour = 0
+    minute = 0
+    second = 0
     let numberlist = [
         0,
         1,
@@ -6261,7 +6118,7 @@ function timer() {
         8,
         9,
     ]
-    let num = 0
+    num = 0
     number_select = true
     while (number_select == true) {
         if (input.buttonIsPressed(Button.A)) {
@@ -6292,87 +6149,7 @@ function timer() {
             }
             number_select = false
         }
-        if (num == 0) {
-            basic.showLeds(`
-            . # # # .
-            . # . # .
-            . # . # .
-            . # . # .
-            . # # # .
-            `)
-        } else if (num == 1) {
-            basic.showLeds(`
-            . . . # .
-            . . # # .
-            . . . # .
-            . . . # .
-            . . . # .
-            `)
-        } else if (num == 2) {
-            basic.showLeds(`
-            . # # # .
-            . . . # .
-            . # # # .
-            . # . . .
-            . # # # .
-            `)
-        } else if (num == 3) {
-            basic.showLeds(`
-            . # # # .
-            . . . # .
-            . # # # .
-            . . . # .
-            . # # # .
-            `)
-        } else if (num == 4) {
-            basic.showLeds(`
-            . # . # .
-            . # . # .
-            . # # # .
-            . . . # .
-            . . . # .
-            `)
-        } else if (num == 5) {
-            basic.showLeds(`
-            . # # # .
-            . # . . .
-            . # # # .
-            . . . # .
-            . # # # .
-            `)
-        } else if (num == 6) {
-            basic.showLeds(`
-            . # # # .
-            . # . . .
-            . # # # .
-            . # . # .
-            . # # # .
-            `)
-        } else if (num == 7) {
-            basic.showLeds(`
-            . # # # .
-            . . . # .
-            . . . # .
-            . . . # .
-            . . . # .
-            `)
-        } else if (num == 8) {
-            basic.showLeds(`
-            . # # # .
-            . # . # .
-            . # # # .
-            . # . # .
-            . # # # .
-            `)
-        } else if (num == 9) {
-            basic.showLeds(`
-            . # # # .
-            . # . # .
-            . # # # .
-            . . . # .
-            . # # # .
-            `)
-        }
+        unid_if_0_9()
     }
     basic.clearScreen()
     basic.pause(200)
@@ -6410,87 +6187,7 @@ function timer() {
             }
             number_select = false
         }
-        if (num == 0) {
-            basic.showLeds(`
-            . # # # .
-            . # . # .
-            . # . # .
-            . # . # .
-            . # # # .
-            `)
-        } else if (num == 1) {
-            basic.showLeds(`
-            . . . # .
-            . . # # .
-            . . . # .
-            . . . # .
-            . . . # .
-            `)
-        } else if (num == 2) {
-            basic.showLeds(`
-            . # # # .
-            . . . # .
-            . # # # .
-            . # . . .
-            . # # # .
-            `)
-        } else if (num == 3) {
-            basic.showLeds(`
-            . # # # .
-            . . . # .
-            . # # # .
-            . . . # .
-            . # # # .
-            `)
-        } else if (num == 4) {
-            basic.showLeds(`
-            . # . # .
-            . # . # .
-            . # # # .
-            . . . # .
-            . . . # .
-            `)
-        } else if (num == 5) {
-            basic.showLeds(`
-            . # # # .
-            . # . . .
-            . # # # .
-            . . . # .
-            . # # # .
-            `)
-        } else if (num == 6) {
-            basic.showLeds(`
-            . # # # .
-            . # . . .
-            . # # # .
-            . # . # .
-            . # # # .
-            `)
-        } else if (num == 7) {
-            basic.showLeds(`
-            . # # # .
-            . . . # .
-            . . . # .
-            . . . # .
-            . . . # .
-            `)
-        } else if (num == 8) {
-            basic.showLeds(`
-            . # # # .
-            . # . # .
-            . # # # .
-            . # . # .
-            . # # # .
-            `)
-        } else if (num == 9) {
-            basic.showLeds(`
-            . # # # .
-            . # . # .
-            . # # # .
-            . . . # .
-            . # # # .
-            `)
-        }
+        unid_if_0_9()
     }
     basic.clearScreen()
     basic.pause(200)
@@ -6528,87 +6225,7 @@ function timer() {
             }
             number_select = false
         }
-        if (num == 0) {
-            basic.showLeds(`
-            . # # # .
-            . # . # .
-            . # . # .
-            . # . # .
-            . # # # .
-            `)
-        } else if (num == 1) {
-            basic.showLeds(`
-            . . . # .
-            . . # # .
-            . . . # .
-            . . . # .
-            . . . # .
-            `)
-        } else if (num == 2) {
-            basic.showLeds(`
-            . # # # .
-            . . . # .
-            . # # # .
-            . # . . .
-            . # # # .
-            `)
-        } else if (num == 3) {
-            basic.showLeds(`
-            . # # # .
-            . . . # .
-            . # # # .
-            . . . # .
-            . # # # .
-            `)
-        } else if (num == 4) {
-            basic.showLeds(`
-            . # . # .
-            . # . # .
-            . # # # .
-            . . . # .
-            . . . # .
-            `)
-        } else if (num == 5) {
-            basic.showLeds(`
-            . # # # .
-            . # . . .
-            . # # # .
-            . . . # .
-            . # # # .
-            `)
-        } else if (num == 6) {
-            basic.showLeds(`
-            . # # # .
-            . # . . .
-            . # # # .
-            . # . # .
-            . # # # .
-            `)
-        } else if (num == 7) {
-            basic.showLeds(`
-            . # # # .
-            . . . # .
-            . . . # .
-            . . . # .
-            . . . # .
-            `)
-        } else if (num == 8) {
-            basic.showLeds(`
-            . # # # .
-            . # . # .
-            . # # # .
-            . # . # .
-            . # # # .
-            `)
-        } else if (num == 9) {
-            basic.showLeds(`
-            . # # # .
-            . # . # .
-            . # # # .
-            . . . # .
-            . # # # .
-            `)
-        }
+        unid_if_0_9()
     }
     basic.clearScreen()
     while (true) {
@@ -6716,311 +6333,7 @@ function string_radio() {
             music.play(music.tonePlayable(523, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
             basic.pause(100)
         }
-        if (abc_id == 1) {
-            basic.showLeds(`
-                . . . . .
-                . # # # .
-                # . . # .
-                # . . # .
-                . # # # #
-                `)
-        } else if (abc_id == 2) {
-            basic.showLeds(`
-                . # # # .
-                . . . . .
-                . # # # .
-                # . . # .
-                . # # # #
-                `)
-        } else if (abc_id == 3) {
-            basic.showLeds(`
-                # . . . .
-                # . . . .
-                # # # . .
-                # . . # .
-                # # # . .
-                `)
-        } else if (abc_id == 4) {
-            basic.showLeds(`
-                . . . . .
-                . # # . .
-                # . . . .
-                # . . . .
-                . # # . .
-                `)
-        } else if (abc_id == 5) {
-            basic.showLeds(`
-                . # . . .
-                . . . . .
-                . # # . .
-                # . . . .
-                . # # . .
-                `)
-        } else if (abc_id == 6) {
-            basic.showLeds(`
-                . . . # .
-                . . . # .
-                . # # # .
-                # . . # .
-                . # # # .
-                `)
-        } else if (abc_id == 7) {
-            basic.showLeds(`
-                . # # . .
-                # . . # .
-                # # # . .
-                # . . . .
-                . # # # .
-                `)
-        } else if (abc_id == 8) {
-            basic.showLeds(`
-                # # # . #
-                # . . . #
-                # # # . #
-                # . . . .
-                # # # . .
-                `)
-        } else if (abc_id == 9) {
-            basic.showLeds(`
-                . . # # .
-                . # . . .
-                # # # . .
-                . # . . .
-                . # . . .
-                `)
-        } else if (abc_id == 10) {
-            basic.showLeds(`
-                . # # # .
-                # . . # .
-                . # # # .
-                . . . # .
-                . # # . .
-                `)
-        } else if (abc_id == 11) {
-            basic.showLeds(`
-                # # # . #
-                # . . . .
-                # . # # .
-                # . . # .
-                # # # # .
-                `)
-        } else if (abc_id == 12) {
-            basic.showLeds(`
-                # . . . .
-                # . . . .
-                # # # . .
-                # . . # .
-                # . . # .
-                `)
-        } else if (abc_id == 13) {
-            basic.showLeds(`
-                . . # . .
-                . . . . .
-                . . # . .
-                . . # . .
-                . . # . .
-                `)
-        } else if (abc_id == 14) {
-            basic.showLeds(`
-                . # # # .
-                . . . . .
-                . . # . .
-                . . # . .
-                . . # . .
-                `)
-        } else if (abc_id == 15) {
-            basic.showLeds(`
-                . . # . .
-                . . . . .
-                . . # . .
-                . . # . .
-                # # . . .
-                `)
-        } else if (abc_id == 16) {
-            basic.showLeds(`
-                # . . . .
-                # . # . .
-                # # . . .
-                # . # . .
-                # . . # .
-                `)
-        } else if (abc_id == 17) {
-            basic.showLeds(`
-                # . . . .
-                # . # . .
-                # # . . #
-                # . # . .
-                # . . # .
-                `)
-        } else if (abc_id == 18) {
-            basic.showLeds(`
-                . # . . .
-                . # . . .
-                . # . . .
-                . # . . .
-                . # # # .
-                `)
-        } else if (abc_id == 19) {
-            basic.showLeds(`
-                . # . . #
-                . # . . .
-                . # . . .
-                . # . . .
-                . # # # .
-                `)
-        } else if (abc_id == 20) {
-            basic.showLeds(`
-                . . . . .
-                # # . # #
-                # . # . #
-                # . . . #
-                # . . . #
-                `)
-        } else if (abc_id == 21) {
-            basic.showLeds(`
-                . . . . .
-                # # # . .
-                # . . # .
-                # . . # .
-                # . . # .
-                `)
-        } else if (abc_id == 22) {
-            basic.showLeds(`
-                . . . . #
-                # # # . .
-                # . . # .
-                # . . # .
-                # . . # .
-                `)
-        } else if (abc_id == 23) {
-            basic.showLeds(`
-                . . . . .
-                . # # . .
-                # . . # .
-                # . . # .
-                . # # . .
-                `)
-        } else if (abc_id == 24) {
-            basic.showLeds(`
-                . . . . .
-                # # # . .
-                # . . # .
-                # # # . .
-                # . . . .
-                `)
-        } else if (abc_id == 25) {
-            basic.showLeds(`
-                . . . . .
-                # . # # .
-                # # . . .
-                # . . . .
-                # . . . .
-                `)
-        } else if (abc_id == 26) {
-            basic.showLeds(`
-                . . . . .
-                . . # # .
-                . # . . .
-                . . # . .
-                # # . . .
-                `)
-        } else if (abc_id == 27) {
-            basic.showLeds(`
-                # . . . .
-                . . # # .
-                . # . . .
-                . . # . .
-                # # . . .
-                `)
-        } else if (abc_id == 28) {
-            basic.showLeds(`
-                . # . . .
-                . # . . .
-                . # # # .
-                . # . . .
-                . . # # .
-                `)
-        } else if (abc_id == 29) {
-            basic.showLeds(`
-                . . . . .
-                # . . # .
-                # . . # .
-                # . . # .
-                . # # # #
-                `)
-        } else if (abc_id == 30) {
-            basic.showLeds(`
-                . # # . .
-                . . . . .
-                # . . # .
-                # . . # .
-                . # # # #
-                `)
-        } else if (abc_id == 31) {
-            basic.showLeds(`
-                . . . . .
-                # . . . #
-                # . . . #
-                . # . # .
-                . . # . .
-                `)
-        } else if (abc_id == 32) {
-            basic.showLeds(`
-                . . . . .
-                # # # # .
-                . . # . .
-                . # . . .
-                # # # # .
-                `)
-        } else if (abc_id == 33) {
-            basic.showLeds(`
-                . . . . #
-                # # # # .
-                . . # . .
-                . # . . .
-                # # # # .
-                `)
-        } else if (abc_id == 34) {
-            basic.showLeds(`
-                . . . . .
-                . . . . .
-                # . . . #
-                # # # # #
-                . . . . .
-                `)
-        } else if (abc_id == 35) {
-            basic.showLeds(`
-                . . . . .
-                . . . . .
-                . . . . .
-                . . # . .
-                . . . . .
-                `)
-        } else if (abc_id == 36) {
-            basic.showLeds(`
-                . . . . .
-                . . . . .
-                . . . . .
-                . . # . .
-                . # . . .
-                `)
-        } else if (abc_id == 37) {
-            basic.showLeds(`
-                . . # . .
-                . . # . .
-                . . # . .
-                . . . . .
-                . . # . .
-                `)
-        } else {
-            basic.showLeds(`
-                . # # # .
-                # . . . #
-                . . # # .
-                . . . . .
-                . . # . .
-                `)
-        }
+        usid_if()
     }
     text_radio = ">" + inputlist[0] + inputlist[1] + inputlist[2] + inputlist[3] + inputlist[4] + inputlist[5] + inputlist[6] + inputlist[7] + inputlist[8] + inputlist[9] + inputlist[10] + inputlist[11] + inputlist[12] + inputlist[13] + inputlist[14] + inputlist[15] + inputlist[16] + inputlist[17] + inputlist[18] + inputlist[19] + inputlist[20] + inputlist[21] + inputlist[22] + inputlist[23] + inputlist[24] + inputlist[25] + inputlist[26] + inputlist[27] + inputlist[28] + inputlist[29] + inputlist[30] + inputlist[31] + inputlist[32] + inputlist[33] + inputlist[34] + inputlist[35] + inputlist[36] + inputlist[37] + inputlist[38] + inputlist[39] + inputlist[40] + inputlist[41] + inputlist[42] + inputlist[43] + inputlist[44] + inputlist[45] + inputlist[46] + inputlist[47] + inputlist[48] + inputlist[49] + inputlist[50]
     if (radio_type == 2) {
@@ -7043,7 +6356,7 @@ function number_radio() {
         8,
         9,
     ]
-    let num = 0
+    num = 0
     let number_send = 0
     while (true) {
         if (input.buttonIsPressed(Button.A)) {
@@ -7111,94 +6424,17 @@ function number_radio() {
                 radio.sendValue(text_radio, number_send)
             }
         }
-        if (num == 0) {
-            basic.showLeds(`
-            . # # # .
-            . # . # .
-            . # . # .
-            . # . # .
-            . # # # .
-            `)
-        } else if (num == 1) {
-            basic.showLeds(`
-            . . . # .
-            . . # # .
-            . . . # .
-            . . . # .
-            . . . # .
-            `)
-        } else if (num == 2) {
-            basic.showLeds(`
-            . # # # .
-            . . . # .
-            . # # # .
-            . # . . .
-            . # # # .
-            `)
-        } else if (num == 3) {
-            basic.showLeds(`
-            . # # # .
-            . . . # .
-            . # # # .
-            . . . # .
-            . # # # .
-            `)
-        } else if (num == 4) {
-            basic.showLeds(`
-            . # . # .
-            . # . # .
-            . # # # .
-            . . . # .
-            . . . # .
-            `)
-        } else if (num == 5) {
-            basic.showLeds(`
-            . # # # .
-            . # . . .
-            . # # # .
-            . . . # .
-            . # # # .
-            `)
-        } else if (num == 6) {
-            basic.showLeds(`
-            . # # # .
-            . # . . .
-            . # # # .
-            . # . # .
-            . # # # .
-            `)
-        } else if (num == 7) {
-            basic.showLeds(`
-            . # # # .
-            . . . # .
-            . . . # .
-            . . . # .
-            . . . # .
-            `)
-        } else if (num == 8) {
-            basic.showLeds(`
-            . # # # .
-            . # . # .
-            . # # # .
-            . # . # .
-            . # # # .
-            `)
-        } else if (num == 9) {
-            basic.showLeds(`
-            . # # # .
-            . # . # .
-            . # # # .
-            . . . # .
-            . # # # .
-            `)
-        }
+        unid_if_0_9()
     }
 } //Send number using radio.
+
+
 function music_melody8() {
     music.setBuiltInSpeakerEnabled(true)
     basic.clearScreen()
     basic.pause(300)
-    let num = 1
+    num = 1
+    unid_type = 1
     while (true) {
         if (input.buttonIsPressed(Button.A)) {
             if (num == 1) {
@@ -7237,95 +6473,15 @@ function music_melody8() {
                 music.play(music.stringPlayable("C5 G B A F A C5 B ", 120), music.PlaybackMode.UntilDone)
             }
         }
-        
-        if (num == 1) {
-            basic.showLeds(`
-            . . . # .
-            . . # # .
-            . . . # .
-            . . . # .
-            . . . # .
-            `)
-        } else if (num == 2) {
-            basic.showLeds(`
-            . # # # .
-            . . . # .
-            . # # # .
-            . # . . .
-            . # # # .
-            `)
-        } else if (num == 3) {
-            basic.showLeds(`
-            . # # # .
-            . . . # .
-            . # # # .
-            . . . # .
-            . # # # .
-            `)
-        } else if (num == 4) {
-            basic.showLeds(`
-            . # . # .
-            . # . # .
-            . # # # .
-            . . . # .
-            . . . # .
-            `)
-        } else if (num == 5) {
-            basic.showLeds(`
-            . # # # .
-            . # . . .
-            . # # # .
-            . . . # .
-            . # # # .
-            `)
-        } else if (num == 6) {
-            basic.showLeds(`
-            . # # # .
-            . # . . .
-            . # # # .
-            . # . # .
-            . # # # .
-            `)
-        } else if (num == 7) {
-            basic.showLeds(`
-            . # # # .
-            . . . # .
-            . . . # .
-            . . . # .
-            . . . # .
-            `)
-        } else if (num == 8) {
-            basic.showLeds(`
-            . # # # .
-            . # . # .
-            . # # # .
-            . # . # .
-            . # # # .
-            `)
-        } else if (num == 9) {
-            basic.showLeds(`
-            . # # # .
-            . # . # .
-            . # # # .
-            . . . # .
-            . # # # .
-            `)
-        } else if (num == 10) {
-            basic.showLeds(`
-            # . # # #
-            # . # . #
-            # . # . #
-            # . # . #
-            # . # # #
-            `)
-        }
+        unid_if_1_23()
     }
 } //Built in mucic 8
 function music_melody() {
     music.setBuiltInSpeakerEnabled(true)
     basic.clearScreen()
     basic.pause(300)
-    let num = 1
+    num = 1
+    unid_type = 1
     while (true) {
         if (input.buttonIsPressed(Button.A)) {
             if (num == 1) {
@@ -7384,175 +6540,15 @@ function music_melody() {
                 music._playDefaultBackground(music.builtInPlayableMelody(Melodies.JumpDown), music.PlaybackMode.UntilDone)
             }
         }
-
-        if (num == 1) {
-            basic.showLeds(`
-            . . . # .
-            . . # # .
-            . . . # .
-            . . . # .
-            . . . # .
-            `)
-        } else if (num == 2) {
-            basic.showLeds(`
-            . # # # .
-            . . . # .
-            . # # # .
-            . # . . .
-            . # # # .
-            `)
-        } else if (num == 3) {
-            basic.showLeds(`
-            . # # # .
-            . . . # .
-            . # # # .
-            . . . # .
-            . # # # .
-            `)
-        } else if (num == 4) {
-            basic.showLeds(`
-            . # . # .
-            . # . # .
-            . # # # .
-            . . . # .
-            . . . # .
-            `)
-        } else if (num == 5) {
-            basic.showLeds(`
-            . # # # .
-            . # . . .
-            . # # # .
-            . . . # .
-            . # # # .
-            `)
-        } else if (num == 6) {
-            basic.showLeds(`
-            . # # # .
-            . # . . .
-            . # # # .
-            . # . # .
-            . # # # .
-            `)
-        } else if (num == 7) {
-            basic.showLeds(`
-            . # # # .
-            . . . # .
-            . . . # .
-            . . . # .
-            . . . # .
-            `)
-        } else if (num == 8) {
-            basic.showLeds(`
-            . # # # .
-            . # . # .
-            . # # # .
-            . # . # .
-            . # # # .
-            `)
-        } else if (num == 9) {
-            basic.showLeds(`
-            . # # # .
-            . # . # .
-            . # # # .
-            . . . # .
-            . # # # .
-            `)
-        } else if (num == 10) {
-            basic.showLeds(`
-            # . # # #
-            # . # . #
-            # . # . #
-            # . # . #
-            # . # # #
-            `)
-        } else if (num == 11) {
-            basic.showLeds(`
-            # . . . #
-            # . . # #
-            # . . . #
-            # . . . #
-            # . . . #
-            `)
-        } else if (num == 12) {
-            basic.showLeds(`
-            # . # # #
-            # . . . #
-            # . # # #
-            # . # . .
-            # . # # #
-            `)
-        } else if (num == 13) {
-            basic.showLeds(`
-            # . # # #
-            # . . . #
-            # . # # #
-            # . . . #
-            # . # # #
-            `)
-        } else if (num == 14) {
-            basic.showLeds(`
-            # . # . #
-            # . # . #
-            # . # # #
-            # . . . #
-            # . . . #
-            `)
-        } else if (num == 15) {
-            basic.showLeds(`
-            # . # # #
-            # . # . .
-            # . # # #
-            # . . . #
-            # . # # #
-            `)
-        } else if (num == 16) {
-            basic.showLeds(`
-            # . # # #
-            # . # . .
-            # . # # #
-            # . # . #
-            # . # # #
-            `)
-        } else if (num == 17) {
-            basic.showLeds(`
-            # . # # #
-            # . . . #
-            # . . . #
-            # . . . #
-            # . . . #
-            `)
-        } else if (num == 18) {
-            basic.showLeds(`
-            # . # # #
-            # . # . #
-            # . # # #
-            # . # . #
-            # . # # #
-            `)
-        } else if (num == 19) {
-            basic.showLeds(`
-            # . # # #
-            # . # . #
-            # . # # #
-            # . . . #
-            # . # # #
-            `)
-        } else if (num == 20) {
-            basic.showLeds(`
-            # # # # #
-            . # # . #
-            # # # . #
-            # . # . #
-            # # # # #
-            `)
-        }
+        unid_if_1_23()
     }
 } //Built in music
 function music_melodyV2() {
     music.setBuiltInSpeakerEnabled(true)
     basic.clearScreen()
     basic.pause(300)
-    let num = 1
+    num = 1
+    unid_type = 1
     while (true) {
         if (input.buttonIsPressed(Button.A)) {
             if (num == 1) {
@@ -7591,95 +6587,15 @@ function music_melodyV2() {
                 music.play(music.builtinPlayableSoundEffect(soundExpression.yawn), music.PlaybackMode.UntilDone)
             }
         }
-
-        if (num == 1) {
-            basic.showLeds(`
-            . . . # .
-            . . # # .
-            . . . # .
-            . . . # .
-            . . . # .
-            `)
-        } else if (num == 2) {
-            basic.showLeds(`
-            . # # # .
-            . . . # .
-            . # # # .
-            . # . . .
-            . # # # .
-            `)
-        } else if (num == 3) {
-            basic.showLeds(`
-            . # # # .
-            . . . # .
-            . # # # .
-            . . . # .
-            . # # # .
-            `)
-        } else if (num == 4) {
-            basic.showLeds(`
-            . # . # .
-            . # . # .
-            . # # # .
-            . . . # .
-            . . . # .
-            `)
-        } else if (num == 5) {
-            basic.showLeds(`
-            . # # # .
-            . # . . .
-            . # # # .
-            . . . # .
-            . # # # .
-            `)
-        } else if (num == 6) {
-            basic.showLeds(`
-            . # # # .
-            . # . . .
-            . # # # .
-            . # . # .
-            . # # # .
-            `)
-        } else if (num == 7) {
-            basic.showLeds(`
-            . # # # .
-            . . . # .
-            . . . # .
-            . . . # .
-            . . . # .
-            `)
-        } else if (num == 8) {
-            basic.showLeds(`
-            . # # # .
-            . # . # .
-            . # # # .
-            . # . # .
-            . # # # .
-            `)
-        } else if (num == 9) {
-            basic.showLeds(`
-            . # # # .
-            . # . # .
-            . # # # .
-            . . . # .
-            . # # # .
-            `)
-        } else if (num == 10) {
-            basic.showLeds(`
-            # . # # #
-            # . # . #
-            # . # . #
-            # . # . #
-            # . # # #
-            `)
-        }
+    unid_if_1_23()
     }
 } // Built in music V2
 function music_sFX() {
     music.setBuiltInSpeakerEnabled(true)
     basic.clearScreen()
     basic.pause(300)
-    let num = 1
+    num = 1
+    unid_type = 1
     while (true) {
         if (input.buttonIsPressed(Button.A)) {
             if (num == 1) {
@@ -7718,88 +6634,7 @@ function music_sFX() {
                 music.play(music.createSoundExpression(WaveShape.Noise, 54, 54, 255, 0, 500, SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.UntilDone)
             }
         }
-
-        if (num == 1) {
-            basic.showLeds(`
-            . . . # .
-            . . # # .
-            . . . # .
-            . . . # .
-            . . . # .
-            `)
-        } else if (num == 2) {
-            basic.showLeds(`
-            . # # # .
-            . . . # .
-            . # # # .
-            . # . . .
-            . # # # .
-            `)
-        } else if (num == 3) {
-            basic.showLeds(`
-            . # # # .
-            . . . # .
-            . # # # .
-            . . . # .
-            . # # # .
-            `)
-        } else if (num == 4) {
-            basic.showLeds(`
-            . # . # .
-            . # . # .
-            . # # # .
-            . . . # .
-            . . . # .
-            `)
-        } else if (num == 5) {
-            basic.showLeds(`
-            . # # # .
-            . # . . .
-            . # # # .
-            . . . # .
-            . # # # .
-            `)
-        } else if (num == 6) {
-            basic.showLeds(`
-            . # # # .
-            . # . . .
-            . # # # .
-            . # . # .
-            . # # # .
-            `)
-        } else if (num == 7) {
-            basic.showLeds(`
-            . # # # .
-            . . . # .
-            . . . # .
-            . . . # .
-            . . . # .
-            `)
-        } else if (num == 8) {
-            basic.showLeds(`
-            . # # # .
-            . # . # .
-            . # # # .
-            . # . # .
-            . # # # .
-            `)
-        } else if (num == 9) {
-            basic.showLeds(`
-            . # # # .
-            . # . # .
-            . # # # .
-            . . . # .
-            . # # # .
-            `)
-        } else if (num == 10) {
-            basic.showLeds(`
-            # . # # #
-            # . # . #
-            # . # . #
-            # . # . #
-            # . # # #
-            `)
-        }
+    unid_if_1_23()
     }
 } // Built in sFX
 
@@ -7870,311 +6705,7 @@ function create_strig() {
             music.play(music.tonePlayable(523, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
             basic.pause(100)
         }
-        if (abc_id == 1) {
-            basic.showLeds(`
-                . . . . .
-                . # # # .
-                # . . # .
-                # . . # .
-                . # # # #
-                `)
-        } else if (abc_id == 2) {
-            basic.showLeds(`
-                . # # # .
-                . . . . .
-                . # # # .
-                # . . # .
-                . # # # #
-                `)
-        } else if (abc_id == 3) {
-            basic.showLeds(`
-                # . . . .
-                # . . . .
-                # # # . .
-                # . . # .
-                # # # . .
-                `)
-        } else if (abc_id == 4) {
-            basic.showLeds(`
-                . . . . .
-                . # # . .
-                # . . . .
-                # . . . .
-                . # # . .
-                `)
-        } else if (abc_id == 5) {
-            basic.showLeds(`
-                . # . . .
-                . . . . .
-                . # # . .
-                # . . . .
-                . # # . .
-                `)
-        } else if (abc_id == 6) {
-            basic.showLeds(`
-                . . . # .
-                . . . # .
-                . # # # .
-                # . . # .
-                . # # # .
-                `)
-        } else if (abc_id == 7) {
-            basic.showLeds(`
-                . # # . .
-                # . . # .
-                # # # . .
-                # . . . .
-                . # # # .
-                `)
-        } else if (abc_id == 8) {
-            basic.showLeds(`
-                # # # . #
-                # . . . #
-                # # # . #
-                # . . . .
-                # # # . .
-                `)
-        } else if (abc_id == 9) {
-            basic.showLeds(`
-                . . # # .
-                . # . . .
-                # # # . .
-                . # . . .
-                . # . . .
-                `)
-        } else if (abc_id == 10) {
-            basic.showLeds(`
-                . # # # .
-                # . . # .
-                . # # # .
-                . . . # .
-                . # # . .
-                `)
-        } else if (abc_id == 11) {
-            basic.showLeds(`
-                # # # . #
-                # . . . .
-                # . # # .
-                # . . # .
-                # # # # .
-                `)
-        } else if (abc_id == 12) {
-            basic.showLeds(`
-                # . . . .
-                # . . . .
-                # # # . .
-                # . . # .
-                # . . # .
-                `)
-        } else if (abc_id == 13) {
-            basic.showLeds(`
-                . . # . .
-                . . . . .
-                . . # . .
-                . . # . .
-                . . # . .
-                `)
-        } else if (abc_id == 14) {
-            basic.showLeds(`
-                . # # # .
-                . . . . .
-                . . # . .
-                . . # . .
-                . . # . .
-                `)
-        } else if (abc_id == 15) {
-            basic.showLeds(`
-                . . # . .
-                . . . . .
-                . . # . .
-                . . # . .
-                # # . . .
-                `)
-        } else if (abc_id == 16) {
-            basic.showLeds(`
-                # . . . .
-                # . # . .
-                # # . . .
-                # . # . .
-                # . . # .
-                `)
-        } else if (abc_id == 17) {
-            basic.showLeds(`
-                # . . . .
-                # . # . .
-                # # . . #
-                # . # . .
-                # . . # .
-                `)
-        } else if (abc_id == 18) {
-            basic.showLeds(`
-                . # . . .
-                . # . . .
-                . # . . .
-                . # . . .
-                . # # # .
-                `)
-        } else if (abc_id == 19) {
-            basic.showLeds(`
-                . # . . #
-                . # . . .
-                . # . . .
-                . # . . .
-                . # # # .
-                `)
-        } else if (abc_id == 20) {
-            basic.showLeds(`
-                . . . . .
-                # # . # #
-                # . # . #
-                # . . . #
-                # . . . #
-                `)
-        } else if (abc_id == 21) {
-            basic.showLeds(`
-                . . . . .
-                # # # . .
-                # . . # .
-                # . . # .
-                # . . # .
-                `)
-        } else if (abc_id == 22) {
-            basic.showLeds(`
-                . . . . #
-                # # # . .
-                # . . # .
-                # . . # .
-                # . . # .
-                `)
-        } else if (abc_id == 23) {
-            basic.showLeds(`
-                . . . . .
-                . # # . .
-                # . . # .
-                # . . # .
-                . # # . .
-                `)
-        } else if (abc_id == 24) {
-            basic.showLeds(`
-                . . . . .
-                # # # . .
-                # . . # .
-                # # # . .
-                # . . . .
-                `)
-        } else if (abc_id == 25) {
-            basic.showLeds(`
-                . . . . .
-                # . # # .
-                # # . . .
-                # . . . .
-                # . . . .
-                `)
-        } else if (abc_id == 26) {
-            basic.showLeds(`
-                . . . . .
-                . . # # .
-                . # . . .
-                . . # . .
-                # # . . .
-                `)
-        } else if (abc_id == 27) {
-            basic.showLeds(`
-                # . . . .
-                . . # # .
-                . # . . .
-                . . # . .
-                # # . . .
-                `)
-        } else if (abc_id == 28) {
-            basic.showLeds(`
-                . # . . .
-                . # . . .
-                . # # # .
-                . # . . .
-                . . # # .
-                `)
-        } else if (abc_id == 29) {
-            basic.showLeds(`
-                . . . . .
-                # . . # .
-                # . . # .
-                # . . # .
-                . # # # #
-                `)
-        } else if (abc_id == 30) {
-            basic.showLeds(`
-                . # # . .
-                . . . . .
-                # . . # .
-                # . . # .
-                . # # # #
-                `)
-        } else if (abc_id == 31) {
-            basic.showLeds(`
-                . . . . .
-                # . . . #
-                # . . . #
-                . # . # .
-                . . # . .
-                `)
-        } else if (abc_id == 32) {
-            basic.showLeds(`
-                . . . . .
-                # # # # .
-                . . # . .
-                . # . . .
-                # # # # .
-                `)
-        } else if (abc_id == 33) {
-            basic.showLeds(`
-                . . . . #
-                # # # # .
-                . . # . .
-                . # . . .
-                # # # # .
-                `)
-        } else if (abc_id == 34) {
-            basic.showLeds(`
-                . . . . .
-                . . . . .
-                # . . . #
-                # # # # #
-                . . . . .
-                `)
-        } else if (abc_id == 35) {
-            basic.showLeds(`
-                . . . . .
-                . . . . .
-                . . . . .
-                . . # . .
-                . . . . .
-                `)
-        } else if (abc_id == 36) {
-            basic.showLeds(`
-                . . . . .
-                . . . . .
-                . . . . .
-                . . # . .
-                . # . . .
-                `)
-        } else if (abc_id == 37) {
-            basic.showLeds(`
-                . . # . .
-                . . # . .
-                . . # . .
-                . . . . .
-                . . # . .
-                `)
-        } else {
-            basic.showLeds(`
-                . # # # .
-                # . . . #
-                . . # # .
-                . . . . .
-                . . # . .
-                `)
-        }
+        usid_if()
     }
     text = ">" + inputlist[0] + inputlist[1] + inputlist[2] + inputlist[3] + inputlist[4] + inputlist[5] + inputlist[6] + inputlist[7] + inputlist[8] + inputlist[9] + inputlist[10] + inputlist[11] + inputlist[12] + inputlist[13] + inputlist[14] + inputlist[15] + inputlist[16] + inputlist[17] + inputlist[18] + inputlist[19] + inputlist[20] + inputlist[21] + inputlist[22] + inputlist[23] + inputlist[24] + inputlist[25] + inputlist[26] + inputlist[27] + inputlist[28] + inputlist[29] + inputlist[30] + inputlist[31] + inputlist[32] + inputlist[33] + inputlist[34] + inputlist[35] + inputlist[36] + inputlist[37] + inputlist[38] + inputlist[39] + inputlist[40] + inputlist[41] + inputlist[42] + inputlist[43] + inputlist[44] + inputlist[45] + inputlist[46] + inputlist[47] + inputlist[48] + inputlist[49] + inputlist[50]
     while(true){
@@ -8205,7 +6736,7 @@ function create_number() {
         8,
         9,
     ]
-    let num = 0
+    num = 0
     let number_send = 0
     number_loop = true
     while (number_loop == true) {
@@ -8270,87 +6801,7 @@ function create_number() {
             }
             number_loop = false
         }
-        if (num == 0) {
-            basic.showLeds(`
-            . # # # .
-            . # . # .
-            . # . # .
-            . # . # .
-            . # # # .
-            `)
-        } else if (num == 1) {
-            basic.showLeds(`
-            . . . # .
-            . . # # .
-            . . . # .
-            . . . # .
-            . . . # .
-            `)
-        } else if (num == 2) {
-            basic.showLeds(`
-            . # # # .
-            . . . # .
-            . # # # .
-            . # . . .
-            . # # # .
-            `)
-        } else if (num == 3) {
-            basic.showLeds(`
-            . # # # .
-            . . . # .
-            . # # # .
-            . . . # .
-            . # # # .
-            `)
-        } else if (num == 4) {
-            basic.showLeds(`
-            . # . # .
-            . # . # .
-            . # # # .
-            . . . # .
-            . . . # .
-            `)
-        } else if (num == 5) {
-            basic.showLeds(`
-            . # # # .
-            . # . . .
-            . # # # .
-            . . . # .
-            . # # # .
-            `)
-        } else if (num == 6) {
-            basic.showLeds(`
-            . # # # .
-            . # . . .
-            . # # # .
-            . # . # .
-            . # # # .
-            `)
-        } else if (num == 7) {
-            basic.showLeds(`
-            . # # # .
-            . . . # .
-            . . . # .
-            . . . # .
-            . . . # .
-            `)
-        } else if (num == 8) {
-            basic.showLeds(`
-            . # # # .
-            . # . # .
-            . # # # .
-            . # . # .
-            . # # # .
-            `)
-        } else if (num == 9) {
-            basic.showLeds(`
-            . # # # .
-            . # . # .
-            . # # # .
-            . . . # .
-            . # # # .
-            `)
-        }
+        unid_if_0_9()
     }
     while (true) {
         basic.showLeds(`
