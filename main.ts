@@ -1045,7 +1045,7 @@ function menu_select_menu() {
         menu_select = true
         game_select_menu()
     } else if (selected_menu == 2) {
-        abuttonpressed= true
+        abuttonpressed = true
         menu_select = true
         tool_select_menu()
     } else if (selected_menu == 3) {
@@ -2578,7 +2578,7 @@ function turtle_main() {
 } //Turtle extension.
 function radio_main() {
     let group = 1
-    radio_type = 1
+    radio_type = 0
     menu_select = true
     radio.setGroup(1)
     while (menu_select == true) {
@@ -2614,10 +2614,45 @@ function radio_main() {
     basic.pause(350)
     menu_select = true
     while (menu_select == true) {
-        if (radio_type == 1) {
+        if (radio_type == 0) {
             if (animation_scroll == true) {
                 if (abuttonpressed == true) {
                     led.unplot(4, 0)
+                    images.createImage(`
+                    . . . . .
+                    . # . . .
+                    # # # # #
+                    . # . . #
+                    . . . # #
+                    `).showImage(0)
+                    draw_menu()
+                    abuttonpressed = false
+                } else {
+                    led.unplot(4, 0)
+                    images.createImage(`
+                    . . . . .
+                    . # . . .
+                    # # # # #
+                    . # . . #
+                    . . . # #
+                    `).scrollImage(1, 45)
+                    draw_menu()
+                }
+            } else {
+                basic.showLeds(`
+                . . . . .
+                . # . . .
+                # # # # #
+                . # . . #
+                . . . # #
+                `)
+                draw_menu()
+            }
+            led.plot(0, 0)
+        } else if (radio_type == 1) {
+            if (animation_scroll == true) {
+                if (abuttonpressed == true) {
+                    led.unplot(0, 0)
                     images.createImage(`
                     . . . . .
                     . . # . .
@@ -2628,7 +2663,7 @@ function radio_main() {
                     draw_menu()
                     abuttonpressed = false
                 } else {
-                    led.unplot(4, 0)
+                    led.unplot(0, 0)
                     images.createImage(`
                     . . . . .
                     . . # . .
@@ -2648,11 +2683,11 @@ function radio_main() {
                 `)
                 draw_menu()
             }
-            led.plot(0, 0)
+            led.plot(1, 0)
         } else if (radio_type == 2) {
             if (animation_scroll == true) {
                 if (abuttonpressed == true) {
-                    led.unplot(0, 0)
+                    led.unplot(1, 0)
                     images.createImage(`
                     . . . . .
                     . . . . .
@@ -2663,7 +2698,7 @@ function radio_main() {
                     draw_menu()
                     abuttonpressed = false
                 } else {
-                    led.unplot(0, 0)
+                    led.unplot(1, 0)
                     images.createImage(`
                     . . . . .
                     . . . . .
@@ -2683,11 +2718,11 @@ function radio_main() {
                 `)
                 draw_menu()
             }
-            led.plot(1, 0)
+            led.plot(2, 0)
         } else if (radio_type == 3) {
             if (animation_scroll == true) {
                 if (abuttonpressed == true) {
-                    led.unplot(1, 0)
+                    led.unplot(2, 0)
                     images.createImage(`
                     . . . . .
                     . . . # #
@@ -2698,7 +2733,7 @@ function radio_main() {
                     draw_menu()
                     abuttonpressed = false
                 } else {
-                    led.unplot(1, 0)
+                    led.unplot(2, 0)
                     images.createImage(`
                     . . . . .
                     . . . # #
@@ -2718,11 +2753,11 @@ function radio_main() {
                 `)
                 draw_menu()
             }
-            led.plot(2, 0)
-        } else if (radio_type == 4) {
+            led.plot(3, 0)
+        } else {
             if (animation_scroll == true) {
                 if (abuttonpressed == true) {
-                    led.unplot(2, 0)
+                    led.unplot(3, 0)
                     images.createImage(`
                     . . . . .
                     . . . . #
@@ -2733,7 +2768,7 @@ function radio_main() {
                     draw_menu()
                     abuttonpressed = false
                 } else {
-                    led.unplot(2, 0)
+                    led.unplot(3, 0)
                     images.createImage(`
                     . . . . .
                     . . . . #
@@ -2753,49 +2788,14 @@ function radio_main() {
                 `)
                 draw_menu()
             }
-            led.plot(3, 0)
-        } else {
-            if (animation_scroll == true) {
-                if (abuttonpressed == true) {
-                    led.unplot(3, 0)
-                    images.createImage(`
-                    # # . . #
-                    # # . # .
-                    . . # . .
-                    # # . # .
-                    # # . . #
-                    `).showImage(0)
-                    draw_menu()
-                    abuttonpressed = false
-                } else {
-                    led.unplot(3, 0)
-                    images.createImage(`
-                    # # . . #
-                    # # . # .
-                    . . # . .
-                    # # . # .
-                    # # . . #
-                    `).scrollImage(1, 45)
-                    draw_menu()
-                }
-            } else {
-                basic.showLeds(`
-                # # . . #
-                # # . # .
-                . . # . .
-                # # . # .
-                # # . . #
-                `)
-                draw_menu()
-            }
             led.plot(4, 0)
         }
         waiting_for_input = true
         while (waiting_for_input == true) {
             if (input.buttonIsPressed(Button.A)) {
                 abuttonpressed = true
-                if (radio_type == 1) {
-                    radio_type = 1
+                if (radio_type == 0) {
+                    radio_type = 0
                     waiting_for_input = false
                 } else {
                     radio_type += -1
@@ -2803,8 +2803,8 @@ function radio_main() {
                 }
             }
             if (input.buttonIsPressed(Button.B)) {
-                if (radio_type == 5) {
-                    radio_type = 5
+                if (radio_type == 4) {
+                    radio_type = 4
                     abuttonpressed = true
                     waiting_for_input = false
                 } else {
@@ -2848,17 +2848,54 @@ function radio_main() {
             loading_animation()
         }
     }
-    if (radio_type == 5) {
-        basic.showIcon(IconNames.Heart)
-        control.reset()
+    if (radio_type == 0) {
+        basic.pause(400)
+        menu_select = true
+        abuttonpressed = true
+        menu_select_menu()
     }
 } //Radio send type selection.
 function create_select_menu() {
     while (menu_select == true) {
-        if (create_type == 1) {
+        if (create_type == 0) {
             if (animation_scroll == true) {
                 if (abuttonpressed == true) {
-                    led.unplot(3, 0)
+                    led.unplot(4, 0)
+                    images.createImage(`
+                    . . . . .
+                    . # . . .
+                    # # # # #
+                    . # . . #
+                    . . . # #
+                    `).showImage(0)
+                    draw_menu()
+                    abuttonpressed = false
+                } else {
+                    led.unplot(4, 0)
+                    images.createImage(`
+                    . . . . .
+                    . # . . .
+                    # # # # #
+                    . # . . #
+                    . . . # #
+                    `).scrollImage(1, 45)
+                    draw_menu()
+                }
+            } else {
+                basic.showLeds(`
+                . . . . .
+                . # . . .
+                # # # # #
+                . # . . #
+                . . . # #
+                `)
+                draw_menu()
+            }
+            led.plot(0, 0)
+        } else if (create_type == 1) {
+            if (animation_scroll == true) {
+                if (abuttonpressed == true) {
+                    led.unplot(4, 0)
                     images.createImage(`
                     . . . . .
                     . . # . .
@@ -2866,10 +2903,10 @@ function create_select_menu() {
                     . . # . .
                     . . # . .
                     `).showImage(0)
-                    draw_mini_menu()
+                    draw_menu()
                     abuttonpressed = false
                 } else {
-                    led.unplot(3, 0)
+                    led.unplot(4, 0)
                     images.createImage(`
                     . . . . .
                     . . # . .
@@ -2877,7 +2914,7 @@ function create_select_menu() {
                     . . # . .
                     . . # . .
                     `).scrollImage(1, 45)
-                    draw_mini_menu()
+                    draw_menu()
                 }
             } else {
                 basic.showLeds(`
@@ -2887,7 +2924,7 @@ function create_select_menu() {
                 . . # . .
                 . . # . .
                 `)
-                draw_mini_menu()
+                draw_menu()
             }
             led.plot(1, 0)
         } else if (create_type == 2) {
@@ -2901,7 +2938,7 @@ function create_select_menu() {
                     # # # # #
                     . . . . .
                     `).showImage(0)
-                    draw_mini_menu()
+                    draw_menu()
                     abuttonpressed = false
                 } else {
                     led.unplot(1, 0)
@@ -2912,7 +2949,7 @@ function create_select_menu() {
                     # # # # #
                     . . . . .
                     `).scrollImage(1, 45)
-                    draw_mini_menu()
+                    draw_menu()
                 }
             } else {
                 basic.showLeds(`
@@ -2922,10 +2959,10 @@ function create_select_menu() {
                 # # # # #
                 . . . . .
                 `)
-                draw_mini_menu()
+                draw_menu()
             }
             led.plot(2, 0)
-        } else {
+        } else if (create_type == 3) {
             if (animation_scroll == true) {
                 if (abuttonpressed == true) {
                     led.unplot(2, 0)
@@ -2936,7 +2973,7 @@ function create_select_menu() {
                     # # # . .
                     # # # . .
                     `).showImage(0)
-                    draw_mini_menu()
+                    draw_menu()
                     abuttonpressed = false
                 } else {
                     led.unplot(2, 0)
@@ -2947,7 +2984,7 @@ function create_select_menu() {
                     # # # . .
                     # # # . .
                     `).scrollImage(1, 45)
-                    draw_mini_menu()
+                    draw_menu()
                 }
             } else {
                 basic.showLeds(`
@@ -2957,24 +2994,59 @@ function create_select_menu() {
                 # # # . .
                 # # # . .
                 `)
-                draw_mini_menu()
+                draw_menu()
             }
             led.plot(3, 0)
+        } else {
+            if (animation_scroll == true) {
+                if (abuttonpressed == true) {
+                    led.unplot(3, 0)
+                    images.createImage(`
+                    . . . . .
+                    . . . . .
+                    . . . . .
+                    . . . . .
+                    . . . . .
+                    `).showImage(0)
+                    draw_menu()
+                    abuttonpressed = false
+                } else {
+                    led.unplot(3, 0)
+                    images.createImage(`
+                    . . . . .
+                    . . . . .
+                    . . . . .
+                    . . . . .
+                    . . . . .
+                    `).scrollImage(1, 45)
+                    draw_menu()
+                }
+            } else {
+                basic.showLeds(`
+                . . . . .
+                . . . . .
+                . . . . .
+                . . . . .
+                . . . . .
+                `)
+                draw_menu()
+            }
+            led.plot(4, 0)
         }
         waiting_for_input = true
         while (waiting_for_input == true) {
             if (input.buttonIsPressed(Button.A)) {
                 abuttonpressed = true
-                if (create_type == 1) {
-                    create_type = 1
+                if (create_type == 0) {
+                    create_type = 0
                     waiting_for_input = false
                 } else {
                     create_type += -1
                     waiting_for_input = false
                 }
             } else if (input.buttonIsPressed(Button.B)) {
-                if (create_type == 3) {
-                    create_type = 3
+                if (create_type == 4) {
+                    create_type = 4
                     abuttonpressed = true
                     waiting_for_input = false
                 } else {
@@ -2991,10 +3063,16 @@ function create_select_menu() {
         create_number()
     } else if (create_type == 2) {
         create_strig()
-    } else {
+    } else if (create_type == 3) {
         menu_select = true
         abuttonpressed = true
         create_music_menu()
+    } else if (create_type == 4) {
+
+    } else {
+        menu_select = true
+        abuttonpressed = true
+        menu_select_menu()
     }
 } //Create type selection
 function create_music_menu() {
@@ -4296,8 +4374,8 @@ let selected_setting = 0
 let selected_math = 1
 let selected_clock = 1
 let tool_type = 1
-let radio_type = 1
-let create_type = 1
+let radio_type = 0
+let create_type = 0
 let selected_music = 1
 let settings_brightness = 5
 let settings_auto_brigthness = false
