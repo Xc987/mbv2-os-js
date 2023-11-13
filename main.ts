@@ -3985,10 +3985,12 @@ function settings_select_menu() {
                 if (selected_setting == 3) {
                     if (settings_auto_brigthness == false) {
                         settings_auto_brigthness = true
+                        settings_brightness += 1
                         waiting_for_input = false
                     } else {
                         settings_auto_brigthness = false
                         waiting_for_input = false
+                        settings_brightness += -1
                     }
                 }
             }
@@ -4400,7 +4402,6 @@ let number_select = false
 let running = false
 let captured = ""
 let crhonometer_run = false
-let vrs = input.lightLevel()
 let animation_scroll = true
 let abuttonpressed = true
 let download_radio = false
@@ -4414,6 +4415,7 @@ let second = 0
 let signal_hour = 0
 let signal_minute = 0
 let unid_type = 0
+let vrs = input.lightLevel()
 
 
 let acc_1 = 0
@@ -6898,24 +6900,26 @@ function create_number() {
 
 basic.forever(function () {
     if (settings_auto_brigthness == true) {
-        let vrs = input.lightLevel()
-        if (vrs >= 50) {
-            led.setBrightness(50)
-        }
-        if (vrs >= 100) {
-            led.setBrightness(100)
-        }
-        if (vrs >= 150) {
-            led.setBrightness(150)
-        }
-        if (vrs >= 200) {
-            led.setBrightness(200)
-        }
-        if (vrs >= 225) {
-            led.setBrightness(255)
+        if (true)  {
+            vrs = input.lightLevel()
+            if (vrs >= 50) {
+                led.setBrightness(50)
+            }
+            if (vrs >= 100) {
+                led.setBrightness(100)
+            }
+            if (vrs >= 150) {
+                led.setBrightness(150)
+            }
+            if (vrs >= 200) {
+                led.setBrightness(200)
+            }
+            if (vrs >= 225) {
+                led.setBrightness(255)
+            }
         }
     }
-}) //Automatic brighntess
+})  //Auto-Brightness
 function settings_test_input() {
     while (true) {
         if (input.buttonIsPressed(Button.A)) {
