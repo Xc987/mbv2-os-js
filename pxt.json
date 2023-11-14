@@ -3,14 +3,13 @@
     "description": "",
     "dependencies": {
         "core": "*",
-        "radio": "*",
         "microphone": "*",
         "datalogger": "*",
-        "radio-broadcast": "*",
         "audio-recording": "*",
         "microturtle": "github:microsoft/pxt-microturtle#v0.0.9",
         "microbit-pxt-clicks": "github:bsiever/microbit-pxt-clicks#v0.2.2",
-        "microbit-pxt-timeanddate": "github:bsiever/microbit-pxt-timeanddate#v2.0.33"
+        "microbit-pxt-timeanddate": "github:bsiever/microbit-pxt-timeanddate#v2.0.33",
+        "microbit-pxt-blehid": "github:bsiever/microbit-pxt-blehid#v0.0.24"
     },
     "files": [
         "main.ts",
