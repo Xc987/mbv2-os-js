@@ -93,6 +93,12 @@ function waiting_for_connection() {
     waiting_for_input = true
     if (bluetooth_type == 1) {
         media.startMediaService()
+    } else if (bluetooth_type == 2) {
+        mouse.startMouseService()
+    } else if (bluetooth_type == 3) {
+        gamepad.startGamepadService()
+    } else if (bluetooth_type == 4) {
+        keyboard.startKeyboardService()
     }
     while (waiting_for_input == true) {
         if (bluetooth_online == true) {
@@ -101,6 +107,12 @@ function waiting_for_connection() {
             basic.clearScreen()
             if (bluetooth_type == 1) {
                 bluetooth_media()
+            } else if (bluetooth_type == 2) {
+                bluetooth_mouse()
+            } else if (bluetooth_type == 3) {
+                bluetooth_gamepad()
+            } else if (bluetooth_type == 4) {
+                bluetooth_keyboard()
             }
         } else {
             loading_animation()
@@ -2709,6 +2721,41 @@ function bluetooth_select_menu() {
                     led.unplot(2, 0)
                     images.createImage(`
                     . . . . .
+                    . . . # #
+                    . # . . .
+                    # # # . .
+                    . # . . .
+                    `).showImage(0)
+                    draw_menu()
+                    abuttonpressed = false
+                } else {
+                    led.unplot(2, 0)
+                    images.createImage(`
+                    . . . . .
+                    . . . # #
+                    . # . . .
+                    # # # . .
+                    . # . . .
+                    `).scrollImage(1, 45)
+                    draw_menu()
+                }
+            } else {
+                basic.showLeds(`
+                . . . . .
+                . . . # #
+                . # . . .
+                # # # . .
+                . # . . .
+                `)
+                draw_menu()
+            }
+            led.plot(3, 0)
+        } else {
+            if (animation_scroll == true) {
+                if (abuttonpressed == true) {
+                    led.unplot(3, 0)
+                    images.createImage(`
+                    . . . . .
                     . # . # .
                     # . # . #
                     . . . . .
@@ -2717,7 +2764,7 @@ function bluetooth_select_menu() {
                     draw_menu()
                     abuttonpressed = false
                 } else {
-                    led.unplot(2, 0)
+                    led.unplot(3, 0)
                     images.createImage(`
                     . . . . .
                     . # . # .
@@ -2734,41 +2781,6 @@ function bluetooth_select_menu() {
                 # . # . #
                 . . . . .
                 . # # # .
-                `)
-                draw_menu()
-            }
-            led.plot(3, 0)
-        } else {
-            if (animation_scroll == true) {
-                if (abuttonpressed == true) {
-                    led.unplot(3, 0)
-                    images.createImage(`
-                    . . . . .
-                    . . . . .
-                    . . . . .
-                    . . . . .
-                    . . . . .
-                    `).showImage(0)
-                    draw_menu()
-                    abuttonpressed = false
-                } else {
-                    led.unplot(3, 0)
-                    images.createImage(`
-                    . . . . .
-                    . . . . .
-                    . . . . .
-                    . . . . .
-                    . . . . .
-                    `).scrollImage(1, 45)
-                    draw_menu()
-                }
-            } else {
-                basic.showLeds(`
-                . . . . .
-                . . . . .
-                . . . . .
-                . . . . .
-                . . . . .
                 `)
                 draw_menu()
             }
@@ -2807,13 +2819,13 @@ function bluetooth_select_menu() {
         waiting_for_connection()
     }
     if (bluetooth_type == 2) {
-
+        waiting_for_connection()
     }
     if (bluetooth_type == 3) {
-
+        waiting_for_connection()
     }
     if (bluetooth_type == 4) {
-
+        waiting_for_connection()
     }
     if (bluetooth_type == 0) {
         menu_select = true
@@ -4322,9 +4334,9 @@ input.onPinPressed(TouchPin.P2, function () {
 bluetooth.onBluetoothConnected(function () {
     bluetooth_online = true
 }) //On bluetooth connected
-bluetooth.onBluetoothDisconnected(function() {
+bluetooth.onBluetoothDisconnected(function () {
     bluetooth_online = false
-}) 
+})
 
 let pin_lock = true
 if (input.logoIsPressed()) {
@@ -4380,7 +4392,11 @@ let signal_minute = 0
 let unid_type = 0
 let vrs = input.lightLevel()
 let bluetooth_online = false
-let bluetooth_service_online = false
+let x = 0
+let y = 0
+let newx = 0
+let newy = 0
+let shift = false
 
 
 let acc_1 = 0
@@ -5856,7 +5872,7 @@ function math_xy() {
             basic.clearScreen()
             number_select = false
         }
-        unid_if_0_9
+        unid_if_0_9()
     }
     game.addScore(1)
     basic.pause(400)
@@ -6530,7 +6546,6 @@ function music_sFX() {
 
 
 function bluetooth_media() {
-    let bluetooth_service_online = true
     while (bluetooth_online == true) {
         if (input.buttonIsPressed(Button.AB)) {
             media.sendCode(media.keys(media._MediaKey.mute))
@@ -6603,10 +6618,259 @@ function bluetooth_media() {
     bluetooth_media()
 }
 function bluetooth_mouse() {
-
+    while (bluetooth_online == true) {
+        newx = input.acceleration(Dimension.X)
+        newy = input.acceleration(Dimension.Y)
+        mouse.send(
+            0.5 * (newx - x),
+            0.5 * (newy - y),
+            input.buttonIsPressed(Button.A),
+            input.logoIsPressed(),
+            input.buttonIsPressed(Button.B),
+            0,
+            false
+        )
+        x = 0.4 * x + 0.4 * newx
+        y = 0.4 * y + 0.4 * newx
+    }
+    loading_animation()
+    bluetooth_mouse()
+}
+function bluetooth_gamepad() {
+    while (bluetooth_online == true) {
+        gamepad.send(
+            gamepad._buttons(GameButton.A, input.buttonIsPressed(Button.B)),
+            Math.map(input.acceleration(Dimension.X), -1023, 1023, -126, 126),
+            Math.map(input.acceleration(Dimension.Y), -1023, 1023, -126, 126),
+            gamepad._dpad(GameDirection.up),
+            0,
+            0
+        )
+        if (input.buttonIsPressed(Button.AB)) {
+            gamepad.send(
+                gamepad._buttons(GameButton.start, true),
+                Math.map(input.acceleration(Dimension.X), -1023, 1023, -126, 126),
+                Math.map(input.acceleration(Dimension.Y), -1023, 1023, -126, 126),
+                gamepad._dpad(GameDirection.up),
+                0,
+                0
+            )
+        }
+        if (input.buttonIsPressed(Button.A)) {
+            gamepad.send(
+                gamepad._buttons(GameButton.Y, true),
+                Math.map(input.acceleration(Dimension.X), -1023, 1023, -126, 126),
+                Math.map(input.acceleration(Dimension.Y), -1023, 1023, -126, 126),
+                gamepad._dpad(GameDirection.up),
+                0,
+                0
+            )
+        }
+        if (input.buttonIsPressed(Button.B)) {
+            gamepad.send(
+                gamepad._buttons(GameButton.A, true),
+                Math.map(input.acceleration(Dimension.X), -1023, 1023, -126, 126),
+                Math.map(input.acceleration(Dimension.Y), -1023, 1023, -126, 126),
+                gamepad._dpad(GameDirection.up),
+                0,
+                0
+            )
+        }
+        if (input.logoIsPressed()) {
+            gamepad.send(
+                gamepad._buttons(GameButton.X, true),
+                Math.map(input.acceleration(Dimension.X), -1023, 1023, -126, 126),
+                Math.map(input.acceleration(Dimension.Y), -1023, 1023, -126, 126),
+                gamepad._dpad(GameDirection.up),
+                0,
+                0
+            )
+        }
+        if (input.pinIsPressed(TouchPin.P2)) {
+            gamepad.send(
+                gamepad._buttons(GameButton.B, true),
+                Math.map(input.acceleration(Dimension.X), -1023, 1023, -126, 126),
+                Math.map(input.acceleration(Dimension.Y), -1023, 1023, -126, 126),
+                gamepad._dpad(GameDirection.up),
+                0,
+                0
+            )
+        }
+        if (input.pinIsPressed(TouchPin.P0)) {
+            gamepad.send(
+                gamepad._buttons(GameButton.leftShoulder, true),
+                Math.map(input.acceleration(Dimension.X), -1023, 1023, -126, 126),
+                Math.map(input.acceleration(Dimension.Y), -1023, 1023, -126, 126),
+                gamepad._dpad(GameDirection.up),
+                0,
+                0
+            )
+        }
+        if (input.pinIsPressed(TouchPin.P1)) {
+            gamepad.send(
+                gamepad._buttons(GameButton.rightShoulder, true),
+                Math.map(input.acceleration(Dimension.X), -1023, 1023, -126, 126),
+                Math.map(input.acceleration(Dimension.Y), -1023, 1023, -126, 126),
+                gamepad._dpad(GameDirection.up),
+                0,
+                0
+            )
+        }
+        basic.pause(150)
+    }
+    loading_animation()
+    bluetooth_gamepad()
 }
 function bluetooth_keyboard() {
-
+    while (bluetooth_online == true) {
+        music.setBuiltInSpeakerEnabled(true)
+        basic.clearScreen()
+        abc = [
+            "NUL",
+            "a",
+            "A",
+            "b",
+            "c",
+            "C",
+            "d",
+            "e",
+            "E",
+            "f",
+            "g",
+            "G",
+            "h",
+            "i",
+            "I",
+            "j",
+            "k",
+            "K",
+            "l",
+            "L",
+            "m",
+            "n",
+            "N",
+            "o",
+            "p",
+            "r",
+            "s",
+            "S",
+            "t",
+            "u",
+            "U",
+            "v",
+            "z",
+            "Z",
+            " ",
+            ".",
+            ",",
+            "!",
+            "?"]
+        abc_loop = true
+        basic.pause(500)
+        while (abc_loop == true) {
+            if (input.buttonIsPressed(Button.A)) {
+                if (abc_id == 1) {
+                    abc_id = 38
+                } else {
+                    abc_id += -1
+                }
+            }
+            if (input.buttonIsPressed(Button.B)) {
+                if (abc_id == 38) {
+                    abc_id = 1
+                } else {
+                    abc_id += 1
+                }
+            }
+            if (input.buttonIsPressed(Button.AB)) {
+                shift = true
+            }
+            if (input.logoIsPressed()) {
+                if (abc_id == 1) {
+                    keyboard.sendString("a")
+                } else if (abc_id == 2) {
+                    keyboard.sendString("a")
+                } else if (abc_id == 3) {
+                    keyboard.sendString("b")
+                } else if (abc_id == 4) {
+                    keyboard.sendString("c")
+                } else if (abc_id == 5) {
+                    keyboard.sendString("c")
+                } else if (abc_id == 6) {
+                    keyboard.sendString("d")
+                } else if (abc_id == 7) {
+                    keyboard.sendString("e")
+                } else if (abc_id == 8) {
+                    keyboard.sendString("e")
+                } else if (abc_id == 9) {
+                    keyboard.sendString("f")
+                } else if (abc_id == 10) {
+                    keyboard.sendString("g")
+                } else if (abc_id == 11) {
+                    keyboard.sendString("g")
+                } else if (abc_id == 12) {
+                    keyboard.sendString("h")
+                } else if (abc_id == 13) {
+                    keyboard.sendString("i")
+                } else if (abc_id == 14) {
+                    keyboard.sendString("i")
+                } else if (abc_id == 15) {
+                    keyboard.sendString("j")
+                } else if (abc_id == 16) {
+                    keyboard.sendString("k")
+                } else if (abc_id == 17) {
+                    keyboard.sendString("k")
+                } else if (abc_id == 18) {
+                    keyboard.sendString("l")
+                } else if (abc_id == 19) {
+                    keyboard.sendString("l")
+                } else if (abc_id == 20) {
+                    keyboard.sendString("m")
+                } else if (abc_id == 21) {
+                    keyboard.sendString("n")
+                } else if (abc_id == 22) {
+                    keyboard.sendString("n")
+                } else if (abc_id == 23) {
+                    keyboard.sendString("o")
+                } else if (abc_id == 24) {
+                    keyboard.sendString("p")
+                } else if (abc_id == 25) {
+                    keyboard.sendString("r")
+                } else if (abc_id == 26) {
+                    keyboard.sendString("s")
+                } else if (abc_id == 27) {
+                    keyboard.sendString("s")
+                } else if (abc_id == 28) {
+                    keyboard.sendString("t")
+                } else if (abc_id == 29) {
+                    keyboard.sendString("u")
+                } else if (abc_id == 30) {
+                    keyboard.sendString("u")
+                } else if (abc_id == 31) {
+                    keyboard.sendString("v")
+                } else if (abc_id == 32) {
+                    keyboard.sendString("z")
+                } else if (abc_id == 33) {
+                    keyboard.sendString("z")
+                } else if (abc_id == 34) {
+                    keyboard.sendString(" ")
+                } else if (abc_id == 35) {
+                    keyboard.sendString(".")
+                } else if (abc_id == 36) {
+                    keyboard.sendString(",")
+                } else if (abc_id == 37) {
+                    keyboard.sendString("!")
+                } else if (abc_id == 38) {
+                    keyboard.sendString("?")
+                }
+                music.play(music.tonePlayable(523, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
+                basic.pause(100)
+            }
+            usid_if()
+        }
+    }
+    loading_animation()
+    bluetooth_keyboard()
 }
 
 function create_strig() {
