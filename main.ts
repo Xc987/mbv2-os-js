@@ -97,7 +97,12 @@ function waiting_for_connection() {
         mouse.startMouseService()
     } else if (bluetooth_type == 3) {
         gamepad.startGamepadService()
-    } else if (bluetooth_type == 4) {
+    } 
+    if (bluetooth_keyboard_type == 1) {
+        keyboard.startKeyboardService()
+    } else if (bluetooth_keyboard_type == 2) {
+        keyboard.startKeyboardService()
+    } else if (bluetooth_keyboard_type == 3) {
         keyboard.startKeyboardService()
     }
     while (waiting_for_input == true) {
@@ -111,8 +116,13 @@ function waiting_for_connection() {
                 bluetooth_mouse()
             } else if (bluetooth_type == 3) {
                 bluetooth_gamepad()
-            } else if (bluetooth_type == 4) {
+            }
+            if (bluetooth_keyboard_type == 1) {
                 bluetooth_keyboard()
+            } else if (bluetooth_keyboard_type == 2) {
+                bluetooth_keyboard_number()
+            } else if (bluetooth_keyboard_type == 3) {
+                bluetooth_keyboard_arrows()
             }
         } else {
             loading_animation()
@@ -2825,7 +2835,9 @@ function bluetooth_select_menu() {
         waiting_for_connection()
     }
     if (bluetooth_type == 4) {
-        waiting_for_connection()
+        menu_select = true
+        abuttonpressed = true
+        bluetooth_keyboard_menu()
     }
     if (bluetooth_type == 0) {
         menu_select = true
@@ -2833,6 +2845,231 @@ function bluetooth_select_menu() {
         menu_select_menu()
     }
 } //Bluetooth send type selection.
+function bluetooth_keyboard_menu() {
+    while (menu_select == true) {
+        if (bluetooth_keyboard_type == 0) {
+            if (animation_scroll == true) {
+                if (abuttonpressed == true) {
+                    led.unplot(4, 0)
+                    images.createImage(`
+                    . . . . .
+                    . # . . .
+                    # # # # #
+                    . # . . #
+                    . . . # #
+                    `).showImage(0)
+                    draw_menu()
+                    abuttonpressed = false
+                } else {
+                    led.unplot(4, 0)
+                    images.createImage(`
+                    . . . . .
+                    . # . . .
+                    # # # # #
+                    . # . . #
+                    . . . # #
+                    `).scrollImage(1, 45)
+                    draw_menu()
+                }
+            } else {
+                basic.showLeds(`
+                . . . . .
+                . # . . .
+                # # # # #
+                . # . . #
+                . . . # #
+                `)
+                draw_menu()
+            }
+            led.plot(0, 0)
+        } else if (bluetooth_keyboard_type == 1) {
+            if (animation_scroll == true) {
+                if (abuttonpressed == true) {
+                    led.unplot(0, 0)
+                    images.createImage(`
+                    . . . . .
+                    . # . # .
+                    # . # . #
+                    . . . . .
+                    . # # # .
+                    `).showImage(0)
+                    draw_menu()
+                    abuttonpressed = false
+                } else {
+                    led.unplot(0, 0)
+                    images.createImage(`
+                    . . . . .
+                    . # . # .
+                    # . # . #
+                    . . . . .
+                    . # # # .
+                    `).scrollImage(1, 45)
+                    draw_menu()
+                }
+            } else {
+                basic.showLeds(`
+                . . . . .
+                . # . # .
+                # . # . #
+                . . . . .
+                . # # # .
+                `)
+                draw_menu()
+            }
+            led.plot(1, 0)
+        } else if (bluetooth_keyboard_type == 2) {
+            if (animation_scroll == true) {
+                if (abuttonpressed == true) {
+                    led.unplot(1, 0)
+                    images.createImage(`
+                    . . . . .
+                    # . # # #
+                    # . # . #
+                    # . # . #
+                    # . # # #
+                    `).showImage(0)
+                    draw_menu()
+                    abuttonpressed = false
+                } else {
+                    led.unplot(1, 0)
+                    images.createImage(`
+                    . . . . .
+                    # . # # #
+                    # . # . #
+                    # . # . #
+                    # . # # #
+                    `).scrollImage(1, 45)
+                    draw_menu()
+                }
+            } else {
+                basic.showLeds(`
+                . . . . .
+                # . # # #
+                # . # . #
+                # . # . #
+                # . # # #
+                `)
+                draw_menu()
+            }
+            led.plot(2, 0)
+        } else if (bluetooth_keyboard_type == 3) {
+            if (animation_scroll == true) {
+                if (abuttonpressed == true) {
+                    led.unplot(2, 0)
+                    images.createImage(`
+                    . . . . .
+                    . # . # .
+                    # # # # #
+                    . # . # .
+                    . . . . .
+                    `).showImage(0)
+                    draw_menu()
+                    abuttonpressed = false
+                } else {
+                    led.unplot(2, 0)
+                    images.createImage(`
+                    . . . . .
+                    . # . # .
+                    # # # # #
+                    . # . # .
+                    . . . . .
+                    `).scrollImage(1, 45)
+                    draw_menu()
+                }
+            } else {
+                basic.showLeds(`
+                . . . . .
+                . # . # .
+                # # # # #
+                . # . # .
+                . . . . .
+                `)
+                draw_menu()
+            }
+            led.plot(3, 0)
+        } else {
+            if (animation_scroll == true) {
+                if (abuttonpressed == true) {
+                    led.unplot(3, 0)
+                    images.createImage(`
+                    . . . . .
+                    . # # . .
+                    # . . . .
+                    # . . . .
+                    . # # . .
+                    `).showImage(0)
+                    draw_menu()
+                    abuttonpressed = false
+                } else {
+                    led.unplot(3, 0)
+                    images.createImage(`
+                    . . . . .
+                    . # # . .
+                    # . . . .
+                    # . . . .
+                    . # # . .
+                    `).scrollImage(1, 45)
+                    draw_menu()
+                }
+            } else {
+                basic.showLeds(`
+                . . . . .
+                . # # . .
+                # . . . .
+                # . . . .
+                . # # . .
+                `)
+                draw_menu()
+            }
+            led.plot(4, 0)
+        }
+        waiting_for_input = true
+        while (waiting_for_input == true) {
+            if (input.buttonIsPressed(Button.A)) {
+                abuttonpressed = true
+                if (bluetooth_keyboard_type == 0) {
+                    bluetooth_keyboard_type = 0
+                    waiting_for_input = false
+                } else {
+                    bluetooth_keyboard_type += -1
+                    waiting_for_input = false
+                }
+            }
+            if (input.buttonIsPressed(Button.B)) {
+                if (bluetooth_keyboard_type == 4) {
+                    bluetooth_keyboard_type = 4
+                    abuttonpressed = true
+                    waiting_for_input = false
+                } else {
+                    bluetooth_keyboard_type += 1
+                    waiting_for_input = false
+                }
+            }
+            if (input.logoIsPressed()) {
+                menu_select = false
+                waiting_for_input = false
+            }
+        }
+    }
+    basic.clearScreen()
+    if (bluetooth_keyboard_type == 1) {
+        waiting_for_connection()
+    }
+    if (bluetooth_keyboard_type == 2) {
+        waiting_for_connection()
+    }
+    if (bluetooth_keyboard_type == 3) {
+        waiting_for_connection()
+    }
+    if (bluetooth_keyboard_type == 4) {
+        
+    }
+    if (bluetooth_keyboard_type == 0) {
+        menu_select = true
+        abuttonpressed = true
+        bluetooth_select_menu()
+    }
+} //Bluetooth keyboard type selection.
 function create_select_menu() {
     while (menu_select == true) {
         if (create_type == 0) {
@@ -4355,6 +4592,7 @@ let selected_math = 1
 let selected_clock = 1
 let tool_type = 1
 let bluetooth_type = 0
+let bluetooth_keyboard_type =  0
 let create_type = 0
 let selected_music = 1
 let settings_brightness = 5
@@ -4527,11 +4765,7 @@ winY_9 = [
     1
 ]
 
-
 menu_select_menu()
-
-
-
 
 basic.forever(function () {
     if (game_mode == 1) {
@@ -6784,74 +7018,240 @@ function bluetooth_keyboard() {
             }
             if (input.buttonIsPressed(Button.AB)) {
                 shift = true
+                music.play(music.tonePlayable(220, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
             }
             if (input.logoIsPressed()) {
                 if (abc_id == 1) {
-                    keyboard.sendString("a")
+                    if (shift == true) {
+                        keyboard.sendString("A")
+                        shift = false
+                    } else {
+                        keyboard.sendString("a")
+                    }
                 } else if (abc_id == 2) {
-                    keyboard.sendString("a")
+                    if (shift == true) {
+                        keyboard.sendString("A")
+                        shift = false
+                    } else {
+                        keyboard.sendString("a")
+                    }
                 } else if (abc_id == 3) {
-                    keyboard.sendString("b")
+                    if (shift == true) {
+                        keyboard.sendString("B")
+                        shift = false
+                    } else {
+                        keyboard.sendString("b")
+                    }
                 } else if (abc_id == 4) {
-                    keyboard.sendString("c")
+                    if (shift == true) {
+                        keyboard.sendString("C")
+                        shift = false
+                    } else {
+                        keyboard.sendString("c")
+                    }
                 } else if (abc_id == 5) {
-                    keyboard.sendString("c")
+                    if (shift == true) {
+                        keyboard.sendString("C")
+                        shift = false
+                    } else {
+                        keyboard.sendString("c")
+                    }
                 } else if (abc_id == 6) {
-                    keyboard.sendString("d")
+                    if (shift == true) {
+                        keyboard.sendString("D")
+                        shift = false
+                    } else {
+                        keyboard.sendString("d")
+                    }
                 } else if (abc_id == 7) {
-                    keyboard.sendString("e")
+                    if (shift == true) {
+                        keyboard.sendString("E")
+                        shift = false
+                    } else {
+                        keyboard.sendString("e")
+                    }
                 } else if (abc_id == 8) {
-                    keyboard.sendString("e")
+                    if (shift == true) {
+                        keyboard.sendString("E")
+                        shift = false
+                    } else {
+                        keyboard.sendString("e")
+                    }
                 } else if (abc_id == 9) {
-                    keyboard.sendString("f")
+                    if (shift == true) {
+                        keyboard.sendString("F")
+                        shift = false
+                    } else {
+                        keyboard.sendString("f")
+                    }
                 } else if (abc_id == 10) {
-                    keyboard.sendString("g")
+                    if (shift == true) {
+                        keyboard.sendString("G")
+                        shift = false
+                    } else {
+                        keyboard.sendString("g")
+                    }
                 } else if (abc_id == 11) {
-                    keyboard.sendString("g")
+                    if (shift == true) {
+                        keyboard.sendString("G")
+                        shift = false
+                    } else {
+                        keyboard.sendString("g")
+                    }
                 } else if (abc_id == 12) {
-                    keyboard.sendString("h")
+                    if (shift == true) {
+                        keyboard.sendString("H")
+                        shift = false
+                    } else {
+                        keyboard.sendString("h")
+                    }
                 } else if (abc_id == 13) {
-                    keyboard.sendString("i")
+                    if (shift == true) {
+                        keyboard.sendString("I")
+                        shift = false
+                    } else {
+                        keyboard.sendString("i")
+                    }
                 } else if (abc_id == 14) {
-                    keyboard.sendString("i")
+                    if (shift == true) {
+                        keyboard.sendString("I")
+                        shift = false
+                    } else {
+                        keyboard.sendString("i")
+                    }
                 } else if (abc_id == 15) {
-                    keyboard.sendString("j")
+                    if (shift == true) {
+                        keyboard.sendString("J")
+                        shift = false
+                    } else {
+                        keyboard.sendString("j")
+                    }
                 } else if (abc_id == 16) {
-                    keyboard.sendString("k")
+                    if (shift == true) {
+                        keyboard.sendString("K")
+                        shift = false
+                    } else {
+                        keyboard.sendString("k")
+                    }
                 } else if (abc_id == 17) {
-                    keyboard.sendString("k")
+                    if (shift == true) {
+                        keyboard.sendString("K")
+                        shift = false
+                    } else {
+                        keyboard.sendString("k")
+                    }
                 } else if (abc_id == 18) {
-                    keyboard.sendString("l")
+                    if (shift == true) {
+                        keyboard.sendString("L")
+                        shift = false
+                    } else {
+                        keyboard.sendString("l")
+                    }
                 } else if (abc_id == 19) {
-                    keyboard.sendString("l")
+                    if (shift == true) {
+                        keyboard.sendString("L")
+                        shift = false
+                    } else {
+                        keyboard.sendString("l")
+                    }
                 } else if (abc_id == 20) {
-                    keyboard.sendString("m")
+                    if (shift == true) {
+                        keyboard.sendString("M")
+                        shift = false
+                    } else {
+                        keyboard.sendString("m")
+                    }
                 } else if (abc_id == 21) {
-                    keyboard.sendString("n")
+                    if (shift == true) {
+                        keyboard.sendString("N")
+                        shift = false
+                    } else {
+                        keyboard.sendString("n")
+                    }
                 } else if (abc_id == 22) {
-                    keyboard.sendString("n")
+                    if (shift == true) {
+                        keyboard.sendString("N")
+                        shift = false
+                    } else {
+                        keyboard.sendString("n")
+                    }
                 } else if (abc_id == 23) {
-                    keyboard.sendString("o")
+                    if (shift == true) {
+                        keyboard.sendString("O")
+                        shift = false
+                    } else {
+                        keyboard.sendString("o")
+                    }
                 } else if (abc_id == 24) {
-                    keyboard.sendString("p")
+                    if (shift == true) {
+                        keyboard.sendString("P")
+                        shift = false
+                    } else {
+                        keyboard.sendString("p")
+                    }
                 } else if (abc_id == 25) {
-                    keyboard.sendString("r")
+                    if (shift == true) {
+                        keyboard.sendString("R")
+                        shift = false
+                    } else {
+                        keyboard.sendString("r")
+                    }
                 } else if (abc_id == 26) {
-                    keyboard.sendString("s")
+                    if (shift == true) {
+                        keyboard.sendString("S")
+                        shift = false
+                    } else {
+                        keyboard.sendString("s")
+                    }
                 } else if (abc_id == 27) {
-                    keyboard.sendString("s")
+                    if (shift == true) {
+                        keyboard.sendString("S")
+                        shift = false
+                    } else {
+                        keyboard.sendString("s")
+                    }
                 } else if (abc_id == 28) {
-                    keyboard.sendString("t")
+                    if (shift == true) {
+                        keyboard.sendString("T")
+                        shift = false
+                    } else {
+                        keyboard.sendString("t")
+                    }
                 } else if (abc_id == 29) {
-                    keyboard.sendString("u")
+                    if (shift == true) {
+                        keyboard.sendString("U")
+                        shift = false
+                    } else {
+                        keyboard.sendString("u")
+                    }
                 } else if (abc_id == 30) {
-                    keyboard.sendString("u")
+                    if (shift == true) {
+                        keyboard.sendString("U")
+                        shift = false
+                    } else {
+                        keyboard.sendString("u")
+                    }
                 } else if (abc_id == 31) {
-                    keyboard.sendString("v")
+                    if (shift == true) {
+                        keyboard.sendString("V")
+                        shift = false
+                    } else {
+                        keyboard.sendString("v")
+                    }
                 } else if (abc_id == 32) {
-                    keyboard.sendString("z")
+                    if (shift == true) {
+                        keyboard.sendString("Z")
+                        shift = false
+                    } else {
+                        keyboard.sendString("z")
+                    }
                 } else if (abc_id == 33) {
-                    keyboard.sendString("z")
+                    if (shift == true) {
+                        keyboard.sendString("Z")
+                        shift = false
+                    } else {
+                        keyboard.sendString("z")
+                    }
                 } else if (abc_id == 34) {
                     keyboard.sendString(" ")
                 } else if (abc_id == 35) {
@@ -6872,6 +7272,149 @@ function bluetooth_keyboard() {
     loading_animation()
     bluetooth_keyboard()
 }
+function bluetooth_keyboard_number() {
+    while (bluetooth_online == true) {
+        music.setBuiltInSpeakerEnabled(true)
+        basic.clearScreen()
+        basic.pause(500)
+        let numberlist = [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+        ]
+        num = 0
+        let number_send = 0
+        number_loop = true
+        while (number_loop == true) {
+            if (input.buttonIsPressed(Button.A)) {
+                if (num == 0) {
+                    num = 9
+                } else {
+                    num += -1
+                }
+            }
+            if (input.buttonIsPressed(Button.B)) {
+                if (num == 9) {
+                    num = 0
+                } else {
+                    num += 1
+                }
+            }
+            if (input.logoIsPressed()) {
+                if (num == 1) {
+                    if (shift == true) {
+                        keyboard.sendString("!")
+                        shift = false
+                    } else {
+                        keyboard.sendString("1")
+                    }
+                } else if (num == 2) {
+                    if (shift == true) {
+                        keyboard.sendString("@")
+                        shift = false
+                    } else {
+                        keyboard.sendString("2")
+                    }
+                } else if (num == 3) {
+                    if (shift == true) {
+                        keyboard.sendString("#")
+                        shift = false
+                    } else {
+                        keyboard.sendString("3")
+                    }
+                } else if (num == 4) {
+                    if (shift == true) {
+                        keyboard.sendString("$")
+                        shift = false
+                    } else {
+                        keyboard.sendString("4")
+                    }
+                } else if (num == 5) {
+                    if (shift == true) {
+                        keyboard.sendString("%")
+                        shift = false
+                    } else {
+                        keyboard.sendString("5")
+                    }
+                } else if (num == 6) {
+                    if (shift == true) {
+                        keyboard.sendString("^")
+                        shift = false
+                    } else {
+                        keyboard.sendString("6")
+                    }
+                } else if (num == 7) {
+                    if (shift == true) {
+                        keyboard.sendString("&")
+                        shift = false
+                    } else {
+                        keyboard.sendString("7")
+                    }
+                } else if (num == 8) {
+                    if (shift == true) {
+                        keyboard.sendString("*")
+                        shift = false
+                    } else {
+                        keyboard.sendString("8")
+                    }
+                } else if (num == 9) {
+                    if (shift == true) {
+                        keyboard.sendString("(")
+                        shift = false
+                    } else {
+                        keyboard.sendString("9")
+                    }
+                } else if (num == 0) {
+                    if (shift == true) {
+                        keyboard.sendString(")")
+                        shift = false
+                    } else {
+                        keyboard.sendString("0")
+                    }
+                }
+                music.play(music.tonePlayable(349, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
+            }
+            if (input.buttonIsPressed(Button.AB)) {
+                shift = true
+                music.play(music.tonePlayable(220, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
+            }
+            unid_if_0_9()
+        }
+    }
+    loading_animation()
+    bluetooth_keyboard_number()
+}
+function bluetooth_keyboard_arrows() {
+    while (bluetooth_online == true) {
+        if (input.buttonIsPressed(Button.A)) {
+            keyboard.sendString(keyboard.keys(keyboard._Key.left))
+            basic.pause(100)
+        }
+        if (input.buttonIsPressed(Button.B)) {
+            keyboard.sendString(keyboard.keys(keyboard._Key.right))
+            basic.pause(100)
+        }
+        if (input.logoIsPressed()) {
+            keyboard.sendString(keyboard.keys(keyboard._Key.up))
+            basic.pause(50)
+        }
+        if (input.pinIsPressed(TouchPin.P2)) {
+            keyboard.sendString(keyboard.keys(keyboard._Key.down))
+            basic.pause(50)
+        }
+        basic.clearScreen()
+    }
+    loading_animation()
+    bluetooth_keyboard_arrows()
+}
+
 
 function create_strig() {
     music.setBuiltInSpeakerEnabled(true)
