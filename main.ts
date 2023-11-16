@@ -97,12 +97,14 @@ function waiting_for_connection() {
         mouse.startMouseService()
     } else if (bluetooth_type == 3) {
         gamepad.startGamepadService()
-    } 
+    }
     if (bluetooth_keyboard_type == 1) {
         keyboard.startKeyboardService()
     } else if (bluetooth_keyboard_type == 2) {
         keyboard.startKeyboardService()
     } else if (bluetooth_keyboard_type == 3) {
+        keyboard.startKeyboardService()
+    } else if (bluetooth_keyboard_type == 4) {
         keyboard.startKeyboardService()
     }
     while (waiting_for_input == true) {
@@ -123,12 +125,14 @@ function waiting_for_connection() {
                 bluetooth_keyboard_number()
             } else if (bluetooth_keyboard_type == 3) {
                 bluetooth_keyboard_arrows()
+            } else if (bluetooth_keyboard_type == 4) {
+                bluetooth_keyboard_custom()
             }
         } else {
             loading_animation()
         }
     }
-}
+} //Waiting for the bluetooth connection.
 
 function unid_if_0_9() {
     unid = num
@@ -3062,7 +3066,7 @@ function bluetooth_keyboard_menu() {
         waiting_for_connection()
     }
     if (bluetooth_keyboard_type == 4) {
-        
+        waiting_for_connection()
     }
     if (bluetooth_keyboard_type == 0) {
         menu_select = true
@@ -4635,6 +4639,9 @@ let y = 0
 let newx = 0
 let newy = 0
 let shift = false
+let custom_a_button = ""
+let custom_b_button = ""
+let custom_logo_button = ""
 
 
 let acc_1 = 0
@@ -6850,7 +6857,7 @@ function bluetooth_media() {
     }
     loading_animation()
     bluetooth_media()
-}
+} //Control media via bluetooth.
 function bluetooth_mouse() {
     while (bluetooth_online == true) {
         newx = input.acceleration(Dimension.X)
@@ -6869,7 +6876,7 @@ function bluetooth_mouse() {
     }
     loading_animation()
     bluetooth_mouse()
-}
+} //Control the mouse via bluetooth.
 function bluetooth_gamepad() {
     while (bluetooth_online == true) {
         gamepad.send(
@@ -6954,7 +6961,7 @@ function bluetooth_gamepad() {
     }
     loading_animation()
     bluetooth_gamepad()
-}
+} //Control the gamepad via bluetooth.
 function bluetooth_keyboard() {
     while (bluetooth_online == true) {
         music.setBuiltInSpeakerEnabled(true)
@@ -7271,7 +7278,7 @@ function bluetooth_keyboard() {
     }
     loading_animation()
     bluetooth_keyboard()
-}
+} //Send any keyboard input via bluetooth
 function bluetooth_keyboard_number() {
     while (bluetooth_online == true) {
         music.setBuiltInSpeakerEnabled(true)
@@ -7390,7 +7397,7 @@ function bluetooth_keyboard_number() {
     }
     loading_animation()
     bluetooth_keyboard_number()
-}
+} //Send keyboard numbers via bluetooth.
 function bluetooth_keyboard_arrows() {
     while (bluetooth_online == true) {
         if (input.buttonIsPressed(Button.A)) {
@@ -7413,8 +7420,901 @@ function bluetooth_keyboard_arrows() {
     }
     loading_animation()
     bluetooth_keyboard_arrows()
-}
-
+} // Control arrow keys via bluetooth.
+function bluetooth_keyboard_custom() {
+    while (bluetooth_online == true) {
+        music.setBuiltInSpeakerEnabled(true)
+        basic.showLeds(`
+        . . # . .
+        . # . . .
+        # # # # #
+        . # . . .
+        . . # . .
+        `)
+        basic.pause(500)
+        basic.clearScreen()
+        abc = [
+            "NUL",
+            "a",
+            "A",
+            "b",
+            "c",
+            "C",
+            "d",
+            "e",
+            "E",
+            "f",
+            "g",
+            "G",
+            "h",
+            "i",
+            "I",
+            "j",
+            "k",
+            "K",
+            "l",
+            "L",
+            "m",
+            "n",
+            "N",
+            "o",
+            "p",
+            "r",
+            "s",
+            "S",
+            "t",
+            "u",
+            "U",
+            "v",
+            "z",
+            "Z",
+            " ",
+            ".",
+            ",",
+            "!",
+            "?"]
+        abc_loop = true
+        while (abc_loop == true) {
+            if (input.buttonIsPressed(Button.A)) {
+                if (abc_id == 1) {
+                    abc_id = 38
+                } else {
+                    abc_id += -1
+                }
+            }
+            if (input.buttonIsPressed(Button.B)) {
+                if (abc_id == 38) {
+                    abc_id = 1
+                } else {
+                    abc_id += 1
+                }
+            }
+            if (input.buttonIsPressed(Button.AB)) {
+                shift = true
+                music.play(music.tonePlayable(220, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
+            }
+            if (input.logoIsPressed()) {
+                if (abc_id == 1) {
+                    if (shift == true) {
+                        custom_a_button = "A"
+                        shift = false
+                    } else {
+                        custom_a_button = "a"
+                    }
+                } else if (abc_id == 2) {
+                    if (shift == true) {
+                        custom_a_button = "A"
+                        shift = false
+                    } else {
+                        custom_a_button = "a"
+                    }
+                } else if (abc_id == 3) {
+                    if (shift == true) {
+                        custom_a_button = "B"
+                        shift = false
+                    } else {
+                        custom_a_button = "b"
+                    }
+                } else if (abc_id == 4) {
+                    if (shift == true) {
+                        custom_a_button = "C"
+                        shift = false
+                    } else {
+                        custom_a_button = "c"
+                    }
+                } else if (abc_id == 5) {
+                    if (shift == true) {
+                        custom_a_button = "C"
+                        shift = false
+                    } else {
+                        custom_a_button = "c"
+                    }
+                } else if (abc_id == 6) {
+                    if (shift == true) {
+                        custom_a_button = "D"
+                        shift = false
+                    } else {
+                        custom_a_button = "d"
+                    }
+                } else if (abc_id == 7) {
+                    if (shift == true) {
+                        custom_a_button = "E"
+                        shift = false
+                    } else {
+                        custom_a_button = "e"
+                    }
+                } else if (abc_id == 8) {
+                    if (shift == true) {
+                        custom_a_button = "E"
+                        shift = false
+                    } else {
+                        custom_a_button = "e"
+                    }
+                } else if (abc_id == 9) {
+                    if (shift == true) {
+                        custom_a_button = "F"
+                        shift = false
+                    } else {
+                        custom_a_button = "f"
+                    }
+                } else if (abc_id == 10) {
+                    if (shift == true) {
+                        custom_a_button = "G"
+                        shift = false
+                    } else {
+                        custom_a_button = "g"
+                    }
+                } else if (abc_id == 11) {
+                    if (shift == true) {
+                        custom_a_button = "G"
+                        shift = false
+                    } else {
+                        custom_a_button = "g"
+                    }
+                } else if (abc_id == 12) {
+                    if (shift == true) {
+                        custom_a_button = "H"
+                        shift = false
+                    } else {
+                        custom_a_button = "h"
+                    }
+                } else if (abc_id == 13) {
+                    if (shift == true) {
+                        custom_a_button = "I"
+                        shift = false
+                    } else {
+                        custom_a_button = "i"
+                    }
+                } else if (abc_id == 14) {
+                    if (shift == true) {
+                        custom_a_button = "I"
+                        shift = false
+                    } else {
+                        custom_a_button = "i"
+                    }
+                } else if (abc_id == 15) {
+                    if (shift == true) {
+                        custom_a_button = "J"
+                        shift = false
+                    } else {
+                        custom_a_button = "j"
+                    }
+                } else if (abc_id == 16) {
+                    if (shift == true) {
+                        custom_a_button = "K"
+                        shift = false
+                    } else {
+                        custom_a_button = "k"
+                    }
+                } else if (abc_id == 17) {
+                    if (shift == true) {
+                        custom_a_button = "K"
+                        shift = false
+                    } else {
+                        custom_a_button = "k"
+                    }
+                } else if (abc_id == 18) {
+                    if (shift == true) {
+                        custom_a_button = "L"
+                        shift = false
+                    } else {
+                        custom_a_button = "l"
+                    }
+                } else if (abc_id == 19) {
+                    if (shift == true) {
+                        custom_a_button = "L"
+                        shift = false
+                    } else {
+                        custom_a_button = "l"
+                    }
+                } else if (abc_id == 20) {
+                    if (shift == true) {
+                        custom_a_button = "M"
+                        shift = false
+                    } else {
+                        custom_a_button = "m"
+                    }
+                } else if (abc_id == 21) {
+                    if (shift == true) {
+                        custom_a_button = "N"
+                        shift = false
+                    } else {
+                        custom_a_button = "n"
+                    }
+                } else if (abc_id == 22) {
+                    if (shift == true) {
+                        custom_a_button = "N"
+                        shift = false
+                    } else {
+                        custom_a_button = "n"
+                    }
+                } else if (abc_id == 23) {
+                    if (shift == true) {
+                        custom_a_button = "O"
+                        shift = false
+                    } else {
+                        custom_a_button = "o"
+                    }
+                } else if (abc_id == 24) {
+                    if (shift == true) {
+                        custom_a_button = "P"
+                        shift = false
+                    } else {
+                        custom_a_button = "p"
+                    }
+                } else if (abc_id == 25) {
+                    if (shift == true) {
+                        custom_a_button = "R"
+                        shift = false
+                    } else {
+                        custom_a_button = "r"
+                    }
+                } else if (abc_id == 26) {
+                    if (shift == true) {
+                        custom_a_button = "S"
+                        shift = false
+                    } else {
+                        custom_a_button = "s"
+                    }
+                } else if (abc_id == 27) {
+                    if (shift == true) {
+                        custom_a_button = "S"
+                        shift = false
+                    } else {
+                        custom_a_button = "s"
+                    }
+                } else if (abc_id == 28) {
+                    if (shift == true) {
+                        custom_a_button = "T"
+                        shift = false
+                    } else {
+                        custom_a_button = "t"
+                    }
+                } else if (abc_id == 29) {
+                    if (shift == true) {
+                        custom_a_button = "U"
+                        shift = false
+                    } else {
+                        custom_a_button = "u"
+                    }
+                } else if (abc_id == 30) {
+                    if (shift == true) {
+                        custom_a_button = "U"
+                        shift = false
+                    } else {
+                        custom_a_button = "u"
+                    }
+                } else if (abc_id == 31) {
+                    if (shift == true) {
+                        custom_a_button = "V"
+                        shift = false
+                    } else {
+                        custom_a_button = "v"
+                    }
+                } else if (abc_id == 32) {
+                    if (shift == true) {
+                        custom_a_button = "Z"
+                        shift = false
+                    } else {
+                        custom_a_button = "z"
+                    }
+                } else if (abc_id == 33) {
+                    if (shift == true) {
+                        custom_a_button = "Z"
+                        shift = false
+                    } else {
+                        custom_a_button = "z"
+                    }
+                } else if (abc_id == 34) {
+                    custom_a_button = " "
+                } else if (abc_id == 35) {
+                    custom_a_button = "."
+                } else if (abc_id == 36) {
+                    custom_a_button = ","
+                } else if (abc_id == 37) {
+                    custom_a_button = "!"
+                } else if (abc_id == 38) {
+                    custom_a_button = "?"
+                }
+                music.play(music.tonePlayable(523, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
+                abc_loop = false
+            }
+            usid_if()
+        }
+        basic.showLeds(`
+        . . # . .
+        . # # # .
+        # . # . #
+        . . # . .
+        . . # . .
+        `)
+        basic.pause(500)
+        basic.clearScreen()
+        abc_id = 1
+        abc_loop = true
+        while (abc_loop == true) {
+            if (input.buttonIsPressed(Button.A)) {
+                if (abc_id == 1) {
+                    abc_id = 38
+                } else {
+                    abc_id += -1
+                }
+            }
+            if (input.buttonIsPressed(Button.B)) {
+                if (abc_id == 38) {
+                    abc_id = 1
+                } else {
+                    abc_id += 1
+                }
+            }
+            if (input.buttonIsPressed(Button.AB)) {
+                shift = true
+                music.play(music.tonePlayable(220, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
+            }
+            if (input.logoIsPressed()) {
+                if (abc_id == 1) {
+                    if (shift == true) {
+                        custom_logo_button = "A"
+                        shift = false
+                    } else {
+                        custom_logo_button = "a"
+                    }
+                } else if (abc_id == 2) {
+                    if (shift == true) {
+                        custom_logo_button = "A"
+                        shift = false
+                    } else {
+                        custom_logo_button = "a"
+                    }
+                } else if (abc_id == 3) {
+                    if (shift == true) {
+                        custom_logo_button = "B"
+                        shift = false
+                    } else {
+                        custom_logo_button = "b"
+                    }
+                } else if (abc_id == 4) {
+                    if (shift == true) {
+                        custom_logo_button = "C"
+                        shift = false
+                    } else {
+                        custom_logo_button = "c"
+                    }
+                } else if (abc_id == 5) {
+                    if (shift == true) {
+                        custom_logo_button = "C"
+                        shift = false
+                    } else {
+                        custom_logo_button = "c"
+                    }
+                } else if (abc_id == 6) {
+                    if (shift == true) {
+                        custom_logo_button = "D"
+                        shift = false
+                    } else {
+                        custom_logo_button = "d"
+                    }
+                } else if (abc_id == 7) {
+                    if (shift == true) {
+                        custom_logo_button = "E"
+                        shift = false
+                    } else {
+                        custom_logo_button = "e"
+                    }
+                } else if (abc_id == 8) {
+                    if (shift == true) {
+                        custom_logo_button = "E"
+                        shift = false
+                    } else {
+                        custom_logo_button = "e"
+                    }
+                } else if (abc_id == 9) {
+                    if (shift == true) {
+                        custom_logo_button = "F"
+                        shift = false
+                    } else {
+                        custom_logo_button = "f"
+                    }
+                } else if (abc_id == 10) {
+                    if (shift == true) {
+                        custom_logo_button = "G"
+                        shift = false
+                    } else {
+                        custom_logo_button = "g"
+                    }
+                } else if (abc_id == 11) {
+                    if (shift == true) {
+                        custom_logo_button = "G"
+                        shift = false
+                    } else {
+                        custom_logo_button = "g"
+                    }
+                } else if (abc_id == 12) {
+                    if (shift == true) {
+                        custom_logo_button = "H"
+                        shift = false
+                    } else {
+                        custom_logo_button = "h"
+                    }
+                } else if (abc_id == 13) {
+                    if (shift == true) {
+                        custom_logo_button = "I"
+                        shift = false
+                    } else {
+                        custom_logo_button = "i"
+                    }
+                } else if (abc_id == 14) {
+                    if (shift == true) {
+                        custom_logo_button = "I"
+                        shift = false
+                    } else {
+                        custom_logo_button = "i"
+                    }
+                } else if (abc_id == 15) {
+                    if (shift == true) {
+                        custom_logo_button = "J"
+                        shift = false
+                    } else {
+                        custom_logo_button = "j"
+                    }
+                } else if (abc_id == 16) {
+                    if (shift == true) {
+                        custom_logo_button = "K"
+                        shift = false
+                    } else {
+                        custom_logo_button = "k"
+                    }
+                } else if (abc_id == 17) {
+                    if (shift == true) {
+                        custom_logo_button = "K"
+                        shift = false
+                    } else {
+                        custom_logo_button = "k"
+                    }
+                } else if (abc_id == 18) {
+                    if (shift == true) {
+                        custom_logo_button = "L"
+                        shift = false
+                    } else {
+                        custom_logo_button = "l"
+                    }
+                } else if (abc_id == 19) {
+                    if (shift == true) {
+                        custom_logo_button = "L"
+                        shift = false
+                    } else {
+                        custom_logo_button = "l"
+                    }
+                } else if (abc_id == 20) {
+                    if (shift == true) {
+                        custom_logo_button = "M"
+                        shift = false
+                    } else {
+                        custom_logo_button = "m"
+                    }
+                } else if (abc_id == 21) {
+                    if (shift == true) {
+                        custom_logo_button = "N"
+                        shift = false
+                    } else {
+                        custom_logo_button = "n"
+                    }
+                } else if (abc_id == 22) {
+                    if (shift == true) {
+                        custom_logo_button = "N"
+                        shift = false
+                    } else {
+                        custom_logo_button = "n"
+                    }
+                } else if (abc_id == 23) {
+                    if (shift == true) {
+                        custom_logo_button = "O"
+                        shift = false
+                    } else {
+                        custom_logo_button = "o"
+                    }
+                } else if (abc_id == 24) {
+                    if (shift == true) {
+                        custom_logo_button = "P"
+                        shift = false
+                    } else {
+                        custom_logo_button = "p"
+                    }
+                } else if (abc_id == 25) {
+                    if (shift == true) {
+                        custom_logo_button = "R"
+                        shift = false
+                    } else {
+                        custom_logo_button = "r"
+                    }
+                } else if (abc_id == 26) {
+                    if (shift == true) {
+                        custom_logo_button = "S"
+                        shift = false
+                    } else {
+                        custom_logo_button = "s"
+                    }
+                } else if (abc_id == 27) {
+                    if (shift == true) {
+                        custom_logo_button = "S"
+                        shift = false
+                    } else {
+                        custom_logo_button = "s"
+                    }
+                } else if (abc_id == 28) {
+                    if (shift == true) {
+                        custom_logo_button = "T"
+                        shift = false
+                    } else {
+                        custom_logo_button = "t"
+                    }
+                } else if (abc_id == 29) {
+                    if (shift == true) {
+                        custom_logo_button = "U"
+                        shift = false
+                    } else {
+                        custom_logo_button = "u"
+                    }
+                } else if (abc_id == 30) {
+                    if (shift == true) {
+                        custom_logo_button = "U"
+                        shift = false
+                    } else {
+                        custom_logo_button = "u"
+                    }
+                } else if (abc_id == 31) {
+                    if (shift == true) {
+                        custom_logo_button = "V"
+                        shift = false
+                    } else {
+                        custom_logo_button = "v"
+                    }
+                } else if (abc_id == 32) {
+                    if (shift == true) {
+                        custom_logo_button = "Z"
+                        shift = false
+                    } else {
+                        custom_logo_button = "z"
+                    }
+                } else if (abc_id == 33) {
+                    if (shift == true) {
+                        custom_logo_button = "Z"
+                        shift = false
+                    } else {
+                        custom_logo_button = "z"
+                    }
+                } else if (abc_id == 34) {
+                    custom_logo_button = " "
+                } else if (abc_id == 35) {
+                    custom_logo_button = "."
+                } else if (abc_id == 36) {
+                    custom_logo_button = ","
+                } else if (abc_id == 37) {
+                    custom_logo_button = "!"
+                } else if (abc_id == 38) {
+                    custom_logo_button = "?"
+                }
+                music.play(music.tonePlayable(523, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
+                abc_loop = false
+            }
+            usid_if()
+        }
+        basic.showLeds(`
+        . . # . .
+        . . . # .
+        # # # # #
+        . . . # .
+        . . # . .
+        `)
+        basic.pause(500)
+        basic.clearScreen()
+        abc_id = 1
+        abc_loop = true
+        while (abc_loop == true) {
+            if (input.buttonIsPressed(Button.A)) {
+                if (abc_id == 1) {
+                    abc_id = 38
+                } else {
+                    abc_id += -1
+                }
+            }
+            if (input.buttonIsPressed(Button.B)) {
+                if (abc_id == 38) {
+                    abc_id = 1
+                } else {
+                    abc_id += 1
+                }
+            }
+            if (input.buttonIsPressed(Button.AB)) {
+                shift = true
+                music.play(music.tonePlayable(220, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
+            }
+            if (input.logoIsPressed()) {
+                if (abc_id == 1) {
+                    if (shift == true) {
+                        custom_b_button = "A"
+                        shift = false
+                    } else {
+                        custom_b_button = "a"
+                    }
+                } else if (abc_id == 2) {
+                    if (shift == true) {
+                        custom_b_button = "A"
+                        shift = false
+                    } else {
+                        custom_b_button = "a"
+                    }
+                } else if (abc_id == 3) {
+                    if (shift == true) {
+                        custom_b_button = "B"
+                        shift = false
+                    } else {
+                        custom_b_button = "b"
+                    }
+                } else if (abc_id == 4) {
+                    if (shift == true) {
+                        custom_b_button = "C"
+                        shift = false
+                    } else {
+                        custom_b_button = "c"
+                    }
+                } else if (abc_id == 5) {
+                    if (shift == true) {
+                        custom_b_button = "C"
+                        shift = false
+                    } else {
+                        custom_b_button = "c"
+                    }
+                } else if (abc_id == 6) {
+                    if (shift == true) {
+                        custom_b_button = "D"
+                        shift = false
+                    } else {
+                        custom_b_button = "d"
+                    }
+                } else if (abc_id == 7) {
+                    if (shift == true) {
+                        custom_b_button = "E"
+                        shift = false
+                    } else {
+                        custom_b_button = "e"
+                    }
+                } else if (abc_id == 8) {
+                    if (shift == true) {
+                        custom_b_button = "E"
+                        shift = false
+                    } else {
+                        custom_b_button = "e"
+                    }
+                } else if (abc_id == 9) {
+                    if (shift == true) {
+                        custom_b_button = "F"
+                        shift = false
+                    } else {
+                        custom_b_button = "f"
+                    }
+                } else if (abc_id == 10) {
+                    if (shift == true) {
+                        custom_b_button = "G"
+                        shift = false
+                    } else {
+                        custom_b_button = "g"
+                    }
+                } else if (abc_id == 11) {
+                    if (shift == true) {
+                        custom_b_button = "G"
+                        shift = false
+                    } else {
+                        custom_b_button = "g"
+                    }
+                } else if (abc_id == 12) {
+                    if (shift == true) {
+                        custom_b_button = "H"
+                        shift = false
+                    } else {
+                        custom_b_button = "h"
+                    }
+                } else if (abc_id == 13) {
+                    if (shift == true) {
+                        custom_b_button = "I"
+                        shift = false
+                    } else {
+                        custom_b_button = "i"
+                    }
+                } else if (abc_id == 14) {
+                    if (shift == true) {
+                        custom_b_button = "I"
+                        shift = false
+                    } else {
+                        custom_b_button = "i"
+                    }
+                } else if (abc_id == 15) {
+                    if (shift == true) {
+                        custom_b_button = "J"
+                        shift = false
+                    } else {
+                        custom_b_button = "j"
+                    }
+                } else if (abc_id == 16) {
+                    if (shift == true) {
+                        custom_b_button = "K"
+                        shift = false
+                    } else {
+                        custom_b_button = "k"
+                    }
+                } else if (abc_id == 17) {
+                    if (shift == true) {
+                        custom_b_button = "K"
+                        shift = false
+                    } else {
+                        custom_b_button = "k"
+                    }
+                } else if (abc_id == 18) {
+                    if (shift == true) {
+                        custom_b_button = "L"
+                        shift = false
+                    } else {
+                        custom_b_button = "l"
+                    }
+                } else if (abc_id == 19) {
+                    if (shift == true) {
+                        custom_b_button = "L"
+                        shift = false
+                    } else {
+                        custom_b_button = "l"
+                    }
+                } else if (abc_id == 20) {
+                    if (shift == true) {
+                        custom_b_button = "M"
+                        shift = false
+                    } else {
+                        custom_b_button = "m"
+                    }
+                } else if (abc_id == 21) {
+                    if (shift == true) {
+                        custom_b_button = "N"
+                        shift = false
+                    } else {
+                        custom_b_button = "n"
+                    }
+                } else if (abc_id == 22) {
+                    if (shift == true) {
+                        custom_b_button = "N"
+                        shift = false
+                    } else {
+                        custom_b_button = "n"
+                    }
+                } else if (abc_id == 23) {
+                    if (shift == true) {
+                        custom_b_button = "O"
+                        shift = false
+                    } else {
+                        custom_b_button = "o"
+                    }
+                } else if (abc_id == 24) {
+                    if (shift == true) {
+                        custom_b_button = "P"
+                        shift = false
+                    } else {
+                        custom_b_button = "p"
+                    }
+                } else if (abc_id == 25) {
+                    if (shift == true) {
+                        custom_b_button = "R"
+                        shift = false
+                    } else {
+                        custom_b_button = "r"
+                    }
+                } else if (abc_id == 26) {
+                    if (shift == true) {
+                        custom_b_button = "S"
+                        shift = false
+                    } else {
+                        custom_b_button = "s"
+                    }
+                } else if (abc_id == 27) {
+                    if (shift == true) {
+                        custom_b_button = "S"
+                        shift = false
+                    } else {
+                        custom_b_button = "s"
+                    }
+                } else if (abc_id == 28) {
+                    if (shift == true) {
+                        custom_b_button = "T"
+                        shift = false
+                    } else {
+                        custom_b_button = "t"
+                    }
+                } else if (abc_id == 29) {
+                    if (shift == true) {
+                        custom_b_button = "U"
+                        shift = false
+                    } else {
+                        custom_b_button = "u"
+                    }
+                } else if (abc_id == 30) {
+                    if (shift == true) {
+                        custom_b_button = "U"
+                        shift = false
+                    } else {
+                        custom_b_button = "u"
+                    }
+                } else if (abc_id == 31) {
+                    if (shift == true) {
+                        custom_b_button = "V"
+                        shift = false
+                    } else {
+                        custom_b_button = "v"
+                    }
+                } else if (abc_id == 32) {
+                    if (shift == true) {
+                        custom_b_button = "Z"
+                        shift = false
+                    } else {
+                        custom_b_button = "z"
+                    }
+                } else if (abc_id == 33) {
+                    if (shift == true) {
+                        custom_b_button = "Z"
+                        shift = false
+                    } else {
+                        custom_b_button = "z"
+                    }
+                } else if (abc_id == 34) {
+                    custom_b_button = " "
+                } else if (abc_id == 35) {
+                    custom_b_button = "."
+                } else if (abc_id == 36) {
+                    custom_b_button = ","
+                } else if (abc_id == 37) {
+                    custom_b_button = "!"
+                } else if (abc_id == 38) {
+                    custom_b_button = "?"
+                }
+                music.play(music.tonePlayable(523, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
+                abc_loop = false
+            }
+            usid_if()
+        }
+        basic.pause(200)
+        basic.clearScreen()
+        while (true) {
+            if (input.buttonIsPressed(Button.A)) {
+                keyboard.sendString(custom_a_button)
+            }
+            if (input.buttonIsPressed(Button.B)) {
+                keyboard.sendString(custom_b_button)
+            }
+            if (input.logoIsPressed()) {
+                keyboard.sendString(custom_logo_button)
+            }
+            basic.pause(150)
+        }
+    }
+    loading_animation()
+    bluetooth_keyboard_custom()
+} // Custom keyboard input.
 
 function create_strig() {
     music.setBuiltInSpeakerEnabled(true)
