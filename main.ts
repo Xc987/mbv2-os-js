@@ -1022,6 +1022,76 @@ function menu_select_menu() {
         `)
                 draw_menu()
             }
+            led.plot(2, 0)
+        } else if(selected_menu == 6) {
+            if (animation_scroll == true) {
+                if (abuttonpressed == true) {
+                    led.unplot(2, 0)
+                    images.createImage(`
+                    . . . . .
+                    . . . . .
+                    . . . . .
+                    # # # # #
+                    # . # . #
+                    `).showImage(0)
+                    draw_menu()
+                    abuttonpressed = false
+                } else {
+                    led.unplot(2, 0)
+                    images.createImage(`
+                    . . . . .
+                    . . . . .
+                    . . . . .
+                    # # # # #
+                    # . # . #
+                    `).scrollImage(1, 45)
+                    draw_menu()
+                }
+            } else {
+                basic.showLeds(`
+                    . . . . .
+                    . . . . .
+                    . . . . .
+                    # # # # #
+                    # . # . #
+        `)
+                draw_menu()
+            }
+            led.plot(2, 0)
+        } else if (selected_menu == 7) {
+            if (animation_scroll == true) {
+                if (abuttonpressed == true) {
+                    led.unplot(2, 0)
+                    images.createImage(`
+                    . . . . .
+                    . . # . .
+                    # . # . #
+                    . # # # .
+                    . . # . .
+                    `).showImage(0)
+                    draw_menu()
+                    abuttonpressed = false
+                } else {
+                    led.unplot(2, 0)
+                    images.createImage(`
+                    . . . . .
+                    . . # . .
+                    # . # . #
+                    . # # # .
+                    . . # . .
+                    `).scrollImage(1, 45)
+                    draw_menu()
+                }
+            } else {
+                basic.showLeds(`
+                    . . . . .
+                    . . # . .
+                    # . # . #
+                    . # # # .
+                    . . # . .
+        `)
+                draw_menu()
+            }
             led.plot(3, 0)
         } else {
             if (animation_scroll == true) {
@@ -1059,6 +1129,7 @@ function menu_select_menu() {
             }
             led.plot(4, 0)
         }
+            
         waiting_for_input = true
         while (waiting_for_input == true) {
             if (input.buttonIsPressed(Button.A)) {
@@ -1071,8 +1142,8 @@ function menu_select_menu() {
                     waiting_for_input = false
                 }
             } else if (input.buttonIsPressed(Button.B)) {
-                if (selected_menu == 6) {
-                    selected_menu = 6
+                if (selected_menu == 8) {
+                    selected_menu = 8
                     abuttonpressed = true
                     waiting_for_input = false
                 } else {
@@ -1103,7 +1174,15 @@ function menu_select_menu() {
         abuttonpressed = true
         menu_select = true
         create_select_menu()
-    } else {
+    } else if (selected_menu == 6) {
+        abuttonpressed = true
+        menu_select = true
+        pins_select_menu()
+    } else if (selected_menu == 7) {
+        abuttonpressed = true
+        menu_select = true
+        serial_select_menu()
+    } else if (selected_menu == 8) {
         abuttonpressed = true
         menu_select = true
         settings_select_menu()
@@ -3222,10 +3301,10 @@ function create_select_menu() {
                     led.unplot(3, 0)
                     images.createImage(`
                     . . . . .
-                    . . . . .
-                    . . . . .
-                    . . . . .
-                    . . . . .
+                    # # # # #
+                    # # . . #
+                    # . . # #
+                    # # # # #
                     `).showImage(0)
                     draw_menu()
                     abuttonpressed = false
@@ -3233,20 +3312,20 @@ function create_select_menu() {
                     led.unplot(3, 0)
                     images.createImage(`
                     . . . . .
-                    . . . . .
-                    . . . . .
-                    . . . . .
-                    . . . . .
+                    # # # # #
+                    # # . . #
+                    # . . # #
+                    # # # # #
                     `).scrollImage(1, 45)
                     draw_menu()
                 }
             } else {
                 basic.showLeds(`
                 . . . . .
-                . . . . .
-                . . . . .
-                . . . . .
-                . . . . .
+                # # # # #
+                # # . . #
+                # . . # #
+                # # # # #
                 `)
                 draw_menu()
             }
@@ -3287,7 +3366,7 @@ function create_select_menu() {
         abuttonpressed = true
         create_music_menu()
     } else if (create_type == 4) {
-
+        create_image()
     } else {
         menu_select = true
         abuttonpressed = true
@@ -3510,6 +3589,368 @@ function create_music_menu() {
 
     }
 } //Menu selection at the start.
+function pins_select_menu() {
+    while (menu_select == true) {
+        if (selected_pins == 0) {
+            if (animation_scroll == true) {
+                if (abuttonpressed == true) {
+                    led.unplot(4, 0)
+                    images.createImage(`
+                    . . . . .
+                    . # . . .
+                    # # # # #
+                    . # . . #
+                    . . . # #
+                    `).showImage(0)
+                    draw_menu()
+                    abuttonpressed = false
+                } else {
+                    led.unplot(4, 0)
+                    images.createImage(`
+                    . . . . .
+                    . # . . .
+                    # # # # #
+                    . # . . #
+                    . . . # #
+                    `).scrollImage(1, 45)
+                    draw_menu()
+                }
+            } else {
+                basic.showLeds(`
+                . . . . .
+                . # . . .
+                # # # # #
+                . # . . #
+                . . . # #
+        `)
+                draw_menu()
+            }
+            led.plot(0, 0)
+        } else if (selected_pins == 1) {
+            if (animation_scroll == true) {
+                if (abuttonpressed == true) {
+                    led.unplot(0, 0)
+                    images.createImage(`
+                    . . . . .
+                    . # # # .
+                    . # . # .
+                    . # . # .
+                    . # # # .
+                    `).showImage(0)
+                    draw_menu()
+                    abuttonpressed = false
+                } else {
+                    led.unplot(0, 0)
+                    images.createImage(`
+                    . . . . .
+                    . # # # .
+                    . # . # .
+                    . # . # .
+                    . # # # .
+                    `).scrollImage(1, 45)
+                    draw_menu()
+                }
+            } else {
+                basic.showLeds(`
+                    . . . . .
+                    . # # # .
+                    . # . # .
+                    . # . # .
+                    . # # # .
+        `)
+                draw_menu()
+            }
+            led.plot(1, 0)
+        } else if (selected_pins == 2) {
+            if (animation_scroll == true) {
+                if (abuttonpressed == true) {
+                    led.unplot(1, 0)
+                    images.createImage(`
+                    . . . . .
+                    . . . # .
+                    . . # # .
+                    . . . # .
+                    . . . # .
+                    `).showImage(0)
+                    draw_menu()
+                    abuttonpressed = false
+                } else {
+                    led.unplot(1, 0)
+                    images.createImage(`
+                    . . . . .
+                    . . . # .
+                    . . # # .
+                    . . . # .
+                    . . . # .
+                    `).scrollImage(1, 45)
+                    draw_menu()
+                }
+            } else {
+                basic.showLeds(`
+                    . . . . .
+                    . . . # .
+                    . . # # .
+                    . . . # .
+                    . . . # .
+        `)
+                draw_menu()
+            }
+            led.plot(2, 0)
+        } else if (selected_pins == 3) {
+            if (animation_scroll == true) {
+                if (abuttonpressed == true) {
+                    led.unplot(2, 0)
+                    images.createImage(`
+                    . . . . .
+                    . # # # .
+                    . . . # .
+                    . . # . .
+                    . # # # .
+                    `).showImage(0)
+                    draw_menu()
+                    abuttonpressed = false
+                } else {
+                    led.unplot(2, 0)
+                    images.createImage(`
+                    . . . . .
+                    . # # # .
+                    . . . # .
+                    . . # . .
+                    . # # # .
+                    `).scrollImage(1, 45)
+                    draw_menu()
+                }
+            } else {
+                basic.showLeds(`
+                    . . . . .
+                    . # # # .
+                    . . . # .
+                    . . # . .
+                    . # # # .
+                    `)
+                draw_menu()
+            }
+            led.plot(3, 0)
+        } else if (selected_pins == 4) {
+            if (animation_scroll == true) {
+                if (abuttonpressed == true) {
+                    led.unplot(3, 0)
+                    images.createImage(`
+                    # # . . .
+                    . # . . .
+                    # # # . #
+                    . # # . #
+                    # # . # .
+                    `).showImage(0)
+                    draw_menu()
+                    abuttonpressed = false
+                } else {
+                    led.unplot(3, 0)
+                    images.createImage(`
+                    # # . . .
+                    . # . . .
+                    # # # . #
+                    . # # . #
+                    # # . # .
+                    `).scrollImage(1, 45)
+                    draw_menu()
+                }
+            } else {
+                basic.showLeds(`
+                    # # . . .
+                    . # . . .
+                    # # # . #
+                    . # # . #
+                    # # . # .
+        `)
+                draw_menu()
+            }
+            led.plot(4, 0)
+        }
+        waiting_for_input = true
+        while (waiting_for_input == true) {
+            if (input.buttonIsPressed(Button.A)) {
+                abuttonpressed = true
+                if (selected_pins == 0) {
+                    selected_pins = 0
+                    waiting_for_input = false
+                } else {
+                    selected_pins += -1
+                    waiting_for_input = false
+                }
+            } else if (input.buttonIsPressed(Button.B)) {
+                if (selected_pins == 4) {
+                    selected_pins = 4
+                    abuttonpressed = true
+                    waiting_for_input = false
+                } else {
+                    selected_pins += 1
+                    waiting_for_input = false
+                }
+            } else if (input.logoIsPressed()) {
+                waiting_for_input = false
+                menu_select = false
+            }
+        }
+    }
+    if (selected_pins == 0) {
+        menu_select = true
+        abuttonpressed = true
+        menu_select_menu()
+    } else if (selected_pins == 1) {
+        
+    } else if (selected_pins == 2) {
+        
+    } else if (selected_pins == 3) {
+        
+    } else {
+
+    }
+} //Pin selection.
+function serial_select_menu() {
+    while (menu_select == true) {
+        if (selected_serial == 0) {
+            if (animation_scroll == true) {
+                if (abuttonpressed == true) {
+                    led.unplot(3, 0)
+                    images.createImage(`
+                    . . . . .
+                    . # . . .
+                    # # # # #
+                    . # . . #
+                    . . . # #
+                    `).showImage(0)
+                    draw_mini_menu()
+                    abuttonpressed = false
+                } else {
+                    led.unplot(3, 0)
+                    images.createImage(`
+                    . . . . .
+                    . # . . .
+                    # # # # #
+                    . # . . #
+                    . . . # #
+                    `).scrollImage(1, 45)
+                    draw_mini_menu()
+                }
+            } else {
+                basic.showLeds(`
+                . . . . .
+                . # . . .
+                # # # # #
+                . # . . #
+                . . . # #
+                `)
+                draw_mini_menu()
+            }
+            led.plot(1, 0)
+        } else if (selected_serial == 1) {
+            if (animation_scroll == true) {
+                if (abuttonpressed == true) {
+                    led.unplot(1, 0)
+                    images.createImage(`
+                    . . . . .
+                    . . # . .
+                    . # # # .
+                    # . # . #
+                    . . # . .
+                    `).showImage(0)
+                    draw_mini_menu()
+                    abuttonpressed = false
+                } else {
+                    led.unplot(1, 0)
+                    images.createImage(`
+                    . . . . .
+                    . . # . .
+                    . # # # .
+                    # . # . #
+                    . . # . .
+                    `).scrollImage(1, 45)
+                    draw_mini_menu()
+                }
+            } else {
+                basic.showLeds(`
+                . . . . .
+                    . . # . .
+                    . # # # .
+                    # . # . #
+                    . . # . .
+                `)
+                draw_mini_menu()
+            }
+            led.plot(2, 0)
+        } else {
+            if (animation_scroll == true) {
+                if (abuttonpressed == true) {
+                    led.unplot(2, 0)
+                    images.createImage(`
+                    . . . . .
+                    . . # . .
+                    # . # . #
+                    . # # # .
+                    . . # . .
+                    `).showImage(0)
+                    draw_mini_menu()
+                    abuttonpressed = false
+                } else {
+                    led.unplot(2, 0)
+                    images.createImage(`
+                    . . . . .
+                    . . # . .
+                    # . # . #
+                    . # # # .
+                    . . # . .
+                    `).scrollImage(1, 45)
+                    draw_mini_menu()
+                }
+            } else {
+                basic.showLeds(`
+                . . . . .
+                . . # . .
+                # . # . #
+                . # # # .
+                . . # . .
+                `)
+                draw_mini_menu()
+            }
+            led.plot(3, 0)
+        }
+        waiting_for_input = true
+        while (waiting_for_input == true) {
+            if (input.buttonIsPressed(Button.A)) {
+                abuttonpressed = true
+                if (selected_serial == 0) {
+                    selected_serial = 0
+                    waiting_for_input = false
+                } else {
+                    selected_serial += -1
+                    waiting_for_input = false
+                }
+            } else if (input.buttonIsPressed(Button.B)) {
+                if (selected_serial == 2) {
+                    selected_serial = 2
+                    abuttonpressed = true
+                    waiting_for_input = false
+                } else {
+                    selected_serial += 1
+                    waiting_for_input = false
+                }
+            } else if (input.logoIsPressed()) {
+                waiting_for_input = false
+                menu_select = false
+            }
+        }
+    }
+    if (selected_serial == 0) {
+    menu_select = true
+    abuttonpressed = true
+    menu_select_menu()
+    } else if (selected_serial == 1) {
+        
+    } else {
+        
+    }
+} //Serial selection
 function settings_select_menu() {
     while (menu_select == true) {
         if (selected_setting == 0) {
@@ -4581,10 +5022,10 @@ bluetooth.onBluetoothDisconnected(function () {
 
 let pin_lock = true
 if (input.logoIsPressed()) {
-    loading_animation()
+    loading_animation_rev()
     pin_lock = false
 } else {
-    loading_animation_rev()
+    loading_animation()
     pin_lock = true
 }
 music.setBuiltInSpeakerEnabled(false)
@@ -4598,6 +5039,8 @@ let tool_type = 1
 let bluetooth_type = 0
 let bluetooth_keyboard_type =  0
 let create_type = 0
+let selected_pins = 0
+let selected_serial = 0
 let selected_music = 1
 let settings_brightness = 5
 let settings_auto_brigthness = false
@@ -6576,216 +7019,6 @@ function timer() {
 } // Timer // Selected_tool = 10
 
 
-function music_melody8() {
-    music.setBuiltInSpeakerEnabled(true)
-    basic.clearScreen()
-    basic.pause(300)
-    num = 1
-    unid_type = 1
-    while (true) {
-        if (input.buttonIsPressed(Button.A)) {
-            if (num == 1) {
-                num = 10
-            } else {
-                num += -1
-            }
-        }
-        if (input.buttonIsPressed(Button.B)) {
-            if (num == 10) {
-                num = 1
-            } else {
-                num += 1
-            }
-        }
-        if (input.logoIsPressed()) {
-            if (num == 1) {
-                music.play(music.stringPlayable("C5 B A G F E D C ", 120), music.PlaybackMode.UntilDone)
-            } else if (num == 2) {
-                music.play(music.stringPlayable("C D E F G A B C5 ", 120), music.PlaybackMode.UntilDone)
-            } else if (num == 3) {
-                music.play(music.stringPlayable("E B C5 A B G A F ", 120), music.PlaybackMode.UntilDone)
-            } else if (num == 4) {
-                music.play(music.stringPlayable("A F E F D G E F ", 120), music.PlaybackMode.UntilDone)
-            } else if (num == 5) {
-                music.play(music.stringPlayable("C5 A B G A F G E ", 120), music.PlaybackMode.UntilDone)
-            } else if (num == 6) {
-                music.play(music.stringPlayable("G B A G C5 B A B ", 120), music.PlaybackMode.UntilDone)
-            } else if (num == 7) {
-                music.play(music.stringPlayable("B A G A G F A C5 ", 120), music.PlaybackMode.UntilDone)
-            } else if (num == 8) {
-                music.play(music.stringPlayable("G F G A - F E D ", 120), music.PlaybackMode.UntilDone)
-            } else if (num == 9) {
-                music.play(music.stringPlayable("E D G F B A C5 B ", 120), music.PlaybackMode.UntilDone)
-            } else {
-                music.play(music.stringPlayable("C5 G B A F A C5 B ", 120), music.PlaybackMode.UntilDone)
-            }
-        }
-        unid_if_1_23()
-    }
-} //Built in mucic 8
-function music_melody() {
-    music.setBuiltInSpeakerEnabled(true)
-    basic.clearScreen()
-    basic.pause(300)
-    num = 1
-    unid_type = 1
-    while (true) {
-        if (input.buttonIsPressed(Button.A)) {
-            if (num == 1) {
-                num = 20
-            } else {
-                num += -1
-            }
-        }
-        if (input.buttonIsPressed(Button.B)) {
-            if (num == 20) {
-                num = 1
-            } else {
-                num += 1
-            }
-        }
-        if (input.logoIsPressed()) {
-            if (num == 1) {
-                music._playDefaultBackground(music.builtInPlayableMelody(Melodies.Dadadadum), music.PlaybackMode.UntilDone)
-            } else if (num == 2) {
-                music._playDefaultBackground(music.builtInPlayableMelody(Melodies.Entertainer), music.PlaybackMode.UntilDone)
-            } else if (num == 3) {
-                music._playDefaultBackground(music.builtInPlayableMelody(Melodies.Prelude), music.PlaybackMode.UntilDone)
-            } else if (num == 4) {
-                music._playDefaultBackground(music.builtInPlayableMelody(Melodies.Ode), music.PlaybackMode.UntilDone)
-            } else if (num == 5) {
-                music._playDefaultBackground(music.builtInPlayableMelody(Melodies.Nyan), music.PlaybackMode.UntilDone)
-            } else if (num == 6) {
-                music._playDefaultBackground(music.builtInPlayableMelody(Melodies.Ringtone), music.PlaybackMode.UntilDone)
-            } else if (num == 7) {
-                music._playDefaultBackground(music.builtInPlayableMelody(Melodies.Funk), music.PlaybackMode.UntilDone)
-            } else if (num == 8) {
-                music._playDefaultBackground(music.builtInPlayableMelody(Melodies.Blues), music.PlaybackMode.UntilDone)
-            } else if (num == 9) {
-                music._playDefaultBackground(music.builtInPlayableMelody(Melodies.Birthday), music.PlaybackMode.UntilDone)
-            } else if (num == 10) {
-                music._playDefaultBackground(music.builtInPlayableMelody(Melodies.Wedding), music.PlaybackMode.UntilDone)
-            } else if (num == 11) {
-                music._playDefaultBackground(music.builtInPlayableMelody(Melodies.Funeral), music.PlaybackMode.UntilDone)
-            } else if (num == 12) {
-                music._playDefaultBackground(music.builtInPlayableMelody(Melodies.Punchline), music.PlaybackMode.UntilDone)
-            } else if (num == 13) {
-                music._playDefaultBackground(music.builtInPlayableMelody(Melodies.Baddy), music.PlaybackMode.UntilDone)
-            } else if (num == 14) {
-                music._playDefaultBackground(music.builtInPlayableMelody(Melodies.Chase), music.PlaybackMode.UntilDone)
-            } else if (num == 15) {
-                music._playDefaultBackground(music.builtInPlayableMelody(Melodies.BaDing), music.PlaybackMode.UntilDone)
-            } else if (num == 16) {
-                music._playDefaultBackground(music.builtInPlayableMelody(Melodies.Wawawawaa), music.PlaybackMode.UntilDone)
-            } else if (num == 17) {
-                music._playDefaultBackground(music.builtInPlayableMelody(Melodies.JumpUp), music.PlaybackMode.UntilDone)
-            } else if (num == 18) {
-                music._playDefaultBackground(music.builtInPlayableMelody(Melodies.JumpDown), music.PlaybackMode.UntilDone)
-            } else if (num == 19) {
-                music._playDefaultBackground(music.builtInPlayableMelody(Melodies.JumpUp), music.PlaybackMode.UntilDone)
-            } else {
-                music._playDefaultBackground(music.builtInPlayableMelody(Melodies.JumpDown), music.PlaybackMode.UntilDone)
-            }
-        }
-        unid_if_1_23()
-    }
-} //Built in music
-function music_melodyV2() {
-    music.setBuiltInSpeakerEnabled(true)
-    basic.clearScreen()
-    basic.pause(300)
-    num = 1
-    unid_type = 1
-    while (true) {
-        if (input.buttonIsPressed(Button.A)) {
-            if (num == 1) {
-                num = 10
-            } else {
-                num += -1
-            }
-        }
-        if (input.buttonIsPressed(Button.B)) {
-            if (num == 10) {
-                num = 1
-            } else {
-                num += 1
-            }
-        }
-        if (input.logoIsPressed()) {
-            if (num == 1) {
-                music.play(music.builtinPlayableSoundEffect(soundExpression.giggle), music.PlaybackMode.UntilDone)
-            } else if (num == 2) {
-                music.play(music.builtinPlayableSoundEffect(soundExpression.happy), music.PlaybackMode.UntilDone)
-            } else if (num == 3) {
-                music.play(music.builtinPlayableSoundEffect(soundExpression.hello), music.PlaybackMode.UntilDone)
-            } else if (num == 4) {
-                music.play(music.builtinPlayableSoundEffect(soundExpression.mysterious), music.PlaybackMode.UntilDone)
-            } else if (num == 5) {
-                music.play(music.builtinPlayableSoundEffect(soundExpression.sad), music.PlaybackMode.UntilDone)
-            } else if (num == 6) {
-                music.play(music.builtinPlayableSoundEffect(soundExpression.slide), music.PlaybackMode.UntilDone)
-            } else if (num == 7) {
-                music.play(music.builtinPlayableSoundEffect(soundExpression.soaring), music.PlaybackMode.UntilDone)
-            } else if (num == 8) {
-                music.play(music.builtinPlayableSoundEffect(soundExpression.spring), music.PlaybackMode.UntilDone)
-            } else if (num == 9) {
-                music.play(music.builtinPlayableSoundEffect(soundExpression.twinkle), music.PlaybackMode.UntilDone)
-            } else {
-                music.play(music.builtinPlayableSoundEffect(soundExpression.yawn), music.PlaybackMode.UntilDone)
-            }
-        }
-        unid_if_1_23()
-    }
-} // Built in music V2
-function music_sFX() {
-    music.setBuiltInSpeakerEnabled(true)
-    basic.clearScreen()
-    basic.pause(300)
-    num = 1
-    unid_type = 1
-    while (true) {
-        if (input.buttonIsPressed(Button.A)) {
-            if (num == 1) {
-                num = 10
-            } else {
-                num += -1
-            }
-        }
-        if (input.buttonIsPressed(Button.B)) {
-            if (num == 10) {
-                num = 1
-            } else {
-                num += 1
-            }
-        }
-        if (input.logoIsPressed()) {
-            if (num == 1) {
-                music.play(music.createSoundExpression(WaveShape.Square, 1600, 1, 255, 0, 300, SoundExpressionEffect.None, InterpolationCurve.Curve), music.PlaybackMode.UntilDone)
-            } else if (num == 2) {
-                music.play(music.createSoundExpression(WaveShape.Noise, 500, 499, 255, 0, 750, SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.UntilDone)
-            } else if (num == 3) {
-                music.play(music.createSoundExpression(WaveShape.Square, 400, 600, 255, 0, 100, SoundExpressionEffect.Warble, InterpolationCurve.Linear), music.PlaybackMode.UntilDone)
-            } else if (num == 4) {
-                music.play(music.createSoundExpression(WaveShape.Sine, 200, 600, 255, 0, 150, SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.UntilDone)
-            } else if (num == 5) {
-                music.play(music.createSoundExpression(WaveShape.Square, 200, 1, 255, 0, 100, SoundExpressionEffect.None, InterpolationCurve.Curve), music.PlaybackMode.UntilDone)
-            } else if (num == 6) {
-                music.play(music.createSoundExpression(WaveShape.Triangle, 300, 200, 255, 0, 75, SoundExpressionEffect.None, InterpolationCurve.Curve), music.PlaybackMode.UntilDone)
-            } else if (num == 7) {
-                music.play(music.createSoundExpression(WaveShape.Noise, 523, 1, 255, 0, 100, SoundExpressionEffect.Warble, InterpolationCurve.Logarithmic), music.PlaybackMode.UntilDone)
-            } else if (num == 8) {
-                music.play(music.createSoundExpression(WaveShape.Noise, 500, 1, 255, 0, 10, SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.UntilDone)
-            } else if (num == 9) {
-                music.play(music.createSoundExpression(WaveShape.Sine, 500, 500, 255, 0, 50, SoundExpressionEffect.Vibrato, InterpolationCurve.Linear), music.PlaybackMode.UntilDone)
-            } else {
-                music.play(music.createSoundExpression(WaveShape.Noise, 54, 54, 255, 0, 500, SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.UntilDone)
-            }
-        }
-        unid_if_1_23()
-    }
-} // Built in sFX
-
-
 function bluetooth_media() {
     while (bluetooth_online == true) {
         if (input.buttonIsPressed(Button.AB)) {
@@ -8316,6 +8549,7 @@ function bluetooth_keyboard_custom() {
     bluetooth_keyboard_custom()
 } // Custom keyboard input.
 
+
 function create_strig() {
     music.setBuiltInSpeakerEnabled(true)
     basic.clearScreen()
@@ -8496,6 +8730,317 @@ function create_number() {
         }
     }
 } //Create a temp-saved number
+function create_image() {
+    let pen_up = false
+    let direction = 0
+    turtle.setPosition(2, 2)
+    turtle.setBrightness(20)
+    turtle.pen(TurtlePenMode.Down)
+    turtle.home()
+    let turtle_drawing_now = true
+    let turtle_input: number[] = []
+    while (turtle_drawing_now == true) {
+        if (input.buttonIsPressed(Button.A)) {
+            turtle.turnLeft()
+            if (direction == 0) {
+                direction = 3
+            } else {
+                direction += -1
+            }
+            turtle_input.push(0)
+            music.play(music.tonePlayable(220, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
+        }
+        if (input.buttonIsPressed(Button.B)) {
+            turtle.turnRight()
+            turtle_input.push(1)
+            if (direction == 3) {
+                direction = 0
+            } else {
+                direction += 1
+            }
+            music.play(music.tonePlayable(220, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
+        }
+        if (input.buttonIsPressed(Button.AB)) {
+            turtle_input.push(2)
+            if (pen_up == false) {
+                music.play(music.tonePlayable(880, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
+                pen_up = true
+                turtle.pen(TurtlePenMode.Up)
+            } else {
+                music.play(music.tonePlayable(880, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
+                pen_up = false
+                turtle.pen(TurtlePenMode.Down)
+            }
+        }
+        if (input.logoIsPressed()) {
+            turtle_input.push(3)
+            turtle.forward(1)
+        }
+        if (input.isGesture(Gesture.Shake)) {
+            turtle_input.push(4)
+            turtle.back(1)
+        }
+        if (input.pinIsPressed(TouchPin.P2)) {
+            turtle_drawing_now = false
+        }
+        basic.pause(200)
+    }
+    basic.clearScreen()
+    turtle.setPosition(2, 2)
+    if (direction == 1) {
+        turtle.turnLeft()
+    } else if (direction == 2) {
+        turtle.turnLeft()
+        turtle.turnLeft()
+    } else if (direction == 3) {
+        turtle.turnRight()
+    }
+    while (true) {
+        basic.showLeds(`
+        . . . . .
+        . # # # .
+        . # . # .
+        . # # # .
+        . . . . .
+        `)
+        if (input.buttonIsPressed(Button.A) || input.buttonIsPressed(Button.B)) {
+            while (true) {
+                if (turtle_input[0] == 0) {
+                    turtle.turnLeft()
+                }
+                if (turtle_input[0] == 1) {
+                    turtle.turnRight()
+                }
+                if (turtle_input[0] == 2) {
+                    if (pen_up == false) {
+                        pen_up = true
+                        turtle.pen(TurtlePenMode.Up)
+                    } else {
+                        pen_up = false
+                        turtle.pen(TurtlePenMode.Down)
+                    }
+                }
+                if (turtle_input[0] == 3) {
+                    turtle.forward(1)
+                }
+                if (turtle_input[0] == 4) {
+                    turtle.back(1)
+                }
+                turtle_input.removeAt(0)
+            }
+        }
+    }
+} //Create a temp-saved image
+
+
+function music_melody8() {
+    music.setBuiltInSpeakerEnabled(true)
+    basic.clearScreen()
+    basic.pause(300)
+    num = 1
+    unid_type = 1
+    while (true) {
+        if (input.buttonIsPressed(Button.A)) {
+            if (num == 1) {
+                num = 10
+            } else {
+                num += -1
+            }
+        }
+        if (input.buttonIsPressed(Button.B)) {
+            if (num == 10) {
+                num = 1
+            } else {
+                num += 1
+            }
+        }
+        if (input.logoIsPressed()) {
+            if (num == 1) {
+                music.play(music.stringPlayable("C5 B A G F E D C ", 120), music.PlaybackMode.UntilDone)
+            } else if (num == 2) {
+                music.play(music.stringPlayable("C D E F G A B C5 ", 120), music.PlaybackMode.UntilDone)
+            } else if (num == 3) {
+                music.play(music.stringPlayable("E B C5 A B G A F ", 120), music.PlaybackMode.UntilDone)
+            } else if (num == 4) {
+                music.play(music.stringPlayable("A F E F D G E F ", 120), music.PlaybackMode.UntilDone)
+            } else if (num == 5) {
+                music.play(music.stringPlayable("C5 A B G A F G E ", 120), music.PlaybackMode.UntilDone)
+            } else if (num == 6) {
+                music.play(music.stringPlayable("G B A G C5 B A B ", 120), music.PlaybackMode.UntilDone)
+            } else if (num == 7) {
+                music.play(music.stringPlayable("B A G A G F A C5 ", 120), music.PlaybackMode.UntilDone)
+            } else if (num == 8) {
+                music.play(music.stringPlayable("G F G A - F E D ", 120), music.PlaybackMode.UntilDone)
+            } else if (num == 9) {
+                music.play(music.stringPlayable("E D G F B A C5 B ", 120), music.PlaybackMode.UntilDone)
+            } else {
+                music.play(music.stringPlayable("C5 G B A F A C5 B ", 120), music.PlaybackMode.UntilDone)
+            }
+        }
+        unid_if_1_23()
+    }
+} //Built in mucic 8
+function music_melody() {
+    music.setBuiltInSpeakerEnabled(true)
+    basic.clearScreen()
+    basic.pause(300)
+    num = 1
+    unid_type = 1
+    while (true) {
+        if (input.buttonIsPressed(Button.A)) {
+            if (num == 1) {
+                num = 20
+            } else {
+                num += -1
+            }
+        }
+        if (input.buttonIsPressed(Button.B)) {
+            if (num == 20) {
+                num = 1
+            } else {
+                num += 1
+            }
+        }
+        if (input.logoIsPressed()) {
+            if (num == 1) {
+                music._playDefaultBackground(music.builtInPlayableMelody(Melodies.Dadadadum), music.PlaybackMode.UntilDone)
+            } else if (num == 2) {
+                music._playDefaultBackground(music.builtInPlayableMelody(Melodies.Entertainer), music.PlaybackMode.UntilDone)
+            } else if (num == 3) {
+                music._playDefaultBackground(music.builtInPlayableMelody(Melodies.Prelude), music.PlaybackMode.UntilDone)
+            } else if (num == 4) {
+                music._playDefaultBackground(music.builtInPlayableMelody(Melodies.Ode), music.PlaybackMode.UntilDone)
+            } else if (num == 5) {
+                music._playDefaultBackground(music.builtInPlayableMelody(Melodies.Nyan), music.PlaybackMode.UntilDone)
+            } else if (num == 6) {
+                music._playDefaultBackground(music.builtInPlayableMelody(Melodies.Ringtone), music.PlaybackMode.UntilDone)
+            } else if (num == 7) {
+                music._playDefaultBackground(music.builtInPlayableMelody(Melodies.Funk), music.PlaybackMode.UntilDone)
+            } else if (num == 8) {
+                music._playDefaultBackground(music.builtInPlayableMelody(Melodies.Blues), music.PlaybackMode.UntilDone)
+            } else if (num == 9) {
+                music._playDefaultBackground(music.builtInPlayableMelody(Melodies.Birthday), music.PlaybackMode.UntilDone)
+            } else if (num == 10) {
+                music._playDefaultBackground(music.builtInPlayableMelody(Melodies.Wedding), music.PlaybackMode.UntilDone)
+            } else if (num == 11) {
+                music._playDefaultBackground(music.builtInPlayableMelody(Melodies.Funeral), music.PlaybackMode.UntilDone)
+            } else if (num == 12) {
+                music._playDefaultBackground(music.builtInPlayableMelody(Melodies.Punchline), music.PlaybackMode.UntilDone)
+            } else if (num == 13) {
+                music._playDefaultBackground(music.builtInPlayableMelody(Melodies.Baddy), music.PlaybackMode.UntilDone)
+            } else if (num == 14) {
+                music._playDefaultBackground(music.builtInPlayableMelody(Melodies.Chase), music.PlaybackMode.UntilDone)
+            } else if (num == 15) {
+                music._playDefaultBackground(music.builtInPlayableMelody(Melodies.BaDing), music.PlaybackMode.UntilDone)
+            } else if (num == 16) {
+                music._playDefaultBackground(music.builtInPlayableMelody(Melodies.Wawawawaa), music.PlaybackMode.UntilDone)
+            } else if (num == 17) {
+                music._playDefaultBackground(music.builtInPlayableMelody(Melodies.JumpUp), music.PlaybackMode.UntilDone)
+            } else if (num == 18) {
+                music._playDefaultBackground(music.builtInPlayableMelody(Melodies.JumpDown), music.PlaybackMode.UntilDone)
+            } else if (num == 19) {
+                music._playDefaultBackground(music.builtInPlayableMelody(Melodies.JumpUp), music.PlaybackMode.UntilDone)
+            } else {
+                music._playDefaultBackground(music.builtInPlayableMelody(Melodies.JumpDown), music.PlaybackMode.UntilDone)
+            }
+        }
+        unid_if_1_23()
+    }
+} //Built in music
+function music_melodyV2() {
+    music.setBuiltInSpeakerEnabled(true)
+    basic.clearScreen()
+    basic.pause(300)
+    num = 1
+    unid_type = 1
+    while (true) {
+        if (input.buttonIsPressed(Button.A)) {
+            if (num == 1) {
+                num = 10
+            } else {
+                num += -1
+            }
+        }
+        if (input.buttonIsPressed(Button.B)) {
+            if (num == 10) {
+                num = 1
+            } else {
+                num += 1
+            }
+        }
+        if (input.logoIsPressed()) {
+            if (num == 1) {
+                music.play(music.builtinPlayableSoundEffect(soundExpression.giggle), music.PlaybackMode.UntilDone)
+            } else if (num == 2) {
+                music.play(music.builtinPlayableSoundEffect(soundExpression.happy), music.PlaybackMode.UntilDone)
+            } else if (num == 3) {
+                music.play(music.builtinPlayableSoundEffect(soundExpression.hello), music.PlaybackMode.UntilDone)
+            } else if (num == 4) {
+                music.play(music.builtinPlayableSoundEffect(soundExpression.mysterious), music.PlaybackMode.UntilDone)
+            } else if (num == 5) {
+                music.play(music.builtinPlayableSoundEffect(soundExpression.sad), music.PlaybackMode.UntilDone)
+            } else if (num == 6) {
+                music.play(music.builtinPlayableSoundEffect(soundExpression.slide), music.PlaybackMode.UntilDone)
+            } else if (num == 7) {
+                music.play(music.builtinPlayableSoundEffect(soundExpression.soaring), music.PlaybackMode.UntilDone)
+            } else if (num == 8) {
+                music.play(music.builtinPlayableSoundEffect(soundExpression.spring), music.PlaybackMode.UntilDone)
+            } else if (num == 9) {
+                music.play(music.builtinPlayableSoundEffect(soundExpression.twinkle), music.PlaybackMode.UntilDone)
+            } else {
+                music.play(music.builtinPlayableSoundEffect(soundExpression.yawn), music.PlaybackMode.UntilDone)
+            }
+        }
+        unid_if_1_23()
+    }
+} // Built in music V2
+function music_sFX() {
+    music.setBuiltInSpeakerEnabled(true)
+    basic.clearScreen()
+    basic.pause(300)
+    num = 1
+    unid_type = 1
+    while (true) {
+        if (input.buttonIsPressed(Button.A)) {
+            if (num == 1) {
+                num = 10
+            } else {
+                num += -1
+            }
+        }
+        if (input.buttonIsPressed(Button.B)) {
+            if (num == 10) {
+                num = 1
+            } else {
+                num += 1
+            }
+        }
+        if (input.logoIsPressed()) {
+            if (num == 1) {
+                music.play(music.createSoundExpression(WaveShape.Square, 1600, 1, 255, 0, 300, SoundExpressionEffect.None, InterpolationCurve.Curve), music.PlaybackMode.UntilDone)
+            } else if (num == 2) {
+                music.play(music.createSoundExpression(WaveShape.Noise, 500, 499, 255, 0, 750, SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.UntilDone)
+            } else if (num == 3) {
+                music.play(music.createSoundExpression(WaveShape.Square, 400, 600, 255, 0, 100, SoundExpressionEffect.Warble, InterpolationCurve.Linear), music.PlaybackMode.UntilDone)
+            } else if (num == 4) {
+                music.play(music.createSoundExpression(WaveShape.Sine, 200, 600, 255, 0, 150, SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.UntilDone)
+            } else if (num == 5) {
+                music.play(music.createSoundExpression(WaveShape.Square, 200, 1, 255, 0, 100, SoundExpressionEffect.None, InterpolationCurve.Curve), music.PlaybackMode.UntilDone)
+            } else if (num == 6) {
+                music.play(music.createSoundExpression(WaveShape.Triangle, 300, 200, 255, 0, 75, SoundExpressionEffect.None, InterpolationCurve.Curve), music.PlaybackMode.UntilDone)
+            } else if (num == 7) {
+                music.play(music.createSoundExpression(WaveShape.Noise, 523, 1, 255, 0, 100, SoundExpressionEffect.Warble, InterpolationCurve.Logarithmic), music.PlaybackMode.UntilDone)
+            } else if (num == 8) {
+                music.play(music.createSoundExpression(WaveShape.Noise, 500, 1, 255, 0, 10, SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.UntilDone)
+            } else if (num == 9) {
+                music.play(music.createSoundExpression(WaveShape.Sine, 500, 500, 255, 0, 50, SoundExpressionEffect.Vibrato, InterpolationCurve.Linear), music.PlaybackMode.UntilDone)
+            } else {
+                music.play(music.createSoundExpression(WaveShape.Noise, 54, 54, 255, 0, 500, SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.UntilDone)
+            }
+        }
+        unid_if_1_23()
+    }
+} // Built in sFX
 
 
 basic.forever(function () {
@@ -8661,4 +9206,4 @@ function settings_test_input() {
         led.unplot(2, 4)
         led.unplot(4, 4)
     }
-} //Test all inputs. ButtonAB, Pins0-2, Logo, Brightness, Sound, XYZ
+} //Test all inputs.
