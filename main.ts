@@ -3586,7 +3586,9 @@ function create_music_menu() {
     } else if (selected_music == 4) {
         music_sFX()
     } else {
-
+        menu_select = true 
+        abuttonpressed = true
+        custom_music_selection()
     }
 } //Menu selection at the start.
 function pins_select_menu() {
@@ -5039,6 +5041,7 @@ let tool_type = 1
 let bluetooth_type = 0
 let bluetooth_keyboard_type =  0
 let create_type = 0
+let selected_create_music = 1
 let selected_pins = 0
 let selected_serial = 0
 let selected_music = 1
@@ -5085,6 +5088,11 @@ let shift = false
 let custom_a_button = ""
 let custom_b_button = ""
 let custom_logo_button = ""
+let custom_music: number[] = []
+let custom_music_tune: number[] = []
+let custom_music_beat: number[] = []
+let custom_beat: number[] = []
+let tune_music = 131
 
 
 let acc_1 = 0
@@ -8731,6 +8739,7 @@ function create_number() {
     }
 } //Create a temp-saved number
 function create_image() {
+    music.setBuiltInSpeakerEnabled(true)
     let pen_up = false
     let direction = 0
     turtle.setPosition(2, 2)
@@ -8831,8 +8840,6 @@ function create_image() {
         }
     }
 } //Create a temp-saved image
-
-
 function music_melody8() {
     music.setBuiltInSpeakerEnabled(true)
     basic.clearScreen()
@@ -8993,7 +9000,7 @@ function music_melodyV2() {
         }
         unid_if_1_23()
     }
-} // Built in music V2
+} //Built in music V2
 function music_sFX() {
     music.setBuiltInSpeakerEnabled(true)
     basic.clearScreen()
@@ -9040,7 +9047,804 @@ function music_sFX() {
         }
         unid_if_1_23()
     }
-} // Built in sFX
+} //Built in sFX
+function custom_music_selection() {
+    selected_create_music = 1
+    while (menu_select == true) {
+        if (selected_create_music == 1) {
+            if (animation_scroll == true) {
+                if (abuttonpressed == true) {
+                    led.unplot(3, 0)
+                    images.createImage(`
+                    . . . . .
+                    . . # # .
+                    . . # . #
+                    # # # . .
+                    # # # . .
+                    `).showImage(0)
+                    draw_mini_menu()
+                    abuttonpressed = false
+                } else {
+                    led.unplot(3, 0)
+                    images.createImage(`
+                    . . . . .
+                    . . # # .
+                    . . # . #
+                    # # # . .
+                    # # # . .
+                    `).scrollImage(1, 45)
+                    draw_mini_menu()
+                }
+            } else {
+                basic.showLeds(`
+                . . . . .
+                . . # # .
+                . . # . #
+                # # # . .
+                # # # . .
+                `)
+                draw_mini_menu()
+            }
+            led.plot(1, 0)
+        } else if (selected_create_music == 2) {
+            if (animation_scroll == true) {
+                if (abuttonpressed == true) {
+                    led.unplot(1, 0)
+                    images.createImage(`
+                    . . . . .
+                    . . . . .
+                    . # # # .
+                    # . . . #
+                    # . . . #
+                    `).showImage(0)
+                    draw_mini_menu()
+                    abuttonpressed = false
+                } else {
+                    led.unplot(1, 0)
+                    images.createImage(`
+                    . . . . .
+                    . . . . .
+                    . # # # .
+                    # . . . #
+                    # . . . #
+                    `).scrollImage(1, 45)
+                    draw_mini_menu()
+                }
+            } else {
+                basic.showLeds(`
+                . . . . .
+                . . . . .
+                . # # # .
+                # . . . #
+                # . . . #
+                `)
+                draw_mini_menu()
+            }
+            led.plot(2, 0)
+        } else {
+            if (animation_scroll == true) {
+                if (abuttonpressed == true) {
+                    led.unplot(2, 0)
+                    images.createImage(`
+                    . . . . .
+                    . . . # .
+                    # # # # #
+                    . . . # .
+                    . . . . .
+                    `).showImage(0)
+                    draw_mini_menu()
+                    abuttonpressed = false
+                } else {
+                    led.unplot(2, 0)
+                    images.createImage(`
+                    . . . . .
+                    . . . # .
+                    # # # # #
+                    . . . # .
+                    . . . . .
+                    `).scrollImage(1, 45)
+                    draw_mini_menu()
+                }
+            } else {
+                basic.showLeds(`
+                . . . . .
+                . . . # .
+                # # # # #
+                . . . # .
+                . . . . .
+                `)
+                draw_mini_menu()
+            }
+            led.plot(3, 0)
+        }
+        waiting_for_input = true
+        while (waiting_for_input == true) {
+            if (input.buttonIsPressed(Button.A)) {
+                abuttonpressed = true
+                if (selected_create_music == 1) {
+                    selected_create_music = 1
+                    waiting_for_input = false
+                } else {
+                    selected_create_music += -1
+                    waiting_for_input = false
+                }
+            } else if (input.buttonIsPressed(Button.B)) {
+                if (selected_create_music == 3) {
+                    selected_create_music = 3
+                    abuttonpressed = true
+                    waiting_for_input = false
+                } else {
+                    selected_create_music += 1
+                    waiting_for_input = false
+                }
+            } else if (input.logoIsPressed()) {
+                waiting_for_input = false
+                menu_select = false
+            }
+        }
+    }
+    if (selected_create_music == 1) {
+        tune()
+    } else if (selected_create_music == 2) {
+        rest()
+    } else {
+        melody_play()
+    }
+} //Custom music selection.
+function tune() {
+    music.setBuiltInSpeakerEnabled(true)
+    basic.clearScreen()
+    basic.pause(300)
+    custom_music.push(1)
+    num = 1
+    unid_type = 1
+    while (true) {
+        if (input.buttonIsPressed(Button.AB)) {
+            if (num == 1) {
+                music.play(music.tonePlayable(131, music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
+            } else if (num == 2) {
+                music.play(music.tonePlayable(147, music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
+            } else if (num == 3) {
+                music.play(music.tonePlayable(165, music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
+            } else if (num == 4) {
+                music.play(music.tonePlayable(175, music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
+            } else if (num == 5) {
+                music.play(music.tonePlayable(196, music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
+            } else if (num == 6) {
+                music.play(music.tonePlayable(220, music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
+            } else if (num == 7) {
+                music.play(music.tonePlayable(247, music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
+            } else if (num == 8) {
+                music.play(music.tonePlayable(262, music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
+            } else if (num == 9) {
+                music.play(music.tonePlayable(294, music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
+            } else if (num == 10) {
+                music.play(music.tonePlayable(330, music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
+            } else if (num == 11) {
+                music.play(music.tonePlayable(330, music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
+            } else if (num == 12) {
+                music.play(music.tonePlayable(392, music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
+            } else if (num == 13) {
+                music.play(music.tonePlayable(440, music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
+            } else if (num == 14) {
+                music.play(music.tonePlayable(494, music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
+            } else if (num == 15) {
+                music.play(music.tonePlayable(523, music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
+            } else if (num == 16) {
+                music.play(music.tonePlayable(587, music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
+            } else if (num == 17) {
+                music.play(music.tonePlayable(659, music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
+            } else if (num == 18) {
+                music.play(music.tonePlayable(698, music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
+            } else if (num == 19) {
+                music.play(music.tonePlayable(784, music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
+            } else if (num == 20) {
+                music.play(music.tonePlayable(880, music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
+            } else if (num == 21) {
+                music.play(music.tonePlayable(998, music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
+            }
+        }
+        if (input.buttonIsPressed(Button.A)) {
+            if (num == 1) {
+                num = 21
+            } else {
+                num += -1
+            }
+        }
+        if (input.buttonIsPressed(Button.B)) {
+            if (num == 21) {
+                num = 1
+            } else {
+                num += 1
+            }
+        }
+        if (input.logoIsPressed()) {
+            if (num == 1) {
+                custom_music_tune.push(1)
+                tune_music = 131
+            } else if (num == 2) {
+                custom_music_tune.push(2)
+                tune_music = 147
+            } else if (num == 3) {
+                custom_music_tune.push(3)
+                tune_music = 165
+            } else if (num == 4) {
+                custom_music_tune.push(4)
+                tune_music = 175
+            } else if (num == 5) {
+                custom_music_tune.push(5)
+                tune_music = 196
+            } else if (num == 6) {
+                custom_music_tune.push(6)
+                tune_music = 220
+            } else if (num == 7) {
+                custom_music_tune.push(7)
+                tune_music = 247
+            } else if (num == 8) {
+                custom_music_tune.push(8)
+                tune_music = 262
+            } else if (num == 9) {
+                custom_music_tune.push(9)
+                tune_music = 294
+            } else if (num == 10) {
+                custom_music_tune.push(10)
+                tune_music = 330
+            } else if (num == 11) {
+                custom_music_tune.push(11)
+                tune_music = 349
+            } else if (num == 12) {
+                custom_music_tune.push(12)
+                tune_music = 392
+            } else if (num == 13) {
+                custom_music_tune.push(13)
+                tune_music = 440
+            } else if (num == 14) {
+                custom_music_tune.push(14)
+                tune_music = 494
+            } else if (num == 15) {
+                custom_music_tune.push(15)
+                tune_music = 523
+            } else if (num == 16) {
+                custom_music_tune.push(16)
+                tune_music = 587
+            } else if (num == 17) {
+                custom_music_tune.push(17)
+                tune_music = 659
+            } else if (num == 18) {
+                custom_music_tune.push(18)
+                tune_music = 698
+            } else if (num == 19) {
+                custom_music_tune.push(19)
+                tune_music = 784
+            } else if (num == 20) {
+                custom_music_tune.push(20)
+                tune_music = 880
+            } else if (num == 21) {
+                custom_music_tune.push(21)
+                tune_music = 988
+            }
+            break;
+        }
+        if (num == 1) {
+            basic.showLeds(`
+            . . # # #
+            . . # . .
+            . . # . .
+            . . # . .
+            # . # # #
+            `)
+        } else if (num == 2) {
+            basic.showLeds(`
+            . . # # .
+            . . # . #
+            . . # . #
+            . . # . #
+            # . # # .
+            `)
+        } else if(num == 3) {
+            basic.showLeds(`
+            . . # # #
+            . . # . .
+            . . # # #
+            . . # . .
+            # . # # #
+            `)
+        } else if (num == 4) {
+            basic.showLeds(`
+            . . # # #
+            . . # . .
+            . . # # #
+            . . # . .
+            # . # . .
+            `)
+        } else if (num == 5) {
+            basic.showLeds(`
+            . . # # #
+            . . # . .
+            . . # # #
+            . . # . #
+            # . # # #
+            `)
+        } else if (num == 6) {
+            basic.showLeds(`
+            . . # # #
+            . . # . #
+            . . # # #
+            . . # . #
+            # . # . #
+            `)
+        } else if (num == 7) {
+            basic.showLeds(`
+            . . # # #
+            . . # . #
+            . . # # .
+            . . # . #
+            # . # # #
+            `)
+        } else if (num == 8) {
+            basic.showLeds(`
+            . . # # #
+            . . # . .
+            . . # . .
+            # . # . .
+            # . # # #
+            `)
+        } else if (num == 9) {
+            basic.showLeds(`
+            . . # # .
+            . . # . #
+            . . # . #
+            # . # . #
+            # . # # .
+            `)
+        } else if (num == 10) {
+            basic.showLeds(`
+            . . # # #
+            . . # . .
+            . . # # #
+            # . # . .
+            # . # # #
+            `)
+        } else if (num == 11) {
+            basic.showLeds(`
+            . . # # #
+            . . # . .
+            . . # # #
+            # . # . .
+            # . # . .
+            `)
+        } else if (num == 12) {
+            basic.showLeds(`
+            . . # # #
+            . . # . .
+            . . # # #
+            # . # . #
+            # . # # #
+            `)
+        } else if (num == 13) {
+            basic.showLeds(`
+            . . # # #
+            . . # . #
+            . . # # #
+            # . # . #
+            # . # . #
+            `)
+        } else if (num == 14) {
+            basic.showLeds(`
+            . . # # #
+            . . # . #
+            . . # # .
+            # . # . #
+            # . # # #
+            `)
+        } else if (num == 15) {
+            basic.showLeds(`
+            . . # # #
+            . . # . .
+            # . # . .
+            # . # . .
+            # . # # #
+            `)
+        } else if (num == 16) {
+            basic.showLeds(`
+            . . # # .
+            . . # . #
+            # . # . #
+            # . # . #
+            # . # # .
+            `)
+        } else if (num == 17) {
+            basic.showLeds(`
+            . . # # #
+            . . # . .
+            # . # # #
+            # . # . .
+            # . # # #
+            `)
+        } else if (num == 18) {
+            basic.showLeds(`
+            . . # # #
+            . . # . .
+            # . # # #
+            # . # . .
+            # . # . .
+            `)
+        } else if (num == 19) {
+            basic.showLeds(`
+            . . # # #
+            . . # . .
+            # . # # #
+            # . # . #
+            # . # # #
+            `)
+        } else if (num == 20) {
+            basic.showLeds(`
+            . . # # #
+            . . # . #
+            # . # # #
+            # . # . #
+            # . # . #
+            `)
+        } else if (num == 21) {
+            basic.showLeds(`
+            . . # # #
+            . . # . #
+            # . # # .
+            # . # . #
+            # . # # #
+            `)
+        }
+    }
+    beat()
+} //Tune selection.
+function beat() {
+    music.setBuiltInSpeakerEnabled(true)
+    basic.clearScreen()
+    basic.pause(300)
+    num = 1
+    unid_type = 1
+    while (true) {
+        if (input.buttonIsPressed(Button.AB)) {
+            if (num == 1) {
+                music.play(music.tonePlayable(tune_music, music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
+            } else if (num == 2) {
+                music.play(music.tonePlayable(tune_music, music.beat(BeatFraction.Half)), music.PlaybackMode.UntilDone)
+            } else if (num == 3) {
+                music.play(music.tonePlayable(tune_music, music.beat(BeatFraction.Quarter)), music.PlaybackMode.UntilDone)
+            } else if (num == 4) {
+                music.play(music.tonePlayable(tune_music, music.beat(BeatFraction.Eighth)), music.PlaybackMode.UntilDone)
+            } else if (num == 5) {
+                music.play(music.tonePlayable(tune_music, music.beat(BeatFraction.Sixteenth)), music.PlaybackMode.UntilDone)
+            } else if (num == 6) {
+                music.play(music.tonePlayable(tune_music, music.beat(BeatFraction.Double)), music.PlaybackMode.UntilDone)
+            } else if (num == 7) {
+                music.play(music.tonePlayable(tune_music, music.beat(BeatFraction.Breve)), music.PlaybackMode.UntilDone)
+            }
+        }
+        if (input.buttonIsPressed(Button.A)) {
+            if (num == 1) {
+                num = 7
+            } else {
+                num += -1
+            }
+        }
+        if (input.buttonIsPressed(Button.B)) {
+            if (num == 7) {
+                num = 1
+            } else {
+                num += 1
+            }
+        }
+        if (input.logoIsPressed()) {
+            if (num == 1) {
+                custom_music_beat.push(1)
+            } else if (num == 2) {
+                custom_music_beat.push(2)
+            } else if (num == 3) {
+                custom_music_beat.push(3)
+            } else if (num == 4) {
+                custom_music_beat.push(4)
+            } else if (num == 5) {
+                custom_music_beat.push(5)
+            } else if (num == 6) {
+                custom_music_beat.push(6)
+            } else if (num == 7) {
+                custom_music_beat.push(7)
+            }
+            break;
+        }
+        if (num == 1){
+            basic.showLeds(`
+            . . . # .
+            . . # # .
+            . . . # .
+            . . . # .
+            . . . # .
+            `)
+        } else if (num == 2) {
+            basic.showLeds(`
+            # . . # #
+            # . . . #
+            # . . # #
+            # . . # .
+            # . . # #
+            `)
+        } else if (num == 3) {
+            basic.showLeds(`
+            # . # . #
+            # . # . #
+            # . # # #
+            # . . . #
+            # . . . #
+            `)
+        } else if (num == 4) {
+            basic.showLeds(`
+            # . # # #
+            # . # . #
+            # . # # #
+            # . # . #
+            # . # # #
+            `)
+        } else if (num == 5) {
+            basic.showLeds(`
+            # . # # #
+            # . # . .
+            # . # # #
+            # . # . #
+            # . # # #
+            `)
+        } else if(num == 6) {
+            basic.showLeds(`
+            . # # # .
+            . . . # .
+            . # # # .
+            . # . . .
+            . # # # .
+            `)
+        } else if(num == 7) {
+            basic.showLeds(`
+            . # . # .
+            . # . # .
+            . # # # .
+            . . . # .
+            . . . # .
+            `)
+        }
+    }
+    basic.pause(200)
+    menu_select = true
+    abuttonpressed = true
+    custom_music_selection()
+} //Break selection.
+function rest() {
+    music.setBuiltInSpeakerEnabled(true)
+    basic.clearScreen()
+    custom_music.push(2)
+    basic.pause(300)
+    num = 1
+    unid_type = 1
+    while (true) {
+        if (input.buttonIsPressed(Button.AB)) {
+            if (num == 1) {
+                music.play(music.tonePlayable(330, music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
+            } else if (num == 2) {
+                music.play(music.tonePlayable(330, music.beat(BeatFraction.Half)), music.PlaybackMode.UntilDone)
+            } else if (num == 3) {
+                music.play(music.tonePlayable(330, music.beat(BeatFraction.Quarter)), music.PlaybackMode.UntilDone)
+            } else if (num == 4) {
+                music.play(music.tonePlayable(330, music.beat(BeatFraction.Eighth)), music.PlaybackMode.UntilDone)
+            } else if (num == 5) {
+                music.play(music.tonePlayable(330, music.beat(BeatFraction.Sixteenth)), music.PlaybackMode.UntilDone)
+            } else if (num == 6) {
+                music.play(music.tonePlayable(330, music.beat(BeatFraction.Double)), music.PlaybackMode.UntilDone)
+            } else if (num == 7) {
+                music.play(music.tonePlayable(330, music.beat(BeatFraction.Breve)), music.PlaybackMode.UntilDone)
+            }
+        }
+        if (input.buttonIsPressed(Button.A)) {
+            if (num == 1) {
+                num = 7
+            } else {
+                num += -1
+            }
+        }
+        if (input.buttonIsPressed(Button.B)) {
+            if (num == 7) {
+                num = 1
+            } else {
+                num += 1
+            }
+        }
+        if (input.logoIsPressed()) {
+            if (num == 1) {
+                custom_beat.push(1)
+            } else if (num == 2) {
+                custom_beat.push(2)
+            } else if (num == 3) {
+                custom_beat.push(3)
+            } else if (num == 4) {
+                custom_beat.push(4)
+            } else if (num == 5) {
+                custom_beat.push(5)
+            } else if (num == 6) {
+                custom_beat.push(6)
+            } else if (num == 7) {
+                custom_beat.push(7)
+            }
+            break;
+        }
+        if (num == 1) {
+            basic.showLeds(`
+            . . . # .
+            . . # # .
+            . . . # .
+            . . . # .
+            . . . # .
+            `)
+        } else if (num == 2) {
+            basic.showLeds(`
+            # . . # #
+            # . . . #
+            # . . # #
+            # . . # .
+            # . . # #
+            `)
+        } else if (num == 3) {
+            basic.showLeds(`
+            # . # . #
+            # . # . #
+            # . # # #
+            # . . . #
+            # . . . #
+            `)
+        } else if (num == 4) {
+            basic.showLeds(`
+            # . # # #
+            # . # . #
+            # . # # #
+            # . # . #
+            # . # # #
+            `)
+        } else if (num == 5) {
+            basic.showLeds(`
+            # . # # #
+            # . # . .
+            # . # # #
+            # . # . #
+            # . # # #
+            `)
+        } else if (num == 6) {
+            basic.showLeds(`
+            . # # # .
+            . . . # .
+            . # # # .
+            . # . . .
+            . # # # .
+            `)
+        } else if (num == 7) {
+            basic.showLeds(`
+            . # . # .
+            . # . # .
+            . # # # .
+            . . . # .
+            . . . # .
+            `)
+        }
+    }
+    basic.pause(200)
+    menu_select = true
+    abuttonpressed = true
+    custom_music_selection()
+}
+function melody_play() {
+    while (true) {
+        if (custom_music[0] == 1) {
+            if (custom_music_tune[0] == 1) {
+                tune_music = 131
+                play_tone()
+            } else if (custom_music_tune[0] == 2) {
+                tune_music = 147
+                play_tone()
+            } else if(custom_music_tune[0] == 3) {
+                tune_music = 165
+                play_tone()
+            } else if(custom_music_tune[0] == 4) {
+                tune_music = 175
+                play_tone()
+            } else if(custom_music_tune[0] == 5) {
+                tune_music = 196
+                play_tone()
+            } else if (custom_music_tune[0] == 6) {
+                tune_music = 220
+                play_tone()
+            } else if (custom_music_tune[0] == 7) {
+                tune_music = 247
+                play_tone()
+            } else if (custom_music_tune[0] == 8) {
+                tune_music = 262
+                play_tone()
+            } else if (custom_music_tune[0] == 9) {
+                tune_music = 294
+                play_tone()
+            } else if (custom_music_tune[0] == 10) {
+                tune_music = 330
+                play_tone()
+            } else if (custom_music_tune[0] == 11) {
+                tune_music = 349
+                play_tone()
+            } else if (custom_music_tune[0] == 12) {
+                tune_music = 392
+                play_tone()
+            } else if (custom_music_tune[0] == 13) {
+                tune_music = 440
+                play_tone()
+            } else if (custom_music_tune[0] == 14) {
+                tune_music = 494
+                play_tone()
+            } else if (custom_music_tune[0] == 15) {
+                tune_music = 523
+                play_tone()
+            } else if (custom_music_tune[0] == 16) {
+                tune_music = 587
+                play_tone()
+            } else if (custom_music_tune[0] == 17) {
+                tune_music = 659
+                play_tone()
+            } else if (custom_music_tune[0] == 18) {
+                tune_music = 698
+                play_tone()
+            } else if (custom_music_tune[0] == 19) {
+                tune_music = 784
+                play_tone()
+            } else if (custom_music_tune[0] == 20) {
+                tune_music = 880
+                play_tone()
+            } else if (custom_music_tune[0] == 21) {
+                tune_music = 998
+                play_tone()
+            }
+            custom_music_tune.removeAt(0)
+        }
+        if (custom_music[0] == 2) {
+            if (custom_beat[0] == 1){
+                music.rest(music.beat(BeatFraction.Whole))
+            } else if (custom_beat[0] == 2) {
+                music.rest(music.beat(BeatFraction.Half))
+            } else if(custom_beat[0] == 3) {
+                music.rest(music.beat(BeatFraction.Quarter))
+            } else if(custom_beat[0] == 4) {
+                music.rest(music.beat(BeatFraction.Eighth))
+            } else if(custom_beat[0] == 5) {
+                music.rest(music.beat(BeatFraction.Sixteenth))
+            } else if(custom_beat[0] == 6) {
+                music.rest(music.beat(BeatFraction.Double))
+            } else if(custom_beat[0] == 7) {
+                music.rest(music.beat(BeatFraction.Breve))
+            }
+            custom_beat.removeAt(0)
+        }
+        custom_music.removeAt(0)
+    }
+} //Play the created melody.
+function play_tone() {
+    if (custom_music_beat[0] == 1) {
+        music.play(music.tonePlayable(tune_music, music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
+    } else if (custom_music_beat[0] == 2) {
+        music.play(music.tonePlayable(tune_music, music.beat(BeatFraction.Half)), music.PlaybackMode.UntilDone)
+    } else if (custom_music_beat[0] == 3) {
+        music.play(music.tonePlayable(tune_music, music.beat(BeatFraction.Quarter)), music.PlaybackMode.UntilDone)
+    } else if (custom_music_beat[0] == 4) {
+        music.play(music.tonePlayable(tune_music, music.beat(BeatFraction.Eighth)), music.PlaybackMode.UntilDone)
+    } else if (custom_music_beat[0] == 5) {
+        music.play(music.tonePlayable(tune_music, music.beat(BeatFraction.Sixteenth)), music.PlaybackMode.UntilDone)
+    } else if (custom_music_beat[0] == 6) {
+        music.play(music.tonePlayable(tune_music, music.beat(BeatFraction.Double)), music.PlaybackMode.UntilDone)
+    } else if (custom_music_beat[0] == 7) {
+        music.play(music.tonePlayable(tune_music, music.beat(BeatFraction.Breve)), music.PlaybackMode.UntilDone)
+    }
+    custom_music_beat.removeAt(0)
+}
+
 
 
 basic.forever(function () {
