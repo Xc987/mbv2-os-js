@@ -513,7 +513,7 @@ function unid_if_1_23() {
             # # . # #
             `)
     }
-} //Function to draw numbers from 0 to 55
+} //Function to draw numbers from 0 to 55 (1-23)
 function usid_if() {
     usid = abc_id
     if (usid == 1) {
@@ -822,6 +822,252 @@ function usid_if() {
                 `)
     }
 } //Function to draw letters from a to "?"
+function uckb_if() {
+    if (abc_id == 1) {
+        if (shift == true) {
+            uckb = "A"
+            shift = false
+        } else {
+            uckb = "a"
+        }
+    } else if (abc_id == 2) {
+        if (shift == true) {
+            uckb = "A"
+            shift = false
+        } else {
+            uckb = "a"
+        }
+    } else if (abc_id == 3) {
+        if (shift == true) {
+            uckb = "B"
+            shift = false
+        } else {
+            uckb = "b"
+        }
+    } else if (abc_id == 4) {
+        if (shift == true) {
+            uckb = "C"
+            shift = false
+        } else {
+            uckb = "c"
+        }
+    } else if (abc_id == 5) {
+        if (shift == true) {
+            uckb = "C"
+            shift = false
+        } else {
+            uckb = "c"
+        }
+    } else if (abc_id == 6) {
+        if (shift == true) {
+            uckb = "D"
+            shift = false
+        } else {
+            uckb = "d"
+        }
+    } else if (abc_id == 7) {
+        if (shift == true) {
+            uckb = "E"
+            shift = false
+        } else {
+            uckb = "e"
+        }
+    } else if (abc_id == 8) {
+        if (shift == true) {
+            uckb = "E"
+            shift = false
+        } else {
+            uckb = "e"
+        }
+    } else if (abc_id == 9) {
+        if (shift == true) {
+            uckb = "F"
+            shift = false
+        } else {
+            uckb = "f"
+        }
+    } else if (abc_id == 10) {
+        if (shift == true) {
+            uckb = "G"
+            shift = false
+        } else {
+            uckb = "g"
+        }
+    } else if (abc_id == 11) {
+        if (shift == true) {
+            uckb = "G"
+            shift = false
+        } else {
+            uckb = "g"
+        }
+    } else if (abc_id == 12) {
+        if (shift == true) {
+            uckb = "H"
+            shift = false
+        } else {
+            uckb = "h"
+        }
+    } else if (abc_id == 13) {
+        if (shift == true) {
+            uckb = "I"
+            shift = false
+        } else {
+            uckb = "i"
+        }
+    } else if (abc_id == 14) {
+        if (shift == true) {
+            uckb = "I"
+            shift = false
+        } else {
+            uckb = "i"
+        }
+    } else if (abc_id == 15) {
+        if (shift == true) {
+            uckb = "J"
+            shift = false
+        } else {
+            uckb = "j"
+        }
+    } else if (abc_id == 16) {
+        if (shift == true) {
+            uckb = "K"
+            shift = false
+        } else {
+            uckb = "k"
+        }
+    } else if (abc_id == 17) {
+        if (shift == true) {
+            uckb = "K"
+            shift = false
+        } else {
+            uckb = "k"
+        }
+    } else if (abc_id == 18) {
+        if (shift == true) {
+            uckb = "L"
+            shift = false
+        } else {
+            uckb = "l"
+        }
+    } else if (abc_id == 19) {
+        if (shift == true) {
+            uckb = "L"
+            shift = false
+        } else {
+            uckb = "l"
+        }
+    } else if (abc_id == 20) {
+        if (shift == true) {
+            uckb = "M"
+            shift = false
+        } else {
+            uckb = "m"
+        }
+    } else if (abc_id == 21) {
+        if (shift == true) {
+            uckb = "N"
+            shift = false
+        } else {
+            uckb = "n"
+        }
+    } else if (abc_id == 22) {
+        if (shift == true) {
+            uckb = "N"
+            shift = false
+        } else {
+            uckb = "n"
+        }
+    } else if (abc_id == 23) {
+        if (shift == true) {
+            uckb = "O"
+            shift = false
+        } else {
+            uckb = "o"
+        }
+    } else if (abc_id == 24) {
+        if (shift == true) {
+            uckb = "P"
+            shift = false
+        } else {
+            uckb = "p"
+        }
+    } else if (abc_id == 25) {
+        if (shift == true) {
+            uckb = "R"
+            shift = false
+        } else {
+            uckb = "r"
+        }
+    } else if (abc_id == 26) {
+        if (shift == true) {
+            uckb = "S"
+            shift = false
+        } else {
+            uckb = "s"
+        }
+    } else if (abc_id == 27) {
+        if (shift == true) {
+            uckb = "S"
+            shift = false
+        } else {
+            uckb = "s"
+        }
+    } else if (abc_id == 28) {
+        if (shift == true) {
+            uckb = "T"
+            shift = false
+        } else {
+            uckb = "t"
+        }
+    } else if (abc_id == 29) {
+        if (shift == true) {
+            uckb = "U"
+            shift = false
+        } else {
+            uckb = "u"
+        }
+    } else if (abc_id == 30) {
+        if (shift == true) {
+            uckb = "U"
+            shift = false
+        } else {
+            uckb = "u"
+        }
+    } else if (abc_id == 31) {
+        if (shift == true) {
+            uckb = "V"
+            shift = false
+        } else {
+            uckb = "v"
+        }
+    } else if (abc_id == 32) {
+        if (shift == true) {
+            uckb = "Z"
+            shift = false
+        } else {
+            uckb = "z"
+        }
+    } else if (abc_id == 33) {
+        if (shift == true) {
+            uckb = "Z"
+            shift = false
+        } else {
+            uckb = "z"
+        }
+    } else if (abc_id == 34) {
+        uckb = " "
+    } else if (abc_id == 35) {
+        uckb = "."
+    } else if (abc_id == 36) {
+        uckb = ","
+    } else if (abc_id == 37) {
+        uckb = "!"
+    } else if (abc_id == 38) {
+        uckb = "?"
+    }
+}
+
+
 
 function settings_music_draw() {
     led.plotBrightness(0, 3, 20)
@@ -852,34 +1098,16 @@ function menu_select_menu() {
             if (animation_scroll == true) {
                 if (abuttonpressed == true) {
                     led.unplot(4, 0)
-                    images.createImage(`
-                    . . . . .
-                    . . # . .
-                    . # # # .
-                    # # # # #
-                    # . . . #
-                    `).showImage(0)
+                    image_games.showImage(0)
                     draw_menu()
                     abuttonpressed = false
                 } else {
                     led.unplot(4, 0)
-                    images.createImage(`
-                    . . . . .
-                    . . # . .
-                    . # # # .
-                    # # # # #
-                    # . . . #
-                    `).scrollImage(1, 45)
+                    image_games.scrollImage(1, 45)
                     draw_menu()
                 }
             } else {
-                basic.showLeds(`
-        . . . . .
-        . . # . .
-        . # # # .
-        # # # # #
-        # . . . #
-        `)
+                image_games.showImage(0)
                 draw_menu()
             }
             led.plot(0, 0)
@@ -887,34 +1115,16 @@ function menu_select_menu() {
             if (animation_scroll == true) {
                 if (abuttonpressed == true) {
                     led.unplot(0, 0)
-                    images.createImage(`
-                    . . . . .
-                    . # . . .
-                    # . . . .
-                    . # . # .
-                    # . # . .
-                    `).showImage(0)
+                    image_tools.showImage(0)
                     draw_menu()
                     abuttonpressed = false
                 } else {
                     led.unplot(0, 0)
-                    images.createImage(`
-                    . . . . .
-                    . # . . .
-                    # . . . .
-                    . # . # .
-                    # . # . .
-                    `).scrollImage(1, 45)
+                    image_tools.scrollImage(1, 45)
                     draw_menu()
                 }
             } else {
-                basic.showLeds(`
-        . . . . .
-        . # . . .
-        # . . . .
-        . # . # .
-        # . # . .
-        `)
+                image_tools.showImage(0)
                 draw_menu()
             }
             led.plot(1, 0)
@@ -922,34 +1132,16 @@ function menu_select_menu() {
             if (animation_scroll == true) {
                 if (abuttonpressed == true) {
                     led.unplot(1, 0)
-                    images.createImage(`
-                    . . . . .
-                    . . # . .
-                    # # # # #
-                    . # # # .
-                    # . # . #
-                    `).showImage(0)
+                    image_turtle.showImage(0)
                     draw_menu()
                     abuttonpressed = false
                 } else {
                     led.unplot(1, 0)
-                    images.createImage(`
-                    . . . . .
-                    . . # . .
-                    # # # # #
-                    . # # # .
-                    # . # . #
-                    `).scrollImage(1, 45)
+                    image_turtle.scrollImage(1, 45)
                     draw_menu()
                 }
             } else {
-                basic.showLeds(`
-        . . . . .
-        . . # . .
-        # # # # #
-        . # # # .
-        # . # . #
-        `)
+                image_turtle.showImage(0)
                 draw_menu()
             }
             led.plot(2, 0)
@@ -957,34 +1149,16 @@ function menu_select_menu() {
             if (animation_scroll == true) {
                 if (abuttonpressed == true) {
                     led.unplot(2, 0)
-                    images.createImage(`
-                    . . . . .
-                    . . . . #
-                    . . . . #
-                    . . # . #
-                    # . # . #
-                    `).showImage(0)
+                    image_radio.showImage(0)
                     draw_menu()
                     abuttonpressed = false
                 } else {
                     led.unplot(2, 0)
-                    images.createImage(`
-                    . . . . .
-                    . . . . #
-                    . . . . #
-                    . . # . #
-                    # . # . #
-                    `).scrollImage(1, 45)
+                    image_radio.scrollImage(1, 45)
                     draw_menu()
                 }
             } else {
-                basic.showLeds(`
-        . . . . .
-        . . . . #
-        . . . . #
-        . . # . #
-        # . # . #
-        `)
+                image_radio.showImage(0)
                 draw_menu()
             }
             led.plot(2, 0)
@@ -992,34 +1166,16 @@ function menu_select_menu() {
             if (animation_scroll == true) {
                 if (abuttonpressed == true) {
                     led.unplot(2, 0)
-                    images.createImage(`
-                    . . . . .
-                    . . # . .
-                    . # # # .
-                    . . # . .
-                    . . . . .
-                    `).showImage(0)
+                    image_create.showImage(0)
                     draw_menu()
                     abuttonpressed = false
                 } else {
                     led.unplot(2, 0)
-                    images.createImage(`
-                    . . . . .
-                    . . # . .
-                    . # # # .
-                    . . # . .
-                    . . . . .
-                    `).scrollImage(1, 45)
+                    image_create.scrollImage(1, 45)
                     draw_menu()
                 }
             } else {
-                basic.showLeds(`
-            . . . . .
-            . . # . .
-            . # # # .
-            . . # . .
-            . . . . .
-        `)
+                image_create.showImage(0)
                 draw_menu()
             }
             led.plot(2, 0)
@@ -1027,34 +1183,16 @@ function menu_select_menu() {
             if (animation_scroll == true) {
                 if (abuttonpressed == true) {
                     led.unplot(2, 0)
-                    images.createImage(`
-                    . . . . .
-                    . . . . .
-                    . . . . .
-                    # # # # #
-                    # . # . #
-                    `).showImage(0)
+                    image_pins.showImage(0)
                     draw_menu()
                     abuttonpressed = false
                 } else {
                     led.unplot(2, 0)
-                    images.createImage(`
-                    . . . . .
-                    . . . . .
-                    . . . . .
-                    # # # # #
-                    # . # . #
-                    `).scrollImage(1, 45)
+                    image_pins.scrollImage(1, 45)
                     draw_menu()
                 }
             } else {
-                basic.showLeds(`
-                    . . . . .
-                    . . . . .
-                    . . . . .
-                    # # # # #
-                    # . # . #
-        `)
+                image_pins.showImage(0)
                 draw_menu()
             }
             led.plot(2, 0)
@@ -1062,34 +1200,16 @@ function menu_select_menu() {
             if (animation_scroll == true) {
                 if (abuttonpressed == true) {
                     led.unplot(2, 0)
-                    images.createImage(`
-                    . . . . .
-                    . . # . .
-                    # . # . #
-                    . # # # .
-                    . . # . .
-                    `).showImage(0)
+                    image_serial.showImage(0)
                     draw_menu()
                     abuttonpressed = false
                 } else {
                     led.unplot(2, 0)
-                    images.createImage(`
-                    . . . . .
-                    . . # . .
-                    # . # . #
-                    . # # # .
-                    . . # . .
-                    `).scrollImage(1, 45)
+                    image_serial.scrollImage(1, 45)
                     draw_menu()
                 }
             } else {
-                basic.showLeds(`
-                    . . . . .
-                    . . # . .
-                    # . # . #
-                    . # # # .
-                    . . # . .
-        `)
+                image_serial.showImage(0)
                 draw_menu()
             }
             led.plot(3, 0)
@@ -1097,34 +1217,16 @@ function menu_select_menu() {
             if (animation_scroll == true) {
                 if (abuttonpressed == true) {
                     led.unplot(3, 0)
-                    images.createImage(`
-                    . . . . .
-                    . . . . .
-                    # # . # #
-                    . # # # .
-                    # # . # #
-                    `).showImage(0)
+                    image_settings.showImage(0)
                     draw_menu()
                     abuttonpressed = false
                 } else {
                     led.unplot(3, 0)
-                    images.createImage(`
-                    . . . . .
-                    . . . . .
-                    # # . # #
-                    . # # # .
-                    # # . # #
-                    `).scrollImage(1, 45)
+                    image_settings.scrollImage(1, 45)
                     draw_menu()
                 }
             } else {
-                basic.showLeds(`
-            . . . . .
-            . . . . .
-            # # . # #
-            . # # # .
-            # # . # #
-        `)
+                image_settings.showImage(0)
                 draw_menu()
             }
             led.plot(4, 0)
@@ -1194,34 +1296,16 @@ function game_select_menu() {
             if (animation_scroll == true) {
                 if (abuttonpressed == true) {
                     led.unplot(4, 0)
-                    images.createImage(`
-                    . . . . .
-                    . # . . .
-                    # # # # #
-                    . # . . #
-                    . . . # #
-                    `).showImage(0)
+                    image_back.showImage(0)
                     draw_menu()
                     abuttonpressed = false
                 } else {
                     led.unplot(4, 0)
-                    images.createImage(`
-                    . . . . .
-                    . # . . .
-                    # # # # #
-                    . # . . #
-                    . . . # #
-                    `).scrollImage(1, 45)
+                    image_back.scrollImage(1, 45)
                     draw_menu()
                 }
             } else {
-                basic.showLeds(`
-                . . . . .
-                . # . . .
-                # # # # #
-                . # . . #
-                . . . # #
-                `)
+                image_back.showImage(0)
                 draw_menu()
             }
             led.plot(0, 0)
@@ -1229,34 +1313,16 @@ function game_select_menu() {
             if (animation_scroll == true) {
                 if (abuttonpressed == true) {
                     led.unplot(0, 0)
-                    images.createImage(`
-                    . . . . .
-                    . . # . .
-                    . . . . .
-                    . . . . .
-                    . . # . .
-                    `).showImage(0)
+                    image_space_invaders.showImage(0)
                     draw_menu()
                     abuttonpressed = false
                 } else {
                     led.unplot(0, 0)
-                    images.createImage(`
-                    . . . . .
-                    . . # . .
-                    . . . . .
-                    . . . . .
-                    . . # . .
-                    `).scrollImage(1, 45)
+                    image_space_invaders.scrollImage(1, 45)
                     draw_menu()
                 }
             } else {
-                basic.showLeds(`
-                . . . . .
-                . . # . .
-                . . . . .
-                . . . . .
-                . . # . .
-                `)
+                image_space_invaders.showImage(0)
                 draw_menu()
             }
             led.plot(1, 0)
@@ -1265,34 +1331,16 @@ function game_select_menu() {
             if (animation_scroll == true) {
                 if (abuttonpressed == true) {
                     led.unplot(1, 0)
-                    images.createImage(`
-                    . . . . .
-                    . . . # .
-                    . . . # .
-                    . . . . .
-                    . . . # .
-                    `).showImage(0)
+                    image_flappy_bird.showImage(0)
                     draw_menu()
                     abuttonpressed = false
                 } else {
                     led.unplot(1, 0)
-                    images.createImage(`
-                    . . . . .
-                    . . . # .
-                    . . . # .
-                    . . . . .
-                    . . . # .
-                    `).scrollImage(1, 45)
+                    image_flappy_bird.scrollImage(1, 45)
                     draw_menu()
                 }
             } else {
-                basic.showLeds(`
-                . . . . .
-                . . . # .
-                . . . # .
-                . . . . .
-                . . . # .
-                `)
+                image_flappy_bird.showImage(0)
                 draw_menu()
             }
             led.plot(2, 0)
@@ -1301,34 +1349,16 @@ function game_select_menu() {
             if (animation_scroll == true) {
                 if (abuttonpressed == true) {
                     led.unplot(2, 0)
-                    images.createImage(`
-                    . . . . .
-                    . . . . .
-                    . . . . .
-                    . . . . .
-                    . # # . .
-                    `).showImage(0)
+                    image_pong.showImage(0)
                     draw_menu()
                     abuttonpressed = false
                 } else {
                     led.unplot(2, 0)
-                    images.createImage(`
-                    . . . . .
-                    . . . . .
-                    . . . . .
-                    . . . . .
-                    . # # . .
-                    `).scrollImage(1, 45)
+                    image_pong.scrollImage(1, 45)
                     draw_menu()
                 }
             } else {
-                basic.showLeds(`
-                . . . . .
-                . . . . .
-                . . . . .
-                . . . . .
-                . # # . .
-                `)
+                image_pong.showImage(0)
                 draw_menu()
             }
             led.plot(2, 0)
@@ -1337,34 +1367,16 @@ function game_select_menu() {
             if (animation_scroll == true) {
                 if (abuttonpressed == true) {
                     led.unplot(2, 0)
-                    images.createImage(`
-                    . . . . .
-                    . . . . .
-                    . . . . .
-                    . . . . .
-                    . . # . .
-                    `).showImage(0)
+                    image_cars_game.showImage(0)
                     draw_menu()
                     abuttonpressed = false
                 } else {
                     led.unplot(2, 0)
-                    images.createImage(`
-                    . . . . .
-                    . . . . .
-                    . . . . .
-                    . . . . .
-                    . . # . .
-                    `).scrollImage(1, 45)
+                    image_cars_game.scrollImage(1, 45)
                     draw_menu()
                 }
             } else {
-                basic.showLeds(`
-                . . . . .
-                . . . . .
-                . . . . .
-                . . . . .
-                . . # . .
-                `)
+                image_cars_game.showImage(0)
                 draw_menu()
             }
             led.plot(2, 0)
@@ -1372,34 +1384,16 @@ function game_select_menu() {
             if (animation_scroll == true) {
                 if (abuttonpressed == true) {
                     led.unplot(2, 0)
-                    images.createImage(`
-                    . . . . .
-                    . . . . .
-                    . . . # .
-                    # . . . .
-                    # . . . .
-                    `).showImage(0)
+                    image_dino_game.showImage(0)
                     draw_menu()
                     abuttonpressed = false
                 } else {
                     led.unplot(2, 0)
-                    images.createImage(`
-                    . . . . .
-                    . . . . .
-                    . . . # .
-                    # . . . .
-                    # . . . .
-                    `).scrollImage(1, 45)
+                    image_dino_game.scrollImage(1, 45)
                     draw_menu()
                 }
             } else {
-                basic.showLeds(`
-                . . . . .
-                . . . . .
-                . . . # .
-                # . . . .
-                # . . . .
-                `)
+                image_dino_game.showImage(0)
                 draw_menu()
             }
             led.plot(2, 0)
@@ -1407,34 +1401,16 @@ function game_select_menu() {
             if (animation_scroll == true) {
                 if (abuttonpressed == true) {
                     led.unplot(2, 0)
-                    images.createImage(`
-                    . . . . .
-                    . . . . .
-                    . . . . #
-                    . . . . .
-                    . . # . .
-                    `).showImage(0)
+                    image_jumping_rope.showImage(0)
                     draw_menu()
                     abuttonpressed = false
                 } else {
                     led.unplot(2, 0)
-                    images.createImage(`
-                    . . . . .
-                    . . . . .
-                    . . . . #
-                    . . . . .
-                    . . # . .
-                    `).scrollImage(1, 45)
+                    image_jumping_rope.scrollImage(1, 45)
                     draw_menu()
                 }
             } else {
-                basic.showLeds(`
-                . . . . .
-                . . . . .
-                . . . . #
-                . . . . .
-                . . # . .
-                `)
+                image_jumping_rope.showImage(0)
                 draw_menu()
             }
             led.plot(2, 0)
@@ -1442,34 +1418,16 @@ function game_select_menu() {
             if (animation_scroll == true) {
                 if (abuttonpressed == true) {
                     led.unplot(2, 0)
-                    images.createImage(`
-                    . . . . .
-                    . . . . .
-                    . . # . .
-                    . . . . .
-                    # . . . .
-                    `).showImage(0)
+                    image_pac_man.showImage(0)
                     draw_menu()
                     abuttonpressed = false
                 } else {
                     led.unplot(2, 0)
-                    images.createImage(`
-                    . . . . .
-                    . . . . .
-                    . . # . .
-                    . . . . .
-                    # . . . .
-                    `).scrollImage(1, 45)
+                    image_pac_man.scrollImage(1, 45)
                     draw_menu()
                 }
             } else {
-                basic.showLeds(`
-                . . . . .
-                . . . . .
-                . . # . .
-                . . . . .
-                # . . . .
-                `)
+                image_pac_man.showImage(0)
                 draw_menu()
             }
             led.plot(2, 0)
@@ -1478,34 +1436,16 @@ function game_select_menu() {
             if (animation_scroll == true) {
                 if (abuttonpressed == true) {
                     led.unplot(2, 0)
-                    images.createImage(`
-                    . . . . .
-                    . . . . .
-                    # . . . .
-                    # # . . #
-                    # # . # #
-                    `).showImage(0)
+                    image_tetris.showImage(0)
                     draw_menu()
                     abuttonpressed = false
                 } else {
                     led.unplot(2, 0)
-                    images.createImage(`
-                    . . . . .
-                    . . . . .
-                    # . . . .
-                    # # . . #
-                    # # . # #
-                    `).scrollImage(1, 45)
+                    image_tetris.scrollImage(1, 45)
                     draw_menu()
                 }
             } else {
-                basic.showLeds(`
-                . . . . .
-                . . . . .
-                # . . . .
-                # # . . #
-                # # . # #
-                `)
+                image_tetris.showImage(0)
                 draw_menu()
             }
             led.plot(2, 0)
@@ -1513,34 +1453,16 @@ function game_select_menu() {
             if (animation_scroll == true) {
                 if (abuttonpressed == true) {
                     led.unplot(2, 0)
-                    images.createImage(`
-                    . . . . .
-                    . . . . .
-                    # # # . #
-                    . # . . #
-                    . # . . #
-                    `).showImage(0)
+                    image_ttt.showImage(0)
                     draw_menu()
                     abuttonpressed = false
                 } else {
                     led.unplot(2, 0)
-                    images.createImage(`
-                    . . . . .
-                    . . . . .
-                    # # # . #
-                    . # . . #
-                    . # . . #
-                    `).scrollImage(1, 45)
+                    image_ttt.scrollImage(1, 45)
                     draw_menu()
                 }
             } else {
-                basic.showLeds(`
-                . . . . .
-                . . . . .
-                # # # . #
-                . # . . #
-                . # . . #
-                `)
+                image_ttt.showImage(0)
                 draw_menu()
             }
             led.plot(3, 0)
@@ -1548,34 +1470,16 @@ function game_select_menu() {
             if (animation_scroll == true) {
                 if (abuttonpressed == true) {
                     led.unplot(3, 0)
-                    images.createImage(`
-                    . . . . .
-                    # # # . .
-                    # . # # #
-                    # # # . #
-                    . . # # #
-                    `).showImage(0)
+                    image_cards.showImage(0)
                     draw_menu()
                     abuttonpressed = false
                 } else {
                     led.unplot(3, 0)
-                    images.createImage(`
-                    . . . . .
-                    # # # . .
-                    # . # # #
-                    # # # . #
-                    . . # # #
-                    `).scrollImage(1, 45)
+                    image_cards.scrollImage(1, 45)
                     draw_menu()
                 }
             } else {
-                basic.showLeds(`
-                . . . . .
-                    # # # . .
-                    # . # # #
-                    # # # . #
-                    . . # # #
-                `)
+                image_cards.showImage(0)
                 draw_menu()
             }
             led.plot(4, 0)
@@ -1681,34 +1585,16 @@ function game_card_select_menu() {
             if (animation_scroll == true) {
                 if (abuttonpressed == true) {
                     led.unplot(4, 0)
-                    images.createImage(`
-                    . . . . .
-                    . # . . .
-                    # # # # #
-                    . # . . #
-                    . . . # #
-                    `).showImage(0)
+                    image_back.showImage(0)
                     draw_menu()
                     abuttonpressed = false
                 } else {
                     led.unplot(4, 0)
-                    images.createImage(`
-                    . . . . .
-                    . # . . .
-                    # # # # #
-                    . # . . #
-                    . . . # #
-                    `).scrollImage(1, 45)
+                    image_back.scrollImage(1, 45)
                     draw_menu()
                 }
             } else {
-                basic.showLeds(`
-                . . . . .
-                . # . . .
-                # # # # #
-                . # . . #
-                . . . # #
-                `)
+                image_back.showImage(0)
                 draw_menu()
             }
             led.plot(0, 0)
@@ -1716,34 +1602,16 @@ function game_card_select_menu() {
             if (animation_scroll == true) {
                 if (abuttonpressed == true) {
                     led.unplot(0, 0)
-                    images.createImage(`
-                    . . . . .
-                    # . . . #
-                    # # . . .
-                    # . # . #
-                    # # . # #
-                    `).showImage(0)
+                    image_blackjack.showImage(0)
                     draw_menu()
                     abuttonpressed = false
                 } else {
                     led.unplot(0, 0)
-                    images.createImage(`
-                    . . . . .
-                    # . . . #
-                    # # . . .
-                    # . # . #
-                    # # . # #
-                    `).scrollImage(1, 45)
+                    image_blackjack.scrollImage(1, 45)
                     draw_menu()
                 }
             } else {
-                basic.showLeds(`
-                . . . . .
-                    # . . . #
-                    # # . . .
-                    # . # . #
-                    # # . # #
-                `)
+                image_blackjack.showImage(0)
                 draw_menu()
             }
             led.plot(1, 0)
@@ -1751,34 +1619,16 @@ function game_card_select_menu() {
             if (animation_scroll == true) {
                 if (abuttonpressed == true) {
                     led.unplot(1, 0)
-                    images.createImage(`
-                    . . . . .
-                    . . . . .
-                    . . . . .
-                    . . . . .
-                    . . . . .
-                    `).showImage(0)
+                    image_blank.showImage(0)
                     draw_menu()
                     abuttonpressed = false
                 } else {
                     led.unplot(1, 0)
-                    images.createImage(`
-                    . . . . .
-                    . . . . .
-                    . . . . .
-                    . . . . .
-                    . . . . .
-                    `).scrollImage(1, 45)
+                    image_blank.scrollImage(1, 45)
                     draw_menu()
                 }
             } else {
-                basic.showLeds(`
-                . . . . .
-                . . . . .
-                . . . . .
-                . . . . .
-                . . . . .
-                `)
+                image_blank.showImage(0)
                 draw_menu()
             }
             led.plot(2, 0)
@@ -1786,34 +1636,16 @@ function game_card_select_menu() {
             if (animation_scroll == true) {
                 if (abuttonpressed == true) {
                     led.unplot(2, 0)
-                    images.createImage(`
-                    . . . . .
-                    . . . . .
-                    . . . . .
-                    . . . . .
-                    . . . . .
-                    `).showImage(0)
+                    image_blank.showImage(0)
                     draw_menu()
                     abuttonpressed = false
                 } else {
                     led.unplot(2, 0)
-                    images.createImage(`
-                    . . . . .
-                    . . . . .
-                    . . . . .
-                    . . . . .
-                    . . . . .
-                    `).scrollImage(1, 45)
+                    image_blank.scrollImage(1, 45)
                     draw_menu()
                 }
             } else {
-                basic.showLeds(`
-                . . . . .
-                . . . . .
-                . . . . .
-                . . . . .
-                . . . . .
-                `)
+                image_blank.showImage(0)
                 draw_menu()
             }
             led.plot(3, 0)
@@ -1821,34 +1653,16 @@ function game_card_select_menu() {
             if (animation_scroll == true) {
                 if (abuttonpressed == true) {
                     led.unplot(3, 0)
-                    images.createImage(`
-                    . . . . .
-                    . . . . .
-                    . . . . .
-                    . . . . .
-                    . . . . .
-                    `).showImage(0)
+                    image_blank.showImage(0)
                     draw_menu()
                     abuttonpressed = false
                 } else {
                     led.unplot(3, 0)
-                    images.createImage(`
-                    . . . . .
-                    . . . . .
-                    . . . . .
-                    . . . . .
-                    . . . . .
-                    `).scrollImage(1, 45)
+                    image_blank.scrollImage(1, 45)
                     draw_menu()
                 }
             } else {
-                basic.showLeds(`
-                . . . . .
-                . . . . .
-                . . . . .
-                . . . . .
-                . . . . .
-                `)
+                image_blank.showImage(0)
                 draw_menu()
             }
             led.plot(4, 0)
@@ -1899,41 +1713,23 @@ function game_card_select_menu() {
         abuttonpressed = true
         game_select_menu()
     }
-} //Bluetooth send type selection.
+} //Card Game selection.
 function tool_select_menu() {
     while (menu_select == true) {
         if (selected_tool == 0) {
             if (animation_scroll == true) {
                 if (abuttonpressed == true) {
                     led.unplot(4, 0)
-                    images.createImage(`
-                    . . . . .
-                    . # . . .
-                    # # # # #
-                    . # . . #
-                    . . . # #
-                    `).showImage(0)
+                    image_back.showImage(0)
                     draw_menu()
                     abuttonpressed = false
                 } else {
                     led.unplot(4, 0)
-                    images.createImage(`
-                    . . . . .
-                    . # . . .
-                    # # # # #
-                    . # . . #
-                    . . . # #
-                    `).scrollImage(1, 45)
+                    image_back.scrollImage(1, 45)
                     draw_menu()
                 }
             } else {
-                basic.showLeds(`
-                . . . . .
-                . # . . .
-                # # # # #
-                . # . . #
-                . . . # #
-                `)
+                image_back.showImage(0)
                 draw_menu()
             }
             led.plot(0, 0)
@@ -1941,34 +1737,16 @@ function tool_select_menu() {
             if (animation_scroll == true) {
                 if (abuttonpressed == true) {
                     led.unplot(0, 0)
-                    images.createImage(`
-                    . . . . .
-                    . # # . #
-                    # . . . .
-                    # . . . .
-                    . # # . .
-                    `).showImage(0)
+                    image_tempereture.showImage(0)
                     draw_menu()
                     abuttonpressed = false
                 } else {
                     led.unplot(0, 0)
-                    images.createImage(`
-                    . . . . .
-                    . # # . #
-                    # . . . .
-                    # . . . .
-                    . # # . .
-                    `).scrollImage(1, 45)
+                    image_tempereture.scrollImage(1, 45)
                     draw_menu()
                 }
             } else {
-                basic.showLeds(`
-                . . . . .
-                . # # . .
-                # . . . .
-                # . . . .
-                . # # . .
-                `)
+                image_tempereture.showImage(0)
                 draw_menu()
             }
             led.plot(1, 0)
@@ -1976,34 +1754,16 @@ function tool_select_menu() {
             if (animation_scroll == true) {
                 if (abuttonpressed == true) {
                     led.unplot(1, 0)
-                    images.createImage(`
-                    . . . . .
-                    . # # # .
-                    # . . . #
-                    . # . # .
-                    . # # # .
-                    `).showImage(0)
+                    image_light.showImage(0)
                     draw_menu()
                     abuttonpressed = false
                 } else {
                     led.unplot(1, 0)
-                    images.createImage(`
-                    . . . . .
-                    . # # # .
-                    # . . . #
-                    . # . # .
-                    . # # # .
-                    `).scrollImage(1, 45)
+                    image_light.scrollImage(1, 45)
                     draw_menu()
                 }
             } else {
-                basic.showLeds(`
-                . . . . .
-                . # # # .
-                # . . . #
-                . # . # .
-                . # # # .
-                `)
+                image_light.showImage(0)
                 draw_menu()
             }
             led.plot(2, 0)
@@ -2011,34 +1771,16 @@ function tool_select_menu() {
             if (animation_scroll == true) {
                 if (abuttonpressed == true) {
                     led.unplot(2, 0)
-                    images.createImage(`
-                    . . . . .
-                    . # . # .
-                    . # . . .
-                    # # # . .
-                    . # . . .
-                    `).showImage(0)
+                    image_sound.showImage(0)
                     draw_menu()
                     abuttonpressed = false
                 } else {
                     led.unplot(2, 0)
-                    images.createImage(`
-                    . . . . .
-                    . # . # .
-                    . # . . .
-                    # # # . .
-                    . # . . .
-                    `).scrollImage(1, 45)
+                    image_sound.scrollImage(1, 45)
                     draw_menu()
                 }
             } else {
-                basic.showLeds(`
-                . . . . .
-                . # . # .
-                . # . . .
-                # # # . .
-                . # . . .
-                `)
+                image_sound.showImage(0)
                 draw_menu()
             }
             led.plot(2, 0)
@@ -2046,34 +1788,16 @@ function tool_select_menu() {
             if (animation_scroll == true) {
                 if (abuttonpressed == true) {
                     led.unplot(2, 0)
-                    images.createImage(`
-                    . . . . .
-                    . . # . .
-                    . # # # .
-                    # . # . #
-                    . . # . .
-                    `).showImage(0)
+                    image_north.showImage(0)
                     draw_menu()
                     abuttonpressed = false
                 } else {
                     led.unplot(2, 0)
-                    images.createImage(`
-                    . . . . .
-                    . . # . .
-                    . # # # .
-                    # . # . #
-                    . . # . .
-                    `).scrollImage(1, 45)
+                    image_north.scrollImage(1, 45)
                     draw_menu()
                 }
             } else {
-                basic.showLeds(`
-                . . . . .
-                . . # . .
-                . # # # .
-                # . # . #
-                . . # . .
-                `)
+                image_north.showImage(0)
                 draw_menu()
             }
             led.plot(2, 0)
@@ -2081,34 +1805,16 @@ function tool_select_menu() {
             if (animation_scroll == true) {
                 if (abuttonpressed == true) {
                     led.unplot(2, 0)
-                    images.createImage(`
-                    . . . . .
-                    . . . . .
-                    # . # . .
-                    . # . . .
-                    # . # . .
-                    `).showImage(0)
+                    image_x.showImage(0)
                     draw_menu()
                     abuttonpressed = false
                 } else {
                     led.unplot(2, 0)
-                    images.createImage(`
-                    . . . . .
-                    . . . . .
-                    # . # . .
-                    . # . . .
-                    # . # . .
-                    `).scrollImage(1, 45)
+                    image_x.scrollImage(1, 45)
                     draw_menu()
                 }
             } else {
-                basic.showLeds(`
-                . . . . .
-                . . . . .
-                # . # . .
-                . # . . .
-                # . # . .
-                `)
+                image_x.showImage(0)
                 draw_menu()
             }
             led.plot(2, 0)
@@ -2116,34 +1822,16 @@ function tool_select_menu() {
             if (animation_scroll == true) {
                 if (abuttonpressed == true) {
                     led.unplot(2, 0)
-                    images.createImage(`
-                    . . . . .
-                    # . # . .
-                    # . # . .
-                    . # . . .
-                    # # . . .
-                    `).showImage(0)
+                    image_y.showImage(0)
                     draw_menu()
                     abuttonpressed = false
                 } else {
                     led.unplot(2, 0)
-                    images.createImage(`
-                    . . . . .
-                    # . # . .
-                    # . # . .
-                    . # . . .
-                    # # . . .
-                    `).scrollImage(1, 45)
+                    image_y.scrollImage(1, 45)
                     draw_menu()
                 }
             } else {
-                basic.showLeds(`
-                . . . . .
-                # . # . .
-                # . # . .
-                . # . . .
-                # # . . .
-                `)
+                image_y.showImage(0)
                 draw_menu()
             }
             led.plot(2, 0)
@@ -2151,34 +1839,16 @@ function tool_select_menu() {
             if (animation_scroll == true) {
                 if (abuttonpressed == true) {
                     led.unplot(2, 0)
-                    images.createImage(`
-                    . . . . .
-                    # # # . .
-                    . # . . .
-                    # . . . .
-                    # # # . .
-                    `).showImage(0)
+                    image_z.showImage(0)
                     draw_menu()
                     abuttonpressed = false
                 } else {
                     led.unplot(2, 0)
-                    images.createImage(`
-                    . . . . .
-                    # # # . .
-                    . # . . .
-                    # . . . .
-                    # # # . .
-                    `).scrollImage(1, 45)
+                    image_z.scrollImage(1, 45)
                     draw_menu()
                 }
             } else {
-                basic.showLeds(`
-                . . . . .
-                # # # . .
-                . # . . .
-                # . . . .
-                # # # . .
-                `)
+                image_z.showImage(0)
                 draw_menu()
             }
             led.plot(2, 0)
@@ -2186,34 +1856,16 @@ function tool_select_menu() {
             if (animation_scroll == true) {
                 if (abuttonpressed == true) {
                     led.unplot(2, 0)
-                    images.createImage(`
-                    . . . . .
-                    . . # # .
-                    . . # . #
-                    # # # . .
-                    # # # . .
-                    `).showImage(0)
+                    image_note.showImage(0)
                     draw_menu()
                     abuttonpressed = false
                 } else {
                     led.unplot(2, 0)
-                    images.createImage(`
-                    . . . . .
-                    . . # # .
-                    . . # . #
-                    # # # . .
-                    # # # . .
-                    `).scrollImage(1, 45)
+                    image_note.scrollImage(1, 45)
                     draw_menu()
                 }
             } else {
-                basic.showLeds(`
-                . . . . .
-                . . # # .
-                . . # . #
-                # # # . .
-                # # # . .
-                `)
+                image_note.showImage(0)
                 draw_menu()
             }
             led.plot(2, 0)
@@ -2221,34 +1873,16 @@ function tool_select_menu() {
             if (animation_scroll == true) {
                 if (abuttonpressed == true) {
                     led.unplot(2, 0)
-                    images.createImage(`
-                    . . . . .
-                    . # . . .
-                    # # # . .
-                    . # . . .
-                    . . . # #
-                    `).showImage(0)
+                    image_calculator.showImage(0)
                     draw_menu()
                     abuttonpressed = false
                 } else {
                     led.unplot(2, 0)
-                    images.createImage(`
-                    . . . . .
-                    . # . . .
-                    # # # . .
-                    . # . . .
-                    . . . # #
-                    `).scrollImage(1, 45)
+                    image_calculator.scrollImage(1, 45)
                     draw_menu()
                 }
             } else {
-                basic.showLeds(`
-                . . . . .
-                . # . . .
-                # # # . .
-                . # . . .
-                . . . # #
-                `)
+                image_calculator.showImage(0)
                 draw_menu()
             }
             led.plot(3, 0)
@@ -2256,34 +1890,16 @@ function tool_select_menu() {
             if (animation_scroll == true) {
                 if (abuttonpressed == true) {
                     led.unplot(3, 0)
-                    images.createImage(`
-                    . . . . .
-                    # . # . #
-                    # . # # #
-                    # . . . #
-                    . # # # .
-                    `).showImage(0)
+                    image_clock.showImage(0)
                     draw_menu()
                     abuttonpressed = false
                 } else {
                     led.unplot(3, 0)
-                    images.createImage(`
-                    . . . . .
-                    # . # . #
-                    # . # # #
-                    # . . . #
-                    . # # # .
-                    `).scrollImage(1, 45)
+                    image_clock.scrollImage(1, 45)
                     draw_menu()
                 }
             } else {
-                basic.showLeds(`
-                . . . . .
-                # . # . #
-                # . # # #
-                # . . . #
-                . # # # .
-                `)
+                image_clock.showImage(0)
                 draw_menu()
             }
             led.plot(4, 0)
@@ -2353,34 +1969,16 @@ function tool_calculator_menu() {
             if (animation_scroll == true) {
                 if (abuttonpressed == true) {
                     led.unplot(4, 0)
-                    images.createImage(`
-                    . . . . .
-                    . . . . .
-                    . # . . .
-                    # # # . .
-                    . # . . .
-                    `).showImage(0)
+                    image_plus.showImage(0)
                     draw_menu()
                     abuttonpressed = false
                 } else {
                     led.unplot(4, 0)
-                    images.createImage(`
-                    . . . . .
-                    . . . . .
-                    . # . . .
-                    # # # . .
-                    . # . . .
-                    `).scrollImage(1, 45)
+                    image_plus.scrollImage(1, 45)
                     draw_menu()
                 }
             } else {
-                basic.showLeds(`
-                . . . . .
-                . . . . .
-                . # . . .
-                # # # . .
-                . # . . .
-                `)
+                image_plus.showImage(0)
                 draw_menu()
             }
             led.plot(0, 0)
@@ -2388,34 +1986,16 @@ function tool_calculator_menu() {
             if (animation_scroll == true) {
                 if (abuttonpressed == true) {
                     led.unplot(0, 0)
-                    images.createImage(`
-                    . . . . .
-                    . . . . .
-                    . . . . .
-                    # # # . .
-                    . . . . .
-                    `).showImage(0)
+                    image_minus.showImage(0)
                     draw_menu()
                     abuttonpressed = false
                 } else {
                     led.unplot(0, 0)
-                    images.createImage(`
-                    . . . . .
-                    . . . . .
-                    . . . . .
-                    # # # . .
-                    . . . . .
-                    `).scrollImage(1, 45)
+                    image_minus.scrollImage(1, 45)
                     draw_menu()
                 }
             } else {
-                basic.showLeds(`
-                . . . . .
-                . . . . .
-                . . . . .
-                # # # . .
-                . . . . .
-                `)
+                image_minus.showImage(0)
                 draw_menu()
             }
             led.plot(1, 0)
@@ -2423,34 +2003,16 @@ function tool_calculator_menu() {
             if (animation_scroll == true) {
                 if (abuttonpressed == true) {
                     led.unplot(1, 0)
-                    images.createImage(`
-                    . . . . .
-                    . . . . .
-                    # . # . .
-                    . # . . .
-                    # . # . .
-                    `).showImage(0)
+                    image_times.showImage(0)
                     draw_menu()
                     abuttonpressed = false
                 } else {
                     led.unplot(1, 0)
-                    images.createImage(`
-                    . . . . .
-                    . . . . .
-                    # . # . .
-                    . # . . .
-                    # . # . .
-                    `).scrollImage(1, 45)
+                    image_times.scrollImage(1, 45)
                     draw_menu()
                 }
             } else {
-                basic.showLeds(`
-                . . . . .
-                . . . . .
-                # . # . .
-                . # . . .
-                # . # . .
-                `)
+                image_times.showImage(0)
                 draw_menu()
             }
             led.plot(2, 0)
@@ -2458,34 +2020,16 @@ function tool_calculator_menu() {
             if (animation_scroll == true) {
                 if (abuttonpressed == true) {
                     led.unplot(2, 0)
-                    images.createImage(`
-                    . . . . .
-                    . . . . .
-                    . . # . .
-                    . # . . .
-                    # . . . .
-                    `).showImage(0)
+                    image_divide.showImage(0)
                     draw_menu()
                     abuttonpressed = false
                 } else {
                     led.unplot(2, 0)
-                    images.createImage(`
-                    . . . . .
-                    . . . . .
-                    . . # . .
-                    . # . . .
-                    # . . . .
-                    `).scrollImage(1, 45)
+                    image_divide.scrollImage(1, 45)
                     draw_menu()
                 }
             } else {
-                basic.showLeds(`
-                . . . . .
-                . . . . .
-                . . # . .
-                . # . . .
-                # . . . .
-                `)
+                image_divide.showImage(0)
                 draw_menu()
             }
             led.plot(2, 0)
@@ -2493,34 +2037,16 @@ function tool_calculator_menu() {
             if (animation_scroll == true) {
                 if (abuttonpressed == true) {
                     led.unplot(2, 0)
-                    images.createImage(`
-                    . . . . .
-                    . . . . .
-                    . . . . .
-                    . # . . .
-                    # . # . .
-                    `).showImage(0)
+                    image_caret.showImage(0)
                     draw_menu()
                     abuttonpressed = false
                 } else {
                     led.unplot(2, 0)
-                    images.createImage(`
-                    . . . . .
-                    . . . . .
-                    . . . . .
-                    . # . . .
-                    # . # . .
-                    `).scrollImage(1, 45)
+                    image_caret.scrollImage(1, 45)
                     draw_menu()
                 }
             } else {
-                basic.showLeds(`
-                . . . . .
-                . . . . .
-                . . . . .
-                . # . . .
-                # . # . .
-                `)
+                image_caret.showImage(0)
                 draw_menu()
             }
             led.plot(2, 0)
@@ -2528,34 +2054,16 @@ function tool_calculator_menu() {
             if (animation_scroll == true) {
                 if (abuttonpressed == true) {
                     led.unplot(2, 0)
-                    images.createImage(`
-                    . . . . .
-                    . # # # .
-                    . # . . .
-                    # # . . .
-                    . # . . .
-                    `).showImage(0)
+                    image_sqr.showImage(0)
                     draw_menu()
                     abuttonpressed = false
                 } else {
                     led.unplot(2, 0)
-                    images.createImage(`
-                    . . . . .
-                    . # # # .
-                    . # . . .
-                    # # . . .
-                    . # . . .
-                    `).scrollImage(1, 45)
+                    image_sqr.scrollImage(1, 45)
                     draw_menu()
                 }
             } else {
-                basic.showLeds(`
-                . . . . .
-                . # # # .
-                . # . . .
-                # # . . .
-                . # . . .
-                `)
+                image_sqr.showImage(0)
                 draw_menu()
             }
             led.plot(2, 0)
@@ -2563,34 +2071,16 @@ function tool_calculator_menu() {
             if (animation_scroll == true) {
                 if (abuttonpressed == true) {
                     led.unplot(2, 0)
-                    images.createImage(`
-                    . . . . .
-                    . . # # .
-                    . # . . .
-                    . . # . .
-                    # # . . .
-                    `).showImage(0)
+                    image_sin.showImage(0)
                     draw_menu()
                     abuttonpressed = false
                 } else {
                     led.unplot(2, 0)
-                    images.createImage(`
-                    . . . . .
-                    . . # # .
-                    . # . . .
-                    . . # . .
-                    # # . . .
-                    `).scrollImage(1, 45)
+                    image_sin.scrollImage(1, 45)
                     draw_menu()
                 }
             } else {
-                basic.showLeds(`
-                . . . . .
-                . . # # .
-                . # . . .
-                . . # . .
-                # # . . .
-                `)
+                image_sin.showImage(0)
                 draw_menu()
             }
             led.plot(2, 0)
@@ -2598,34 +2088,16 @@ function tool_calculator_menu() {
             if (animation_scroll == true) {
                 if (abuttonpressed == true) {
                     led.unplot(2, 0)
-                    images.createImage(`
-                    . . . . .
-                    . # # . .
-                    # . . . .
-                    # . . . .
-                    . # # . .
-                    `).showImage(0)
+                    image_cosin.showImage(0)
                     draw_menu()
                     abuttonpressed = false
                 } else {
                     led.unplot(2, 0)
-                    images.createImage(`
-                    . . . . .
-                    . # # . .
-                    # . . . .
-                    # . . . .
-                    . # # . .
-                    `).scrollImage(1, 45)
+                    image_cosin.scrollImage(1, 45)
                     draw_menu()
                 }
             } else {
-                basic.showLeds(`
-                . . . . .
-                . # # . .
-                # . . . .
-                # . . . .
-                . # # . .
-                `)
+                image_cosin.showImage(0)
                 draw_menu()
             }
             led.plot(2, 0)
@@ -2633,34 +2105,16 @@ function tool_calculator_menu() {
             if (animation_scroll == true) {
                 if (abuttonpressed == true) {
                     led.unplot(2, 0)
-                    images.createImage(`
-                    . . . . .
-                    . # . . .
-                    # # # . .
-                    . # . . .
-                    . # . . .
-                    `).showImage(0)
+                    image_tangent.showImage(0)
                     draw_menu()
                     abuttonpressed = false
                 } else {
                     led.unplot(2, 0)
-                    images.createImage(`
-                    . . . . .
-                    . # . . .
-                    # # # . .
-                    . # . . .
-                    . # . . .
-                    `).scrollImage(1, 45)
+                    image_tangent.scrollImage(1, 45)
                     draw_menu()
                 }
             } else {
-                basic.showLeds(`
-                . . . . .
-                . # . . .
-                # # # . .
-                . # . . .
-                . # . . .
-                `)
+                image_tangent.showImage(0)
                 draw_menu()
             }
             led.plot(2, 0)
@@ -2668,34 +2122,16 @@ function tool_calculator_menu() {
             if (animation_scroll == true) {
                 if (abuttonpressed == true) {
                     led.unplot(2, 0)
-                    images.createImage(`
-                    . . . . .
-                    # # # . #
-                    # . # . #
-                    # # # . #
-                    # . . . #
-                    `).showImage(0)
+                    image_pi.showImage(0)
                     draw_menu()
                     abuttonpressed = false
                 } else {
                     led.unplot(2, 0)
-                    images.createImage(`
-                    . . . . .
-                    # # # . #
-                    # . # . #
-                    # # # . #
-                    # . . . #
-                    `).scrollImage(1, 45)
+                    image_pi.scrollImage(1, 45)
                     draw_menu()
                 }
             } else {
-                basic.showLeds(`
-                . . . . .
-                # # # . #
-                # . # . #
-                # # # . #
-                # . . . #
-                `)
+                image_pi.showImage(0)
                 draw_menu()
             }
             led.plot(3, 0)
@@ -2703,34 +2139,16 @@ function tool_calculator_menu() {
             if (animation_scroll == true) {
                 if (abuttonpressed == true) {
                     led.unplot(3, 0)
-                    images.createImage(`
-                    . . . . .
-                    . # # # .
-                    # . . . #
-                    . . # # .
-                    . . # . .
-                    `).showImage(0)
+                    image_random.showImage(0)
                     draw_menu()
                     abuttonpressed = false
                 } else {
                     led.unplot(3, 0)
-                    images.createImage(`
-                    . . . . .
-                    . # # # .
-                    # . . . #
-                    . . # # .
-                    . . # . .
-                    `).scrollImage(1, 45)
+                    image_random.scrollImage(1, 45)
                     draw_menu()
                 }
             } else {
-                basic.showLeds(`
-                . . . . .
-                . # # # .
-                # . . . #
-                . . # # .
-                . . # . .
-                `)
+                image_random.showImage(0)
                 draw_menu()
             }
             led.plot(4, 0)
@@ -2794,34 +2212,16 @@ function tool_clock_menu() {
             if (animation_scroll == true) {
                 if (abuttonpressed == true) {
                     led.unplot(3, 0)
-                    images.createImage(`
-                    . . . . .
-                    # # . # #
-                    # # # # #
-                    . # . # .
-                    . # # # .
-                    `).showImage(0)
+                    image_signal.showImage(0)
                     draw_mini_menu()
                     abuttonpressed = false
                 } else {
                     led.unplot(3, 0)
-                    images.createImage(`
-                    . . . . .
-                    # # . # #
-                    # # # # #
-                    . # . # .
-                    . # # # .
-                    `).scrollImage(1, 45)
+                    image_signal.scrollImage(1, 45)
                     draw_mini_menu()
                 }
             } else {
-                basic.showLeds(`
-                . . . . .
-                # # . # #
-                # # # # #
-                . # . # .
-                . # # # .
-                `)
+                image_signal.showImage(0)
                 draw_mini_menu()
             }
             led.plot(1, 0)
@@ -2829,34 +2229,16 @@ function tool_clock_menu() {
             if (animation_scroll == true) {
                 if (abuttonpressed == true) {
                     led.unplot(1, 0)
-                    images.createImage(`
-                    . . . . .
-                    . . # . .
-                    . . # # #
-                    . . . . .
-                    . . . . .
-                    `).showImage(0)
+                    image_chronometer.showImage(0)
                     draw_mini_menu()
                     abuttonpressed = false
                 } else {
                     led.unplot(1, 0)
-                    images.createImage(`
-                    . . . . .
-                    . . # . .
-                    . . # # #
-                    . . . . .
-                    . . . . .
-                    `).scrollImage(1, 45)
+                    image_chronometer.scrollImage(1, 45)
                     draw_mini_menu()
                 }
             } else {
-                basic.showLeds(`
-                . . . . .
-                . . # . .
-                . . # # #
-                . . . . .
-                . . . . .
-                `)
+                image_chronometer.showImage(0)
                 draw_mini_menu()
             }
             led.plot(2, 0)
@@ -2864,34 +2246,16 @@ function tool_clock_menu() {
             if (animation_scroll == true) {
                 if (abuttonpressed == true) {
                     led.unplot(2, 0)
-                    images.createImage(`
-                    . . . . .
-                    # # . # #
-                    # . # . #
-                    # # . # #
-                    . . . . .
-                    `).showImage(0)
+                    image_timer.showImage(0)
                     draw_mini_menu()
                     abuttonpressed = false
                 } else {
                     led.unplot(2, 0)
-                    images.createImage(`
-                    . . . . .
-                    # # . # #
-                    # . # . #
-                    # # . # #
-                    . . . . .
-                    `).scrollImage(1, 45)
+                    image_timer.scrollImage(1, 45)
                     draw_mini_menu()
                 }
             } else {
-                basic.showLeds(`
-                . . . . .
-                # # . # #
-                # . # . #
-                # # . # #
-                . . . . .
-                `)
+                image_timer.showImage(0)
                 draw_mini_menu()
             }
             led.plot(3, 0)
@@ -2972,34 +2336,16 @@ function bluetooth_select_menu() {
             if (animation_scroll == true) {
                 if (abuttonpressed == true) {
                     led.unplot(4, 0)
-                    images.createImage(`
-                    . . . . .
-                    . # . . .
-                    # # # # #
-                    . # . . #
-                    . . . # #
-                    `).showImage(0)
+                    image_back.showImage(0)
                     draw_menu()
                     abuttonpressed = false
                 } else {
                     led.unplot(4, 0)
-                    images.createImage(`
-                    . . . . .
-                    . # . . .
-                    # # # # #
-                    . # . . #
-                    . . . # #
-                    `).scrollImage(1, 45)
+                    image_back.scrollImage(1, 45)
                     draw_menu()
                 }
             } else {
-                basic.showLeds(`
-                . . . . .
-                . # . . .
-                # # # # #
-                . # . . #
-                . . . # #
-                `)
+                image_back.showImage(0)
                 draw_menu()
             }
             led.plot(0, 0)
@@ -3007,34 +2353,16 @@ function bluetooth_select_menu() {
             if (animation_scroll == true) {
                 if (abuttonpressed == true) {
                     led.unplot(0, 0)
-                    images.createImage(`
-                    . . . . .
-                    . . # # .
-                    . . # . #
-                    # # # . .
-                    # # # . .
-                    `).showImage(0)
+                    image_note.showImage(0)
                     draw_menu()
                     abuttonpressed = false
                 } else {
                     led.unplot(0, 0)
-                    images.createImage(`
-                    . . . . .
-                    . . # # .
-                    . . # . #
-                    # # # . .
-                    # # # . .
-                    `).scrollImage(1, 45)
+                    image_note.scrollImage(1, 45)
                     draw_menu()
                 }
             } else {
-                basic.showLeds(`
-                . . . . .
-                . . # # .
-                . . # . #
-                # # # . .
-                # # # . .
-                `)
+                image_note.showImage(0)
                 draw_menu()
             }
             led.plot(1, 0)
@@ -3042,34 +2370,16 @@ function bluetooth_select_menu() {
             if (animation_scroll == true) {
                 if (abuttonpressed == true) {
                     led.unplot(1, 0)
-                    images.createImage(`
-                    . . . . .
-                    # # # . .
-                    # . . # .
-                    # . # . .
-                    . # . # .
-                    `).showImage(0)
+                    image_mouse.showImage(0)
                     draw_menu()
                     abuttonpressed = false
                 } else {
                     led.unplot(1, 0)
-                    images.createImage(`
-                    . . . . .
-                    # # # . .
-                    # . . # .
-                    # . # . .
-                    . # . # .
-                    `).scrollImage(1, 45)
+                    image_mouse.scrollImage(1, 45)
                     draw_menu()
                 }
             } else {
-                basic.showLeds(`
-                . . . . .
-                # # # . .
-                # . . # .
-                # . # . .
-                . # . # .
-                `)
+                image_mouse.showImage(0)
                 draw_menu()
             }
             led.plot(2, 0)
@@ -3077,34 +2387,16 @@ function bluetooth_select_menu() {
             if (animation_scroll == true) {
                 if (abuttonpressed == true) {
                     led.unplot(2, 0)
-                    images.createImage(`
-                    . . . . .
-                    . . . # #
-                    . # . . .
-                    # # # . .
-                    . # . . .
-                    `).showImage(0)
+                    image_gamepad.showImage(0)
                     draw_menu()
                     abuttonpressed = false
                 } else {
                     led.unplot(2, 0)
-                    images.createImage(`
-                    . . . . .
-                    . . . # #
-                    . # . . .
-                    # # # . .
-                    . # . . .
-                    `).scrollImage(1, 45)
+                    image_gamepad.scrollImage(1, 45)
                     draw_menu()
                 }
             } else {
-                basic.showLeds(`
-                . . . . .
-                . . . # #
-                . # . . .
-                # # # . .
-                . # . . .
-                `)
+                image_gamepad.showImage(0)
                 draw_menu()
             }
             led.plot(3, 0)
@@ -3112,34 +2404,16 @@ function bluetooth_select_menu() {
             if (animation_scroll == true) {
                 if (abuttonpressed == true) {
                     led.unplot(3, 0)
-                    images.createImage(`
-                    . . . . .
-                    . # . # .
-                    # . # . #
-                    . . . . .
-                    . # # # .
-                    `).showImage(0)
+                    image_keyboard.showImage(0)
                     draw_menu()
                     abuttonpressed = false
                 } else {
                     led.unplot(3, 0)
-                    images.createImage(`
-                    . . . . .
-                    . # . # .
-                    # . # . #
-                    . . . . .
-                    . # # # .
-                    `).scrollImage(1, 45)
+                    image_keyboard.scrollImage(1, 45)
                     draw_menu()
                 }
             } else {
-                basic.showLeds(`
-                . . . . .
-                . # . # .
-                # . # . #
-                . . . . .
-                . # # # .
-                `)
+                image_keyboard.showImage(0)
                 draw_menu()
             }
             led.plot(4, 0)
@@ -3199,34 +2473,16 @@ function bluetooth_keyboard_menu() {
             if (animation_scroll == true) {
                 if (abuttonpressed == true) {
                     led.unplot(4, 0)
-                    images.createImage(`
-                    . . . . .
-                    . # . . .
-                    # # # # #
-                    . # . . #
-                    . . . # #
-                    `).showImage(0)
+                    image_back.showImage(0)
                     draw_menu()
                     abuttonpressed = false
                 } else {
                     led.unplot(4, 0)
-                    images.createImage(`
-                    . . . . .
-                    . # . . .
-                    # # # # #
-                    . # . . #
-                    . . . # #
-                    `).scrollImage(1, 45)
+                    image_back.scrollImage(1, 45)
                     draw_menu()
                 }
             } else {
-                basic.showLeds(`
-                . . . . .
-                . # . . .
-                # # # # #
-                . # . . #
-                . . . # #
-                `)
+                image_back.showImage(0)
                 draw_menu()
             }
             led.plot(0, 0)
@@ -3234,34 +2490,16 @@ function bluetooth_keyboard_menu() {
             if (animation_scroll == true) {
                 if (abuttonpressed == true) {
                     led.unplot(0, 0)
-                    images.createImage(`
-                    . . . . .
-                    . # . # .
-                    # . # . #
-                    . . . . .
-                    . # # # .
-                    `).showImage(0)
+                    image_keyboard.showImage(0)
                     draw_menu()
                     abuttonpressed = false
                 } else {
                     led.unplot(0, 0)
-                    images.createImage(`
-                    . . . . .
-                    . # . # .
-                    # . # . #
-                    . . . . .
-                    . # # # .
-                    `).scrollImage(1, 45)
+                    image_keyboard.scrollImage(1, 45)
                     draw_menu()
                 }
             } else {
-                basic.showLeds(`
-                . . . . .
-                . # . # .
-                # . # . #
-                . . . . .
-                . # # # .
-                `)
+                image_keyboard.showImage(0)
                 draw_menu()
             }
             led.plot(1, 0)
@@ -3269,34 +2507,16 @@ function bluetooth_keyboard_menu() {
             if (animation_scroll == true) {
                 if (abuttonpressed == true) {
                     led.unplot(1, 0)
-                    images.createImage(`
-                    . . . . .
-                    # . # # #
-                    # . # . #
-                    # . # . #
-                    # . # # #
-                    `).showImage(0)
+                    image_numbers.showImage(0)
                     draw_menu()
                     abuttonpressed = false
                 } else {
                     led.unplot(1, 0)
-                    images.createImage(`
-                    . . . . .
-                    # . # # #
-                    # . # . #
-                    # . # . #
-                    # . # # #
-                    `).scrollImage(1, 45)
+                    image_numbers.scrollImage(1, 45)
                     draw_menu()
                 }
             } else {
-                basic.showLeds(`
-                . . . . .
-                # . # # #
-                # . # . #
-                # . # . #
-                # . # # #
-                `)
+                image_numbers.showImage(0)
                 draw_menu()
             }
             led.plot(2, 0)
@@ -3304,34 +2524,16 @@ function bluetooth_keyboard_menu() {
             if (animation_scroll == true) {
                 if (abuttonpressed == true) {
                     led.unplot(2, 0)
-                    images.createImage(`
-                    . . . . .
-                    . # . # .
-                    # # # # #
-                    . # . # .
-                    . . . . .
-                    `).showImage(0)
+                    image_arrows.showImage(0)
                     draw_menu()
                     abuttonpressed = false
                 } else {
                     led.unplot(2, 0)
-                    images.createImage(`
-                    . . . . .
-                    . # . # .
-                    # # # # #
-                    . # . # .
-                    . . . . .
-                    `).scrollImage(1, 45)
+                    image_arrows.scrollImage(1, 45)
                     draw_menu()
                 }
             } else {
-                basic.showLeds(`
-                . . . . .
-                . # . # .
-                # # # # #
-                . # . # .
-                . . . . .
-                `)
+                image_arrows.showImage(0)
                 draw_menu()
             }
             led.plot(3, 0)
@@ -3339,34 +2541,16 @@ function bluetooth_keyboard_menu() {
             if (animation_scroll == true) {
                 if (abuttonpressed == true) {
                     led.unplot(3, 0)
-                    images.createImage(`
-                    . . . . .
-                    . # # . .
-                    # . . . .
-                    # . . . .
-                    . # # . .
-                    `).showImage(0)
+                    image_cosin.showImage(0)
                     draw_menu()
                     abuttonpressed = false
                 } else {
                     led.unplot(3, 0)
-                    images.createImage(`
-                    . . . . .
-                    . # # . .
-                    # . . . .
-                    # . . . .
-                    . # # . .
-                    `).scrollImage(1, 45)
+                    image_cosin.scrollImage(1, 45)
                     draw_menu()
                 }
             } else {
-                basic.showLeds(`
-                . . . . .
-                . # # . .
-                # . . . .
-                # . . . .
-                . # # . .
-                `)
+                image_cosin.showImage(0)
                 draw_menu()
             }
             led.plot(4, 0)
@@ -3424,34 +2608,16 @@ function create_select_menu() {
             if (animation_scroll == true) {
                 if (abuttonpressed == true) {
                     led.unplot(4, 0)
-                    images.createImage(`
-                    . . . . .
-                    . # . . .
-                    # # # # #
-                    . # . . #
-                    . . . # #
-                    `).showImage(0)
+                    image_back.showImage(0)
                     draw_menu()
                     abuttonpressed = false
                 } else {
                     led.unplot(4, 0)
-                    images.createImage(`
-                    . . . . .
-                    . # . . .
-                    # # # # #
-                    . # . . #
-                    . . . # #
-                    `).scrollImage(1, 45)
+                    image_back.scrollImage(1, 45)
                     draw_menu()
                 }
             } else {
-                basic.showLeds(`
-                . . . . .
-                . # . . .
-                # # # # #
-                . # . . #
-                . . . # #
-                `)
+                image_back.showImage(0)
                 draw_menu()
             }
             led.plot(0, 0)
@@ -3459,34 +2625,16 @@ function create_select_menu() {
             if (animation_scroll == true) {
                 if (abuttonpressed == true) {
                     led.unplot(4, 0)
-                    images.createImage(`
-                    . . . . .
-                    . . # . .
-                    . # # . .
-                    . . # . .
-                    . . # . .
-                    `).showImage(0)
+                    image_numberone.showImage(0)
                     draw_menu()
                     abuttonpressed = false
                 } else {
                     led.unplot(4, 0)
-                    images.createImage(`
-                    . . . . .
-                    . . # . .
-                    . # # . .
-                    . . # . .
-                    . . # . .
-                    `).scrollImage(1, 45)
+                    image_numberone.scrollImage(1, 45)
                     draw_menu()
                 }
             } else {
-                basic.showLeds(`
-                . . . . .
-                . . # . .
-                . # # . .
-                . . # . .
-                . . # . .
-                `)
+                image_numberone.showImage(0)
                 draw_menu()
             }
             led.plot(1, 0)
@@ -3494,34 +2642,16 @@ function create_select_menu() {
             if (animation_scroll == true) {
                 if (abuttonpressed == true) {
                     led.unplot(1, 0)
-                    images.createImage(`
-                    . . . . .
-                    . . . . .
-                    # . . . #
-                    # # # # #
-                    . . . . .
-                    `).showImage(0)
+                    image_text.showImage(0)
                     draw_menu()
                     abuttonpressed = false
                 } else {
                     led.unplot(1, 0)
-                    images.createImage(`
-                    . . . . .
-                    . . . . .
-                    # . . . #
-                    # # # # #
-                    . . . . .
-                    `).scrollImage(1, 45)
+                    image_text.scrollImage(1, 45)
                     draw_menu()
                 }
             } else {
-                basic.showLeds(`
-                . . . . .
-                . . . . .
-                # . . . #
-                # # # # #
-                . . . . .
-                `)
+                image_text.showImage(0)
                 draw_menu()
             }
             led.plot(2, 0)
@@ -3529,34 +2659,16 @@ function create_select_menu() {
             if (animation_scroll == true) {
                 if (abuttonpressed == true) {
                     led.unplot(2, 0)
-                    images.createImage(`
-                    . . . . .
-                    . . # # .
-                    . . # . #
-                    # # # . .
-                    # # # . .
-                    `).showImage(0)
+                    image_note.showImage(0)
                     draw_menu()
                     abuttonpressed = false
                 } else {
                     led.unplot(2, 0)
-                    images.createImage(`
-                    . . . . .
-                    . . # # .
-                    . . # . #
-                    # # # . .
-                    # # # . .
-                    `).scrollImage(1, 45)
+                    image_note.scrollImage(1, 45)
                     draw_menu()
                 }
             } else {
-                basic.showLeds(`
-                . . . . .
-                . . # # .
-                . . # . #
-                # # # . .
-                # # # . .
-                `)
+                image_note.showImage(0)
                 draw_menu()
             }
             led.plot(3, 0)
@@ -3564,34 +2676,16 @@ function create_select_menu() {
             if (animation_scroll == true) {
                 if (abuttonpressed == true) {
                     led.unplot(3, 0)
-                    images.createImage(`
-                    . . . . .
-                    # # # # #
-                    # # . . #
-                    # . . # #
-                    # # # # #
-                    `).showImage(0)
+                    image_image.showImage(0)
                     draw_menu()
                     abuttonpressed = false
                 } else {
                     led.unplot(3, 0)
-                    images.createImage(`
-                    . . . . .
-                    # # # # #
-                    # # . . #
-                    # . . # #
-                    # # # # #
-                    `).scrollImage(1, 45)
+                    image_image.scrollImage(1, 45)
                     draw_menu()
                 }
             } else {
-                basic.showLeds(`
-                . . . . .
-                # # # # #
-                # # . . #
-                # . . # #
-                # # # # #
-                `)
+                image_image.showImage(0)
                 draw_menu()
             }
             led.plot(4, 0)
@@ -3644,34 +2738,16 @@ function create_music_menu() {
             if (animation_scroll == true) {
                 if (abuttonpressed == true) {
                     led.unplot(4, 0)
-                    images.createImage(`
-                    . . . . .
-                    . # . . .
-                    . . # . #
-                    # . . . .
-                    . . . # .
-                    `).showImage(0)
+                    image_music8.showImage(0)
                     draw_menu()
                     abuttonpressed = false
                 } else {
                     led.unplot(4, 0)
-                    images.createImage(`
-                    . . . . .
-                    . # . . .
-                    . . # . #
-                    # . . . .
-                    . . . # .
-                    `).scrollImage(1, 45)
+                    image_music8.scrollImage(1, 45)
                     draw_menu()
                 }
             } else {
-                basic.showLeds(`
-        . . . . .
-        . # . . .
-        . . # . #
-        # . . . .
-        . . . # .
-        `)
+                image_music8.showImage(0)
                 draw_menu()
             }
             led.plot(0, 0)
@@ -3679,34 +2755,16 @@ function create_music_menu() {
             if (animation_scroll == true) {
                 if (abuttonpressed == true) {
                     led.unplot(0, 0)
-                    images.createImage(`
-                    . . . . .
-                    . . # # .
-                    . . # . #
-                    # # # . .
-                    # # # . .
-                    `).showImage(0)
+                    image_note.showImage(0)
                     draw_menu()
                     abuttonpressed = false
                 } else {
                     led.unplot(0, 0)
-                    images.createImage(`
-                    . . . . .
-                    . . # # .
-                    . . # . #
-                    # # # . .
-                    # # # . .
-                    `).scrollImage(1, 45)
+                    image_note.scrollImage(1, 45)
                     draw_menu()
                 }
             } else {
-                basic.showLeds(`
-        . . . . .
-        . . # # .
-        . . # . #
-        # # # . .
-        # # # . .
-        `)
+                image_note.showImage(0)
                 draw_menu()
             }
             led.plot(1, 0)
@@ -3714,34 +2772,16 @@ function create_music_menu() {
             if (animation_scroll == true) {
                 if (abuttonpressed == true) {
                     led.unplot(1, 0)
-                    images.createImage(`
-                    . . . . .
-                    # . # . .
-                    # . # . .
-                    . # . . #
-                    . . . . #
-                    `).showImage(0)
+                    image_musicv2.showImage(0)
                     draw_menu()
                     abuttonpressed = false
                 } else {
                     led.unplot(1, 0)
-                    images.createImage(`
-                    . . . . .
-                    # . # . .
-                    # . # . .
-                    . # . . #
-                    . . . . #
-                    `).scrollImage(1, 45)
+                    image_musicv2.scrollImage(1, 45)
                     draw_menu()
                 }
             } else {
-                basic.showLeds(`
-        . . . . .
-        # . # . .
-        # . # . .
-        . # . . #
-        . . . . #
-        `)
+                image_musicv2.showImage(0)
                 draw_menu()
             }
             led.plot(2, 0)
@@ -3749,34 +2789,16 @@ function create_music_menu() {
             if (animation_scroll == true) {
                 if (abuttonpressed == true) {
                     led.unplot(2, 0)
-                    images.createImage(`
-                    . . . . .
-                    # # . . .
-                    # . # . #
-                    # # . # .
-                    # . # . #
-                    `).showImage(0)
+                    image_musicfx.showImage(0)
                     draw_menu()
                     abuttonpressed = false
                 } else {
                     led.unplot(2, 0)
-                    images.createImage(`
-                    . . . . .
-                    # # . . .
-                    # . # . #
-                    # # . # .
-                    # . # . #
-                    `).scrollImage(1, 45)
+                    image_musicfx.scrollImage(1, 45)
                     draw_menu()
                 }
             } else {
-                basic.showLeds(`
-        . . . . .
-        # # . . .
-        # . # . #
-        # # . # .
-        # . # . #
-        `)
+                image_musicfx.showImage(0)
                 draw_menu()
             }
             led.plot(3, 0)
@@ -3784,34 +2806,16 @@ function create_music_menu() {
             if (animation_scroll == true) {
                 if (abuttonpressed == true) {
                     led.unplot(3, 0)
-                    images.createImage(`
-                    . . . . .
-                    . . # . .
-                    . # # # .
-                    . . # . .
-                    . . . . .
-                    `).showImage(0)
+                    image_create.showImage(0)
                     draw_menu()
                     abuttonpressed = false
                 } else {
                     led.unplot(3, 0)
-                    images.createImage(`
-                    . . . . .
-                    . . # . .
-                    . # # # .
-                    . . # . .
-                    . . . . .
-                    `).scrollImage(1, 45)
+                    image_create.scrollImage(1, 45)
                     draw_menu()
                 }
             } else {
-                basic.showLeds(`
-            . . . . .
-            . . # . .
-            . # # # .
-            . . # . .
-            . . . . .
-        `)
+                image_create.showImage(0)
                 draw_menu()
             }
             led.plot(4, 0)
@@ -3862,34 +2866,16 @@ function pins_select_menu() {
             if (animation_scroll == true) {
                 if (abuttonpressed == true) {
                     led.unplot(4, 0)
-                    images.createImage(`
-                    . . . . .
-                    . # . . .
-                    # # # # #
-                    . # . . #
-                    . . . # #
-                    `).showImage(0)
+                    image_back.showImage(0)
                     draw_menu()
                     abuttonpressed = false
                 } else {
                     led.unplot(4, 0)
-                    images.createImage(`
-                    . . . . .
-                    . # . . .
-                    # # # # #
-                    . # . . #
-                    . . . # #
-                    `).scrollImage(1, 45)
+                    image_back.scrollImage(1, 45)
                     draw_menu()
                 }
             } else {
-                basic.showLeds(`
-                . . . . .
-                . # . . .
-                # # # # #
-                . # . . #
-                . . . # #
-        `)
+                image_back.showImage(0)
                 draw_menu()
             }
             led.plot(0, 0)
@@ -3897,34 +2883,16 @@ function pins_select_menu() {
             if (animation_scroll == true) {
                 if (abuttonpressed == true) {
                     led.unplot(0, 0)
-                    images.createImage(`
-                    . . . . .
-                    . # # # .
-                    . # . # .
-                    . # . # .
-                    . # # # .
-                    `).showImage(0)
+                    image_zero.showImage(0)
                     draw_menu()
                     abuttonpressed = false
                 } else {
                     led.unplot(0, 0)
-                    images.createImage(`
-                    . . . . .
-                    . # # # .
-                    . # . # .
-                    . # . # .
-                    . # # # .
-                    `).scrollImage(1, 45)
+                    image_zero.scrollImage(1, 45)
                     draw_menu()
                 }
             } else {
-                basic.showLeds(`
-                    . . . . .
-                    . # # # .
-                    . # . # .
-                    . # . # .
-                    . # # # .
-        `)
+                image_zero.showImage(0)
                 draw_menu()
             }
             led.plot(1, 0)
@@ -3932,34 +2900,16 @@ function pins_select_menu() {
             if (animation_scroll == true) {
                 if (abuttonpressed == true) {
                     led.unplot(1, 0)
-                    images.createImage(`
-                    . . . . .
-                    . . . # .
-                    . . # # .
-                    . . . # .
-                    . . . # .
-                    `).showImage(0)
+                    image_numberone.showImage(0)
                     draw_menu()
                     abuttonpressed = false
                 } else {
                     led.unplot(1, 0)
-                    images.createImage(`
-                    . . . . .
-                    . . . # .
-                    . . # # .
-                    . . . # .
-                    . . . # .
-                    `).scrollImage(1, 45)
+                    image_numberone.scrollImage(1, 45)
                     draw_menu()
                 }
             } else {
-                basic.showLeds(`
-                    . . . . .
-                    . . . # .
-                    . . # # .
-                    . . . # .
-                    . . . # .
-        `)
+                image_numberone.showImage(0)
                 draw_menu()
             }
             led.plot(2, 0)
@@ -3967,34 +2917,16 @@ function pins_select_menu() {
             if (animation_scroll == true) {
                 if (abuttonpressed == true) {
                     led.unplot(2, 0)
-                    images.createImage(`
-                    . . . . .
-                    . # # # .
-                    . . . # .
-                    . . # . .
-                    . # # # .
-                    `).showImage(0)
+                    image_two.showImage(0)
                     draw_menu()
                     abuttonpressed = false
                 } else {
                     led.unplot(2, 0)
-                    images.createImage(`
-                    . . . . .
-                    . # # # .
-                    . . . # .
-                    . . # . .
-                    . # # # .
-                    `).scrollImage(1, 45)
+                    image_two.scrollImage(1, 45)
                     draw_menu()
                 }
             } else {
-                basic.showLeds(`
-                    . . . . .
-                    . # # # .
-                    . . . # .
-                    . . # . .
-                    . # # # .
-                    `)
+                image_two.showImage(0)
                 draw_menu()
             }
             led.plot(3, 0)
@@ -4002,34 +2934,16 @@ function pins_select_menu() {
             if (animation_scroll == true) {
                 if (abuttonpressed == true) {
                     led.unplot(3, 0)
-                    images.createImage(`
-                    # # . . .
-                    . # . . .
-                    # # # . #
-                    . # # . #
-                    # # . # .
-                    `).showImage(0)
+                    image_3v.showImage(0)
                     draw_menu()
                     abuttonpressed = false
                 } else {
                     led.unplot(3, 0)
-                    images.createImage(`
-                    # # . . .
-                    . # . . .
-                    # # # . #
-                    . # # . #
-                    # # . # .
-                    `).scrollImage(1, 45)
+                    image_3v.scrollImage(1, 45)
                     draw_menu()
                 }
             } else {
-                basic.showLeds(`
-                    # # . . .
-                    . # . . .
-                    # # # . #
-                    . # # . #
-                    # # . # .
-        `)
+                image_3v.showImage(0)
                 draw_menu()
             }
             led.plot(4, 0)
@@ -4080,34 +2994,16 @@ function serial_select_menu() {
             if (animation_scroll == true) {
                 if (abuttonpressed == true) {
                     led.unplot(3, 0)
-                    images.createImage(`
-                    . . . . .
-                    . # . . .
-                    # # # # #
-                    . # . . #
-                    . . . # #
-                    `).showImage(0)
+                    image_back.showImage(0)
                     draw_mini_menu()
                     abuttonpressed = false
                 } else {
                     led.unplot(3, 0)
-                    images.createImage(`
-                    . . . . .
-                    . # . . .
-                    # # # # #
-                    . # . . #
-                    . . . # #
-                    `).scrollImage(1, 45)
+                    image_back.scrollImage(1, 45)
                     draw_mini_menu()
                 }
             } else {
-                basic.showLeds(`
-                . . . . .
-                . # . . .
-                # # # # #
-                . # . . #
-                . . . # #
-                `)
+                image_back.showImage(0)
                 draw_mini_menu()
             }
             led.plot(1, 0)
@@ -4115,34 +3011,16 @@ function serial_select_menu() {
             if (animation_scroll == true) {
                 if (abuttonpressed == true) {
                     led.unplot(1, 0)
-                    images.createImage(`
-                    . . . . .
-                    . . # . .
-                    . # # # .
-                    # . # . #
-                    . . # . .
-                    `).showImage(0)
+                    image_north.showImage(0)
                     draw_mini_menu()
                     abuttonpressed = false
                 } else {
                     led.unplot(1, 0)
-                    images.createImage(`
-                    . . . . .
-                    . . # . .
-                    . # # # .
-                    # . # . #
-                    . . # . .
-                    `).scrollImage(1, 45)
+                    image_north.scrollImage(1, 45)
                     draw_mini_menu()
                 }
             } else {
-                basic.showLeds(`
-                . . . . .
-                    . . # . .
-                    . # # # .
-                    # . # . #
-                    . . # . .
-                `)
+                image_north.showImage(0)
                 draw_mini_menu()
             }
             led.plot(2, 0)
@@ -4150,34 +3028,16 @@ function serial_select_menu() {
             if (animation_scroll == true) {
                 if (abuttonpressed == true) {
                     led.unplot(2, 0)
-                    images.createImage(`
-                    . . . . .
-                    . . # . .
-                    # . # . #
-                    . # # # .
-                    . . # . .
-                    `).showImage(0)
+                    image_serial.showImage(0)
                     draw_mini_menu()
                     abuttonpressed = false
                 } else {
                     led.unplot(2, 0)
-                    images.createImage(`
-                    . . . . .
-                    . . # . .
-                    # . # . #
-                    . # # # .
-                    . . # . .
-                    `).scrollImage(1, 45)
+                    image_serial.scrollImage(1, 45)
                     draw_mini_menu()
                 }
             } else {
-                basic.showLeds(`
-                . . . . .
-                . . # . .
-                # . # . #
-                . # # # .
-                . . # . .
-                `)
+                image_serial.showImage(0)
                 draw_mini_menu()
             }
             led.plot(3, 0)
@@ -4224,34 +3084,16 @@ function settings_select_menu() {
             if (animation_scroll == true) {
                 if (abuttonpressed == true) {
                     led.unplot(4, 0)
-                    images.createImage(`
-                    . . . . .
-                    . # . . .
-                    # # # # #
-                    . # . . #
-                    . . . # #
-                    `).showImage(0)
+                    image_back.showImage(0)
                     draw_menu()
                     abuttonpressed = false
                 } else {
                     led.unplot(4, 0)
-                    images.createImage(`
-                    . . . . .
-                    . # . . .
-                    # # # # #
-                    . # . . #
-                    . . . # #
-                    `).scrollImage(1, 45)
+                    image_back.scrollImage(1, 45)
                     draw_menu()
                 }
             } else {
-                basic.showLeds(`
-                . . . . .
-                . # . . .
-                # # # # #
-                . # . . #
-                . . . # #
-                `)
+                image_back.showImage(0)
                 draw_menu()
             }
             led.plot(0, 0)
@@ -4260,65 +3102,29 @@ function settings_select_menu() {
                 if (abuttonpressed == true) {
                     led.unplot(0, 0)
                     if (settings_music == false) {
-                        images.createImage(`
-                        . . . . .
-                        . . # # .
-                        . . # . #
-                        # # # . .
-                        # # # . .
-                        `).showImage(0)
+                        image_note.showImage(0)
                         settings_music_draw()
                     } else {
-                        images.createImage(`
-                        . . . . .
-                        . . # # .
-                        . . # . #
-                        # # # . .
-                        # # # . .
-                        `).showImage(0)
+                        image_note.showImage(0)
                     }
                     draw_menu()
                     abuttonpressed = false
                 } else {
                     led.unplot(0, 0)
                     if (settings_music == false) {
-                        images.createImage(`
-                        . . . . .
-                        . . # # .
-                        . . # . #
-                        # # # . .
-                        # # # . .
-                        `).scrollImage(1, 45)
+                        image_note.scrollImage(1, 45)
                         settings_music_draw()
                     } else {
-                        images.createImage(`
-                        . . . . .
-                        . . # # .
-                        . . # . #
-                        # # # . .
-                        # # # . .
-                        `).scrollImage(1, 45)
+                        image_note.scrollImage(1, 45)
                     }
                     draw_menu()
                 }
             } else {
                 if (settings_music == false) {
-                    basic.showLeds(`
-                    . . . . .
-                    . . # # .
-                    . . # . #
-                    # # # . .
-                    # # # . .
-                    `)
+                    image_note.showImage(0)
                     settings_music_draw()
                 } else {
-                    basic.showLeds(`
-                . . . . .
-                . . # # .
-                . . # . #
-                # # # . .
-                # # # . .
-                `)
+                    image_note.showImage(0)
                 }
                 draw_menu()
             }
@@ -4328,59 +3134,29 @@ function settings_select_menu() {
                 if (abuttonpressed == true) {
                     led.unplot(1, 0)
                     if (settings_volume == 1) {
-                        images.createImage(`
-                . . . . .
-                . . . . .
-                # . . . .
-                # . . . .
-                . . . . .
-                `).showImage(0)
+                        image_volume.showImage(0)
                         music.setVolume(50)
                         led.plotBrightness(2, 1, 20)
                     } else if (settings_volume == 2) {
-                        images.createImage(`
-                . . . . .
-                . . . . .
-                # . . . .
-                # . . . .
-                . . . . .
-                `).showImage(0)
+                        image_volume.showImage(0)
                         music.setVolume(100)
                         led.plotBrightness(2, 1, 20)
                         led.plotBrightness(3, 2, 20)
                     } else if (settings_volume == 3) {
-                        images.createImage(`
-                . . . . .
-                . . . . .
-                # . . . .
-                # . . . .
-                . . . . .
-                `).showImage(0)
+                        image_volume.showImage(0)
                         music.setVolume(150)
                         led.plotBrightness(2, 1, 20)
                         led.plotBrightness(3, 2, 20)
                         led.plotBrightness(3, 3, 20)
                     } else if (settings_volume == 4) {
-                        images.createImage(`
-                . . . . .
-                . . . . .
-                # . . . .
-                # . . . .
-                . . . . .
-                `).showImage(0)
+                        image_volume.showImage(0)
                         music.setVolume(200)
                         led.plotBrightness(2, 1, 20)
                         led.plotBrightness(3, 2, 20)
                         led.plotBrightness(3, 3, 20)
                         led.plotBrightness(2, 4, 20)
                     } else {
-                        images.createImage(`
-                . . . . .
-                . . # . .
-                # . . # .
-                # . . # .
-                . . # . .
-                `).showImage(0)
+                        image_volume_full.showImage(0)
                         music.setVolume(255)
                     }
                     draw_menu()
@@ -4388,118 +3164,58 @@ function settings_select_menu() {
                 } else {
                     led.unplot(1, 0)
                     if (settings_volume == 1) {
-                        images.createImage(`
-                . . . . .
-                . . . . .
-                # . . . .
-                # . . . .
-                . . . . .
-                `).scrollImage(1, 45)
+                        image_volume.scrollImage(1, 45)
                         music.setVolume(50)
                         led.plotBrightness(2, 1, 20)
                     } else if (settings_volume == 2) {
-                        images.createImage(`
-                . . . . .
-                . . . . .
-                # . . . .
-                # . . . .
-                . . . . .
-                `).scrollImage(1, 45)
+                        image_volume.scrollImage(1, 45)
                         music.setVolume(100)
                         led.plotBrightness(2, 1, 20)
                         led.plotBrightness(3, 2, 20)
                     } else if (settings_volume == 3) {
-                        images.createImage(`
-                . . . . .
-                . . . . .
-                # . . . .
-                # . . . .
-                . . . . .
-                `).scrollImage(1, 45)
+                        image_volume.scrollImage(1, 45)
                         music.setVolume(150)
                         led.plotBrightness(2, 1, 20)
                         led.plotBrightness(3, 2, 20)
                         led.plotBrightness(3, 3, 20)
                     } else if (settings_volume == 4) {
-                        images.createImage(`
-                . . . . .
-                . . . . .
-                # . . . .
-                # . . . .
-                . . . . .
-                `).scrollImage(1, 45)
+                        image_volume.scrollImage(1, 45)
                         music.setVolume(200)
                         led.plotBrightness(2, 1, 20)
                         led.plotBrightness(3, 2, 20)
                         led.plotBrightness(3, 3, 20)
                         led.plotBrightness(2, 4, 20)
                     } else {
-                        images.createImage(`
-                . . . . .
-                . . # . .
-                # . . # .
-                # . . # .
-                . . # . .
-                `).scrollImage(1, 45)
+                        image_volume_full.scrollImage(1, 45)
                         music.setVolume(255)
                     }
                     draw_menu()
                 }
             } else {
                 if (settings_volume == 1) {
-                    basic.showLeds(`
-                . . . . .
-                . . . . .
-                # . . . .
-                # . . . .
-                . . . . .
-                `)
+                    image_volume.showImage(0)
                     music.setVolume(50)
                     led.plotBrightness(2, 1, 20)
                 } else if (settings_volume == 2) {
-                    basic.showLeds(`
-                . . . . .
-                . . . . .
-                # . . . .
-                # . . . .
-                . . . . .
-                `)
+                    image_volume.showImage(0)
                     music.setVolume(100)
                     led.plotBrightness(2, 1, 20)
                     led.plotBrightness(3, 2, 20)
                 } else if (settings_volume == 3) {
-                    basic.showLeds(`
-                . . . . .
-                . . . . .
-                # . . . .
-                # . . . .
-                . . . . .
-                `)
+                    image_volume.showImage(0)
                     music.setVolume(150)
                     led.plotBrightness(2, 1, 20)
                     led.plotBrightness(3, 2, 20)
                     led.plotBrightness(3, 3, 20)
                 } else if (settings_volume == 4) {
-                    basic.showLeds(`
-                . . . . .
-                . . . . .
-                # . . . .
-                # . . . .
-                . . . . .
-                `)
+                    image_volume.showImage(0)
                     music.setVolume(200)
                     led.plotBrightness(2, 1, 20)
                     led.plotBrightness(3, 2, 20)
                     led.plotBrightness(3, 3, 20)
                     led.plotBrightness(2, 4, 20)
                 } else {
-                    basic.showLeds(`
-                . . . . .
-                . . # . .
-                # . . # .
-                # . . # .
-                . . # . .
-                `)
+                    image_volume_full.showImage(0)
                     music.setVolume(255)
                 }
                 draw_menu()
@@ -4511,58 +3227,22 @@ function settings_select_menu() {
                     led.unplot(2, 0)
                     if (settings_brightness == 1) {
                         led.setBrightness(50)
-                        images.createImage(`
-                . . . . .
-                . . . . .
-                # . . . .
-                . # . # .
-                . # # # .
-                `).showImage(0)
+                        image_brightness1.showImage(0)
                     } else if (settings_brightness == 2) {
                         led.setBrightness(100)
-                        images.createImage(`
-                . . . . .
-                . # . . .
-                # . . . .
-                . # . # .
-                . # # # .
-                `).showImage(0)
+                        image_brightness2.showImage(0)
                     } else if (settings_brightness == 3) {
                         led.setBrightness(150)
-                        images.createImage(`
-                . . . . .
-                . # # . .
-                # . . . .
-                . # . # .
-                . # # # .
-                `).showImage(0)
+                        image_brightness3.showImage(0)
                     } else if (settings_brightness == 4) {
                         led.setBrightness(200)
-                        images.createImage(`
-                . . . . .
-                . # # # .
-                # . . . .
-                . # . # .
-                . # # # .
-                `).showImage(0)
+                        image_brightness4.showImage(0)
                     } else if (settings_brightness == 5) {
                         led.setBrightness(255)
-                        images.createImage(`
-                . . . . .
-                . # # # .
-                # . . . #
-                . # . # .
-                . # # # .
-                `).showImage(0)
+                        image_brightness5.showImage(0)
                     }
                     if (settings_auto_brigthness == true) {
-                        images.createImage(`
-                . . . . .
-                . # # # .
-                . # . # .
-                . # # # .
-                . # . # .
-                `).showImage(0)
+                        image_auto.showImage(0)
                     }
                     draw_menu()
                     abuttonpressed = false
@@ -4570,116 +3250,44 @@ function settings_select_menu() {
                     led.unplot(2, 0)
                     if (settings_brightness == 1) {
                         led.setBrightness(50)
-                        images.createImage(`
-                . . . . .
-                . . . . .
-                # . . . .
-                . # . # .
-                . # # # .
-                `).scrollImage(1, 45)
+                        image_brightness1.scrollImage(1, 45)
                     } else if (settings_brightness == 2) {
                         led.setBrightness(100)
-                        images.createImage(`
-                . . . . .
-                . # . . .
-                # . . . .
-                . # . # .
-                . # # # .
-                `).scrollImage(1, 45)
+                        image_brightness2.scrollImage(1, 45)
                     } else if (settings_brightness == 3) {
                         led.setBrightness(150)
-                        images.createImage(`
-                . . . . .
-                . # # . .
-                # . . . .
-                . # . # .
-                . # # # .
-                `).scrollImage(1, 45)
+                        image_brightness3.scrollImage(1, 45)
                     } else if (settings_brightness == 4) {
                         led.setBrightness(200)
-                        images.createImage(`
-                . . . . .
-                . # # # .
-                # . . . .
-                . # . # .
-                . # # # .
-                `).scrollImage(1, 45)
+                        image_brightness4.scrollImage(1, 45)
                     } else if (settings_brightness == 5) {
                         led.setBrightness(255)
-                        images.createImage(`
-                . . . . .
-                . # # # .
-                # . . . #
-                . # . # .
-                . # # # .
-                `).scrollImage(1, 45)
+                        image_brightness5.scrollImage(1, 45)
                     }
                     if (settings_auto_brigthness == true) {
-                        images.createImage(`
-                . . . . .
-                . # # # .
-                . # . # .
-                . # # # .
-                . # . # .
-                `).scrollImage(1, 45)
+                        image_auto.scrollImage(1, 45)
                     }
                     draw_menu()
                 }
             } else {
                 if (settings_brightness == 1) {
                     led.setBrightness(50)
-                    basic.showLeds(`
-                . . . . .
-                . . . . .
-                # . . . .
-                . # . # .
-                . # # # .
-                `)
+                    image_brightness2.showImage(0)
                 } else if (settings_brightness == 2) {
                     led.setBrightness(100)
-                    basic.showLeds(`
-                . . . . .
-                . # . . .
-                # . . . .
-                . # . # .
-                . # # # .
-                `)
+                    image_brightness2.showImage(0)
                 } else if (settings_brightness == 3) {
                     led.setBrightness(150)
-                    basic.showLeds(`
-                . . . . .
-                . # # . .
-                # . . . .
-                . # . # .
-                . # # # .
-                `)
+                    image_brightness3.showImage(0)
                 } else if (settings_brightness == 4) {
                     led.setBrightness(200)
-                    basic.showLeds(`
-                . . . . .
-                . # # # .
-                # . . . .
-                . # . # .
-                . # # # .
-                `)
+                    image_brightness4.showImage(0)
                 } else if (settings_brightness == 5) {
                     led.setBrightness(255)
-                    basic.showLeds(`
-                . . . . .
-                . # # # .
-                # . . . #
-                . # . # .
-                . # # # .
-                `)
+                    image_brightness5.showImage(0)
                 }
                 if (settings_auto_brigthness == true) {
-                    basic.showLeds(`
-                . . . . .
-                . # # # .
-                . # . # .
-                . # # # .
-                . # . # .
-                `)
+                    image_auto.showImage(0)
                 }
                 draw_menu()
             }
@@ -4689,13 +3297,7 @@ function settings_select_menu() {
                 if (abuttonpressed == true) {
                     led.unplot(2, 0)
                     if (logged_data == false) {
-                        images.createImage(`
-                . . . . .
-                # . # . #
-                # # # # #
-                # . # . #
-                # # # # #
-                `).showImage(0)
+                        image_log.showImage(0)
                     } else {
                         basic.showIcon(IconNames.Yes)
                     }
@@ -4704,13 +3306,7 @@ function settings_select_menu() {
                 } else {
                     led.unplot(2, 0)
                     if (logged_data == false) {
-                        images.createImage(`
-                . . . . .
-                # . # . #
-                # # # # #
-                # . # . #
-                # # # # #
-                `).scrollImage(1, 45)
+                        image_log.scrollImage(1, 45)
                     } else {
                         basic.showIcon(IconNames.Yes)
                     }
@@ -4718,13 +3314,7 @@ function settings_select_menu() {
                 }
             } else {
                 if (logged_data == false) {
-                    basic.showLeds(`
-                . . . . .
-                # . # . #
-                # # # # #
-                # . # . #
-                # # # # #
-                `)
+                    image_log.showImage(0)
                 } else {
                     basic.showIcon(IconNames.Yes)
                 }
@@ -4735,34 +3325,16 @@ function settings_select_menu() {
             if (animation_scroll == true) {
                 if (abuttonpressed == true) {
                     led.unplot(2, 0)
-                    images.createImage(`
-                    . . . . .
-                    . # # . #
-                    # . . # .
-                    # . . # .
-                    . # # . .
-                    `).showImage(0)
+                    image_compass.showImage(0)
                     draw_menu()
                     abuttonpressed = false
                 } else {
                     led.unplot(2, 0)
-                    images.createImage(`
-                    . . . . .
-                    . # # . #
-                    # . . # .
-                    # . . # .
-                    . # # . .
-                    `).scrollImage(1, 45)
+                    image_compass.scrollImage(1, 45)
                     draw_menu()
                 }
             } else {
-                basic.showLeds(`
-                . . . . .
-                . # # . #
-                # . . # .
-                # . . # .
-                . # # . .
-                `)
+                image_compass.showImage(0)
                 draw_menu()
             }
             led.plot(2, 0)
@@ -4770,34 +3342,16 @@ function settings_select_menu() {
             if (animation_scroll == true) {
                 if (abuttonpressed == true) {
                     led.unplot(2, 0)
-                    images.createImage(`
-                    . . . . .
-                    . # # # .
-                    . # . # .
-                    . # # # .
-                    . . . . .
-                    `).showImage(0)
+                    image_input.showImage(0)
                     draw_menu()
                     abuttonpressed = false
                 } else {
                     led.unplot(2, 0)
-                    images.createImage(`
-                    . . . . .
-                    . # # # .
-                    . # . # .
-                    . # # # .
-                    . . . . .
-                    `).scrollImage(1, 45)
+                    image_input.scrollImage(1, 45)
                     draw_menu()
                 }
             } else {
-                basic.showLeds(`
-                . . . . .
-                . # # # .
-                . # . # .
-                . # # # .
-                . . . . .
-                `)
+                image_input.showImage(0)
                 draw_menu()
             }
             led.plot(2, 0)
@@ -4806,21 +3360,9 @@ function settings_select_menu() {
                 if (abuttonpressed == true) {
                     led.unplot(2, 0)
                     if (pin_lock == false) {
-                        images.createImage(`
-            . . . . .
-            . . . . .
-            . . . . .
-            # # # # #
-            # . # . #
-            `).showImage(0)
+                        image_pins.showImage(0)
                     } else {
-                        images.createImage(`
-                . . . . .
-                . . . . .
-                . . . . .
-                # # # # #
-                # . # . #
-                `).showImage(0)
+                        image_pins.showImage(0)
                         settings_pinlock_draw()
                     }
                     draw_menu()
@@ -4828,42 +3370,18 @@ function settings_select_menu() {
                 } else {
                     led.unplot(2, 0)
                     if (pin_lock == false) {
-                        images.createImage(`
-            . . . . .
-            . . . . .
-            . . . . .
-            # # # # #
-            # . # . #
-            `).scrollImage(1, 45)
+                        image_pins.scrollImage(1, 45)
                     } else {
-                        images.createImage(`
-                . . . . .
-                . . . . .
-                . . . . .
-                # # # # #
-                # . # . #
-                `).scrollImage(1, 45)
+                        image_pins.scrollImage(1, 45)
                         settings_pinlock_draw()
                     }
                     draw_menu()
                 }
             } else {
                 if (pin_lock == false) {
-                    basic.showLeds(`
-            . . . . .
-            . . . . .
-            . . . . .
-            # # # # #
-            # . # . #
-            `)
+                    image_pins.showImage(0)
                 } else {
-                    basic.showLeds(`
-                . . . . .
-                . . . . .
-                . . . . .
-                # # # # #
-                # . # . #
-                `)
+                    image_pins.showImage(0)
                     settings_pinlock_draw()
                 }
                 draw_menu()
@@ -4873,34 +3391,16 @@ function settings_select_menu() {
             if (animation_scroll == true) {
                 if (abuttonpressed == true) {
                     led.unplot(3, 0)
-                    images.createImage(`
-                    . . . . .
-                    . . . # .
-                    # # # # #
-                    . . . # .
-                    . . . . .
-                    `).showImage(0)
+                    image_play.showImage(0)
                     draw_menu()
                     abuttonpressed = false
                 } else {
                     led.unplot(3, 0)
-                    images.createImage(`
-                    . . . . .
-                    . . . # .
-                    # # # # #
-                    . . . # .
-                    . . . . .
-                    `).scrollImage(1, 45)
+                    image_play.scrollImage(1, 45)
                     draw_menu()
                 }
             } else {
-                basic.showLeds(`
-                . . . . .
-                . . . # .
-                # # # # #
-                . . . # .
-                . . . . .
-                `)
+                image_play.showImage(0)
                 draw_menu()
             }
             led.plot(4, 0)
@@ -5328,7 +3828,8 @@ let menu_select = true
 let abc_loop = false
 let number_loop = false
 let abc_id = 1
-let abc: string[] = []
+let abc = ["NUL","a","A","b","c","C","d","e","E","f","g","G","h","i","I","j","k","K","l","L","m","n","N","o","p","r","s","S","t","u","U","v","z","Z"," ",".",",","!","?"]
+let numberlist = [0,1,2,3,4,5,6,7,8,9]
 let inputlist: string[] = []
 let text = ""
 let list: number[] = []
@@ -5362,12 +3863,513 @@ let shift = false
 let custom_a_button = ""
 let custom_b_button = ""
 let custom_logo_button = ""
+let uckb = ""
 let custom_music: number[] = []
 let custom_music_tune: number[] = []
 let custom_music_beat: number[] = []
 let custom_beat: number[] = []
 let tune_music = 131
 let music_playing = false
+
+
+let image_games = images.createImage(`
+    . . . . .
+    . . # . .
+    . # # # .
+    # # # # #
+    # . . . #
+`)
+let image_tools = images.createImage(`
+    . . . . .
+    . # . . .
+    # . . . .
+    . # . # .
+    # . # . .
+`)
+let image_turtle = images.createImage(`
+    . . . . .
+    . . # . .
+    # # # # #
+    . # # # .
+    # . # . #
+`)
+let image_radio = images.createImage(`
+    . . . . .
+    . . . . #
+    . . . . #
+    . . # . #
+    # . # . #
+`)
+let image_create = images.createImage(`
+    . . . . .
+    . . # . .
+    . # # # .
+    . . # . .
+    . . . . .
+`)
+let image_pins = images.createImage(`
+    . . . . .
+    . . . . .
+    . . . . .
+    # # # # #
+    # . # . #
+`)
+let image_serial = images.createImage(`
+    . . . . .
+    . . # . .
+    # . # . #
+    . # # # .
+    . . # . .
+`)
+let image_settings = images.createImage(`
+    . . . . .
+    . . . . .
+    # # . # #
+    . # # # .
+    # # . # #
+`)
+let image_back = images.createImage(`
+    . . . . .
+    . # . . .
+    # # # # #
+    . # . . #
+    . . . # #
+`)
+let image_space_invaders = images.createImage(`
+    . . . . .
+    . . # . .
+    . . . . .
+    . . . . .
+    . . # . .
+`)
+let image_flappy_bird = images.createImage(`
+    . . . . .
+    . . . # .
+    . . . # .
+    . . . . .
+    . . . # .
+`)
+let image_pong = images.createImage(`
+    . . . . .
+    . . . . .
+    . . . . .
+    . . . . .
+    . # # . .
+`)
+let image_cars_game = images.createImage(`
+    . . . . .
+    . . . . .
+    . . . . .
+    . . . . .
+    . . # . .
+`)
+let image_dino_game = images.createImage(`
+    . . . . .
+    . . . . .
+    . . . # .
+    # . . . .
+    # . . . .
+`)
+let image_jumping_rope = images.createImage(`
+    . . . . .
+    . . . . #
+    . . . . .
+    . . . . .
+    . . # . .
+`)
+let image_pac_man = images.createImage(`
+    . . . . .
+    . . . . .
+    . . # . .
+    . . . . .
+    # . . . .
+`)
+let image_tetris = images.createImage(`
+    . . . . .
+    . . . . .
+    # . . . .
+    # # . . #
+    # # . # #
+`)
+let image_ttt = images.createImage(`
+    . . . . .
+    . . . . .
+    # # # . #
+    . # . . #
+    . # . . #
+`)
+let image_cards = images.createImage(`
+    . . . . .
+    # # # . .
+    # . # # #
+    # # # . #
+    . . # # #
+`)
+let image_blackjack = images.createImage(`
+    . . . . .
+    # . . . #
+    # # . . .
+    # . # . #
+    # # . # #
+`)
+let image_tempereture = images.createImage(`
+    . . . . .
+    . # # . #
+    # . . . .
+    # . . . .
+    . # # . .
+`)
+let image_light = images.createImage(`
+    . . . . .
+    . # # # .
+    # . . . #
+    . # . # .
+    . # # # .
+`)
+let image_sound = images.createImage(`
+    . . . . .
+    . # . # .
+    . # . . .
+    # # # . .
+    . # . . .
+`)
+let image_north = images.createImage(`
+    . . . . .
+    . . # . .
+    . # # # .
+    # . # . #
+    . . # . .
+`)
+let image_x = images.createImage(`
+    . . . . .
+    . . . . .
+    # . # . .
+    . # . . .
+    # . # . .
+`)
+let image_y = images.createImage(`
+    . . . . .
+    # . # . .
+    # . # . .
+    . # . . .
+    # # . . .
+`)
+let image_z = images.createImage(`
+    . . . . .
+    # # # . .
+    . # . . .
+    # . . . .
+    # # # . .
+`)
+let image_note = images.createImage(`
+    . . . . .
+    . . # # .
+    . . # . #
+    # # # . .
+    # # # . .
+`)
+let image_calculator = images.createImage(`
+    . . . . .
+    . # . . .
+    # # # . .
+    . # . . .
+    . . . # #
+`)
+let image_clock = images.createImage(`
+    . . . . .
+    # . # . #
+    # . # # #
+    # . . . #
+    . # # # .
+`)
+let image_plus = images.createImage(`
+    . . . . .
+    . . . . .
+    . # . . .
+    # # # . .
+    . # . . .
+`)
+let image_minus = images.createImage(`
+    . . . . .
+    . . . . .
+    . . . . .
+    # # # . .
+    . . . . .
+`)
+let image_times = images.createImage(`
+    . . . . .
+    . . . . .
+    # . # . .
+    . # . . .
+    # . # . .
+`)
+let image_divide = images.createImage(`
+    . . . . .
+    . . . . .
+    . . # . .
+    . # . . .
+    # . . . .
+`)
+let image_caret = images.createImage(`
+    . . . . .
+    . . . . .
+    . . . . .
+    . # . . .
+    # . # . .
+`)
+let image_sqr = images.createImage(`
+    . . . . .
+    . # # # #
+    . # . . #
+    # # . . .
+    . # . . .
+`)
+let image_sin = images.createImage(`
+    . . . . .
+    . . # # .
+    . # . . .
+    . . # . .
+    # # . . .
+`)
+let image_cosin = images.createImage(`
+    . . . . .
+    . # # . .
+    # . . . .
+    # . . . .
+    . # # . .
+`)
+let image_tangent = images.createImage(`
+    . . . . .
+    . # . . .
+    # # # . .
+    . # . . .
+    . # . . .
+`)
+let image_pi = images.createImage(`
+    . . . . .
+    # # # . #
+    # . # . #
+    # # # . #
+    # . . . #
+`)
+let image_random = images.createImage(`
+    . . . . .
+    . # # # .
+    # . . . #
+    . . # # .
+    . . # . .
+`)
+let image_signal = images.createImage(`
+    . . . . .
+    # # . # #
+    # # # # #
+    . # . # .
+    . # # # .
+`)
+let image_chronometer = images.createImage(`
+    . . . . .
+    . . # . .
+    . . # # #
+    . . . . .
+    . . . . .
+`)
+let image_timer = images.createImage(`
+    . . . . .
+    . . . . .
+    # # # # #
+    # . # . #
+    # # . # #
+`)
+let image_mouse = images.createImage(`
+    . . . . .
+    # # # . .
+    # . . # .
+    # . # . .
+    . # . # .
+`)
+let image_gamepad = images.createImage(`
+    . . . . .
+    . . . # #
+    . # . . .
+    # # # . .
+    . # . . .
+`)
+let image_keyboard = images.createImage(`
+    . . . . .
+    . # . # .
+    # . # . #
+    . . . . .
+    . # # # .
+`)
+let image_numbers = images.createImage(`
+    . . . . .
+    # . # # #
+    # . # . #
+    # . # . #
+    # . # # #
+`)
+let image_arrows = images.createImage(`
+    . . . . .
+    . # . # .
+    # # # # #
+    . # . # .
+    . . . . .
+`)
+let image_numberone = images.createImage(`
+    . . . . .
+    . . # . .
+    . # # . .
+    . . # . .
+    . . # . .
+`)
+let image_text = images.createImage(`
+    . . . . .
+    . . . . .
+    # . . . #
+    # # # # #
+    . . . . .
+`)
+let image_image = images.createImage(`
+    . . . . .
+    # # # # #
+    # # . . #
+    # . . # #
+    # # # # #
+`)
+let image_music8 = images.createImage(`
+    . . . . .
+    . # . . .
+    . . # . #
+    # . . . .
+    . . . # .
+`)
+let image_musicv2 = images.createImage(`
+    . . . . .
+    # . # . .
+    # . # . .
+    . # . . #
+    . . . . #
+`)
+let image_musicfx = images.createImage(`
+    . . . . .
+    # # . . .
+    # . # . #
+    # # . # .
+    # . # . #
+`)
+let image_zero = images.createImage(`
+    . . . . .
+    . # # # .
+    . # . # .
+    . # . # .
+    . # # # .
+`)
+let image_two = images.createImage(`
+    . . . . .
+    . # # # .
+    . . . # .
+    . . # . .
+    . # # # .
+`)
+let image_3v = images.createImage(`
+    # # . . .
+    . # . . .
+    # # # . #
+    . # # . #
+    # # . # .
+`)
+let image_volume = images.createImage(`
+    . . . . .
+    . . . . .
+    # . . . .
+    # . . . .
+    . . . . .
+`)
+let image_volume_full = images.createImage(`
+    . . . . .
+    . . # . .
+    # . . # .
+    # . . # .
+    . . # . .
+`)
+let image_brightness1 = images.createImage(`
+    . . . . .
+    . . . . .
+    # . . . .
+    . # . # .
+    . # # # .
+`)
+let image_brightness2 = images.createImage(`
+    . . . . .
+    . # . . .
+    # . . . .
+    . # . # .
+    . # # # .
+`)
+let image_brightness3 = images.createImage(`
+    . . . . .
+    . # # . .
+    # . . . .
+    . # . # .
+    . # # # .
+`)
+let image_brightness4 = images.createImage(`
+    . . . . .
+    . # # # .
+    # . . . .
+    . # . # .
+    . # # # .
+`)
+let image_brightness5 = images.createImage(`
+    . . . . .
+    . # # # .
+    # . . . #
+    . # . # .
+    . # # # .
+`)
+let image_auto = images.createImage(`
+    . . . . .
+    . # # # .
+    . # . # .
+    . # # # .
+    . # . # .
+`)
+let image_log = images.createImage(`
+    . . . . .
+    # . # . #
+    # # # # #
+    # . # . #
+    # # # # #
+`)
+let image_compass = images.createImage(`
+    . . . . .
+    . # # . #
+    # . . # .
+    # . . # .
+    . # # . .
+`)
+let image_input = images.createImage(`
+    . . . . .
+    . # # # .
+    . # . # .
+    . # # # .
+    . . . . .
+`)
+let image_play = images.createImage(`
+    . . . . .
+    . . . # .
+    # # # # #
+    . . . # .
+    . . . . .
+`)
+
+let image_blank = images.createImage(`
+    . . . . .
+    . . . . .
+    . . . . .
+    . . . . .
+    . . . . .
+`)
 
 
 let acc_1 = 0
@@ -6651,34 +5653,16 @@ function tool_record() {
             if (animation_scroll == true) {
                 if (abuttonpressed == true) {
                     led.unplot(3, 0)
-                    images.createImage(`
-                    . . . . .
-                    . # . # .
-                    . # . . .
-                    # # # . .
-                    . # . . .
-                    `).showImage(0)
+                    image_sound.showImage(0)
                     draw_mini_menu()
                     abuttonpressed = false
                 } else {
                     led.unplot(3, 0)
-                    images.createImage(`
-                    . . . . .
-                    . # . # .
-                    . # . . .
-                    # # # . .
-                    . # . . .
-                    `).scrollImage(1, 45)
+                    image_sound.scrollImage(1, 45)
                     draw_mini_menu()
                 }
             } else {
-                basic.showLeds(`
-                . . . . .
-                . # . # .
-                . # . . .
-                # # # . .
-                . # . . .
-                `)
+                image_sound.showImage(0)
                 draw_mini_menu()
             }
             led.plot(1, 0)
@@ -6686,34 +5670,16 @@ function tool_record() {
             if (animation_scroll == true) {
                 if (abuttonpressed == true) {
                     led.unplot(1, 0)
-                    images.createImage(`
-                    . . . . .
-                    . . # # .
-                    . . # . #
-                    # # # . .
-                    # # # . .
-                    `).showImage(0)
+                    image_note.showImage(0)
                     draw_mini_menu()
                     abuttonpressed = false
                 } else {
                     led.unplot(1, 0)
-                    images.createImage(`
-                    . . . . .
-                    . . # # .
-                    . . # . #
-                    # # # . .
-                    # # # . .
-                    `).scrollImage(1, 45)
+                    image_note.scrollImage(1, 45)
                     draw_mini_menu()
                 }
             } else {
-                basic.showLeds(`
-                . . . . .
-                    . . # # .
-                    . . # . #
-                    # # # . .
-                    # # # . .
-                `)
+                image_note.showImage(0)
                 draw_mini_menu()
             }
             led.plot(2, 0)
@@ -6722,59 +5688,29 @@ function tool_record() {
                 if (abuttonpressed == true) {
                     led.unplot(1, 0)
                     if (tool_record_volume == 1) {
-                        images.createImage(`
-                . . . . .
-                . . . . .
-                # . . . .
-                # . . . .
-                . . . . .
-                `).showImage(0)
+                        image_volume.showImage(0)
                         led.plotBrightness(2, 1, 20)
                         record.setSampleRate(4400)
                     } else if (tool_record_volume == 2) {
-                        images.createImage(`
-                . . . . .
-                . . . . .
-                # . . . .
-                # . . . .
-                . . . . .
-                `).showImage(0)
+                        image_volume.showImage(0)
                         led.plotBrightness(2, 1, 20)
                         led.plotBrightness(3, 2, 20)
                         record.setSampleRate(8800)
                     } else if (tool_record_volume == 3) {
-                        images.createImage(`
-                . . . . .
-                . . . . .
-                # . . . .
-                # . . . .
-                . . . . .
-                `).showImage(0)
+                        image_volume.showImage(0)
                         led.plotBrightness(2, 1, 20)
                         led.plotBrightness(3, 2, 20)
                         led.plotBrightness(3, 3, 20)
                         record.setSampleRate(13200)
                     } else if (tool_record_volume == 4) {
-                        images.createImage(`
-                . . . . .
-                . . . . .
-                # . . . .
-                # . . . .
-                . . . . .
-                `).showImage(0)
+                        image_volume.showImage(0)
                         led.plotBrightness(2, 1, 20)
                         led.plotBrightness(3, 2, 20)
                         led.plotBrightness(3, 3, 20)
                         led.plotBrightness(2, 4, 20)
                         record.setSampleRate(17600)
                     } else {
-                        images.createImage(`
-                . . . . .
-                . . # . .
-                # . . # .
-                # . . # .
-                . . # . .
-                `).showImage(0)
+                        image_volume_full.showImage(0)
                         record.setSampleRate(22000)
                     }
                     draw_mini_menu()
@@ -6782,118 +5718,58 @@ function tool_record() {
                 } else {
                     led.unplot(1, 0)
                     if (tool_record_volume == 1) {
-                        images.createImage(`
-                . . . . .
-                . . . . .
-                # . . . .
-                # . . . .
-                . . . . .
-                `).scrollImage(1, 45)
+                        image_volume.scrollImage(1, 45)
                         led.plotBrightness(2, 1, 20)
                         record.setSampleRate(4400)
                     } else if (tool_record_volume == 2) {
-                        images.createImage(`
-                . . . . .
-                . . . . .
-                # . . . .
-                # . . . .
-                . . . . .
-                `).scrollImage(1, 45)
+                        image_volume.scrollImage(1, 45)
                         led.plotBrightness(2, 1, 20)
                         led.plotBrightness(3, 2, 20)
                         record.setSampleRate(8800)
                     } else if (tool_record_volume == 3) {
-                        images.createImage(`
-                . . . . .
-                . . . . .
-                # . . . .
-                # . . . .
-                . . . . .
-                `).scrollImage(1, 45)
+                        image_volume.scrollImage(1, 45)
                         led.plotBrightness(2, 1, 20)
                         led.plotBrightness(3, 2, 20)
                         led.plotBrightness(3, 3, 20)
                         record.setSampleRate(13200)
                     } else if (tool_record_volume == 4) {
-                        images.createImage(`
-                . . . . .
-                . . . . .
-                # . . . .
-                # . . . .
-                . . . . .
-                `).scrollImage(1, 45)
+                        image_volume.scrollImage(1, 45)
                         led.plotBrightness(2, 1, 20)
                         led.plotBrightness(3, 2, 20)
                         led.plotBrightness(3, 3, 20)
                         led.plotBrightness(2, 4, 20)
                         record.setSampleRate(17600)
                     } else {
-                        images.createImage(`
-                . . . . .
-                . . # . .
-                # . . # .
-                # . . # .
-                . . # . .
-                `).scrollImage(1, 45)
+                        image_volume_full.scrollImage(1, 45)
                         record.setSampleRate(22000)
                     }
                     draw_mini_menu()
                 }
             } else {
                 if (tool_record_volume == 1) {
-                    basic.showLeds(`
-                . . . . .
-                . . . . .
-                # . . . .
-                # . . . .
-                . . . . .
-                `)
+                    image_volume.showImage(0)
                     led.plotBrightness(2, 1, 20)
                     record.setSampleRate(4400)
                 } else if (tool_record_volume == 2) {
-                    basic.showLeds(`
-                . . . . .
-                . . . . .
-                # . . . .
-                # . . . .
-                . . . . .
-                `)
+                    image_volume.showImage(0)
                     led.plotBrightness(2, 1, 20)
                     led.plotBrightness(3, 2, 20)
                     record.setSampleRate(8800)
                 } else if (tool_record_volume == 3) {
-                    basic.showLeds(`
-                . . . . .
-                . . . . .
-                # . . . .
-                # . . . .
-                . . . . .
-                `)
+                    image_volume.showImage(0)
                     led.plotBrightness(2, 1, 20)
                     led.plotBrightness(3, 2, 20)
                     led.plotBrightness(3, 3, 20)
                     record.setSampleRate(13200)
                 } else if (tool_record_volume == 4) {
-                    basic.showLeds(`
-                . . . . .
-                . . . . .
-                # . . . .
-                # . . . .
-                . . . . .
-                `)
+                    image_volume.showImage(0)
                     led.plotBrightness(2, 1, 20)
                     led.plotBrightness(3, 2, 20)
                     led.plotBrightness(3, 3, 20)
                     led.plotBrightness(2, 4, 20)
                     record.setSampleRate(17600)
                 } else {
-                    basic.showLeds(`
-                . . . . .
-                . . # . .
-                # . . # .
-                # . . # .
-                . . # . .
-                `)
+                    image_volume_full.showImage(0)
                     record.setSampleRate(22000)
                 }
                 draw_mini_menu()
@@ -6954,18 +5830,6 @@ function tool_record() {
 } //Record and play sound files // Selected_tool = 8
 function math_xy() {
     basic.pause(200)
-    let numberlist = [
-        0,
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
-    ]
     mathx = 0
     mathy = 0
     num = 0
@@ -7125,18 +5989,6 @@ function math_xy() {
 function math_x() {
     basic.clearScreen()
     basic.pause(100)
-    let numberlist = [
-        0,
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
-    ]
     mathx = 0
     mathy = 0
     num = 0
@@ -7411,18 +6263,6 @@ function timer() {
     hour = 0
     minute = 0
     second = 0
-    let numberlist = [
-        0,
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
-    ]
     num = 0
     number_select = true
     while (number_select == true) {
@@ -7753,46 +6593,6 @@ function bluetooth_gamepad() {
 function bluetooth_keyboard() {
     while (bluetooth_online == true) {
         basic.clearScreen()
-        abc = [
-            "NUL",
-            "a",
-            "A",
-            "b",
-            "c",
-            "C",
-            "d",
-            "e",
-            "E",
-            "f",
-            "g",
-            "G",
-            "h",
-            "i",
-            "I",
-            "j",
-            "k",
-            "K",
-            "l",
-            "L",
-            "m",
-            "n",
-            "N",
-            "o",
-            "p",
-            "r",
-            "s",
-            "S",
-            "t",
-            "u",
-            "U",
-            "v",
-            "z",
-            "Z",
-            " ",
-            ".",
-            ",",
-            "!",
-            "?"]
         abc_loop = true
         basic.pause(500)
         while (abc_loop == true) {
@@ -8071,18 +6871,6 @@ function bluetooth_keyboard_number() {
     while (bluetooth_online == true) {
         basic.clearScreen()
         basic.pause(500)
-        let numberlist = [
-            0,
-            1,
-            2,
-            3,
-            4,
-            5,
-            6,
-            7,
-            8,
-            9,
-        ]
         num = 0
         let number_send = 0
         number_loop = true
@@ -8248,46 +7036,6 @@ function bluetooth_keyboard_custom() {
         `)
         basic.pause(500)
         basic.clearScreen()
-        abc = [
-            "NUL",
-            "a",
-            "A",
-            "b",
-            "c",
-            "C",
-            "d",
-            "e",
-            "E",
-            "f",
-            "g",
-            "G",
-            "h",
-            "i",
-            "I",
-            "j",
-            "k",
-            "K",
-            "l",
-            "L",
-            "m",
-            "n",
-            "N",
-            "o",
-            "p",
-            "r",
-            "s",
-            "S",
-            "t",
-            "u",
-            "U",
-            "v",
-            "z",
-            "Z",
-            " ",
-            ".",
-            ",",
-            "!",
-            "?"]
         abc_loop = true
         while (abc_loop == true) {
             if (input.buttonIsPressed(Button.A)) {
@@ -8310,248 +7058,8 @@ function bluetooth_keyboard_custom() {
             }
             if (input.logoIsPressed()) {
                 basic.showIcon(IconNames.Yes)
-                if (abc_id == 1) {
-                    if (shift == true) {
-                        custom_a_button = "A"
-                        shift = false
-                    } else {
-                        custom_a_button = "a"
-                    }
-                } else if (abc_id == 2) {
-                    if (shift == true) {
-                        custom_a_button = "A"
-                        shift = false
-                    } else {
-                        custom_a_button = "a"
-                    }
-                } else if (abc_id == 3) {
-                    if (shift == true) {
-                        custom_a_button = "B"
-                        shift = false
-                    } else {
-                        custom_a_button = "b"
-                    }
-                } else if (abc_id == 4) {
-                    if (shift == true) {
-                        custom_a_button = "C"
-                        shift = false
-                    } else {
-                        custom_a_button = "c"
-                    }
-                } else if (abc_id == 5) {
-                    if (shift == true) {
-                        custom_a_button = "C"
-                        shift = false
-                    } else {
-                        custom_a_button = "c"
-                    }
-                } else if (abc_id == 6) {
-                    if (shift == true) {
-                        custom_a_button = "D"
-                        shift = false
-                    } else {
-                        custom_a_button = "d"
-                    }
-                } else if (abc_id == 7) {
-                    if (shift == true) {
-                        custom_a_button = "E"
-                        shift = false
-                    } else {
-                        custom_a_button = "e"
-                    }
-                } else if (abc_id == 8) {
-                    if (shift == true) {
-                        custom_a_button = "E"
-                        shift = false
-                    } else {
-                        custom_a_button = "e"
-                    }
-                } else if (abc_id == 9) {
-                    if (shift == true) {
-                        custom_a_button = "F"
-                        shift = false
-                    } else {
-                        custom_a_button = "f"
-                    }
-                } else if (abc_id == 10) {
-                    if (shift == true) {
-                        custom_a_button = "G"
-                        shift = false
-                    } else {
-                        custom_a_button = "g"
-                    }
-                } else if (abc_id == 11) {
-                    if (shift == true) {
-                        custom_a_button = "G"
-                        shift = false
-                    } else {
-                        custom_a_button = "g"
-                    }
-                } else if (abc_id == 12) {
-                    if (shift == true) {
-                        custom_a_button = "H"
-                        shift = false
-                    } else {
-                        custom_a_button = "h"
-                    }
-                } else if (abc_id == 13) {
-                    if (shift == true) {
-                        custom_a_button = "I"
-                        shift = false
-                    } else {
-                        custom_a_button = "i"
-                    }
-                } else if (abc_id == 14) {
-                    if (shift == true) {
-                        custom_a_button = "I"
-                        shift = false
-                    } else {
-                        custom_a_button = "i"
-                    }
-                } else if (abc_id == 15) {
-                    if (shift == true) {
-                        custom_a_button = "J"
-                        shift = false
-                    } else {
-                        custom_a_button = "j"
-                    }
-                } else if (abc_id == 16) {
-                    if (shift == true) {
-                        custom_a_button = "K"
-                        shift = false
-                    } else {
-                        custom_a_button = "k"
-                    }
-                } else if (abc_id == 17) {
-                    if (shift == true) {
-                        custom_a_button = "K"
-                        shift = false
-                    } else {
-                        custom_a_button = "k"
-                    }
-                } else if (abc_id == 18) {
-                    if (shift == true) {
-                        custom_a_button = "L"
-                        shift = false
-                    } else {
-                        custom_a_button = "l"
-                    }
-                } else if (abc_id == 19) {
-                    if (shift == true) {
-                        custom_a_button = "L"
-                        shift = false
-                    } else {
-                        custom_a_button = "l"
-                    }
-                } else if (abc_id == 20) {
-                    if (shift == true) {
-                        custom_a_button = "M"
-                        shift = false
-                    } else {
-                        custom_a_button = "m"
-                    }
-                } else if (abc_id == 21) {
-                    if (shift == true) {
-                        custom_a_button = "N"
-                        shift = false
-                    } else {
-                        custom_a_button = "n"
-                    }
-                } else if (abc_id == 22) {
-                    if (shift == true) {
-                        custom_a_button = "N"
-                        shift = false
-                    } else {
-                        custom_a_button = "n"
-                    }
-                } else if (abc_id == 23) {
-                    if (shift == true) {
-                        custom_a_button = "O"
-                        shift = false
-                    } else {
-                        custom_a_button = "o"
-                    }
-                } else if (abc_id == 24) {
-                    if (shift == true) {
-                        custom_a_button = "P"
-                        shift = false
-                    } else {
-                        custom_a_button = "p"
-                    }
-                } else if (abc_id == 25) {
-                    if (shift == true) {
-                        custom_a_button = "R"
-                        shift = false
-                    } else {
-                        custom_a_button = "r"
-                    }
-                } else if (abc_id == 26) {
-                    if (shift == true) {
-                        custom_a_button = "S"
-                        shift = false
-                    } else {
-                        custom_a_button = "s"
-                    }
-                } else if (abc_id == 27) {
-                    if (shift == true) {
-                        custom_a_button = "S"
-                        shift = false
-                    } else {
-                        custom_a_button = "s"
-                    }
-                } else if (abc_id == 28) {
-                    if (shift == true) {
-                        custom_a_button = "T"
-                        shift = false
-                    } else {
-                        custom_a_button = "t"
-                    }
-                } else if (abc_id == 29) {
-                    if (shift == true) {
-                        custom_a_button = "U"
-                        shift = false
-                    } else {
-                        custom_a_button = "u"
-                    }
-                } else if (abc_id == 30) {
-                    if (shift == true) {
-                        custom_a_button = "U"
-                        shift = false
-                    } else {
-                        custom_a_button = "u"
-                    }
-                } else if (abc_id == 31) {
-                    if (shift == true) {
-                        custom_a_button = "V"
-                        shift = false
-                    } else {
-                        custom_a_button = "v"
-                    }
-                } else if (abc_id == 32) {
-                    if (shift == true) {
-                        custom_a_button = "Z"
-                        shift = false
-                    } else {
-                        custom_a_button = "z"
-                    }
-                } else if (abc_id == 33) {
-                    if (shift == true) {
-                        custom_a_button = "Z"
-                        shift = false
-                    } else {
-                        custom_a_button = "z"
-                    }
-                } else if (abc_id == 34) {
-                    custom_a_button = " "
-                } else if (abc_id == 35) {
-                    custom_a_button = "."
-                } else if (abc_id == 36) {
-                    custom_a_button = ","
-                } else if (abc_id == 37) {
-                    custom_a_button = "!"
-                } else if (abc_id == 38) {
-                    custom_a_button = "?"
-                }
+                uckb_if()
+                custom_a_button = uckb
                 music.play(music.tonePlayable(523, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
                 abc_loop = false
             }
@@ -8589,248 +7097,8 @@ function bluetooth_keyboard_custom() {
             }
             if (input.logoIsPressed()) {
                 basic.showIcon(IconNames.Yes)
-                if (abc_id == 1) {
-                    if (shift == true) {
-                        custom_logo_button = "A"
-                        shift = false
-                    } else {
-                        custom_logo_button = "a"
-                    }
-                } else if (abc_id == 2) {
-                    if (shift == true) {
-                        custom_logo_button = "A"
-                        shift = false
-                    } else {
-                        custom_logo_button = "a"
-                    }
-                } else if (abc_id == 3) {
-                    if (shift == true) {
-                        custom_logo_button = "B"
-                        shift = false
-                    } else {
-                        custom_logo_button = "b"
-                    }
-                } else if (abc_id == 4) {
-                    if (shift == true) {
-                        custom_logo_button = "C"
-                        shift = false
-                    } else {
-                        custom_logo_button = "c"
-                    }
-                } else if (abc_id == 5) {
-                    if (shift == true) {
-                        custom_logo_button = "C"
-                        shift = false
-                    } else {
-                        custom_logo_button = "c"
-                    }
-                } else if (abc_id == 6) {
-                    if (shift == true) {
-                        custom_logo_button = "D"
-                        shift = false
-                    } else {
-                        custom_logo_button = "d"
-                    }
-                } else if (abc_id == 7) {
-                    if (shift == true) {
-                        custom_logo_button = "E"
-                        shift = false
-                    } else {
-                        custom_logo_button = "e"
-                    }
-                } else if (abc_id == 8) {
-                    if (shift == true) {
-                        custom_logo_button = "E"
-                        shift = false
-                    } else {
-                        custom_logo_button = "e"
-                    }
-                } else if (abc_id == 9) {
-                    if (shift == true) {
-                        custom_logo_button = "F"
-                        shift = false
-                    } else {
-                        custom_logo_button = "f"
-                    }
-                } else if (abc_id == 10) {
-                    if (shift == true) {
-                        custom_logo_button = "G"
-                        shift = false
-                    } else {
-                        custom_logo_button = "g"
-                    }
-                } else if (abc_id == 11) {
-                    if (shift == true) {
-                        custom_logo_button = "G"
-                        shift = false
-                    } else {
-                        custom_logo_button = "g"
-                    }
-                } else if (abc_id == 12) {
-                    if (shift == true) {
-                        custom_logo_button = "H"
-                        shift = false
-                    } else {
-                        custom_logo_button = "h"
-                    }
-                } else if (abc_id == 13) {
-                    if (shift == true) {
-                        custom_logo_button = "I"
-                        shift = false
-                    } else {
-                        custom_logo_button = "i"
-                    }
-                } else if (abc_id == 14) {
-                    if (shift == true) {
-                        custom_logo_button = "I"
-                        shift = false
-                    } else {
-                        custom_logo_button = "i"
-                    }
-                } else if (abc_id == 15) {
-                    if (shift == true) {
-                        custom_logo_button = "J"
-                        shift = false
-                    } else {
-                        custom_logo_button = "j"
-                    }
-                } else if (abc_id == 16) {
-                    if (shift == true) {
-                        custom_logo_button = "K"
-                        shift = false
-                    } else {
-                        custom_logo_button = "k"
-                    }
-                } else if (abc_id == 17) {
-                    if (shift == true) {
-                        custom_logo_button = "K"
-                        shift = false
-                    } else {
-                        custom_logo_button = "k"
-                    }
-                } else if (abc_id == 18) {
-                    if (shift == true) {
-                        custom_logo_button = "L"
-                        shift = false
-                    } else {
-                        custom_logo_button = "l"
-                    }
-                } else if (abc_id == 19) {
-                    if (shift == true) {
-                        custom_logo_button = "L"
-                        shift = false
-                    } else {
-                        custom_logo_button = "l"
-                    }
-                } else if (abc_id == 20) {
-                    if (shift == true) {
-                        custom_logo_button = "M"
-                        shift = false
-                    } else {
-                        custom_logo_button = "m"
-                    }
-                } else if (abc_id == 21) {
-                    if (shift == true) {
-                        custom_logo_button = "N"
-                        shift = false
-                    } else {
-                        custom_logo_button = "n"
-                    }
-                } else if (abc_id == 22) {
-                    if (shift == true) {
-                        custom_logo_button = "N"
-                        shift = false
-                    } else {
-                        custom_logo_button = "n"
-                    }
-                } else if (abc_id == 23) {
-                    if (shift == true) {
-                        custom_logo_button = "O"
-                        shift = false
-                    } else {
-                        custom_logo_button = "o"
-                    }
-                } else if (abc_id == 24) {
-                    if (shift == true) {
-                        custom_logo_button = "P"
-                        shift = false
-                    } else {
-                        custom_logo_button = "p"
-                    }
-                } else if (abc_id == 25) {
-                    if (shift == true) {
-                        custom_logo_button = "R"
-                        shift = false
-                    } else {
-                        custom_logo_button = "r"
-                    }
-                } else if (abc_id == 26) {
-                    if (shift == true) {
-                        custom_logo_button = "S"
-                        shift = false
-                    } else {
-                        custom_logo_button = "s"
-                    }
-                } else if (abc_id == 27) {
-                    if (shift == true) {
-                        custom_logo_button = "S"
-                        shift = false
-                    } else {
-                        custom_logo_button = "s"
-                    }
-                } else if (abc_id == 28) {
-                    if (shift == true) {
-                        custom_logo_button = "T"
-                        shift = false
-                    } else {
-                        custom_logo_button = "t"
-                    }
-                } else if (abc_id == 29) {
-                    if (shift == true) {
-                        custom_logo_button = "U"
-                        shift = false
-                    } else {
-                        custom_logo_button = "u"
-                    }
-                } else if (abc_id == 30) {
-                    if (shift == true) {
-                        custom_logo_button = "U"
-                        shift = false
-                    } else {
-                        custom_logo_button = "u"
-                    }
-                } else if (abc_id == 31) {
-                    if (shift == true) {
-                        custom_logo_button = "V"
-                        shift = false
-                    } else {
-                        custom_logo_button = "v"
-                    }
-                } else if (abc_id == 32) {
-                    if (shift == true) {
-                        custom_logo_button = "Z"
-                        shift = false
-                    } else {
-                        custom_logo_button = "z"
-                    }
-                } else if (abc_id == 33) {
-                    if (shift == true) {
-                        custom_logo_button = "Z"
-                        shift = false
-                    } else {
-                        custom_logo_button = "z"
-                    }
-                } else if (abc_id == 34) {
-                    custom_logo_button = " "
-                } else if (abc_id == 35) {
-                    custom_logo_button = "."
-                } else if (abc_id == 36) {
-                    custom_logo_button = ","
-                } else if (abc_id == 37) {
-                    custom_logo_button = "!"
-                } else if (abc_id == 38) {
-                    custom_logo_button = "?"
-                }
+                uckb_if()
+                custom_logo_button = uckb
                 music.play(music.tonePlayable(523, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
                 abc_loop = false
             }
@@ -8868,248 +7136,8 @@ function bluetooth_keyboard_custom() {
             }
             if (input.logoIsPressed()) {
                 basic.showIcon(IconNames.Yes)
-                if (abc_id == 1) {
-                    if (shift == true) {
-                        custom_b_button = "A"
-                        shift = false
-                    } else {
-                        custom_b_button = "a"
-                    }
-                } else if (abc_id == 2) {
-                    if (shift == true) {
-                        custom_b_button = "A"
-                        shift = false
-                    } else {
-                        custom_b_button = "a"
-                    }
-                } else if (abc_id == 3) {
-                    if (shift == true) {
-                        custom_b_button = "B"
-                        shift = false
-                    } else {
-                        custom_b_button = "b"
-                    }
-                } else if (abc_id == 4) {
-                    if (shift == true) {
-                        custom_b_button = "C"
-                        shift = false
-                    } else {
-                        custom_b_button = "c"
-                    }
-                } else if (abc_id == 5) {
-                    if (shift == true) {
-                        custom_b_button = "C"
-                        shift = false
-                    } else {
-                        custom_b_button = "c"
-                    }
-                } else if (abc_id == 6) {
-                    if (shift == true) {
-                        custom_b_button = "D"
-                        shift = false
-                    } else {
-                        custom_b_button = "d"
-                    }
-                } else if (abc_id == 7) {
-                    if (shift == true) {
-                        custom_b_button = "E"
-                        shift = false
-                    } else {
-                        custom_b_button = "e"
-                    }
-                } else if (abc_id == 8) {
-                    if (shift == true) {
-                        custom_b_button = "E"
-                        shift = false
-                    } else {
-                        custom_b_button = "e"
-                    }
-                } else if (abc_id == 9) {
-                    if (shift == true) {
-                        custom_b_button = "F"
-                        shift = false
-                    } else {
-                        custom_b_button = "f"
-                    }
-                } else if (abc_id == 10) {
-                    if (shift == true) {
-                        custom_b_button = "G"
-                        shift = false
-                    } else {
-                        custom_b_button = "g"
-                    }
-                } else if (abc_id == 11) {
-                    if (shift == true) {
-                        custom_b_button = "G"
-                        shift = false
-                    } else {
-                        custom_b_button = "g"
-                    }
-                } else if (abc_id == 12) {
-                    if (shift == true) {
-                        custom_b_button = "H"
-                        shift = false
-                    } else {
-                        custom_b_button = "h"
-                    }
-                } else if (abc_id == 13) {
-                    if (shift == true) {
-                        custom_b_button = "I"
-                        shift = false
-                    } else {
-                        custom_b_button = "i"
-                    }
-                } else if (abc_id == 14) {
-                    if (shift == true) {
-                        custom_b_button = "I"
-                        shift = false
-                    } else {
-                        custom_b_button = "i"
-                    }
-                } else if (abc_id == 15) {
-                    if (shift == true) {
-                        custom_b_button = "J"
-                        shift = false
-                    } else {
-                        custom_b_button = "j"
-                    }
-                } else if (abc_id == 16) {
-                    if (shift == true) {
-                        custom_b_button = "K"
-                        shift = false
-                    } else {
-                        custom_b_button = "k"
-                    }
-                } else if (abc_id == 17) {
-                    if (shift == true) {
-                        custom_b_button = "K"
-                        shift = false
-                    } else {
-                        custom_b_button = "k"
-                    }
-                } else if (abc_id == 18) {
-                    if (shift == true) {
-                        custom_b_button = "L"
-                        shift = false
-                    } else {
-                        custom_b_button = "l"
-                    }
-                } else if (abc_id == 19) {
-                    if (shift == true) {
-                        custom_b_button = "L"
-                        shift = false
-                    } else {
-                        custom_b_button = "l"
-                    }
-                } else if (abc_id == 20) {
-                    if (shift == true) {
-                        custom_b_button = "M"
-                        shift = false
-                    } else {
-                        custom_b_button = "m"
-                    }
-                } else if (abc_id == 21) {
-                    if (shift == true) {
-                        custom_b_button = "N"
-                        shift = false
-                    } else {
-                        custom_b_button = "n"
-                    }
-                } else if (abc_id == 22) {
-                    if (shift == true) {
-                        custom_b_button = "N"
-                        shift = false
-                    } else {
-                        custom_b_button = "n"
-                    }
-                } else if (abc_id == 23) {
-                    if (shift == true) {
-                        custom_b_button = "O"
-                        shift = false
-                    } else {
-                        custom_b_button = "o"
-                    }
-                } else if (abc_id == 24) {
-                    if (shift == true) {
-                        custom_b_button = "P"
-                        shift = false
-                    } else {
-                        custom_b_button = "p"
-                    }
-                } else if (abc_id == 25) {
-                    if (shift == true) {
-                        custom_b_button = "R"
-                        shift = false
-                    } else {
-                        custom_b_button = "r"
-                    }
-                } else if (abc_id == 26) {
-                    if (shift == true) {
-                        custom_b_button = "S"
-                        shift = false
-                    } else {
-                        custom_b_button = "s"
-                    }
-                } else if (abc_id == 27) {
-                    if (shift == true) {
-                        custom_b_button = "S"
-                        shift = false
-                    } else {
-                        custom_b_button = "s"
-                    }
-                } else if (abc_id == 28) {
-                    if (shift == true) {
-                        custom_b_button = "T"
-                        shift = false
-                    } else {
-                        custom_b_button = "t"
-                    }
-                } else if (abc_id == 29) {
-                    if (shift == true) {
-                        custom_b_button = "U"
-                        shift = false
-                    } else {
-                        custom_b_button = "u"
-                    }
-                } else if (abc_id == 30) {
-                    if (shift == true) {
-                        custom_b_button = "U"
-                        shift = false
-                    } else {
-                        custom_b_button = "u"
-                    }
-                } else if (abc_id == 31) {
-                    if (shift == true) {
-                        custom_b_button = "V"
-                        shift = false
-                    } else {
-                        custom_b_button = "v"
-                    }
-                } else if (abc_id == 32) {
-                    if (shift == true) {
-                        custom_b_button = "Z"
-                        shift = false
-                    } else {
-                        custom_b_button = "z"
-                    }
-                } else if (abc_id == 33) {
-                    if (shift == true) {
-                        custom_b_button = "Z"
-                        shift = false
-                    } else {
-                        custom_b_button = "z"
-                    }
-                } else if (abc_id == 34) {
-                    custom_b_button = " "
-                } else if (abc_id == 35) {
-                    custom_b_button = "."
-                } else if (abc_id == 36) {
-                    custom_b_button = ","
-                } else if (abc_id == 37) {
-                    custom_b_button = "!"
-                } else if (abc_id == 38) {
-                    custom_b_button = "?"
-                }
+                uckb_if()
+                custom_b_button = uckb
                 music.play(music.tonePlayable(523, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
                 abc_loop = false
             }
@@ -9159,46 +7187,6 @@ function bluetooth_keyboard_custom() {
 
 function create_strig() {
     basic.clearScreen()
-    abc = [
-        "NUL",
-        "a",
-        "A",
-        "b",
-        "c",
-        "C",
-        "d",
-        "e",
-        "E",
-        "f",
-        "g",
-        "G",
-        "h",
-        "i",
-        "I",
-        "j",
-        "k",
-        "K",
-        "l",
-        "L",
-        "m",
-        "n",
-        "N",
-        "o",
-        "p",
-        "r",
-        "s",
-        "S",
-        "t",
-        "u",
-        "U",
-        "v",
-        "z",
-        "Z",
-        " ",
-        ".",
-        ",",
-        "!",
-        "?"]
     abc_loop = true
     basic.pause(500)
     while (abc_loop == true) {
@@ -9244,18 +7232,6 @@ function create_strig() {
 function create_number() {
     basic.clearScreen()
     basic.pause(500)
-    let numberlist = [
-        0,
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
-    ]
     num = 0
     let number_send = 0
     number_loop = true
