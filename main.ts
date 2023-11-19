@@ -5502,6 +5502,8 @@ let bj_dealer_hand = 0
 let bj_my_hand = 0
 let bj_dealer_card = 0
 let random_card = 0
+let score_10 = 0
+
 
 menu_select_menu()
 
@@ -6328,7 +6330,8 @@ function blackjack() {
     while (true) {
         num = bj_dealer_card
         if (input.buttonIsPressed(Button.AB)) {
-            basic.showNumber(game.score())
+            basic.clearScreen()
+            basic.showNumber(score_10)
         }
         if (input.buttonIsPressed(Button.A)){
             break;
@@ -6433,7 +6436,7 @@ function blackjack() {
             basic.showNumber(bj_dealer_hand)
             basic.showString("=")
             basic.showNumber(bj_my_hand)
-            game.addScore(0)
+            score_10 += 0
             break;
         }
         if (bj_my_hand < bj_dealer_hand && bj_dealer_hand <= 21) {
@@ -6447,7 +6450,7 @@ function blackjack() {
             basic.showNumber(bj_dealer_hand)
             basic.showString(">")
             basic.showNumber(bj_my_hand)
-            game.addScore(-1)
+            score_10 += -1
             break;
         }
         if (bj_my_hand == 21) {
@@ -6461,7 +6464,7 @@ function blackjack() {
             basic.showNumber(bj_dealer_hand)
             basic.showString("<")
             basic.showNumber(bj_my_hand)
-            game.addScore(1)
+            score_10 += 1
             break;
         }
         if (bj_my_hand > bj_dealer_hand && bj_my_hand <= 21 || bj_my_hand <= 21) {
@@ -6475,14 +6478,14 @@ function blackjack() {
             basic.showNumber(bj_dealer_hand)
             basic.showString("<")
             basic.showNumber(bj_my_hand)
-            game.addScore(1)
+            score_10 += 1
             break;
         }
-        game.addScore(0)
+        game.addScore(1)
         break;
     }
     blackjack()
-}
+} //Blackjack. //game_mode = 10
 
 function tool_temparature() {
     while (true) {
@@ -8187,19 +8190,47 @@ function bluetooth_keyboard_arrows() {
     while (bluetooth_online == true) {
         if (input.buttonIsPressed(Button.A)) {
             keyboard.sendString(keyboard.keys(keyboard._Key.left))
-            basic.pause(100)
+            basic.showLeds(`
+            . . # . .
+            . # . . .
+            # # # # #
+            . # . . .
+            . . # . .
+            `)
+            basic.pause(150)
         }
         if (input.buttonIsPressed(Button.B)) {
             keyboard.sendString(keyboard.keys(keyboard._Key.right))
-            basic.pause(100)
+            basic.showLeds(`
+            . . # . .
+            . . . # .
+            # # # # #
+            . . . # .
+            . . # . .
+            `)
+            basic.pause(150)
         }
         if (input.logoIsPressed()) {
             keyboard.sendString(keyboard.keys(keyboard._Key.up))
-            basic.pause(50)
+            basic.showLeds(`
+            . . # . .
+            . # # # .
+            # . # . #
+            . . # . .
+            . . # . .
+            `)
+            basic.pause(150)
         }
         if (input.pinIsPressed(TouchPin.P2)) {
             keyboard.sendString(keyboard.keys(keyboard._Key.down))
-            basic.pause(50)
+            basic.showLeds(`
+            . . # . .
+            . . # . .
+            # . # . #
+            . # # # .
+            . . # . .
+            `)
+            basic.pause(150)
         }
         basic.clearScreen()
     }
@@ -9088,15 +9119,37 @@ function bluetooth_keyboard_custom() {
         basic.clearScreen()
         while (true) {
             if (input.buttonIsPressed(Button.A)) {
+                basic.showLeds(`
+                . . # . .
+                . # . . .
+                # # # # #
+                . # . . .
+                . . # . .
+                `)
                 keyboard.sendString(custom_a_button)
             }
             if (input.buttonIsPressed(Button.B)) {
+                basic.showLeds(`
+                . . # . .
+                . . . # .
+                # # # # #
+                . . . # .
+                . . # . .
+                `)
                 keyboard.sendString(custom_b_button)
             }
             if (input.logoIsPressed()) {
+                basic.showLeds(`
+                . . # . .
+                . # # # .
+                # . # . #
+                . . # . .
+                . . # . .
+                `)
                 keyboard.sendString(custom_logo_button)
             }
             basic.pause(150)
+            basic.clearScreen()
         }
     }
     loading_animation()
