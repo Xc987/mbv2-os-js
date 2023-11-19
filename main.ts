@@ -834,7 +834,7 @@ function settings_music_draw() {
     led.plotBrightness(2, 4, 20)
     led.plotBrightness(3, 1, 20)
     led.plotBrightness(4, 2, 20)
-} //Draw the music logo
+} //Draw the music logo.
 function settings_pinlock_draw() {
     led.plotBrightness(0, 4, 20)
     led.plotBrightness(0, 3, 20)
@@ -844,7 +844,7 @@ function settings_pinlock_draw() {
     led.plotBrightness(3, 3, 20)
     led.plotBrightness(4, 3, 20)
     led.plotBrightness(4, 4, 20)
-} //Draw the pin-lock FlashLogTimeStampFormat
+} //Draw the pin-lock.
 
 function menu_select_menu() {
     while (menu_select == true) {
@@ -1023,7 +1023,7 @@ function menu_select_menu() {
                 draw_menu()
             }
             led.plot(2, 0)
-        } else if(selected_menu == 6) {
+        } else if (selected_menu == 6) {
             if (animation_scroll == true) {
                 if (abuttonpressed == true) {
                     led.unplot(2, 0)
@@ -1099,10 +1099,10 @@ function menu_select_menu() {
                     led.unplot(3, 0)
                     images.createImage(`
                     . . . . .
-                    . # . # .
-                    # . . . .
-                    . # . # .
-                    # . # . .
+                    . . . . .
+                    # # . # #
+                    . # # # .
+                    # # . # #
                     `).showImage(0)
                     draw_menu()
                     abuttonpressed = false
@@ -1110,26 +1110,26 @@ function menu_select_menu() {
                     led.unplot(3, 0)
                     images.createImage(`
                     . . . . .
-                    . # . # .
-                    # . . . .
-                    . # . # .
-                    # . # . .
+                    . . . . .
+                    # # . # #
+                    . # # # .
+                    # # . # #
                     `).scrollImage(1, 45)
                     draw_menu()
                 }
             } else {
                 basic.showLeds(`
-        . . . . .
-        . # . # .
-        # . . . .
-        . # . # .
-        # . # . .
+            . . . . .
+            . . . . .
+            # # . # #
+            . # # # .
+            # # . # #
         `)
                 draw_menu()
             }
             led.plot(4, 0)
         }
-            
+
         waiting_for_input = true
         while (waiting_for_input == true) {
             if (input.buttonIsPressed(Button.A)) {
@@ -1472,7 +1472,7 @@ function game_select_menu() {
                 `)
                 draw_menu()
             }
-            led.plot(3, 0)
+            led.plot(2, 0)
             led.plotBrightness(4, 4, 20)
         } else if (game_mode == 8) {
             if (animation_scroll == true) {
@@ -1508,28 +1508,28 @@ function game_select_menu() {
                 `)
                 draw_menu()
             }
-            led.plot(3, 0)
-        } else {
+            led.plot(2, 0)
+        } else if (game_mode == 9) {
             if (animation_scroll == true) {
                 if (abuttonpressed == true) {
-                    led.unplot(3, 0)
+                    led.unplot(2, 0)
                     images.createImage(`
                     . . . . .
                     . . . . .
-                    . # # # .
-                    . # # # .
-                    . # # # .
+                    # # # . #
+                    . # . . #
+                    . # . . #
                     `).showImage(0)
                     draw_menu()
                     abuttonpressed = false
                 } else {
-                    led.unplot(3, 0)
+                    led.unplot(2, 0)
                     images.createImage(`
                     . . . . .
                     . . . . .
-                    . # # # .
-                    . # # # .
-                    . # # # .
+                    # # # . #
+                    . # . . #
+                    . # . . #
                     `).scrollImage(1, 45)
                     draw_menu()
                 }
@@ -1537,9 +1537,44 @@ function game_select_menu() {
                 basic.showLeds(`
                 . . . . .
                 . . . . .
-                . # # # .
-                . # # # .
-                . # # # .
+                # # # . #
+                . # . . #
+                . # . . #
+                `)
+                draw_menu()
+            }
+            led.plot(3, 0)
+        } else {
+            if (animation_scroll == true) {
+                if (abuttonpressed == true) {
+                    led.unplot(3, 0)
+                    images.createImage(`
+                    . . . . .
+                    # # # . .
+                    # . # # #
+                    # # # . #
+                    . . # # #
+                    `).showImage(0)
+                    draw_menu()
+                    abuttonpressed = false
+                } else {
+                    led.unplot(3, 0)
+                    images.createImage(`
+                    . . . . .
+                    # # # . .
+                    # . # # #
+                    # # # . #
+                    . . # # #
+                    `).scrollImage(1, 45)
+                    draw_menu()
+                }
+            } else {
+                basic.showLeds(`
+                . . . . .
+                    # # # . .
+                    # . # # #
+                    # # # . #
+                    . . # # #
                 `)
                 draw_menu()
             }
@@ -1557,8 +1592,8 @@ function game_select_menu() {
                     waiting_for_input = false
                 }
             } else if (input.buttonIsPressed(Button.B)) {
-                if (game_mode == 9) {
-                    game_mode = 9
+                if (game_mode == 10) {
+                    game_mode = 10
                     abuttonpressed = true
                     waiting_for_input = false
                 } else {
@@ -1632,10 +1667,239 @@ function game_select_menu() {
         basic.showString("S:")
         basic.showNumber(score_8)
         control.reset()
-    } else {
+    } else if (game_mode == 9) {
         game_mode_9()
+    } else if (game_mode == 10) {
+        menu_select = true
+        abuttonpressed = true
+        game_card_select_menu()
     }
 } //Game selection.
+function game_card_select_menu() {
+    while (menu_select == true) {
+        if (selected_card_game == 0) {
+            if (animation_scroll == true) {
+                if (abuttonpressed == true) {
+                    led.unplot(4, 0)
+                    images.createImage(`
+                    . . . . .
+                    . # . . .
+                    # # # # #
+                    . # . . #
+                    . . . # #
+                    `).showImage(0)
+                    draw_menu()
+                    abuttonpressed = false
+                } else {
+                    led.unplot(4, 0)
+                    images.createImage(`
+                    . . . . .
+                    . # . . .
+                    # # # # #
+                    . # . . #
+                    . . . # #
+                    `).scrollImage(1, 45)
+                    draw_menu()
+                }
+            } else {
+                basic.showLeds(`
+                . . . . .
+                . # . . .
+                # # # # #
+                . # . . #
+                . . . # #
+                `)
+                draw_menu()
+            }
+            led.plot(0, 0)
+        } else if (selected_card_game == 1) {
+            if (animation_scroll == true) {
+                if (abuttonpressed == true) {
+                    led.unplot(0, 0)
+                    images.createImage(`
+                    . . . . .
+                    # . . . #
+                    # # . . .
+                    # . # . #
+                    # # . # #
+                    `).showImage(0)
+                    draw_menu()
+                    abuttonpressed = false
+                } else {
+                    led.unplot(0, 0)
+                    images.createImage(`
+                    . . . . .
+                    # . . . #
+                    # # . . .
+                    # . # . #
+                    # # . # #
+                    `).scrollImage(1, 45)
+                    draw_menu()
+                }
+            } else {
+                basic.showLeds(`
+                . . . . .
+                    # . . . #
+                    # # . . .
+                    # . # . #
+                    # # . # #
+                `)
+                draw_menu()
+            }
+            led.plot(1, 0)
+        } else if (selected_card_game == 2) {
+            if (animation_scroll == true) {
+                if (abuttonpressed == true) {
+                    led.unplot(1, 0)
+                    images.createImage(`
+                    . . . . .
+                    . . . . .
+                    . . . . .
+                    . . . . .
+                    . . . . .
+                    `).showImage(0)
+                    draw_menu()
+                    abuttonpressed = false
+                } else {
+                    led.unplot(1, 0)
+                    images.createImage(`
+                    . . . . .
+                    . . . . .
+                    . . . . .
+                    . . . . .
+                    . . . . .
+                    `).scrollImage(1, 45)
+                    draw_menu()
+                }
+            } else {
+                basic.showLeds(`
+                . . . . .
+                . . . . .
+                . . . . .
+                . . . . .
+                . . . . .
+                `)
+                draw_menu()
+            }
+            led.plot(2, 0)
+        } else if (selected_card_game == 3) {
+            if (animation_scroll == true) {
+                if (abuttonpressed == true) {
+                    led.unplot(2, 0)
+                    images.createImage(`
+                    . . . . .
+                    . . . . .
+                    . . . . .
+                    . . . . .
+                    . . . . .
+                    `).showImage(0)
+                    draw_menu()
+                    abuttonpressed = false
+                } else {
+                    led.unplot(2, 0)
+                    images.createImage(`
+                    . . . . .
+                    . . . . .
+                    . . . . .
+                    . . . . .
+                    . . . . .
+                    `).scrollImage(1, 45)
+                    draw_menu()
+                }
+            } else {
+                basic.showLeds(`
+                . . . . .
+                . . . . .
+                . . . . .
+                . . . . .
+                . . . . .
+                `)
+                draw_menu()
+            }
+            led.plot(3, 0)
+        } else {
+            if (animation_scroll == true) {
+                if (abuttonpressed == true) {
+                    led.unplot(3, 0)
+                    images.createImage(`
+                    . . . . .
+                    . . . . .
+                    . . . . .
+                    . . . . .
+                    . . . . .
+                    `).showImage(0)
+                    draw_menu()
+                    abuttonpressed = false
+                } else {
+                    led.unplot(3, 0)
+                    images.createImage(`
+                    . . . . .
+                    . . . . .
+                    . . . . .
+                    . . . . .
+                    . . . . .
+                    `).scrollImage(1, 45)
+                    draw_menu()
+                }
+            } else {
+                basic.showLeds(`
+                . . . . .
+                . . . . .
+                . . . . .
+                . . . . .
+                . . . . .
+                `)
+                draw_menu()
+            }
+            led.plot(4, 0)
+        }
+        waiting_for_input = true
+        while (waiting_for_input == true) {
+            if (input.buttonIsPressed(Button.A)) {
+                abuttonpressed = true
+                if (selected_card_game == 0) {
+                    selected_card_game = 0
+                    waiting_for_input = false
+                } else {
+                    selected_card_game += -1
+                    waiting_for_input = false
+                }
+            }
+            if (input.buttonIsPressed(Button.B)) {
+                if (selected_card_game == 4) {
+                    selected_card_game = 4
+                    abuttonpressed = true
+                    waiting_for_input = false
+                } else {
+                    selected_card_game += 1
+                    waiting_for_input = false
+                }
+            }
+            if (input.logoIsPressed()) {
+                menu_select = false
+                waiting_for_input = false
+            }
+        }
+    }
+    basic.clearScreen()
+    if (selected_card_game == 1) {
+        blackjack()
+    }
+    if (selected_card_game == 2) {
+        
+    }
+    if (selected_card_game == 3) {
+        
+    }
+    if (selected_card_game == 4) {
+
+    }
+    if (selected_card_game == 0) {
+        menu_select = true
+        abuttonpressed = true
+        game_select_menu()
+    }
+} //Bluetooth send type selection.
 function tool_select_menu() {
     while (menu_select == true) {
         if (selected_tool == 0) {
@@ -2082,7 +2346,7 @@ function tool_select_menu() {
         menu_select = true
         tool_clock_menu()
     }
-} //Tool selection
+} //Tool selection.
 function tool_calculator_menu() {
     while (menu_select == true) {
         if (selected_math == 1) {
@@ -2523,7 +2787,7 @@ function tool_calculator_menu() {
     } else {
         math_xy()
     }
-} //Calculator type selection
+} //Calculator type selection.
 function tool_clock_menu() {
     while (menu_select == true) {
         if (selected_clock == 1) {
@@ -2665,8 +2929,9 @@ function tool_clock_menu() {
     } else {
         timer()
     }
-} //Clock type selection
+} //Clock type selection.
 function turtle_main() {
+    music.setBuiltInSpeakerEnabled(true)
     let pen_up = false
     turtle.setPosition(2, 2)
     turtle.setBrightness(20)
@@ -3372,7 +3637,7 @@ function create_select_menu() {
         abuttonpressed = true
         menu_select_menu()
     }
-} //Create type selection
+} //Create type selection.
 function create_music_menu() {
     while (menu_select == true) {
         if (selected_music == 1) {
@@ -3586,7 +3851,7 @@ function create_music_menu() {
     } else if (selected_music == 4) {
         music_sFX()
     } else {
-        menu_select = true 
+        menu_select = true
         abuttonpressed = true
         custom_music_selection()
     }
@@ -3800,11 +4065,11 @@ function pins_select_menu() {
         abuttonpressed = true
         menu_select_menu()
     } else if (selected_pins == 1) {
-        
+
     } else if (selected_pins == 2) {
-        
+
     } else if (selected_pins == 3) {
-        
+
     } else {
 
     }
@@ -3944,15 +4209,15 @@ function serial_select_menu() {
         }
     }
     if (selected_serial == 0) {
-    menu_select = true
-    abuttonpressed = true
-    menu_select_menu()
+        menu_select = true
+        abuttonpressed = true
+        menu_select_menu()
     } else if (selected_serial == 1) {
-        
+
     } else {
-        
+
     }
-} //Serial selection
+} //Serial selection.
 function settings_select_menu() {
     while (menu_select == true) {
         if (selected_setting == 0) {
@@ -4748,6 +5013,7 @@ function settings_select_menu() {
     }
 } //Settings selection.
 
+
 input.onButtonPressed(Button.A, function () {
     if (game_mode == 1) {
         if (px_1 > 0) {
@@ -4921,7 +5187,7 @@ input.onButtonPressed(Button.B, function () {
             currY_9 = 2
         }
     }
-}) //On button B pressed
+}) //On button B pressed.
 input.onButtonPressed(Button.AB, function () {
     if (game_mode == 1) {
         shoot_1 = 1
@@ -4939,7 +5205,7 @@ input.onButtonPressed(Button.AB, function () {
     if (game_mode == 9) {
         state_9 = 1
     }
-}) //On button AB pressed
+}) //On button AB pressed.
 
 input.onPinPressed(TouchPin.P0, function () {
     if (pin_lock == false) {
@@ -4955,7 +5221,7 @@ input.onPinPressed(TouchPin.P0, function () {
             settings_music = false
         }
     }
-}) //On Pin0 pressed
+}) //On Pin0 pressed.
 input.onPinPressed(TouchPin.P1, function () {
     if (pin_lock == false) {
         if (settings_volume == 1) {
@@ -4984,7 +5250,7 @@ input.onPinPressed(TouchPin.P1, function () {
             music.play(music.tonePlayable(523, music.beat(BeatFraction.Eighth)), music.PlaybackMode.UntilDone)
         }
     }
-}) //On pin1 pressed
+}) //On pin1 pressed.
 input.onPinPressed(TouchPin.P2, function () {
     if (pin_lock == false) {
         if (settings_brightness == 1) {
@@ -5013,14 +5279,20 @@ input.onPinPressed(TouchPin.P2, function () {
             settings_brightness = 1
         }
     }
-}) //On pin2 pressed
+}) //On pin2 pressed.
 
 bluetooth.onBluetoothConnected(function () {
     bluetooth_online = true
-}) //On bluetooth connected
+}) //On bluetooth connected.
 bluetooth.onBluetoothDisconnected(function () {
     bluetooth_online = false
-})
+}) //On bluetooth disconnected.
+music.onEvent(MusicEvent.MelodyStarted, function () {
+    while (music_playing == true) {
+        loading_animation()
+    }
+}) //On melody playing.
+
 
 let pin_lock = true
 if (input.logoIsPressed()) {
@@ -5031,15 +5303,17 @@ if (input.logoIsPressed()) {
     pin_lock = true
 }
 music.setBuiltInSpeakerEnabled(false)
+pins.setAudioPinEnabled(false)
 let selected_menu = 1
 let game_mode = 0
+let selected_card_game = 0
 let selected_tool = 0
 let selected_setting = 0
 let selected_math = 1
 let selected_clock = 1
 let tool_type = 1
 let bluetooth_type = 0
-let bluetooth_keyboard_type =  0
+let bluetooth_keyboard_type = 0
 let create_type = 0
 let selected_create_music = 1
 let selected_pins = 0
@@ -5093,6 +5367,7 @@ let custom_music_tune: number[] = []
 let custom_music_beat: number[] = []
 let custom_beat: number[] = []
 let tune_music = 131
+let music_playing = false
 
 
 let acc_1 = 0
@@ -5222,6 +5497,11 @@ winY_9 = [
     2,
     1
 ]
+
+let bj_dealer_hand = 0
+let bj_my_hand = 0
+let bj_dealer_card = 0
+let random_card = 0
 
 menu_select_menu()
 
@@ -5946,7 +6226,263 @@ function showall() {
         led.plotBrightness(bx_9[i], by_9[i], brightnessB_9)
     }
 } //Tic-Tac-Toe // game_mode = 9
-
+function blackjack() {
+    basic.pause(200)
+    basic.clearScreen()
+    bj_dealer_hand = 0
+    bj_my_hand = 0
+    bj_dealer_card = 0
+    unid_type = 1
+    random_card = randint(1,14)
+    if (random_card == 1) {
+        bj_dealer_card = 1
+    } else if (random_card == 2) {
+        bj_dealer_card = 2
+    } else if(random_card == 3) {
+        bj_dealer_card = 3
+    } else if (random_card == 4) {
+        bj_dealer_card = 4
+    } else if (random_card == 5) {
+        bj_dealer_card = 5
+    } else if (random_card == 6) {
+        bj_dealer_card = 6
+    } else if(random_card == 7) {
+        bj_dealer_card = 7
+    } else if(random_card == 8) {
+        bj_dealer_card = 8
+    } else if(random_card == 9) {
+        bj_dealer_card = 9
+    } else if (random_card == 10) {
+        bj_dealer_card = 10
+    } else if (random_card == 11) {
+        bj_dealer_card = 10
+    } else if (random_card == 12) {
+        bj_dealer_card = 10
+    } else if (random_card == 13) {
+        bj_dealer_card = 10
+    } else if (random_card == 14) {
+        bj_dealer_card = 10
+    }
+    random_card = randint(1, 14)
+    if (random_card == 1) {
+        bj_dealer_hand = bj_dealer_card + 1
+    } else if (random_card == 2) {
+        bj_dealer_hand = bj_dealer_card + 2
+    } else if (random_card == 3) {
+        bj_dealer_hand = bj_dealer_card + 3
+    } else if (random_card == 4) {
+        bj_dealer_hand = bj_dealer_card + 4
+    } else if (random_card == 5) {
+        bj_dealer_hand = bj_dealer_card + 5
+    } else if (random_card == 6) {
+        bj_dealer_hand = bj_dealer_card + 6
+    } else if (random_card == 7) {
+        bj_dealer_hand = bj_dealer_card + 7
+    } else if (random_card == 8) {
+        bj_dealer_hand = bj_dealer_card + 8
+    } else if (random_card == 9) {
+        bj_dealer_hand = bj_dealer_card + 9
+    } else if (random_card == 10) {
+        bj_dealer_hand = bj_dealer_card + 10
+    } else if (random_card == 11) {
+        bj_dealer_hand = bj_dealer_card + 10
+    } else if (random_card == 12) {
+        bj_dealer_hand = bj_dealer_card + 10
+    } else if (random_card == 13) {
+        bj_dealer_hand = bj_dealer_card + 10
+    } else if (random_card == 14) {
+        bj_dealer_hand = bj_dealer_card + 10
+    }
+    for (let index = 0; index < 2; index++) {
+        random_card = randint(1, 14)
+        if (random_card == 1) {
+            bj_my_hand += 1
+        } else if (random_card == 2) {
+            bj_my_hand += 2
+        } else if (random_card == 3) {
+            bj_my_hand += 3
+        } else if (random_card == 4) {
+            bj_my_hand += 4
+        } else if (random_card == 5) {
+            bj_my_hand += 5
+        } else if (random_card == 6) {
+            bj_my_hand += 6
+        } else if (random_card == 7) {
+            bj_my_hand += 7
+        } else if (random_card == 8) {
+            bj_my_hand += 8
+        } else if (random_card == 9) {
+            bj_my_hand += 9
+        } else if (random_card == 10) {
+            bj_my_hand += 10
+        } else if (random_card == 11) {
+            bj_my_hand += 10
+        } else if (random_card == 12) {
+            bj_my_hand += 10
+        } else if (random_card == 13) {
+            bj_my_hand += 10
+        } else if (random_card == 14) {
+            bj_my_hand += 10
+        }
+    }
+    while (true) {
+        num = bj_dealer_card
+        if (input.buttonIsPressed(Button.AB)) {
+            basic.showNumber(game.score())
+        }
+        if (input.buttonIsPressed(Button.A)){
+            break;
+        }
+        if (input.buttonIsPressed(Button.B)) {
+            basic.showLeds(`
+            . . . . .
+            . . # . .
+            . # # # .
+            . . # . .
+            . . . . .
+            `)
+            basic.clearScreen()
+            random_card = randint(1, 14)
+            if (random_card == 1) {
+                bj_my_hand += 1
+            } else if (random_card == 2) {
+                bj_my_hand += 2
+            } else if (random_card == 3) {
+                bj_my_hand += 3
+            } else if (random_card == 4) {
+                bj_my_hand += 4
+            } else if (random_card == 5) {
+                bj_my_hand += 5
+            } else if (random_card == 6) {
+                bj_my_hand += 6
+            } else if (random_card == 7) {
+                bj_my_hand += 7
+            } else if (random_card == 8) {
+                bj_my_hand += 8
+            } else if (random_card == 9) {
+                bj_my_hand += 9
+            } else if (random_card == 10) {
+                bj_my_hand += 10
+            } else if (random_card == 11) {
+                bj_my_hand += 10
+            } else if (random_card == 12) {
+                bj_my_hand += 10
+            } else if (random_card == 13) {
+                bj_my_hand += 10
+            } else if (random_card == 14) {
+                bj_my_hand += 10
+            }
+            if (bj_my_hand == 21) {
+                break;
+            }
+            if (bj_my_hand >= 22)  {
+                break;
+            }
+        }
+        if (input.logoIsPressed()) {
+            num = bj_my_hand
+        }
+        unid_if_1_23()
+    }
+    while (true) {
+        if (bj_dealer_hand <= 15) {
+            random_card = randint(1, 14)
+            if (random_card == 1) {
+                bj_dealer_hand += 1
+            } else if (random_card == 2) {
+                bj_dealer_hand += 2
+            } else if (random_card == 3) {
+                bj_dealer_hand += 3
+            } else if (random_card == 4) {
+                bj_dealer_hand += 4
+            } else if (random_card == 5) {
+                bj_dealer_hand += 5
+            } else if (random_card == 6) {
+                bj_dealer_hand += 6
+            } else if (random_card == 7) {
+                bj_dealer_hand += 7
+            } else if (random_card == 8) {
+                bj_dealer_hand += 8
+            } else if (random_card == 9) {
+                bj_dealer_hand += 9
+            } else if (random_card == 10) {
+                bj_dealer_hand += 10
+            } else if (random_card == 11) {
+                bj_dealer_hand += 10
+            } else if (random_card == 12) {
+                bj_dealer_hand += 10
+            } else if (random_card == 13) {
+                bj_dealer_hand += 10
+            } else if (random_card == 14) {
+                bj_dealer_hand += 10
+            }
+        } else {
+            break;
+        }
+    }
+    basic.clearScreen()
+    while (true) {
+        if (bj_my_hand == bj_dealer_hand) {
+            basic.showLeds(`
+            . . . . #
+            . . . # .
+            . . # . .
+            . # . . .
+            # . . . .
+            `)
+            basic.showNumber(bj_dealer_hand)
+            basic.showString("=")
+            basic.showNumber(bj_my_hand)
+            game.addScore(0)
+            break;
+        }
+        if (bj_my_hand < bj_dealer_hand && bj_dealer_hand <= 21) {
+            basic.showLeds(`
+            # . . . #
+            . # . # .
+            . . # . .
+            . # . # .
+            # . . . #
+            `)
+            basic.showNumber(bj_dealer_hand)
+            basic.showString(">")
+            basic.showNumber(bj_my_hand)
+            game.addScore(-1)
+            break;
+        }
+        if (bj_my_hand == 21) {
+            basic.showLeds(`
+            . . . . .
+            . . . . #
+            . . . # .
+            # . # . .
+            . # . . .
+            `)
+            basic.showNumber(bj_dealer_hand)
+            basic.showString("<")
+            basic.showNumber(bj_my_hand)
+            game.addScore(1)
+            break;
+        }
+        if (bj_my_hand > bj_dealer_hand && bj_my_hand <= 21 || bj_my_hand <= 21) {
+            basic.showLeds(`
+            . . . . .
+            . . . . #
+            . . . # .
+            # . # . .
+            . # . . .
+            `)
+            basic.showNumber(bj_dealer_hand)
+            basic.showString("<")
+            basic.showNumber(bj_my_hand)
+            game.addScore(1)
+            break;
+        }
+        game.addScore(0)
+        break;
+    }
+    blackjack()
+}
 
 function tool_temparature() {
     while (true) {
@@ -6414,8 +6950,7 @@ function tool_record() {
     }
 } //Record and play sound files // Selected_tool = 8
 function math_xy() {
-    music.setBuiltInSpeakerEnabled(true)
-    basic.pause(100)
+    basic.pause(200)
     let numberlist = [
         0,
         1,
@@ -6450,6 +6985,7 @@ function math_xy() {
         if (input.logoIsPressed()) {
             music.play(music.tonePlayable(349, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
             numberx.push(numberlist[num])
+            basic.showIcon(IconNames.Yes)
         }
         if (input.buttonIsPressed(Button.AB)) {
             if (numberx.length == 1) {
@@ -6517,6 +7053,7 @@ function math_xy() {
             }
         }
         if (input.logoIsPressed()) {
+            basic.showIcon(IconNames.Yes)
             music.play(music.tonePlayable(349, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
             numbery.push(numberlist[num])
         }
@@ -6584,7 +7121,6 @@ function math_xy() {
 } //Calculator with 2 variables // Selected_tool = 9
 function math_x() {
     basic.clearScreen()
-    music.setBuiltInSpeakerEnabled(true)
     basic.pause(100)
     let numberlist = [
         0,
@@ -6620,6 +7156,7 @@ function math_x() {
         if (input.logoIsPressed()) {
             music.play(music.tonePlayable(349, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
             numberx.push(numberlist[num])
+            basic.showIcon(IconNames.Yes)
         }
         if (input.buttonIsPressed(Button.AB)) {
             if (numberx.length == 1) {
@@ -6682,8 +7219,8 @@ function math_x() {
     }
 } //Calculator with 1 variable // Selected_tool = 9
 function signal() {
-    music.setBuiltInSpeakerEnabled(true)
     basic.clearScreen()
+    music.setBuiltInSpeakerEnabled(true)
     basic.pause(200)
     basic.showString("H")
     basic.clearScreen()
@@ -6712,6 +7249,7 @@ function signal() {
         if (input.logoIsPressed()) {
             music.play(music.tonePlayable(349, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
             number_select = false
+            basic.showIcon(IconNames.Yes)
         }
         unid_if_1_23()
     }
@@ -6739,6 +7277,7 @@ function signal() {
         if (input.logoIsPressed()) {
             music.play(music.tonePlayable(349, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
             number_select = false
+            basic.showIcon(IconNames.Yes)
         }
         unid_if_1_23()
     }
@@ -6766,6 +7305,7 @@ function signal() {
         if (input.logoIsPressed()) {
             music.play(music.tonePlayable(349, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
             number_select = false
+            basic.showIcon(IconNames.Yes)
         }
         unid_if_1_23()
     }
@@ -6793,6 +7333,7 @@ function signal() {
         if (input.logoIsPressed()) {
             music.play(music.tonePlayable(349, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
             number_select = false
+            basic.showIcon(IconNames.Yes)
         }
         unid_if_1_23()
     }
@@ -6899,6 +7440,7 @@ function timer() {
         if (input.logoIsPressed()) {
             music.play(music.tonePlayable(349, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
             list.push(numberlist[num])
+            basic.showIcon(IconNames.Yes)
         }
         if (input.buttonIsPressed(Button.AB)) {
             if (list.length == 1) {
@@ -6937,6 +7479,7 @@ function timer() {
         if (input.logoIsPressed()) {
             music.play(music.tonePlayable(349, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
             list.push(numberlist[num])
+            basic.showIcon(IconNames.Yes)
         }
         if (input.buttonIsPressed(Button.AB)) {
             if (list.length == 1) {
@@ -6975,6 +7518,7 @@ function timer() {
         if (input.logoIsPressed()) {
             music.play(music.tonePlayable(349, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
             list.push(numberlist[num])
+            basic.showIcon(IconNames.Yes)
         }
         if (input.buttonIsPressed(Button.AB)) {
             if (list.length == 1) {
@@ -7205,7 +7749,6 @@ function bluetooth_gamepad() {
 } //Control the gamepad via bluetooth.
 function bluetooth_keyboard() {
     while (bluetooth_online == true) {
-        music.setBuiltInSpeakerEnabled(true)
         basic.clearScreen()
         abc = [
             "NUL",
@@ -7269,6 +7812,7 @@ function bluetooth_keyboard() {
                 music.play(music.tonePlayable(220, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
             }
             if (input.logoIsPressed()) {
+                basic.showIcon(IconNames.Yes)
                 if (abc_id == 1) {
                     if (shift == true) {
                         keyboard.sendString("A")
@@ -7522,7 +8066,6 @@ function bluetooth_keyboard() {
 } //Send any keyboard input via bluetooth
 function bluetooth_keyboard_number() {
     while (bluetooth_online == true) {
-        music.setBuiltInSpeakerEnabled(true)
         basic.clearScreen()
         basic.pause(500)
         let numberlist = [
@@ -7556,6 +8099,7 @@ function bluetooth_keyboard_number() {
                 }
             }
             if (input.logoIsPressed()) {
+                basic.showIcon(IconNames.Yes)
                 if (num == 1) {
                     if (shift == true) {
                         keyboard.sendString("!")
@@ -7664,7 +8208,6 @@ function bluetooth_keyboard_arrows() {
 } // Control arrow keys via bluetooth.
 function bluetooth_keyboard_custom() {
     while (bluetooth_online == true) {
-        music.setBuiltInSpeakerEnabled(true)
         basic.showLeds(`
         . . # . .
         . # . . .
@@ -7735,6 +8278,7 @@ function bluetooth_keyboard_custom() {
                 music.play(music.tonePlayable(220, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
             }
             if (input.logoIsPressed()) {
+                basic.showIcon(IconNames.Yes)
                 if (abc_id == 1) {
                     if (shift == true) {
                         custom_a_button = "A"
@@ -8013,6 +8557,7 @@ function bluetooth_keyboard_custom() {
                 music.play(music.tonePlayable(220, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
             }
             if (input.logoIsPressed()) {
+                basic.showIcon(IconNames.Yes)
                 if (abc_id == 1) {
                     if (shift == true) {
                         custom_logo_button = "A"
@@ -8291,6 +8836,7 @@ function bluetooth_keyboard_custom() {
                 music.play(music.tonePlayable(220, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
             }
             if (input.logoIsPressed()) {
+                basic.showIcon(IconNames.Yes)
                 if (abc_id == 1) {
                     if (shift == true) {
                         custom_b_button = "A"
@@ -8559,7 +9105,6 @@ function bluetooth_keyboard_custom() {
 
 
 function create_strig() {
-    music.setBuiltInSpeakerEnabled(true)
     basic.clearScreen()
     abc = [
         "NUL",
@@ -8622,6 +9167,7 @@ function create_strig() {
             abc_loop = false
         }
         if (input.logoIsPressed()) {
+            basic.showIcon(IconNames.Yes)
             inputlist.push(abc[abc_id])
             music.play(music.tonePlayable(523, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
             basic.pause(100)
@@ -8643,7 +9189,6 @@ function create_strig() {
     }
 } //Create a temp-saved string
 function create_number() {
-    music.setBuiltInSpeakerEnabled(true)
     basic.clearScreen()
     basic.pause(500)
     let numberlist = [
@@ -8677,6 +9222,7 @@ function create_number() {
             }
         }
         if (input.logoIsPressed()) {
+            basic.showIcon(IconNames.Yes)
             music.play(music.tonePlayable(349, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
             list.push(numberlist[num])
         }
@@ -8862,6 +9408,9 @@ function music_melody8() {
             }
         }
         if (input.logoIsPressed()) {
+            basic.showIcon(IconNames.Yes)
+            basic.clearScreen()
+            music_playing = true
             if (num == 1) {
                 music.play(music.stringPlayable("C5 B A G F E D C ", 120), music.PlaybackMode.UntilDone)
             } else if (num == 2) {
@@ -8883,6 +9432,7 @@ function music_melody8() {
             } else {
                 music.play(music.stringPlayable("C5 G B A F A C5 B ", 120), music.PlaybackMode.UntilDone)
             }
+            music_playing = false
         }
         unid_if_1_23()
     }
@@ -8909,6 +9459,9 @@ function music_melody() {
             }
         }
         if (input.logoIsPressed()) {
+            basic.showIcon(IconNames.Yes)
+            basic.clearScreen()
+            music_playing = true
             if (num == 1) {
                 music._playDefaultBackground(music.builtInPlayableMelody(Melodies.Dadadadum), music.PlaybackMode.UntilDone)
             } else if (num == 2) {
@@ -8950,6 +9503,7 @@ function music_melody() {
             } else {
                 music._playDefaultBackground(music.builtInPlayableMelody(Melodies.JumpDown), music.PlaybackMode.UntilDone)
             }
+            music_playing = false
         }
         unid_if_1_23()
     }
@@ -8976,6 +9530,7 @@ function music_melodyV2() {
             }
         }
         if (input.logoIsPressed()) {
+            basic.showIcon(IconNames.Yes)
             if (num == 1) {
                 music.play(music.builtinPlayableSoundEffect(soundExpression.giggle), music.PlaybackMode.UntilDone)
             } else if (num == 2) {
@@ -9023,6 +9578,7 @@ function music_sFX() {
             }
         }
         if (input.logoIsPressed()) {
+            basic.showIcon(IconNames.Yes)
             if (num == 1) {
                 music.play(music.createSoundExpression(WaveShape.Square, 1600, 1, 255, 0, 300, SoundExpressionEffect.None, InterpolationCurve.Curve), music.PlaybackMode.UntilDone)
             } else if (num == 2) {
@@ -9341,7 +9897,7 @@ function tune() {
             . . # . #
             # . # # .
             `)
-        } else if(num == 3) {
+        } else if (num == 3) {
             basic.showLeds(`
             . . # # #
             . . # . .
@@ -9553,7 +10109,7 @@ function beat() {
             }
             break;
         }
-        if (num == 1){
+        if (num == 1) {
             basic.showLeds(`
             . . . # .
             . . # # .
@@ -9593,7 +10149,7 @@ function beat() {
             # . # . #
             # . # # #
             `)
-        } else if(num == 6) {
+        } else if (num == 6) {
             basic.showLeds(`
             . # # # .
             . . . # .
@@ -9601,7 +10157,7 @@ function beat() {
             . # . . .
             . # # # .
             `)
-        } else if(num == 7) {
+        } else if (num == 7) {
             basic.showLeds(`
             . # . # .
             . # . # .
@@ -9735,7 +10291,7 @@ function rest() {
     menu_select = true
     abuttonpressed = true
     custom_music_selection()
-}
+} //Rest selection.
 function melody_play() {
     while (true) {
         if (custom_music[0] == 1) {
@@ -9745,13 +10301,13 @@ function melody_play() {
             } else if (custom_music_tune[0] == 2) {
                 tune_music = 147
                 play_tone()
-            } else if(custom_music_tune[0] == 3) {
+            } else if (custom_music_tune[0] == 3) {
                 tune_music = 165
                 play_tone()
-            } else if(custom_music_tune[0] == 4) {
+            } else if (custom_music_tune[0] == 4) {
                 tune_music = 175
                 play_tone()
-            } else if(custom_music_tune[0] == 5) {
+            } else if (custom_music_tune[0] == 5) {
                 tune_music = 196
                 play_tone()
             } else if (custom_music_tune[0] == 6) {
@@ -9806,19 +10362,19 @@ function melody_play() {
             custom_music_tune.removeAt(0)
         }
         if (custom_music[0] == 2) {
-            if (custom_beat[0] == 1){
+            if (custom_beat[0] == 1) {
                 music.rest(music.beat(BeatFraction.Whole))
             } else if (custom_beat[0] == 2) {
                 music.rest(music.beat(BeatFraction.Half))
-            } else if(custom_beat[0] == 3) {
+            } else if (custom_beat[0] == 3) {
                 music.rest(music.beat(BeatFraction.Quarter))
-            } else if(custom_beat[0] == 4) {
+            } else if (custom_beat[0] == 4) {
                 music.rest(music.beat(BeatFraction.Eighth))
-            } else if(custom_beat[0] == 5) {
+            } else if (custom_beat[0] == 5) {
                 music.rest(music.beat(BeatFraction.Sixteenth))
-            } else if(custom_beat[0] == 6) {
+            } else if (custom_beat[0] == 6) {
                 music.rest(music.beat(BeatFraction.Double))
-            } else if(custom_beat[0] == 7) {
+            } else if (custom_beat[0] == 7) {
                 music.rest(music.beat(BeatFraction.Breve))
             }
             custom_beat.removeAt(0)
@@ -9843,8 +10399,7 @@ function play_tone() {
         music.play(music.tonePlayable(tune_music, music.beat(BeatFraction.Breve)), music.PlaybackMode.UntilDone)
     }
     custom_music_beat.removeAt(0)
-}
-
+} //Play tone.
 
 
 basic.forever(function () {
@@ -9868,7 +10423,7 @@ basic.forever(function () {
             }
         }
     }
-})  //Auto-Brightness
+}) //Auto-Brightness
 function settings_test_input() {
     while (true) {
         if (input.buttonIsPressed(Button.A)) {
