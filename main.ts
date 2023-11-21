@@ -139,80 +139,70 @@ function unid_if_0_9() {
             . # . # .
             . # . # .
             . # . # .
-            . # # # .
-            `)
+            . # # # .`)
     } else if (unid == 1) {
         basic.showLeds(`
             . . . # .
             . . # # .
             . . . # .
             . . . # .
-            . . . # .
-            `)
+            . . . # .`)
     } else if (unid == 2) {
         basic.showLeds(`
             . # # # .
             . . . # .
             . # # # .
             . # . . .
-            . # # # .
-            `)
+            . # # # .`)
     } else if (unid == 3) {
         basic.showLeds(`
             . # # # .
             . . . # .
             . # # # .
             . . . # .
-            . # # # .
-            `)
+            . # # # .`)
     } else if (unid == 4) {
         basic.showLeds(`
             . # . # .
             . # . # .
             . # # # .
             . . . # .
-            . . . # .
-            `)
+            . . . # .`)
     } else if (unid == 5) {
         basic.showLeds(`
             . # # # .
             . # . . .
             . # # # .
             . . . # .
-            . # # # .
-            `)
+            . # # # .`)
     } else if (unid == 6) {
         basic.showLeds(`
             . # # # .
             . # . . .
             . # # # .
             . # . # .
-            . # # # .
-            `)
+            . # # # .`)
     } else if (unid == 7) {
         basic.showLeds(`
             . # # # .
             . . . # .
             . . . # .
             . . . # .
-            . . . # .
-            `)
+            . . . # .`)
     } else if (unid == 8) {
         basic.showLeds(`
             . # # # .
             . # . # .
             . # # # .
             . # . # .
-            . # # # .
-            `)
+            . # # # .`)
     } else if (unid == 9) {
         basic.showLeds(`
             . # # # .
             . # . # .
             . # # # .
             . . . # .
-            . # # # .
-            `)
+            . # # # .`)
     }
 } //Function to draw numbers from 0 to 9
 function unid_if_1_23() {
@@ -235,280 +225,245 @@ function unid_if_1_23() {
             . . # # .
             . . . # .
             . . . # .
-            . . . # .
-            `)
+            . . . # .`)
     } else if (unid == 2) {
         basic.showLeds(`
             . # # # .
             . . . # .
             . # # # .
             . # . . .
-            . # # # .
-            `)
+            . # # # .`)
     } else if (unid == 3) {
         basic.showLeds(`
             . # # # .
             . . . # .
             . # # # .
             . . . # .
-            . # # # .
-            `)
+            . # # # .`)
     } else if (unid == 4) {
         basic.showLeds(`
             . # . # .
             . # . # .
             . # # # .
             . . . # .
-            . . . # .
-            `)
+            . . . # .`)
     } else if (unid == 5) {
         basic.showLeds(`
             . # # # .
             . # . . .
             . # # # .
             . . . # .
-            . # # # .
-            `)
+            . # # # .`)
     } else if (unid == 6) {
         basic.showLeds(`
             . # # # .
             . # . . .
             . # # # .
             . # . # .
-            . # # # .
-            `)
+            . # # # .`)
     } else if (unid == 7) {
         basic.showLeds(`
             . # # # .
             . . . # .
             . . . # .
             . . . # .
-            . . . # .
-            `)
+            . . . # .`)
     } else if (unid == 8) {
         basic.showLeds(`
             . # # # .
             . # . # .
             . # # # .
             . # . # .
-            . # # # .
-            `)
+            . # # # .`)
     } else if (unid == 9) {
         basic.showLeds(`
             . # # # .
             . # . # .
             . # # # .
             . . . # .
-            . # # # .
-            `)
+            . # # # .`)
     } else if (unid == 10) {
         basic.showLeds(`
             # . # # #
             # . # . #
             # . # . #
             # . # . #
-            # . # # #
-            `)
+            # . # # #`)
     } else if (unid == 11) {
         basic.showLeds(`
             # . . . #
             # . . # #
             # . . . #
             # . . . #
-            # . . . #
-            `)
+            # . . . #`)
     } else if (unid == 12) {
         basic.showLeds(`
             # . # # #
             # . . . #
             # . # # #
             # . # . .
-            # . # # #
-            `)
+            # . # # #`)
     } else if (unid == 13) {
         basic.showLeds(`
             # . # # #
             # . . . #
             # . # # #
             # . . . #
-            # . # # #
-            `)
+            # . # # #`)
     } else if (unid == 14) {
         basic.showLeds(`
             # . # . #
             # . # . #
             # . # # #
             # . . . #
-            # . . . #
-            `)
+            # . . . #`)
     } else if (unid == 15) {
         basic.showLeds(`
             # . # # #
             # . # . .
             # . # # #
             # . . . #
-            # . # # #
-            `)
+            # . # # #`)
     } else if (unid == 16) {
         basic.showLeds(`
             # . # # #
             # . # . .
             # . # # #
             # . # . #
-            # . # # #
-            `)
+            # . # # #`)
     } else if (unid == 17) {
         basic.showLeds(`
             # . # # #
             # . . . #
             # . . . #
             # . . . #
-            # . . . #
-            `)
+            # . . . #`)
     } else if (unid == 18) {
         basic.showLeds(`
             # . # # #
             # . # . #
             # . # # #
             # . # . #
-            # . # # #
-            `)
+            # . # # #`)
     } else if (unid == 19) {
         basic.showLeds(`
             # . # # #
             # . # . #
             # . # # #
             # . . . #
-            # . # # #
-            `)
+            # . # # #`)
     } else if (unid == 20) {
         basic.showLeds(`
             # # # # #
             . # # . #
             # # # . #
             # . # . #
-            # # # # #
-            `)
+            # # # # #`)
     } else if (unid == 0) {
         basic.showLeds(`
             . # # # .
             . # . # .
             . # . # .
             . # . # .
-            . # # # .
-            `)
+            . # # # .`)
     } else if (unid == 5) {
         basic.showLeds(`
             . # # # .
             . # . . .
             . # # # .
             . . . # .
-            . # # # .
-            `)
+            . # # # .`)
     } else if (unid == 10) {
         basic.showLeds(`
             # . # # #
             # . # . #
             # . # . #
             # . # . #
-            # . # # #
-            `)
+            # . # # #`)
     } else if (unid == 15) {
         basic.showLeds(`
             # . . # #
             # . . # .
             # . . # #
             # . . . #
-            # . . # #
-            `)
+            # . . # #`)
     } else if (unid == 20) {
         basic.showLeds(`
             # # # # #
             . # # . #
             # # # . #
             # . # . #
-            # # # # #
-            `)
+            # # # # #`)
     } else if (unid == 25) {
         basic.showLeds(`
             # # . # #
             . # . # .
             # # . # #
             # . . . #
-            # # . # #
-            `)
+            # # . # #`)
     } else if (unid == 30) {
         basic.showLeds(`
             # # # # #
             . # # . #
             # # # . #
             . # # . #
-            # # # # #
-            `)
+            # # # # #`)
     } else if (unid == 35) {
         basic.showLeds(`
             # # . # #
             . # . # .
             # # . # #
             . # . . #
-            # # . # #
-            `)
+            # # . # #`)
     } else if (unid == 40) {
         basic.showLeds(`
             # . # # #
             # . # . #
             # # # . #
             . # # . #
-            . # # # #
-            `)
+            . # # # #`)
     } else if (unid == 45) {
         basic.showLeds(`
             # . . # #
             # . . # .
             # # . # #
             . # . . #
-            . # . # #
-            `)
+            . # . # #`)
     } else if (unid == 50) {
         basic.showLeds(`
             # # # # #
             # . # . #
             # # # . #
             . # # . #
-            # # # # #
-            `)
+            # # # # #`)
     } else if (unid == 55) {
         basic.showLeds(`
             # # . # #
             # . . # .
             # # . # #
             . # . . #
-            # # . # #
-            `)
+            # # . # #`)
     } else if (unid == 21) {
         basic.showLeds(`
             # # . . #
             . # . # #
             # # . . #
             # . . . #
-            # # . . #
-            `)
+            # # . . #`)
     } else if (unid == 22) {
         basic.showLeds(`
             # # . # #
             . # . . #
             # # . # #
             # . . # .
-            # # . # #
-            `)
+            # # . # #`)
     } else if (unid == 23) {
         basic.showLeds(`
             # # . # #
             . # . . #
             # # . # #
             # . . . #
-            # # . # #
-            `)
+            # # . # #`)
     }
 } //Function to draw numbers from 0 to 55 (1-23)
 function unid_if_1_4() {
@@ -518,56 +473,49 @@ function unid_if_1_4() {
             . . # # .
             . . . # .
             . . . # .
-            . . . # .
-            `)
+            . . . # .`)
     } else if (num == 2) {
         basic.showLeds(`
             # . . # #
             # . . . #
             # . . # #
             # . . # .
-            # . . # #
-            `)
+            # . . # #`)
     } else if (num == 3) {
         basic.showLeds(`
             # . # . #
             # . # . #
             # . # # #
             # . . . #
-            # . . . #
-            `)
+            # . . . #`)
     } else if (num == 4) {
         basic.showLeds(`
             # . # # #
             # . # . #
             # . # # #
             # . # . #
-            # . # # #
-            `)
+            # . # # #`)
     } else if (num == 5) {
         basic.showLeds(`
             # . # # #
             # . # . .
             # . # # #
             # . # . #
-            # . # # #
-            `)
+            # . # # #`)
     } else if (num == 6) {
         basic.showLeds(`
             . # # # .
             . . . # .
             . # # # .
             . # . . .
-            . # # # .
-            `)
+            . # # # .`)
     } else if (num == 7) {
         basic.showLeds(`
             . # . # .
             . # . # .
             . # # # .
             . . . # .
-            . . . # .
-            `)
+            . . . # .`)
     }
 } //Function to draw numbers from 1 to 4
 function usid_if() {
@@ -578,304 +526,266 @@ function usid_if() {
                 . # # # .
                 # . . # .
                 # . . # .
-                . # # # #
-                `)
+                . # # # #`)
     } else if (usid == 2) {
         basic.showLeds(`
                 . # # # .
                 . . . . .
                 . # # # .
                 # . . # .
-                . # # # #
-                `)
+                . # # # #`)
     } else if (usid == 3) {
         basic.showLeds(`
                 # . . . .
                 # . . . .
                 # # # . .
                 # . . # .
-                # # # . .
-                `)
+                # # # . .`)
     } else if (usid == 4) {
         basic.showLeds(`
                 . . . . .
                 . # # . .
                 # . . . .
                 # . . . .
-                . # # . .
-                `)
+                . # # . .`)
     } else if (usid == 5) {
         basic.showLeds(`
                 . # . . .
                 . . . . .
                 . # # . .
                 # . . . .
-                . # # . .
-                `)
+                . # # . .`)
     } else if (usid == 6) {
         basic.showLeds(`
                 . . . # .
                 . . . # .
                 . # # # .
                 # . . # .
-                . # # # .
-                `)
+                . # # # .`)
     } else if (usid == 7) {
         basic.showLeds(`
                 . # # . .
                 # . . # .
                 # # # . .
                 # . . . .
-                . # # # .
-                `)
+                . # # # .`)
     } else if (usid == 8) {
         basic.showLeds(`
                 # # # . #
                 # . . . #
                 # # # . #
                 # . . . .
-                # # # . .
-                `)
+                # # # . .`)
     } else if (usid == 9) {
         basic.showLeds(`
                 . . # # .
                 . # . . .
                 # # # . .
                 . # . . .
-                . # . . .
-                `)
+                . # . . .`)
     } else if (usid == 10) {
         basic.showLeds(`
                 . # # # .
                 # . . # .
                 . # # # .
                 . . . # .
-                . # # . .
-                `)
+                . # # . .`)
     } else if (usid == 11) {
         basic.showLeds(`
                 # # # . #
                 # . . . .
                 # . # # .
                 # . . # .
-                # # # # .
-                `)
+                # # # # .`)
     } else if (usid == 12) {
         basic.showLeds(`
                 # . . . .
                 # . . . .
                 # # # . .
                 # . . # .
-                # . . # .
-                `)
+                # . . # .`)
     } else if (usid == 13) {
         basic.showLeds(`
                 . . # . .
                 . . . . .
                 . . # . .
                 . . # . .
-                . . # . .
-                `)
+                . . # . .`)
     } else if (usid == 14) {
         basic.showLeds(`
                 . # # # .
                 . . . . .
                 . . # . .
                 . . # . .
-                . . # . .
-                `)
+                . . # . .`)
     } else if (usid == 15) {
         basic.showLeds(`
                 . . # . .
                 . . . . .
                 . . # . .
                 . . # . .
-                # # . . .
-                `)
+                # # . . .`)
     } else if (usid == 16) {
         basic.showLeds(`
                 # . . . .
                 # . # . .
                 # # . . .
                 # . # . .
-                # . . # .
-                `)
+                # . . # .`)
     } else if (usid == 17) {
         basic.showLeds(`
                 # . . . .
                 # . # . .
                 # # . . #
                 # . # . .
-                # . . # .
-                `)
+                # . . # .`)
     } else if (usid == 18) {
         basic.showLeds(`
                 . # . . .
                 . # . . .
                 . # . . .
                 . # . . .
-                . # # # .
-                `)
+                . # # # .`)
     } else if (usid == 19) {
         basic.showLeds(`
                 . # . . #
                 . # . . .
                 . # . . .
                 . # . . .
-                . # # # .
-                `)
+                . # # # .`)
     } else if (usid == 20) {
         basic.showLeds(`
                 . . . . .
                 # # . # #
                 # . # . #
                 # . . . #
-                # . . . #
-                `)
+                # . . . #`)
     } else if (usid == 21) {
         basic.showLeds(`
                 . . . . .
                 # # # . .
                 # . . # .
                 # . . # .
-                # . . # .
-                `)
+                # . . # .`)
     } else if (usid == 22) {
         basic.showLeds(`
                 . . . . #
                 # # # . .
                 # . . # .
                 # . . # .
-                # . . # .
-                `)
+                # . . # .`)
     } else if (usid == 23) {
         basic.showLeds(`
                 . . . . .
                 . # # . .
                 # . . # .
                 # . . # .
-                . # # . .
-                `)
+                . # # . .`)
     } else if (usid == 24) {
         basic.showLeds(`
                 . . . . .
                 # # # . .
                 # . . # .
                 # # # . .
-                # . . . .
-                `)
+                # . . . .`)
     } else if (usid == 25) {
         basic.showLeds(`
                 . . . . .
                 # . # # .
                 # # . . .
                 # . . . .
-                # . . . .
-                `)
+                # . . . .`)
     } else if (usid == 26) {
         basic.showLeds(`
                 . . . . .
                 . . # # .
                 . # . . .
                 . . # . .
-                # # . . .
-                `)
+                # # . . .`)
     } else if (usid == 27) {
         basic.showLeds(`
                 # . . . .
                 . . # # .
                 . # . . .
                 . . # . .
-                # # . . .
-                `)
+                # # . . .`)
     } else if (usid == 28) {
         basic.showLeds(`
                 . # . . .
                 . # . . .
                 . # # # .
                 . # . . .
-                . . # # .
-                `)
+                . . # # .`)
     } else if (usid == 29) {
         basic.showLeds(`
                 . . . . .
                 # . . # .
                 # . . # .
                 # . . # .
-                . # # # #
-                `)
+                . # # # #`)
     } else if (usid == 30) {
         basic.showLeds(`
                 . # # . .
                 . . . . .
                 # . . # .
                 # . . # .
-                . # # # #
-                `)
+                . # # # #`)
     } else if (usid == 31) {
         basic.showLeds(`
                 . . . . .
                 # . . . #
                 # . . . #
                 . # . # .
-                . . # . .
-                `)
+                . . # . .`)
     } else if (usid == 32) {
         basic.showLeds(`
                 . . . . .
                 # # # # .
                 . . # . .
                 . # . . .
-                # # # # .
-                `)
+                # # # # .`)
     } else if (usid == 33) {
         basic.showLeds(`
                 . . . . #
                 # # # # .
                 . . # . .
                 . # . . .
-                # # # # .
-                `)
+                # # # # .`)
     } else if (usid == 34) {
         basic.showLeds(`
                 . . . . .
                 . . . . .
                 # . . . #
                 # # # # #
-                . . . . .
-                `)
+                . . . . .`)
     } else if (usid == 35) {
         basic.showLeds(`
                 . . . . .
                 . . . . .
                 . . . . .
                 . . # . .
-                . . . . .
-                `)
+                . . . . .`)
     } else if (usid == 36) {
         basic.showLeds(`
                 . . . . .
                 . . . . .
                 . . . . .
                 . . # . .
-                . # . . .
-                `)
+                . # . . .`)
     } else if (usid == 37) {
         basic.showLeds(`
                 . . # . .
                 . . # . .
                 . . # . .
                 . . . . .
-                . . # . .
-                `)
+                . . # . .`)
     } else {
         basic.showLeds(`
                 . # # # .
                 # . . . #
                 . . # # .
                 . . . . .
-                . . # . .
-                `)
+                . . # . .`)
     }
 } //Function to draw letters from a to "?"
 function uckb_if() {
@@ -3516,519 +3426,447 @@ let image_games = images.createImage(`
     . . # . .
     . # # # .
     # # # # #
-    # . . . #
-`)
+    # . . . #`)
+
 let image_tools = images.createImage(`
     . . . . .
     . # . . .
     # . . . .
     . # . # .
-    # . # . .
-`)
+    # . # . .`)
 let image_turtle = images.createImage(`
     . . . . .
     . . # . .
     # # # # #
     . # # # .
-    # . # . #
-`)
+    # . # . #`)
 let image_radio = images.createImage(`
     . . . . .
     . . . . #
     . . . . #
     . . # . #
-    # . # . #
-`)
+    # . # . #`)
 let image_create = images.createImage(`
     . . . . .
     . . # . .
     . # # # .
     . . # . .
-    . . . . .
-`)
+    . . . . .`)
 let image_pins = images.createImage(`
     . . . . .
     . . . . .
     . . . . .
     # # # # #
-    # . # . #
-`)
+    # . # . #`)
 let image_serial = images.createImage(`
     . . . . .
     . . # . .
     # . # . #
     . # # # .
-    . . # . .
-`)
+    . . # . .`)
 let image_settings = images.createImage(`
     . . . . .
     . . . . .
     # # . # #
     . # # # .
-    # # . # #
-`)
+    # # . # #`)
 let image_back = images.createImage(`
     . . . . .
     . # . . .
     # # # # #
     . # . . #
-    . . . # #
-`)
+    . . . # #`)
 let image_space_invaders = images.createImage(`
     . . . . .
     . . # . .
     . . . . .
     . . . . .
-    . . # . .
-`)
+    . . # . .`)
 let image_flappy_bird = images.createImage(`
     . . . . .
     . . . # .
     . . . # .
     . . . . .
-    . . . # .
-`)
+    . . . # .`)
 let image_pong = images.createImage(`
     . . . . .
     . . . . .
     . . . . .
     . . . . .
-    . # # . .
-`)
+    . # # . .`)
 let image_cars_game = images.createImage(`
     . . . . .
     . . . . .
     . . . . .
     . . . . .
-    . . # . .
-`)
+    . . # . .`)
 let image_dino_game = images.createImage(`
     . . . . .
     . . . . .
     . . . # .
     # . . . .
-    # . . . .
-`)
+    # . . . .`)
 let image_jumping_rope = images.createImage(`
     . . . . .
     . . . . #
     . . . . .
     . . . . .
-    . . # . .
-`)
+    . . # . .`)
 let image_pac_man = images.createImage(`
     . . . . .
     . . . . .
     . . # . .
     . . . . .
-    # . . . .
-`)
+    # . . . .`)
 let image_tetris = images.createImage(`
     . . . . .
     . . . . .
     # . . . .
     # # . . #
-    # # . # #
-`)
+    # # . # #`)
 let image_ttt = images.createImage(`
     . . . . .
     . . . . .
     # # # . #
     . # . . #
-    . # . . #
-`)
+    . # . . #`)
 let image_cards = images.createImage(`
     . . . . .
     # # # . .
     # . # # #
     # # # . #
-    . . # # #
-`)
+    . . # # #`)
 let image_blackjack = images.createImage(`
     . . . . .
     # . . . #
     # # . . .
     # . # . #
-    # # . # #
-`)
+    # # . # #`)
 let image_tempereture = images.createImage(`
     . . . . .
     . # # . #
     # . . . .
     # . . . .
-    . # # . .
-`)
+    . # # . .`)
 let image_light = images.createImage(`
     . . . . .
     . # # # .
     # . . . #
     . # . # .
-    . # # # .
-`)
+    . # # # .`)
 let image_sound = images.createImage(`
     . . . . .
     . # . # .
     . # . . .
     # # # . .
-    . # . . .
-`)
+    . # . . .`)
 let image_north = images.createImage(`
     . . . . .
     . . # . .
     . # # # .
     # . # . #
-    . . # . .
-`)
+    . . # . .`)
 let image_x = images.createImage(`
     . . . . .
     . . . . .
     # . # . .
     . # . . .
-    # . # . .
-`)
+    # . # . .`)
 let image_y = images.createImage(`
     . . . . .
     # . # . .
     # . # . .
     . # . . .
-    # # . . .
-`)
+    # # . . .`)
 let image_z = images.createImage(`
     . . . . .
     # # # . .
     . # . . .
     # . . . .
-    # # # . .
-`)
+    # # # . .`)
+
 let image_note = images.createImage(`
     . . . . .
     . . # # .
     . . # . #
     # # # . .
-    # # # . .
-`)
+    # # # . .`)
 let image_calculator = images.createImage(`
     . . . . .
     . # . . .
     # # # . .
     . # . . .
-    . . . # #
-`)
+    . . . # #`)
 let image_clock = images.createImage(`
     . . . . .
     # . # . #
     # . # # #
     # . . . #
-    . # # # .
-`)
+    . # # # .`)
 let image_plus = images.createImage(`
     . . . . .
     . . . . .
     . # . . .
     # # # . .
-    . # . . .
-`)
+    . # . . .`)
 let image_minus = images.createImage(`
     . . . . .
     . . . . .
     . . . . .
     # # # . .
-    . . . . .
-`)
+    . . . . .`)
 let image_times = images.createImage(`
     . . . . .
     . . . . .
     # . # . .
     . # . . .
-    # . # . .
-`)
+    # . # . .`)
 let image_divide = images.createImage(`
     . . . . .
     . . . . .
     . . # . .
     . # . . .
-    # . . . .
-`)
+    # . . . .`)
 let image_caret = images.createImage(`
     . . . . .
     . . . . .
     . . . . .
     . # . . .
-    # . # . .
-`)
+    # . # . .`)
 let image_sqr = images.createImage(`
     . . . . .
     . # # # #
     . # . . #
     # # . . .
-    . # . . .
-`)
+    . # . . .`)
 let image_sin = images.createImage(`
     . . . . .
     . . # # .
     . # . . .
     . . # . .
-    # # . . .
-`)
+    # # . . .`)
 let image_cosin = images.createImage(`
     . . . . .
     . # # . .
     # . . . .
     # . . . .
-    . # # . .
-`)
+    . # # . .`)
 let image_tangent = images.createImage(`
     . . . . .
     . # . . .
     # # # . .
     . # . . .
-    . # . . .
-`)
+    . # . . .`)
 let image_pi = images.createImage(`
     . . . . .
     # # # . #
     # . # . #
     # # # . #
-    # . . . #
-`)
+    # . . . #`)
 let image_random = images.createImage(`
     . . . . .
     . # # # .
     # . . . #
     . . # # .
-    . . # . .
-`)
+    . . # . .`)
 let image_signal = images.createImage(`
     . . . . .
     # # . # #
     # # # # #
     . # . # .
-    . # # # .
-`)
+    . # # # .`)
 let image_chronometer = images.createImage(`
     . . . . .
     . . # . .
     . . # # #
     . . . . .
-    . . . . .
-`)
+    . . . . .`)
 let image_timer = images.createImage(`
     . . . . .
     . . . . .
     # # . # #
     # . # . #
-    # # . # #
-`)
+    # # . # #`)
 let image_mouse = images.createImage(`
     . . . . .
     # # # . .
     # . . # .
     # . # . .
-    . # . # .
-`)
+    . # . # .`)
 let image_gamepad = images.createImage(`
     . . . . .
     . . . # #
     . # . . .
     # # # . .
-    . # . . .
-`)
+    . # . . .`)
 let image_keyboard = images.createImage(`
     . . . . .
     . # . # .
     # . # . #
     . . . . .
-    . # # # .
-`)
+    . # # # .`)
 let image_numbers = images.createImage(`
     . . . . .
     # . # # #
     # . # . #
     # . # . #
-    # . # # #
-`)
+    # . # # #`)
 let image_arrows = images.createImage(`
     . . . . .
     . # . # .
     # # # # #
     . # . # .
-    . . . . .
-`)
+    . . . . .`)
 let image_numberone = images.createImage(`
     . . . . .
     . . # . .
     . # # . .
     . . # . .
-    . . # . .
-`)
+    . . # . .`)
 let image_text = images.createImage(`
     . . . . .
     . . . . .
     # . . . #
     # # # # #
-    . . . . .
-`)
+    . . . . .`)
 let image_image = images.createImage(`
     . . . . .
     # # # # #
     # # . . #
     # . . # #
-    # # # # #
-`)
+    # # # # #`)
 let image_music8 = images.createImage(`
     . . . . .
     . # . . .
     . . # . #
     # . . . .
-    . . . # .
-`)
+    . . . # .`)
 let image_musicv2 = images.createImage(`
     . . . . .
     # . # . .
     # . # . .
     . # . . #
-    . . . . #
-`)
+    . . . . #`)
 let image_musicfx = images.createImage(`
     . . . . .
     # # . . .
     # . # . #
     # # . # .
-    # . # . #
-`)
+    # . # . #`)
 let image_zero = images.createImage(`
     . . . . .
     . # # # .
     . # . # .
     . # . # .
-    . # # # .
-`)
+    . # # # .`)
 let image_two = images.createImage(`
     . . . . .
     . # # # .
     . . . # .
     . . # . .
-    . # # # .
-`)
+    . # # # .`)
 let image_3v = images.createImage(`
     . . . . .
     . # . . .
     # # # . #
     . # # . #
-    # # . # .
-`)
+    # # . # .`)
 let image_volume = images.createImage(`
     . . . . .
     . . . . .
     # . . . .
     # . . . .
-    . . . . .
-`)
+    . . . . .`)
 let image_volume_full = images.createImage(`
     . . . . .
     . . # . .
     # . . # .
     # . . # .
-    . . # . .
-`)
+    . . # . .`)
 let image_brightness1 = images.createImage(`
     . . . . .
     . . . . .
     # . . . .
     . # . # .
-    . # # # .
-`)
+    . # # # .`)
 let image_brightness2 = images.createImage(`
     . . . . .
     . # . . .
     # . . . .
     . # . # .
-    . # # # .
-`)
+    . # # # .`)
 let image_brightness3 = images.createImage(`
     . . . . .
     . # # . .
     # . . . .
     . # . # .
-    . # # # .
-`)
+    . # # # .`)
 let image_brightness4 = images.createImage(`
     . . . . .
     . # # # .
     # . . . .
     . # . # .
-    . # # # .
-`)
+    . # # # .`)
 let image_brightness5 = images.createImage(`
     . . . . .
     . # # # .
     # . . . #
     . # . # .
-    . # # # .
-`)
+    . # # # .`)
 let image_auto = images.createImage(`
     . . . . .
     . # # # .
     . # . # .
     . # # # .
-    . # . # .
-`)
+    . # . # .`)
 let image_log = images.createImage(`
     . . . . .
     # . # . #
     # # # # #
     # . # . #
-    # # # # #
-`)
+    # # # # #`)
 let image_compass = images.createImage(`
     . . . . .
     . # # . #
     # . . # .
     # . . # .
-    . # # . .
-`)
+    . # # . .`)
 let image_input = images.createImage(`
     . . . . .
     . # # # .
     . # . # .
     . # # # .
-    . . . . .
-`)
+    . . . . .`)
 let image_play = images.createImage(`
     . . . . .
     . . . # .
     # # # # #
     . . . # .
-    . . . . .
-`)
+    . . . . .`)
 let image_rest = images.createImage(`
     . . . . .
     . . . . .
     . # # # .
     # . . . #
-    # . . . #
-`)
+    # . . . #`)
 let image_analog = images.createImage(`
     . . . . .
     . # . . .
     # . # . #
     . . # . #
-    . . . # .
-`)
+    . . . # .`)
 let image_digital = images.createImage(`
     . . . . .
     # # # . .
     # . # . #
     . . # . #
-    . . # # #
-`)
+    . . # # #`)
 let image_blank = images.createImage(`
     . . . . .
     . . . . .
     . . . . .
     . . . . .
-    . . . . .
-`)
+    . . . . .`)
 let acc_1 = 0
 let time_1 = 0
 let killed_1: number[] = []
@@ -8362,4 +8200,4 @@ function settings_test_input() {
         led.unplot(2, 4)
         led.unplot(4, 4)
     }
-} //Test all inputs. 8617
+} //Test all inputs.
