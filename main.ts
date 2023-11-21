@@ -1064,7 +1064,7 @@ function menu_select_menu() {
             led.unplot(1, 0)
         } else if (selected_menu == 4) {
             led.unplot(2, 0)
-        } else if (selected_menu == 8) {
+        } else if (selected_menu == 9) {
             led.unplot(3, 0)
         } else {
             led.unplot(2, 0)
@@ -1084,8 +1084,10 @@ function menu_select_menu() {
             } else if (selected_menu == 6) {
                 image_pins.showImage(0)
             } else if (selected_menu == 7) {
-                image_serial.showImage(0)
-            } else {
+                image_send.showImage(0)
+            } else if (selected_menu == 8) {
+                image_uart.showImage(0)
+            } else if (selected_menu == 9) {
                 image_settings.showImage(0)
             }
         } else {
@@ -1102,8 +1104,10 @@ function menu_select_menu() {
             } else if (selected_menu == 6) {
                 image_pins.scrollImage(1, 45)
             } else if (selected_menu == 7) {
-                image_serial.scrollImage(1, 45)
-            } else {
+                image_send.scrollImage(1, 45)
+            } else if (selected_menu == 8) {
+                image_uart.scrollImage(1, 45)
+            } else if (selected_menu == 9) {
                 image_settings.scrollImage(1, 45)
             }
         }
@@ -1112,9 +1116,9 @@ function menu_select_menu() {
             led.plot(0, 0)
         } else if (selected_menu == 2) {
             led.plot(1, 0)
-        } else if (selected_menu == 7) {
-            led.plot(3, 0)
         } else if (selected_menu == 8) {
+            led.plot(3, 0)
+        } else if (selected_menu == 9) {
             led.plot(4, 0)
         } else {
             led.plot(2, 0)
@@ -1131,8 +1135,8 @@ function menu_select_menu() {
                     waiting_for_input = false
                 }
             } else if (input.buttonIsPressed(Button.B)) {
-                if (selected_menu == 8) {
-                    selected_menu = 8
+                if (selected_menu == 9) {
+                    selected_menu = 9
                     abuttonpressed = true
                     waiting_for_input = false
                 } else {
@@ -1170,8 +1174,13 @@ function menu_select_menu() {
     } else if (selected_menu == 7) {
         abuttonpressed = true
         menu_select = true
-        serial_select_menu()
+        send_select_menu()
     } else if (selected_menu == 8) {
+        abuttonpressed = true
+        menu_select = true
+        selected_uart = true
+        send_select_menu()
+    } else if (selected_menu == 9) {
         abuttonpressed = true
         menu_select = true
         settings_select_menu()
@@ -2424,7 +2433,7 @@ function pins_type_select_menu() {
 
     }
 } //Pin type selection.
-function serial_select_menu() {
+function send_select_menu() {
     while (menu_select == true) {
         if (selected_serial == 0) {
             led.unplot(3, 0)
@@ -2440,7 +2449,7 @@ function serial_select_menu() {
             } else if (selected_serial == 1) {
                 image_north.showImage(0)
             } else if (selected_serial == 2) {
-                image_serial.showImage(0)
+                image_send.showImage(0)
             }
         } else {
             if (selected_serial == 0) {
@@ -2448,7 +2457,7 @@ function serial_select_menu() {
             } else if (selected_serial == 1) {
                 image_north.scrollImage(1, 45)
             } else if (selected_serial == 2) {
-                image_serial.scrollImage(1, 45)
+                image_send.scrollImage(1, 45)
             }
         }
         draw_mini_menu()
@@ -2493,12 +2502,12 @@ function serial_select_menu() {
     } else if (selected_serial == 1) {
         menu_select = true
         abuttonpressed = true
-        serial_send_select_menu()
+        send_type_select_menu()
     } else if (selected_serial == 2) {
         line_sent = true
     }
 } //Serial selection.
-function serial_send_select_menu() {
+function send_type_select_menu() {
     while (menu_select == true) {
         if (selected_serial_send == 0) {
             led.unplot(4, 0)
@@ -2603,27 +2612,27 @@ function serial_send_select_menu() {
     if (selected_serial_send == 0) {
         menu_select = true
         abuttonpressed = true
-        serial_select_menu()
+        send_select_menu()
     } else if (selected_serial_send == 1) {
-        serial_send_input()
+        send_input()
     } else if (selected_serial_send == 2) {
-        serial_send_temperature()
+        send_temperature()
     } else if (selected_serial_send == 3) {
-        serial_send_light_level()
+        send_light_level()
     } else if (selected_serial_send == 4) {
-        serial_send_sound_level()
+        send_sound_level()
     } else if (selected_serial_send == 5) {
-        serial_send_compass()
+        send_compass()
     } else if (selected_serial_send == 6) {
-        serial_send_accX()
+        send_accX()
     } else if (selected_serial_send == 7) {
-        serial_send_accY()
+        send_accY()
     } else if (selected_serial_send == 8) {
-        serial_send_accZ()
+        send_accZ()
     } else if (selected_serial_send == 9) {
-        serial_send_numer()
+        send_numer()
     } else if (selected_serial_send == 10) {
-        serial_send_string()
+        send_string()
     }
 } //Serial types election.
 function settings_select_menu() {
@@ -3341,6 +3350,11 @@ serial.onDataReceived(serial.delimiters(Delimiters.NewLine), function () {
         basic.showString(serial.readLine())
     }
 })
+bluetooth.onUartDataReceived(serial.delimiters(Delimiters.NewLine), function on_uart_data_received() {
+    if (line_sent = true) {
+        basic.showString(bluetooth.uartReadUntil(serial.delimiters(Delimiters.NewLine)))
+    }
+})
 let pin_lock = true
 if (input.logoIsPressed()) {
     loading_animation_rev()
@@ -3352,6 +3366,7 @@ if (input.logoIsPressed()) {
 music.setBuiltInSpeakerEnabled(false)
 pins.setAudioPinEnabled(false)
 serial.setBaudRate(BaudRate.BaudRate115200)
+bluetooth.startUartService()
 let selected_menu = 1
 let game_mode = 0
 let selected_card_game = 0
@@ -3367,6 +3382,7 @@ let selected_create_music = 1
 let selected_pins = 0
 let selected_pins_type = 0
 let selected_serial = 0
+let selected_uart = false
 let selected_serial_send = 0
 let selected_music = 1
 let settings_brightness = 5
@@ -3421,6 +3437,7 @@ let custom_beat: number[] = []
 let tune_music = 131
 let music_playing = false
 let line_sent = false
+let uart_send = ""
 let image_games = images.createImage(`
     . . . . .
     . . # . .
@@ -3458,12 +3475,18 @@ let image_pins = images.createImage(`
     . . . . .
     # # # # #
     # . # . #`)
-let image_serial = images.createImage(`
+let image_send = images.createImage(`
     . . . . .
     . . # . .
     # . # . #
     . # # # .
     . . # . .`)
+let image_uart = images.createImage(`
+    . . . . .
+    . . # . .
+    # . # # .
+    . # # . #
+    # . # # .`)
 let image_settings = images.createImage(`
     . . . . .
     . . . . .
@@ -7213,168 +7236,147 @@ function tune() {
             . . # . .
             . . # . .
             . . # . .
-            # . # # #
-            `)
+            # . # # #`)
         } else if (num == 2) {
             basic.showLeds(`
             . . # # .
             . . # . #
             . . # . #
             . . # . #
-            # . # # .
-            `)
+            # . # # .`)
         } else if (num == 3) {
             basic.showLeds(`
             . . # # #
             . . # . .
             . . # # #
             . . # . .
-            # . # # #
-            `)
+            # . # # #`)
         } else if (num == 4) {
             basic.showLeds(`
             . . # # #
             . . # . .
             . . # # #
             . . # . .
-            # . # . .
-            `)
+            # . # . .`)
         } else if (num == 5) {
             basic.showLeds(`
             . . # # #
             . . # . .
             . . # # #
             . . # . #
-            # . # # #
-            `)
+            # . # # #`)
         } else if (num == 6) {
             basic.showLeds(`
             . . # # #
             . . # . #
             . . # # #
             . . # . #
-            # . # . #
-            `)
+            # . # . #`)
         } else if (num == 7) {
             basic.showLeds(`
             . . # # #
             . . # . #
             . . # # .
             . . # . #
-            # . # # #
-            `)
+            # . # # #`)
         } else if (num == 8) {
             basic.showLeds(`
             . . # # #
             . . # . .
             . . # . .
             # . # . .
-            # . # # #
-            `)
+            # . # # #`)
         } else if (num == 9) {
             basic.showLeds(`
             . . # # .
             . . # . #
             . . # . #
             # . # . #
-            # . # # .
-            `)
+            # . # # .`)
         } else if (num == 10) {
             basic.showLeds(`
             . . # # #
             . . # . .
             . . # # #
             # . # . .
-            # . # # #
-            `)
+            # . # # #`)
         } else if (num == 11) {
             basic.showLeds(`
             . . # # #
             . . # . .
             . . # # #
             # . # . .
-            # . # . .
-            `)
+            # . # . .`)
         } else if (num == 12) {
             basic.showLeds(`
             . . # # #
             . . # . .
             . . # # #
             # . # . #
-            # . # # #
-            `)
+            # . # # #`)
         } else if (num == 13) {
             basic.showLeds(`
             . . # # #
             . . # . #
             . . # # #
             # . # . #
-            # . # . #
-            `)
+            # . # . #`)
         } else if (num == 14) {
             basic.showLeds(`
             . . # # #
             . . # . #
             . . # # .
             # . # . #
-            # . # # #
-            `)
+            # . # # #`)
         } else if (num == 15) {
             basic.showLeds(`
             . . # # #
             . . # . .
             # . # . .
             # . # . .
-            # . # # #
-            `)
+            # . # # #`)
         } else if (num == 16) {
             basic.showLeds(`
             . . # # .
             . . # . #
             # . # . #
             # . # . #
-            # . # # .
-            `)
+            # . # # .`)
         } else if (num == 17) {
             basic.showLeds(`
             . . # # #
             . . # . .
             # . # # #
             # . # . .
-            # . # # #
-            `)
+            # . # # #`)
         } else if (num == 18) {
             basic.showLeds(`
             . . # # #
             . . # . .
             # . # # #
             # . # . .
-            # . # . .
-            `)
+            # . # . .`)
         } else if (num == 19) {
             basic.showLeds(`
             . . # # #
             . . # . .
             # . # # #
             # . # . #
-            # . # # #
-            `)
+            # . # # #`)
         } else if (num == 20) {
             basic.showLeds(`
             . . # # #
             . . # . #
             # . # # #
             # . # . #
-            # . # . #
-            `)
+            # . # . #`)
         } else if (num == 21) {
             basic.showLeds(`
             . . # # #
             . . # . #
             # . # # .
             # . # . #
-            # . # # #
-            `)
+            # . # # #`)
         }
     }
     beat()
@@ -7700,7 +7702,7 @@ function pins_digital() {
         }
     }
 }
-function serial_send_input() {
+function send_input() {
     basic.clearScreen()
     while (true) {
         if (input.buttonIsPressed(Button.A)) {
@@ -7715,11 +7717,16 @@ function serial_send_input() {
         basic.pause(10)
     }
 }
-function serial_send_temperature() {
+function send_temperature() {
     while (true) {
         if (tool_type == 1) {
             basic.showNumber(input.temperature())
-            serial.writeLine("" + (input.temperature()))
+            if (selected_uart == true) {
+                uart_send = "" + input.temperature()
+                bluetooth.uartWriteLine(uart_send)
+            } else {
+                serial.writeLine("" + (input.temperature()))
+            }
             if (input.logoIsPressed()) {
                 basic.clearScreen()
                 tool_type = 2
@@ -7728,8 +7735,13 @@ function serial_send_temperature() {
             }
         }
         if (tool_type == 2) {
-            led.plotBarGraph(input.temperature(), 0)
-            serial.writeLine("" + (input.temperature()))
+            led.plotBarGraph(input.temperature(), 50)
+            if (selected_uart == true) {
+                uart_send = "" + input.temperature()
+                bluetooth.uartWriteLine(uart_send)
+            } else {
+                serial.writeLine("" + (input.temperature()))
+            }
             if (input.logoIsPressed()) {
                 basic.clearScreen()
                 tool_type = 1
@@ -7739,11 +7751,16 @@ function serial_send_temperature() {
         }
     }
 }
-function serial_send_light_level() {
+function send_light_level() {
     while (true) {
         if (tool_type == 1) {
             basic.showNumber(input.lightLevel())
-            serial.writeLine("" + (input.lightLevel()))
+            if (selected_uart == true) {
+                uart_send = "" + input.lightLevel()
+                bluetooth.uartWriteLine(uart_send)
+            } else {
+                serial.writeLine("" + (input.lightLevel()))
+            }
             if (input.logoIsPressed()) {
                 basic.clearScreen()
                 tool_type = 2
@@ -7752,8 +7769,13 @@ function serial_send_light_level() {
             }
         }
         if (tool_type == 2) {
-            led.plotBarGraph(input.lightLevel(), 0)
-            serial.writeLine("" + (input.lightLevel()))
+            led.plotBarGraph(input.lightLevel(), 255)
+            if (selected_uart == true) {
+                uart_send = "" + input.lightLevel()
+                bluetooth.uartWriteLine(uart_send)
+            } else {
+                serial.writeLine("" + (input.lightLevel()))
+            }
             if (input.logoIsPressed()) {
                 basic.clearScreen()
                 tool_type = 1
@@ -7763,11 +7785,16 @@ function serial_send_light_level() {
         }
     }
 }
-function serial_send_sound_level() {
+function send_sound_level() {
     while (true) {
         if (tool_type == 1) {
             basic.showNumber(input.soundLevel())
-            serial.writeLine("" + (input.soundLevel()))
+            if (selected_uart == true) {
+                uart_send = "" + input.soundLevel()
+                bluetooth.uartWriteLine(uart_send)
+            } else {
+                serial.writeLine("" + (input.soundLevel()))
+            }
             if (input.logoIsPressed()) {
                 basic.clearScreen()
                 tool_type = 2
@@ -7776,8 +7803,13 @@ function serial_send_sound_level() {
             }
         }
         if (tool_type == 2) {
-            led.plotBarGraph(input.soundLevel(), 0)
-            serial.writeLine("" + (input.soundLevel()))
+            led.plotBarGraph(input.soundLevel(), 255)
+            if (selected_uart == true) {
+                uart_send = "" + input.soundLevel()
+                bluetooth.uartWriteLine(uart_send)
+            } else {
+                serial.writeLine("" + (input.soundLevel()))
+            }
             if (input.logoIsPressed()) {
                 basic.clearScreen()
                 tool_type = 1
@@ -7787,11 +7819,16 @@ function serial_send_sound_level() {
         }
     }
 }
-function serial_send_compass() {
+function send_compass() {
     while (true) {
         if (tool_type == 1) {
             basic.showNumber(input.compassHeading())
-            serial.writeLine("" + (input.compassHeading()))
+            if (selected_uart == true) {
+                uart_send = "" + input.compassHeading()
+                bluetooth.uartWriteLine(uart_send)
+            } else {
+                serial.writeLine("" + (input.compassHeading()))
+            }
             if (input.logoIsPressed()) {
                 basic.clearScreen()
                 tool_type = 2
@@ -7801,7 +7838,12 @@ function serial_send_compass() {
         }
         if (tool_type == 2) {
             led.plotBarGraph(input.compassHeading(), 360)
-            serial.writeLine("" + (input.compassHeading()))
+            if (selected_uart == true) {
+                uart_send = "" + input.compassHeading()
+                bluetooth.uartWriteLine(uart_send)
+            } else {
+                serial.writeLine("" + (input.compassHeading()))
+            }
             if (input.logoIsPressed()) {
                 basic.clearScreen()
                 tool_type = 1
@@ -7811,11 +7853,16 @@ function serial_send_compass() {
         }
     }
 }
-function serial_send_accX() {
+function send_accX() {
     while (true) {
         if (tool_type == 1) {
             basic.showNumber(input.acceleration(Dimension.X))
-            serial.writeLine("" + (input.acceleration(Dimension.X)))
+            if (selected_uart == true) {
+                uart_send = "" + input.acceleration(Dimension.X)
+                bluetooth.uartWriteLine(uart_send)
+            } else {
+                serial.writeLine("" + (input.acceleration(Dimension.X)))
+            }
             if (input.logoIsPressed()) {
                 basic.clearScreen()
                 tool_type = 2
@@ -7825,7 +7872,12 @@ function serial_send_accX() {
         }
         if (tool_type == 2) {
             led.plotBarGraph(input.acceleration(Dimension.X), 1023)
-            serial.writeLine("" + (input.acceleration(Dimension.X)))
+            if (selected_uart == true) {
+                uart_send = "" + input.acceleration(Dimension.X)
+                bluetooth.uartWriteLine(uart_send)
+            } else {
+                serial.writeLine("" + (input.acceleration(Dimension.X)))
+            }
             if (input.logoIsPressed()) {
                 basic.clearScreen()
                 tool_type = 1
@@ -7835,11 +7887,16 @@ function serial_send_accX() {
         }
     }
 }
-function serial_send_accY() {
+function send_accY() {
     while (true) {
         if (tool_type == 1) {
             basic.showNumber(input.acceleration(Dimension.Y))
-            serial.writeLine("" + (input.acceleration(Dimension.Y)))
+            if (selected_uart == true) {
+                uart_send = "" + input.acceleration(Dimension.Y)
+                bluetooth.uartWriteLine(uart_send)
+            } else {
+                serial.writeLine("" + (input.acceleration(Dimension.Y)))
+            }
             if (input.logoIsPressed()) {
                 basic.clearScreen()
                 tool_type = 2
@@ -7849,7 +7906,12 @@ function serial_send_accY() {
         }
         if (tool_type == 2) {
             led.plotBarGraph(input.acceleration(Dimension.Y), 1023)
-            serial.writeLine("" + (input.acceleration(Dimension.Y)))
+            if (selected_uart == true) {
+                uart_send = "" + input.acceleration(Dimension.Y)
+                bluetooth.uartWriteLine(uart_send)
+            } else {
+                serial.writeLine("" + (input.acceleration(Dimension.Y)))
+            }
             if (input.logoIsPressed()) {
                 basic.clearScreen()
                 tool_type = 1
@@ -7859,11 +7921,16 @@ function serial_send_accY() {
         }
     }
 }
-function serial_send_accZ() {
+function send_accZ() {
     while (true) {
         if (tool_type == 1) {
             basic.showNumber(input.acceleration(Dimension.Z))
-            serial.writeLine("" + (input.acceleration(Dimension.Z)))
+            if (selected_uart == true) {
+                uart_send = "" + input.acceleration(Dimension.Z)
+                bluetooth.uartWriteLine(uart_send)
+            } else {
+                serial.writeLine("" + (input.acceleration(Dimension.Z)))
+            }
             if (input.logoIsPressed()) {
                 basic.clearScreen()
                 tool_type = 2
@@ -7873,7 +7940,12 @@ function serial_send_accZ() {
         }
         if (tool_type == 2) {
             led.plotBarGraph(input.acceleration(Dimension.Z), 1023)
-            serial.writeLine("" + (input.acceleration(Dimension.Z)))
+            if (selected_uart == true) {
+                uart_send = "" + input.acceleration(Dimension.Z)
+                bluetooth.uartWriteLine(uart_send)
+            } else {
+                serial.writeLine("" + (input.acceleration(Dimension.Z)))
+            }
             if (input.logoIsPressed()) {
                 basic.clearScreen()
                 tool_type = 1
@@ -7883,7 +7955,7 @@ function serial_send_accZ() {
         }
     }
 }
-function serial_send_string() {
+function send_string() {
     basic.clearScreen()
     abc_loop = true
     basic.pause(200)
@@ -7986,8 +8058,8 @@ function serial_send_string() {
         }
         usid_if()
     }
-}
-function serial_send_numer() {
+}//BT_TO DO
+function send_numer() {
     basic.clearScreen()
     basic.pause(500)
     num = 0
@@ -8036,7 +8108,7 @@ function serial_send_numer() {
         
         unid_if_0_9()
     }
-}
+}//BT_TO DO
 basic.forever(function () {
     if (settings_auto_brigthness == true) {
         if (true) {
