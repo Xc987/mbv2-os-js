@@ -1146,59 +1146,21 @@ function settings_pinlock_draw() {
 } //Draw the pin-lock.
 function menu_select_menu() {
     while (menu_select == true) {
-        if (animation_scroll == true) {
-            if (selected_menu == 1) {
-                led.unplot(4, 0)
-            } else if (selected_menu == 2) {
-                led.unplot(0, 0)
-            } else if (selected_menu == 3) {
-                led.unplot(1, 0)
-            } else if (selected_menu == 4) {
-                led.unplot(2, 0)
-            } else if (selected_menu == 8) {
-                led.unplot(3, 0)
-            } else {
-                led.unplot(2, 0)
-            }
-            if (abuttonpressed == true) {
-                abuttonpressed = false
-                if (selected_menu == 1) {
-                    image_games.showImage(0)
-                } else if (selected_menu == 2) {
-                    image_tools.showImage(0)
-                } else if (selected_menu == 3) {
-                    image_turtle.showImage(0)
-                } else if (selected_menu == 4) {
-                    image_radio.showImage(0)
-                } else if (selected_menu == 5) {
-                    image_create.showImage(0)
-                } else if (selected_menu == 6) {
-                    image_pins.showImage(0)
-                } else if (selected_menu == 7) {
-                    image_serial.showImage(0)
-                } else {
-                    image_settings.showImage(0)
-                }
-            } else {
-                if (selected_menu == 1) {
-                    image_games.scrollImage(1, 45)
-                } else if (selected_menu == 2) {
-                    image_tools.scrollImage(1, 45)
-                } else if (selected_menu == 3) {
-                    image_turtle.scrollImage(1, 45)
-                } else if (selected_menu == 4) {
-                    image_radio.scrollImage(1, 45)
-                } else if (selected_menu == 5) {
-                    image_create.scrollImage(1, 45)
-                } else if (selected_menu == 6) {
-                    image_pins.scrollImage(1, 45)
-                } else if (selected_menu == 7) {
-                    image_serial.scrollImage(1, 45)
-                } else {
-                    image_settings.scrollImage(1, 45)
-                }
-            }
+        if (selected_menu == 1) {
+            led.unplot(4, 0)
+        } else if (selected_menu == 2) {
+            led.unplot(0, 0)
+        } else if (selected_menu == 3) {
+            led.unplot(1, 0)
+        } else if (selected_menu == 4) {
+            led.unplot(2, 0)
+        } else if (selected_menu == 8) {
+            led.unplot(3, 0)
         } else {
+            led.unplot(2, 0)
+        }
+        if (abuttonpressed == true || animation_scroll == false) {
+            abuttonpressed = false
             if (selected_menu == 1) {
                 image_games.showImage(0)
             } else if (selected_menu == 2) {
@@ -1215,6 +1177,24 @@ function menu_select_menu() {
                 image_serial.showImage(0)
             } else {
                 image_settings.showImage(0)
+            }
+        } else {
+            if (selected_menu == 1) {
+                image_games.scrollImage(1, 45)
+            } else if (selected_menu == 2) {
+                image_tools.scrollImage(1, 45)
+            } else if (selected_menu == 3) {
+                image_turtle.scrollImage(1, 45)
+            } else if (selected_menu == 4) {
+                image_radio.scrollImage(1, 45)
+            } else if (selected_menu == 5) {
+                image_create.scrollImage(1, 45)
+            } else if (selected_menu == 6) {
+                image_pins.scrollImage(1, 45)
+            } else if (selected_menu == 7) {
+                image_serial.scrollImage(1, 45)
+            } else {
+                image_settings.scrollImage(1, 45)
             }
         }
         draw_menu()
@@ -1289,69 +1269,19 @@ function menu_select_menu() {
 } //Menu selection at the start.
 function game_select_menu() {
     while (menu_select == true) {
-        if (animation_scroll == true) {
-            if (game_mode == 0) {
-                led.unplot(4, 0)
-            } else if (game_mode == 1) {
-                led.unplot(0, 0)
-            } else if (game_mode == 2) {
-                led.unplot(1, 0)
-            } else if (game_mode == 10) {
-                led.unplot(3, 0)
-            }else {
-                led.unplot(2, 0)
-            }
-            if (abuttonpressed == true) {
-                abuttonpressed = false
-                if (game_mode == 0) {
-                    image_back.showImage(0)
-                } else if (game_mode == 1) {
-                    image_space_invaders.showImage(0)
-                } else if (game_mode == 2) {
-                    image_flappy_bird.showImage(0)
-                } else if (game_mode == 3) {
-                    image_pong.showImage(0)
-                } else if (game_mode == 4) {
-                    image_cars_game.showImage(0)
-                } else if (game_mode == 5) {
-                    image_dino_game.showImage(0)
-                } else if (game_mode == 6) {
-                    image_jumping_rope.showImage(0)
-                } else if (game_mode == 7) {
-                    image_pac_man.showImage(0)
-                } else if (game_mode == 8) {
-                    image_tetris.showImage(0)
-                } else if (game_mode == 9) {
-                    image_ttt.showImage(0)
-                } else if (game_mode == 10) {
-                    image_cards.showImage(0)
-                }
-            } else {
-                if (game_mode == 0) {
-                    image_back.scrollImage(1, 45)
-                } else if (game_mode == 1) {
-                    image_space_invaders.scrollImage(1, 45)
-                } else if (game_mode == 2) {
-                    image_flappy_bird.scrollImage(1, 45)
-                } else if (game_mode == 3) {
-                    image_pong.scrollImage(1, 45)
-                } else if (game_mode == 4) {
-                    image_cars_game.scrollImage(1, 45)
-                } else if (game_mode == 5) {
-                    image_dino_game.scrollImage(1, 45)
-                } else if (game_mode == 6) {
-                    image_jumping_rope.scrollImage(1, 45)
-                } else if (game_mode == 7) {
-                    image_pac_man.scrollImage(1, 45)
-                } else if (game_mode == 8) {
-                    image_tetris.scrollImage(1, 45)
-                } else if (game_mode == 9) {
-                    image_ttt.scrollImage(1, 45)
-                } else if (game_mode == 10) {
-                    image_cards.scrollImage(1, 45)
-                }
-            }
+        if (game_mode == 0) {
+            led.unplot(4, 0)
+        } else if (game_mode == 1) {
+            led.unplot(0, 0)
+        } else if (game_mode == 2) {
+            led.unplot(1, 0)
+        } else if (game_mode == 10) {
+            led.unplot(3, 0)
         } else {
+            led.unplot(2, 0)
+        }
+        if (abuttonpressed == true || animation_scroll == false) {
+            abuttonpressed = false
             if (game_mode == 0) {
                 image_back.showImage(0)
             } else if (game_mode == 1) {
@@ -1374,6 +1304,30 @@ function game_select_menu() {
                 image_ttt.showImage(0)
             } else if (game_mode == 10) {
                 image_cards.showImage(0)
+            }
+        } else {
+            if (game_mode == 0) {
+                image_back.scrollImage(1, 45)
+            } else if (game_mode == 1) {
+                image_space_invaders.scrollImage(1, 45)
+            } else if (game_mode == 2) {
+                image_flappy_bird.scrollImage(1, 45)
+            } else if (game_mode == 3) {
+                image_pong.scrollImage(1, 45)
+            } else if (game_mode == 4) {
+                image_cars_game.scrollImage(1, 45)
+            } else if (game_mode == 5) {
+                image_dino_game.scrollImage(1, 45)
+            } else if (game_mode == 6) {
+                image_jumping_rope.scrollImage(1, 45)
+            } else if (game_mode == 7) {
+                image_pac_man.scrollImage(1, 45)
+            } else if (game_mode == 8) {
+                image_tetris.scrollImage(1, 45)
+            } else if (game_mode == 9) {
+                image_ttt.scrollImage(1, 45)
+            } else if (game_mode == 10) {
+                image_cards.scrollImage(1, 45)
             }
         }
         draw_menu()
@@ -1485,45 +1439,19 @@ function game_select_menu() {
 } //Game selection.
 function game_card_select_menu() {
     while (menu_select == true) {
-        if (animation_scroll == true) {
-            if (selected_card_game == 0) {
-                led.unplot(4, 0)
-            } else if (selected_card_game == 1) {
-                led.unplot(0, 0)
-            } else if (selected_card_game == 2) {
-                led.unplot(1, 0)
-            } else if (selected_card_game == 3) {
-                led.unplot(2, 0)
-            } else if (selected_card_game == 4) {
-                led.unplot(3, 0)
-            }
-            if (abuttonpressed == true) {
-                abuttonpressed = false
-                if (selected_card_game == 0) {
-                    image_back.showImage(0)
-                } else if (selected_card_game == 1) {
-                    image_blackjack.showImage(0)
-                } else if (selected_card_game == 2) {
-                    image_blank.showImage(0)
-                } else if (selected_card_game == 3) {
-                    image_blank.showImage(0)
-                } else if (selected_card_game == 4) {
-                    image_blank.showImage(0)
-                }
-            } else {
-                if (selected_card_game == 0) {
-                    image_back.scrollImage(1, 45)
-                } else if (selected_card_game == 1) {
-                    image_blackjack.scrollImage(1, 45)
-                } else if (selected_card_game == 2) {
-                    image_blank.scrollImage(1, 45)
-                } else if (selected_card_game == 3) {
-                    image_blank.scrollImage(1, 45)
-                } else if (selected_card_game == 4) {
-                    image_blank.scrollImage(1, 45)
-                }
-            }
-        } else {
+        if (selected_card_game == 0) {
+            led.unplot(4, 0)
+        } else if (selected_card_game == 1) {
+            led.unplot(0, 0)
+        } else if (selected_card_game == 2) {
+            led.unplot(1, 0)
+        } else if (selected_card_game == 3) {
+            led.unplot(2, 0)
+        } else if (selected_card_game == 4) {
+            led.unplot(3, 0)
+        }
+        if (abuttonpressed == true || animation_scroll == false) {
+            abuttonpressed = false
             if (selected_card_game == 0) {
                 image_back.showImage(0)
             } else if (selected_card_game == 1) {
@@ -1534,6 +1462,18 @@ function game_card_select_menu() {
                 image_blank.showImage(0)
             } else if (selected_card_game == 4) {
                 image_blank.showImage(0)
+            }
+        } else {
+            if (selected_card_game == 0) {
+                image_back.scrollImage(1, 45)
+            } else if (selected_card_game == 1) {
+                image_blackjack.scrollImage(1, 45)
+            } else if (selected_card_game == 2) {
+                image_blank.scrollImage(1, 45)
+            } else if (selected_card_game == 3) {
+                image_blank.scrollImage(1, 45)
+            } else if (selected_card_game == 4) {
+                image_blank.scrollImage(1, 45)
             }
         }
         draw_menu()
@@ -1597,69 +1537,19 @@ function game_card_select_menu() {
 } //Card Game selection.
 function tool_select_menu() {
     while (menu_select == true) {
-        if (animation_scroll == true) {
-            if (selected_tool == 0) {
-                led.unplot(4, 0)
-            } else if (selected_tool == 1) {
-                led.unplot(0, 0)
-            } else if (selected_tool == 2) {
-                led.unplot(1, 0)
-            } else if (selected_tool == 10) {
-                led.unplot(3, 0)
-            } else {
-                led.unplot(2, 0)
-            }
-            if (abuttonpressed == true) {
-                abuttonpressed = false
-                if (selected_tool == 0) {
-                    image_back.showImage(0)
-                } else if (selected_tool == 1) {
-                    image_tempereture.showImage(0)
-                } else if (selected_tool == 2) {
-                    image_light.showImage(0)
-                } else if (selected_tool == 3) {
-                    image_sound.showImage(0)
-                } else if (selected_tool == 4) {
-                    image_north.showImage(0)
-                } else if (selected_tool == 5) {
-                    image_x.showImage(0)
-                } else if (selected_tool == 6) {
-                    image_y.showImage(0)
-                } else if (selected_tool == 7) {
-                    image_z.showImage(0)
-                } else if (selected_tool == 8) {
-                    image_note.showImage(0)
-                } else if (selected_tool == 9) {
-                    image_calculator.showImage(0)
-                } else if (selected_tool == 10) {
-                    image_clock.showImage(0)
-                }
-            } else {
-                if (selected_tool == 0) {
-                    image_back.scrollImage(1, 45)
-                } else if (selected_tool == 1) {
-                    image_tempereture.scrollImage(1, 45)
-                } else if (selected_tool == 2) {
-                    image_light.scrollImage(1, 45)
-                } else if (selected_tool == 3) {
-                    image_sound.scrollImage(1, 45)
-                } else if (selected_tool == 4) {
-                    image_north.scrollImage(1, 45)
-                } else if (selected_tool == 5) {
-                    image_x.scrollImage(1, 45)
-                } else if (selected_tool == 6) {
-                    image_y.scrollImage(1, 45)
-                } else if (selected_tool == 7) {
-                    image_z.scrollImage(1, 45)
-                } else if (selected_tool == 8) {
-                    image_note.scrollImage(1, 45)
-                } else if (selected_tool == 9) {
-                    image_calculator.scrollImage(1, 45)
-                } else if (selected_tool == 10) {
-                    image_clock.scrollImage(1, 45)
-                }
-            }
+        if (selected_tool == 0) {
+            led.unplot(4, 0)
+        } else if (selected_tool == 1) {
+            led.unplot(0, 0)
+        } else if (selected_tool == 2) {
+            led.unplot(1, 0)
+        } else if (selected_tool == 10) {
+            led.unplot(3, 0)
         } else {
+            led.unplot(2, 0)
+        }
+        if (abuttonpressed == true || animation_scroll == false) {
+            abuttonpressed = false
             if (selected_tool == 0) {
                 image_back.showImage(0)
             } else if (selected_tool == 1) {
@@ -1682,6 +1572,30 @@ function tool_select_menu() {
                 image_calculator.showImage(0)
             } else if (selected_tool == 10) {
                 image_clock.showImage(0)
+            }
+        } else {
+            if (selected_tool == 0) {
+                image_back.scrollImage(1, 45)
+            } else if (selected_tool == 1) {
+                image_tempereture.scrollImage(1, 45)
+            } else if (selected_tool == 2) {
+                image_light.scrollImage(1, 45)
+            } else if (selected_tool == 3) {
+                image_sound.scrollImage(1, 45)
+            } else if (selected_tool == 4) {
+                image_north.scrollImage(1, 45)
+            } else if (selected_tool == 5) {
+                image_x.scrollImage(1, 45)
+            } else if (selected_tool == 6) {
+                image_y.scrollImage(1, 45)
+            } else if (selected_tool == 7) {
+                image_z.scrollImage(1, 45)
+            } else if (selected_tool == 8) {
+                image_note.scrollImage(1, 45)
+            } else if (selected_tool == 9) {
+                image_calculator.scrollImage(1, 45)
+            } else if (selected_tool == 10) {
+                image_clock.scrollImage(1, 45)
             }
         }
         draw_menu()
@@ -1757,67 +1671,17 @@ function tool_select_menu() {
 } //Tool selection.
 function tool_calculator_menu() {
     while (menu_select == true) {
-        if (animation_scroll == true) {
-            if (selected_math == 1) {
-                led.unplot(0, 0)
-            } else if (selected_math == 2) {
-                led.unplot(1, 0)
-            } else if (selected_math == 11) {
-                led.unplot(3, 0)
-            } else {
-                led.unplot(2, 0)
-            }
-            if (abuttonpressed == true) {
-                abuttonpressed = false
-                if (selected_math == 1) {
-                    image_plus.showImage(0)
-                } else if (selected_math == 2) {
-                    image_minus.showImage(0)
-                } else if (selected_math == 3) {
-                    image_times.showImage(0)
-                } else if (selected_math == 4) {
-                    image_divide.showImage(0)
-                } else if (selected_math == 5) {
-                    image_caret.showImage(0)
-                } else if (selected_math == 6) {
-                    image_sqr.showImage(0)
-                } else if (selected_math == 7) {
-                    image_sin.showImage(0)
-                } else if (selected_math == 8) {
-                    image_cosin.showImage(0)
-                } else if (selected_math == 9) {
-                    image_tangent.showImage(0)
-                } else if (selected_math == 10) {
-                    image_pi.showImage(0)
-                } else if (selected_math == 11) {
-                    image_random.showImage(0)
-                }
-            } else {
-                if (selected_math == 1) {
-                    image_plus.scrollImage(1, 45)
-                } else if (selected_math == 2) {
-                    image_minus.scrollImage(1, 45)
-                } else if (selected_math == 3) {
-                    image_times.scrollImage(1, 45)
-                } else if (selected_math == 4) {
-                    image_divide.scrollImage(1, 45)
-                } else if (selected_math == 5) {
-                    image_caret.scrollImage(1, 45)
-                } else if (selected_math == 6) {
-                    image_sqr.scrollImage(1, 45)
-                } else if (selected_math == 7) {
-                    image_sin.scrollImage(1, 45)
-                } else if (selected_math == 8) {
-                    image_cosin.scrollImage(1, 45)
-                } else if (selected_math == 9) {
-                    image_tangent.scrollImage(1, 45)
-                } else if (selected_math == 10) {
-                    image_pi.scrollImage(1, 45)
-                } else if (selected_math == 11) {
-                    image_random.scrollImage(1, 45)
-                }
-            }
+        if (selected_math == 1) {
+            led.unplot(0, 0)
+        } else if (selected_math == 2) {
+            led.unplot(1, 0)
+        } else if (selected_math == 11) {
+            led.unplot(3, 0)
         } else {
+            led.unplot(2, 0)
+        }
+        if (abuttonpressed == true || animation_scroll == false) {
+            abuttonpressed = false
             if (selected_math == 1) {
                 image_plus.showImage(0)
             } else if (selected_math == 2) {
@@ -1840,6 +1704,30 @@ function tool_calculator_menu() {
                 image_pi.showImage(0)
             } else if (selected_math == 11) {
                 image_random.showImage(0)
+            }
+        } else {
+            if (selected_math == 1) {
+                image_plus.scrollImage(1, 45)
+            } else if (selected_math == 2) {
+                image_minus.scrollImage(1, 45)
+            } else if (selected_math == 3) {
+                image_times.scrollImage(1, 45)
+            } else if (selected_math == 4) {
+                image_divide.scrollImage(1, 45)
+            } else if (selected_math == 5) {
+                image_caret.scrollImage(1, 45)
+            } else if (selected_math == 6) {
+                image_sqr.scrollImage(1, 45)
+            } else if (selected_math == 7) {
+                image_sin.scrollImage(1, 45)
+            } else if (selected_math == 8) {
+                image_cosin.scrollImage(1, 45)
+            } else if (selected_math == 9) {
+                image_tangent.scrollImage(1, 45)
+            } else if (selected_math == 10) {
+                image_pi.scrollImage(1, 45)
+            } else if (selected_math == 11) {
+                image_random.scrollImage(1, 45)
             }
         }
         draw_menu()
@@ -1890,42 +1778,32 @@ function tool_calculator_menu() {
         menu_select = true
         tool_calculator_menu()
     }
-} //Calculator type selection.
+} //Calculator type selection.LAST
 function tool_clock_menu() {
     while (menu_select == true) {
-        if (animation_scroll == true) {
-            if (selected_clock == 1) {
-                led.unplot(3, 0)
-            } else if (selected_clock == 2) {
-                led.unplot(1, 0)
-            } else if (selected_clock == 3) {
-                led.unplot(2, 0)
-            }
-            if (abuttonpressed == true) {
-                abuttonpressed = false
-                if (selected_clock == 1) {
-                    image_signal.showImage(0)
-                } else if (selected_clock == 2) {
-                    image_chronometer.showImage(0)
-                } else if (selected_clock == 3) {
-                    image_timer.showImage(0)
-                }
-            } else {
-                if (selected_clock == 1) {
-                    image_signal.scrollImage(1, 45)
-                } else if (selected_clock == 2) {
-                    image_chronometer.scrollImage(1, 45)
-                } else if (selected_clock == 3) {
-                    image_timer.scrollImage(1, 45)
-                }
-            }
-        } else {
+        if (selected_clock == 1) {
+            led.unplot(3, 0)
+        } else if (selected_clock == 2) {
+            led.unplot(1, 0)
+        } else if (selected_clock == 3) {
+            led.unplot(2, 0)
+        }
+        if (abuttonpressed == true || animation_scroll == false) {
+            abuttonpressed = false
             if (selected_clock == 1) {
                 image_signal.showImage(0)
             } else if (selected_clock == 2) {
                 image_chronometer.showImage(0)
             } else if (selected_clock == 3) {
                 image_timer.showImage(0)
+            }
+        } else {
+            if (selected_clock == 1) {
+                image_signal.scrollImage(1, 45)
+            } else if (selected_clock == 2) {
+                image_chronometer.scrollImage(1, 45)
+            } else if (selected_clock == 3) {
+                image_timer.scrollImage(1, 45)
             }
         }
         draw_mini_menu()
@@ -2008,45 +1886,19 @@ function turtle_main() {
 } //Turtle extension.
 function bluetooth_select_menu() {
     while (menu_select == true) {
-        if (animation_scroll == true) {
-            if (bluetooth_type == 0) {
-                led.unplot(4, 0)
-            } else if (bluetooth_type == 1) {
-                led.unplot(0, 0)
-            } else if (bluetooth_type == 2) {
-                led.unplot(1, 0)
-            } else if (bluetooth_type == 3) {
-                led.unplot(2, 0)
-            } else if (bluetooth_type == 4) {
-                led.unplot(3, 0)
-            }
-            if (abuttonpressed == true) {
-                abuttonpressed = false
-                if (bluetooth_type == 0) {
-                    image_back.showImage(0)
-                } else if (bluetooth_type == 1) {
-                    image_note.showImage(0)
-                } else if (bluetooth_type == 2) {
-                    image_mouse.showImage(0)
-                } else if (bluetooth_type == 3) {
-                    image_gamepad.showImage(0)
-                } else if (bluetooth_type == 4) {
-                    image_keyboard.showImage(0)
-                }
-            } else {
-                if (bluetooth_type == 0) {
-                    image_back.scrollImage(1, 45)
-                } else if (bluetooth_type == 1) {
-                    image_note.scrollImage(1, 45)
-                } else if (bluetooth_type == 2) {
-                    image_mouse.scrollImage(1, 45)
-                } else if (bluetooth_type == 3) {
-                    image_gamepad.scrollImage(1, 45)
-                } else if (bluetooth_type == 4) {
-                    image_keyboard.scrollImage(1, 45)
-                }
-            }
-        } else {
+        if (bluetooth_type == 0) {
+            led.unplot(4, 0)
+        } else if (bluetooth_type == 1) {
+            led.unplot(0, 0)
+        } else if (bluetooth_type == 2) {
+            led.unplot(1, 0)
+        } else if (bluetooth_type == 3) {
+            led.unplot(2, 0)
+        } else if (bluetooth_type == 4) {
+            led.unplot(3, 0)
+        }
+        if (abuttonpressed == true || animation_scroll == false) {
+            abuttonpressed = false
             if (bluetooth_type == 0) {
                 image_back.showImage(0)
             } else if (bluetooth_type == 1) {
@@ -2057,6 +1909,18 @@ function bluetooth_select_menu() {
                 image_gamepad.showImage(0)
             } else if (bluetooth_type == 4) {
                 image_keyboard.showImage(0)
+            }
+        } else {
+            if (bluetooth_type == 0) {
+                image_back.scrollImage(1, 45)
+            } else if (bluetooth_type == 1) {
+                image_note.scrollImage(1, 45)
+            } else if (bluetooth_type == 2) {
+                image_mouse.scrollImage(1, 45)
+            } else if (bluetooth_type == 3) {
+                image_gamepad.scrollImage(1, 45)
+            } else if (bluetooth_type == 4) {
+                image_keyboard.scrollImage(1, 45)
             }
         }
         draw_menu()
@@ -2122,45 +1986,19 @@ function bluetooth_select_menu() {
 } //Bluetooth send type selection.
 function bluetooth_keyboard_menu() {
     while (menu_select == true) {
-        if (animation_scroll == true) {
-            if (bluetooth_keyboard_type == 0) {
-                led.unplot(4, 0)
-            } else if (bluetooth_keyboard_type == 1) {
-                led.unplot(0, 0)
-            } else if (bluetooth_keyboard_type == 2) {
-                led.unplot(1, 0)
-            } else if (bluetooth_keyboard_type == 3) {
-                led.unplot(2, 0)
-            } else if (bluetooth_keyboard_type == 4) {
-                led.unplot(3, 0)
-            }
-            if (abuttonpressed == true) {
-                abuttonpressed = false
-                if (bluetooth_keyboard_type == 0) {
-                    image_back.showImage(0)
-                } else if (bluetooth_keyboard_type == 1) {
-                    image_keyboard.showImage(0)
-                } else if (bluetooth_keyboard_type == 2) {
-                    image_numbers.showImage(0)
-                } else if (bluetooth_keyboard_type == 3) {
-                    image_arrows.showImage(0)
-                } else if (bluetooth_keyboard_type == 4) {
-                    image_cosin.showImage(0)
-                }
-            } else {
-                if (bluetooth_keyboard_type == 0) {
-                    image_back.scrollImage(1, 45)
-                } else if (bluetooth_keyboard_type == 1) {
-                    image_keyboard.scrollImage(1, 45)
-                } else if (bluetooth_keyboard_type == 2) {
-                    image_numbers.scrollImage(1, 45)
-                } else if (bluetooth_keyboard_type == 3) {
-                    image_arrows.scrollImage(1, 45)
-                } else if (bluetooth_keyboard_type == 4) {
-                    image_cosin.scrollImage(1, 45)
-                }
-            }
-        } else {
+        if (bluetooth_keyboard_type == 0) {
+            led.unplot(4, 0)
+        } else if (bluetooth_keyboard_type == 1) {
+            led.unplot(0, 0)
+        } else if (bluetooth_keyboard_type == 2) {
+            led.unplot(1, 0)
+        } else if (bluetooth_keyboard_type == 3) {
+            led.unplot(2, 0)
+        } else if (bluetooth_keyboard_type == 4) {
+            led.unplot(3, 0)
+        }
+        if (abuttonpressed == true || animation_scroll == false) {
+            abuttonpressed = false
             if (bluetooth_keyboard_type == 0) {
                 image_back.showImage(0)
             } else if (bluetooth_keyboard_type == 1) {
@@ -2171,6 +2009,18 @@ function bluetooth_keyboard_menu() {
                 image_arrows.showImage(0)
             } else if (bluetooth_keyboard_type == 4) {
                 image_cosin.showImage(0)
+            }
+        } else {
+            if (bluetooth_keyboard_type == 0) {
+                image_back.scrollImage(1, 45)
+            } else if (bluetooth_keyboard_type == 1) {
+                image_keyboard.scrollImage(1, 45)
+            } else if (bluetooth_keyboard_type == 2) {
+                image_numbers.scrollImage(1, 45)
+            } else if (bluetooth_keyboard_type == 3) {
+                image_arrows.scrollImage(1, 45)
+            } else if (bluetooth_keyboard_type == 4) {
+                image_cosin.scrollImage(1, 45)
             }
         }
         draw_menu()
@@ -2224,45 +2074,19 @@ function bluetooth_keyboard_menu() {
 } //Bluetooth keyboard type selection.
 function create_select_menu() {
     while (menu_select == true) {
-        if (animation_scroll == true) {
-            if (create_type == 0) {
-                led.unplot(4, 0)
-            } else if (create_type == 1) {
-                led.unplot(0, 0)
-            } else if (create_type == 2) {
-                led.unplot(1, 0)
-            } else if (create_type == 3) {
-                led.unplot(2, 0)
-            } else if (create_type == 4) {
-                led.unplot(3, 0)
-            }
-            if (abuttonpressed == true) {
-                abuttonpressed = false
-                if (create_type == 0) {
-                    image_back.showImage(0)
-                } else if (create_type == 1) {
-                    image_numberone.showImage(0)
-                } else if (create_type == 2) {
-                    image_text.showImage(0)
-                } else if (create_type == 3) {
-                    image_note.showImage(0)
-                } else if (create_type == 4) {
-                    image_image.showImage(0)
-                }
-            } else {
-                if (create_type == 0) {
-                    image_back.scrollImage(1, 45)
-                } else if (create_type == 1) {
-                    image_numberone.scrollImage(1, 45)
-                } else if (create_type == 2) {
-                    image_text.scrollImage(1, 45)
-                } else if (create_type == 3) {
-                    image_note.scrollImage(1, 45)
-                } else if (create_type == 4) {
-                    image_image.scrollImage(1, 45)
-                }
-            }
-        } else {
+        if (create_type == 0) {
+            led.unplot(4, 0)
+        } else if (create_type == 1) {
+            led.unplot(0, 0)
+        } else if (create_type == 2) {
+            led.unplot(1, 0)
+        } else if (create_type == 3) {
+            led.unplot(2, 0)
+        } else if (create_type == 4) {
+            led.unplot(3, 0)
+        }
+        if (abuttonpressed == true || animation_scroll == false) {
+            abuttonpressed = false
             if (create_type == 0) {
                 image_back.showImage(0)
             } else if (create_type == 1) {
@@ -2273,6 +2097,18 @@ function create_select_menu() {
                 image_note.showImage(0)
             } else if (create_type == 4) {
                 image_image.showImage(0)
+            }
+        } else {
+            if (create_type == 0) {
+                image_back.scrollImage(1, 45)
+            } else if (create_type == 1) {
+                image_numberone.scrollImage(1, 45)
+            } else if (create_type == 2) {
+                image_text.scrollImage(1, 45)
+            } else if (create_type == 3) {
+                image_note.scrollImage(1, 45)
+            } else if (create_type == 4) {
+                image_image.scrollImage(1, 45)
             }
         }
         draw_menu()
@@ -2332,39 +2168,29 @@ function create_select_menu() {
 function custom_music_selection() {
     selected_create_music = 1
     while (menu_select == true) {
-        if (animation_scroll == true) {
-            if (selected_create_music == 1) {
-                led.unplot(3, 0)
-            } else if (selected_create_music == 2) {
-                led.unplot(1, 0)
-            } else if (selected_create_music == 3) {
-                led.unplot(2, 0)
-            }
-            if (abuttonpressed == true) {
-                abuttonpressed = false
-                if (selected_create_music == 1) {
-                    image_note.showImage(0)
-                } else if (selected_create_music == 2) {
-                    image_rest.showImage(0)
-                } else if (selected_create_music == 3) {
-                    image_play.showImage(0)
-                }
-            } else {
-                if (selected_create_music == 1) {
-                    image_note.scrollImage(1, 45)
-                } else if (selected_create_music == 2) {
-                    image_rest.scrollImage(1, 45)
-                } else if (selected_create_music == 3) {
-                    image_play.scrollImage(1, 45)
-                }
-            }
-        } else {
+        if (selected_create_music == 1) {
+            led.unplot(3, 0)
+        } else if (selected_create_music == 2) {
+            led.unplot(1, 0)
+        } else if (selected_create_music == 3) {
+            led.unplot(2, 0)
+        }
+        if (abuttonpressed == true || animation_scroll == false) {
+            abuttonpressed = false
             if (selected_create_music == 1) {
                 image_note.showImage(0)
             } else if (selected_create_music == 2) {
                 image_rest.showImage(0)
             } else if (selected_create_music == 3) {
                 image_play.showImage(0)
+            }
+        } else {
+            if (selected_create_music == 1) {
+                image_note.scrollImage(1, 45)
+            } else if (selected_create_music == 2) {
+                image_rest.scrollImage(1, 45)
+            } else if (selected_create_music == 3) {
+                image_play.scrollImage(1, 45)
             }
         }
         draw_mini_menu()
@@ -2411,45 +2237,19 @@ function custom_music_selection() {
 } //Custom music selection.
 function create_music_menu() {
     while (menu_select == true) {
-        if (animation_scroll == true) {
-            if (selected_music == 1) {
-                led.unplot(4, 0)
-            } else if (selected_music == 2) {
-                led.unplot(0, 0)
-            } else if (selected_music == 3) {
-                led.unplot(1, 0)
-            } else if (selected_music == 4) {
-                led.unplot(2, 0)
-            } else if (selected_music == 5) {
-                led.unplot(3, 0)
-            }
-            if (abuttonpressed == true) {
-                abuttonpressed = false
-                if (selected_music == 1) {
-                    image_music8.showImage(0)
-                } else if (selected_music == 2) {
-                    image_note.showImage(0)
-                } else if (selected_music == 3) {
-                    image_musicv2.showImage(0)
-                } else if (selected_music == 4) {
-                    image_musicfx.showImage(0)
-                } else if (selected_music == 5) {
-                    image_create.showImage(0)
-                }
-            } else {
-                if (selected_music == 1) {
-                    image_music8.scrollImage(1, 45)
-                } else if (selected_music == 2) {
-                    image_note.scrollImage(1, 45)
-                } else if (selected_music == 3) {
-                    image_musicv2.scrollImage(1, 45)
-                } else if (selected_music == 4) {
-                    image_musicfx.scrollImage(1, 45)
-                } else if (selected_music == 5) {
-                    image_create.scrollImage(1, 45)
-                }
-            }
-        } else {
+        if (selected_music == 1) {
+            led.unplot(4, 0)
+        } else if (selected_music == 2) {
+            led.unplot(0, 0)
+        } else if (selected_music == 3) {
+            led.unplot(1, 0)
+        } else if (selected_music == 4) {
+            led.unplot(2, 0)
+        } else if (selected_music == 5) {
+            led.unplot(3, 0)
+        }
+        if (abuttonpressed == true || animation_scroll == false) {
+            abuttonpressed = false
             if (selected_music == 1) {
                 image_music8.showImage(0)
             } else if (selected_music == 2) {
@@ -2460,6 +2260,18 @@ function create_music_menu() {
                 image_musicfx.showImage(0)
             } else if (selected_music == 5) {
                 image_create.showImage(0)
+            }
+        } else {
+            if (selected_music == 1) {
+                image_music8.scrollImage(1, 45)
+            } else if (selected_music == 2) {
+                image_note.scrollImage(1, 45)
+            } else if (selected_music == 3) {
+                image_musicv2.scrollImage(1, 45)
+            } else if (selected_music == 4) {
+                image_musicfx.scrollImage(1, 45)
+            } else if (selected_music == 5) {
+                image_create.scrollImage(1, 45)
             }
         }
         draw_menu()
@@ -2516,45 +2328,19 @@ function create_music_menu() {
 } //Menu selection at the start.
 function pins_select_menu() {
     while (menu_select == true) {
-        if (animation_scroll == true) {
-            if (selected_pins == 0) {
-                led.unplot(4, 0)
-            } else if (selected_pins == 1) {
-                led.unplot(0, 0)
-            } else if (selected_pins == 2) {
-                led.unplot(1, 0)
-            } else if (selected_pins == 3) {
-                led.unplot(2, 0)
-            } else if (selected_pins == 4) {
-                led.unplot(3, 0)
-            }
-            if (abuttonpressed == true) {
-                abuttonpressed = false
-                if (selected_pins == 0) {
-                    image_back.showImage(0)
-                } else if (selected_pins == 1) {
-                    image_zero.showImage(0)
-                } else if (selected_pins == 2) {
-                    image_numberone.showImage(0)
-                } else if (selected_pins == 3) {
-                    image_two.showImage(0)
-                } else if (selected_pins == 4) {
-                    image_3v.showImage(0)
-                }
-            } else {
-                if (selected_pins == 0) {
-                    image_back.scrollImage(1, 45)
-                } else if (selected_pins == 1) {
-                    image_zero.scrollImage(1, 45)
-                } else if (selected_pins == 2) {
-                    image_numberone.scrollImage(1, 45)
-                } else if (selected_pins == 3) {
-                    image_two.scrollImage(1, 45)
-                } else if (selected_pins == 4) {
-                    image_3v.scrollImage(1, 45)
-                }
-            }
-        } else {
+        if (selected_pins == 0) {
+            led.unplot(4, 0)
+        } else if (selected_pins == 1) {
+            led.unplot(0, 0)
+        } else if (selected_pins == 2) {
+            led.unplot(1, 0)
+        } else if (selected_pins == 3) {
+            led.unplot(2, 0)
+        } else if (selected_pins == 4) {
+            led.unplot(3, 0)
+        }
+        if (abuttonpressed == true || animation_scroll == false) {
+            abuttonpressed = false
             if (selected_pins == 0) {
                 image_back.showImage(0)
             } else if (selected_pins == 1) {
@@ -2563,8 +2349,20 @@ function pins_select_menu() {
                 image_numberone.showImage(0)
             } else if (selected_pins == 3) {
                 image_two.showImage(0)
-            } else if (selected_music == 4) {
+            } else if (selected_pins == 4) {
                 image_3v.showImage(0)
+            }
+        } else {
+            if (selected_pins == 0) {
+                image_back.scrollImage(1, 45)
+            } else if (selected_pins == 1) {
+                image_zero.scrollImage(1, 45)
+            } else if (selected_pins == 2) {
+                image_numberone.scrollImage(1, 45)
+            } else if (selected_pins == 3) {
+                image_two.scrollImage(1, 45)
+            } else if (selected_pins == 4) {
+                image_3v.scrollImage(1, 45)
             }
         }
         draw_menu()
@@ -2627,45 +2425,19 @@ function pins_select_menu() {
 } //Pin selection.
 function pins_type_select_menu() {
     while (menu_select == true) {
-        if (animation_scroll == true) {
-            if (selected_pins_type == 0) {
-                led.unplot(4, 0)
-            } else if (selected_pins_type == 1) {
-                led.unplot(0, 0)
-            } else if (selected_pins_type == 2) {
-                led.unplot(1, 0)
-            } else if (selected_pins_type == 3) {
-                led.unplot(2, 0)
-            } else if (selected_pins_type == 4) {
-                led.unplot(3, 0)
-            }
-            if (abuttonpressed == true) {
-                abuttonpressed = false
-                if (selected_pins_type == 0) {
-                    image_back.showImage(0)
-                } else if (selected_pins_type == 1) {
-                    image_analog.showImage(0)
-                } else if (selected_pins_type == 2) {
-                    image_digital.showImage(0)
-                } else if (selected_pins_type == 3) {
-                    image_blank.showImage(0)
-                } else if (selected_pins_type == 4) {
-                    image_blank.showImage(0)
-                }
-            } else {
-                if (selected_pins_type == 0) {
-                    image_back.scrollImage(1, 45)
-                } else if (selected_pins_type == 1) {
-                    image_analog.scrollImage(1, 45)
-                } else if (selected_pins_type == 2) {
-                    image_digital.scrollImage(1, 45)
-                } else if (selected_pins_type == 3) {
-                    image_blank.scrollImage(1, 45)
-                } else if (selected_pins_type == 4) {
-                    image_blank.scrollImage(1, 45)
-                }
-            }
-        } else {
+        if (selected_pins_type == 0) {
+            led.unplot(4, 0)
+        } else if (selected_pins_type == 1) {
+            led.unplot(0, 0)
+        } else if (selected_pins_type == 2) {
+            led.unplot(1, 0)
+        } else if (selected_pins_type == 3) {
+            led.unplot(2, 0)
+        } else if (selected_pins_type == 4) {
+            led.unplot(3, 0)
+        }
+        if (abuttonpressed == true || animation_scroll == false) {
+            abuttonpressed = false
             if (selected_pins_type == 0) {
                 image_back.showImage(0)
             } else if (selected_pins_type == 1) {
@@ -2676,6 +2448,18 @@ function pins_type_select_menu() {
                 image_blank.showImage(0)
             } else if (selected_pins_type == 4) {
                 image_blank.showImage(0)
+            }
+        } else {
+            if (selected_pins_type == 0) {
+                image_back.scrollImage(1, 45)
+            } else if (selected_pins_type == 1) {
+                image_analog.scrollImage(1, 45)
+            } else if (selected_pins_type == 2) {
+                image_digital.scrollImage(1, 45)
+            } else if (selected_pins_type == 3) {
+                image_blank.scrollImage(1, 45)
+            } else if (selected_pins_type == 4) {
+                image_blank.scrollImage(1, 45)
             }
         }
         draw_menu()
@@ -2732,39 +2516,29 @@ function pins_type_select_menu() {
 } //Pin type selection.
 function serial_select_menu() {
     while (menu_select == true) {
-        if (animation_scroll == true) {
-            if (selected_serial == 0) {
-                led.unplot(3, 0)
-            } else if (selected_serial == 1) {
-                led.unplot(1, 0)
-            } else if (selected_serial == 2) {
-                led.unplot(2, 0)
-            }
-            if (abuttonpressed == true) {
-                abuttonpressed = false
-                if (selected_serial == 0) {
-                    image_back.showImage(0)
-                } else if (selected_serial == 1) {
-                    image_north.showImage(0)
-                } else if (selected_serial == 2) {
-                    image_serial.showImage(0)
-                }
-            } else {
-                if (selected_serial == 0) {
-                    image_back.scrollImage(1, 45)
-                } else if (selected_serial == 1) {
-                    image_north.scrollImage(1, 45)
-                } else if (selected_serial == 2) {
-                    image_serial.scrollImage(1, 45)
-                }
-            }
-        } else {
+        if (selected_serial == 0) {
+            led.unplot(3, 0)
+        } else if (selected_serial == 1) {
+            led.unplot(1, 0)
+        } else if (selected_serial == 2) {
+            led.unplot(2, 0)
+        }
+        if (abuttonpressed == true || animation_scroll == false) {
+            abuttonpressed = false
             if (selected_serial == 0) {
                 image_back.showImage(0)
             } else if (selected_serial == 1) {
                 image_north.showImage(0)
             } else if (selected_serial == 2) {
                 image_serial.showImage(0)
+            }
+        } else {
+            if (selected_serial == 0) {
+                image_back.scrollImage(1, 45)
+            } else if (selected_serial == 1) {
+                image_north.scrollImage(1, 45)
+            } else if (selected_serial == 2) {
+                image_serial.scrollImage(1, 45)
             }
         }
         draw_mini_menu()
@@ -2816,69 +2590,19 @@ function serial_select_menu() {
 } //Serial selection.
 function serial_send_select_menu() {
     while (menu_select == true) {
-        if (animation_scroll == true) {
-            if (selected_serial_send == 0) {
-                led.unplot(4, 0)
-            } else if (selected_serial_send == 1) {
-                led.unplot(0, 0)
-            } else if (selected_serial_send == 2) {
-                led.unplot(1, 0)
-            } else if (selected_serial_send == 10) {
-                led.unplot(3, 0)
-            } else {
-                led.unplot(2, 0)
-            }
-            if (abuttonpressed == true) {
-                abuttonpressed = false
-                if (selected_serial_send == 0) {
-                    image_back.showImage(0)
-                } else if (selected_serial_send == 1) {
-                    image_arrows.showImage(0)
-                } else if (selected_serial_send == 2) {
-                    image_tempereture.showImage(0)
-                } else if (selected_serial_send == 3) {
-                    image_light.showImage(0)
-                } else if (selected_serial_send == 4) {
-                    image_sound.showImage(0)
-                } else if (selected_serial_send == 5) {
-                    image_north.showImage(0)
-                } else if (selected_serial_send == 6) {
-                    image_x.showImage(0)
-                } else if (selected_serial_send == 7) {
-                    image_y.showImage(0)
-                } else if (selected_serial_send == 8) {
-                    image_z.showImage(0)
-                } else if (selected_serial_send == 9) {
-                    image_numberone.showImage(0)
-                } else if (selected_serial_send == 10) {
-                    image_text.showImage(0)
-                }
-            } else {
-                if (selected_serial_send == 0) {
-                    image_back.scrollImage(1, 45)
-                } else if (selected_serial_send == 1) {
-                    image_arrows.scrollImage(1, 45)
-                } else if (selected_serial_send == 2) {
-                    image_tempereture.scrollImage(1, 45)
-                } else if (selected_serial_send == 3) {
-                    image_light.scrollImage(1, 45)
-                } else if (selected_serial_send == 4) {
-                    image_sound.scrollImage(1, 45)
-                } else if (selected_serial_send == 5) {
-                    image_north.scrollImage(1, 45)
-                } else if (selected_serial_send == 6) {
-                    image_x.scrollImage(1, 45)
-                } else if (selected_serial_send == 7) {
-                    image_y.scrollImage(1, 45)
-                } else if (selected_serial_send == 8) {
-                    image_z.scrollImage(1, 45)
-                } else if (selected_serial_send == 9) {
-                    image_numberone.scrollImage(1, 45)
-                } else if (selected_serial_send == 10) {
-                    image_text.scrollImage(1, 45)
-                }
-            }
+        if (selected_serial_send == 0) {
+            led.unplot(4, 0)
+        } else if (selected_serial_send == 1) {
+            led.unplot(0, 0)
+        } else if (selected_serial_send == 2) {
+            led.unplot(1, 0)
+        } else if (selected_serial_send == 10) {
+            led.unplot(3, 0)
         } else {
+            led.unplot(2, 0)
+        }
+        if (abuttonpressed == true || animation_scroll == false) {
+            abuttonpressed = false
             if (selected_serial_send == 0) {
                 image_back.showImage(0)
             } else if (selected_serial_send == 1) {
@@ -2901,6 +2625,30 @@ function serial_send_select_menu() {
                 image_numberone.showImage(0)
             } else if (selected_serial_send == 10) {
                 image_text.showImage(0)
+            }
+        } else {
+            if (selected_serial_send == 0) {
+                image_back.scrollImage(1, 45)
+            } else if (selected_serial_send == 1) {
+                image_arrows.scrollImage(1, 45)
+            } else if (selected_serial_send == 2) {
+                image_tempereture.scrollImage(1, 45)
+            } else if (selected_serial_send == 3) {
+                image_light.scrollImage(1, 45)
+            } else if (selected_serial_send == 4) {
+                image_sound.scrollImage(1, 45)
+            } else if (selected_serial_send == 5) {
+                image_north.scrollImage(1, 45)
+            } else if (selected_serial_send == 6) {
+                image_x.scrollImage(1, 45)
+            } else if (selected_serial_send == 7) {
+                image_y.scrollImage(1, 45)
+            } else if (selected_serial_send == 8) {
+                image_z.scrollImage(1, 45)
+            } else if (selected_serial_send == 9) {
+                image_numberone.scrollImage(1, 45)
+            } else if (selected_serial_send == 10) {
+                image_text.scrollImage(1, 45)
             }
         }
         draw_menu()
