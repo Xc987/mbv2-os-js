@@ -35,7 +35,7 @@ function loading_animation() { //Draw loading animation.
     led.plot(1, 0)
     basic.pause(30)
     led.unplot(1, 0)}
-function loading_animation_rev() {
+function loading_animation_rev() { //Draw loading animation reversed.
     led.plot(2, 0)
     basic.pause(30)
     led.unplot(2, 0)
@@ -71,22 +71,18 @@ function loading_animation_rev() {
     led.unplot(4, 1)
     led.plot(3, 0)
     basic.pause(30)
-    led.unplot(3, 0)
-
-} //Draw loading animation reversed.
-function draw_menu() {
+    led.unplot(3, 0)}
+function draw_menu() { //Draw navigation bar at the top.
     led.plotBrightness(0, 0, 20)
     led.plotBrightness(1, 0, 20)
     led.plotBrightness(2, 0, 20)
     led.plotBrightness(3, 0, 20)
-    led.plotBrightness(4, 0, 20)
-} //Draw navigation bar at the top.
-function draw_mini_menu() {
+    led.plotBrightness(4, 0, 20)}
+function draw_mini_menu() {//Draw mini navigation bar at the top.
     led.plotBrightness(1, 0, 20)
     led.plotBrightness(2, 0, 20)
-    led.plotBrightness(3, 0, 20)
-} //Draw mini navigation bar at the top.
-function waiting_for_connection() {
+    led.plotBrightness(3, 0, 20)}
+function waiting_for_connection() { //Waiting for the bluetooth connection.
     waiting_for_input = true
     if (bluetooth_type == 1) {
         media.startMediaService()
@@ -128,9 +124,8 @@ function waiting_for_connection() {
         } else {
             loading_animation()
         }
-    }
-} //Waiting for the bluetooth connection.
-function unid_if_0_9() {
+    }}
+function unid_if_0_9() { //Function to draw numbers from 0 to 9
     unid = num
     if (unid == 0) {
         basic.showLeds(`
@@ -202,9 +197,8 @@ function unid_if_0_9() {
             . # # # .
             . . . # .
             . # # # .`)
-    }
-} //Function to draw numbers from 0 to 9
-function unid_if_1_23() {
+    }}
+function unid_if_1_23() { //Function to draw numbers from 0 to 55 (1-23)
     if (unid_type == 1) {
         unid = num
     } else if (unid_type == 2) {
@@ -463,9 +457,8 @@ function unid_if_1_23() {
             # # . # #
             # . . . #
             # # . # #`)
-    }
-} //Function to draw numbers from 0 to 55 (1-23)
-function unid_if_1_4() {
+    }}
+function unid_if_1_4() { //Function to draw numbers from 1 to 4
     if (num == 1) {
         basic.showLeds(`
             . . . # .
@@ -515,9 +508,8 @@ function unid_if_1_4() {
             . # # # .
             . . . # .
             . . . # .`)
-    }
-} //Function to draw numbers from 1 to 4
-function usid_if() {
+    }}
+function usid_if() { //Function to draw letters from a to "?"
     usid = abc_id
     if (usid == 1) {
         basic.showLeds(`
@@ -785,9 +777,8 @@ function usid_if() {
                 . . # # .
                 . . . . .
                 . . # . .`)
-    }
-} //Function to draw letters from a to "?"
-function uckb_if() {
+    }}
+function uckb_if() { //Function to map keyboard buttons to input buttons.
     if (abc_id == 1) {
         if (shift == true) {
             uckb = "A"
@@ -1029,9 +1020,8 @@ function uckb_if() {
         uckb = "!"
     } else if (abc_id == 38) {
         uckb = "?"
-    }
-} //Function to map keyboard buttons to input buttons.
-function menu_select_menu() {
+    }}
+function menu_select_menu() { //Menu selection at the start.
     while (menu_select == true) {
         if (selected_menu == 1) {
             led.unplot(4, 0)
@@ -1135,9 +1125,8 @@ function menu_select_menu() {
     } else if (selected_menu == 9) {
         menu_select = true
         settings_select_menu()
-    }
-} //Menu selection at the start.
-function game_select_menu() {
+    }}
+function game_select_menu() { //Game selection.
     while (menu_select == true) {
         if (game_mode == 0) {
             led.unplot(4, 0)
@@ -1281,9 +1270,8 @@ function game_select_menu() {
     } else if (game_mode == 10) {
         menu_select = true
         game_card_select_menu()
-    }
-} //Game selection.
-function game_card_select_menu() {
+    }}
+function game_card_select_menu() { //Card Game selection.
     while (menu_select == true) {
         if (selected_card_game == 0) {
             led.unplot(4, 0)
@@ -1368,9 +1356,8 @@ function game_card_select_menu() {
         menu_select = true
         scroll_interval = 1
         game_select_menu()
-    }
-} //Card Game selection.
-function tool_select_menu() {
+    }}
+function tool_select_menu() { //Tool selection.
     while (menu_select == true) {
         if (selected_tool == 0) {
             led.unplot(4, 0)
@@ -1477,9 +1464,8 @@ function tool_select_menu() {
     } else {
         menu_select = true
         tool_clock_menu()
-    }
-} //Tool selection.
-function tool_calculator_menu() {
+    }}
+function tool_calculator_menu() { //Calculator type selection.LAST
     while (menu_select == true) {
         if (selected_math == 1) {
             led.unplot(0, 0)
@@ -1564,9 +1550,8 @@ function tool_calculator_menu() {
         basic.showNumber(Math.PI)
         menu_select = true
         tool_calculator_menu()
-    }
-} //Calculator type selection.LAST
-function tool_clock_menu() {
+    }}
+function tool_clock_menu() { //Clock type selection.
     while (menu_select == true) {
         if (selected_clock == 1) {
             led.unplot(3, 0)
@@ -1626,9 +1611,8 @@ function tool_clock_menu() {
         chronometer()
     } else {
         timer()
-    }
-} //Clock type selection.
-function turtle_main() {
+    }}
+function turtle_main() { //Turtle extension.
     music.setBuiltInSpeakerEnabled(true)
     let pen_up = false
     turtle.setPosition(2, 2)
@@ -1662,9 +1646,8 @@ function turtle_main() {
             turtle.back(1)
         }
         basic.pause(200)
-    }
-} //Turtle extension.
-function bluetooth_select_menu() {
+    }}
+function bluetooth_select_menu() { //Bluetooth send type selection.
     while (menu_select == true) {
         if (bluetooth_type == 0) {
             led.unplot(4, 0)
@@ -1750,9 +1733,8 @@ function bluetooth_select_menu() {
     if (bluetooth_type == 0) {
         menu_select = true
         menu_select_menu()
-    }
-} //Bluetooth send type selection.
-function bluetooth_keyboard_menu() {
+    }}
+function bluetooth_keyboard_menu() { //Bluetooth keyboard type selection.
     while (menu_select == true) {
         if (bluetooth_keyboard_type == 0) {
             led.unplot(4, 0)
@@ -1827,9 +1809,8 @@ function bluetooth_keyboard_menu() {
         bluetooth_select_menu()
     } else {
         waiting_for_connection()
-    }
-} //Bluetooth keyboard type selection.
-function create_select_menu() {
+    }}
+function create_select_menu() { //Create type selection.
     while (menu_select == true) {
         if (create_type == 0) {
             led.unplot(4, 0)
@@ -1908,9 +1889,8 @@ function create_select_menu() {
     } else {
         menu_select = true
         menu_select_menu()
-    }
-} //Create type selection.
-function custom_music_selection() {
+    }}
+function custom_music_selection() { //Custom music selection.
     selected_create_music = 1
     while (menu_select == true) {
         if (selected_create_music == 1) {
@@ -1971,9 +1951,8 @@ function custom_music_selection() {
         rest()
     } else {
         melody_play()
-    }
-} //Custom music selection.
-function create_music_menu() {
+    }}
+function create_music_menu() { //Menu selection at the start.
     while (menu_select == true) {
         if (selected_music == 1) {
             led.unplot(4, 0)
@@ -2051,9 +2030,8 @@ function create_music_menu() {
         menu_select = true
         scroll_interval = 1
         custom_music_selection()
-    }
-} //Menu selection at the start.
-function pins_select_menu() {
+    }}
+function pins_select_menu() { //Pin selection.
     while (menu_select == true) {
         if (selected_pins == 0) {
             led.unplot(4, 0)
@@ -2134,9 +2112,8 @@ function pins_select_menu() {
         pins_type_select_menu()
     } else {
 
-    }
-} //Pin selection.
-function pins_type_select_menu() {
+    }}
+function pins_type_select_menu() { //Pin type selection.
     while (menu_select == true) {
         if (selected_pins_type == 0) {
             led.unplot(4, 0)
@@ -2255,9 +2232,8 @@ function pins_type_select_menu() {
         pins_analog()
     } else if (selected_pins_type == 2) {
         pins_digital()
-    }
-} //Pin type selection.
-function send_select_menu() {
+    }}
+function send_select_menu() { //Send selection.
     while (menu_select == true) {
         if (selected_serial == 0) {
             led.unplot(3, 0)
@@ -2321,9 +2297,8 @@ function send_select_menu() {
         send_type_select_menu()
     } else if (selected_serial == 2) {
         line_sent = true
-    }
-} //Send selection.
-function send_type_select_menu() {
+    }}
+function send_type_select_menu() { //Send types selection.
     while (menu_select == true) {
         if (selected_serial_send == 0) {
             led.unplot(4, 0)
@@ -2427,9 +2402,8 @@ function send_type_select_menu() {
         send_numer()
     } else if (selected_serial_send == 10) {
         send_string()
-    }
-} //Send types selection.
-function settings_select_menu() {
+    }}
+function settings_select_menu() { //Settings selection.
     while (menu_select == true) {
         if (selected_setting == 0) {
             led.unplot(4, 0)
@@ -2450,34 +2424,44 @@ function settings_select_menu() {
             if (settings_volume == 1) {
                 image_volume.scrollImage(1, scroll_interval)
                 led.plotBrightness(2, 1, 20)
+                music.setVolume(50)
             } else if(settings_volume == 2) {
                 image_volume.scrollImage(1, scroll_interval)
                 led.plotBrightness(2, 1, 20)
                 led.plotBrightness(3, 2, 20)
+                music.setVolume(100)
             } else if (settings_volume == 3) {
                 image_volume.scrollImage(1, scroll_interval)
                 led.plotBrightness(2, 1, 20)
                 led.plotBrightness(3, 2, 20)
                 led.plotBrightness(3, 3, 20)
+                music.setVolume(150)
             } else if (settings_volume == 4) {
                 image_volume.scrollImage(1, scroll_interval)
                 led.plotBrightness(2, 1, 20)
                 led.plotBrightness(3, 2, 20)
                 led.plotBrightness(3, 3, 20)
                 led.plotBrightness(2, 4, 20)
+                music.setVolume(200)
             } else {
                 image_volume_full.scrollImage(1, scroll_interval)
+                music.setVolume(255)
             }
         } else if (selected_setting == 3) {
             if (settings_brightness == 1) {
+                led.setBrightness(50)
                 image_brightness1.scrollImage(1, scroll_interval)
             } else if (settings_brightness == 2) {
+                led.setBrightness(100)
                 image_brightness2.scrollImage(1, scroll_interval)
             } else if (settings_brightness == 3) {
+                led.setBrightness(150)
                 image_brightness3.scrollImage(1, scroll_interval)
             } else if (settings_brightness == 4) {
+                led.setBrightness(200)
                 image_brightness4.scrollImage(1, scroll_interval)
             } else if (settings_brightness == 5) {
+                led.setBrightness(255)
                 image_brightness5.scrollImage(1, scroll_interval)
             } else {
                 image_auto.scrollImage(1, scroll_interval)
@@ -2613,9 +2597,8 @@ function settings_select_menu() {
     if (selected_setting == 6) {
         basic.clearScreen()
         settings_test_input()
-    }
-} //Settings selection.
-input.onButtonPressed(Button.A, function () {
+    }}
+input.onButtonPressed(Button.A, function () { //On button A pressed.
     if (game_mode == 1) {
         if (px_1 > 0) {
             led.unplot(px_1, py_1)
@@ -2717,9 +2700,8 @@ input.onButtonPressed(Button.A, function () {
             currX_9 = 2
             currY_9 = 2
         }
-    }
-}) //On button A pressed.
-input.onButtonPressed(Button.B, function () {
+    }})
+input.onButtonPressed(Button.B, function () { //On button B pressed.
     if (game_mode == 1) {
         if (px_1 < 4) {
             led.unplot(px_1, py_1)
@@ -2787,9 +2769,8 @@ input.onButtonPressed(Button.B, function () {
             currX_9 = 2
             currY_9 = 2
         }
-    }
-}) //On button B pressed.
-input.onButtonPressed(Button.AB, function () {
+    }})
+input.onButtonPressed(Button.AB, function () { //On button AB pressed.
     if (game_mode == 1) {
         shoot_1 = 1
         music.play(music.createSoundExpression(
@@ -2805,9 +2786,8 @@ input.onButtonPressed(Button.AB, function () {
     }
     if (game_mode == 9) {
         state_9 = 1
-    }
-}) //On button AB pressed.
-input.onPinPressed(TouchPin.P0, function () {
+    }})
+input.onPinPressed(TouchPin.P0, function () { //On Pin0 pressed.
     if (pin_lock == false) {
         if (settings_music == false) {
             music.setBuiltInSpeakerEnabled(true)
@@ -2820,9 +2800,8 @@ input.onPinPressed(TouchPin.P0, function () {
             music.setBuiltInSpeakerEnabled(false)
             settings_music = false
         }
-    }
-}) //On Pin0 pressed.
-input.onPinPressed(TouchPin.P1, function () {
+    }})
+input.onPinPressed(TouchPin.P1, function () { //On pin1 pressed.
     if (pin_lock == false) {
         if (settings_volume == 1) {
             music.setVolume(50)
@@ -2849,9 +2828,8 @@ input.onPinPressed(TouchPin.P1, function () {
             basic.pause(20)
             music.play(music.tonePlayable(523, music.beat(BeatFraction.Eighth)), music.PlaybackMode.UntilDone)
         }
-    }
-}) //On pin1 pressed.
-input.onPinPressed(TouchPin.P2, function () {
+    }})
+input.onPinPressed(TouchPin.P2, function () { //On pin2 pressed.
     if (pin_lock == false) {
         if (settings_brightness == 1) {
             led.setBrightness(50)
@@ -2878,37 +2856,30 @@ input.onPinPressed(TouchPin.P2, function () {
             music.play(music.tonePlayable(523, music.beat(BeatFraction.Eighth)), music.PlaybackMode.UntilDone)
             settings_brightness = 1
         }
-    }
-}) //On pin2 pressed.
-bluetooth.onBluetoothConnected(function () {
-    bluetooth_online = true
-}) //On bluetooth connected.
-bluetooth.onBluetoothDisconnected(function () {
-    bluetooth_online = false
-}) //On bluetooth disconnected.
-music.onEvent(MusicEvent.MelodyStarted, function () {
+    }})
+bluetooth.onBluetoothConnected(function () { //On bluetooth connected.
+    bluetooth_online = true})
+bluetooth.onBluetoothDisconnected(function () { //On bluetooth disconnected.
+    bluetooth_online = false})
+music.onEvent(MusicEvent.MelodyStarted, function () { //On melody playing.
     while (music_playing == true) {
         loading_animation()
-    }
-}) //On melody playing.
-serial.onDataReceived(serial.delimiters(Delimiters.NewLine), function () {
+    }})
+serial.onDataReceived(serial.delimiters(Delimiters.NewLine), function () { //On serial data received
     if (line_sent = true) {
         basic.showString(serial.readLine())
-    }
-})
-bluetooth.onUartDataReceived(serial.delimiters(Delimiters.NewLine), function on_uart_data_received() {
+    }})
+bluetooth.onUartDataReceived(serial.delimiters(Delimiters.NewLine), function on_uart_data_received() { //On bluetooth data received
     if (line_sent = true) {
         basic.showString(bluetooth.uartReadUntil(serial.delimiters(Delimiters.NewLine)))
-    }
-})
+    }})
 let pin_lock = true
 if (input.logoIsPressed()) {
     loading_animation_rev()
     pin_lock = false
 } else {
     loading_animation()
-    pin_lock = true
-}
+    pin_lock = true}
 music.setBuiltInSpeakerEnabled(false)
 pins.setAudioPinEnabled(false)
 serial.setBaudRate(BaudRate.BaudRate115200)
@@ -2993,7 +2964,6 @@ let image_games = images.createImage(`
     . # # # .
     # # # # #
     # . . . #`)
-
 let image_tools = images.createImage(`
     . . . . .
     . # . . .
@@ -3446,82 +3416,19 @@ let image_blank = images.createImage(`
     . . . . .
     . . . . .
     . . . . .`)
-let acc_1 = 0
-let time_1 = 0
-let killed_1: number[] = []
-let enemyX_1: number[] = []
-let enemyY_1: number[] = []
-let speed_1: number
-let shoot_1: number
-let my_1: number
-let px_1: number
-let py_1: number
-let bird_move_2 = false
-let obstacles_2: game.LedSprite[] = []
-let bird_2: game.LedSprite = null
-let interval_2: number
-let ticks_2 = 0
-let score_2 = 0
-let empty_obstacle_2 = 0
+let acc_1 = 0;let time_1 = 0;let killed_1: number[] = [];let enemyX_1: number[] = [];let enemyY_1: number[] = [];let speed_1: number;let shoot_1: number;let my_1: number;let px_1: number;let py_1: number
+let bird_move_2 = false;let obstacles_2: game.LedSprite[] = [];let bird_2: game.LedSprite = null;let interval_2: number;let ticks_2 = 0;let score_2 = 0;let empty_obstacle_2 = 0
 let bar_x_3 = 0
-let playerCar_4: game.LedSprite = null
-let var_4: number
-let gameOn_4 = false
-let car_move_4 = false
-let generate_obstacles_5 = 0
-let dummy_variable_5: game.LedSprite[] = []
-let is_game_over_5 = false
-let obstacles_5: game.LedSprite[][] = []
-let player_5: game.LedSprite[] = []
-let score_5: number
-let player_move_5 = false
-let i_6 = 90
-let s_6 = 0
-let j_6 = 0
-let l_6 = 0
-let h_6 = [4, 4, 2, 1, 2]
-let x_6 = [2, 3, 4, 4, 4, 3, 2, 1, 0, 0, 0, 1]
-let y_6 = [0, 0, 1, 2, 3, 4, 4, 4, 3, 2, 1, 0]
-let interval_7 = 1000
-let ghost_7: game.LedSprite = null
-let pac_man_7: game.LedSprite = null
-let food_7: game.LedSprite = null
-let rowFull_8 = false
-let x_8 = 0
-let y_8 = 0
-let gameOver_8 = false
-let canFall_8 = false
-let delay_8 = 500
-let score_8 = 0
-let gameon_8 = false
-let i_9 = 0
-let by_9: number[] = []
-let bx_9: number[] = []
-let brightnessB_9 = 0
-let brightnessA_9 = 0
-let brightness_9 = 0
-let stepB_9 = 0
-let show_9 = 0
-let winner_9 = 0
-let currY_9 = 0
-let ay_9: number[] = []
-let currX_9 = 0
-let stepA_9 = 0
-let ax_9: number[] = []
-let user_9 = 0
-let winY_9: number[] = []
-let winX_9: number[] = []
-let state_9 = 0
-state_9 = -1
-winX_9 = [1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 1, 1, 2, 2, 2, 3, 3, 3, 1, 2, 3, 1, 2, 3]
-winY_9 = [1, 1, 1, 2, 2, 2, 3, 3, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 3, 2, 1]
-let bj_dealer_hand = 0
-let bj_my_hand = 0
-let bj_dealer_card = 0
-let random_card = 0
-let score_10 = 0
+let playerCar_4: game.LedSprite = null;let var_4: number;let gameOn_4 = false;let car_move_4 = false
+let generate_obstacles_5 = 0;let dummy_variable_5: game.LedSprite[] = [];let is_game_over_5 = false;let obstacles_5: game.LedSprite[][] = [];let player_5: game.LedSprite[] = [];let score_5: number;let player_move_5 = false
+let i_6 = 90;let s_6 = 0;let j_6 = 0;let l_6 = 0;let h_6 = [4, 4, 2, 1, 2];let x_6 = [2, 3, 4, 4, 4, 3, 2, 1, 0, 0, 0, 1];let y_6 = [0, 0, 1, 2, 3, 4, 4, 4, 3, 2, 1, 0]
+let interval_7 = 1000;let ghost_7: game.LedSprite = null;let pac_man_7: game.LedSprite = null;let food_7: game.LedSprite = null
+let rowFull_8 = false;let x_8 = 0;let y_8 = 0;let gameOver_8 = false;let canFall_8 = false;let delay_8 = 500;let score_8 = 0;let gameon_8 = false
+let i_9 = 0;let by_9: number[] = [];let bx_9: number[] = [];let brightnessB_9 = 0;let brightnessA_9 = 0;let brightness_9 = 0;let stepB_9 = 0;let show_9 = 0;let winner_9 = 0;let currY_9 = 0;let ay_9: number[] = [];let currX_9 = 0;let stepA_9 = 0;let ax_9: number[] = [];let user_9 = 0;let winY_9: number[] = [];let winX_9: number[] = [];let state_9 = 0;state_9 = -1
+winX_9 = [1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 1, 1, 2, 2, 2, 3, 3, 3, 1, 2, 3, 1, 2, 3];winY_9 = [1, 1, 1, 2, 2, 2, 3, 3, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 3, 2, 1]
+let bj_dealer_hand = 0;let bj_my_hand = 0;let bj_dealer_card = 0;let random_card = 0;let score_10 = 0
 menu_select_menu()
-basic.forever(function () {
+basic.forever(function () { //Space Invaders game. // game_Mode = 1
     if (game_mode == 1) {
         led.plotBrightness(px_1, py_1, 255)
         for (let index2 = 0; index2 <= 4; index2++) {
@@ -3535,16 +3442,7 @@ basic.forever(function () {
             for (let index3 = 0; index3 <= 4; index3++) {
                 if (killed_1[index3] == 0 && (px_1 == enemyX_1[index3] && my_1 == enemyY_1[index3])) {
                     killed_1[index3] = 1
-                    music.play(music.createSoundExpression(
-                        WaveShape.Noise,
-                        2294,
-                        2294,
-                        238,
-                        0,
-                        200,
-                        SoundExpressionEffect.None,
-                        InterpolationCurve.Linear
-                    ), music.PlaybackMode.InBackground)
+                    music.play(music.createSoundExpression(WaveShape.Noise,2294,2294,238,0,200,SoundExpressionEffect.None,InterpolationCurve.Linear), music.PlaybackMode.InBackground)
                 }
             }
             basic.pause(25)
@@ -3566,16 +3464,7 @@ basic.forever(function () {
             if (killed_1[index5] == 0) {
                 if (enemyY_1[index5] > 4) {
                     basic.clearScreen()
-                    music.play(music.createSoundExpression(
-                        WaveShape.Sawtooth,
-                        321,
-                        0,
-                        255,
-                        0,
-                        100,
-                        SoundExpressionEffect.None,
-                        InterpolationCurve.Linear
-                    ), music.PlaybackMode.InBackground)
+                    music.play(music.createSoundExpression(WaveShape.Sawtooth,321,0,255,0,100,SoundExpressionEffect.None,InterpolationCurve.Linear), music.PlaybackMode.InBackground)
                     datalogger.log(datalogger.createCV("Space Invaders", acc_1))
                     basic.showString("S:")
                     basic.showNumber(acc_1)
@@ -3596,9 +3485,8 @@ basic.forever(function () {
             }
         }
 
-    }
-}) //Space Invaders game. // game_Mode = 1
-function game_mode_2() {
+    }})
+function game_mode_2() { //Flappy Bird game. // game_mode = 2
     while (obstacles_2.length > 0 && obstacles_2[0].get(LedSpriteProperty.X) == 0) {
         obstacles_2.removeAt(0).delete()
     }
@@ -3617,16 +3505,7 @@ function game_mode_2() {
         if (obstacle_2.get(LedSpriteProperty.X) == bird_2.get(LedSpriteProperty.X) && obstacle_2.get(LedSpriteProperty.Y) == bird_2.get(LedSpriteProperty.Y)) {
             game.pause()
             basic.clearScreen()
-            music.play(music.createSoundExpression(
-                WaveShape.Sawtooth,
-                321,
-                0,
-                255,
-                0,
-                100,
-                SoundExpressionEffect.None,
-                InterpolationCurve.Linear
-            ), music.PlaybackMode.InBackground)
+            music.play(music.createSoundExpression(WaveShape.Sawtooth,321,0,255,0,100,SoundExpressionEffect.None,InterpolationCurve.Linear), music.PlaybackMode.InBackground)
             datalogger.log(datalogger.createCV("Flappy Bird", score_2))
             basic.showString("S:")
             basic.showNumber(score_2)
@@ -3637,9 +3516,8 @@ function game_mode_2() {
     score_2 += 0.25
     interval_2 += -0.2
     basic.pause(interval_2)
-    game_mode_2()
-} //Flappy Bird game. // game_mode = 2
-function game_mode_3() {
+    game_mode_2()}
+function game_mode_3() { //Ping-Pong game. // game_mode = 3
     basic.clearScreen()
     let point_3 = 0
     let interval_step_3 = 1
@@ -3665,16 +3543,7 @@ function game_mode_3() {
             if (led.point(ball_x_3 + ball_dx_3, ball_y_3 + ball_dy_3)) {
                 ball_dy_3 = ball_dy_3 * -1
                 point_3 = point_3 + 1
-                music.play(music.createSoundExpression(
-                    WaveShape.Square,
-                    223,
-                    1,
-                    79,
-                    39,
-                    150,
-                    SoundExpressionEffect.None,
-                    InterpolationCurve.Linear
-                ), music.PlaybackMode.InBackground)
+                music.play(music.createSoundExpression(WaveShape.Square,223,1,79,39,150,SoundExpressionEffect.None,InterpolationCurve.Linear), music.PlaybackMode.InBackground)
                 if (interval_3 - interval_step_3 >= 0) {
                     interval_3 = interval_3 - interval_step_3
                 }
@@ -3705,9 +3574,8 @@ function game_mode_3() {
             basic.showNumber(point_3)
             control.reset()
         }
-    }
-} //Ping-Pong game. // game_mode = 3
-basic.forever(function () {
+    }}
+basic.forever(function () { //Cars game. // game_mode = 4
     if (game_mode == 4) {
         var_4 = 5000
         game.setScore(0)
@@ -3718,40 +3586,21 @@ basic.forever(function () {
             basic.pause(100)
         }
         game.pause()
-        music.play(music.createSoundExpression(
-            WaveShape.Sawtooth,
-            321,
-            0,
-            255,
-            0,
-            100,
-            SoundExpressionEffect.None,
-            InterpolationCurve.Linear
-        ), music.PlaybackMode.InBackground)
+        music.play(music.createSoundExpression(WaveShape.Sawtooth,321,0,255,0,100,SoundExpressionEffect.None,InterpolationCurve.Linear), music.PlaybackMode.InBackground)
         datalogger.log(datalogger.createCV("Cars Game", game.score()))
         basic.clearScreen()
         basic.showString("S:")
         basic.showNumber(game.score())
         control.reset()
-    }
-}) //Cars game. // game_mode = 4
-function game_mode_4(car_4: game.LedSprite) {
+    }})
+function game_mode_4(car_4: game.LedSprite) { //Cars game. //Control 0-4 cars // game_mode = 4
     basic.pause(randint(0, var_4))
     while (gameOn_4 == true) {
         if (car_4.get(LedSpriteProperty.Y) == 4) {
             if (playerCar_4.isTouching(car_4)) {
                 gameOn_4 = false
             } else {
-                music.play(music.createSoundExpression(
-                    WaveShape.Noise,
-                    2294,
-                    2294,
-                    238,
-                    0,
-                    200,
-                    SoundExpressionEffect.None,
-                    InterpolationCurve.Linear
-                ), music.PlaybackMode.InBackground)
+                music.play(music.createSoundExpression(WaveShape.Noise,2294,2294,238,0,200,SoundExpressionEffect.None,InterpolationCurve.Linear), music.PlaybackMode.InBackground)
                 game.setScore(game.score() + 1)
                 var_4 += -1
                 car_4.set(LedSpriteProperty.Y, 0)
@@ -3762,9 +3611,8 @@ function game_mode_4(car_4: game.LedSprite) {
             basic.pause(500)
         }
     }
-    game_mode_4(car_4)
-} //Cars game. //Control 0-4 cars // game_mode = 4
-basic.forever(function () {
+    game_mode_4(car_4)}
+basic.forever(function () { //Cars game. // Car 0 // game_mode = 4
     if (game_mode == 4) {
         basic.pause(100)
         if (gameOn_4 == true) {
@@ -3772,9 +3620,8 @@ basic.forever(function () {
             car0_4.set(LedSpriteProperty.Brightness, 20)
             game_mode_4(car0_4)
         }
-    }
-}) //Cars game. // Car 0 // game_mode = 4
-basic.forever(function () {
+    }})
+basic.forever(function () { //Cars game. // Car 1 // game_mode = 4
     if (game_mode == 4) {
         basic.pause(100)
         if (gameOn_4 == true) {
@@ -3782,9 +3629,8 @@ basic.forever(function () {
             car1_4.set(LedSpriteProperty.Brightness, 20)
             game_mode_4(car1_4)
         }
-    }
-}) //Cars game. // Car 1 // game_mode = 4
-basic.forever(function () {
+    }})
+basic.forever(function () { //Cars game. // Car 2 // game_mode = 4
     if (game_mode == 4) {
         basic.pause(100)
         if (gameOn_4 == true) {
@@ -3792,9 +3638,8 @@ basic.forever(function () {
             car2_4.set(LedSpriteProperty.Brightness, 20)
             game_mode_4(car2_4)
         }
-    }
-}) //Cars game. // Car 2 // game_mode = 4
-basic.forever(function () {
+    }})
+basic.forever(function () { //Cars game. // Car 3 // game_mode = 4
     if (game_mode == 4) {
         basic.pause(100)
         if (gameOn_4 == true) {
@@ -3802,9 +3647,8 @@ basic.forever(function () {
             car3_4.set(LedSpriteProperty.Brightness, 20)
             game_mode_4(car3_4)
         }
-    }
-}) //Cars game. // Car 3 // game_mode = 4
-basic.forever(function () {
+    }})
+basic.forever(function () { //Cars game. // Car 4 // game_mode = 4
     if (game_mode == 4) {
         basic.pause(100)
         if (gameOn_4 == true) {
@@ -3812,9 +3656,8 @@ basic.forever(function () {
             car4_4.set(LedSpriteProperty.Brightness, 20)
             game_mode_4(car4_4)
         }
-    }
-}) //Cars game. // Car 4 // game_mode = 4
-function gameOver() {
+    }})
+function gameOver() { //Dinasour game // gameOver function// game_mode = 5
     is_game_over_5 = true
     for (let obstacle_group_3 of obstacles_5) {
         for (let an_obstacle_sprite_3 of obstacle_group_3) {
@@ -3829,9 +3672,8 @@ function gameOver() {
     datalogger.log(datalogger.createCV("Dinasour Game", score_5))
     basic.showString("S:")
     basic.showNumber(score_5)
-    control.reset()
-} //Dinasour game // gameOver function// game_mode = 5
-basic.forever(function () {
+    control.reset()}
+basic.forever(function () { //Dinasour game // Score function // game_mode = 5
     if (game_mode == 5) {
         if (!(is_game_over_5)) {
             basic.pause(225)
@@ -3840,16 +3682,7 @@ basic.forever(function () {
                     if (an_obstacle_sprite_1.get(LedSpriteProperty.X) == 0) {
                         obstacle_group_1.removeAt(obstacle_group_1.indexOf(an_obstacle_sprite_1)).delete()
                         score_5 += 1
-                        music.play(music.createSoundExpression(
-                            WaveShape.Noise,
-                            2294,
-                            2294,
-                            238,
-                            0,
-                            200,
-                            SoundExpressionEffect.None,
-                            InterpolationCurve.Linear
-                        ), music.PlaybackMode.UntilDone)
+                        music.play(music.createSoundExpression(WaveShape.Noise,2294,2294,238,0,200,SoundExpressionEffect.None,InterpolationCurve.Linear), music.PlaybackMode.UntilDone)
                     } else {
                         an_obstacle_sprite_1.change(LedSpriteProperty.X, -1)
                     }
@@ -3859,9 +3692,8 @@ basic.forever(function () {
                 }
             }
         }
-    }
-}) //Dinasour game // Score function // game_mode = 5
-basic.forever(function () {
+    }})
+basic.forever(function () { //Dinasour game // generate obstacles // game_mode = 5
     if (game_mode == 5) {
         if (!(is_game_over_5)) {
             basic.pause(1750)
@@ -3878,34 +3710,23 @@ basic.forever(function () {
                 obstacles_5.push([game.createSprite(4, 1)])
             }
         }
-    }
-}) //Dinasour game // generate obstacles // game_mode = 5
-basic.forever(function () {
+    }})
+basic.forever(function () { //Dinasour game // call gameOver function // game_mode = 5
     if (game_mode == 5) {
         if (!(is_game_over_5)) {
             for (let obstacle_group_2 of obstacles_5) {
                 for (let an_obstacle_sprite_2 of obstacle_group_2) {
                     for (let player_sprite_1 of player_5) {
                         if (an_obstacle_sprite_2.isTouching(player_sprite_1)) {
-                            music.play(music.createSoundExpression(
-                                WaveShape.Sawtooth,
-                                321,
-                                0,
-                                255,
-                                0,
-                                100,
-                                SoundExpressionEffect.None,
-                                InterpolationCurve.Linear
-                            ), music.PlaybackMode.UntilDone)
+                            music.play(music.createSoundExpression(WaveShape.Sawtooth,321,0,255,0,100,SoundExpressionEffect.None,InterpolationCurve.Linear), music.PlaybackMode.UntilDone)
                             gameOver()
                         }
                     }
                 }
             }
         }
-    }
-}) //Dinasour game // call gameOver function // game_mode = 5
-function game_mode_6() {
+    }})
+function game_mode_6() { //Jumping rope game // game_mode = 6
     while (!(j_6 == 0 && l_6 == 6)) {
         let w = 0
         basic.pause(i_6)
@@ -3937,9 +3758,8 @@ function game_mode_6() {
     datalogger.log(datalogger.createCV("Jumping Rope", s_6))
     basic.showNumber(s_6)
     basic.clearScreen()
-    game_mode_6()
-} //Jumping rope game // game_mode = 6
-function game_mode_7() {
+    game_mode_6()}
+function game_mode_7() { //Pac-Man game // game_mode = 7
     while (true) {
         basic.pause(interval_7)
         if (ghost_7.get(LedSpriteProperty.X) < pac_man_7.get(LedSpriteProperty.X)) {
@@ -3963,16 +3783,7 @@ function game_mode_7() {
             pac_man_7.change(LedSpriteProperty.Y, -1)
         }
         if (pac_man_7.isTouching(food_7)) {
-            music.play(music.createSoundExpression(
-                WaveShape.Noise,
-                2294,
-                2294,
-                255,
-                0,
-                200,
-                SoundExpressionEffect.None,
-                InterpolationCurve.Linear
-            ), music.PlaybackMode.InBackground)
+            music.play(music.createSoundExpression(WaveShape.Noise,2294,2294,255,0,200,SoundExpressionEffect.None,InterpolationCurve.Linear), music.PlaybackMode.InBackground)
             game.addScore(1)
             interval_7 += -10
             food_7.set(LedSpriteProperty.X, randint(0, 4))
@@ -4010,9 +3821,8 @@ function game_mode_7() {
             control.reset()
         }
     }
-    game_mode_7()
-} //Pac-Man game // game_mode = 7
-function tryFall() {
+    game_mode_7()}
+function tryFall() { //Tetris. // game_mode = 8
     canFall_8 = y_8 < 4 && !(led.point(x_8, y_8 + 1))
     if (canFall_8) {
         led.unplot(x_8, y_8)
@@ -4021,9 +3831,8 @@ function tryFall() {
     } else {
         gameOver_8 = y_8 == 0
     }
-    checkFullRow()
-} //Tetris. // game_mode = 8
-function checkFullRow() {
+    checkFullRow()}
+function checkFullRow() { //Tetris. // game_mode = 8
     rowFull_8 = true
     for (let xx = 0; xx <= 5 - 1; xx++) {
         if (!(led.point(xx, 4))) {
@@ -4044,9 +3853,8 @@ function checkFullRow() {
                 }
             }
         }
-    }
-} //Tetris. // game_mode = 8
-function game_mode_9() {
+    }}
+function game_mode_9() { //Tic-Tac-Toe // game_mode = 9
     if (state_9 == 0) {
         basic.showLeds(`
             . # . # .
@@ -4115,9 +3923,8 @@ function game_mode_9() {
         init()
     }
     basic.pause(500)
-    game_mode_9()
-} //Tic-Tac-Toe // game_mode = 9
-function init() {
+    game_mode_9()}
+function init() { //Tic-Tac-Toe // game_mode = 9
     state_9 = 0
     user_9 = 0
     winner_9 = -1
@@ -4127,43 +3934,18 @@ function init() {
     brightness_9 = 0
     brightnessA_9 = 255
     brightnessB_9 = 5
-    ax_9 = [
-        -1,
-        -1,
-        -1,
-        -1,
-        -1
+    ax_9 = [-1,-1,-1,-1,-1]
+    ay_9 = [-1,-1,-1,-1,-1]
+    bx_9 = [-1,-1,-1,-1,-1
     ]
-    ay_9 = [
-        -1,
-        -1,
-        -1,
-        -1,
-        -1
-    ]
-    bx_9 = [
-        -1,
-        -1,
-        -1,
-        -1,
-        -1
-    ]
-    by_9 = [
-        -1,
-        -1,
-        -1,
-        -1,
-        -1
-    ]
-} //Tic-Tac-Toe // game_mode = 9
-function clearall() {
+    by_9 = [-1,-1,-1,-1,-1]}
+function clearall() { //Tic-Tac-Toe // game_mode = 9
     for (let i = 0; i <= 2; i++) {
         led.plotBrightness(i + 1, 1, 0)
         led.plotBrightness(i + 1, 2, 0)
         led.plotBrightness(i + 1, 3, 0)
-    }
-} //Tic-Tac-Toe // game_mode = 9
-function winner_check() {
+    }}
+function winner_check() { //Tic-Tac-Toe // game_mode = 9
     for (let index = 0; index <= 7; index++) {
         i_9 = index
         winner_case()
@@ -4197,9 +3979,8 @@ function winner_check() {
             led.setBrightness(255)
             basic.showString("TIE")
         }
-    }
-} //Tic-Tac-Toe // game_mode = 9
-function winner_case() {
+    }}
+function winner_case() { //Tic-Tac-Toe // game_mode = 9
     for (let check1 = 0; check1 <= 4; check1++) {
         if (ax_9[check1] == winX_9[i_9 * 3 + 0] && ay_9[check1] == winY_9[i_9 * 3 + 0]) {
             for (let check2 = 0; check2 <= 4; check2++) {
@@ -4234,15 +4015,13 @@ function winner_case() {
             check1 = 5
         }
     }
-    return 0
-} //Tic-Tac-Toe // game_mode = 9
-function showall() {
+    return 0}
+function showall() { //Tic-Tac-Toe // game_mode = 9
     for (let i = 0; i <= 4; i++) {
         led.plotBrightness(ax_9[i], ay_9[i], brightnessA_9)
         led.plotBrightness(bx_9[i], by_9[i], brightnessB_9)
-    }
-} //Tic-Tac-Toe // game_mode = 9
-function blackjack() {
+    }}
+function blackjack() { //Blackjack. //game_mode = 10
     basic.pause(200)
     basic.clearScreen()
     bj_dealer_hand = 0
@@ -4498,9 +4277,8 @@ function blackjack() {
         game.addScore(1)
         break;
     }
-    blackjack()
-} //Blackjack. //game_mode = 10
-function tool_temparature() {
+    blackjack()}
+function tool_temparature() { //Show temperature // Selected_tool = 1
     while (true) {
         if (tool_type == 1) {
             basic.showNumber(input.temperature())
@@ -4520,9 +4298,8 @@ function tool_temparature() {
                 basic.pause(500)
             }
         }
-    }
-} //Show temperature // Selected_tool = 1
-function tool_light_level() {
+    }}
+function tool_light_level() { //Show light level // Selected_tool = 2
     while (true) {
         if (tool_type == 1) {
             basic.showNumber(input.lightLevel())
@@ -4542,34 +4319,41 @@ function tool_light_level() {
                 basic.pause(500)
             }
         }
-    }
-} //Show light level // Selected_tool = 2
-function tool_sound_level() {
+    }}
+function tool_sound_level() { //Show sound level // Selected_tool = 3
     while (true) {
         if (tool_type == 1) {
             basic.showNumber(input.soundLevel())
-        }
-        if (tool_type == 2) {
-            led.plotBarGraph(
-                input.soundLevel(),
-                255
-            )
-        }
-        if (input.logoIsPressed()) {
-            basic.pause(100)
-            if (tool_type == 1) {
+            if (selected_uart == true) {
+                uart_send = "" + input.soundLevel()
+                bluetooth.uartWriteLine(uart_send)
+            } else {
+                serial.writeLine("" + (input.soundLevel()))
+            }
+            if (input.logoIsPressed()) {
                 basic.clearScreen()
                 tool_type = 2
-            }
-            basic.pause(100)
-            if (tool_type == 1) {
-                basic.clearScreen()
-                tool_type = 1
+                game.addScore(1)
+                basic.pause(500)
             }
         }
-    }
-} //Show sound level // Selected_tool = 3
-function tool_compass() {
+        if (tool_type == 2) {
+            led.plotBarGraph(input.soundLevel(), 255)
+            if (selected_uart == true) {
+                uart_send = "" + input.soundLevel()
+                bluetooth.uartWriteLine(uart_send)
+            } else {
+                serial.writeLine("" + (input.soundLevel()))
+            }
+            if (input.logoIsPressed()) {
+                basic.clearScreen()
+                tool_type = 1
+                game.addScore(1)
+                basic.pause(500)
+            }
+        }
+    }}
+function tool_compass() { //Compass // Selected_tool = 4
     while (true) {
         if (input.compassHeading() <= 90 && input.compassHeading() >= 45) {
             basic.showArrow(ArrowNames.NorthEast)
@@ -4588,9 +4372,8 @@ function tool_compass() {
         } else {
             basic.showArrow(ArrowNames.North)
         }
-    }
-} //Compass // Selected_tool = 4
-function tool_accX() {
+    }}
+function tool_accX() { //Show acceleration(mg) X // Selected_tool = 5
     while (true) {
         if (tool_type == 1) {
             basic.showNumber(input.acceleration(Dimension.X))
@@ -4610,9 +4393,8 @@ function tool_accX() {
                 basic.pause(500)
             }
         }
-    }
-} //Show acceleration(mg) X // Selected_tool = 5
-function tool_accY() {
+    }}
+function tool_accY() { //Show acceleration(mg) Y // Selected_tool = 6
     while (true) {
         if (tool_type == 1) {
             basic.showNumber(input.acceleration(Dimension.Y))
@@ -4632,9 +4414,8 @@ function tool_accY() {
                 basic.pause(500)
             }
         }
-    }
-} //Show acceleration(mg) Y // Selected_tool = 6
-function tool_accZ() {
+    }}
+function tool_accZ() { //Show acceleration(mg) Z // Selected_tool = 7
     while (true) {
         if (tool_type == 1) {
             basic.showNumber(input.acceleration(Dimension.Z))
@@ -4654,9 +4435,8 @@ function tool_accZ() {
                 basic.pause(500)
             }
         }
-    }
-} //Show acceleration(mg) Z // Selected_tool = 7
-function tool_record() {
+    }}
+function tool_record() { //Record and play sound files // Selected_tool = 8
     let tool_record_volume = 5
     record.setSampleRate(22000)
     while (true) {
@@ -4755,9 +4535,8 @@ function tool_record() {
                 waiting_for_input = false
             }
         }
-    }
-} //Record and play sound files // Selected_tool = 8
-function math_xy() {
+    }}
+function math_xy() { //Calculator with 2 variables // Selected_tool = 9
     basic.pause(200)
     mathx = 0
     mathy = 0
@@ -4912,10 +4691,14 @@ function math_xy() {
     } else if (selected_math == 5) {
         basic.showNumber(mathx ** mathy)
     } else if (selected_math == 11) {
-        basic.showNumber(randint(mathx, mathy))
-    }
-} //Calculator with 2 variables // Selected_tool = 9
-function math_x() {
+        while (true) {
+            if (input.buttonIsPressed(Button.A) || input.buttonIsPressed(Button.B)) {
+                basic.showNumber(randint(mathx, mathy))
+            }
+            basic.clearScreen()
+        }
+    }}
+function math_x() { //Calculator with 1 variable // Selected_tool = 9
     basic.clearScreen()
     basic.pause(100)
     mathx = 0
@@ -5000,9 +4783,8 @@ function math_x() {
         basic.showNumber(Math.cos(mathx * Math.PI / 180))
     } else if (selected_math == 9) {
         basic.showNumber(Math.tan(mathx * Math.PI / 180))
-    }
-} //Calculator with 1 variable // Selected_tool = 9
-function signal() {
+    }}
+function signal() { //Signal / Alarm clock // Selected_tool = 10
     basic.clearScreen()
     music.setBuiltInSpeakerEnabled(true)
     basic.pause(200)
@@ -5154,9 +4936,8 @@ function signal() {
         } else {
             second += 1
         }
-    }
-} //Signal / Alarm clock // Selected_tool = 10
-function chronometer() {
+    }}
+function chronometer() { // Chronometer // Selected_tool = 10
     running = false
     crhonometer_run = true
     let dotLocation = 0
@@ -5181,9 +4962,8 @@ function chronometer() {
         } else {
             basic.showIcon(IconNames.No)
         }
-    }
-} // Chronometer // Selected_tool = 10
-function timer() {
+    }}
+function timer() { // Timer // Selected_tool = 10
     basic.clearScreen()
     music.setBuiltInSpeakerEnabled(true)
     basic.pause(200)
@@ -5339,9 +5119,8 @@ function timer() {
         } else {
             second += -1
         }
-    }
-} // Timer // Selected_tool = 10
-function bluetooth_media() {
+    }}
+function bluetooth_media() { //Control media via bluetooth.
     while (bluetooth_online == true) {
         if (input.buttonIsPressed(Button.AB)) {
             media.sendCode(media.keys(media._MediaKey.mute))
@@ -5411,9 +5190,8 @@ function bluetooth_media() {
         basic.clearScreen()
     }
     loading_animation()
-    bluetooth_media()
-} //Control media via bluetooth.
-function bluetooth_mouse() {
+    bluetooth_media()}
+function bluetooth_mouse() { //Control the mouse via bluetooth.
     while (bluetooth_online == true) {
         newx = input.acceleration(Dimension.X)
         newy = input.acceleration(Dimension.Y)
@@ -5430,9 +5208,8 @@ function bluetooth_mouse() {
         y = 0.4 * y + 0.4 * newx
     }
     loading_animation()
-    bluetooth_mouse()
-} //Control the mouse via bluetooth.
-function bluetooth_gamepad() {
+    bluetooth_mouse()}
+function bluetooth_gamepad() { //Control the gamepad via bluetooth.
     while (bluetooth_online == true) {
         gamepad.send(
             gamepad._buttons(GameButton.A, input.buttonIsPressed(Button.B)),
@@ -5515,9 +5292,8 @@ function bluetooth_gamepad() {
         basic.pause(150)
     }
     loading_animation()
-    bluetooth_gamepad()
-} //Control the gamepad via bluetooth.
-function bluetooth_keyboard() {
+    bluetooth_gamepad()}
+function bluetooth_keyboard() { //Send any keyboard input via bluetooth
     while (bluetooth_online == true) {
         basic.clearScreen()
         abc_loop = true
@@ -5792,9 +5568,8 @@ function bluetooth_keyboard() {
         }
     }
     loading_animation()
-    bluetooth_keyboard()
-} //Send any keyboard input via bluetooth
-function bluetooth_keyboard_number() {
+    bluetooth_keyboard()}
+function bluetooth_keyboard_number() { //Send keyboard numbers via bluetooth.
     while (bluetooth_online == true) {
         basic.clearScreen()
         basic.pause(500)
@@ -5899,9 +5674,8 @@ function bluetooth_keyboard_number() {
         }
     }
     loading_animation()
-    bluetooth_keyboard_number()
-} //Send keyboard numbers via bluetooth.
-function bluetooth_keyboard_arrows() {
+    bluetooth_keyboard_number()}
+function bluetooth_keyboard_arrows() { // Control arrow keys via bluetooth.
     while (bluetooth_online == true) {
         if (input.buttonIsPressed(Button.A)) {
             keyboard.sendString(keyboard.keys(keyboard._Key.left))
@@ -5950,9 +5724,8 @@ function bluetooth_keyboard_arrows() {
         basic.clearScreen()
     }
     loading_animation()
-    bluetooth_keyboard_arrows()
-} // Control arrow keys via bluetooth.
-function bluetooth_keyboard_custom() {
+    bluetooth_keyboard_arrows()}
+function bluetooth_keyboard_custom() { // Custom keyboard input.
     while (bluetooth_online == true) {
         basic.showLeds(`
         . . # . .
@@ -6108,9 +5881,8 @@ function bluetooth_keyboard_custom() {
         }
     }
     loading_animation()
-    bluetooth_keyboard_custom()
-} // Custom keyboard input.
-function create_strig() {
+    bluetooth_keyboard_custom()}
+function create_strig() { //Create a temp-saved string
     basic.clearScreen()
     abc_loop = true
     basic.pause(500)
@@ -6152,9 +5924,8 @@ function create_strig() {
         if (input.buttonIsPressed(Button.A) || input.buttonIsPressed(Button.B)) {
             basic.showString(text)
         }
-    }
-} //Create a temp-saved string
-function create_number() {
+    }}
+function create_number() { //Create a temp-saved number
     basic.clearScreen()
     basic.pause(500)
     num = 0
@@ -6236,9 +6007,8 @@ function create_number() {
         if (input.buttonIsPressed(Button.A) || input.buttonIsPressed(Button.B)) {
             basic.showNumber(number_send)
         }
-    }
-} //Create a temp-saved number
-function create_image() {
+    }}
+function create_image() { //Create a temp-saved image
     let pen_up = false
     turtle.setPosition(2, 2)
     turtle.setBrightness(20)
@@ -6348,9 +6118,8 @@ function create_image() {
                 turtle_input.removeAt(0)
             }
         }
-    }
-} //Create a temp-saved image
-function music_melody8() {
+    }}
+function music_melody8() { //Built in mucic 8
     music.setBuiltInSpeakerEnabled(true)
     basic.clearScreen()
     basic.pause(300)
@@ -6399,9 +6168,8 @@ function music_melody8() {
             music_playing = false
         }
         unid_if_1_23()
-    }
-} //Built in mucic 8
-function music_melody() {
+    }}
+function music_melody() { //Built in music
     music.setBuiltInSpeakerEnabled(true)
     basic.clearScreen()
     basic.pause(300)
@@ -6470,9 +6238,8 @@ function music_melody() {
             music_playing = false
         }
         unid_if_1_23()
-    }
-} //Built in music
-function music_melodyV2() {
+    }}
+function music_melodyV2() { //Built in music V2
     music.setBuiltInSpeakerEnabled(true)
     basic.clearScreen()
     basic.pause(300)
@@ -6518,9 +6285,8 @@ function music_melodyV2() {
             }
         }
         unid_if_1_23()
-    }
-} //Built in music V2
-function music_sFX() {
+    }}
+function music_sFX() { //Built in sFX
     music.setBuiltInSpeakerEnabled(true)
     basic.clearScreen()
     basic.pause(300)
@@ -6566,10 +6332,9 @@ function music_sFX() {
             }
         }
         unid_if_1_23()
-    }
-} //Built in sFX
+    }}
 
-function tune() {
+function tune() { //Tune selection.
     music.setBuiltInSpeakerEnabled(true)
     basic.clearScreen()
     basic.pause(300)
@@ -6852,9 +6617,8 @@ function tune() {
             # . # # #`)
         }
     }
-    beat()
-} //Tune selection.
-function beat() {
+    beat()}
+function beat() { //Beat selection.
     music.setBuiltInSpeakerEnabled(true)
     basic.clearScreen()
     basic.pause(300)
@@ -6915,9 +6679,8 @@ function beat() {
     basic.pause(200)
     menu_select = true
     abuttonpressed = true
-    custom_music_selection()
-} //Break selection.
-function rest() {
+    custom_music_selection()}
+function rest() { //Rest selection.
     music.setBuiltInSpeakerEnabled(true)
     basic.clearScreen()
     custom_music.push(2)
@@ -6979,9 +6742,8 @@ function rest() {
     basic.pause(200)
     menu_select = true
     abuttonpressed = true
-    custom_music_selection()
-} //Rest selection.
-function melody_play() {
+    custom_music_selection()}
+function melody_play() { //Play the created melody.
     while (true) {
         if (custom_music[0] == 1) {
             if (custom_music_tune[0] == 1) {
@@ -7069,9 +6831,8 @@ function melody_play() {
             custom_beat.removeAt(0)
         }
         custom_music.removeAt(0)
-    }
-} //Play the created melody.
-function play_tone() {
+    }}
+function play_tone() { //Play tone.
     if (custom_music_beat[0] == 1) {
         music.play(music.tonePlayable(tune_music, music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
     } else if (custom_music_beat[0] == 2) {
@@ -7087,9 +6848,8 @@ function play_tone() {
     } else if (custom_music_beat[0] == 7) {
         music.play(music.tonePlayable(tune_music, music.beat(BeatFraction.Breve)), music.PlaybackMode.UntilDone)
     }
-    custom_music_beat.removeAt(0)
-} //Play tone.
-function pins_analog() {
+    custom_music_beat.removeAt(0)}
+function pins_analog() { //Analog read pin.
     while (true) {
         if (tool_type == 1) {
             if (selected_pins == 1) {
@@ -7130,9 +6890,8 @@ function pins_analog() {
                 basic.pause(500)
             }
         }
-    }
-}
-function pins_digital() {
+    }}
+function pins_digital() { //Digital read pin.
     while (true) {
         if (tool_type == 1) {
             if (selected_pins == 1) {
@@ -7173,9 +6932,8 @@ function pins_digital() {
                 basic.pause(500)
             }
         }
-    }
-}
-function send_input() {
+    }}
+function send_input() { //Send input via serial or bluetooth.
     basic.clearScreen()
     while (true) {
         if (input.buttonIsPressed(Button.A)) {
@@ -7200,9 +6958,8 @@ function send_input() {
             }
         }
         basic.pause(10)
-    }
-}
-function send_temperature() {
+    }}
+function send_temperature() { //Send temperature via serial or bluetooth.
     while (true) {
         if (tool_type == 1) {
             basic.showNumber(input.temperature())
@@ -7234,9 +6991,8 @@ function send_temperature() {
                 basic.pause(500)
             }
         }
-    }
-}
-function send_light_level() {
+    }}
+function send_light_level() { //Send light level via serial or bluetooth.
     while (true) {
         if (tool_type == 1) {
             basic.showNumber(input.lightLevel())
@@ -7268,9 +7024,8 @@ function send_light_level() {
                 basic.pause(500)
             }
         }
-    }
-}
-function send_sound_level() {
+    }}
+function send_sound_level() { //Send sound level via serial or bluetooth.
     while (true) {
         if (tool_type == 1) {
             basic.showNumber(input.soundLevel())
@@ -7302,9 +7057,8 @@ function send_sound_level() {
                 basic.pause(500)
             }
         }
-    }
-}
-function send_compass() {
+    }}
+function send_compass() { //Send compass heading via serial or bluetooth.
     while (true) {
         if (tool_type == 1) {
             basic.showNumber(input.compassHeading())
@@ -7336,9 +7090,8 @@ function send_compass() {
                 basic.pause(500)
             }
         }
-    }
-}
-function send_accX() {
+    }}
+function send_accX() { //Send acceleration(mg) X via serial or bluetooth.
     while (true) {
         if (tool_type == 1) {
             basic.showNumber(input.acceleration(Dimension.X))
@@ -7370,9 +7123,8 @@ function send_accX() {
                 basic.pause(500)
             }
         }
-    }
-}
-function send_accY() {
+    }}
+function send_accY() { //Send acceleration(mg) Y via serial or bluetooth.
     while (true) {
         if (tool_type == 1) {
             basic.showNumber(input.acceleration(Dimension.Y))
@@ -7404,9 +7156,8 @@ function send_accY() {
                 basic.pause(500)
             }
         }
-    }
-}
-function send_accZ() {
+    }}
+function send_accZ() { //Send acceleration(mg) Z via serial or bluetooth.
     while (true) {
         if (tool_type == 1) {
             basic.showNumber(input.acceleration(Dimension.Z))
@@ -7438,9 +7189,8 @@ function send_accZ() {
                 basic.pause(500)
             }
         }
-    }
-}
-function send_string() {
+    }}
+function send_string() { //Send string via serial or bluetooth.
     basic.clearScreen()
     abc_loop = true
     basic.pause(200)
@@ -7622,9 +7372,8 @@ function send_string() {
             basic.pause(100)
         }
         usid_if()
-    }
-}
-function send_numer() {
+    }}
+function send_numer() { //Send number via serial or bluetooth.
     basic.clearScreen()
     basic.pause(500)
     num = 0
@@ -7697,9 +7446,8 @@ function send_numer() {
         }
 
         unid_if_0_9()
-    }
-}
-basic.forever(function () {
+    }}
+basic.forever(function () { //Auto-Brightness
     if (settings_auto_brigthness == true) {
         if (true) {
             vrs = input.lightLevel()
@@ -7719,9 +7467,8 @@ basic.forever(function () {
                 led.setBrightness(255)
             }
         }
-    }
-}) //Auto-Brightness
-function settings_test_input() {
+    }})
+function settings_test_input() { //Test all inputs.
     while (true) {
         if (input.buttonIsPressed(Button.A)) {
             led.plot(0, 2)
@@ -7861,5 +7608,4 @@ function settings_test_input() {
         led.unplot(0, 4)
         led.unplot(2, 4)
         led.unplot(4, 4)
-    }
-} //Test all inputs.
+    }}
