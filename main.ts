@@ -1038,6 +1038,11 @@ function menu_select_menu() { //Menu selection at the start.
         }
         if (selected_menu == 1) {
             image_games.scrollImage(1, scroll_interval)
+            while (input.buttonIsPressed(Button.A)) {
+                basic.pause(1)
+                if (!(input.buttonIsPressed(Button.A))) {
+                    break;
+                }}
         } else if (selected_menu == 2) {
             image_tools.scrollImage(1, scroll_interval)
         } else if (selected_menu == 3) {
@@ -1053,7 +1058,14 @@ function menu_select_menu() { //Menu selection at the start.
         } else if (selected_menu == 8) {
                 image_uart.scrollImage(1, scroll_interval)
         } else if (selected_menu == 9) {
+            image_log.scrollImage(1, scroll_interval)
+        } else if (selected_menu == 10) {
             image_settings.scrollImage(1, scroll_interval)
+            while (input.buttonIsPressed(Button.B)) {
+                basic.pause(1)
+                if (!(input.buttonIsPressed(Button.B))) {
+                    break;
+                }}
         }
         if (scroll_interval == 1) {
             basic.pause(300)
@@ -1063,9 +1075,9 @@ function menu_select_menu() { //Menu selection at the start.
             led.plot(0, 0)
         } else if (selected_menu == 2) {
             led.plot(1, 0)
-        } else if (selected_menu == 8) {
-            led.plot(3, 0)
         } else if (selected_menu == 9) {
+            led.plot(3, 0)
+        } else if (selected_menu == 10) {
             led.plot(4, 0)
         } else {
             led.plot(2, 0)
@@ -1074,7 +1086,7 @@ function menu_select_menu() { //Menu selection at the start.
         while (waiting_for_input == true) {
             if (input.buttonIsPressed(Button.A)) {
                 if (selected_menu == 1) {
-                    selected_menu = 1
+                    selected_menu = 10
                     waiting_for_input = false
                 } else {
                     selected_menu += -1
@@ -1083,8 +1095,8 @@ function menu_select_menu() { //Menu selection at the start.
                 scroll_interval = 1
             } else if (input.buttonIsPressed(Button.B)) {
                 scroll_interval = 45
-                if (selected_menu == 9) {
-                    selected_menu = 9
+                if (selected_menu == 10) {
+                    selected_menu = 1
                     scroll_interval = 1
                     waiting_for_input = false
                 } else {
@@ -1098,32 +1110,27 @@ function menu_select_menu() { //Menu selection at the start.
         }
     }
     scroll_interval = 1
+    menu_select = true
     if (selected_menu == 1) {
-        menu_select = true
         game_select_menu()
     } else if (selected_menu == 2) {
-        menu_select = true
         tool_select_menu()
     } else if (selected_menu == 3) {
         turtle_main()
     } else if (selected_menu == 4) {
-        menu_select = true
         bluetooth_select_menu()
     } else if (selected_menu == 5) {
-        menu_select = true
         create_select_menu()
     } else if (selected_menu == 6) {
-        menu_select = true
         pins_select_menu()
     } else if (selected_menu == 7) {
-        menu_select = true
         send_select_menu()
     } else if (selected_menu == 8) {
-        menu_select = true
         selected_uart = true
         send_select_menu()
     } else if (selected_menu == 9) {
-        menu_select = true
+        data_logging_freq_menu()
+    } else if (selected_menu == 10) {
         settings_select_menu()
     }}
 function game_select_menu() { //Game selection.
@@ -1141,6 +1148,11 @@ function game_select_menu() { //Game selection.
         }
         if (game_mode == 0) {
             image_back.scrollImage(1, scroll_interval)
+            while (input.buttonIsPressed(Button.A)) {
+                basic.pause(1)
+                if (!(input.buttonIsPressed(Button.A))) {
+                    break;
+                }}
             } else if (game_mode == 1) {
             image_space_invaders.scrollImage(1, scroll_interval)
             } else if (game_mode == 2) {
@@ -1161,6 +1173,11 @@ function game_select_menu() { //Game selection.
             image_ttt.scrollImage(1, scroll_interval)
             } else if (game_mode == 10) {
             image_cards.scrollImage(1, scroll_interval)
+            while (input.buttonIsPressed(Button.B)) {
+                basic.pause(1)
+                if (!(input.buttonIsPressed(Button.B))) {
+                    break;
+                }}
             }
         if (scroll_interval == 1) {
             basic.pause(300)
@@ -1181,7 +1198,7 @@ function game_select_menu() { //Game selection.
         while (waiting_for_input == true) {
             if (input.buttonIsPressed(Button.A)) {
                 if (game_mode == 0) {
-                    game_mode = 0
+                    game_mode = 10
                     waiting_for_input = false
                 } else {
                     game_mode += -1
@@ -1191,7 +1208,7 @@ function game_select_menu() { //Game selection.
             } else if (input.buttonIsPressed(Button.B)) {
                 scroll_interval = 45
                 if (game_mode == 10) {
-                    game_mode = 10
+                    game_mode = 0
                     scroll_interval = 1
                     waiting_for_input = false
                 } else {
@@ -1286,6 +1303,11 @@ function game_card_select_menu() { //Card Game selection.
         }
             if (selected_card_game == 0) {
                 image_back.scrollImage(1, scroll_interval)
+                while (input.buttonIsPressed(Button.A)) {
+                    basic.pause(1)
+                    if (!(input.buttonIsPressed(Button.A))) {
+                        break;
+                    }}
             } else if (selected_card_game == 1) {
                 image_blackjack.scrollImage(1, scroll_interval)
             } else if (selected_card_game == 2) {
@@ -1294,6 +1316,11 @@ function game_card_select_menu() { //Card Game selection.
                 image_blank.scrollImage(1, scroll_interval)
             } else if (selected_card_game == 4) {
                 image_blank.scrollImage(1, scroll_interval)
+                while (input.buttonIsPressed(Button.B)) {
+                    basic.pause(1)
+                    if (!(input.buttonIsPressed(Button.B))) {
+                        break;
+                    }}
             }
         if (scroll_interval == 1) {
             basic.pause(300)
@@ -1314,7 +1341,7 @@ function game_card_select_menu() { //Card Game selection.
         while (waiting_for_input == true) {
             if (input.buttonIsPressed(Button.A)) {
                 if (selected_card_game == 0) {
-                    selected_card_game = 0
+                    selected_card_game = 4
                     waiting_for_input = false
                 } else {
                     selected_card_game += -1
@@ -1325,7 +1352,7 @@ function game_card_select_menu() { //Card Game selection.
             if (input.buttonIsPressed(Button.B)) {
                 scroll_interval = 45
                 if (selected_card_game == 4) {
-                    selected_card_game = 4
+                    selected_card_game = 0
                     scroll_interval = 1
                     waiting_for_input = false
                 } else {
@@ -1372,6 +1399,11 @@ function tool_select_menu() { //Tool selection.
         }
             if (selected_tool == 0) {
                 image_back.scrollImage(1, scroll_interval)
+                while (input.buttonIsPressed(Button.A)) {
+                    basic.pause(1)
+                    if (!(input.buttonIsPressed(Button.A))) {
+                        break;
+                    }}
             } else if (selected_tool == 1) {
                 image_tempereture.scrollImage(1, scroll_interval)
             } else if (selected_tool == 2) {
@@ -1392,6 +1424,11 @@ function tool_select_menu() { //Tool selection.
                 image_calculator.scrollImage(1, scroll_interval)
             } else if (selected_tool == 10) {
                 image_clock.scrollImage(1, scroll_interval)
+                while (input.buttonIsPressed(Button.B)) {
+                    basic.pause(1)
+                    if (!(input.buttonIsPressed(Button.B))) {
+                        break;
+                    }}
         }
         if (scroll_interval == 1) {
             basic.pause(300)
@@ -1412,7 +1449,7 @@ function tool_select_menu() { //Tool selection.
         while (waiting_for_input == true) {
             if (input.buttonIsPressed(Button.A)) {
                 if (selected_tool == 0) {
-                    selected_tool = 0
+                    selected_tool = 10
                     waiting_for_input = false
                 } else {
                     selected_tool += -1
@@ -1422,7 +1459,7 @@ function tool_select_menu() { //Tool selection.
             } else if (input.buttonIsPressed(Button.B)) {
                 scroll_interval = 45
                 if (selected_tool == 10) {
-                    selected_tool = 10
+                    selected_tool = 0
                     scroll_interval = 1
                     waiting_for_input = false
                 } else {
@@ -1465,7 +1502,7 @@ function tool_select_menu() { //Tool selection.
         menu_select = true
         tool_clock_menu()
     }}
-function tool_calculator_menu() { //Calculator type selection.LAST
+function tool_calculator_menu() { //Calculator type selection.
     while (menu_select == true) {
         if (selected_math == 1) {
             led.unplot(0, 0)
@@ -1478,6 +1515,11 @@ function tool_calculator_menu() { //Calculator type selection.LAST
         }
             if (selected_math == 1) {
                 image_plus.scrollImage(1, scroll_interval)
+                while (input.buttonIsPressed(Button.A)) {
+                    basic.pause(1)
+                    if (!(input.buttonIsPressed(Button.A))) {
+                        break;
+                    }}
             } else if (selected_math == 2) {
                 image_minus.scrollImage(1, scroll_interval)
             } else if (selected_math == 3) {
@@ -1498,6 +1540,11 @@ function tool_calculator_menu() { //Calculator type selection.LAST
                 image_pi.scrollImage(1, scroll_interval)
             } else if (selected_math == 11) {
                 image_random.scrollImage(1, scroll_interval)
+                while (input.buttonIsPressed(Button.B)) {
+                    basic.pause(1)
+                    if (!(input.buttonIsPressed(Button.B))) {
+                        break;
+                    }}
             }
         if (scroll_interval == 1) {
             basic.pause(300)
@@ -1518,7 +1565,7 @@ function tool_calculator_menu() { //Calculator type selection.LAST
         while (waiting_for_input == true) {
             if (input.buttonIsPressed(Button.A)) {
                 if (selected_math == 1) {
-                    selected_math = 1
+                    selected_math = 11
                     waiting_for_input = false
                 } else {
                     selected_math += -1
@@ -1528,7 +1575,7 @@ function tool_calculator_menu() { //Calculator type selection.LAST
             } else if (input.buttonIsPressed(Button.B)) {
                 scroll_interval = 45
                 if (selected_math == 11) {
-                    selected_math = 11
+                    selected_math = 1
                     scroll_interval = 1
                     waiting_for_input = false
                 } else {
@@ -1562,10 +1609,21 @@ function tool_clock_menu() { //Clock type selection.
         }
         if (selected_clock == 1) {
             image_signal.scrollImage(1, scroll_interval)
+            while (input.buttonIsPressed(Button.A)) {
+                basic.pause(1)
+                if (!(input.buttonIsPressed(Button.A))) {
+                    break;
+                }
+            }
             } else if (selected_clock == 2) {
             image_chronometer.scrollImage(1, scroll_interval)
             } else if (selected_clock == 3) {
             image_timer.scrollImage(1, scroll_interval)
+            while (input.buttonIsPressed(Button.B)) {
+                basic.pause(1)
+                if (!(input.buttonIsPressed(Button.B))) {
+                    break;
+                }}
             }
         if (scroll_interval == 1) {
             basic.pause(300)
@@ -1582,7 +1640,7 @@ function tool_clock_menu() { //Clock type selection.
         while (waiting_for_input == true) {
             if (input.buttonIsPressed(Button.A)) {
                 if (selected_clock == 1) {
-                    selected_clock = 1
+                    selected_clock = 3
                     waiting_for_input = false
                 } else {
                     selected_clock += -1
@@ -1592,7 +1650,7 @@ function tool_clock_menu() { //Clock type selection.
             } else if (input.buttonIsPressed(Button.B)) {
                 scroll_interval = 45
                 if (selected_clock == 3) {
-                    selected_clock = 3
+                    selected_clock = 1
                     scroll_interval = 1
                     waiting_for_input = false
                 } else {
@@ -1662,6 +1720,11 @@ function bluetooth_select_menu() { //Bluetooth send type selection.
         }
         if (bluetooth_type == 0) {
             image_back.scrollImage(1, scroll_interval)
+            while (input.buttonIsPressed(Button.A)) {
+                basic.pause(1)
+                if (!(input.buttonIsPressed(Button.A))) {
+                    break;
+                }}
             } else if (bluetooth_type == 1) {
                 image_note.scrollImage(1, scroll_interval)
             } else if (bluetooth_type == 2) {
@@ -1670,6 +1733,11 @@ function bluetooth_select_menu() { //Bluetooth send type selection.
             image_gamepad.scrollImage(1, scroll_interval)
             } else if (bluetooth_type == 4) {
             image_keyboard.scrollImage(1, scroll_interval)
+            while (input.buttonIsPressed(Button.B)) {
+                basic.pause(1)
+                if (!(input.buttonIsPressed(Button.B))) {
+                    break;
+                }}
             }
         if (scroll_interval == 1) {
             basic.pause(300)
@@ -1690,7 +1758,7 @@ function bluetooth_select_menu() { //Bluetooth send type selection.
         while (waiting_for_input == true) {
             if (input.buttonIsPressed(Button.A)) {
                 if (bluetooth_type == 0) {
-                    bluetooth_type = 0
+                    bluetooth_type = 4
                     waiting_for_input = false
                 } else {
                     bluetooth_type += -1
@@ -1701,7 +1769,7 @@ function bluetooth_select_menu() { //Bluetooth send type selection.
             if (input.buttonIsPressed(Button.B)) {
                 scroll_interval = 45
                 if (bluetooth_type == 4) {
-                    bluetooth_type = 4
+                    bluetooth_type = 0
                     scroll_interval = 1
                     waiting_for_input = false
                 } else {
@@ -1749,6 +1817,11 @@ function bluetooth_keyboard_menu() { //Bluetooth keyboard type selection.
         }
         if (bluetooth_keyboard_type == 0) {
             image_back.scrollImage(1, scroll_interval)
+            while (input.buttonIsPressed(Button.A)) {
+                basic.pause(1)
+                if (!(input.buttonIsPressed(Button.A))) {
+                    break;
+                }}
             } else if (bluetooth_keyboard_type == 1) {
             image_keyboard.scrollImage(1, scroll_interval)
             } else if (bluetooth_keyboard_type == 2) {
@@ -1757,6 +1830,11 @@ function bluetooth_keyboard_menu() { //Bluetooth keyboard type selection.
             image_arrows.scrollImage(1, scroll_interval)
             } else if (bluetooth_keyboard_type == 4) {
             image_cosin.scrollImage(1, scroll_interval)
+            while (input.buttonIsPressed(Button.B)) {
+                basic.pause(1)
+                if (!(input.buttonIsPressed(Button.B))) {
+                    break;
+                }}
             }
         if (scroll_interval == 1) {
             basic.pause(300)
@@ -1777,7 +1855,7 @@ function bluetooth_keyboard_menu() { //Bluetooth keyboard type selection.
         while (waiting_for_input == true) {
             if (input.buttonIsPressed(Button.A)) {
                 if (bluetooth_keyboard_type == 0) {
-                    bluetooth_keyboard_type = 0
+                    bluetooth_keyboard_type = 4
                     waiting_for_input = false
                 } else {
                     bluetooth_keyboard_type += -1
@@ -1788,7 +1866,7 @@ function bluetooth_keyboard_menu() { //Bluetooth keyboard type selection.
             if (input.buttonIsPressed(Button.B)) {
                 scroll_interval = 45
                 if (bluetooth_keyboard_type == 4) {
-                    bluetooth_keyboard_type = 4
+                    bluetooth_keyboard_type = 0
                     scroll_interval = 1
                     waiting_for_input = false
                 } else {
@@ -1825,6 +1903,11 @@ function create_select_menu() { //Create type selection.
         }
         if (create_type == 0) {
             image_back.scrollImage(1, scroll_interval)
+            while (input.buttonIsPressed(Button.A)) {
+                basic.pause(1)
+                if (!(input.buttonIsPressed(Button.A))) {
+                    break;
+                }}
             } else if (create_type == 1) {
             image_numberone.scrollImage(1, scroll_interval)
             } else if (create_type == 2) {
@@ -1833,6 +1916,11 @@ function create_select_menu() { //Create type selection.
                 image_note.scrollImage(1, scroll_interval)
             } else if (create_type == 4) {
             image_image.scrollImage(1, scroll_interval)
+            while (input.buttonIsPressed(Button.B)) {
+                basic.pause(1)
+                if (!(input.buttonIsPressed(Button.B))) {
+                    break;
+                }}
             }
         if (scroll_interval == 1) {
             basic.pause(300)
@@ -1853,7 +1941,7 @@ function create_select_menu() { //Create type selection.
         while (waiting_for_input == true) {
             if (input.buttonIsPressed(Button.A)) {
                 if (create_type == 0) {
-                    create_type = 0
+                    create_type = 4
                     waiting_for_input = false
                 } else {
                     create_type += -1
@@ -1863,7 +1951,7 @@ function create_select_menu() { //Create type selection.
             } else if (input.buttonIsPressed(Button.B)) {
                 scroll_interval = 45
                 if (create_type == 4) {
-                    create_type = 4
+                    create_type = 0
                     scroll_interval = 1
                     waiting_for_input = false
                 } else {
@@ -1902,10 +1990,20 @@ function custom_music_selection() { //Custom music selection.
         }
         if (selected_create_music == 1) {
             image_note.scrollImage(1, scroll_interval)
+            while (input.buttonIsPressed(Button.A)) {
+                basic.pause(1)
+                if (!(input.buttonIsPressed(Button.A))) {
+                    break;
+                }}
             } else if (selected_create_music == 2) {
             image_rest.scrollImage(1, scroll_interval)
             } else if (selected_create_music == 3) {
             image_play.scrollImage(1, scroll_interval)
+            while (input.buttonIsPressed(Button.B)) {
+                basic.pause(1)
+                if (!(input.buttonIsPressed(Button.B))) {
+                    break;
+                }}
             }
         if (scroll_interval == 1) {
             basic.pause(300)
@@ -1922,7 +2020,7 @@ function custom_music_selection() { //Custom music selection.
         while (waiting_for_input == true) {
             if (input.buttonIsPressed(Button.A)) {
                 if (selected_create_music == 1) {
-                    selected_create_music = 1
+                    selected_create_music = 3
                     waiting_for_input = false
                 } else {
                     selected_create_music += -1
@@ -1932,7 +2030,7 @@ function custom_music_selection() { //Custom music selection.
             } else if (input.buttonIsPressed(Button.B)) {
                 scroll_interval = 45
                 if (selected_create_music == 3) {
-                    selected_create_music = 3
+                    selected_create_music = 1
                     scroll_interval = 1
                     waiting_for_input = false
                 } else {
@@ -1967,6 +2065,11 @@ function create_music_menu() { //Menu selection at the start.
         }
         if (selected_music == 1) {
             image_music8.scrollImage(1, scroll_interval)
+            while (input.buttonIsPressed(Button.A)) {
+                basic.pause(1)
+                if (!(input.buttonIsPressed(Button.A))) {
+                    break;
+                }}
             } else if (selected_music == 2) {
             image_note.scrollImage(1, scroll_interval)
             } else if (selected_music == 3) {
@@ -1975,6 +2078,11 @@ function create_music_menu() { //Menu selection at the start.
             image_musicfx.scrollImage(1, scroll_interval)
             } else if (selected_music == 5) {
             image_create.scrollImage(1, scroll_interval)
+            while (input.buttonIsPressed(Button.B)) {
+                basic.pause(1)
+                if (!(input.buttonIsPressed(Button.B))) {
+                    break;
+                }}
             }
         if (scroll_interval == 1) {
             basic.pause(300)
@@ -1995,7 +2103,7 @@ function create_music_menu() { //Menu selection at the start.
         while (waiting_for_input == true) {
             if (input.buttonIsPressed(Button.A)) {
                 if (selected_music == 1) {
-                    selected_music = 1
+                    selected_music = 5
                     waiting_for_input = false
                 } else {
                     selected_music += -1
@@ -2005,7 +2113,7 @@ function create_music_menu() { //Menu selection at the start.
             } else if (input.buttonIsPressed(Button.B)) {
                 scroll_interval = 45
                 if (selected_music == 5) {
-                    selected_music = 5
+                    selected_music = 1
                     scroll_interval = 1
                     waiting_for_input = false
                 } else {
@@ -2046,6 +2154,11 @@ function pins_select_menu() { //Pin selection.
         }
         if (selected_pins == 0) {
             image_back.scrollImage(1, scroll_interval)
+            while (input.buttonIsPressed(Button.A)) {
+                basic.pause(1)
+                if (!(input.buttonIsPressed(Button.A))) {
+                    break;
+                }}
             } else if (selected_pins == 1) {
                 image_zero.scrollImage(1, scroll_interval)
             } else if (selected_pins == 2) {
@@ -2054,6 +2167,11 @@ function pins_select_menu() { //Pin selection.
             image_two.scrollImage(1, scroll_interval)
             } else if (selected_pins == 4) {
             image_3v.scrollImage(1, scroll_interval)
+            while (input.buttonIsPressed(Button.B)) {
+                basic.pause(1)
+                if (!(input.buttonIsPressed(Button.B))) {
+                    break;
+                }}
             }
         if (scroll_interval == 1) {
             basic.pause(300)
@@ -2074,7 +2192,7 @@ function pins_select_menu() { //Pin selection.
         while (waiting_for_input == true) {
             if (input.buttonIsPressed(Button.A)) {
                 if (selected_pins == 0) {
-                    selected_pins = 0
+                    selected_pins = 4
                     waiting_for_input = false
                 } else {
                     selected_pins += -1
@@ -2084,7 +2202,7 @@ function pins_select_menu() { //Pin selection.
             } else if (input.buttonIsPressed(Button.B)) {
                 scroll_interval = 45
                 if (selected_pins == 4) {
-                    selected_pins = 4
+                    selected_pins = 0
                     scroll_interval = 1
                     waiting_for_input = false
                 } else {
@@ -2128,6 +2246,11 @@ function pins_type_select_menu() { //Pin type selection.
         }
         if (selected_pins_type == 0) {
             image_back.scrollImage(1, scroll_interval)
+            while (input.buttonIsPressed(Button.A)) {
+                basic.pause(1)
+                if (!(input.buttonIsPressed(Button.A))) {
+                    break;
+                }}
             } else if (selected_pins_type == 1) {
                 image_analog.scrollImage(1, scroll_interval)
             } else if (selected_pins_type == 2) {
@@ -2136,6 +2259,11 @@ function pins_type_select_menu() { //Pin type selection.
                 image_note.scrollImage(1, scroll_interval)
             } else if (selected_pins_type == 4) {
             image_capacitive.scrollImage(1, scroll_interval)
+            while (input.buttonIsPressed(Button.B)) {
+                basic.pause(1)
+                if (!(input.buttonIsPressed(Button.B))) {
+                    break;
+                }}
             }
         if (scroll_interval == 1) {
             basic.pause(300)
@@ -2156,7 +2284,7 @@ function pins_type_select_menu() { //Pin type selection.
         while (waiting_for_input == true) {
             if (input.buttonIsPressed(Button.A)) {
                 if (selected_pins_type == 0) {
-                    selected_pins_type = 0
+                    selected_pins_type = 4
                     waiting_for_input = false
                 } else {
                     selected_pins_type += -1
@@ -2166,7 +2294,7 @@ function pins_type_select_menu() { //Pin type selection.
             } else if (input.buttonIsPressed(Button.B)) {
                 scroll_interval = 45
                 if (selected_pins_type == 4) {
-                    selected_pins_type = 4
+                    selected_pins_type = 0
                     scroll_interval = 1
                     waiting_for_input = false
                 } else {
@@ -2244,10 +2372,20 @@ function send_select_menu() { //Send selection.
         }
         if (selected_serial == 0) {
             image_back.scrollImage(1, scroll_interval)
+            while (input.buttonIsPressed(Button.A)) {
+                basic.pause(1)
+                if (!(input.buttonIsPressed(Button.A))) {
+                    break;
+                }}
             } else if (selected_serial == 1) {
                 image_north.scrollImage(1, scroll_interval)
             } else if (selected_serial == 2) {
             image_send.scrollImage(1, scroll_interval)
+            while (input.buttonIsPressed(Button.B)) {
+                basic.pause(1)
+                if (!(input.buttonIsPressed(Button.B))) {
+                    break;
+                }}
             }
         if (scroll_interval == 1) {
             basic.pause(300)
@@ -2264,7 +2402,7 @@ function send_select_menu() { //Send selection.
         while (waiting_for_input == true) {
             if (input.buttonIsPressed(Button.A)) {
                 if (selected_serial == 0) {
-                    selected_serial = 0
+                    selected_serial = 2
                     waiting_for_input = false
                 } else {
                     selected_serial += -1
@@ -2274,7 +2412,7 @@ function send_select_menu() { //Send selection.
             } else if (input.buttonIsPressed(Button.B)) {
                 scroll_interval = 45
                 if (selected_serial == 2) {
-                    selected_serial = 2
+                    selected_serial = 0
                     scroll_interval = 1
                     waiting_for_input = false
                 } else {
@@ -2313,6 +2451,11 @@ function send_type_select_menu() { //Send types selection.
         }
         if (selected_serial_send == 0) {
             image_back.scrollImage(1, scroll_interval)
+            while (input.buttonIsPressed(Button.A)) {
+                basic.pause(1)
+                if (!(input.buttonIsPressed(Button.A))) {
+                    break;
+                }}
             } else if (selected_serial_send == 1) {
                 image_arrows.scrollImage(1, scroll_interval)
             } else if (selected_serial_send == 2) {
@@ -2333,6 +2476,11 @@ function send_type_select_menu() { //Send types selection.
                 image_numberone.scrollImage(1, scroll_interval)
             } else if (selected_serial_send == 10) {
             image_text.scrollImage(1, scroll_interval)
+            while (input.buttonIsPressed(Button.B)) {
+                basic.pause(1)
+                if (!(input.buttonIsPressed(Button.B))) {
+                    break;
+                }}
             }
         if (scroll_interval == 1) {
             basic.pause(300)
@@ -2354,7 +2502,7 @@ function send_type_select_menu() { //Send types selection.
             if (input.buttonIsPressed(Button.A)) {
                 abuttonpressed = true
                 if (selected_serial_send == 0) {
-                    selected_serial_send = 0
+                    selected_serial_send = 10
                     waiting_for_input = false
                 } else {
                     selected_serial_send += -1
@@ -2364,7 +2512,7 @@ function send_type_select_menu() { //Send types selection.
             } else if (input.buttonIsPressed(Button.B)) {
                 scroll_interval = 45
                 if (selected_serial_send == 10) {
-                    selected_serial_send = 10
+                    selected_serial_send = 0
                     scroll_interval = 1
                     waiting_for_input = false
                 } else {
@@ -2403,6 +2551,213 @@ function send_type_select_menu() { //Send types selection.
     } else if (selected_serial_send == 10) {
         send_string()
     }}
+function data_logging_freq_menu() { //Data logging freq selection
+    while (menu_select == true) {
+        if (logging_freq == 0) {
+            led.unplot(4, 0)
+        } else if (logging_freq == 1) {
+            led.unplot(0, 0)
+        } else if (logging_freq == 2) {
+            led.unplot(1, 0)
+        } else if (logging_freq == 3) {
+            led.unplot(2, 0)
+        } else if (logging_freq == 4) {
+            led.unplot(3, 0)
+        }
+        if (logging_freq == 0) {
+            image_back.scrollImage(1, scroll_interval)
+            while (input.buttonIsPressed(Button.A)) {
+                basic.pause(1)
+                if (!(input.buttonIsPressed(Button.A))) {
+                    break;
+                }}
+        } else if (logging_freq == 1) {
+            image_milisecond.scrollImage(1, scroll_interval)
+        } else if (logging_freq == 2) {
+            image_second.scrollImage(1, scroll_interval)
+        } else if (logging_freq == 3) {
+            image_minute.scrollImage(1, scroll_interval)
+        } else if (logging_freq == 4) {
+            image_hour.scrollImage(1, scroll_interval)
+            while (input.buttonIsPressed(Button.B)) {
+                basic.pause(1)
+                if (!(input.buttonIsPressed(Button.B))) {
+                    break;
+                }}
+        }
+        if (scroll_interval == 1) {
+            basic.pause(300)
+        }
+        draw_menu()
+        if (logging_freq == 0) {
+            led.plot(0, 0)
+        } else if (logging_freq == 1) {
+            led.plot(1, 0)
+        } else if (logging_freq == 2) {
+            led.plot(2, 0)
+        } else if (logging_freq == 3) {
+            led.plot(3, 0)
+        } else if (logging_freq == 4) {
+            led.plot(4, 0)
+        }
+        waiting_for_input = true
+        while (waiting_for_input == true) {
+            if (input.buttonIsPressed(Button.A)) {
+                if (logging_freq == 0) {
+                    logging_freq = 4
+                    waiting_for_input = false
+                } else {
+                    logging_freq += -1
+                    waiting_for_input = false
+                }
+                scroll_interval = 1
+            }
+            if (input.buttonIsPressed(Button.B)) {
+                scroll_interval = 45
+                if (logging_freq == 4) {
+                    logging_freq = 0
+                    scroll_interval = 1
+                    waiting_for_input = false
+                } else {
+                    logging_freq += 1
+                    waiting_for_input = false
+                }
+            }
+            if (input.logoIsPressed()) {
+                menu_select = false
+                waiting_for_input = false
+            }
+        }
+    }
+    datalogger.deleteLog(datalogger.DeleteType.Full)
+    scroll_interval = 1
+    menu_select = true
+    basic.clearScreen()
+    if (logging_freq == 1) {
+        datalogger.includeTimestamp(FlashLogTimeStampFormat.Milliseconds)
+        datalogger.setColumnTitles("Temperature", "Light level", "Sound level", "Compass heading", "Acceleration X", "Acceleration Y", "Acceleration Z")
+        data_logger_menu()
+    }
+    if (logging_freq == 2) {
+        datalogger.includeTimestamp(FlashLogTimeStampFormat.Seconds)
+        datalogger.setColumnTitles("Temperature", "Light level", "Sound level", "Compass heading", "Acceleration X", "Acceleration Y", "Acceleration Z")
+        data_logger_menu()
+    }
+    if (logging_freq == 3) {
+        datalogger.includeTimestamp(FlashLogTimeStampFormat.Minutes)
+        datalogger.setColumnTitles("Temperature", "Light level", "Sound level", "Compass heading", "Acceleration X", "Acceleration Y", "Acceleration Z")
+        data_logger_menu()
+    }
+    if (logging_freq == 4) {
+        datalogger.includeTimestamp(FlashLogTimeStampFormat.Hours)
+        datalogger.setColumnTitles("Temperature", "Light level", "Sound level", "Compass heading", "Acceleration X", "Acceleration Y", "Acceleration Z")
+        data_logger_menu()
+    }
+    if (logging_freq == 0) {
+        menu_select_menu()
+    }}
+function data_logger_menu() { 
+    while (menu_select == true) {
+        if (selected_log_tool == 0) {
+            led.unplot(4, 0)
+        } else if (selected_log_tool == 1) {
+            led.unplot(0, 0)
+        } else if (selected_log_tool == 2) {
+            led.unplot(1, 0)
+        } else if (selected_log_tool == 7) {
+            led.unplot(3, 0)
+        } else {
+            led.unplot(2, 0)
+        }
+        if (selected_log_tool == 0) {
+            image_back.scrollImage(1, scroll_interval)
+            while (input.buttonIsPressed(Button.A)) {
+                basic.pause(1)
+                if (!(input.buttonIsPressed(Button.A))) {
+                    break;
+                }}
+        } else if (selected_log_tool == 1) {
+            image_tempereture.scrollImage(1, scroll_interval)
+        } else if (selected_log_tool == 2) {
+            image_light.scrollImage(1, scroll_interval)
+        } else if (selected_log_tool == 3) {
+            image_sound.scrollImage(1, scroll_interval)
+        } else if (selected_log_tool == 4) {
+            image_north.scrollImage(1, scroll_interval)
+        } else if (selected_log_tool == 5) {
+            image_x.scrollImage(1, scroll_interval)
+        } else if (selected_log_tool == 6) {
+            image_y.scrollImage(1, scroll_interval)
+        } else if (selected_log_tool == 7) {
+            image_z.scrollImage(1, scroll_interval)
+            while (input.buttonIsPressed(Button.B)) {
+                basic.pause(1)
+                if (!(input.buttonIsPressed(Button.B))) {
+                    break;
+                }}
+        }
+        if (scroll_interval == 1) {
+            basic.pause(300)
+        }
+        draw_menu()
+        if (selected_log_tool == 0) {
+            led.plot(0, 0)
+        } else if (selected_log_tool == 1) {
+            led.plot(1, 0)
+        } else if (selected_log_tool == 6) {
+            led.plot(3, 0)
+        } else if (selected_log_tool == 7) {
+            led.plot(4, 0)
+        } else {
+            led.plot(2, 0)
+        }
+        waiting_for_input = true
+        while (waiting_for_input == true) {
+            if (input.buttonIsPressed(Button.A)) {
+                if (selected_log_tool == 0) {
+                    selected_log_tool = 7
+                    waiting_for_input = false
+                } else {
+                    selected_log_tool += -1
+                    waiting_for_input = false
+                }
+                scroll_interval = 1
+            } else if (input.buttonIsPressed(Button.B)) {
+                scroll_interval = 45
+                if (selected_log_tool == 7) {
+                    selected_log_tool = 0
+                    scroll_interval = 1
+                    waiting_for_input = false
+                } else {
+                    selected_log_tool += 1
+                    waiting_for_input = false
+                }
+            } else if (input.logoIsPressed()) {
+                    waiting_for_input = false
+                    menu_select = false
+            }
+        }
+    }
+    basic.clearScreen()
+    let tool_type = 1
+    if (selected_log_tool == 0) {
+        menu_select = true
+        menu_select_menu()
+    } else if (selected_log_tool == 1) {
+        log_temparature()
+    } else if (selected_log_tool == 2) {
+        log_light_level()
+    } else if (selected_log_tool == 3) {
+        log_sound_level()
+    } else if (selected_log_tool == 4) {
+        log_compass()
+    } else if (selected_log_tool == 5) {
+        log_accX()
+    } else if (selected_log_tool == 6) {
+        log_accY()
+    } else if (selected_log_tool == 7) {
+        log_accZ()
+    }}
 function settings_select_menu() { //Settings selection.
     while (menu_select == true) {
         if (selected_setting == 0) {
@@ -2418,6 +2773,11 @@ function settings_select_menu() { //Settings selection.
         }
         if (selected_setting == 0) {
             image_back.scrollImage(1, scroll_interval)
+            while (input.buttonIsPressed(Button.A)) {
+                basic.pause(1)
+                if (!(input.buttonIsPressed(Button.A))) {
+                    break;
+                }}
         } else if (selected_setting == 1) {
             image_note.scrollImage(1, scroll_interval)
         } else if (selected_setting == 2) {
@@ -2480,6 +2840,11 @@ function settings_select_menu() { //Settings selection.
             image_pins.scrollImage(1, scroll_interval)
         } else if (selected_setting == 8) {
             image_play.scrollImage(1, scroll_interval)
+            while (input.buttonIsPressed(Button.B)) {
+                basic.pause(1)
+                if (!(input.buttonIsPressed(Button.B))) {
+                    break;
+                }}
         }
         if (scroll_interval == 1) {
             basic.pause(300)
@@ -2515,7 +2880,7 @@ function settings_select_menu() { //Settings selection.
             }
             if (input.buttonIsPressed(Button.A)) {
                 if (selected_setting == 0) {
-                    selected_setting = 0
+                    selected_setting = 8
                     waiting_for_input = false
                 } else {
                     selected_setting += -1
@@ -2525,7 +2890,7 @@ function settings_select_menu() { //Settings selection.
             } else if (input.buttonIsPressed(Button.B)) {
                 scroll_interval = 45
                 if (selected_setting == 8) {
-                    selected_setting = 8
+                    selected_setting = 0
                     scroll_interval = 1
                     waiting_for_input = false
                 } else {
@@ -2562,7 +2927,7 @@ function settings_select_menu() { //Settings selection.
                     if (logged_data == false) {
                         logged_data = true
                         basic.showIcon(IconNames.Yes)
-                        datalogger.deleteLog
+                        datalogger.deleteLog(datalogger.DeleteType.Fast)
                         datalogger.includeTimestamp(FlashLogTimeStampFormat.Minutes)
                         datalogger.setColumnTitles("Space Invaders", "Flappy Bird", "Pong", "Cars Game", "Dinasour Game", "Jumping Rope", "Pac-Man")
                     } else {
@@ -2901,6 +3266,7 @@ let selected_pins = 0
 let selected_pins_type = 0
 let selected_serial = 0
 let selected_uart = false
+let selected_log_tool = 0
 let selected_serial_send = 0
 let selected_music = 1
 let settings_brightness = 5
@@ -2958,6 +3324,7 @@ let line_sent = false
 let uart_send = ""
 let pin_toch_mode = 0
 let pin_music_mode = false
+let logging_freq = 0
 let image_games = images.createImage(`
     . . . . .
     . . # . .
@@ -3410,6 +3777,30 @@ let image_capacitive = images.createImage(`
     # . . . #
     # . . . #
     . # # # .`)
+let image_milisecond = images.createImage(`
+    . . . . .
+    # . . # #
+    . . # . .
+    . . . # .
+    . # # . .`)
+let image_second = images.createImage(`
+    . . . . .
+    . . # # .
+    . # . . .
+    . . # . .
+    # # . . .`)
+let image_minute = images.createImage(`
+    . . . . .
+    # # . # #
+    # . # . #
+    # . . . #
+    # . . . #`)
+let image_hour = images.createImage(`
+    . . . . .
+    . # . # .
+    . # # # .
+    . # . # .
+    . # . # .`)
 let image_blank = images.createImage(`
     . . . . .
     . . . . .
@@ -5882,7 +6273,7 @@ function bluetooth_keyboard_custom() { // Custom keyboard input.
     }
     loading_animation()
     bluetooth_keyboard_custom()}
-function create_strig() { //Create a temp-saved string
+function create_strig() { //Create a temp-saved string.
     basic.clearScreen()
     abc_loop = true
     basic.pause(500)
@@ -5925,7 +6316,7 @@ function create_strig() { //Create a temp-saved string
             basic.showString(text)
         }
     }}
-function create_number() { //Create a temp-saved number
+function create_number() { //Create a temp-saved number.
     basic.clearScreen()
     basic.pause(500)
     num = 0
@@ -6008,7 +6399,7 @@ function create_number() { //Create a temp-saved number
             basic.showNumber(number_send)
         }
     }}
-function create_image() { //Create a temp-saved image
+function create_image() { //Create a temp-saved image.
     let pen_up = false
     turtle.setPosition(2, 2)
     turtle.setBrightness(20)
@@ -6119,7 +6510,7 @@ function create_image() { //Create a temp-saved image
             }
         }
     }}
-function music_melody8() { //Built in mucic 8
+function music_melody8() { //Built in mucic 8.
     music.setBuiltInSpeakerEnabled(true)
     basic.clearScreen()
     basic.pause(300)
@@ -6169,7 +6560,7 @@ function music_melody8() { //Built in mucic 8
         }
         unid_if_1_23()
     }}
-function music_melody() { //Built in music
+function music_melody() { //Built in music.
     music.setBuiltInSpeakerEnabled(true)
     basic.clearScreen()
     basic.pause(300)
@@ -6239,7 +6630,7 @@ function music_melody() { //Built in music
         }
         unid_if_1_23()
     }}
-function music_melodyV2() { //Built in music V2
+function music_melodyV2() { //Built in music V2.
     music.setBuiltInSpeakerEnabled(true)
     basic.clearScreen()
     basic.pause(300)
@@ -6286,7 +6677,7 @@ function music_melodyV2() { //Built in music V2
         }
         unid_if_1_23()
     }}
-function music_sFX() { //Built in sFX
+function music_sFX() { //Built in sFX.
     music.setBuiltInSpeakerEnabled(true)
     basic.clearScreen()
     basic.pause(300)
@@ -6859,6 +7250,7 @@ function pins_analog() { //Analog read pin.
             } else if (selected_pins == 3) {
                 basic.showNumber(pins.analogReadPin(AnalogPin.P2))
             }
+            basic.pause(50)
             if (input.logoIsPressed()) {
                 basic.clearScreen()
                 tool_type = 2
@@ -6889,6 +7281,7 @@ function pins_analog() { //Analog read pin.
                 game.addScore(1)
                 basic.pause(500)
             }
+            basic.pause(50)
         }
     }}
 function pins_digital() { //Digital read pin.
@@ -6901,6 +7294,7 @@ function pins_digital() { //Digital read pin.
             } else if (selected_pins == 3) {
                 basic.showNumber(pins.digitalReadPin(DigitalPin.P2))
             }
+            basic.pause(50)
             if (input.logoIsPressed()) {
                 basic.clearScreen()
                 tool_type = 2
@@ -6925,6 +7319,7 @@ function pins_digital() { //Digital read pin.
                     0
                 )
             }
+            basic.pause(50)
             if (input.logoIsPressed()) {
                 basic.clearScreen()
                 tool_type = 1
@@ -7447,7 +7842,98 @@ function send_numer() { //Send number via serial or bluetooth.
 
         unid_if_0_9()
     }}
-basic.forever(function () { //Auto-Brightness
+function log_temparature() { //Log temperature. 
+    while (true) {
+        datalogger.log(datalogger.createCV("Temperature", input.temperature()))
+        if (logging_freq == 1) {
+            basic.pause(100)
+        } else if (logging_freq == 2) {
+            basic.pause(990)
+        } else if (logging_freq == 1) {
+            basic.pause(60000)
+        } else if (logging_freq == 2) {
+            basic.pause(3600000)
+        }
+    }}
+function log_light_level() { //Log light level. 
+    while (true) {
+        datalogger.log(datalogger.createCV("Light level", input.lightLevel()))
+        if (logging_freq == 1) {
+            basic.pause(100)
+        } else if (logging_freq == 2) {
+            basic.pause(990)
+        } else if (logging_freq == 1) {
+            basic.pause(60000)
+        } else if (logging_freq == 2) {
+            basic.pause(3600000)
+        }
+    }}
+function log_sound_level() { //Log sound level. 
+    while (true) {
+        datalogger.log(datalogger.createCV("Sound level", input.soundLevel()))
+        if (logging_freq == 1) {
+            basic.pause(100)
+        } else if (logging_freq == 2) {
+            basic.pause(990)
+        } else if (logging_freq == 1) {
+            basic.pause(60000)
+        } else if (logging_freq == 2) {
+            basic.pause(3600000)
+        }
+    }}
+function log_compass() { //Log Compass heading. 
+    while (true) {
+        datalogger.log(datalogger.createCV("Compass heading", input.compassHeading()))
+        if (logging_freq == 1) {
+            basic.pause(100)
+        } else if (logging_freq == 2) {
+            basic.pause(990)
+        } else if (logging_freq == 1) {
+            basic.pause(60000)
+        } else if (logging_freq == 2) {
+            basic.pause(3600000)
+        }
+    }}
+function log_accX() { //Log acceleration(mg) X. 
+    while (true) {
+        datalogger.log(datalogger.createCV("Acceleration X", input.acceleration(Dimension.X)))
+        if (logging_freq == 1) {
+            basic.pause(100)
+        } else if (logging_freq == 2) {
+            basic.pause(990)
+        } else if (logging_freq == 1) {
+            basic.pause(60000)
+        } else if (logging_freq == 2) {
+            basic.pause(3600000)
+        }
+    }}
+function log_accY() { //Log acceleration(mg) Y.
+    while (true) {
+        datalogger.log(datalogger.createCV("Acceleration Y", input.acceleration(Dimension.Y)))
+        if (logging_freq == 1) {
+            basic.pause(100)
+        } else if (logging_freq == 2) {
+            basic.pause(990)
+        } else if (logging_freq == 1) {
+            basic.pause(60000)
+        } else if (logging_freq == 2) {
+            basic.pause(3600000)
+        }
+    }}
+function log_accZ() { //Log acceleration(mg) Z. 
+    while (true) {
+        datalogger.log(datalogger.createCV("Acceleration Z", input.acceleration(Dimension.Z)))
+        if (logging_freq == 1) {
+            basic.pause(100)
+        } else if (logging_freq == 2) {
+            basic.pause(990)
+        } else if (logging_freq == 1) {
+            basic.pause(60000)
+        } else if (logging_freq == 2) {
+            basic.pause(3600000)
+        }
+    }}
+basic.forever(function () { //Auto-Brightness.
     if (settings_auto_brigthness == true) {
         if (true) {
             vrs = input.lightLevel()
