@@ -9,7 +9,8 @@
         "audio-recording": "*",
         "microturtle": "github:microsoft/pxt-microturtle#v0.0.9",
         "microbit-pxt-timeanddate": "github:bsiever/microbit-pxt-timeanddate#v2.0.33",
-        "microbit-pxt-blehid": "github:bsiever/microbit-pxt-blehid#v0.0.24"
+        "microbit-pxt-blehid": "github:bsiever/microbit-pxt-blehid#v0.0.24",
+        "microbit-pxt-rotate": "github:bsiever/microbit-pxt-rotate#v0.1.6"
     },
     "files": [
         "main.ts",
