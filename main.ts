@@ -1274,8 +1274,9 @@ function game_select_menu() { //Game selection.
             }
         }
         basic.clearScreen()
-        basic.showString("S:")
-        basic.showNumber(score_8)
+        proportionalFont.showString("S: ", 150)
+        proportionalFont.showNumber(score_8, 150)
+        proportionalFont.showSpace(5, 150)
         control.reset()
     } else if (game_mode == 9) {
         game_mode_9()
@@ -1438,6 +1439,7 @@ function tool_select_menu() { //Tool selection.
                 } else {
                     selected_tool += 1
                 }
+                break;
             } else if (input.logoIsPressed()) {
                 break;
             }
@@ -1556,7 +1558,7 @@ function tool_calculator_menu() { //Calculator type selection.
         math_x()
     } else if (selected_math == 10) {
         basic.clearScreen()
-        basic.showNumber(Math.PI)
+        proportionalFont.showNumber(Math.PI, 150)
         tool_calculator_menu()
     }}
 function tool_clock_menu() { //Clock type selection.
@@ -2288,6 +2290,7 @@ function send_select_menu() { //Send selection.
                 } else {
                     selected_serial += 1
                 }
+                break;
             } else if (input.logoIsPressed()) {
                 break;
             }
@@ -2902,7 +2905,7 @@ input.onButtonPressed(Button.A, function () { //On button A pressed.
             timeanddate.set24HourTime(0, 0, 0)
         } else {
             captured = timeanddate.time(timeanddate.TimeFormat.HHMMSS24hr)
-            basic.showString(captured)
+            proportionalFont.showString(captured, 150)
         }
     }
     if (game_mode == 9) {
@@ -2971,7 +2974,7 @@ input.onButtonPressed(Button.B, function () { //On button B pressed.
     }
     if (crhonometer_run == true) {
         if (!(running)) {
-            basic.showString(captured)
+            proportionalFont.showString(captured, 150)
         }
     }
     if (game_mode == 9) {
@@ -3081,11 +3084,11 @@ music.onEvent(MusicEvent.MelodyStarted, function () { //On melody playing.
     }})
 serial.onDataReceived(serial.delimiters(Delimiters.NewLine), function () { //On serial data received
     if (line_sent = true) {
-        basic.showString(serial.readLine())
+        proportionalFont.showString(serial.readLine(), 150)
     }})
 bluetooth.onUartDataReceived(serial.delimiters(Delimiters.NewLine), function on_uart_data_received() { //On bluetooth data received
     if (line_sent = true) {
-        basic.showString(bluetooth.uartReadUntil(serial.delimiters(Delimiters.NewLine)))
+        proportionalFont.showString(bluetooth.uartReadUntil(serial.delimiters(Delimiters.NewLine)), 150)
     }})
 let pin_lock = true
 if (input.logoIsPressed()) {
@@ -3712,8 +3715,9 @@ basic.forever(function () { //Space Invaders game. // game_Mode = 1
                     basic.clearScreen()
                     music.play(music.createSoundExpression(WaveShape.Sawtooth,321,0,255,0,100,SoundExpressionEffect.None,InterpolationCurve.Linear), music.PlaybackMode.InBackground)
                     datalogger.log(datalogger.createCV("Space Invaders", acc_1))
-                    basic.showString("S:")
-                    basic.showNumber(acc_1)
+                    proportionalFont.showString("S: ", 150)
+                    proportionalFont.showNumber(acc_1, 150)
+                    proportionalFont.showSpace(5, 150)
                     control.reset()
                 }
             }
@@ -3753,8 +3757,9 @@ function game_mode_2() { //Flappy Bird game. // game_mode = 2
             basic.clearScreen()
             music.play(music.createSoundExpression(WaveShape.Sawtooth,321,0,255,0,100,SoundExpressionEffect.None,InterpolationCurve.Linear), music.PlaybackMode.InBackground)
             datalogger.log(datalogger.createCV("Flappy Bird", score_2))
-            basic.showString("S:")
-            basic.showNumber(score_2)
+            proportionalFont.showString("S: ", 150)
+            proportionalFont.showNumber(score_2, 150)
+            proportionalFont.showSpace(5, 150)
             control.reset()
         }
     }
@@ -3816,8 +3821,9 @@ function game_mode_3() { //Ping-Pong game. // game_mode = 3
             ), music.PlaybackMode.InBackground)
             datalogger.log(datalogger.createCV("Pong", point_3))
             basic.clearScreen()
-            basic.showString("S:")
-            basic.showNumber(point_3)
+            proportionalFont.showString("S: ", 150)
+            proportionalFont.showNumber(point_3, 150)
+            proportionalFont.showSpace(5, 150)
             control.reset()
         }
     }}
@@ -3835,8 +3841,9 @@ basic.forever(function () { //Cars game. // game_mode = 4
         music.play(music.createSoundExpression(WaveShape.Sawtooth,321,0,255,0,100,SoundExpressionEffect.None,InterpolationCurve.Linear), music.PlaybackMode.InBackground)
         datalogger.log(datalogger.createCV("Cars Game", game.score()))
         basic.clearScreen()
-        basic.showString("S:")
-        basic.showNumber(game.score())
+        proportionalFont.showString("S: ", 150)
+        proportionalFont.showNumber(game.score(), 150)
+        proportionalFont.showSpace(5, 150)
         control.reset()
     }})
 function game_mode_4(car_4: game.LedSprite) { //Cars game. //Control 0-4 cars // game_mode = 4
@@ -3916,8 +3923,9 @@ function gameOver() { //Dinasour game // gameOver function// game_mode = 5
     }
     basic.clearScreen()
     datalogger.log(datalogger.createCV("Dinasour Game", score_5))
-    basic.showString("S:")
-    basic.showNumber(score_5)
+    proportionalFont.showString("S: ", 150)
+    proportionalFont.showNumber(score_5, 150)
+    proportionalFont.showSpace(5, 150)
     control.reset()}
 basic.forever(function () { //Dinasour game // Score function // game_mode = 5
     if (game_mode == 5) {
@@ -3965,6 +3973,7 @@ basic.forever(function () { //Dinasour game // call gameOver function // game_mo
                     for (let player_sprite_1 of player_5) {
                         if (an_obstacle_sprite_2.isTouching(player_sprite_1)) {
                             music.play(music.createSoundExpression(WaveShape.Sawtooth,321,0,255,0,100,SoundExpressionEffect.None,InterpolationCurve.Linear), music.PlaybackMode.UntilDone)
+                            game.pause()
                             gameOver()
                         }
                     }
@@ -4002,7 +4011,8 @@ function game_mode_6() { //Jumping rope game // game_mode = 6
         }
     }
     datalogger.log(datalogger.createCV("Jumping Rope", s_6))
-    basic.showNumber(s_6)
+    proportionalFont.showNumber(s_6, 150)
+    proportionalFont.showSpace(2, 150)
     basic.clearScreen()
     game_mode_6()}
 function game_mode_7() { //Pac-Man game // game_mode = 7
@@ -4062,8 +4072,9 @@ function game_mode_7() { //Pac-Man game // game_mode = 7
             ), music.PlaybackMode.UntilDone)
             datalogger.log(datalogger.createCV("Pac-Man", game.score()))
             basic.clearScreen()
-            basic.showString("S:")
-            basic.showNumber(game.score())
+            proportionalFont.showString("S: ", 150)
+            proportionalFont.showNumber(game.score(), 150)
+            proportionalFont.showSpace(5, 150)
             control.reset()
         }
     }
@@ -4201,13 +4212,13 @@ function winner_check() { //Tic-Tac-Toe // game_mode = 9
     }
     if (winner_9 != -1) {
         state_9 = -1
+        proportionalFont.showString("WINNER", 150)
         led.setBrightness(255)
-        basic.showString("WINNER")
         for (let index = 0; index < 3; index++) {
             if (winner_9 == 0) {
-                basic.showString("A")
+            proportionalFont.showString("A", 150)
             } else {
-                basic.showString("B")
+                proportionalFont.showString("B", 150)
             }
             basic.pause(100)
             basic.showLeds(`
@@ -4223,7 +4234,7 @@ function winner_check() { //Tic-Tac-Toe // game_mode = 9
         if (stepA_9 == 5) {
             state_9 = -1
             led.setBrightness(255)
-            basic.showString("TIE")
+            proportionalFont.showString("TIE", 150)
         }
     }}
 function winner_case() { //Tic-Tac-Toe // game_mode = 9
@@ -4370,7 +4381,7 @@ function blackjack() { //Blackjack. //game_mode = 10
         num = bj_dealer_card
         if (input.buttonIsPressed(Button.AB)) {
             basic.clearScreen()
-            basic.showNumber(score_10)
+            proportionalFont.showNumber(score_10, 150)
         }
         if (input.buttonIsPressed(Button.A)) {
             break;
@@ -4472,9 +4483,9 @@ function blackjack() { //Blackjack. //game_mode = 10
             . # . . .
             # . . . .
             `)
-            basic.showNumber(bj_dealer_hand)
-            basic.showString("=")
-            basic.showNumber(bj_my_hand)
+            proportionalFont.showNumber(bj_dealer_hand, 150)
+            proportionalFont.showString(" = ", 150)
+            proportionalFont.showNumber(bj_my_hand, 150)
             score_10 += 0
             break;
         }
@@ -4486,9 +4497,9 @@ function blackjack() { //Blackjack. //game_mode = 10
             . # . # .
             # . . . #
             `)
-            basic.showNumber(bj_dealer_hand)
-            basic.showString(">")
-            basic.showNumber(bj_my_hand)
+            proportionalFont.showNumber(bj_dealer_hand, 150)
+            proportionalFont.showString(" > ", 150)
+            proportionalFont.showNumber(bj_my_hand, 150)
             score_10 += -1
             break;
         }
@@ -4500,9 +4511,9 @@ function blackjack() { //Blackjack. //game_mode = 10
             # . # . .
             . # . . .
             `)
-            basic.showNumber(bj_dealer_hand)
-            basic.showString("<")
-            basic.showNumber(bj_my_hand)
+            proportionalFont.showNumber(bj_dealer_hand, 150)
+            proportionalFont.showString(" < ", 150)
+            proportionalFont.showNumber(bj_my_hand, 150)
             score_10 += 1
             break;
         }
@@ -4514,9 +4525,9 @@ function blackjack() { //Blackjack. //game_mode = 10
             # . # . .
             . # . . .
             `)
-            basic.showNumber(bj_dealer_hand)
-            basic.showString("<")
-            basic.showNumber(bj_my_hand)
+            proportionalFont.showNumber(bj_dealer_hand, 150)
+            proportionalFont.showString(" < ", 150)
+            proportionalFont.showNumber(bj_my_hand, 150)
             score_10 += 1
             break;
         }
@@ -4527,7 +4538,8 @@ function blackjack() { //Blackjack. //game_mode = 10
 function tool_temparature() { //Show temperature // Selected_tool = 1
     while (true) {
         if (tool_type == 1) {
-            basic.showNumber(input.temperature())
+            proportionalFont.showNumber(input.temperature(), 150)
+            proportionalFont.showSpace(4, 150)
             if (input.logoIsPressed()) {
                 basic.clearScreen()
                 tool_type = 2
@@ -4548,7 +4560,8 @@ function tool_temparature() { //Show temperature // Selected_tool = 1
 function tool_light_level() { //Show light level // Selected_tool = 2
     while (true) {
         if (tool_type == 1) {
-            basic.showNumber(input.lightLevel())
+            proportionalFont.showNumber(input.lightLevel(), 150)
+            proportionalFont.showSpace(4, 150)
             if (input.logoIsPressed()) {
                 basic.clearScreen()
                 tool_type = 2
@@ -4569,7 +4582,8 @@ function tool_light_level() { //Show light level // Selected_tool = 2
 function tool_sound_level() { //Show sound level // Selected_tool = 3
     while (true) {
         if (tool_type == 1) {
-            basic.showNumber(input.soundLevel())
+            proportionalFont.showNumber(input.soundLevel(), 150)
+            proportionalFont.showSpace(4, 150)
             if (selected_uart == true) {
                 uart_send = "" + input.soundLevel()
                 bluetooth.uartWriteLine(uart_send)
@@ -4622,7 +4636,8 @@ function tool_compass() { //Compass // Selected_tool = 4
 function tool_accX() { //Show acceleration(mg) X // Selected_tool = 5
     while (true) {
         if (tool_type == 1) {
-            basic.showNumber(input.acceleration(Dimension.X))
+            proportionalFont.showNumber(input.acceleration(Dimension.X), 150)
+            proportionalFont.showSpace(4, 150)
             if (input.logoIsPressed()) {
                 basic.clearScreen()
                 tool_type = 2
@@ -4643,7 +4658,8 @@ function tool_accX() { //Show acceleration(mg) X // Selected_tool = 5
 function tool_accY() { //Show acceleration(mg) Y // Selected_tool = 6
     while (true) {
         if (tool_type == 1) {
-            basic.showNumber(input.acceleration(Dimension.Y))
+            proportionalFont.showNumber(input.acceleration(Dimension.Y), 150)
+            proportionalFont.showSpace(4, 150)
             if (input.logoIsPressed()) {
                 basic.clearScreen()
                 tool_type = 2
@@ -4664,7 +4680,8 @@ function tool_accY() { //Show acceleration(mg) Y // Selected_tool = 6
 function tool_accZ() { //Show acceleration(mg) Z // Selected_tool = 7
     while (true) {
         if (tool_type == 1) {
-            basic.showNumber(input.acceleration(Dimension.Z))
+            proportionalFont.showNumber(input.acceleration(Dimension.Z), 150)
+            proportionalFont.showSpace(4, 150)
             if (input.logoIsPressed()) {
                 basic.clearScreen()
                 tool_type = 2
@@ -4927,19 +4944,19 @@ function math_xy() { //Calculator with 2 variables // Selected_tool = 9
     game.addScore(1)
     basic.pause(400)
     if (selected_math == 1) {
-        basic.showNumber(mathx + mathy)
+        proportionalFont.showNumber((mathx + mathy), 150)
     } else if (selected_math == 2) {
-        basic.showNumber(mathx - mathy)
+        proportionalFont.showNumber((mathx - mathy), 150)
     } else if (selected_math == 3) {
-        basic.showNumber(mathx * mathy)
+        proportionalFont.showNumber((mathx * mathy), 150)
     } else if (selected_math == 4) {
-        basic.showNumber(mathx / mathy)
+        proportionalFont.showNumber((mathx / mathy), 150)
     } else if (selected_math == 5) {
-        basic.showNumber(mathx ** mathy)
+        proportionalFont.showNumber((mathx ** mathy), 150)
     } else if (selected_math == 11) {
         while (true) {
             if (input.buttonIsPressed(Button.A) || input.buttonIsPressed(Button.B)) {
-                basic.showNumber(randint(mathx, mathy))
+                proportionalFont.showNumber((randint(mathx, mathy)), 150)
             }
             basic.clearScreen()
         }
@@ -5022,19 +5039,19 @@ function math_x() { //Calculator with 1 variable // Selected_tool = 9
     num = 0
 
     if (selected_math == 6) {
-        basic.showNumber(Math.sqrt(mathx))
+        proportionalFont.showNumber((Math.sqrt(mathx)), 150)
     } else if (selected_math == 7) {
-        basic.showNumber(Math.sin(mathx * Math.PI / 180))
+        proportionalFont.showNumber((Math.sin(mathx * Math.PI / 180)), 150)
     } else if (selected_math == 8) {
-        basic.showNumber(Math.cos(mathx * Math.PI / 180))
+        proportionalFont.showNumber((Math.cos(mathx * Math.PI / 180)), 150)
     } else if (selected_math == 9) {
-        basic.showNumber(Math.tan(mathx * Math.PI / 180))
+        proportionalFont.showNumber((Math.tan(mathx * Math.PI / 180)), 150)
     }}
 function signal() { //Signal / Alarm clock // Selected_tool = 10
     basic.clearScreen()
     music.setBuiltInSpeakerEnabled(true)
     basic.pause(200)
-    basic.showString("H")
+    proportionalFont.showString("H ", 150)
     basic.clearScreen()
     hour = 0
     minute = 0
@@ -5067,7 +5084,7 @@ function signal() { //Signal / Alarm clock // Selected_tool = 10
     }
     basic.clearScreen()
     basic.pause(200)
-    basic.showString("M")
+    proportionalFont.showString("M ", 150)
     basic.clearScreen()
     unid_type = 3
     number_select = true
@@ -5095,7 +5112,7 @@ function signal() { //Signal / Alarm clock // Selected_tool = 10
     }
     basic.clearScreen()
     basic.pause(200)
-    basic.showString("HS")
+    proportionalFont.showString("HS ", 150)
     basic.clearScreen()
     unid_type = 5
     number_select = true
@@ -5123,7 +5140,7 @@ function signal() { //Signal / Alarm clock // Selected_tool = 10
     }
     basic.clearScreen()
     basic.pause(200)
-    basic.showString("MS")
+    proportionalFont.showString("MS ", 150)
     basic.clearScreen()
     unid_type = 6
     number_select = true
@@ -5213,13 +5230,15 @@ function timer() { // Timer // Selected_tool = 10
     basic.clearScreen()
     music.setBuiltInSpeakerEnabled(true)
     basic.pause(200)
-    basic.showString("H")
+    proportionalFont.showString("H ", 150)
     basic.clearScreen()
     hour = 0
     minute = 0
     second = 0
     num = 0
     number_select = true
+    let pause_time = 0
+    let pause_type = 0
     while (number_select == true) {
         if (input.buttonIsPressed(Button.A)) {
             if (num == 0) {
@@ -5254,7 +5273,7 @@ function timer() { // Timer // Selected_tool = 10
     }
     basic.clearScreen()
     basic.pause(200)
-    basic.showString("M")
+    proportionalFont.showString("M ", 150)
     basic.clearScreen()
     num = 0
     list = []
@@ -5293,7 +5312,7 @@ function timer() { // Timer // Selected_tool = 10
     }
     basic.clearScreen()
     basic.pause(200)
-    basic.showString("S")
+    proportionalFont.showString("S ", 150)
     basic.clearScreen()
     num = 0
     list = []
@@ -5331,41 +5350,27 @@ function timer() { // Timer // Selected_tool = 10
         unid_if_0_9()
     }
     basic.clearScreen()
-    while (true) {
-        if (hour == 0) {
-            if (minute == 0) {
-                if (second == 0) {
-                    while (true) {
-                        basic.showIcon(IconNames.Yes)
-                        music.play(music.stringPlayable("E - E - - E E E ", 1000), music.PlaybackMode.UntilDone)
-                        music.play(music.stringPlayable("- E - E E E - - ", 1000), music.PlaybackMode.UntilDone)
-                        if (input.buttonIsPressed(Button.A) || input.buttonIsPressed(Button.B)) {
-                            control.reset()
-                        }
-                        if (input.logoIsPressed()) {
-                            control.reset()
-                        }
-                    }
-                }
+    pause_type += hour * 3600000
+    pause_time += pause_type
+    pause_type = 0
+    pause_type += minute * 60000
+    pause_time += pause_type
+    pause_type = 0
+    pause_type += second * 1000
+    pause_time += pause_type
+    basic.pause(pause_time)
+        while (true) {
+            basic.showIcon(IconNames.Yes)
+            music.play(music.stringPlayable("E - E - - E E E ", 1000), music.PlaybackMode.UntilDone)
+            music.play(music.stringPlayable("- E - E E E - - ", 1000), music.PlaybackMode.UntilDone)
+            if (input.buttonIsPressed(Button.A) || input.buttonIsPressed(Button.B)) {
+                control.reset()
+            }
+            if (input.logoIsPressed()) {
+                control.reset()
             }
         }
-        basic.pause(1000)
-        if (second == 0) {
-            second = 59
-            if (minute == 0) {
-                minute = 59
-                if (hour == 0) {
-                    hour = 23
-                } else {
-                    hour += -1
-                }
-            } else {
-                minute += -1
-            }
-        } else {
-            second += -1
-        }
-    }}
+    }
 function bluetooth_media() { //Control media via bluetooth.
     while (bluetooth_online == true) {
         if (input.buttonIsPressed(Button.AB)) {
@@ -6168,7 +6173,7 @@ function create_strig() { //Create a temp-saved string.
         . . . . .
         `)
         if (input.buttonIsPressed(Button.A) || input.buttonIsPressed(Button.B)) {
-            basic.showString(text)
+            proportionalFont.showString(text, 150)
         }
     }}
 function create_number() { //Create a temp-saved number.
@@ -6251,7 +6256,8 @@ function create_number() { //Create a temp-saved number.
         . . . . .
         `)
         if (input.buttonIsPressed(Button.A) || input.buttonIsPressed(Button.B)) {
-            basic.showNumber(number_send)
+            proportionalFont.showNumber(number_send, 125)
+            proportionalFont.showSpace(2, 125)
         }
     }}
 function create_image() { //Create a temp-saved image.
@@ -7077,12 +7083,13 @@ function pins_analog() { //Analog read pin.
     while (true) {
         if (tool_type == 1) {
             if (selected_pins == 1) {
-                basic.showNumber(pins.analogReadPin(AnalogPin.P0))
+                proportionalFont.showNumber(pins.analogReadPin(AnalogPin.P0), 150)
             } else if (selected_pins == 2) {
-                basic.showNumber(pins.analogReadPin(AnalogPin.P1))
+                proportionalFont.showNumber(pins.analogReadPin(AnalogPin.P1), 150)
             } else if (selected_pins == 3) {
-                basic.showNumber(pins.analogReadPin(AnalogPin.P2))
+                proportionalFont.showNumber(pins.analogReadPin(AnalogPin.P2), 150)
             }
+            proportionalFont.showSpace(4, 150)
             basic.pause(50)
             if (input.logoIsPressed()) {
                 basic.clearScreen()
@@ -7121,12 +7128,13 @@ function pins_digital() { //Digital read pin.
     while (true) {
         if (tool_type == 1) {
             if (selected_pins == 1) {
-                basic.showNumber(pins.digitalReadPin(DigitalPin.P0))
+                proportionalFont.showNumber(pins.digitalReadPin(DigitalPin.P0), 150)
             } else if (selected_pins == 2) {
-                basic.showNumber(pins.digitalReadPin(DigitalPin.P1))
+                proportionalFont.showNumber(pins.digitalReadPin(DigitalPin.P1), 150)
             } else if (selected_pins == 3) {
-                basic.showNumber(pins.digitalReadPin(DigitalPin.P2))
+                proportionalFont.showNumber(pins.digitalReadPin(DigitalPin.P2), 150)
             }
+            proportionalFont.showSpace(4, 150)
             basic.pause(50)
             if (input.logoIsPressed()) {
                 basic.clearScreen()
@@ -7190,7 +7198,8 @@ function send_input() { //Send input via serial or bluetooth.
 function send_temperature() { //Send temperature via serial or bluetooth.
     while (true) {
         if (tool_type == 1) {
-            basic.showNumber(input.temperature())
+            proportionalFont.showNumber(input.temperature(), 150)
+            proportionalFont.showSpace(4, 150)
             if (selected_uart == true) {
                 uart_send = "" + input.temperature()
                 bluetooth.uartWriteLine(uart_send)
@@ -7223,7 +7232,8 @@ function send_temperature() { //Send temperature via serial or bluetooth.
 function send_light_level() { //Send light level via serial or bluetooth.
     while (true) {
         if (tool_type == 1) {
-            basic.showNumber(input.lightLevel())
+            proportionalFont.showNumber(input.lightLevel(), 150)
+            proportionalFont.showSpace(4, 150)
             if (selected_uart == true) {
                 uart_send = "" + input.lightLevel()
                 bluetooth.uartWriteLine(uart_send)
@@ -7256,7 +7266,8 @@ function send_light_level() { //Send light level via serial or bluetooth.
 function send_sound_level() { //Send sound level via serial or bluetooth.
     while (true) {
         if (tool_type == 1) {
-            basic.showNumber(input.soundLevel())
+            proportionalFont.showNumber(input.soundLevel(), 150)
+            proportionalFont.showSpace(4, 150)
             if (selected_uart == true) {
                 uart_send = "" + input.soundLevel()
                 bluetooth.uartWriteLine(uart_send)
@@ -7289,7 +7300,8 @@ function send_sound_level() { //Send sound level via serial or bluetooth.
 function send_compass() { //Send compass heading via serial or bluetooth.
     while (true) {
         if (tool_type == 1) {
-            basic.showNumber(input.compassHeading())
+            proportionalFont.showNumber(input.compassHeading(), 150)
+            proportionalFont.showSpace(4, 150)
             if (selected_uart == true) {
                 uart_send = "" + input.compassHeading()
                 bluetooth.uartWriteLine(uart_send)
@@ -7322,7 +7334,8 @@ function send_compass() { //Send compass heading via serial or bluetooth.
 function send_accX() { //Send acceleration(mg) X via serial or bluetooth.
     while (true) {
         if (tool_type == 1) {
-            basic.showNumber(input.acceleration(Dimension.X))
+            proportionalFont.showNumber((input.acceleration(Dimension.X)), 150)
+            proportionalFont.showSpace(4, 150)
             if (selected_uart == true) {
                 uart_send = "" + input.acceleration(Dimension.X)
                 bluetooth.uartWriteLine(uart_send)
@@ -7355,7 +7368,8 @@ function send_accX() { //Send acceleration(mg) X via serial or bluetooth.
 function send_accY() { //Send acceleration(mg) Y via serial or bluetooth.
     while (true) {
         if (tool_type == 1) {
-            basic.showNumber(input.acceleration(Dimension.Y))
+            proportionalFont.showNumber((input.acceleration(Dimension.Y)), 150)
+            proportionalFont.showSpace(4, 150)
             if (selected_uart == true) {
                 uart_send = "" + input.acceleration(Dimension.Y)
                 bluetooth.uartWriteLine(uart_send)
@@ -7388,7 +7402,8 @@ function send_accY() { //Send acceleration(mg) Y via serial or bluetooth.
 function send_accZ() { //Send acceleration(mg) Z via serial or bluetooth.
     while (true) {
         if (tool_type == 1) {
-            basic.showNumber(input.acceleration(Dimension.Z))
+            proportionalFont.showNumber((input.acceleration(Dimension.Z)), 150)
+            proportionalFont.showSpace(4, 150)
             if (selected_uart == true) {
                 uart_send = "" + input.acceleration(Dimension.Z)
                 bluetooth.uartWriteLine(uart_send)
