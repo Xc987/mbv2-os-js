@@ -865,7 +865,11 @@ function menu_select_menu() { //Menu selection at the start.
                 scroll_interval = 1
                 break;
             } else if (input.buttonIsPressed(Button.B)) {
-                scroll_interval = 45
+                if (animation_scroll == true) {
+                    scroll_interval = 45
+                } else {
+                    scroll_interval = 1
+                }
                 if (selected_menu == 10) {
                     selected_menu = 1
                     scroll_interval = 1
@@ -967,7 +971,11 @@ function game_select_menu() { //Game selection.
                 scroll_interval = 1
                 break;
             } else if (input.buttonIsPressed(Button.B)) {
-                scroll_interval = 45
+                if (animation_scroll == true) {
+                    scroll_interval = 45
+                } else {
+                    scroll_interval = 1
+                }
                 if (game_mode == 10) {
                     game_mode = 0
                     scroll_interval = 1
@@ -987,11 +995,6 @@ function game_select_menu() { //Game selection.
     if (game_mode == 0) {
         menu_select_menu()
     } else if (game_mode == 1) {
-        px_1 = 2
-        py_1 = 4
-        my_1 = 3
-        shoot_1 = 0
-        speed_1 = 50
         for (let index2 = 0; index2 <= 4; index2++) {
             enemyX_1[index2] = randint(0, 4)
             enemyY_1[index2] = index2 * -1
@@ -1004,13 +1007,11 @@ function game_select_menu() { //Game selection.
         bird_move_2 = true
         obstacles_2 = []
         let index_2 = 0
-        interval_2 = 1200
         game_mode_2()
     } else if (game_mode == 3) {
         game_mode_3()
     } else if (game_mode == 5) {
         player_5 = [game.createSprite(0, 3), game.createSprite(0, 4)]
-        score_5 = 0
         obstacles_5 = []
         is_game_over_5 = false
         player_move_5 = true
@@ -1046,94 +1047,9 @@ function game_select_menu() { //Game selection.
     } else if (game_mode == 9) {
         game_mode_9()
     } else if (game_mode == 10) {
-        game_card_select_menu()
-    }}
-function game_card_select_menu() { //Card Game selection.
-    while (true) {
-        if (selected_card_game == 0) {
-            led.unplot(4, 0)
-        } else if (selected_card_game == 1) {
-            led.unplot(0, 0)
-        } else if (selected_card_game == 2) {
-            led.unplot(1, 0)
-        } else if (selected_card_game == 3) {
-            led.unplot(2, 0)
-        } else if (selected_card_game == 4) {
-            led.unplot(3, 0)
-        }
-            if (selected_card_game == 0) {
-                image_back.scrollImage(1, scroll_interval)
-                ckeck_hold_a()
-            } else if (selected_card_game == 1) {
-                image_blackjack.scrollImage(1, scroll_interval)
-            } else if (selected_card_game == 2) {
-                image_blank.scrollImage(1, scroll_interval)
-            } else if (selected_card_game == 3) {
-                image_blank.scrollImage(1, scroll_interval)
-            } else if (selected_card_game == 4) {
-                image_blank.scrollImage(1, scroll_interval)
-                ckeck_hold_b()
-            }
-        if (scroll_interval == 1) {
-            basic.pause(300)
-        }
-        draw_menu()
-        if (selected_card_game == 0) {
-            led.plot(0, 0)
-        } else if (selected_card_game == 1) {
-            led.plot(1, 0)
-        } else if (selected_card_game == 2) {
-            led.plot(2, 0)
-        } else if (selected_card_game == 3) {
-            led.plot(3, 0)
-        } else if (selected_card_game == 4) {
-            led.plot(4, 0)
-        }
-        while (true) {
-            if (input.buttonIsPressed(Button.A)) {
-                if (selected_card_game == 0) {
-                    selected_card_game = 4
-                } else {
-                    selected_card_game += -1
-                }
-                break;
-                scroll_interval = 1
-            }
-            if (input.buttonIsPressed(Button.B)) {
-                scroll_interval = 45
-                if (selected_card_game == 4) {
-                    selected_card_game = 0
-                    scroll_interval = 1
-                } else {
-                    selected_card_game += 1
-                }
-                break;
-            }
-            if (input.logoIsPressed()) {
-                break;
-            }
-        }
-        if (input.logoIsPressed()) {
-            break;
-        }
-    }
-    basic.clearScreen()
-    if (selected_card_game == 1) {
         blackjack()
-    }
-    if (selected_card_game == 2) {
-
-    }
-    if (selected_card_game == 3) {
-
-    }
-    if (selected_card_game == 4) {
-
-    }
-    if (selected_card_game == 0) {
-        scroll_interval = 1
-        game_select_menu()
     }}
+
 function tool_select_menu() { //Tool selection.
     while (true) {
         if (selected_tool == 0) {
@@ -1197,7 +1113,11 @@ function tool_select_menu() { //Tool selection.
                 scroll_interval = 1
                 break;
             } else if (input.buttonIsPressed(Button.B)) {
-                scroll_interval = 45
+                if (animation_scroll == true) {
+                    scroll_interval = 45
+                } else {
+                    scroll_interval = 1
+                }
                 if (selected_tool == 10) {
                     selected_tool = 0
                     scroll_interval = 1
@@ -1301,7 +1221,11 @@ function tool_calculator_menu() { //Calculator type selection.
                 scroll_interval = 1
                 break;
             } else if (input.buttonIsPressed(Button.B)) {
-                scroll_interval = 45
+                if (animation_scroll == true) {
+                    scroll_interval = 45
+                } else {
+                    scroll_interval = 1
+                }
                 if (selected_math == 11) {
                     selected_math = 1
                     scroll_interval = 1
@@ -1365,7 +1289,11 @@ function tool_clock_menu() { //Clock type selection.
                 scroll_interval = 1
                 break;
             } else if (input.buttonIsPressed(Button.B)) {
-                scroll_interval = 45
+                if (animation_scroll == true) {
+                    scroll_interval = 45
+                } else {
+                    scroll_interval = 1
+                }
                 if (selected_clock == 3) {
                     selected_clock = 1
                     scroll_interval = 1
@@ -1475,7 +1403,11 @@ function bluetooth_select_menu() { //Bluetooth send type selection.
                 break;
             }
             if (input.buttonIsPressed(Button.B)) {
-                scroll_interval = 45
+                if (animation_scroll == true) {
+                    scroll_interval = 45
+                } else {
+                    scroll_interval = 1
+                }
                 if (bluetooth_type == 4) {
                     bluetooth_type = 0
                     scroll_interval = 1
@@ -1561,7 +1493,11 @@ function bluetooth_keyboard_menu() { //Bluetooth keyboard type selection.
                 break;
             }
             if (input.buttonIsPressed(Button.B)) {
-                scroll_interval = 45
+                if (animation_scroll == true) {
+                    scroll_interval = 45
+                } else {
+                    scroll_interval = 1
+                }
                 if (bluetooth_keyboard_type == 4) {
                     bluetooth_keyboard_type = 0
                     scroll_interval = 1
@@ -1636,7 +1572,11 @@ function create_select_menu() { //Create type selection.
                 scroll_interval = 1
                 break;
             } else if (input.buttonIsPressed(Button.B)) {
-                scroll_interval = 45
+                if (animation_scroll == true) {
+                    scroll_interval = 45
+                } else {
+                    scroll_interval = 1
+                }
                 if (create_type == 4) {
                     create_type = 0
                     scroll_interval = 1
@@ -1704,7 +1644,11 @@ function custom_music_selection() { //Custom music selection.
                 scroll_interval = 1
                 break;
             } else if (input.buttonIsPressed(Button.B)) {
-                scroll_interval = 45
+                if (animation_scroll == true) {
+                    scroll_interval = 45
+                } else {
+                    scroll_interval = 1
+                }
                 if (selected_create_music == 3) {
                     selected_create_music = 1
                     scroll_interval = 1
@@ -1778,7 +1722,11 @@ function create_music_menu() { //Built-in music selection.
                 scroll_interval = 1
                 break;
             } else if (input.buttonIsPressed(Button.B)) {
-                scroll_interval = 45
+                if (animation_scroll == true) {
+                    scroll_interval = 45
+                } else {
+                    scroll_interval = 1
+                }
                 if (selected_music == 5) {
                     selected_music = 1
                     scroll_interval = 1
@@ -1857,7 +1805,11 @@ function pins_select_menu() { //Pin selection.
                 scroll_interval = 1
                 break;
             } else if (input.buttonIsPressed(Button.B)) {
-                scroll_interval = 45
+                if (animation_scroll == true) {
+                    scroll_interval = 45
+                } else {
+                    scroll_interval = 1
+                }
                 if (selected_pins == 4) {
                     selected_pins = 0
                     scroll_interval = 1
@@ -1936,7 +1888,11 @@ function pins_type_select_menu() { //Pin type selection.
                 scroll_interval = 1
                 break;
             } else if (input.buttonIsPressed(Button.B)) {
-                scroll_interval = 45
+                if (animation_scroll == true) {
+                    scroll_interval = 45
+                } else {
+                    scroll_interval = 1
+                }
                 if (selected_pins_type == 4) {
                     selected_pins_type = 0
                     scroll_interval = 1
@@ -2049,7 +2005,11 @@ function send_select_menu() { //Send selection.
                 scroll_interval = 1
                 break;
             } else if (input.buttonIsPressed(Button.B)) {
-                scroll_interval = 45
+                if (animation_scroll == true) {
+                    scroll_interval = 45
+                } else {
+                    scroll_interval = 1
+                }
                 if (selected_serial == 2) {
                     selected_serial = 0
                     scroll_interval = 1
@@ -2138,7 +2098,11 @@ function send_type_select_menu() { //Send types selection.
                 scroll_interval = 1
                 break;
             } else if (input.buttonIsPressed(Button.B)) {
-                scroll_interval = 45
+                if (animation_scroll == true) {
+                    scroll_interval = 45
+                } else {
+                    scroll_interval = 1
+                }
                 if (selected_serial_send == 10) {
                     selected_serial_send = 0
                     scroll_interval = 1
@@ -2231,7 +2195,11 @@ function data_logging_freq_menu() { //Data logging freq selection
                 break;
             }
             if (input.buttonIsPressed(Button.B)) {
-                scroll_interval = 45
+                if (animation_scroll == true) {
+                    scroll_interval = 45
+                } else {
+                    scroll_interval = 1
+                }
                 if (logging_freq == 4) {
                     logging_freq = 0
                     scroll_interval = 1
@@ -2331,7 +2299,11 @@ function data_logger_menu() {
                 scroll_interval = 1
                 break;
             } else if (input.buttonIsPressed(Button.B)) {
-                scroll_interval = 45
+                if (animation_scroll == true) {
+                    scroll_interval = 45
+                } else {
+                    scroll_interval = 1
+                }
                 if (selected_log_tool == 7) {
                     selected_log_tool = 0
                     scroll_interval = 1
@@ -2488,7 +2460,11 @@ function settings_select_menu() { //Settings selection.
                 scroll_interval = 1
                 break;
             } else if (input.buttonIsPressed(Button.B)) {
-                scroll_interval = 45
+                if (animation_scroll == true) {
+                    scroll_interval = 45
+                } else {
+                    scroll_interval = 1
+                }
                 if (selected_setting == 9) {
                     selected_setting = 0
                     scroll_interval = 1
@@ -2870,7 +2846,6 @@ bluetooth.startUartService()
 let selected_menu = 1
 let scroll_interval = 1
 let game_mode = 0
-let selected_card_game = 0
 let selected_tool = 0
 let selected_setting = 0
 let selected_math = 1
@@ -2936,6 +2911,7 @@ let custom_music_tune: number[] = []
 let custom_music_beat: number[] = []
 let custom_beat: number[] = []
 let tune_music = 131
+let tonelist = [0, 131, 147, 165, 175, 196, 220, 247, 262, 294, 330, 349, 392, 440, 494, 523, 587, 659, 698, 784, 880, 998]
 let music_playing = false
 let line_sent = false
 let uart_send = ""
@@ -3436,15 +3412,15 @@ let time_1 = 0
 let killed_1: number[] = []
 let enemyX_1: number[] = []
 let enemyY_1: number[] = []
-let speed_1: number
-let shoot_1: number
-let my_1: number
-let px_1: number
-let py_1: number
+let speed_1 = 50
+let shoot_1 = 0
+let my_1 = 3
+let px_1 = 2
+let py_1 = 4
 let bird_move_2 = false
 let obstacles_2: game.LedSprite[] = []
 let bird_2: game.LedSprite = null
-let interval_2: number
+let interval_2 = 1200
 let ticks_2 = 0
 let score_2 = 0
 let empty_obstacle_2 = 0
@@ -3458,7 +3434,7 @@ let dummy_variable_5: game.LedSprite[] = []
 let is_game_over_5 = false
 let obstacles_5: game.LedSprite[][] = []
 let player_5: game.LedSprite[] = []
-let score_5: number
+let score_5 = 0
 let player_move_5 = false
 let i_6 = 90
 let s_6 = 0
@@ -4107,27 +4083,7 @@ function blackjack() { //Blackjack. //game_mode = 10
     bj_dealer_card = 0
     unid_type = 1
     random_card = randint(1, 14)
-    if (random_card == 1) {
-        bj_dealer_card = 1
-    } else if (random_card == 2) {
-        bj_dealer_card = 2
-    } else if (random_card == 3) {
-        bj_dealer_card = 3
-    } else if (random_card == 4) {
-        bj_dealer_card = 4
-    } else if (random_card == 5) {
-        bj_dealer_card = 5
-    } else if (random_card == 6) {
-        bj_dealer_card = 6
-    } else if (random_card == 7) {
-        bj_dealer_card = 7
-    } else if (random_card == 8) {
-        bj_dealer_card = 8
-    } else if (random_card == 9) {
-        bj_dealer_card = 9
-    } else if (random_card == 10) {
-        bj_dealer_card = 10
-    } else if (random_card == 11) {
+    if (random_card == 11) {
         bj_dealer_card = 10
     } else if (random_card == 12) {
         bj_dealer_card = 10
@@ -4135,29 +4091,11 @@ function blackjack() { //Blackjack. //game_mode = 10
         bj_dealer_card = 10
     } else if (random_card == 14) {
         bj_dealer_card = 10
+    } else {
+        bj_dealer_card = random_card
     }
     random_card = randint(1, 14)
-    if (random_card == 1) {
-        bj_dealer_hand = bj_dealer_card + 1
-    } else if (random_card == 2) {
-        bj_dealer_hand = bj_dealer_card + 2
-    } else if (random_card == 3) {
-        bj_dealer_hand = bj_dealer_card + 3
-    } else if (random_card == 4) {
-        bj_dealer_hand = bj_dealer_card + 4
-    } else if (random_card == 5) {
-        bj_dealer_hand = bj_dealer_card + 5
-    } else if (random_card == 6) {
-        bj_dealer_hand = bj_dealer_card + 6
-    } else if (random_card == 7) {
-        bj_dealer_hand = bj_dealer_card + 7
-    } else if (random_card == 8) {
-        bj_dealer_hand = bj_dealer_card + 8
-    } else if (random_card == 9) {
-        bj_dealer_hand = bj_dealer_card + 9
-    } else if (random_card == 10) {
-        bj_dealer_hand = bj_dealer_card + 10
-    } else if (random_card == 11) {
+    if (random_card == 11) {
         bj_dealer_hand = bj_dealer_card + 10
     } else if (random_card == 12) {
         bj_dealer_hand = bj_dealer_card + 10
@@ -4165,30 +4103,12 @@ function blackjack() { //Blackjack. //game_mode = 10
         bj_dealer_hand = bj_dealer_card + 10
     } else if (random_card == 14) {
         bj_dealer_hand = bj_dealer_card + 10
+    } else{
+        bj_dealer_hand = bj_dealer_card + random_card
     }
     for (let index = 0; index < 2; index++) {
         random_card = randint(1, 14)
-        if (random_card == 1) {
-            bj_my_hand += 1
-        } else if (random_card == 2) {
-            bj_my_hand += 2
-        } else if (random_card == 3) {
-            bj_my_hand += 3
-        } else if (random_card == 4) {
-            bj_my_hand += 4
-        } else if (random_card == 5) {
-            bj_my_hand += 5
-        } else if (random_card == 6) {
-            bj_my_hand += 6
-        } else if (random_card == 7) {
-            bj_my_hand += 7
-        } else if (random_card == 8) {
-            bj_my_hand += 8
-        } else if (random_card == 9) {
-            bj_my_hand += 9
-        } else if (random_card == 10) {
-            bj_my_hand += 10
-        } else if (random_card == 11) {
+        if (random_card == 11) {
             bj_my_hand += 10
         } else if (random_card == 12) {
             bj_my_hand += 10
@@ -4196,6 +4116,8 @@ function blackjack() { //Blackjack. //game_mode = 10
             bj_my_hand += 10
         } else if (random_card == 14) {
             bj_my_hand += 10
+        } else {
+            bj_my_hand += random_card
         }
     }
     while (true) {
@@ -4217,27 +4139,7 @@ function blackjack() { //Blackjack. //game_mode = 10
             `)
             basic.clearScreen()
             random_card = randint(1, 14)
-            if (random_card == 1) {
-                bj_my_hand += 1
-            } else if (random_card == 2) {
-                bj_my_hand += 2
-            } else if (random_card == 3) {
-                bj_my_hand += 3
-            } else if (random_card == 4) {
-                bj_my_hand += 4
-            } else if (random_card == 5) {
-                bj_my_hand += 5
-            } else if (random_card == 6) {
-                bj_my_hand += 6
-            } else if (random_card == 7) {
-                bj_my_hand += 7
-            } else if (random_card == 8) {
-                bj_my_hand += 8
-            } else if (random_card == 9) {
-                bj_my_hand += 9
-            } else if (random_card == 10) {
-                bj_my_hand += 10
-            } else if (random_card == 11) {
+            if (random_card == 11) {
                 bj_my_hand += 10
             } else if (random_card == 12) {
                 bj_my_hand += 10
@@ -4245,6 +4147,8 @@ function blackjack() { //Blackjack. //game_mode = 10
                 bj_my_hand += 10
             } else if (random_card == 14) {
                 bj_my_hand += 10
+            } else {
+                bj_my_hand += random_card
             }
             if (bj_my_hand == 21) {
                 break;
@@ -4261,27 +4165,7 @@ function blackjack() { //Blackjack. //game_mode = 10
     while (true) {
         if (bj_dealer_hand <= 15) {
             random_card = randint(1, 14)
-            if (random_card == 1) {
-                bj_dealer_hand += 1
-            } else if (random_card == 2) {
-                bj_dealer_hand += 2
-            } else if (random_card == 3) {
-                bj_dealer_hand += 3
-            } else if (random_card == 4) {
-                bj_dealer_hand += 4
-            } else if (random_card == 5) {
-                bj_dealer_hand += 5
-            } else if (random_card == 6) {
-                bj_dealer_hand += 6
-            } else if (random_card == 7) {
-                bj_dealer_hand += 7
-            } else if (random_card == 8) {
-                bj_dealer_hand += 8
-            } else if (random_card == 9) {
-                bj_dealer_hand += 9
-            } else if (random_card == 10) {
-                bj_dealer_hand += 10
-            } else if (random_card == 11) {
+            if (random_card == 11) {
                 bj_dealer_hand += 10
             } else if (random_card == 12) {
                 bj_dealer_hand += 10
@@ -4289,6 +4173,8 @@ function blackjack() { //Blackjack. //game_mode = 10
                 bj_dealer_hand += 10
             } else if (random_card == 14) {
                 bj_dealer_hand += 10
+            } else if (random_card == 14) {
+                bj_dealer_hand += random_card
             }
         } else {
             break;
@@ -5397,248 +5283,8 @@ function bluetooth_keyboard() { //Send any keyboard input via bluetooth
             }
             if (input.logoIsPressed()) {
                 basic.showIcon(IconNames.Yes)
-                if (abc_id == 1) {
-                    if (shift == true) {
-                        keyboard.sendString("A")
-                        shift = false
-                    } else {
-                        keyboard.sendString("a")
-                    }
-                } else if (abc_id == 2) {
-                    if (shift == true) {
-                        keyboard.sendString("A")
-                        shift = false
-                    } else {
-                        keyboard.sendString("a")
-                    }
-                } else if (abc_id == 3) {
-                    if (shift == true) {
-                        keyboard.sendString("B")
-                        shift = false
-                    } else {
-                        keyboard.sendString("b")
-                    }
-                } else if (abc_id == 4) {
-                    if (shift == true) {
-                        keyboard.sendString("C")
-                        shift = false
-                    } else {
-                        keyboard.sendString("c")
-                    }
-                } else if (abc_id == 5) {
-                    if (shift == true) {
-                        keyboard.sendString("C")
-                        shift = false
-                    } else {
-                        keyboard.sendString("c")
-                    }
-                } else if (abc_id == 6) {
-                    if (shift == true) {
-                        keyboard.sendString("D")
-                        shift = false
-                    } else {
-                        keyboard.sendString("d")
-                    }
-                } else if (abc_id == 7) {
-                    if (shift == true) {
-                        keyboard.sendString("E")
-                        shift = false
-                    } else {
-                        keyboard.sendString("e")
-                    }
-                } else if (abc_id == 8) {
-                    if (shift == true) {
-                        keyboard.sendString("E")
-                        shift = false
-                    } else {
-                        keyboard.sendString("e")
-                    }
-                } else if (abc_id == 9) {
-                    if (shift == true) {
-                        keyboard.sendString("F")
-                        shift = false
-                    } else {
-                        keyboard.sendString("f")
-                    }
-                } else if (abc_id == 10) {
-                    if (shift == true) {
-                        keyboard.sendString("G")
-                        shift = false
-                    } else {
-                        keyboard.sendString("g")
-                    }
-                } else if (abc_id == 11) {
-                    if (shift == true) {
-                        keyboard.sendString("G")
-                        shift = false
-                    } else {
-                        keyboard.sendString("g")
-                    }
-                } else if (abc_id == 12) {
-                    if (shift == true) {
-                        keyboard.sendString("H")
-                        shift = false
-                    } else {
-                        keyboard.sendString("h")
-                    }
-                } else if (abc_id == 13) {
-                    if (shift == true) {
-                        keyboard.sendString("I")
-                        shift = false
-                    } else {
-                        keyboard.sendString("i")
-                    }
-                } else if (abc_id == 14) {
-                    if (shift == true) {
-                        keyboard.sendString("I")
-                        shift = false
-                    } else {
-                        keyboard.sendString("i")
-                    }
-                } else if (abc_id == 15) {
-                    if (shift == true) {
-                        keyboard.sendString("J")
-                        shift = false
-                    } else {
-                        keyboard.sendString("j")
-                    }
-                } else if (abc_id == 16) {
-                    if (shift == true) {
-                        keyboard.sendString("K")
-                        shift = false
-                    } else {
-                        keyboard.sendString("k")
-                    }
-                } else if (abc_id == 17) {
-                    if (shift == true) {
-                        keyboard.sendString("K")
-                        shift = false
-                    } else {
-                        keyboard.sendString("k")
-                    }
-                } else if (abc_id == 18) {
-                    if (shift == true) {
-                        keyboard.sendString("L")
-                        shift = false
-                    } else {
-                        keyboard.sendString("l")
-                    }
-                } else if (abc_id == 19) {
-                    if (shift == true) {
-                        keyboard.sendString("L")
-                        shift = false
-                    } else {
-                        keyboard.sendString("l")
-                    }
-                } else if (abc_id == 20) {
-                    if (shift == true) {
-                        keyboard.sendString("M")
-                        shift = false
-                    } else {
-                        keyboard.sendString("m")
-                    }
-                } else if (abc_id == 21) {
-                    if (shift == true) {
-                        keyboard.sendString("N")
-                        shift = false
-                    } else {
-                        keyboard.sendString("n")
-                    }
-                } else if (abc_id == 22) {
-                    if (shift == true) {
-                        keyboard.sendString("N")
-                        shift = false
-                    } else {
-                        keyboard.sendString("n")
-                    }
-                } else if (abc_id == 23) {
-                    if (shift == true) {
-                        keyboard.sendString("O")
-                        shift = false
-                    } else {
-                        keyboard.sendString("o")
-                    }
-                } else if (abc_id == 24) {
-                    if (shift == true) {
-                        keyboard.sendString("P")
-                        shift = false
-                    } else {
-                        keyboard.sendString("p")
-                    }
-                } else if (abc_id == 25) {
-                    if (shift == true) {
-                        keyboard.sendString("R")
-                        shift = false
-                    } else {
-                        keyboard.sendString("r")
-                    }
-                } else if (abc_id == 26) {
-                    if (shift == true) {
-                        keyboard.sendString("S")
-                        shift = false
-                    } else {
-                        keyboard.sendString("s")
-                    }
-                } else if (abc_id == 27) {
-                    if (shift == true) {
-                        keyboard.sendString("S")
-                        shift = false
-                    } else {
-                        keyboard.sendString("s")
-                    }
-                } else if (abc_id == 28) {
-                    if (shift == true) {
-                        keyboard.sendString("T")
-                        shift = false
-                    } else {
-                        keyboard.sendString("t")
-                    }
-                } else if (abc_id == 29) {
-                    if (shift == true) {
-                        keyboard.sendString("U")
-                        shift = false
-                    } else {
-                        keyboard.sendString("u")
-                    }
-                } else if (abc_id == 30) {
-                    if (shift == true) {
-                        keyboard.sendString("U")
-                        shift = false
-                    } else {
-                        keyboard.sendString("u")
-                    }
-                } else if (abc_id == 31) {
-                    if (shift == true) {
-                        keyboard.sendString("V")
-                        shift = false
-                    } else {
-                        keyboard.sendString("v")
-                    }
-                } else if (abc_id == 32) {
-                    if (shift == true) {
-                        keyboard.sendString("Z")
-                        shift = false
-                    } else {
-                        keyboard.sendString("z")
-                    }
-                } else if (abc_id == 33) {
-                    if (shift == true) {
-                        keyboard.sendString("Z")
-                        shift = false
-                    } else {
-                        keyboard.sendString("z")
-                    }
-                } else if (abc_id == 34) {
-                    keyboard.sendString(" ")
-                } else if (abc_id == 35) {
-                    keyboard.sendString(".")
-                } else if (abc_id == 36) {
-                    keyboard.sendString(",")
-                } else if (abc_id == 37) {
-                    keyboard.sendString("!")
-                } else if (abc_id == 38) {
-                    keyboard.sendString("?")
-                }
+                uckb_if()
+                keyboard.sendString(uckb)
                 music.play(music.tonePlayable(523, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
                 basic.pause(100)
             }
@@ -6421,49 +6067,7 @@ function tune() { //Tune selection.
     unid_type = 1
     while (true) {
         if (input.buttonIsPressed(Button.AB)) {
-            if (num == 1) {
-                music.play(music.tonePlayable(131, music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
-            } else if (num == 2) {
-                music.play(music.tonePlayable(147, music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
-            } else if (num == 3) {
-                music.play(music.tonePlayable(165, music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
-            } else if (num == 4) {
-                music.play(music.tonePlayable(175, music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
-            } else if (num == 5) {
-                music.play(music.tonePlayable(196, music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
-            } else if (num == 6) {
-                music.play(music.tonePlayable(220, music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
-            } else if (num == 7) {
-                music.play(music.tonePlayable(247, music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
-            } else if (num == 8) {
-                music.play(music.tonePlayable(262, music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
-            } else if (num == 9) {
-                music.play(music.tonePlayable(294, music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
-            } else if (num == 10) {
-                music.play(music.tonePlayable(330, music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
-            } else if (num == 11) {
-                music.play(music.tonePlayable(330, music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
-            } else if (num == 12) {
-                music.play(music.tonePlayable(392, music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
-            } else if (num == 13) {
-                music.play(music.tonePlayable(440, music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
-            } else if (num == 14) {
-                music.play(music.tonePlayable(494, music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
-            } else if (num == 15) {
-                music.play(music.tonePlayable(523, music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
-            } else if (num == 16) {
-                music.play(music.tonePlayable(587, music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
-            } else if (num == 17) {
-                music.play(music.tonePlayable(659, music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
-            } else if (num == 18) {
-                music.play(music.tonePlayable(698, music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
-            } else if (num == 19) {
-                music.play(music.tonePlayable(784, music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
-            } else if (num == 20) {
-                music.play(music.tonePlayable(880, music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
-            } else if (num == 21) {
-                music.play(music.tonePlayable(998, music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
-            }
+            music.play(music.tonePlayable(tonelist[num], music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
         }
         if (input.buttonIsPressed(Button.A)) {
             if (num == 1) {
@@ -6481,49 +6085,7 @@ function tune() { //Tune selection.
         }
         if (input.logoIsPressed()) {
             custom_music_tune.push(num)
-            if (num == 1) {
-                tune_music = 131
-            } else if (num == 2) {
-                tune_music = 147
-            } else if (num == 3) {
-                tune_music = 165
-            } else if (num == 4) {
-                tune_music = 175
-            } else if (num == 5) {
-                tune_music = 196
-            } else if (num == 6) {
-                tune_music = 220
-            } else if (num == 7) {
-                tune_music = 247
-            } else if (num == 8) {
-                tune_music = 262
-            } else if (num == 9) {
-                tune_music = 294
-            } else if (num == 10) {
-                tune_music = 330
-            } else if (num == 11) {
-                tune_music = 349
-            } else if (num == 12) {
-                tune_music = 392
-            } else if (num == 13) {
-                tune_music = 440
-            } else if (num == 14) {
-                tune_music = 494
-            } else if (num == 15) {
-                tune_music = 523
-            } else if (num == 16) {
-                tune_music = 587
-            } else if (num == 17) {
-                tune_music = 659
-            } else if (num == 18) {
-                tune_music = 698
-            } else if (num == 19) {
-                tune_music = 784
-            } else if (num == 20) {
-                tune_music = 880
-            } else if (num == 21) {
-                tune_music = 988
-            }
+            tune_music = tonelist[num]
             break;
         }
         if (num == 1) {
@@ -6715,21 +6277,7 @@ function beat() { //Beat selection.
             }
         }
         if (input.logoIsPressed()) {
-            if (num == 1) {
-                custom_music_beat.push(1)
-            } else if (num == 2) {
-                custom_music_beat.push(2)
-            } else if (num == 3) {
-                custom_music_beat.push(3)
-            } else if (num == 4) {
-                custom_music_beat.push(4)
-            } else if (num == 5) {
-                custom_music_beat.push(5)
-            } else if (num == 6) {
-                custom_music_beat.push(6)
-            } else if (num == 7) {
-                custom_music_beat.push(7)
-            }
+            custom_music_beat.push(num)
             break;
         }
         unid_if_1_4()
@@ -6777,21 +6325,7 @@ function rest() { //Rest selection.
             }
         }
         if (input.logoIsPressed()) {
-            if (num == 1) {
-                custom_beat.push(1)
-            } else if (num == 2) {
-                custom_beat.push(2)
-            } else if (num == 3) {
-                custom_beat.push(3)
-            } else if (num == 4) {
-                custom_beat.push(4)
-            } else if (num == 5) {
-                custom_beat.push(5)
-            } else if (num == 6) {
-                custom_beat.push(6)
-            } else if (num == 7) {
-                custom_beat.push(7)
-            }
+            custom_beat.push(num)
             break;
         }
         unid_if_1_4()
@@ -6802,69 +6336,20 @@ function rest() { //Rest selection.
 function melody_play() { //Play the created melody.
     while (true) {
         if (custom_music[0] == 1) {
-            if (custom_music_tune[0] == 1) {
-                tune_music = 131
-                play_tone()
-            } else if (custom_music_tune[0] == 2) {
-                tune_music = 147
-                play_tone()
-            } else if (custom_music_tune[0] == 3) {
-                tune_music = 165
-                play_tone()
-            } else if (custom_music_tune[0] == 4) {
-                tune_music = 175
-                play_tone()
-            } else if (custom_music_tune[0] == 5) {
-                tune_music = 196
-                play_tone()
-            } else if (custom_music_tune[0] == 6) {
-                tune_music = 220
-                play_tone()
-            } else if (custom_music_tune[0] == 7) {
-                tune_music = 247
-                play_tone()
-            } else if (custom_music_tune[0] == 8) {
-                tune_music = 262
-                play_tone()
-            } else if (custom_music_tune[0] == 9) {
-                tune_music = 294
-                play_tone()
-            } else if (custom_music_tune[0] == 10) {
-                tune_music = 330
-                play_tone()
-            } else if (custom_music_tune[0] == 11) {
-                tune_music = 349
-                play_tone()
-            } else if (custom_music_tune[0] == 12) {
-                tune_music = 392
-                play_tone()
-            } else if (custom_music_tune[0] == 13) {
-                tune_music = 440
-                play_tone()
-            } else if (custom_music_tune[0] == 14) {
-                tune_music = 494
-                play_tone()
-            } else if (custom_music_tune[0] == 15) {
-                tune_music = 523
-                play_tone()
-            } else if (custom_music_tune[0] == 16) {
-                tune_music = 587
-                play_tone()
-            } else if (custom_music_tune[0] == 17) {
-                tune_music = 659
-                play_tone()
-            } else if (custom_music_tune[0] == 18) {
-                tune_music = 698
-                play_tone()
-            } else if (custom_music_tune[0] == 19) {
-                tune_music = 784
-                play_tone()
-            } else if (custom_music_tune[0] == 20) {
-                tune_music = 880
-                play_tone()
-            } else if (custom_music_tune[0] == 21) {
-                tune_music = 998
-                play_tone()
+            if (custom_music_beat[0] == 1) {
+                music.play(music.tonePlayable(tonelist[custom_music_tune[0]], music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
+            } else if (custom_music_beat[0] == 2) {
+                music.play(music.tonePlayable(tonelist[custom_music_tune[0]], music.beat(BeatFraction.Half)), music.PlaybackMode.UntilDone)
+            } else if (custom_music_beat[0] == 3) {
+                music.play(music.tonePlayable(tonelist[custom_music_tune[0]], music.beat(BeatFraction.Quarter)), music.PlaybackMode.UntilDone)
+            } else if (custom_music_beat[0] == 4) {
+                music.play(music.tonePlayable(tonelist[custom_music_tune[0]], music.beat(BeatFraction.Eighth)), music.PlaybackMode.UntilDone)
+            } else if (custom_music_beat[0] == 5) {
+                music.play(music.tonePlayable(tonelist[custom_music_tune[0]], music.beat(BeatFraction.Sixteenth)), music.PlaybackMode.UntilDone)
+            } else if (custom_music_beat[0] == 6) {
+                music.play(music.tonePlayable(tonelist[custom_music_tune[0]], music.beat(BeatFraction.Double)), music.PlaybackMode.UntilDone)
+            } else if (custom_music_beat[0] == 7) {
+                music.play(music.tonePlayable(tonelist[custom_music_tune[0]], music.beat(BeatFraction.Breve)), music.PlaybackMode.UntilDone)
             }
             custom_music_tune.removeAt(0)
         }
@@ -6888,23 +6373,6 @@ function melody_play() { //Play the created melody.
         }
         custom_music.removeAt(0)
     }}
-function play_tone() { //Play tone.
-    if (custom_music_beat[0] == 1) {
-        music.play(music.tonePlayable(tune_music, music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
-    } else if (custom_music_beat[0] == 2) {
-        music.play(music.tonePlayable(tune_music, music.beat(BeatFraction.Half)), music.PlaybackMode.UntilDone)
-    } else if (custom_music_beat[0] == 3) {
-        music.play(music.tonePlayable(tune_music, music.beat(BeatFraction.Quarter)), music.PlaybackMode.UntilDone)
-    } else if (custom_music_beat[0] == 4) {
-        music.play(music.tonePlayable(tune_music, music.beat(BeatFraction.Eighth)), music.PlaybackMode.UntilDone)
-    } else if (custom_music_beat[0] == 5) {
-        music.play(music.tonePlayable(tune_music, music.beat(BeatFraction.Sixteenth)), music.PlaybackMode.UntilDone)
-    } else if (custom_music_beat[0] == 6) {
-        music.play(music.tonePlayable(tune_music, music.beat(BeatFraction.Double)), music.PlaybackMode.UntilDone)
-    } else if (custom_music_beat[0] == 7) {
-        music.play(music.tonePlayable(tune_music, music.beat(BeatFraction.Breve)), music.PlaybackMode.UntilDone)
-    }
-    custom_music_beat.removeAt(0)}
 function pins_analog() { //Analog read pin.
     while (true) {
         if (tool_type == 1) {
@@ -7272,161 +6740,11 @@ function send_string() { //Send string via serial or bluetooth.
         if (input.logoIsPressed()) {
             basic.showIcon(IconNames.Yes)
             if (selected_uart == true) {
-                if (abc_id == 1) {
-                    bluetooth.uartWriteString("a")
-                } else if (abc_id == 2) {
-                    bluetooth.uartWriteString("a")
-                } else if (abc_id == 3) {
-                    bluetooth.uartWriteString("b")
-                } else if (abc_id == 4) {
-                    bluetooth.uartWriteString("c")
-                } else if (abc_id == 5) {
-                    bluetooth.uartWriteString("d")
-                } else if (abc_id == 6) {
-                    bluetooth.uartWriteString("d")
-                } else if (abc_id == 7) {
-                    bluetooth.uartWriteString("e")
-                } else if (abc_id == 8) {
-                    bluetooth.uartWriteString("e")
-                } else if (abc_id == 9) {
-                    bluetooth.uartWriteString("f")
-                } else if (abc_id == 10) {
-                    bluetooth.uartWriteString("g")
-                } else if (abc_id == 11) {
-                    bluetooth.uartWriteString("g")
-                } else if (abc_id == 12) {
-                    bluetooth.uartWriteString("h")
-                } else if (abc_id == 13) {
-                    bluetooth.uartWriteString("i")
-                } else if (abc_id == 14) {
-                    bluetooth.uartWriteString("i")
-                } else if (abc_id == 15) {
-                    bluetooth.uartWriteString("j")
-                } else if (abc_id == 16) {
-                    bluetooth.uartWriteString("k")
-                } else if (abc_id == 17) {
-                    bluetooth.uartWriteString("k")
-                } else if (abc_id == 18) {
-                    bluetooth.uartWriteString("l")
-                } else if (abc_id == 19) {
-                    bluetooth.uartWriteString("l")
-                } else if (abc_id == 20) {
-                    bluetooth.uartWriteString("m")
-                } else if (abc_id == 21) {
-                    bluetooth.uartWriteString("n")
-                } else if (abc_id == 22) {
-                    bluetooth.uartWriteString("n")
-                } else if (abc_id == 23) {
-                    bluetooth.uartWriteString("o")
-                } else if (abc_id == 24) {
-                    bluetooth.uartWriteString("p")
-                } else if (abc_id == 25) {
-                    bluetooth.uartWriteString("r")
-                } else if (abc_id == 26) {
-                    bluetooth.uartWriteString("s")
-                } else if (abc_id == 27) {
-                    bluetooth.uartWriteString("s")
-                } else if (abc_id == 28) {
-                    bluetooth.uartWriteString("t")
-                } else if (abc_id == 29) {
-                    bluetooth.uartWriteString("u")
-                } else if (abc_id == 30) {
-                    bluetooth.uartWriteString("u")
-                } else if (abc_id == 31) {
-                    bluetooth.uartWriteString("v")
-                } else if (abc_id == 32) {
-                    bluetooth.uartWriteString("z")
-                } else if (abc_id == 33) {
-                    bluetooth.uartWriteString("z")
-                } else if (abc_id == 34) {
-                    bluetooth.uartWriteString(" ")
-                } else if (abc_id == 35) {
-                    bluetooth.uartWriteString(".")
-                } else if (abc_id == 36) {
-                    bluetooth.uartWriteString(",")
-                } else if (abc_id == 37) {
-                    bluetooth.uartWriteString("!")
-                } else if (abc_id == 38) {
-                    bluetooth.uartWriteString("?")
-                }
+                uckb_if()
+                bluetooth.uartWriteString(uckb)
             } else {
-                if (abc_id == 1) {
-                    serial.writeString("a")
-                } else if (abc_id == 2) {
-                    serial.writeString("a")
-                } else if (abc_id == 3) {
-                    serial.writeString("b")
-                } else if (abc_id == 4) {
-                    serial.writeString("c")
-                } else if (abc_id == 5) {
-                    serial.writeString("d")
-                } else if (abc_id == 6) {
-                    serial.writeString("d")
-                } else if (abc_id == 7) {
-                    serial.writeString("e")
-                } else if (abc_id == 8) {
-                    serial.writeString("e")
-                } else if (abc_id == 9) {
-                    serial.writeString("f")
-                } else if (abc_id == 10) {
-                    serial.writeString("g")
-                } else if (abc_id == 11) {
-                    serial.writeString("g")
-                } else if (abc_id == 12) {
-                    serial.writeString("h")
-                } else if (abc_id == 13) {
-                    serial.writeString("i")
-                } else if (abc_id == 14) {
-                    serial.writeString("i")
-                } else if (abc_id == 15) {
-                    serial.writeString("j")
-                } else if (abc_id == 16) {
-                    serial.writeString("k")
-                } else if (abc_id == 17) {
-                    serial.writeString("k")
-                } else if (abc_id == 18) {
-                    serial.writeString("l")
-                } else if (abc_id == 19) {
-                    serial.writeString("l")
-                } else if (abc_id == 20) {
-                    serial.writeString("m")
-                } else if (abc_id == 21) {
-                    serial.writeString("n")
-                } else if (abc_id == 22) {
-                    serial.writeString("n")
-                } else if (abc_id == 23) {
-                    serial.writeString("o")
-                } else if (abc_id == 24) {
-                    serial.writeString("p")
-                } else if (abc_id == 25) {
-                    serial.writeString("r")
-                } else if (abc_id == 26) {
-                    serial.writeString("s")
-                } else if (abc_id == 27) {
-                    serial.writeString("s")
-                } else if (abc_id == 28) {
-                    serial.writeString("t")
-                } else if (abc_id == 29) {
-                    serial.writeString("u")
-                } else if (abc_id == 30) {
-                    serial.writeString("u")
-                } else if (abc_id == 31) {
-                    serial.writeString("v")
-                } else if (abc_id == 32) {
-                    serial.writeString("z")
-                } else if (abc_id == 33) {
-                    serial.writeString("z")
-                } else if (abc_id == 34) {
-                    serial.writeString(" ")
-                } else if (abc_id == 35) {
-                    serial.writeString(".")
-                } else if (abc_id == 36) {
-                    serial.writeString(",")
-                } else if (abc_id == 37) {
-                    serial.writeString("!")
-                } else if (abc_id == 38) {
-                    serial.writeString("?")
-                }
+                uckb_if()
+                serial.writeString(uckb)
             }
             music.play(music.tonePlayable(523, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
             basic.pause(100)
@@ -7457,49 +6775,9 @@ function send_numer() { //Send number via serial or bluetooth.
         if (input.logoIsPressed()) {
             basic.showIcon(IconNames.Yes)
             if (selected_uart == true) {
-                if (num == 0) {
-                    bluetooth.uartWriteNumber(0)
-                } else if (num == 1) {
-                    bluetooth.uartWriteNumber(1)
-                } else if (num == 2) {
-                    bluetooth.uartWriteNumber(2)
-                } else if (num == 3) {
-                    bluetooth.uartWriteNumber(3)
-                } else if (num == 4) {
-                    bluetooth.uartWriteNumber(4)
-                } else if (num == 5) {
-                    bluetooth.uartWriteNumber(5)
-                } else if (num == 6) {
-                    bluetooth.uartWriteNumber(6)
-                } else if (num == 7) {
-                    bluetooth.uartWriteNumber(7)
-                } else if (num == 8) {
-                    bluetooth.uartWriteNumber(8)
-                } else if (num == 9) {
-                    bluetooth.uartWriteNumber(9)
-                }
+                bluetooth.uartWriteNumber(num)
             } else {
-                if (num == 0) {
-                    serial.writeNumber(0)
-                } else if (num == 1) {
-                    serial.writeNumber(1)
-                } else if (num == 2) {
-                    serial.writeNumber(2)
-                } else if (num == 3) {
-                    serial.writeNumber(3)
-                } else if (num == 4) {
-                    serial.writeNumber(4)
-                } else if (num == 5) {
-                    serial.writeNumber(5)
-                } else if (num == 6) {
-                    serial.writeNumber(6)
-                } else if (num == 7) {
-                    serial.writeNumber(7)
-                } else if (num == 8) {
-                    serial.writeNumber(8)
-                } else if (num == 9) {
-                    serial.writeNumber(9)
-                }
+                serial.writeNumber(num)
             }
             
             music.play(music.tonePlayable(349, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
@@ -7619,7 +6897,7 @@ basic.forever(function () { //Auto-Brightness.
             }
         }
     }})
-function settings_test_input() { //Test all inputs.
+function settings_test_input() { //Test all inputs.7500
     while (true) {
         if (input.buttonIsPressed(Button.A)) {
             led.plot(0, 2)
