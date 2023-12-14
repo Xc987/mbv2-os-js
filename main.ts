@@ -802,6 +802,450 @@ function ckeck_hold_b() {
             break;
         }
     }}
+function plot_graph() {
+    if (custom_graph == 1) {
+        led.plotBarGraph(graph_var1, graph_var2)
+    } else {
+        proc = graph_var1 / graph_var2
+        proc = proc * 100
+        proc = Math.trunc(proc)
+        if (custom_graph == 2) {
+            bar_c()
+        } else if (custom_graph == 3) {
+            blob()
+        } else if (custom_graph == 4) {
+            spiral()
+        } else if (custom_graph == 5) {
+            speedometer()
+        } else if (custom_graph == 6) {
+            wave()
+        } else if (custom_graph == 7) {
+            signal_bar()
+        } else if (custom_graph == 8) {
+            needle()
+        }
+    }
+}
+function bar_c() {
+    led.plot(2, 4)
+    if (proc >= 6.5) {
+        led.plot(2, 4)
+    }
+    if (proc >= 13) {
+        led.plot(1, 4)
+        led.plot(3, 4)
+    }
+    if (proc >= 20) {
+        led.plot(0, 4)
+        led.plot(4, 4)
+    }
+    if (proc >= 26.5) {
+        led.plot(2, 3)
+    }
+    if (proc >= 33) {
+        led.plot(1, 3)
+        led.plot(3, 3)
+    }
+    if (proc >= 40) {
+        led.plot(0, 3)
+        led.plot(4, 3)
+    }
+    if (proc >= 46.5) {
+        led.plot(2, 2)
+    }
+    if (proc >= 53) {
+        led.plot(1, 2)
+        led.plot(3, 2)
+    }
+    if (proc >= 60) {
+        led.plot(0, 2)
+        led.plot(4, 2)
+    }
+    if (proc >= 66.5) {
+        led.plot(2, 1)
+    }
+    if (proc >= 73) {
+        led.plot(1, 1)
+        led.plot(3, 1)
+    }
+    if (proc >= 80) {
+        led.plot(0, 1)
+        led.plot(4, 1)
+    }
+    if (proc >= 86) {
+        led.plot(2, 0)
+    }
+    if (proc >= 93) {
+        led.plot(1, 0)
+        led.plot(3, 0)
+    }
+    if (proc >= 98) {
+        led.plot(0, 0)
+        led.plot(4, 0)
+    }
+}
+function blob() {
+    led.plot(2, 2)
+    if (proc >= 12.5) {
+        led.plot(2, 2)
+    }
+    if (proc >= 25) {
+        led.plot(2, 2)
+    }
+    if (proc >= 37.5) {
+        led.plot(1, 2)
+        led.plot(3, 2)
+        led.plot(2, 1)
+        led.plot(2, 3)
+    }
+    if (proc >= 50) {
+        led.plot(1, 1)
+        led.plot(3, 1)
+        led.plot(1, 3)
+        led.plot(3, 3)
+    }
+    if (proc >= 62.5) {
+        led.plot(2, 0)
+        led.plot(4, 2)
+        led.plot(0, 2)
+        led.plot(2, 4)
+    }
+    if (proc >= 75) {
+        led.plot(1, 0)
+        led.plot(4, 1)
+        led.plot(0, 3)
+        led.plot(3, 4)
+    }
+    if (proc >= 87.5) {
+        led.plot(3, 0)
+        led.plot(4, 3)
+        led.plot(0, 1)
+        led.plot(1, 4)
+    }
+    if (proc >= 99) {
+        led.plot(0, 0)
+        led.plot(4, 0)
+        led.plot(4, 4)
+        led.plot(0, 4)
+    }
+}
+function spiral() {
+    led.plot(2, 2)
+    if (proc >= 4) {
+        led.plot(2, 2)
+    }
+    if (proc >= 8) {
+        led.plot(2, 1)
+    }
+    if (proc >= 12) {
+        led.plot(3, 1)
+    }
+    if (proc >= 16) {
+        led.plot(3, 2)
+    }
+    if (proc >= 20) {
+        led.plot(3, 3)
+    }
+    if (proc >= 24) {
+        led.plot(2, 3)
+    }
+    if (proc >= 28) {
+        led.plot(1, 3)
+    }
+    if (proc >= 32) {
+        led.plot(1, 2)
+    }
+    if (proc >= 36) {
+        led.plot(1, 1)
+    }
+    if (proc >= 40) {
+        led.plot(1, 0)
+    }
+    if (proc >= 44) {
+        led.plot(2, 0)
+    }
+    if (proc >= 48) {
+        led.plot(3, 0)
+    }
+    if (proc >= 52) {
+        led.plot(4, 0)
+    }
+    if (proc >= 56) {
+        led.plot(4, 1)
+    }
+    if (proc >= 60) {
+        led.plot(4, 2)
+    }
+    if (proc >= 64) {
+        led.plot(4, 3)
+    }
+    if (proc >= 68) {
+        led.plot(4, 4)
+    }
+    if (proc >= 72) {
+        led.plot(3, 4)
+    }
+    if (proc >= 76) {
+        led.plot(2, 4)
+    }
+    if (proc >= 80) {
+        led.plot(1, 4)
+    }
+    if (proc >= 84) {
+        led.plot(0, 4)
+    }
+    if (proc >= 88) {
+        led.plot(0, 3)
+    }
+    if (proc >= 92) {
+        led.plot(0, 2)
+    }
+    if (proc >= 96) {
+        led.plot(0, 1)
+    }
+    if (proc >= 99) {
+        led.plot(0, 0)
+    }
+}
+function speedometer() {
+    led.plot(2, 2)
+    if (proc <= 6.5 && proc < 7) {
+        led.plot(1, 3)
+        led.plot(1, 4)
+    } else if (proc <= 13 && proc < 14) {
+        led.plot(1, 3)
+        led.plot(0, 4)
+    } else if (proc <= 19.5 && proc < 20) {
+        led.plot(1, 3)
+        led.plot(0, 3)
+    } else if (proc <= 26 && proc < 27) {
+        led.plot(1, 2)
+        led.plot(0, 2)
+    } else if (proc <= 32.5 && proc < 33) {
+        led.plot(1, 1)
+        led.plot(0, 1)
+    } else if (proc <= 39 && proc < 40) {
+        led.plot(1, 1)
+        led.plot(0, 0)
+    } else if (proc <= 45.5 && proc < 46) {
+        led.plot(1, 1)
+        led.plot(1, 0)
+    } else if (proc <= 52 && proc < 53) {
+        led.plot(2, 0)
+        led.plot(2, 1)
+    } else if (proc <= 57.6 && proc < 58) {
+        led.plot(3, 1)
+        led.plot(3, 0)
+    } else if (proc <= 64.1 && proc < 65) {
+        led.plot(3, 1)
+        led.plot(4, 0)
+    } else if (proc <= 70.6 && proc < 71) {
+        led.plot(3, 1)
+        led.plot(4, 1)
+    } else if (proc <= 77.1 && proc >= 72) {
+        led.plot(3, 2)
+        led.plot(4, 2)
+    } else if (proc <= 83.6 && proc < 84) {
+        led.plot(3, 3)
+        led.plot(4, 3)
+    } else if (proc <= 94.1 && proc < 91) {
+        led.plot(3, 3)
+        led.plot(4, 4)
+    } else if (proc <= 99.9 || proc == 100) {
+        led.plot(3, 3)
+        led.plot(3, 4)
+    }
+}
+function wave() {
+    led.plot(0, 4)
+    if (proc >= 4) {
+        led.plot(1, 4)
+    }
+    if (proc >= 8) {
+        led.plot(0, 3)
+    }
+    if (proc >= 12) {
+        led.plot(0, 2)
+    }
+    if (proc >= 16) {
+        led.plot(1, 3)
+    }
+    if (proc >= 20) {
+        led.plot(2, 4)
+    }
+    if (proc >= 24) {
+        led.plot(3, 4)
+    }
+    if (proc >= 28) {
+        led.plot(2, 3)
+    }
+    if (proc >= 32) {
+        led.plot(1, 3)
+    }
+    if (proc >= 36) {
+        led.plot(1, 2)
+    }
+    if (proc >= 40) {
+        led.plot(0, 1)
+    }
+    if (proc >= 44) {
+        led.plot(0, 0)
+    }
+    if (proc >= 48) {
+        led.plot(1, 1)
+    }
+    if (proc >= 52) {
+        led.plot(2, 2)
+    }
+    if (proc >= 56) {
+        led.plot(3, 3)
+    }
+    if (proc >= 60) {
+        led.plot(4, 4)
+    }
+    if (proc >= 64) {
+        led.plot(4, 3)
+    }
+    if (proc >= 68) {
+        led.plot(3, 2)
+    }
+    if (proc >= 72) {
+        led.plot(2, 1)
+    }
+    if (proc >= 76) {
+        led.plot(1, 0)
+    }
+    if (proc >= 80) {
+        led.plot(2, 0)
+    }
+    if (proc >= 84) {
+        led.plot(3, 1)
+    }
+    if (proc >= 88) {
+        led.plot(4, 2)
+    }
+    if (proc >= 92) {
+        led.plot(4, 1)
+    }
+    if (proc >= 96) {
+        led.plot(3, 0)
+    }
+    if (proc >= 99) {
+        led.plot(4, 0)
+    }
+}
+function signal_bar() {
+    led.plot(0, 4)
+    if (proc >= 20) {
+        led.plot(0, 4)
+    }
+    if (proc >= 40) {
+        led.plot(1, 3)
+        led.plot(1, 4)
+    }
+    if (proc >= 60) {
+        led.plot(2, 2)
+        led.plot(2, 3)
+        led.plot(2, 4)
+    }
+    if (proc >= 80) {
+        led.plot(3, 1)
+        led.plot(3, 2)
+        led.plot(3, 3)
+        led.plot(3, 4)
+    }
+    if (proc >= 90) {
+        led.plot(4, 0)
+        led.plot(4, 1)
+        led.plot(4, 2)
+        led.plot(4, 3)
+        led.plot(4, 4)
+    }
+}
+function needle() {
+    led.plot(0, 4)
+    if (proc <= 6.25 && proc < 7) {
+        led.plot(1, 4)
+        led.plot(2, 4)
+        led.plot(3, 4)
+        led.plot(4, 4)
+    } else if (proc <= 12.5 && proc < 13) {
+        led.plot(1, 4)
+        led.plot(2, 4)
+        led.plot(3, 4)
+        led.plot(4, 3)
+    } else if (proc <= 18.75 && proc < 19) {
+        led.plot(1, 4)
+        led.plot(2, 4)
+        led.plot(3, 3)
+        led.plot(4, 3)
+    } else if (proc <= 25 && proc < 26) {
+        led.plot(1, 3)
+        led.plot(2, 3)
+        led.plot(3, 3)
+        led.plot(4, 3)
+    } else if (proc <= 31.25 && proc < 32) {
+        led.plot(1, 3)
+        led.plot(2, 3)
+        led.plot(3, 3)
+        led.plot(4, 2)
+    } else if (proc <= 37.5 && proc < 38) {
+        led.plot(1, 3)
+        led.plot(2, 3)
+        led.plot(3, 2)
+        led.plot(4, 2)
+    } else if (proc <= 43.75 && proc < 44) {
+        led.plot(1, 3)
+        led.plot(2, 2)
+        led.plot(3, 2)
+        led.plot(4, 1)
+    } else if (proc <= 50 && proc < 51) {
+        led.plot(1, 3)
+        led.plot(2, 2)
+        led.plot(3, 1)
+        led.plot(4, 0)
+    } else if (proc <= 56.25 && proc < 57) {
+        led.plot(1, 3)
+        led.plot(2, 2)
+        led.plot(2, 1)
+        led.plot(3, 0)
+    } else if (proc <= 62.5 && proc < 63) {
+        led.plot(1, 3)
+        led.plot(1, 2)
+        led.plot(2, 1)
+        led.plot(3, 0)
+    } else if (proc <= 68.75 && proc < 69) {
+        led.plot(1, 3)
+        led.plot(1, 2)
+        led.plot(2, 1)
+        led.plot(2, 0)
+    } else if (proc <= 75 && proc < 76) {
+        led.plot(1, 3)
+        led.plot(1, 2)
+        led.plot(1, 1)
+        led.plot(2, 0)
+    } else if (proc <= 81.25 && proc < 82) {
+        led.plot(0, 3)
+        led.plot(1, 2)
+        led.plot(1, 1)
+        led.plot(1, 0)
+    } else if (proc <= 87.5 && proc < 88) {
+        led.plot(0, 3)
+        led.plot(0, 2)
+        led.plot(1, 1)
+        led.plot(1, 0)
+    } else if (proc <= 93.75 || proc < 94) {
+        led.plot(0, 3)
+        led.plot(0, 2)
+        led.plot(0, 1)
+        led.plot(1, 0)
+    } else if (proc <= 99.5 || proc == 100) {
+        led.plot(0, 3)
+        led.plot(0, 2)
+        led.plot(0, 1)
+        led.plot(0, 0)
+    }
+}
 function menu_select_menu() { //Menu selection at the start.
     while (true) {
         if (selected_menu == 1) {
@@ -2346,7 +2790,7 @@ function settings_select_menu() { //Settings selection.
             led.unplot(0, 0)
         } else if (selected_setting == 2) {
             led.unplot(1, 0)
-        } else if (selected_setting == 9) {
+        } else if (selected_setting == 10) {
             led.unplot(3, 0)
         } else {
             led.unplot(2, 0)
@@ -2418,6 +2862,24 @@ function settings_select_menu() { //Settings selection.
             image_rotate.scrollImage(1, scroll_interval)
         } else if (selected_setting == 9) {
             image_play.scrollImage(1, scroll_interval)
+        } else if (selected_setting == 10) {
+            if (custom_graph == 1) {
+                image_bar.scrollImage(1, scroll_interval)
+            } else if (custom_graph == 2) {
+                image_bar_custom.scrollImage(1, scroll_interval)
+            } else if (custom_graph == 3) {
+                image_create.scrollImage(1, scroll_interval)
+            } else if (custom_graph == 4) {
+                image_spiral.scrollImage(1, scroll_interval)
+            } else if (custom_graph == 5) {
+                image_speedometer.scrollImage(1, scroll_interval)
+            } else if (custom_graph == 6) {
+                image_wave.scrollImage(1, scroll_interval)
+            } else if (custom_graph == 7) {
+                image_signal_small.scrollImage(1, scroll_interval)
+            } else if (custom_graph == 8) {
+                image_needle.scrollImage(1, scroll_interval)
+            }
             ckeck_hold_b()
         }
         if (scroll_interval == 1) {
@@ -2428,9 +2890,9 @@ function settings_select_menu() { //Settings selection.
             led.plot(0, 0)
         } else if (selected_setting == 1) {
             led.plot(1, 0)
-        } else if (selected_setting == 8) {
-            led.plot(3, 0)
         } else if (selected_setting == 9) {
+            led.plot(3, 0)
+        } else if (selected_setting == 10) {
             led.plot(4, 0)
         } else {
             led.plot(2, 0)
@@ -2453,7 +2915,7 @@ function settings_select_menu() { //Settings selection.
             }
             if (input.buttonIsPressed(Button.A)) {
                 if (selected_setting == 0) {
-                    selected_setting = 9
+                    selected_setting = 10
                 } else {
                     selected_setting += -1
                 }
@@ -2465,7 +2927,7 @@ function settings_select_menu() { //Settings selection.
                 } else {
                     scroll_interval = 1
                 }
-                if (selected_setting == 9) {
+                if (selected_setting == 10) {
                     selected_setting = 0
                     scroll_interval = 1
                 } else {
@@ -2535,6 +2997,12 @@ function settings_select_menu() { //Settings selection.
                         animation_scroll = false
                     } else {
                         animation_scroll = true
+                    }
+                } else if (selected_setting == 10) {
+                    if (custom_graph == 8) {
+                        custom_graph = 1
+                    } else {
+                        custom_graph += 1
                     }
                 } else {
                     break;
@@ -2919,6 +3387,10 @@ let pin_toch_mode = 0
 let pin_music_mode = false
 let logging_freq = 0
 let rotate_display = 1
+let custom_graph = 1
+let graph_var1 = 50
+let graph_var2 = 50
+let proc = 0
 let image_games = images.createImage(`
     . . . . .
     . . # . .
@@ -3400,6 +3872,48 @@ let image_rotate = images.createImage(`
     . . . # .
     # # # # #
     # . . # .
+    # . . . .`)
+let image_bar = images.createImage(`
+    . . . . .
+    . . . . .
+    . . . . .
+    . # . . .
+    # # # . .`)
+let image_bar_custom = images.createImage(`
+    . . . . .
+    . . . # #
+    . . . # .
+    . # . # #
+    # # # . .`)
+let image_spiral = images.createImage(`
+    . . . . .
+    # . # # #
+    # . # . #
+    # . . . #
+    # # # # #`)
+let image_speedometer = images.createImage(`
+    . . . . .
+    . . . . .
+    . . # . .
+    . # . . .
+    . # . . .`)
+let image_wave = images.createImage(`
+    . . . . .
+    # . . . .
+    # # . . .
+    # # # . .
+    # # # # .`)
+let image_signal_small = images.createImage(`
+    . . . . .
+    . . . . #
+    . . . # #
+    . . # # #
+    . # # # #`)
+let image_needle = images.createImage(`
+    . . . . .
+    . . . # .
+    . . # . .
+    . # . . .
     # . . . .`)
 let image_blank = images.createImage(`
     . . . . .
@@ -4243,6 +4757,7 @@ function blackjack() { //Blackjack. //game_mode = 10
     }
     blackjack()}
 function tool_temparature() { //Show temperature // Selected_tool = 1
+    graph_var2 = 50
     while (true) {
         if (tool_type == 1) {
             basic.showNumber(input.temperature())
@@ -4254,7 +4769,10 @@ function tool_temparature() { //Show temperature // Selected_tool = 1
             }
         }
         if (tool_type == 2) {
-            led.plotBarGraph(input.temperature(), 50)
+            plot_graph()
+            graph_var1 = input.temperature()
+            basic.pause(50)
+            basic.clearScreen()
             if (input.logoIsPressed()) {
                 basic.clearScreen()
                 tool_type = 1
@@ -4265,6 +4783,7 @@ function tool_temparature() { //Show temperature // Selected_tool = 1
     }}
 function tool_light_level() { //Show light level // Selected_tool = 2
     while (true) {
+        graph_var2 = 255
         if (tool_type == 1) {
             basic.showNumber(input.lightLevel())
             if (input.logoIsPressed()) {
@@ -4275,7 +4794,10 @@ function tool_light_level() { //Show light level // Selected_tool = 2
             }
         }
         if (tool_type == 2) {
-            led.plotBarGraph(input.lightLevel(), 255)
+            plot_graph()
+            graph_var1 = input.lightLevel()
+            basic.pause(50)
+            basic.clearScreen()
             if (input.logoIsPressed()) {
                 basic.clearScreen()
                 tool_type = 1
@@ -4285,6 +4807,7 @@ function tool_light_level() { //Show light level // Selected_tool = 2
         }
     }}
 function tool_sound_level() { //Show sound level // Selected_tool = 3
+    graph_var2 = 255
     while (true) {
         if (tool_type == 1) {
             basic.showNumber(input.soundLevel())
@@ -4302,7 +4825,10 @@ function tool_sound_level() { //Show sound level // Selected_tool = 3
             }
         }
         if (tool_type == 2) {
-            led.plotBarGraph(input.soundLevel(), 255)
+            plot_graph()
+            graph_var1 = input.soundLevel()
+            basic.pause(50)
+            basic.clearScreen()
             if (selected_uart == true) {
                 uart_send = "" + input.soundLevel()
                 bluetooth.uartWriteLine(uart_send)
@@ -4338,6 +4864,7 @@ function tool_compass() { //Compass // Selected_tool = 4
         }
     }}
 function tool_accX() { //Show acceleration(mg) X // Selected_tool = 5
+    graph_var2 = 1023
     while (true) {
         if (tool_type == 1) {
             basic.showNumber(input.acceleration(Dimension.X))
@@ -4349,7 +4876,10 @@ function tool_accX() { //Show acceleration(mg) X // Selected_tool = 5
             }
         }
         if (tool_type == 2) {
-            led.plotBarGraph(input.acceleration(Dimension.X), 1023)
+            plot_graph()
+            graph_var1 = input.acceleration(Dimension.X)
+            basic.pause(50)
+            basic.clearScreen()
             if (input.logoIsPressed()) {
                 basic.clearScreen()
                 tool_type = 1
@@ -4359,6 +4889,7 @@ function tool_accX() { //Show acceleration(mg) X // Selected_tool = 5
         }
     }}
 function tool_accY() { //Show acceleration(mg) Y // Selected_tool = 6
+    graph_var2 = 1023
     while (true) {
         if (tool_type == 1) {
             basic.showNumber(input.acceleration(Dimension.Y))
@@ -4370,7 +4901,10 @@ function tool_accY() { //Show acceleration(mg) Y // Selected_tool = 6
             }
         }
         if (tool_type == 2) {
-            led.plotBarGraph(input.acceleration(Dimension.Y), 1023)
+            plot_graph()
+            graph_var1 = input.acceleration(Dimension.Y)
+            basic.pause(50)
+            basic.clearScreen()
             if (input.logoIsPressed()) {
                 basic.clearScreen()
                 tool_type = 1
@@ -4380,6 +4914,7 @@ function tool_accY() { //Show acceleration(mg) Y // Selected_tool = 6
         }
     }}
 function tool_accZ() { //Show acceleration(mg) Z // Selected_tool = 7
+    graph_var2 = 1023
     while (true) {
         if (tool_type == 1) {
             basic.showNumber(input.acceleration(Dimension.Z))
@@ -4391,7 +4926,10 @@ function tool_accZ() { //Show acceleration(mg) Z // Selected_tool = 7
             }
         }
         if (tool_type == 2) {
-            led.plotBarGraph(input.acceleration(Dimension.Z), 1023)
+            plot_graph()
+            graph_var1 = input.acceleration(Dimension.Z)
+            basic.pause(50)
+            basic.clearScreen()
             if (input.logoIsPressed()) {
                 basic.clearScreen()
                 tool_type = 1
