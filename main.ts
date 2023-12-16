@@ -1407,6 +1407,7 @@ function menu_select_menu() { //Menu selection at the start.
     } else if (selected_menu == 6) {
         pins_select_menu()
     } else if (selected_menu == 7) {
+        selected_serial_if = true
         send_select_menu()
     } else if (selected_menu == 8) {
         selected_uart = true
@@ -2633,19 +2634,19 @@ function send_type_select_menu() { //Send types selection.
     } else if (selected_serial_send == 1) {
         send_input()
     } else if (selected_serial_send == 2) {
-        send_temperature()
+        tool_temparature()
     } else if (selected_serial_send == 3) {
-        send_light_level()
+        tool_light_level()
     } else if (selected_serial_send == 4) {
-        send_sound_level()
+        tool_sound_level()
     } else if (selected_serial_send == 5) {
         send_compass()
     } else if (selected_serial_send == 6) {
-        send_accX()
+        tool_accX()
     } else if (selected_serial_send == 7) {
-        send_accY()
+        tool_accY()
     } else if (selected_serial_send == 8) {
-        send_accZ()
+        tool_accZ()
     } else if (selected_serial_send == 9) {
         send_numer()
     } else if (selected_serial_send == 10) {
@@ -3429,6 +3430,7 @@ let selected_pins = 0
 let selected_pins_type = 0
 let selected_serial = 0
 let selected_uart = false
+let selected_serial_if = false
 let selected_log_tool = 0
 let selected_serial_send = 0
 let selected_music = 1
@@ -4874,6 +4876,12 @@ function tool_temparature() { //Show temperature // Selected_tool = 1
     while (true) {
         if (tool_type == 1) {
             basic.showNumber(input.temperature())
+            if (selected_uart == true) {
+                uart_send = "" + input.temperature()
+                bluetooth.uartWriteLine(uart_send)
+            } else if (selected_serial_if == true) {
+                serial.writeLine("" + (input.temperature()))
+            }
             if (input.logoIsPressed()) {
                 basic.clearScreen()
                 tool_type = 2
@@ -4889,6 +4897,12 @@ function tool_temparature() { //Show temperature // Selected_tool = 1
             } else {
                 basic.pause(50)
             }
+            if (selected_uart == true) {
+                uart_send = "" + input.temperature()
+                bluetooth.uartWriteLine(uart_send)
+            } else if (selected_serial_if == true) {
+                serial.writeLine("" + (input.temperature()))
+            }
             basic.clearScreen()
             if (input.logoIsPressed()) {
                 basic.clearScreen()
@@ -4903,6 +4917,12 @@ function tool_light_level() { //Show light level // Selected_tool = 2
     while (true) {
         if (tool_type == 1) {
             basic.showNumber(input.lightLevel())
+            if (selected_uart == true) {
+                uart_send = "" + input.lightLevel()
+                bluetooth.uartWriteLine(uart_send)
+            } else if (selected_serial_if == true) {
+                serial.writeLine("" + (input.lightLevel()))
+            }
             if (input.logoIsPressed()) {
                 basic.clearScreen()
                 tool_type = 2
@@ -4919,6 +4939,12 @@ function tool_light_level() { //Show light level // Selected_tool = 2
                 basic.pause(50)
             }
             basic.clearScreen()
+            if (selected_uart == true) {
+                uart_send = "" + input.lightLevel()
+                bluetooth.uartWriteLine(uart_send)
+            } else if (selected_serial_if == true) {
+                serial.writeLine("" + (input.lightLevel()))
+            }
             if (input.logoIsPressed()) {
                 basic.clearScreen()
                 tool_type = 1
@@ -4935,7 +4961,7 @@ function tool_sound_level() { //Show sound level // Selected_tool = 3
             if (selected_uart == true) {
                 uart_send = "" + input.soundLevel()
                 bluetooth.uartWriteLine(uart_send)
-            } else {
+            } else if (selected_serial_if == true) {
                 serial.writeLine("" + (input.soundLevel()))
             }
             if (input.logoIsPressed()) {
@@ -4957,7 +4983,7 @@ function tool_sound_level() { //Show sound level // Selected_tool = 3
             if (selected_uart == true) {
                 uart_send = "" + input.soundLevel()
                 bluetooth.uartWriteLine(uart_send)
-            } else {
+            } else if (selected_serial_if == true) {
                 serial.writeLine("" + (input.soundLevel()))
             }
             if (input.logoIsPressed()) {
@@ -4993,6 +5019,12 @@ function tool_accX() { //Show acceleration(mg) X // Selected_tool = 5
     while (true) {
         if (tool_type == 1) {
             basic.showNumber(input.acceleration(Dimension.X))
+            if (selected_uart == true) {
+                uart_send = "" + input.acceleration(Dimension.X)
+                bluetooth.uartWriteLine(uart_send)
+            } else if (selected_serial_if == true) {
+                serial.writeLine("" + (input.acceleration(Dimension.X)))
+            }
             if (input.logoIsPressed()) {
                 basic.clearScreen()
                 tool_type = 2
@@ -5009,6 +5041,12 @@ function tool_accX() { //Show acceleration(mg) X // Selected_tool = 5
                 basic.pause(50)
             }
             basic.clearScreen()
+            if (selected_uart == true) {
+                uart_send = "" + input.acceleration(Dimension.X)
+                bluetooth.uartWriteLine(uart_send)
+            } else if (selected_serial_if == true) {
+                serial.writeLine("" + (input.acceleration(Dimension.X)))
+            }
             if (input.logoIsPressed()) {
                 basic.clearScreen()
                 tool_type = 1
@@ -5022,6 +5060,12 @@ function tool_accY() { //Show acceleration(mg) Y // Selected_tool = 6
     while (true) {
         if (tool_type == 1) {
             basic.showNumber(input.acceleration(Dimension.Y))
+            if (selected_uart == true) {
+                uart_send = "" + input.acceleration(Dimension.Y)
+                bluetooth.uartWriteLine(uart_send)
+            } else if (selected_serial_if == true) {
+                serial.writeLine("" + (input.acceleration(Dimension.Y)))
+            }
             if (input.logoIsPressed()) {
                 basic.clearScreen()
                 tool_type = 2
@@ -5038,6 +5082,12 @@ function tool_accY() { //Show acceleration(mg) Y // Selected_tool = 6
                 basic.pause(50)
             }
             basic.clearScreen()
+            if (selected_uart == true) {
+                uart_send = "" + input.acceleration(Dimension.Y)
+                bluetooth.uartWriteLine(uart_send)
+            } else if (selected_serial_if == true) {
+                serial.writeLine("" + (input.acceleration(Dimension.Y)))
+            }
             if (input.logoIsPressed()) {
                 basic.clearScreen()
                 tool_type = 1
@@ -5051,6 +5101,12 @@ function tool_accZ() { //Show acceleration(mg) Z // Selected_tool = 7
     while (true) {
         if (tool_type == 1) {
             basic.showNumber(input.acceleration(Dimension.Z))
+            if (selected_uart == true) {
+                uart_send = "" + input.acceleration(Dimension.Z)
+                bluetooth.uartWriteLine(uart_send)
+            } else if (selected_serial_if == true) {
+                serial.writeLine("" + (input.acceleration(Dimension.Z)))
+            }
             if (input.logoIsPressed()) {
                 basic.clearScreen()
                 tool_type = 2
@@ -5067,6 +5123,12 @@ function tool_accZ() { //Show acceleration(mg) Z // Selected_tool = 7
                 basic.pause(50)
             }
             basic.clearScreen()
+            if (selected_uart == true) {
+                uart_send = "" + input.acceleration(Dimension.Z)
+                bluetooth.uartWriteLine(uart_send)
+            } else if (selected_serial_if == true) {
+                serial.writeLine("" + (input.acceleration(Dimension.Z)))
+            }
             if (input.logoIsPressed()) {
                 basic.clearScreen()
                 tool_type = 1
@@ -7185,128 +7247,7 @@ function send_input() { //Send input via serial or bluetooth.
         }
         basic.pause(10)
     }}
-function send_temperature() { //Send temperature via serial or bluetooth.
-    graph_var2 = 50
-    while (true) {
-        if (tool_type == 1) {
-            basic.showNumber(input.temperature())
-            if (selected_uart == true) {
-                uart_send = "" + input.temperature()
-                bluetooth.uartWriteLine(uart_send)
-            } else {
-                serial.writeLine("" + (input.temperature()))
-            }
-            if (input.logoIsPressed()) {
-                basic.clearScreen()
-                tool_type = 2
-                game.addScore(1)
-                basic.pause(500)
-            }
-        }
-        if (tool_type == 2) {
-            graph_var1 = input.temperature()
-            plot_graph()
-            if (custom_graph == 9) {
-                basic.pause(iter)
-            } else {
-                basic.pause(50)
-            }
-            if (selected_uart == true) {
-                uart_send = "" + input.temperature()
-                bluetooth.uartWriteLine(uart_send)
-            } else {
-                serial.writeLine("" + (input.temperature()))
-            }
-            if (input.logoIsPressed()) {
-                basic.clearScreen()
-                tool_type = 1
-                game.addScore(1)
-                basic.pause(500)
-            }
-        }
-    }}
-function send_light_level() { //Send light level via serial or bluetooth.
-    graph_var2 = 255
-    while (true) {
-        if (tool_type == 1) {
-            basic.showNumber(input.lightLevel())
-            if (selected_uart == true) {
-                uart_send = "" + input.lightLevel()
-                bluetooth.uartWriteLine(uart_send)
-            } else {
-                serial.writeLine("" + (input.lightLevel()))
-            }
-            if (input.logoIsPressed()) {
-                basic.clearScreen()
-                tool_type = 2
-                game.addScore(1)
-                basic.pause(500)
-            }
-        }
-        if (tool_type == 2) {
-            graph_var1 = input.lightLevel()
-            plot_graph()
-            if (custom_graph == 9) {
-                basic.pause(iter)
-            } else {
-                basic.pause(50)
-            }
-            basic.clearScreen()
-            if (selected_uart == true) {
-                uart_send = "" + input.lightLevel()
-                bluetooth.uartWriteLine(uart_send)
-            } else {
-                serial.writeLine("" + (input.lightLevel()))
-            }
-            if (input.logoIsPressed()) {
-                basic.clearScreen()
-                tool_type = 1
-                game.addScore(1)
-                basic.pause(500)
-            }
-        }
-    }}
-function send_sound_level() { //Send sound level via serial or bluetooth.
-    graph_var2 = 255
-    while (true) {
-        if (tool_type == 1) {
-            basic.showNumber(input.soundLevel())
-            if (selected_uart == true) {
-                uart_send = "" + input.soundLevel()
-                bluetooth.uartWriteLine(uart_send)
-            } else {
-                serial.writeLine("" + (input.soundLevel()))
-            }
-            if (input.logoIsPressed()) {
-                basic.clearScreen()
-                tool_type = 2
-                game.addScore(1)
-                basic.pause(500)
-            }
-        }
-        if (tool_type == 2) {
-            graph_var1 = input.soundLevel()
-            plot_graph()
-            if (custom_graph == 9) {
-                basic.pause(iter)
-            } else {
-                basic.pause(50)
-            }
-            basic.clearScreen()
-            if (selected_uart == true) {
-                uart_send = "" + input.soundLevel()
-                bluetooth.uartWriteLine(uart_send)
-            } else {
-                serial.writeLine("" + (input.soundLevel()))
-            }
-            if (input.logoIsPressed()) {
-                basic.clearScreen()
-                tool_type = 1
-                game.addScore(1)
-                basic.pause(500)
-            }
-        }
-    }}
+
 function send_compass() { //Send compass heading via serial or bluetooth.
     graph_var2 = 360
     while (true) {
@@ -7339,129 +7280,6 @@ function send_compass() { //Send compass heading via serial or bluetooth.
                 bluetooth.uartWriteLine(uart_send)
             } else {
                 serial.writeLine("" + (input.compassHeading()))
-            }
-            if (input.logoIsPressed()) {
-                basic.clearScreen()
-                tool_type = 1
-                game.addScore(1)
-                basic.pause(500)
-            }
-        }
-    }}
-function send_accX() { //Send acceleration(mg) X via serial or bluetooth.
-    graph_var2 = 1023
-    while (true) {
-        if (tool_type == 1) {
-            basic.showNumber(input.acceleration(Dimension.X))
-            if (selected_uart == true) {
-                uart_send = "" + input.acceleration(Dimension.X)
-                bluetooth.uartWriteLine(uart_send)
-            } else {
-                serial.writeLine("" + (input.acceleration(Dimension.X)))
-            }
-            if (input.logoIsPressed()) {
-                basic.clearScreen()
-                tool_type = 2
-                game.addScore(1)
-                basic.pause(500)
-            }
-        }
-        if (tool_type == 2) {
-            graph_var1 = input.acceleration(Dimension.X)
-            plot_graph()
-            if (custom_graph == 9) {
-                basic.pause(iter)
-            } else {
-                basic.pause(50)
-            }
-            basic.clearScreen()
-            if (selected_uart == true) {
-                uart_send = "" + input.acceleration(Dimension.X)
-                bluetooth.uartWriteLine(uart_send)
-            } else {
-                serial.writeLine("" + (input.acceleration(Dimension.X)))
-            }
-            if (input.logoIsPressed()) {
-                basic.clearScreen()
-                tool_type = 1
-                game.addScore(1)
-                basic.pause(500)
-            }
-        }
-    }}
-function send_accY() { //Send acceleration(mg) Y via serial or bluetooth.
-    graph_var2 = 1023
-    while (true) {
-        if (tool_type == 1) {
-            basic.showNumber(input.acceleration(Dimension.Y))
-            if (selected_uart == true) {
-                uart_send = "" + input.acceleration(Dimension.Y)
-                bluetooth.uartWriteLine(uart_send)
-            } else {
-                serial.writeLine("" + (input.acceleration(Dimension.Y)))
-            }
-            if (input.logoIsPressed()) {
-                basic.clearScreen()
-                tool_type = 2
-                game.addScore(1)
-                basic.pause(500)
-            }
-        }
-        if (tool_type == 2) {
-            graph_var1 = input.acceleration(Dimension.Y)
-            plot_graph()
-            if (custom_graph == 9) {
-                basic.pause(iter)
-            } else {
-                basic.pause(50)
-            }
-            basic.clearScreen()
-            if (selected_uart == true) {
-                uart_send = "" + input.acceleration(Dimension.Y)
-                bluetooth.uartWriteLine(uart_send)
-            } else {
-                serial.writeLine("" + (input.acceleration(Dimension.Y)))
-            }
-            if (input.logoIsPressed()) {
-                basic.clearScreen()
-                tool_type = 1
-                game.addScore(1)
-                basic.pause(500)
-            }
-        }
-    }}
-function send_accZ() { //Send acceleration(mg) Z via serial or bluetooth.
-    graph_var2 = 1023
-    while (true) {
-        if (tool_type == 1) {
-            basic.showNumber(input.acceleration(Dimension.Z))
-            if (selected_uart == true) {
-                uart_send = "" + input.acceleration(Dimension.Z)
-                bluetooth.uartWriteLine(uart_send)
-            } else {
-                serial.writeLine("" + (input.acceleration(Dimension.Z)))
-            }
-            if (input.logoIsPressed()) {
-                basic.clearScreen()
-                tool_type = 2
-                game.addScore(1)
-                basic.pause(500)
-            }
-        }
-        if (tool_type == 2) {
-            graph_var1 = input.acceleration(Dimension.Z)
-            plot_graph()
-            if (custom_graph == 9) {
-                basic.pause(iter)
-            } else {
-                basic.pause(50)
-            }
-            basic.clearScreen()
-            if (selected_uart == true) {
-                uart_send = "" + input.acceleration(Dimension.Z)
-                bluetooth.uartWriteLine(uart_send)
-            } else {
-                serial.writeLine("" + (input.acceleration(Dimension.Z)))
             }
             if (input.logoIsPressed()) {
                 basic.clearScreen()
