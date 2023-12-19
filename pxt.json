@@ -10,7 +10,8 @@
         "microturtle": "github:microsoft/pxt-microturtle#v0.0.9",
         "microbit-pxt-timeanddate": "github:bsiever/microbit-pxt-timeanddate#v2.0.33",
         "microbit-pxt-blehid": "github:bsiever/microbit-pxt-blehid#v0.0.24",
-        "microbit-pxt-rotate": "github:bsiever/microbit-pxt-rotate#v0.1.6"
+        "microbit-pxt-rotate": "github:bsiever/microbit-pxt-rotate#v0.1.6",
+        "microbit-pxt-flashstorage": "github:bsiever/microbit-pxt-flashstorage#v0.1.4"
     },
     "files": [
         "main.ts",
@@ -20,7 +21,7 @@
         "test.ts"
     ],
     "targetVersions": {
-        "target": "6.0.25",
+        "target": "6.1.8",
         "targetId": "microbit"
     },
     "supportedTargets": [
