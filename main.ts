@@ -1761,37 +1761,50 @@ function tool_calculator_menu() { //Calculator type selection.
     }}
 function tool_clock_menu() { //Clock type selection.
     while (true) {
-        if (selected_clock == 1) {
-            led.unplot(3, 0)
+        if (selected_clock == 0) {
+            led.unplot(4, 0)
+        } else if (selected_clock == 1) {
+            led.unplot(0, 0)
         } else if (selected_clock == 2) {
             led.unplot(1, 0)
-        } else if (selected_clock == 3) {
+        } else if (selected_clock == 4) {
+            led.unplot(3, 0)
+        } else {
             led.unplot(2, 0)
         }
-        if (selected_clock == 1) {
+        if (selected_clock == 0) {
+            image_back.scrollImage(1, scroll_interval)
+            ckeck_hold_a()
+        } else if (selected_clock == 1) {
             image_signal.scrollImage(1, scroll_interval)
             ckeck_hold_a()
-            } else if (selected_clock == 2) {
+        } else if (selected_clock == 2) {
             image_chronometer.scrollImage(1, scroll_interval)
-            } else if (selected_clock == 3) {
+        } else if (selected_clock == 3) {
             image_timer.scrollImage(1, scroll_interval)
+        } else if (selected_clock == 4) {
+            image_clock.scrollImage(1, scroll_interval)
             ckeck_hold_b()
-            }
+        }
         if (scroll_interval == 1) {
             basic.pause(300)
         }
-        draw_mini_menu()
-        if (selected_clock == 1) {
+        draw_menu()
+        if (selected_clock == 0) {
+            led.plot(0, 0)
+        } else if (selected_clock == 1) {
             led.plot(1, 0)
-        } else if (selected_clock == 2) {
-            led.plot(2, 0)
         } else if (selected_clock == 3) {
             led.plot(3, 0)
+        } else if (selected_clock == 4) {
+            led.plot(4, 0)
+        } else {
+            led.plot(2, 0)
         }
         while (true) {
             if (input.buttonIsPressed(Button.A)) {
-                if (selected_clock == 1) {
-                    selected_clock = 3
+                if (selected_clock == 0) {
+                    selected_clock = 4
                 } else {
                     selected_clock += -1
                 }
@@ -1803,8 +1816,8 @@ function tool_clock_menu() { //Clock type selection.
                 } else {
                     scroll_interval = 1
                 }
-                if (selected_clock == 3) {
-                    selected_clock = 1
+                if (selected_clock == 4) {
+                    selected_clock = 0
                     scroll_interval = 1
                 } else {
                     selected_clock += 1
@@ -1822,8 +1835,10 @@ function tool_clock_menu() { //Clock type selection.
         signal()
     } else if (selected_clock == 2) {
         chronometer()
-    } else {
+    } else if (selected_clock == 3) {
         timer()
+    } else if (selected_clock == 4) {
+        clock()
     }}
 function turtle_main() { //Turtle extension.
     music.setBuiltInSpeakerEnabled(true)
@@ -3361,7 +3376,7 @@ let game_mode = 0
 let selected_tool = 0
 let selected_setting = 0
 let selected_math = 1
-let selected_clock = 1
+let selected_clock = 0
 let tool_type = 1
 let bluetooth_type = 0
 let bluetooth_keyboard_type = 0
@@ -5078,7 +5093,7 @@ function math_xy() { //Calculator with 2 variables // Selected_tool = 9
         basic.showNumber(mathx ** mathy)
     } else if (selected_math == 11) {
         while (true) {
-            if (input.buttonIsPressed(Button.A) || input.buttonIsPressed(Button.B)) {
+            if (input.buttonIsPressed(Button.A) || input.buttonIsPressed(Button.B) || input.logoIsPressed()) {
                 basic.showNumber(randint(mathx, mathy))
             }
             basic.clearScreen()
@@ -5276,7 +5291,7 @@ function signal() { //Signal / Alarm clock // Selected_tool = 10
                     basic.showIcon(IconNames.Yes)
                     music.play(music.stringPlayable("E - E - - E E E ", 1000), music.PlaybackMode.UntilDone)
                     music.play(music.stringPlayable("- E - E E E - - ", 1000), music.PlaybackMode.UntilDone)
-                    if (input.buttonIsPressed(Button.A) || input.buttonIsPressed(Button.B)) {
+                    if (input.buttonIsPressed(Button.A) || input.buttonIsPressed(Button.B) || input.logoIsPressed()) {
                         control.reset()
                     }
                     if (input.logoIsPressed()) {
@@ -5458,7 +5473,7 @@ function timer() { // Timer // Selected_tool = 10
                         basic.showIcon(IconNames.Yes)
                         music.play(music.stringPlayable("E - E - - E E E ", 1000), music.PlaybackMode.UntilDone)
                         music.play(music.stringPlayable("- E - E E E - - ", 1000), music.PlaybackMode.UntilDone)
-                        if (input.buttonIsPressed(Button.A) || input.buttonIsPressed(Button.B)) {
+                        if (input.buttonIsPressed(Button.A) || input.buttonIsPressed(Button.B) || input.logoIsPressed()) {
                             control.reset()
                         }
                         if (input.logoIsPressed()) {
@@ -5483,6 +5498,148 @@ function timer() { // Timer // Selected_tool = 10
             }
         } else {
             second += -1
+        }
+    }}
+function clock() { // Clock // Selected_tool = 10
+    basic.clearScreen()
+    music.setBuiltInSpeakerEnabled(true)
+    basic.pause(200)
+    basic.showString("H")
+    basic.clearScreen()
+    hour = 0
+    minute = 0
+    second = 0
+    num = 0
+    number_select = true
+    while (number_select == true) {
+        if (input.buttonIsPressed(Button.A)) {
+            if (num == 0) {
+                num = 9
+            } else {
+                num += -1
+            }
+        }
+        if (input.buttonIsPressed(Button.B)) {
+            if (num == 9) {
+                num = 0
+            } else {
+                num += 1
+            }
+        }
+        if (input.logoIsPressed()) {
+            music.play(music.tonePlayable(349, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
+            list.push(numberlist[num])
+            basic.showIcon(IconNames.Yes)
+        }
+        if (input.buttonIsPressed(Button.AB)) {
+            if (list.length == 1) {
+                hour = list[0]
+            } else if (list.length == 2) {
+                hour = list[0] * 10 + list[1]
+            } else {
+                basic.showIcon(IconNames.No)
+            }
+            number_select = false
+        }
+        unid_if_0_9()
+    }
+    basic.clearScreen()
+    basic.pause(200)
+    basic.showString("M")
+    basic.clearScreen()
+    num = 0
+    list = []
+    number_select = true
+    while (number_select == true) {
+        if (input.buttonIsPressed(Button.A)) {
+            if (num == 0) {
+                num = 9
+            } else {
+                num += -1
+            }
+        }
+        if (input.buttonIsPressed(Button.B)) {
+            if (num == 9) {
+                num = 0
+            } else {
+                num += 1
+            }
+        }
+        if (input.logoIsPressed()) {
+            music.play(music.tonePlayable(349, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
+            list.push(numberlist[num])
+            basic.showIcon(IconNames.Yes)
+        }
+        if (input.buttonIsPressed(Button.AB)) {
+            if (list.length == 1) {
+                minute = list[0]
+            } else if (list.length == 2) {
+                minute = list[0] * 10 + list[1]
+            } else {
+                basic.showIcon(IconNames.No)
+            }
+            number_select = false
+        }
+        unid_if_0_9()
+    }
+    basic.clearScreen()
+    basic.pause(200)
+    basic.showString("S")
+    basic.clearScreen()
+    num = 0
+    list = []
+    number_select = true
+    while (number_select == true) {
+        if (input.buttonIsPressed(Button.A)) {
+            if (num == 0) {
+                num = 9
+            } else {
+                num += -1
+            }
+        }
+        if (input.buttonIsPressed(Button.B)) {
+            if (num == 9) {
+                num = 0
+            } else {
+                num += 1
+            }
+        }
+        if (input.logoIsPressed()) {
+            music.play(music.tonePlayable(349, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
+            list.push(numberlist[num])
+            basic.showIcon(IconNames.Yes)
+        }
+        if (input.buttonIsPressed(Button.AB)) {
+            if (list.length == 1) {
+                second = list[0]
+            } else if (list.length == 2) {
+                second = list[0] * 10 + list[1]
+            } else {
+                basic.showIcon(IconNames.No)
+            }
+            number_select = false
+        }
+        unid_if_0_9()
+    }
+    basic.clearScreen()
+    timeanddate.set24HourTime(hour, minute, second)
+    while (true) {
+        timeanddate.advanceBy(100, timeanddate.TimeUnit.Milliseconds)
+        basic.pause(100)
+        if (input.buttonIsPressed(Button.A) || input.buttonIsPressed(Button.B) || input.logoIsPressed()) {
+            basic.showString(timeanddate.time(timeanddate.TimeFormat.HHMMSS24hr))
+            for (let index = 0; index < 8; index++) {
+                timeanddate.advanceBy(100, timeanddate.TimeUnit.Milliseconds)
+                timeanddate.advanceBy(100, timeanddate.TimeUnit.Milliseconds)
+                timeanddate.advanceBy(100, timeanddate.TimeUnit.Milliseconds)
+                timeanddate.advanceBy(100, timeanddate.TimeUnit.Milliseconds)
+                timeanddate.advanceBy(100, timeanddate.TimeUnit.Milliseconds)
+                timeanddate.advanceBy(100, timeanddate.TimeUnit.Milliseconds)
+                timeanddate.advanceBy(100, timeanddate.TimeUnit.Milliseconds)
+                timeanddate.advanceBy(100, timeanddate.TimeUnit.Milliseconds)
+                timeanddate.advanceBy(100, timeanddate.TimeUnit.Milliseconds)
+                timeanddate.advanceBy(100, timeanddate.TimeUnit.Milliseconds)
+            }
         }
     }}
 function bluetooth_media() { //Control media via bluetooth.
@@ -5977,7 +6134,7 @@ function create_strig() { //Create a temp-saved string.
         . # # # .
         . . . . .
         `)
-        if (input.buttonIsPressed(Button.A) || input.buttonIsPressed(Button.B)) {
+        if (input.buttonIsPressed(Button.A) || input.buttonIsPressed(Button.B) || input.logoIsPressed()) {
             basic.showString(text)
         }
     }}
@@ -6038,7 +6195,7 @@ function create_number() { //Create a temp-saved number.
         . # # # .
         . . . . .
         `)
-        if (input.buttonIsPressed(Button.A) || input.buttonIsPressed(Button.B)) {
+        if (input.buttonIsPressed(Button.A) || input.buttonIsPressed(Button.B) || input.logoIsPressed()) {
             basic.showNumber(number_send)
         }
     }}
@@ -6125,7 +6282,7 @@ function create_image() { //Create a temp-saved image.
         . # # # .
         . . . . .
         `)
-        if (input.buttonIsPressed(Button.A) || input.buttonIsPressed(Button.B)) {
+        if (input.buttonIsPressed(Button.A) || input.buttonIsPressed(Button.B) || input.logoIsPressed()) {
             while (true) {
                 if (turtle_input[0] == 0) {
                     turtle.turnLeft()
