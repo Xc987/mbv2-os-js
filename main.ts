@@ -759,7 +759,7 @@ function ckeck_hold_b() { //Check if button B is held.
             break;
         }
     }}
-function plot_graph() {
+function plot_graph() { //Plot a bar graph system/custom.
     if (custom_graph == 1) {
         led.plotBarGraph(graph_var1, graph_var2)
     } else {
@@ -785,7 +785,7 @@ function plot_graph() {
             procbar()
         }
     }}
-function bar_c() {
+function bar_c() { //System bar graph, for 7600> lines or more.
     led.plot(2, 4)
     if (proc >= 6.5) {
         led.plot(2, 4)
@@ -841,9 +841,8 @@ function bar_c() {
     if (proc >= 98) {
         led.plot(0, 0)
         led.plot(4, 0)
-    }
-}
-function blob() {
+    }}
+function blob() { //Custom bar graph, blob.
     led.plot(2, 2)
     if (proc >= 12.5) {
         led.plot(2, 2)
@@ -886,9 +885,8 @@ function blob() {
         led.plot(4, 0)
         led.plot(4, 4)
         led.plot(0, 4)
-    }
-}
-function spiral() {
+    }}
+function spiral() { //Custom bar graph, spiral/snake.
     led.plot(2, 2)
     if (proc >= 4) {
         led.plot(2, 2)
@@ -964,9 +962,8 @@ function spiral() {
     }
     if (proc >= 99) {
         led.plot(0, 0)
-    }
-}
-function speedometer() {
+    }}
+function speedometer() { //Custom bar graph, speedometer.
     led.plot(2, 2)
     if (proc <= 6.5 && proc < 7) {
         led.plot(1, 3)
@@ -1013,9 +1010,8 @@ function speedometer() {
     } else if (proc <= 99.9 || proc == 100) {
         led.plot(3, 3)
         led.plot(3, 4)
-    }
-}
-function wave() {
+    }}
+function wave() { //Custom bar graph, wave.
     led.plot(0, 4)
     if (proc >= 4) {
         led.plot(1, 4)
@@ -1091,9 +1087,8 @@ function wave() {
     }
     if (proc >= 99) {
         led.plot(4, 0)
-    }
-}
-function signal_bar() {
+    }}
+function signal_bar() { //Custom bar graph, signal bar.
     led.plot(0, 4)
     if (proc >= 20) {
         led.plot(0, 4)
@@ -1119,9 +1114,8 @@ function signal_bar() {
         led.plot(4, 2)
         led.plot(4, 3)
         led.plot(4, 4)
-    }
-}
-function needle() {
+    }}
+function needle() { //Custom bar graph, needle.
     led.plot(0, 4)
     if (proc <= 6.25 && proc < 7) {
         led.plot(1, 4)
@@ -1203,9 +1197,8 @@ function needle() {
         led.plot(0, 2)
         led.plot(0, 1)
         led.plot(0, 0)
-    }
-}
-function procbar() {
+    }}
+function procbar() { //Custom bar graph, procbar.
     if (proc <= 20 && proc < 21) {
         startpos = 4
         led.plot(4, 4)
@@ -1264,8 +1257,7 @@ function procbar() {
     if (input.buttonIsPressed(Button.B)) {
         iter += 5
         music.play(music.tonePlayable(523, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
-    }
-}
+    }}
 function menu_select_menu() { //Menu selection at the start.
     while (true) {
         if (selected_menu == 1) {
@@ -2759,7 +2751,7 @@ function data_logging_freq_menu() { //Data logging freq selection
     if (logging_freq == 0) {
         menu_select_menu()
     }}
-function data_logger_menu() { 
+function data_logger_menu() {  //Log input data.
     while (true) {
         if (selected_log_tool == 0) {
             led.unplot(4, 0)
@@ -2934,7 +2926,7 @@ function settings_select_menu() { //Settings selection.
             if (logged_data == 0) {
                 image_log.scrollImage(1, scroll_interval)
             } else {
-                basic.showIcon(IconNames.Yes)
+                image_yes.scrollImage(1, scroll_interval)
             }
         } else if (selected_setting == 5) {
             image_compass.scrollImage(1, scroll_interval)
@@ -3038,7 +3030,7 @@ function settings_select_menu() { //Settings selection.
                 } else if (selected_setting == 4) {
                     if (logged_data == 0) {
                         logged_data = 1
-                        basic.showIcon(IconNames.Yes)
+                        image_yes.scrollImage(1, scroll_interval)
                         datalogger.deleteLog(datalogger.DeleteType.Full)
                         datalogger.includeTimestamp(FlashLogTimeStampFormat.Minutes)
                         datalogger.setColumnTitles("Space Invaders", "Flappy Bird", "Pong", "Cars Game", "Dinasour Game", "Jumping Rope", "Pac-Man")
@@ -4002,6 +3994,12 @@ let image_procbar = images.createImage(`
     . . . . .
     . # # . #
     # . . # .`)
+let image_yes = images.createImage(`
+    . . . . .
+    . . . . #
+    . . . # .
+    # . # . .
+    . # . . .`)
 let image_blank = images.createImage(`
     . . . . .
     . . . . .
