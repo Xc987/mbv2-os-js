@@ -85,75 +85,75 @@ function waiting_for_connection() { //Waiting for the bluetooth connection.
 function unid_if_0_9() { //Function to draw numbers from 0 to 9
     unid = num
     if (unid == 0) {
-        basic.showLeds(`
+        images.createImage(`
             . # # # .
             . # . # .
             . # . # .
             . # . # .
-            . # # # .`)
+            . # # # .`).scrollImage(1, scroll_interval)
     } else if (unid == 1) {
-        basic.showLeds(`
+        images.createImage(`
             . . . # .
             . . # # .
             . . . # .
             . . . # .
-            . . . # .`)
+            . . . # .`).scrollImage(1, scroll_interval)
     } else if (unid == 2) {
-        basic.showLeds(`
+        images.createImage(`
             . # # # .
             . . . # .
             . # # # .
             . # . . .
-            . # # # .`)
+            . # # # .`).scrollImage(1, scroll_interval)
     } else if (unid == 3) {
-        basic.showLeds(`
+        images.createImage(`
             . # # # .
             . . . # .
             . # # # .
             . . . # .
-            . # # # .`)
+            . # # # .`).scrollImage(1, scroll_interval)
     } else if (unid == 4) {
-        basic.showLeds(`
+        images.createImage(`
             . # . # .
             . # . # .
             . # # # .
             . . . # .
-            . . . # .`)
+            . . . # .`).scrollImage(1, scroll_interval)
     } else if (unid == 5) {
-        basic.showLeds(`
+        images.createImage(`
             . # # # .
             . # . . .
             . # # # .
             . . . # .
-            . # # # .`)
+            . # # # .`).scrollImage(1, scroll_interval)
     } else if (unid == 6) {
-        basic.showLeds(`
+        images.createImage(`
             . # # # .
             . # . . .
             . # # # .
             . # . # .
-            . # # # .`)
+            . # # # .`).scrollImage(1, scroll_interval)
     } else if (unid == 7) {
-        basic.showLeds(`
+        images.createImage(`
             . # # # .
             . . . # .
             . . . # .
             . . . # .
-            . . . # .`)
+            . . . # .`).scrollImage(1, scroll_interval)
     } else if (unid == 8) {
-        basic.showLeds(`
+        images.createImage(`
             . # # # .
             . # . # .
             . # # # .
             . # . # .
-            . # # # .`)
+            . # # # .`).scrollImage(1, scroll_interval)
     } else if (unid == 9) {
-        basic.showLeds(`
+        images.createImage(`
             . # # # .
             . # . # .
             . # # # .
             . . . # .
-            . # # # .`)
+            . # # # .`).scrollImage(1, scroll_interval)
     }}
 function unid_if_1_23() { //Function to draw numbers from 0 to 55 (1-23)
     if (unid_type == 1) {
@@ -170,570 +170,542 @@ function unid_if_1_23() { //Function to draw numbers from 0 to 55 (1-23)
         unid = signal_minute
     }
     if (unid == 1) {
-        basic.showLeds(`
+        images.createImage(`
             . . . # .
             . . # # .
             . . . # .
             . . . # .
-            . . . # .`)
+            . . . # .`).scrollImage(1, scroll_interval)
     } else if (unid == 2) {
-        basic.showLeds(`
+        images.createImage(`
             . # # # .
             . . . # .
             . # # # .
             . # . . .
-            . # # # .`)
+            . # # # .`).scrollImage(1, scroll_interval)
     } else if (unid == 3) {
-        basic.showLeds(`
+        images.createImage(`
             . # # # .
             . . . # .
             . # # # .
             . . . # .
-            . # # # .`)
+            . # # # .`).scrollImage(1, scroll_interval)
     } else if (unid == 4) {
-        basic.showLeds(`
+        images.createImage(`
             . # . # .
             . # . # .
             . # # # .
             . . . # .
-            . . . # .`)
+            . . . # .`).scrollImage(1, scroll_interval)
     } else if (unid == 5) {
-        basic.showLeds(`
+        images.createImage(`
             . # # # .
             . # . . .
             . # # # .
             . . . # .
-            . # # # .`)
+            . # # # .`).scrollImage(1, scroll_interval)
     } else if (unid == 6) {
-        basic.showLeds(`
+        images.createImage(`
             . # # # .
             . # . . .
             . # # # .
             . # . # .
-            . # # # .`)
+            . # # # .`).scrollImage(1, scroll_interval)
     } else if (unid == 7) {
-        basic.showLeds(`
+        images.createImage(`
             . # # # .
             . . . # .
             . . . # .
             . . . # .
-            . . . # .`)
+            . . . # .`).scrollImage(1, scroll_interval)
     } else if (unid == 8) {
-        basic.showLeds(`
+        images.createImage(`
             . # # # .
             . # . # .
             . # # # .
             . # . # .
-            . # # # .`)
+            . # # # .`).scrollImage(1, scroll_interval)
     } else if (unid == 9) {
-        basic.showLeds(`
+        images.createImage(`
             . # # # .
             . # . # .
             . # # # .
             . . . # .
-            . # # # .`)
+            . # # # .`).scrollImage(1, scroll_interval)
     } else if (unid == 10) {
-        basic.showLeds(`
+        images.createImage(`
             # . # # #
             # . # . #
             # . # . #
             # . # . #
-            # . # # #`)
+            # . # # #`).scrollImage(1, scroll_interval)
     } else if (unid == 11) {
-        basic.showLeds(`
+        images.createImage(`
             # . . . #
             # . . # #
             # . . . #
             # . . . #
-            # . . . #`)
+            # . . . #`).scrollImage(1, scroll_interval)
     } else if (unid == 12) {
-        basic.showLeds(`
+        images.createImage(`
             # . # # #
             # . . . #
             # . # # #
             # . # . .
-            # . # # #`)
+            # . # # #`).scrollImage(1, scroll_interval)
     } else if (unid == 13) {
-        basic.showLeds(`
+        images.createImage(`
             # . # # #
             # . . . #
             # . # # #
             # . . . #
-            # . # # #`)
+            # . # # #`).scrollImage(1, scroll_interval)
     } else if (unid == 14) {
-        basic.showLeds(`
+        images.createImage(`
             # . # . #
             # . # . #
             # . # # #
             # . . . #
-            # . . . #`)
+            # . . . #`).scrollImage(1, scroll_interval)
     } else if (unid == 15) {
-        basic.showLeds(`
+        images.createImage(`
             # . # # #
             # . # . .
             # . # # #
             # . . . #
-            # . # # #`)
+            # . # # #`).scrollImage(1, scroll_interval)
     } else if (unid == 16) {
-        basic.showLeds(`
+        images.createImage(`
             # . # # #
             # . # . .
             # . # # #
             # . # . #
-            # . # # #`)
+            # . # # #`).scrollImage(1, scroll_interval)
     } else if (unid == 17) {
-        basic.showLeds(`
+        images.createImage(`
             # . # # #
             # . . . #
             # . . . #
             # . . . #
-            # . . . #`)
+            # . . . #`).scrollImage(1, scroll_interval)
     } else if (unid == 18) {
-        basic.showLeds(`
+        images.createImage(`
             # . # # #
             # . # . #
             # . # # #
             # . # . #
-            # . # # #`)
+            # . # # #`).scrollImage(1, scroll_interval)
     } else if (unid == 19) {
-        basic.showLeds(`
+        images.createImage(`
             # . # # #
             # . # . #
             # . # # #
             # . . . #
-            # . # # #`)
+            # . # # #`).scrollImage(1, scroll_interval)
     } else if (unid == 20) {
-        basic.showLeds(`
+        images.createImage(`
             # # # # #
             . # # . #
             # # # . #
             # . # . #
-            # # # # #`)
+            # # # # #`).scrollImage(1, scroll_interval)
     } else if (unid == 0) {
-        basic.showLeds(`
+        images.createImage(`
             . # # # .
             . # . # .
             . # . # .
             . # . # .
-            . # # # .`)
-    } else if (unid == 5) {
-        basic.showLeds(`
-            . # # # .
-            . # . . .
-            . # # # .
-            . . . # .
-            . # # # .`)
-    } else if (unid == 10) {
-        basic.showLeds(`
-            # . # # #
-            # . # . #
-            # . # . #
-            # . # . #
-            # . # # #`)
-    } else if (unid == 15) {
-        basic.showLeds(`
-            # . . # #
-            # . . # .
-            # . . # #
-            # . . . #
-            # . . # #`)
-    } else if (unid == 20) {
-        basic.showLeds(`
-            # # # # #
-            . # # . #
-            # # # . #
-            # . # . #
-            # # # # #`)
+            . # # # .`).scrollImage(1, scroll_interval)
     } else if (unid == 25) {
-        basic.showLeds(`
+        images.createImage(`
             # # . # #
             . # . # .
             # # . # #
             # . . . #
-            # # . # #`)
+            # # . # #`).scrollImage(1, scroll_interval)
     } else if (unid == 30) {
-        basic.showLeds(`
+        images.createImage(`
             # # # # #
             . # # . #
             # # # . #
             . # # . #
-            # # # # #`)
+            # # # # #`).scrollImage(1, scroll_interval)
     } else if (unid == 35) {
-        basic.showLeds(`
+        images.createImage(`
             # # . # #
             . # . # .
             # # . # #
             . # . . #
-            # # . # #`)
+            # # . # #`).scrollImage(1, scroll_interval)
     } else if (unid == 40) {
-        basic.showLeds(`
+        images.createImage(`
             # . # # #
             # . # . #
             # # # . #
             . # # . #
-            . # # # #`)
+            . # # # #`).scrollImage(1, scroll_interval)
     } else if (unid == 45) {
-        basic.showLeds(`
+        images.createImage(`
             # . . # #
             # . . # .
             # # . # #
             . # . . #
-            . # . # #`)
+            . # . # #`).scrollImage(1, scroll_interval)
     } else if (unid == 50) {
-        basic.showLeds(`
+        images.createImage(`
             # # # # #
             # . # . #
             # # # . #
             . # # . #
-            # # # # #`)
+            # # # # #`).scrollImage(1, scroll_interval)
     } else if (unid == 55) {
-        basic.showLeds(`
+        images.createImage(`
             # # . # #
             # . . # .
             # # . # #
             . # . . #
-            # # . # #`)
+            # # . # #`).scrollImage(1, scroll_interval)
     } else if (unid == 21) {
-        basic.showLeds(`
+        images.createImage(`
             # # . . #
             . # . # #
             # # . . #
             # . . . #
-            # # . . #`)
+            # # . . #`).scrollImage(1, scroll_interval)
     } else if (unid == 22) {
-        basic.showLeds(`
+        images.createImage(`
             # # . # #
             . # . . #
             # # . # #
             # . . # .
-            # # . # #`)
+            # # . # #`).scrollImage(1, scroll_interval)
     } else if (unid == 23) {
-        basic.showLeds(`
+        images.createImage(`
             # # . # #
             . # . . #
             # # . # #
             # . . . #
-            # # . # #`)
+            # # . # #`).scrollImage(1, scroll_interval)
     }}
 function unid_if_1_4() { //Function to draw numbers from 1 to 4
     if (num == 1) {
-        basic.showLeds(`
+        images.createImage(`
             . . . # .
             . . # # .
             . . . # .
             . . . # .
-            . . . # .`)
+            . . . # .`).scrollImage(1, scroll_interval)
     } else if (num == 2) {
-        basic.showLeds(`
+        images.createImage(`
             # . . # #
             # . . . #
             # . . # #
             # . . # .
-            # . . # #`)
+            # . . # #`).scrollImage(1, scroll_interval)
     } else if (num == 3) {
-        basic.showLeds(`
+        images.createImage(`
             # . # . #
             # . # . #
             # . # # #
             # . . . #
-            # . . . #`)
+            # . . . #`).scrollImage(1, scroll_interval)
     } else if (num == 4) {
-        basic.showLeds(`
+        images.createImage(`
             # . # # #
             # . # . #
             # . # # #
             # . # . #
-            # . # # #`)
+            # . # # #`).scrollImage(1, scroll_interval)
     } else if (num == 5) {
-        basic.showLeds(`
+        images.createImage(`
             # . # # #
             # . # . .
             # . # # #
             # . # . #
-            # . # # #`)
+            # . # # #`).scrollImage(1, scroll_interval)
     } else if (num == 6) {
-        basic.showLeds(`
+        images.createImage(`
             . # # # .
             . . . # .
             . # # # .
             . # . . .
-            . # # # .`)
+            . # # # .`).scrollImage(1, scroll_interval)
     } else if (num == 7) {
-        basic.showLeds(`
+        images.createImage(`
             . # . # .
             . # . # .
             . # # # .
             . . . # .
-            . . . # .`)
+            . . . # .`).scrollImage(1, scroll_interval)
     }}
 function usid_if() { //Function to draw letters from a to "?"
     usid = abc_id
     if (usid == 1) {
-        basic.showLeds(`
+        images.createImage(`
                 . . . . .
                 . # # # .
                 # . . # .
                 # . . # .
-                . # # # #`)
+                . # # # #`).scrollImage(1, scroll_interval)
     } else if (usid == 2) {
-        basic.showLeds(`
+        images.createImage(`
                 . # # # .
                 . . . . .
                 . # # # .
                 # . . # .
-                . # # # #`)
+                . # # # #`).scrollImage(1, scroll_interval)
     } else if (usid == 3) {
-        basic.showLeds(`
+        images.createImage(`
                 # . . . .
                 # . . . .
                 # # # . .
                 # . . # .
-                # # # . .`)
+                # # # . .`).scrollImage(1, scroll_interval)
     } else if (usid == 4) {
-        basic.showLeds(`
+        images.createImage(`
                 . . . . .
                 . # # . .
                 # . . . .
                 # . . . .
-                . # # . .`)
+                . # # . .`).scrollImage(1, scroll_interval)
     } else if (usid == 5) {
-        basic.showLeds(`
+        images.createImage(`
                 . # . . .
                 . . . . .
                 . # # . .
                 # . . . .
-                . # # . .`)
+                . # # . .`).scrollImage(1, scroll_interval)
     } else if (usid == 6) {
-        basic.showLeds(`
+        images.createImage(`
                 . . . # .
                 . . . # .
                 . # # # .
                 # . . # .
-                . # # # .`)
+                . # # # .`).scrollImage(1, scroll_interval)
     } else if (usid == 7) {
-        basic.showLeds(`
+        images.createImage(`
                 . # # . .
                 # . . # .
                 # # # . .
                 # . . . .
-                . # # # .`)
+                . # # # .`).scrollImage(1, scroll_interval)
     } else if (usid == 8) {
-        basic.showLeds(`
+        images.createImage(`
                 # # # . #
                 # . . . #
                 # # # . #
                 # . . . .
-                # # # . .`)
+                # # # . .`).scrollImage(1, scroll_interval)
     } else if (usid == 9) {
-        basic.showLeds(`
+        images.createImage(`
                 . . # # .
                 . # . . .
                 # # # . .
                 . # . . .
-                . # . . .`)
+                . # . . .`).scrollImage(1, scroll_interval)
     } else if (usid == 10) {
-        basic.showLeds(`
+        images.createImage(`
                 . # # # .
                 # . . # .
                 . # # # .
                 . . . # .
-                . # # . .`)
+                . # # . .`).scrollImage(1, scroll_interval)
     } else if (usid == 11) {
-        basic.showLeds(`
+        images.createImage(`
                 # # # . #
                 # . . . .
                 # . # # .
                 # . . # .
-                # # # # .`)
+                # # # # .`).scrollImage(1, scroll_interval)
     } else if (usid == 12) {
-        basic.showLeds(`
+        images.createImage(`
                 # . . . .
                 # . . . .
                 # # # . .
                 # . . # .
-                # . . # .`)
+                # . . # .`).scrollImage(1, scroll_interval)
     } else if (usid == 13) {
-        basic.showLeds(`
+        images.createImage(`
                 . . # . .
                 . . . . .
                 . . # . .
                 . . # . .
-                . . # . .`)
+                . . # . .`).scrollImage(1, scroll_interval)
     } else if (usid == 14) {
-        basic.showLeds(`
+        images.createImage(`
                 . # # # .
                 . . . . .
                 . . # . .
                 . . # . .
-                . . # . .`)
+                . . # . .`).scrollImage(1, scroll_interval)
     } else if (usid == 15) {
-        basic.showLeds(`
+        images.createImage(`
                 . . # . .
                 . . . . .
                 . . # . .
                 . . # . .
-                # # . . .`)
+                # # . . .`).scrollImage(1, scroll_interval)
     } else if (usid == 16) {
-        basic.showLeds(`
+        images.createImage(`
                 # . . . .
                 # . # . .
                 # # . . .
                 # . # . .
-                # . . # .`)
+                # . . # .`).scrollImage(1, scroll_interval)
     } else if (usid == 17) {
-        basic.showLeds(`
+        images.createImage(`
                 # . . . .
                 # . # . .
                 # # . . #
                 # . # . .
-                # . . # .`)
+                # . . # .`).scrollImage(1, scroll_interval)
     } else if (usid == 18) {
-        basic.showLeds(`
+        images.createImage(`
                 . # . . .
                 . # . . .
                 . # . . .
                 . # . . .
-                . # # # .`)
+                . # # # .`).scrollImage(1, scroll_interval)
     } else if (usid == 19) {
-        basic.showLeds(`
+        images.createImage(`
                 . # . . #
                 . # . . .
                 . # . . .
                 . # . . .
-                . # # # .`)
+                . # # # .`).scrollImage(1, scroll_interval)
     } else if (usid == 20) {
-        basic.showLeds(`
+        images.createImage(`
                 . . . . .
                 # # . # #
                 # . # . #
                 # . . . #
-                # . . . #`)
+                # . . . #`).scrollImage(1, scroll_interval)
     } else if (usid == 21) {
-        basic.showLeds(`
+        images.createImage(`
                 . . . . .
                 # # # . .
                 # . . # .
                 # . . # .
-                # . . # .`)
+                # . . # .`).scrollImage(1, scroll_interval)
     } else if (usid == 22) {
-        basic.showLeds(`
+        images.createImage(`
                 . . . . #
                 # # # . .
                 # . . # .
                 # . . # .
-                # . . # .`)
+                # . . # .`).scrollImage(1, scroll_interval)
     } else if (usid == 23) {
-        basic.showLeds(`
+        images.createImage(`
                 . . . . .
                 . # # . .
                 # . . # .
                 # . . # .
-                . # # . .`)
+                . # # . .`).scrollImage(1, scroll_interval)
     } else if (usid == 24) {
-        basic.showLeds(`
+        images.createImage(`
                 . . . . .
                 # # # . .
                 # . . # .
                 # # # . .
-                # . . . .`)
+                # . . . .`).scrollImage(1, scroll_interval)
     } else if (usid == 25) {
-        basic.showLeds(`
+        images.createImage(`
                 . . . . .
                 # . # # .
                 # # . . .
                 # . . . .
-                # . . . .`)
+                # . . . .`).scrollImage(1, scroll_interval)
     } else if (usid == 26) {
-        basic.showLeds(`
+        images.createImage(`
                 . . . . .
                 . . # # .
                 . # . . .
                 . . # . .
-                # # . . .`)
+                # # . . .`).scrollImage(1, scroll_interval)
     } else if (usid == 27) {
-        basic.showLeds(`
+        images.createImage(`
                 # . . . .
                 . . # # .
                 . # . . .
                 . . # . .
-                # # . . .`)
+                # # . . .`).scrollImage(1, scroll_interval)
     } else if (usid == 28) {
-        basic.showLeds(`
+        images.createImage(`
                 . # . . .
                 . # . . .
                 . # # # .
                 . # . . .
-                . . # # .`)
+                . . # # .`).scrollImage(1, scroll_interval)
     } else if (usid == 29) {
-        basic.showLeds(`
+        images.createImage(`
                 . . . . .
                 # . . # .
                 # . . # .
                 # . . # .
-                . # # # #`)
+                . # # # #`).scrollImage(1, scroll_interval)
     } else if (usid == 30) {
-        basic.showLeds(`
+        images.createImage(`
                 . # # . .
                 . . . . .
                 # . . # .
                 # . . # .
-                . # # # #`)
+                . # # # #`).scrollImage(1, scroll_interval)
     } else if (usid == 31) {
-        basic.showLeds(`
+        images.createImage(`
                 . . . . .
                 # . . . #
                 # . . . #
                 . # . # .
-                . . # . .`)
+                . . # . .`).scrollImage(1, scroll_interval)
     } else if (usid == 32) {
-        basic.showLeds(`
+        images.createImage(`
                 . . . . .
                 # # # # .
                 . . # . .
                 . # . . .
-                # # # # .`)
+                # # # # .`).scrollImage(1, scroll_interval)
     } else if (usid == 33) {
-        basic.showLeds(`
+        images.createImage(`
                 . . . . #
                 # # # # .
                 . . # . .
                 . # . . .
-                # # # # .`)
+                # # # # .`).scrollImage(1, scroll_interval)
     } else if (usid == 34) {
-        basic.showLeds(`
+        images.createImage(`
                 . . . . .
                 . . . . .
                 # . . . #
                 # # # # #
-                . . . . .`)
+                . . . . .`).scrollImage(1, scroll_interval)
     } else if (usid == 35) {
-        basic.showLeds(`
+        images.createImage(`
                 . . . . .
                 . . . . .
                 . . . . .
                 . . # . .
-                . . . . .`)
+                . . . . .`).scrollImage(1, scroll_interval)
     } else if (usid == 36) {
-        basic.showLeds(`
+        images.createImage(`
                 . . . . .
                 . . . . .
                 . . . . .
                 . . # . .
-                . # . . .`)
+                . # . . .`).scrollImage(1, scroll_interval)
     } else if (usid == 37) {
-        basic.showLeds(`
+        images.createImage(`
                 . . # . .
                 . . # . .
                 . . # . .
                 . . . . .
-                . . # . .`)
+                . . # . .`).scrollImage(1, scroll_interval)
     } else {
-        basic.showLeds(`
+        images.createImage(`
                 . # # # .
                 # . . . #
                 . . # # .
                 . . . . .
-                . . # . .`)
+                . . # . .`).scrollImage(1, scroll_interval)
     }}
 function uckb_if() { //Function to map keyboard buttons to input buttons.
     let kblist = ["NUL","a", "a", "b", "c", "c", "d", "e", "e", "f", "g", "g", "h", "i", "i", "j", "k", "k", "l", "l", "m", "n", "n", "o", "p", "r", "s", "s", "t", "u", "u", "v", "z", "z", " ", ".", ",", "!", "?"]
@@ -1373,7 +1345,7 @@ function game_select_menu() { //Game selection.
             led.unplot(0, 0)
         } else if (game_mode == 2) {
             led.unplot(1, 0)
-        } else if (game_mode == 10) {
+        } else if (game_mode == 9) {
             led.unplot(3, 0)
         } else {
             led.unplot(2, 0)
@@ -1399,8 +1371,6 @@ function game_select_menu() { //Game selection.
             image_tetris.scrollImage(1, scroll_interval)
             } else if (game_mode == 9) {
             image_ttt.scrollImage(1, scroll_interval)
-            } else if (game_mode == 10) {
-            image_cards.scrollImage(1, scroll_interval)
             ckeck_hold_b()
             }
         if (scroll_interval == 1) {
@@ -1411,9 +1381,9 @@ function game_select_menu() { //Game selection.
             led.plot(0, 0)
         } else if (game_mode == 1) {
             led.plot(1, 0)
-        } else if (game_mode == 9) {
+        } else if (game_mode == 8) {
             led.plot(3, 0)
-        } else if (game_mode == 10) {
+        } else if (game_mode == 9) {
             led.plot(4, 0)
         } else {
             led.plot(2, 0)
@@ -1421,7 +1391,7 @@ function game_select_menu() { //Game selection.
         while (true) {
             if (input.buttonIsPressed(Button.A)) {
                 if (game_mode == 0) {
-                    game_mode = 10
+                    game_mode = 9
                 } else {
                     game_mode += -1
                 }
@@ -1433,7 +1403,7 @@ function game_select_menu() { //Game selection.
                 } else {
                     scroll_interval = 1
                 }
-                if (game_mode == 10) {
+                if (game_mode == 9) {
                     game_mode = 0
                     scroll_interval = 1
                 } else {
@@ -1503,8 +1473,6 @@ function game_select_menu() { //Game selection.
         control.reset()
     } else if (game_mode == 9) {
         game_mode_9()
-    } else if (game_mode == 10) {
-        blackjack()
     }}
 
 function tool_select_menu() { //Tool selection.
@@ -2638,7 +2606,7 @@ function send_type_select_menu() { //Send types selection.
     } else if (selected_serial_send == 1) {
         send_input()
     } else if (selected_serial_send == 9) {
-        send_numer()
+        send_number()
     } else if (selected_serial_send == 10) {
         send_string()
     } else {
@@ -3430,11 +3398,10 @@ let numbery: number[] = []
 let mathx = 0
 let mathy = 0
 let waiting_for_input = true
-let number_select = false
 let running = false
 let captured = ""
 let crhonometer_run = false
-let animation_scroll = parseFloat(flashstorage.getOrDefault("scroll", "1"))
+let animation_scroll = 1
 let unid = 0
 let usid = 0
 let num = 0
@@ -3444,7 +3411,6 @@ let second = 0
 let signal_hour = 0
 let signal_minute = 0
 let unid_type = 0
-let vrs = input.lightLevel()
 let bluetooth_online = false
 let x = 0
 let y = 0
@@ -3485,6 +3451,8 @@ let iter = 50
 let stage = 0
 let startpos = 0
 let p2press = parseFloat(flashstorage.getOrDefault("p2p", "1"))
+let num_list = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+let symb_list = [")", "!", "@", "#", "$", "%", "^", "&", "*", "("]
 let image_games = images.createImage(`
     . . . . .
     . . # . .
@@ -3605,12 +3573,6 @@ let image_cards = images.createImage(`
     # . # # #
     # # # . #
     . . # # #`)
-let image_blackjack = images.createImage(`
-    . . . . .
-    # . . . #
-    # # . . .
-    # . # . #
-    # # . # #`)
 let image_tempereture = images.createImage(`
     . . . . .
     . # # . #
@@ -4690,175 +4652,6 @@ function showall() { //Tic-Tac-Toe // game_mode = 9
         led.plotBrightness(ax_9[i], ay_9[i], brightnessA_9)
         led.plotBrightness(bx_9[i], by_9[i], brightnessB_9)
     }}
-function blackjack() { //Blackjack. //game_mode = 10
-    basic.pause(200)
-    basic.clearScreen()
-    bj_dealer_hand = 0
-    bj_my_hand = 0
-    bj_dealer_card = 0
-    unid_type = 1
-    random_card = randint(1, 14)
-    if (random_card == 11) {
-        bj_dealer_card = 10
-    } else if (random_card == 12) {
-        bj_dealer_card = 10
-    } else if (random_card == 13) {
-        bj_dealer_card = 10
-    } else if (random_card == 14) {
-        bj_dealer_card = 10
-    } else {
-        bj_dealer_card = random_card
-    }
-    random_card = randint(1, 14)
-    if (random_card == 11) {
-        bj_dealer_hand = bj_dealer_card + 10
-    } else if (random_card == 12) {
-        bj_dealer_hand = bj_dealer_card + 10
-    } else if (random_card == 13) {
-        bj_dealer_hand = bj_dealer_card + 10
-    } else if (random_card == 14) {
-        bj_dealer_hand = bj_dealer_card + 10
-    } else{
-        bj_dealer_hand = bj_dealer_card + random_card
-    }
-    for (let index = 0; index < 2; index++) {
-        random_card = randint(1, 14)
-        if (random_card == 11) {
-            bj_my_hand += 10
-        } else if (random_card == 12) {
-            bj_my_hand += 10
-        } else if (random_card == 13) {
-            bj_my_hand += 10
-        } else if (random_card == 14) {
-            bj_my_hand += 10
-        } else {
-            bj_my_hand += random_card
-        }
-    }
-    while (true) {
-        num = bj_dealer_card
-        if (input.buttonIsPressed(Button.AB)) {
-            basic.clearScreen()
-            basic.showNumber(score_10)
-        }
-        if (input.buttonIsPressed(Button.A)) {
-            break;
-        }
-        if (input.buttonIsPressed(Button.B)) {
-            basic.showLeds(`
-            . . . . .
-            . . # . .
-            . # # # .
-            . . # . .
-            . . . . .
-            `)
-            basic.clearScreen()
-            random_card = randint(1, 14)
-            if (random_card == 11) {
-                bj_my_hand += 10
-            } else if (random_card == 12) {
-                bj_my_hand += 10
-            } else if (random_card == 13) {
-                bj_my_hand += 10
-            } else if (random_card == 14) {
-                bj_my_hand += 10
-            } else {
-                bj_my_hand += random_card
-            }
-            if (bj_my_hand == 21) {
-                break;
-            }
-            if (bj_my_hand >= 22) {
-                break;
-            }
-        }
-        if (input.logoIsPressed()) {
-            num = bj_my_hand
-        }
-        unid_if_1_23()
-    }
-    while (true) {
-        if (bj_dealer_hand <= 15) {
-            random_card = randint(1, 14)
-            if (random_card == 11) {
-                bj_dealer_hand += 10
-            } else if (random_card == 12) {
-                bj_dealer_hand += 10
-            } else if (random_card == 13) {
-                bj_dealer_hand += 10
-            } else if (random_card == 14) {
-                bj_dealer_hand += 10
-            } else if (random_card == 14) {
-                bj_dealer_hand += random_card
-            }
-        } else {
-            break;
-        }
-    }
-    basic.clearScreen()
-    while (true) {
-        if (bj_my_hand == bj_dealer_hand) {
-            basic.showLeds(`
-            . . . . #
-            . . . # .
-            . . # . .
-            . # . . .
-            # . . . .
-            `)
-            basic.showNumber(bj_dealer_hand)
-            basic.showString("=")
-            basic.showNumber(bj_my_hand)
-            score_10 += 0
-            break;
-        }
-        if (bj_my_hand < bj_dealer_hand && bj_dealer_hand <= 21) {
-            basic.showLeds(`
-            # . . . #
-            . # . # .
-            . . # . .
-            . # . # .
-            # . . . #
-            `)
-            basic.showNumber(bj_dealer_hand)
-            basic.showString(">")
-            basic.showNumber(bj_my_hand)
-            score_10 += -1
-            break;
-        }
-        if (bj_my_hand == 21) {
-            basic.showLeds(`
-            . . . . .
-            . . . . #
-            . . . # .
-            # . # . .
-            . # . . .
-            `)
-            basic.showNumber(bj_dealer_hand)
-            basic.showString("<")
-            basic.showNumber(bj_my_hand)
-            score_10 += 1
-            break;
-        }
-        if (bj_my_hand > bj_dealer_hand && bj_my_hand <= 21 || bj_my_hand <= 21) {
-            basic.showLeds(`
-            . . . . .
-            . . . . #
-            . . . # .
-            # . # . .
-            . # . . .
-            `)
-            basic.showNumber(bj_dealer_hand)
-            basic.showString("<")
-            basic.showNumber(bj_my_hand)
-            score_10 += 1
-            break;
-        }
-        game.addScore(1)
-        break;
-    }
-    blackjack()}
-
-
 function tool_compass() { //Compass // Selected_tool = 4
     while (true) {
         if (input.compassHeading() <= 45 && input.compassHeading() <= 46){
@@ -4984,100 +4777,130 @@ function math_xy() { //Calculator with 2 variables // Selected_tool = 9
     mathx = 0
     mathy = 0
     num = 0
-    number_select = true
-    while (number_select == true) {
-        if (input.buttonIsPressed(Button.A)) {
-            if (num == 0) {
-                num = 9
-            } else {
-                num += -1
-            }
-        }
-        if (input.buttonIsPressed(Button.B)) {
-            if (num == 9) {
-                num = 0
-            } else {
-                num += 1
-            }
-        }
-        if (input.logoIsPressed()) {
-            music.play(music.tonePlayable(349, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
-            numberx.push(numberlist[num])
-            basic.showIcon(IconNames.Yes)
-        }
-        if (input.buttonIsPressed(Button.AB)) {
-            if (numberx.length == 1) {
-                mathx = numberx[0]
-            } else if (numberx.length == 2) {
-                mathx = numberx[0] * 10 + numberx[1]
-            } else if (numberx.length == 3) {
-                mathx = numberx[0] * 100 + numberx[1] * 10 + numberx[2]
-            } else if (numberx.length == 4) {
-                mathx = numberx[0] * 1000 + numberx[1] * 100 + numberx[2] * 10 + numberx[3]
-            } else if (numberx.length == 5) {
-                mathx = numberx[0] * 10000 + numberx[1] * 1000 + numberx[2] * 100 + numberx[3] * 10 + numberx[4]
-            } else if (numberx.length == 6) {
-                mathx = numberx[0] * 100000 + numberx[1] * 10000 + numberx[2] * 1000 + numberx[3] * 100 + numberx[4] * 10 + numberx[5]
-            } else if (numberx.length == 7) {
-                mathx = numberx[0] * 1000000 + numberx[1] * 100000 + numberx[2] * 10000 + numberx[3] * 1000 + numberx[4] * 100 + numberx[5] * 10 + numberx[6]
-            } else if (numberx.length == 8) {
-                mathx = numberx[0] * 10000000 + numberx[1] * 1000000 + numberx[2] * 100000 + numberx[3] * 10000 + numberx[4] * 1000 + numberx[5] * 100 + numberx[6] * 10 + numberx[7]
-            } else {
-                basic.showIcon(IconNames.No)
-            }
-            basic.clearScreen()
-            number_select = false
+    while (true) {
+        if (input.pinIsPressed(TouchPin.P2)) {
+            break;
         }
         unid_if_0_9()
+        if (scroll_interval == 1) {
+            basic.pause(300)
+        }
+        while(true){
+            if (input.pinIsPressed(TouchPin.P2)) {
+                scroll_interval = 1
+                if (numberx.length == 1) {
+                    mathx = numberx[0]
+                } else if (numberx.length == 2) {
+                    mathx = numberx[0] * 10 + numberx[1]
+                } else if (numberx.length == 3) {
+                    mathx = numberx[0] * 100 + numberx[1] * 10 + numberx[2]
+                } else if (numberx.length == 4) {
+                    mathx = numberx[0] * 1000 + numberx[1] * 100 + numberx[2] * 10 + numberx[3]
+                } else if (numberx.length == 5) {
+                    mathx = numberx[0] * 10000 + numberx[1] * 1000 + numberx[2] * 100 + numberx[3] * 10 + numberx[4]
+                } else if (numberx.length == 6) {
+                    mathx = numberx[0] * 100000 + numberx[1] * 10000 + numberx[2] * 1000 + numberx[3] * 100 + numberx[4] * 10 + numberx[5]
+                } else if (numberx.length == 7) {
+                    mathx = numberx[0] * 1000000 + numberx[1] * 100000 + numberx[2] * 10000 + numberx[3] * 1000 + numberx[4] * 100 + numberx[5] * 10 + numberx[6]
+                } else if (numberx.length == 8) {
+                    mathx = numberx[0] * 10000000 + numberx[1] * 1000000 + numberx[2] * 100000 + numberx[3] * 10000 + numberx[4] * 1000 + numberx[5] * 100 + numberx[6] * 10 + numberx[7]
+                } else {
+                    basic.showIcon(IconNames.No)
+                }
+                basic.clearScreen()
+                break;
+            }
+            if (input.buttonIsPressed(Button.A)) {
+                scroll_interval = 1
+                if (num == 0) {
+                    num = 9
+                } else {
+                    num += -1
+                }
+                break;
+            }
+            if (input.buttonIsPressed(Button.B)) {
+                scroll_interval = 45
+                if (num == 9) {
+                    num = 0
+                } else {
+                    num += 1
+                }
+                break;
+            }
+            if (input.logoIsPressed()) {
+                scroll_interval = 1
+                music.play(music.tonePlayable(349, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
+                numberx.push(numberlist[num])
+                basic.showIcon(IconNames.Yes)
+                break;
+            }
+            
+        }
+        
     }
     game.addScore(1)
     basic.pause(500)
     num = 0
-    number_select = true
-    while (number_select == true) {
-        if (input.buttonIsPressed(Button.A)) {
-            if (num == 0) {
-                num = 9
-            } else {
-                num += -1
-            }
-        }
-        if (input.buttonIsPressed(Button.B)) {
-            if (num == 9) {
-                num = 0
-            } else {
-                num += 1
-            }
-        }
-        if (input.logoIsPressed()) {
-            basic.showIcon(IconNames.Yes)
-            music.play(music.tonePlayable(349, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
-            numbery.push(numberlist[num])
-        }
-        if (input.buttonIsPressed(Button.AB)) {
-            if (numbery.length == 1) {
-                mathy = numbery[0]
-            } else if (numbery.length == 2) {
-                mathy = numbery[0] * 10 + numbery[1]
-            } else if (numbery.length == 3) {
-                mathy = numbery[0] * 100 + numbery[1] * 10 + numbery[2]
-            } else if (numbery.length == 4) {
-                mathy = numbery[0] * 1000 + numbery[1] * 100 + numbery[2] * 10 + numbery[3]
-            } else if (numbery.length == 5) {
-                mathy = numbery[0] * 10000 + numbery[1] * 1000 + numbery[2] * 100 + numbery[3] * 10 + numbery[4]
-            } else if (numbery.length == 6) {
-                mathy = numbery[0] * 100000 + numbery[1] * 10000 + numbery[2] * 1000 + numbery[3] * 100 + numbery[4] * 10 + numbery[5]
-            } else if (numbery.length == 7) {
-                mathy = numbery[0] * 1000000 + numbery[1] * 100000 + numbery[2] * 10000 + numbery[3] * 1000 + numbery[4] * 100 + numbery[5] * 10 + numbery[6]
-            } else if (numbery.length == 8) {
-                mathy = numbery[0] * 10000000 + numbery[1] * 1000000 + numbery[2] * 100000 + numbery[3] * 10000 + numbery[4] * 1000 + numbery[5] * 100 + numberx[6] * 10 + numbery[7]
-            } else {
-                basic.showIcon(IconNames.No)
-            }
-            basic.clearScreen()
-            number_select = false
+    while (true) {
+        if (input.pinIsPressed(TouchPin.P2)) {
+            break;
         }
         unid_if_0_9()
+        if (scroll_interval == 1) {
+            basic.pause(300)
+        }
+        while(true){
+            if (input.pinIsPressed(TouchPin.P2)) {
+                scroll_interval = 1
+                if (numbery.length == 1) {
+                    mathy = numbery[0]
+                } else if (numbery.length == 2) {
+                    mathy = numbery[0] * 10 + numbery[1]
+                } else if (numbery.length == 3) {
+                    mathy = numbery[0] * 100 + numbery[1] * 10 + numbery[2]
+                } else if (numbery.length == 4) {
+                    mathy = numbery[0] * 1000 + numbery[1] * 100 + numbery[2] * 10 + numbery[3]
+                } else if (numbery.length == 5) {
+                    mathy = numbery[0] * 10000 + numbery[1] * 1000 + numbery[2] * 100 + numbery[3] * 10 + numbery[4]
+                } else if (numbery.length == 6) {
+                    mathy = numbery[0] * 100000 + numbery[1] * 10000 + numbery[2] * 1000 + numbery[3] * 100 + numbery[4] * 10 + numbery[5]
+                } else if (numbery.length == 7) {
+                    mathy = numbery[0] * 1000000 + numbery[1] * 100000 + numbery[2] * 10000 + numbery[3] * 1000 + numbery[4] * 100 + numbery[5] * 10 + numbery[6]
+                } else if (numbery.length == 8) {
+                    mathy = numbery[0] * 10000000 + numbery[1] * 1000000 + numbery[2] * 100000 + numbery[3] * 10000 + numbery[4] * 1000 + numbery[5] * 100 + numberx[6] * 10 + numbery[7]
+                } else {
+                    basic.showIcon(IconNames.No)
+                }
+                basic.clearScreen()
+                break;
+            }
+            if (input.buttonIsPressed(Button.A)) {
+                scroll_interval = 1
+                if (num == 0) {
+                    num = 9
+                } else {
+                    num += -1
+                }
+                break;
+            }
+            if (input.buttonIsPressed(Button.B)) {
+                scroll_interval = 45
+                if (num == 9) {
+                    num = 0
+                } else {
+                    num += 1
+                }
+                break;
+            }
+            if (input.logoIsPressed()) {
+                scroll_interval = 1
+                basic.showIcon(IconNames.Yes)
+                music.play(music.tonePlayable(349, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
+                numbery.push(numberlist[num])
+                break;
+            }
+        }
     }
     game.addScore(1)
     basic.pause(400)
@@ -5105,51 +4928,65 @@ function math_x() { //Calculator with 1 variable // Selected_tool = 9
     mathx = 0
     mathy = 0
     num = 0
-    number_select = true
-    while (number_select == true) {
-        if (input.buttonIsPressed(Button.A)) {
-            if (num == 0) {
-                num = 9
-            } else {
-                num += -1
-            }
-        }
-        if (input.buttonIsPressed(Button.B)) {
-            if (num == 9) {
-                num = 0
-            } else {
-                num += 1
-            }
-        }
-        if (input.logoIsPressed()) {
-            music.play(music.tonePlayable(349, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
-            numberx.push(numberlist[num])
-            basic.showIcon(IconNames.Yes)
-        }
-        if (input.buttonIsPressed(Button.AB)) {
-            if (numberx.length == 1) {
-                mathx = numberx[0]
-            } else if (numberx.length == 2) {
-                mathx = numberx[0] * 10 + numberx[1]
-            } else if (numberx.length == 3) {
-                mathx = numberx[0] * 100 + numberx[1] * 10 + numberx[2]
-            } else if (numberx.length == 4) {
-                mathx = numberx[0] * 1000 + numberx[1] * 100 + numberx[2] * 10 + numberx[3]
-            } else if (numberx.length == 5) {
-                mathx = numberx[0] * 10000 + numberx[1] * 1000 + numberx[2] * 100 + numberx[3] * 10 + numberx[4]
-            } else if (numberx.length == 6) {
-                mathx = numberx[0] * 100000 + numberx[1] * 10000 + numberx[2] * 1000 + numberx[3] * 100 + numberx[4] * 10 + numberx[5]
-            } else if (numberx.length == 7) {
-                mathx = numberx[0] * 1000000 + numberx[1] * 100000 + numberx[2] * 10000 + numberx[3] * 1000 + numberx[4] * 100 + numberx[5] * 10 + numberx[6]
-            } else if (numberx.length == 8) {
-                mathx = numberx[0] * 10000000 + numberx[1] * 1000000 + numberx[2] * 100000 + numberx[3] * 10000 + numberx[4] * 1000 + numberx[5] * 100 + numberx[6] * 10 + numberx[7]
-            } else {
-                basic.showIcon(IconNames.No)
-            }
-            basic.clearScreen()
-            number_select = false
+    while (true) {
+        if (input.pinIsPressed(TouchPin.P2)) {
+            break;
         }
         unid_if_0_9()
+        if (scroll_interval == 1) {
+            basic.pause(300)
+        }
+        while(true){
+            if (input.pinIsPressed(TouchPin.P2)) {
+                scroll_interval = 1
+                if (numberx.length == 1) {
+                    mathx = numberx[0]
+                } else if (numberx.length == 2) {
+                    mathx = numberx[0] * 10 + numberx[1]
+                } else if (numberx.length == 3) {
+                    mathx = numberx[0] * 100 + numberx[1] * 10 + numberx[2]
+                } else if (numberx.length == 4) {
+                    mathx = numberx[0] * 1000 + numberx[1] * 100 + numberx[2] * 10 + numberx[3]
+                } else if (numberx.length == 5) {
+                    mathx = numberx[0] * 10000 + numberx[1] * 1000 + numberx[2] * 100 + numberx[3] * 10 + numberx[4]
+                } else if (numberx.length == 6) {
+                    mathx = numberx[0] * 100000 + numberx[1] * 10000 + numberx[2] * 1000 + numberx[3] * 100 + numberx[4] * 10 + numberx[5]
+                } else if (numberx.length == 7) {
+                    mathx = numberx[0] * 1000000 + numberx[1] * 100000 + numberx[2] * 10000 + numberx[3] * 1000 + numberx[4] * 100 + numberx[5] * 10 + numberx[6]
+                } else if (numberx.length == 8) {
+                    mathx = numberx[0] * 10000000 + numberx[1] * 1000000 + numberx[2] * 100000 + numberx[3] * 10000 + numberx[4] * 1000 + numberx[5] * 100 + numberx[6] * 10 + numberx[7]
+                } else {
+                    basic.showIcon(IconNames.No)
+                }
+                basic.clearScreen()
+                break;
+            }
+            if (input.buttonIsPressed(Button.A)) {
+                scroll_interval = 1
+                if (num == 0) {
+                    num = 9
+                } else {
+                    num += -1
+                }
+                break;
+            }
+            if (input.buttonIsPressed(Button.B)) {
+                scroll_interval = 45
+                if (num == 9) {
+                    num = 0
+                } else {
+                    num += 1
+                }
+                break;
+            }
+            if (input.logoIsPressed()) {
+                scroll_interval = 1
+                music.play(music.tonePlayable(349, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
+                numberx.push(numberlist[num])
+                basic.showIcon(IconNames.Yes)
+                break;
+            }
+        }
     }
     game.addScore(1)
     basic.pause(500)
@@ -5176,112 +5013,160 @@ function signal() { //Signal / Alarm clock // Selected_tool = 10
     unid_type = 2
     signal_hour = 0
     signal_minute = 0
-    let number_select = true
-    while (number_select == true) {
-        if (input.buttonIsPressed(Button.A)) {
-            if (hour == 0) {
-                hour = 23
-            } else {
-                hour += -1
-            }
-        }
-        if (input.buttonIsPressed(Button.B)) {
-            if (hour == 23) {
-                hour = 0
-            } else {
-                hour += 1
-            }
-        }
+    while (true) {
         if (input.logoIsPressed()) {
-            music.play(music.tonePlayable(349, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
-            number_select = false
-            basic.showIcon(IconNames.Yes)
+            break;
         }
         unid_if_1_23()
+        if (scroll_interval == 1) {
+            basic.pause(300)
+        }
+        while(true){
+            if (input.buttonIsPressed(Button.A)) {
+                scroll_interval = 1
+                if (hour == 0) {
+                    hour = 23
+                } else {
+                    hour += -1
+                }
+                break;
+            }
+            if (input.buttonIsPressed(Button.B)) {
+                scroll_interval = 45
+                if (hour == 23) {
+                    hour = 0
+                } else {
+                    hour += 1
+                }
+                break;
+            }
+            if (input.logoIsPressed()) {
+                scroll_interval = 1
+                music.play(music.tonePlayable(349, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
+                basic.showIcon(IconNames.Yes)
+                break;
+            }
+        }
     }
     basic.clearScreen()
     basic.pause(200)
     basic.showString("M")
     basic.clearScreen()
     unid_type = 3
-    number_select = true
-    while (number_select == true) {
-        if (input.buttonIsPressed(Button.A)) {
-            if (minute == 0) {
-                minute = 55
-            } else {
-                minute += -5
-            }
-        }
-        if (input.buttonIsPressed(Button.B)) {
-            if (minute == 55) {
-                minute = 0
-            } else {
-                minute += 5
-            }
-        }
+    while (true) {
         if (input.logoIsPressed()) {
-            music.play(music.tonePlayable(349, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
-            number_select = false
-            basic.showIcon(IconNames.Yes)
+            break;
         }
         unid_if_1_23()
+        if (scroll_interval == 1) {
+            basic.pause(300)
+        }
+        while(true){
+            if (input.buttonIsPressed(Button.A)) {
+                scroll_interval = 1
+                if (minute == 0) {
+                    minute = 55
+                } else {
+                    minute += -5
+                }
+                break;
+            }
+            if (input.buttonIsPressed(Button.B)) {
+                scroll_interval = 45
+                if (minute == 55) {
+                    minute = 0
+                } else {
+                    minute += 5
+                }
+                break;
+            }
+            if (input.logoIsPressed()) {
+                scroll_interval = 1
+                music.play(music.tonePlayable(349, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
+                basic.showIcon(IconNames.Yes)
+                break;
+            }
+        }
     }
     basic.clearScreen()
     basic.pause(200)
     basic.showString("HS")
     basic.clearScreen()
     unid_type = 5
-    number_select = true
-    while (number_select == true) {
-        if (input.buttonIsPressed(Button.A)) {
-            if (signal_hour == 0) {
-                signal_hour = 23
-            } else {
-                signal_hour += -1
-            }
-        }
-        if (input.buttonIsPressed(Button.B)) {
-            if (signal_hour == 23) {
-                signal_hour = 0
-            } else {
-                signal_hour += 1
-            }
-        }
+    while (true) {
         if (input.logoIsPressed()) {
-            music.play(music.tonePlayable(349, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
-            number_select = false
-            basic.showIcon(IconNames.Yes)
+            break;
         }
         unid_if_1_23()
+        if (scroll_interval == 1) {
+            basic.pause(300)
+        }
+        while(true){
+            if (input.buttonIsPressed(Button.A)) {
+                scroll_interval = 1
+                if (signal_hour == 0) {
+                    signal_hour = 23
+                } else {
+                    signal_hour += -1
+                }
+                break;
+            }
+            if (input.buttonIsPressed(Button.B)) {
+                scroll_interval = 45
+                if (signal_hour == 23) {
+                    signal_hour = 0
+                } else {
+                    signal_hour += 1
+                }
+                break;
+            }
+            if (input.logoIsPressed()) {
+                scroll_interval = 1
+                music.play(music.tonePlayable(349, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
+                basic.showIcon(IconNames.Yes)
+                break;
+            }
+        }
     }
     basic.clearScreen()
     basic.pause(200)
     basic.showString("MS")
     basic.clearScreen()
     unid_type = 6
-    number_select = true
-    while (number_select == true) {
-        if (input.buttonIsPressed(Button.A)) {
-            if (signal_minute == 0) {
-                signal_minute = 55
-            } else {
-                signal_minute += -5
-            }
-        }
-        if (input.buttonIsPressed(Button.B)) {
-            if (signal_minute == 55) {
-                signal_minute = 0
-            } else {
-                signal_minute += 5
-            }
-        }
+    while (true) {
         if (input.logoIsPressed()) {
-            music.play(music.tonePlayable(349, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
-            number_select = false
-            basic.showIcon(IconNames.Yes)
+            break;
         }
         unid_if_1_23()
+        if (scroll_interval == 1) {
+            basic.pause(300)
+        }
+        while(true){
+            if (input.buttonIsPressed(Button.A)) {
+                scroll_interval = 1
+                if (signal_minute == 0) {
+                    signal_minute = 55
+                } else {
+                    signal_minute += -5
+                }
+                break;
+            }
+            if (input.buttonIsPressed(Button.B)) {
+                scroll_interval = 45
+                if (signal_minute == 55) {
+                    signal_minute = 0
+                } else {
+                    signal_minute += 5
+                }
+                break;
+            }
+            if (input.logoIsPressed()) {
+                scroll_interval = 1
+                music.play(music.tonePlayable(349, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
+                basic.showIcon(IconNames.Yes)
+                break;
+            }
+        }
     }
     basic.clearScreen()
     while (true) {
@@ -5353,38 +5238,52 @@ function timer() { // Timer // Selected_tool = 10
     minute = 0
     second = 0
     num = 0
-    number_select = true
-    while (number_select == true) {
-        if (input.buttonIsPressed(Button.A)) {
-            if (num == 0) {
-                num = 9
-            } else {
-                num += -1
-            }
-        }
-        if (input.buttonIsPressed(Button.B)) {
-            if (num == 9) {
-                num = 0
-            } else {
-                num += 1
-            }
-        }
-        if (input.logoIsPressed()) {
-            music.play(music.tonePlayable(349, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
-            list.push(numberlist[num])
-            basic.showIcon(IconNames.Yes)
-        }
-        if (input.buttonIsPressed(Button.AB)) {
-            if (list.length == 1) {
-                hour = list[0]
-            } else if (list.length == 2) {
-                hour = list[0] * 10 + list[1]
-            } else {
-                basic.showIcon(IconNames.No)
-            }
-            number_select = false
+    while (true) {
+        if (input.pinIsPressed(TouchPin.P2)) {
+            break;
         }
         unid_if_0_9()
+        if (scroll_interval == 1) {
+            basic.pause(300)
+        }
+        while(true){
+            if (input.pinIsPressed(TouchPin.P2)) {
+                scroll_interval = 1
+                if (list.length == 1) {
+                    hour = list[0]
+                } else if (list.length == 2) {
+                    hour = list[0] * 10 + list[1]
+                } else {
+                    basic.showIcon(IconNames.No)
+                }
+                break;
+            }
+            if (input.buttonIsPressed(Button.A)) {
+                scroll_interval = 1
+                if (num == 0) {
+                    num = 9
+                } else {
+                    num += -1
+                }
+                break;
+            }
+            if (input.buttonIsPressed(Button.B)) {
+                scroll_interval = 45
+                if (num == 9) {
+                    num = 0
+                } else {
+                    num += 1
+                }
+                break;
+            }
+            if (input.logoIsPressed()) {
+                scroll_interval = 1
+                music.play(music.tonePlayable(349, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
+                list.push(numberlist[num])
+                basic.showIcon(IconNames.Yes)
+                break;
+            }
+        }
     }
     basic.clearScreen()
     basic.pause(200)
@@ -5392,38 +5291,52 @@ function timer() { // Timer // Selected_tool = 10
     basic.clearScreen()
     num = 0
     list = []
-    number_select = true
-    while (number_select == true) {
-        if (input.buttonIsPressed(Button.A)) {
-            if (num == 0) {
-                num = 9
-            } else {
-                num += -1
-            }
-        }
-        if (input.buttonIsPressed(Button.B)) {
-            if (num == 9) {
-                num = 0
-            } else {
-                num += 1
-            }
-        }
-        if (input.logoIsPressed()) {
-            music.play(music.tonePlayable(349, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
-            list.push(numberlist[num])
-            basic.showIcon(IconNames.Yes)
-        }
-        if (input.buttonIsPressed(Button.AB)) {
-            if (list.length == 1) {
-                minute = list[0]
-            } else if (list.length == 2) {
-                minute = list[0] * 10 + list[1]
-            } else {
-                basic.showIcon(IconNames.No)
-            }
-            number_select = false
+    while (true) {
+        if (input.pinIsPressed(TouchPin.P2)) {
+            break;
         }
         unid_if_0_9()
+        if (scroll_interval == 1) {
+            basic.pause(300)
+        }
+        while(true){
+            if (input.pinIsPressed(TouchPin.P2)) {
+                scroll_interval = 1
+                if (list.length == 1) {
+                    minute = list[0]
+                } else if (list.length == 2) {
+                    minute = list[0] * 10 + list[1]
+                } else {
+                    basic.showIcon(IconNames.No)
+                }
+                break;
+            }
+            if (input.buttonIsPressed(Button.A)) {
+                scroll_interval = 1
+                if (num == 0) {
+                    num = 9
+                } else {
+                    num += -1
+                }
+                break;
+            }
+            if (input.buttonIsPressed(Button.B)) {
+                scroll_interval = 45
+                if (num == 9) {
+                    num = 0
+                } else {
+                    num += 1
+                }
+                break;
+            }
+            if (input.logoIsPressed()) {
+                scroll_interval = 1
+                music.play(music.tonePlayable(349, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
+                list.push(numberlist[num])
+                basic.showIcon(IconNames.Yes)
+                break;
+            }
+        }
     }
     basic.clearScreen()
     basic.pause(200)
@@ -5431,38 +5344,51 @@ function timer() { // Timer // Selected_tool = 10
     basic.clearScreen()
     num = 0
     list = []
-    number_select = true
-    while (number_select == true) {
-        if (input.buttonIsPressed(Button.A)) {
-            if (num == 0) {
-                num = 9
-            } else {
-                num += -1
-            }
-        }
-        if (input.buttonIsPressed(Button.B)) {
-            if (num == 9) {
-                num = 0
-            } else {
-                num += 1
-            }
-        }
-        if (input.logoIsPressed()) {
-            music.play(music.tonePlayable(349, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
-            list.push(numberlist[num])
-            basic.showIcon(IconNames.Yes)
-        }
-        if (input.buttonIsPressed(Button.AB)) {
-            if (list.length == 1) {
-                second = list[0]
-            } else if (list.length == 2) {
-                second = list[0] * 10 + list[1]
-            } else {
-                basic.showIcon(IconNames.No)
-            }
-            number_select = false
+    while (true) {
+        if (input.pinIsPressed(TouchPin.P2)) {
+            break;
         }
         unid_if_0_9()
+        if (scroll_interval == 1) {
+            basic.pause(300)
+        }
+        while(true){
+            if (input.pinIsPressed(TouchPin.P2)) {
+                scroll_interval = 1
+                if (list.length == 1) {
+                    second = list[0]
+                } else if (list.length == 2) {
+                    second = list[0] * 10 + list[1]
+                } else {
+                    basic.showIcon(IconNames.No)
+                }
+                break;
+            }
+            if (input.buttonIsPressed(Button.A)) {
+                scroll_interval = 1
+                if (num == 0) {
+                    num = 9
+                } else {
+                    num += -1
+                }
+                break;
+            }
+            if (input.buttonIsPressed(Button.B)) {
+                scroll_interval = 45
+                if (num == 9) {
+                    num = 0
+                } else {
+                    num += 1
+                }
+                break;
+            }
+            if (input.logoIsPressed()) {
+                scroll_interval = 1
+                music.play(music.tonePlayable(349, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
+                list.push(numberlist[num])
+                basic.showIcon(IconNames.Yes)
+            }
+        }
     }
     basic.clearScreen()
     while (true) {
@@ -5510,38 +5436,52 @@ function clock() { // Clock // Selected_tool = 10
     minute = 0
     second = 0
     num = 0
-    number_select = true
-    while (number_select == true) {
-        if (input.buttonIsPressed(Button.A)) {
-            if (num == 0) {
-                num = 9
-            } else {
-                num += -1
-            }
-        }
-        if (input.buttonIsPressed(Button.B)) {
-            if (num == 9) {
-                num = 0
-            } else {
-                num += 1
-            }
-        }
-        if (input.logoIsPressed()) {
-            music.play(music.tonePlayable(349, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
-            list.push(numberlist[num])
-            basic.showIcon(IconNames.Yes)
-        }
-        if (input.buttonIsPressed(Button.AB)) {
-            if (list.length == 1) {
-                hour = list[0]
-            } else if (list.length == 2) {
-                hour = list[0] * 10 + list[1]
-            } else {
-                basic.showIcon(IconNames.No)
-            }
-            number_select = false
+    while (true) {
+        if (input.pinIsPressed(TouchPin.P2)) {
+            break;
         }
         unid_if_0_9()
+        if (scroll_interval == 1) {
+            basic.pause(300)
+        }
+        while(true){
+            if (input.pinIsPressed(TouchPin.P2)) {
+                scroll_interval = 1
+                if (list.length == 1) {
+                    hour = list[0]
+                } else if (list.length == 2) {
+                    hour = list[0] * 10 + list[1]
+                } else {
+                    basic.showIcon(IconNames.No)
+                }
+                break;
+            }
+            if (input.buttonIsPressed(Button.A)) {
+                scroll_interval = 1
+                if (num == 0) {
+                    num = 9
+                } else {
+                    num += -1
+                }
+                break;
+            }
+            if (input.buttonIsPressed(Button.B)) {
+                scroll_interval = 45
+                if (num == 9) {
+                    num = 0
+                } else {
+                    num += 1
+                }
+                break;
+            }
+            if (input.logoIsPressed()) {
+                scroll_interval = 1
+                music.play(music.tonePlayable(349, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
+                list.push(numberlist[num])
+                basic.showIcon(IconNames.Yes)
+                break;
+            }
+        }
     }
     basic.clearScreen()
     basic.pause(200)
@@ -5549,38 +5489,52 @@ function clock() { // Clock // Selected_tool = 10
     basic.clearScreen()
     num = 0
     list = []
-    number_select = true
-    while (number_select == true) {
-        if (input.buttonIsPressed(Button.A)) {
-            if (num == 0) {
-                num = 9
-            } else {
-                num += -1
-            }
-        }
-        if (input.buttonIsPressed(Button.B)) {
-            if (num == 9) {
-                num = 0
-            } else {
-                num += 1
-            }
-        }
-        if (input.logoIsPressed()) {
-            music.play(music.tonePlayable(349, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
-            list.push(numberlist[num])
-            basic.showIcon(IconNames.Yes)
-        }
-        if (input.buttonIsPressed(Button.AB)) {
-            if (list.length == 1) {
-                minute = list[0]
-            } else if (list.length == 2) {
-                minute = list[0] * 10 + list[1]
-            } else {
-                basic.showIcon(IconNames.No)
-            }
-            number_select = false
+    while (true) {
+        if (input.pinIsPressed(TouchPin.P2)) {
+            break;
         }
         unid_if_0_9()
+        if (scroll_interval == 1) {
+            basic.pause(300)
+        }
+        while(true){
+            if (input.pinIsPressed(TouchPin.P2)) {
+                scroll_interval = 1
+                if (list.length == 1) {
+                    minute = list[0]
+                } else if (list.length == 2) {
+                    minute = list[0] * 10 + list[1]
+                } else {
+                    basic.showIcon(IconNames.No)
+                }
+                break;
+            }
+            if (input.buttonIsPressed(Button.A)) {
+                scroll_interval = 1
+                if (num == 0) {
+                    num = 9
+                } else {
+                    num += -1
+                }
+                break;
+            }
+            if (input.buttonIsPressed(Button.B)) {
+                scroll_interval = 45
+                if (num == 9) {
+                    num = 0
+                } else {
+                    num += 1
+                }
+                break;
+            }
+            if (input.logoIsPressed()) {
+                scroll_interval = 1
+                music.play(music.tonePlayable(349, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
+                list.push(numberlist[num])
+                basic.showIcon(IconNames.Yes)
+                break;
+            }
+        }
     }
     basic.clearScreen()
     basic.pause(200)
@@ -5588,38 +5542,52 @@ function clock() { // Clock // Selected_tool = 10
     basic.clearScreen()
     num = 0
     list = []
-    number_select = true
-    while (number_select == true) {
-        if (input.buttonIsPressed(Button.A)) {
-            if (num == 0) {
-                num = 9
-            } else {
-                num += -1
-            }
-        }
-        if (input.buttonIsPressed(Button.B)) {
-            if (num == 9) {
-                num = 0
-            } else {
-                num += 1
-            }
-        }
-        if (input.logoIsPressed()) {
-            music.play(music.tonePlayable(349, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
-            list.push(numberlist[num])
-            basic.showIcon(IconNames.Yes)
-        }
-        if (input.buttonIsPressed(Button.AB)) {
-            if (list.length == 1) {
-                second = list[0]
-            } else if (list.length == 2) {
-                second = list[0] * 10 + list[1]
-            } else {
-                basic.showIcon(IconNames.No)
-            }
-            number_select = false
+    while (true) {
+        if (input.pinIsPressed(TouchPin.P2)) {
+            break;
         }
         unid_if_0_9()
+        if (scroll_interval == 1) {
+            basic.pause(300)
+        }
+        while(true){
+            if (input.pinIsPressed(TouchPin.P2)) {
+                scroll_interval = 1
+                if (list.length == 1) {
+                    second = list[0]
+                } else if (list.length == 2) {
+                    second = list[0] * 10 + list[1]
+                } else {
+                    basic.showIcon(IconNames.No)
+                }
+                break;
+            }
+            if (input.buttonIsPressed(Button.A)) {
+                scroll_interval = 1
+                if (num == 0) {
+                    num = 9
+                } else {
+                    num += -1
+                }
+                break;
+            }
+            if (input.buttonIsPressed(Button.B)) {
+                scroll_interval = 45
+                if (num == 9) {
+                    num = 0
+                } else {
+                    num += 1
+                }
+                break;
+            }
+            if (input.logoIsPressed()) {
+                scroll_interval = 1
+                music.play(music.tonePlayable(349, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
+                list.push(numberlist[num])
+                basic.showIcon(IconNames.Yes)
+                break;
+            }
+        }
     }
     basic.clearScreen()
     timeanddate.set24HourTime(hour, minute, second)
@@ -5644,7 +5612,7 @@ function clock() { // Clock // Selected_tool = 10
     }}
 function bluetooth_media() { //Control media via bluetooth.
     while (bluetooth_online == true) {
-        if (input.buttonIsPressed(Button.AB)) {
+        if (input.pinIsPressed(TouchPin.P2)) {
             media.sendCode(media.keys(media._MediaKey.mute))
             basic.showLeds(`
             . # . . .
@@ -5820,32 +5788,45 @@ function bluetooth_keyboard() { //Send any keyboard input via bluetooth
         basic.clearScreen()
         basic.pause(500)
         while (true) {
-            if (input.buttonIsPressed(Button.A)) {
-                if (abc_id == 1) {
-                    abc_id = 38
-                } else {
-                    abc_id += -1
-                }
-            }
-            if (input.buttonIsPressed(Button.B)) {
-                if (abc_id == 38) {
-                    abc_id = 1
-                } else {
-                    abc_id += 1
-                }
-            }
-            if (input.buttonIsPressed(Button.AB)) {
-                shift = true
-                music.play(music.tonePlayable(220, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
-            }
-            if (input.logoIsPressed()) {
-                basic.showIcon(IconNames.Yes)
-                uckb_if()
-                keyboard.sendString(uckb)
-                music.play(music.tonePlayable(523, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
-                basic.pause(100)
-            }
             usid_if()
+            if (scroll_interval == 1) {
+                basic.pause(300)
+            }
+            while(true){
+                if (input.pinIsPressed(TouchPin.P2)) {
+                    scroll_interval = 1
+                    shift = true
+                    music.play(music.tonePlayable(220, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
+                    break;
+                }
+                if (input.buttonIsPressed(Button.A)) {
+                    scroll_interval = 1
+                    if (abc_id == 1) {
+                        abc_id = 38
+                    } else {
+                        abc_id += -1
+                    }
+                    break;
+                }
+                if (input.buttonIsPressed(Button.B)) {
+                    scroll_interval = 45
+                    if (abc_id == 38) {
+                        abc_id = 1
+                    } else {
+                        abc_id += 1
+                    }
+                    break;
+                }
+                if (input.logoIsPressed()) {
+                    scroll_interval = 1
+                    basic.showIcon(IconNames.Yes)
+                    uckb_if()
+                    keyboard.sendString(uckb)
+                    music.play(music.tonePlayable(523, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
+                    basic.pause(100)
+                    break;
+                }
+            }
         }
     }
     loading_animation()
@@ -5855,39 +5836,49 @@ function bluetooth_keyboard_number() { //Send keyboard numbers via bluetooth.
         basic.clearScreen()
         basic.pause(500)
         num = 0
-        let number_send = 0
-        let num_list = ["0","1","2","3","4","5","6","7","8","9"]
-        let symb_list = [")","!","@","#","$","%","^","&","*","("]
         while (true) {
-            if (input.buttonIsPressed(Button.A)) {
-                if (num == 0) {
-                    num = 9
-                } else {
-                    num += -1
-                }
-            }
-            if (input.buttonIsPressed(Button.B)) {
-                if (num == 9) {
-                    num = 0
-                } else {
-                    num += 1
-                }
-            }
-            if (input.logoIsPressed()) {
-                basic.showIcon(IconNames.Yes)
-                if (shift == true) {
-                    keyboard.sendString(symb_list[num])
-                    shift = false
-                } else {
-                    keyboard.sendString(num_list[num])
-                }
-                music.play(music.tonePlayable(349, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
-            }
-            if (input.buttonIsPressed(Button.AB)) {
-                shift = true
-                music.play(music.tonePlayable(220, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
+            if (scroll_interval == 1) {
+                basic.pause(300)
             }
             unid_if_0_9()
+            while(true){
+                if (input.pinIsPressed(TouchPin.P2)) {
+                    scroll_interval = 1
+                    shift = true
+                    music.play(music.tonePlayable(220, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
+                    break;
+                }
+                if (input.buttonIsPressed(Button.A)) {
+                    scroll_interval = 1
+                    if (num == 0) {
+                        num = 9
+                    } else {
+                        num += -1
+                    }
+                    break;
+                }
+                if (input.buttonIsPressed(Button.B)) {
+                    scroll_interval = 45
+                    if (num == 9) {
+                        num = 0
+                    } else {
+                        num += 1
+                    }
+                    break;
+                }
+                if (input.logoIsPressed()) {
+                    scroll_interval = 1
+                    basic.showIcon(IconNames.Yes)
+                    if (shift == true) {
+                        keyboard.sendString(symb_list[num])
+                        shift = false
+                    } else {
+                        keyboard.sendString(num_list[num])
+                    }
+                    music.play(music.tonePlayable(349, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
+                    break;
+                }
+            }
         }
     }
     loading_animation()
@@ -5954,32 +5945,48 @@ function bluetooth_keyboard_custom() { // Custom keyboard input.
         basic.pause(500)
         basic.clearScreen()
         while (true) {
-            if (input.buttonIsPressed(Button.A)) {
-                if (abc_id == 1) {
-                    abc_id = 38
-                } else {
-                    abc_id += -1
-                }
-            }
-            if (input.buttonIsPressed(Button.B)) {
-                if (abc_id == 38) {
-                    abc_id = 1
-                } else {
-                    abc_id += 1
-                }
-            }
-            if (input.buttonIsPressed(Button.AB)) {
-                shift = true
-                music.play(music.tonePlayable(220, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
-            }
             if (input.logoIsPressed()) {
-                basic.showIcon(IconNames.Yes)
-                uckb_if()
-                custom_a_button = uckb
-                music.play(music.tonePlayable(523, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
                 break;
             }
             usid_if()
+            if (scroll_interval == 1) {
+                basic.pause(300)
+            }
+            while(true){
+                if (input.pinIsPressed(TouchPin.P2)) {
+                    scroll_interval = 1
+                    shift = true
+                    music.play(music.tonePlayable(220, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
+                    break;
+                }
+                if (input.buttonIsPressed(Button.A)) {
+                    scroll_interval = 1
+                    if (abc_id == 1) {
+                        abc_id = 38
+                    } else {
+                        abc_id += -1
+                    }
+                    break;
+                }
+                if (input.buttonIsPressed(Button.B)) {
+                    scroll_interval = 45
+                    if (abc_id == 38) {
+                        abc_id = 1
+                    } else {
+                        abc_id += 1
+                    }
+                    break;
+                }
+                
+                if (input.logoIsPressed()) {
+                    scroll_interval = 1
+                    basic.showIcon(IconNames.Yes)
+                    uckb_if()
+                    custom_a_button = uckb
+                    music.play(music.tonePlayable(523, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
+                    break;
+                }
+            }
         }
         basic.showLeds(`
         . . # . .
@@ -5992,32 +5999,46 @@ function bluetooth_keyboard_custom() { // Custom keyboard input.
         basic.clearScreen()
         abc_id = 1
         while (true) {
-            if (input.buttonIsPressed(Button.A)) {
-                if (abc_id == 1) {
-                    abc_id = 38
-                } else {
-                    abc_id += -1
-                }
-            }
-            if (input.buttonIsPressed(Button.B)) {
-                if (abc_id == 38) {
-                    abc_id = 1
-                } else {
-                    abc_id += 1
-                }
-            }
-            if (input.buttonIsPressed(Button.AB)) {
-                shift = true
-                music.play(music.tonePlayable(220, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
-            }
             if (input.logoIsPressed()) {
-                basic.showIcon(IconNames.Yes)
-                uckb_if()
-                custom_logo_button = uckb
-                music.play(music.tonePlayable(523, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
                 break;
             }
             usid_if()
+            if (scroll_interval == 1) {
+                basic.pause(300)
+            }
+            while(true){
+                if (input.pinIsPressed(TouchPin.P2)) {
+                    scroll_interval = 1
+                    shift = true
+                    music.play(music.tonePlayable(220, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
+                    break;
+                }
+                if (input.buttonIsPressed(Button.A)) {
+                    scroll_interval = 1
+                    if (abc_id == 1) {
+                        abc_id = 38
+                    } else {
+                        abc_id += -1
+                    }
+                    break;
+                }
+                if (input.buttonIsPressed(Button.B)) {
+                    scroll_interval = 45
+                    if (abc_id == 38) {
+                        abc_id = 1
+                    } else {
+                        abc_id += 1
+                    }
+                    break;
+                }                if (input.logoIsPressed()) {
+                    scroll_interval = 1
+                    basic.showIcon(IconNames.Yes)
+                    uckb_if()
+                    custom_logo_button = uckb
+                    music.play(music.tonePlayable(523, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
+                    break;
+                }
+            }
         }
         basic.showLeds(`
         . . # . .
@@ -6030,32 +6051,47 @@ function bluetooth_keyboard_custom() { // Custom keyboard input.
         basic.clearScreen()
         abc_id = 1
         while (true) {
-            if (input.buttonIsPressed(Button.A)) {
-                if (abc_id == 1) {
-                    abc_id = 38
-                } else {
-                    abc_id += -1
-                }
-            }
-            if (input.buttonIsPressed(Button.B)) {
-                if (abc_id == 38) {
-                    abc_id = 1
-                } else {
-                    abc_id += 1
-                }
-            }
-            if (input.buttonIsPressed(Button.AB)) {
-                shift = true
-                music.play(music.tonePlayable(220, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
-            }
             if (input.logoIsPressed()) {
-                basic.showIcon(IconNames.Yes)
-                uckb_if()
-                custom_b_button = uckb
-                music.play(music.tonePlayable(523, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
                 break;
             }
             usid_if()
+            if (scroll_interval == 1) {
+                basic.pause(300)
+            }
+            while(true){
+                if (input.pinIsPressed(TouchPin.P2)) {
+                    scroll_interval = 1
+                    shift = true
+                    music.play(music.tonePlayable(220, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
+                    break;
+                }
+                if (input.buttonIsPressed(Button.A)) {
+                    scroll_interval = 1
+                    if (abc_id == 1) {
+                        abc_id = 38
+                    } else {
+                        abc_id += -1
+                    }
+                    break;
+                }
+                if (input.buttonIsPressed(Button.B)) {
+                    scroll_interval = 45
+                    if (abc_id == 38) {
+                        abc_id = 1
+                    } else {
+                        abc_id += 1
+                    }
+                    break;
+                }
+                if (input.logoIsPressed()) {
+                    scroll_interval = 1
+                    basic.showIcon(IconNames.Yes)
+                    uckb_if()
+                    custom_b_button = uckb
+                    music.play(music.tonePlayable(523, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
+                    break;
+                }
+            }
         }
         basic.pause(200)
         basic.clearScreen()
@@ -6100,30 +6136,44 @@ function create_strig() { //Create a temp-saved string.
     basic.clearScreen()
     basic.pause(500)
     while (true) {
-        if (input.buttonIsPressed(Button.A)) {
-            if (abc_id == 1) {
-                abc_id = 38
-            } else {
-                abc_id += -1
-            }
-        }
-        if (input.buttonIsPressed(Button.B)) {
-            if (abc_id == 38) {
-                abc_id = 1
-            } else {
-                abc_id += 1
-            }
-        }
-        if (input.buttonIsPressed(Button.AB)) {
+        if (input.pinIsPressed(TouchPin.P2)) {
             break;
         }
-        if (input.logoIsPressed()) {
-            basic.showIcon(IconNames.Yes)
-            inputlist.push(abc[abc_id])
-            music.play(music.tonePlayable(523, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
-            basic.pause(100)
-        }
         usid_if()
+        if (scroll_interval == 1) {
+            basic.pause(300)
+        }
+        while(true){
+            if (input.pinIsPressed(TouchPin.P2)) {
+                break;
+            }
+            if (input.buttonIsPressed(Button.A)) {
+                scroll_interval = 1
+                if (abc_id == 1) {
+                    abc_id = 38
+                } else {
+                    abc_id += -1
+                }
+                break;
+            }
+            if (input.buttonIsPressed(Button.B)) {
+                scroll_interval = 45
+                if (abc_id == 38) {
+                    abc_id = 1
+                } else {
+                    abc_id += 1
+                }
+                break;
+            }
+            if (input.logoIsPressed()) {
+                scroll_interval = 1
+                basic.showIcon(IconNames.Yes)
+                inputlist.push(abc[abc_id])
+                music.play(music.tonePlayable(523, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
+                basic.pause(100)
+                break;
+            }
+        }
     }
     text = ">" + inputlist[0] + inputlist[1] + inputlist[2] + inputlist[3] + inputlist[4] + inputlist[5] + inputlist[6] + inputlist[7] + inputlist[8] + inputlist[9] + inputlist[10] + inputlist[11] + inputlist[12] + inputlist[13] + inputlist[14] + inputlist[15] + inputlist[16] + inputlist[17] + inputlist[18] + inputlist[19] + inputlist[20] + inputlist[21] + inputlist[22] + inputlist[23] + inputlist[24] + inputlist[25] + inputlist[26] + inputlist[27] + inputlist[28] + inputlist[29] + inputlist[30] + inputlist[31] + inputlist[32] + inputlist[33] + inputlist[34] + inputlist[35] + inputlist[36] + inputlist[37] + inputlist[38] + inputlist[39] + inputlist[40] + inputlist[41] + inputlist[42] + inputlist[43] + inputlist[44] + inputlist[45] + inputlist[46] + inputlist[47] + inputlist[48] + inputlist[49] + inputlist[50]
     while (true) {
@@ -6144,48 +6194,63 @@ function create_number() { //Create a temp-saved number.
     num = 0
     let number_send = 0
     while (true) {
-        if (input.buttonIsPressed(Button.A)) {
-            if (num == 0) {
-                num = 9
-            } else {
-                num += -1
-            }
-        }
-        if (input.buttonIsPressed(Button.B)) {
-            if (num == 9) {
-                num = 0
-            } else {
-                num += 1
-            }
-        }
-        if (input.logoIsPressed()) {
-            basic.showIcon(IconNames.Yes)
-            music.play(music.tonePlayable(349, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
-            list.push(numberlist[num])
-        }
-        if (input.buttonIsPressed(Button.AB)) {
-            if (list.length == 1) {
-                number_send = list[0]
-            } else if (list.length == 2) {
-                number_send = list[0] * 10 + list[1]
-            } else if (list.length == 3) {
-                number_send = list[0] * 100 + list[1] * 10 + list[2]
-            } else if (list.length == 4) {
-                number_send = list[0] * 1000 + list[1] * 100 + list[2] * 10 + list[3]
-            } else if (list.length == 5) {
-                number_send = list[0] * 10000 + list[1] * 1000 + list[2] * 100 + list[3] * 10 + list[4]
-            } else if (list.length == 6) {
-                number_send = list[0] * 100000 + list[1] * 10000 + list[2] * 1000 + list[3] * 100 + list[4] * 10 + list[5]
-            } else if (list.length == 7) {
-                number_send = list[0] * 1000000 + list[1] * 100000 + list[2] * 10000 + list[3] * 1000 + list[4] * 100 + list[5] * 10 + list[6]
-            } else if (list.length == 8) {
-                number_send = list[0] * 10000000 + list[1] * 1000000 + list[2] * 100000 + list[3] * 10000 + list[4] * 1000 + list[5] * 100 + list[6] * 10 + list[7]
-            } else {
-                basic.showIcon(IconNames.No)
-            }
+        if (input.pinIsPressed(TouchPin.P2)) {
             break;
         }
         unid_if_0_9()
+        if (scroll_interval == 1) {
+            basic.pause(300)
+        }
+        while(true){
+            if (input.pinIsPressed(TouchPin.P2)) {
+                scroll_interval = 1
+                if (list.length == 1) {
+                    number_send = list[0]
+                } else if (list.length == 2) {
+                    number_send = list[0] * 10 + list[1]
+                } else if (list.length == 3) {
+                    number_send = list[0] * 100 + list[1] * 10 + list[2]
+                } else if (list.length == 4) {
+                    number_send = list[0] * 1000 + list[1] * 100 + list[2] * 10 + list[3]
+                } else if (list.length == 5) {
+                    number_send = list[0] * 10000 + list[1] * 1000 + list[2] * 100 + list[3] * 10 + list[4]
+                } else if (list.length == 6) {
+                    number_send = list[0] * 100000 + list[1] * 10000 + list[2] * 1000 + list[3] * 100 + list[4] * 10 + list[5]
+                } else if (list.length == 7) {
+                    number_send = list[0] * 1000000 + list[1] * 100000 + list[2] * 10000 + list[3] * 1000 + list[4] * 100 + list[5] * 10 + list[6]
+                } else if (list.length == 8) {
+                    number_send = list[0] * 10000000 + list[1] * 1000000 + list[2] * 100000 + list[3] * 10000 + list[4] * 1000 + list[5] * 100 + list[6] * 10 + list[7]
+                } else {
+                    basic.showIcon(IconNames.No)
+                }
+                break;
+            }
+            if (input.buttonIsPressed(Button.A)) {
+                scroll_interval = 1
+                if (num == 0) {
+                    num = 9
+                } else {
+                    num += -1
+                }
+                break;
+            }
+            if (input.buttonIsPressed(Button.B)) {
+                scroll_interval = 45
+                if (num == 9) {
+                    num = 0
+                } else {
+                    num += 1
+                }
+                break;
+            }
+            if (input.logoIsPressed()) {
+                scroll_interval = 1
+                basic.showIcon(IconNames.Yes)
+                music.play(music.tonePlayable(349, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
+                list.push(numberlist[num])
+                break;
+            }
+        }
     }
     while (true) {
         basic.showLeds(`
@@ -6316,48 +6381,62 @@ function music_melody8() { //Built in mucic 8.
     num = 1
     unid_type = 1
     while (true) {
-        if (input.buttonIsPressed(Button.A)) {
-            if (num == 1) {
-                num = 10
-            } else {
-                num += -1
-            }
-        }
-        if (input.buttonIsPressed(Button.B)) {
-            if (num == 10) {
-                num = 1
-            } else {
-                num += 1
-            }
-        }
         if (input.logoIsPressed()) {
-            basic.showIcon(IconNames.Yes)
-            basic.clearScreen()
-            music_playing = true
-            if (num == 1) {
-                music.play(music.stringPlayable("C5 B A G F E D C ", 120), music.PlaybackMode.UntilDone)
-            } else if (num == 2) {
-                music.play(music.stringPlayable("C D E F G A B C5 ", 120), music.PlaybackMode.UntilDone)
-            } else if (num == 3) {
-                music.play(music.stringPlayable("E B C5 A B G A F ", 120), music.PlaybackMode.UntilDone)
-            } else if (num == 4) {
-                music.play(music.stringPlayable("A F E F D G E F ", 120), music.PlaybackMode.UntilDone)
-            } else if (num == 5) {
-                music.play(music.stringPlayable("C5 A B G A F G E ", 120), music.PlaybackMode.UntilDone)
-            } else if (num == 6) {
-                music.play(music.stringPlayable("G B A G C5 B A B ", 120), music.PlaybackMode.UntilDone)
-            } else if (num == 7) {
-                music.play(music.stringPlayable("B A G A G F A C5 ", 120), music.PlaybackMode.UntilDone)
-            } else if (num == 8) {
-                music.play(music.stringPlayable("G F G A - F E D ", 120), music.PlaybackMode.UntilDone)
-            } else if (num == 9) {
-                music.play(music.stringPlayable("E D G F B A C5 B ", 120), music.PlaybackMode.UntilDone)
-            } else {
-                music.play(music.stringPlayable("C5 G B A F A C5 B ", 120), music.PlaybackMode.UntilDone)
-            }
-            music_playing = false
+            break;
         }
         unid_if_1_23()
+        if (scroll_interval == 1) {
+            basic.pause(300)
+        }
+        while(true){
+            if (input.buttonIsPressed(Button.A)) {
+                scroll_interval = 1
+                if (num == 1) {
+                    num = 10
+                } else {
+                    num += -1
+                }
+                break;
+            }
+            if (input.buttonIsPressed(Button.B)) {
+                scroll_interval = 45
+                if (num == 10) {
+                    num = 1
+                } else {
+                    num += 1
+                }
+                break;
+            }
+            if (input.logoIsPressed()) {
+                scroll_interval = 1
+                basic.showIcon(IconNames.Yes)
+                basic.clearScreen()
+                music_playing = true
+                if (num == 1) {
+                    music.play(music.stringPlayable("C5 B A G F E D C ", 120), music.PlaybackMode.UntilDone)
+                } else if (num == 2) {
+                    music.play(music.stringPlayable("C D E F G A B C5 ", 120), music.PlaybackMode.UntilDone)
+                } else if (num == 3) {
+                    music.play(music.stringPlayable("E B C5 A B G A F ", 120), music.PlaybackMode.UntilDone)
+                } else if (num == 4) {
+                    music.play(music.stringPlayable("A F E F D G E F ", 120), music.PlaybackMode.UntilDone)
+                } else if (num == 5) {
+                    music.play(music.stringPlayable("C5 A B G A F G E ", 120), music.PlaybackMode.UntilDone)
+                } else if (num == 6) {
+                    music.play(music.stringPlayable("G B A G C5 B A B ", 120), music.PlaybackMode.UntilDone)
+                } else if (num == 7) {
+                    music.play(music.stringPlayable("B A G A G F A C5 ", 120), music.PlaybackMode.UntilDone)
+                } else if (num == 8) {
+                    music.play(music.stringPlayable("G F G A - F E D ", 120), music.PlaybackMode.UntilDone)
+                } else if (num == 9) {
+                    music.play(music.stringPlayable("E D G F B A C5 B ", 120), music.PlaybackMode.UntilDone)
+                } else {
+                    music.play(music.stringPlayable("C5 G B A F A C5 B ", 120), music.PlaybackMode.UntilDone)
+                }
+                music_playing = false
+                break;
+            }
+        }
     }}
 function music_melody() { //Built in music.
     music.setBuiltInSpeakerEnabled(true)
@@ -6366,68 +6445,82 @@ function music_melody() { //Built in music.
     num = 1
     unid_type = 1
     while (true) {
-        if (input.buttonIsPressed(Button.A)) {
-            if (num == 1) {
-                num = 20
-            } else {
-                num += -1
-            }
-        }
-        if (input.buttonIsPressed(Button.B)) {
-            if (num == 20) {
-                num = 1
-            } else {
-                num += 1
-            }
-        }
         if (input.logoIsPressed()) {
-            basic.showIcon(IconNames.Yes)
-            basic.clearScreen()
-            music_playing = true
-            if (num == 1) {
-                music._playDefaultBackground(music.builtInPlayableMelody(Melodies.Dadadadum), music.PlaybackMode.UntilDone)
-            } else if (num == 2) {
-                music._playDefaultBackground(music.builtInPlayableMelody(Melodies.Entertainer), music.PlaybackMode.UntilDone)
-            } else if (num == 3) {
-                music._playDefaultBackground(music.builtInPlayableMelody(Melodies.Prelude), music.PlaybackMode.UntilDone)
-            } else if (num == 4) {
-                music._playDefaultBackground(music.builtInPlayableMelody(Melodies.Ode), music.PlaybackMode.UntilDone)
-            } else if (num == 5) {
-                music._playDefaultBackground(music.builtInPlayableMelody(Melodies.Nyan), music.PlaybackMode.UntilDone)
-            } else if (num == 6) {
-                music._playDefaultBackground(music.builtInPlayableMelody(Melodies.Ringtone), music.PlaybackMode.UntilDone)
-            } else if (num == 7) {
-                music._playDefaultBackground(music.builtInPlayableMelody(Melodies.Funk), music.PlaybackMode.UntilDone)
-            } else if (num == 8) {
-                music._playDefaultBackground(music.builtInPlayableMelody(Melodies.Blues), music.PlaybackMode.UntilDone)
-            } else if (num == 9) {
-                music._playDefaultBackground(music.builtInPlayableMelody(Melodies.Birthday), music.PlaybackMode.UntilDone)
-            } else if (num == 10) {
-                music._playDefaultBackground(music.builtInPlayableMelody(Melodies.Wedding), music.PlaybackMode.UntilDone)
-            } else if (num == 11) {
-                music._playDefaultBackground(music.builtInPlayableMelody(Melodies.Funeral), music.PlaybackMode.UntilDone)
-            } else if (num == 12) {
-                music._playDefaultBackground(music.builtInPlayableMelody(Melodies.Punchline), music.PlaybackMode.UntilDone)
-            } else if (num == 13) {
-                music._playDefaultBackground(music.builtInPlayableMelody(Melodies.Baddy), music.PlaybackMode.UntilDone)
-            } else if (num == 14) {
-                music._playDefaultBackground(music.builtInPlayableMelody(Melodies.Chase), music.PlaybackMode.UntilDone)
-            } else if (num == 15) {
-                music._playDefaultBackground(music.builtInPlayableMelody(Melodies.BaDing), music.PlaybackMode.UntilDone)
-            } else if (num == 16) {
-                music._playDefaultBackground(music.builtInPlayableMelody(Melodies.Wawawawaa), music.PlaybackMode.UntilDone)
-            } else if (num == 17) {
-                music._playDefaultBackground(music.builtInPlayableMelody(Melodies.JumpUp), music.PlaybackMode.UntilDone)
-            } else if (num == 18) {
-                music._playDefaultBackground(music.builtInPlayableMelody(Melodies.JumpDown), music.PlaybackMode.UntilDone)
-            } else if (num == 19) {
-                music._playDefaultBackground(music.builtInPlayableMelody(Melodies.JumpUp), music.PlaybackMode.UntilDone)
-            } else {
-                music._playDefaultBackground(music.builtInPlayableMelody(Melodies.JumpDown), music.PlaybackMode.UntilDone)
-            }
-            music_playing = false
+            break;
         }
         unid_if_1_23()
+        if (scroll_interval == 1) {
+            basic.pause(300)
+        }
+        while(true){
+            if (input.buttonIsPressed(Button.A)) {
+                scroll_interval = 1
+                if (num == 1) {
+                    num = 20
+                } else {
+                    num += -1
+                }
+                break;
+            }
+            if (input.buttonIsPressed(Button.B)) {
+                scroll_interval = 45
+                if (num == 20) {
+                    num = 1
+                } else {
+                    num += 1
+                }
+                break;
+            }
+            if (input.logoIsPressed()) {
+                scroll_interval = 1
+                basic.showIcon(IconNames.Yes)
+                basic.clearScreen()
+                music_playing = true
+                if (num == 1) {
+                    music._playDefaultBackground(music.builtInPlayableMelody(Melodies.Dadadadum), music.PlaybackMode.UntilDone)
+                } else if (num == 2) {
+                    music._playDefaultBackground(music.builtInPlayableMelody(Melodies.Entertainer), music.PlaybackMode.UntilDone)
+                } else if (num == 3) {
+                    music._playDefaultBackground(music.builtInPlayableMelody(Melodies.Prelude), music.PlaybackMode.UntilDone)
+                } else if (num == 4) {
+                    music._playDefaultBackground(music.builtInPlayableMelody(Melodies.Ode), music.PlaybackMode.UntilDone)
+                } else if (num == 5) {
+                    music._playDefaultBackground(music.builtInPlayableMelody(Melodies.Nyan), music.PlaybackMode.UntilDone)
+                } else if (num == 6) {
+                    music._playDefaultBackground(music.builtInPlayableMelody(Melodies.Ringtone), music.PlaybackMode.UntilDone)
+                } else if (num == 7) {
+                    music._playDefaultBackground(music.builtInPlayableMelody(Melodies.Funk), music.PlaybackMode.UntilDone)
+                } else if (num == 8) {
+                    music._playDefaultBackground(music.builtInPlayableMelody(Melodies.Blues), music.PlaybackMode.UntilDone)
+                } else if (num == 9) {
+                    music._playDefaultBackground(music.builtInPlayableMelody(Melodies.Birthday), music.PlaybackMode.UntilDone)
+                } else if (num == 10) {
+                    music._playDefaultBackground(music.builtInPlayableMelody(Melodies.Wedding), music.PlaybackMode.UntilDone)
+                } else if (num == 11) {
+                    music._playDefaultBackground(music.builtInPlayableMelody(Melodies.Funeral), music.PlaybackMode.UntilDone)
+                } else if (num == 12) {
+                    music._playDefaultBackground(music.builtInPlayableMelody(Melodies.Punchline), music.PlaybackMode.UntilDone)
+                } else if (num == 13) {
+                    music._playDefaultBackground(music.builtInPlayableMelody(Melodies.Baddy), music.PlaybackMode.UntilDone)
+                } else if (num == 14) {
+                    music._playDefaultBackground(music.builtInPlayableMelody(Melodies.Chase), music.PlaybackMode.UntilDone)
+                } else if (num == 15) {
+                    music._playDefaultBackground(music.builtInPlayableMelody(Melodies.BaDing), music.PlaybackMode.UntilDone)
+                } else if (num == 16) {
+                    music._playDefaultBackground(music.builtInPlayableMelody(Melodies.Wawawawaa), music.PlaybackMode.UntilDone)
+                } else if (num == 17) {
+                    music._playDefaultBackground(music.builtInPlayableMelody(Melodies.JumpUp), music.PlaybackMode.UntilDone)
+                } else if (num == 18) {
+                    music._playDefaultBackground(music.builtInPlayableMelody(Melodies.JumpDown), music.PlaybackMode.UntilDone)
+                } else if (num == 19) {
+                    music._playDefaultBackground(music.builtInPlayableMelody(Melodies.JumpUp), music.PlaybackMode.UntilDone)
+                } else {
+                    music._playDefaultBackground(music.builtInPlayableMelody(Melodies.JumpDown), music.PlaybackMode.UntilDone)
+                }
+                music_playing = false
+                break;
+            }
+        }
     }}
 function music_melodyV2() { //Built in music V2.
     music.setBuiltInSpeakerEnabled(true)
@@ -6436,45 +6529,59 @@ function music_melodyV2() { //Built in music V2.
     num = 1
     unid_type = 1
     while (true) {
-        if (input.buttonIsPressed(Button.A)) {
-            if (num == 1) {
-                num = 10
-            } else {
-                num += -1
-            }
-        }
-        if (input.buttonIsPressed(Button.B)) {
-            if (num == 10) {
-                num = 1
-            } else {
-                num += 1
-            }
-        }
         if (input.logoIsPressed()) {
-            basic.showIcon(IconNames.Yes)
-            if (num == 1) {
-                music.play(music.builtinPlayableSoundEffect(soundExpression.giggle), music.PlaybackMode.UntilDone)
-            } else if (num == 2) {
-                music.play(music.builtinPlayableSoundEffect(soundExpression.happy), music.PlaybackMode.UntilDone)
-            } else if (num == 3) {
-                music.play(music.builtinPlayableSoundEffect(soundExpression.hello), music.PlaybackMode.UntilDone)
-            } else if (num == 4) {
-                music.play(music.builtinPlayableSoundEffect(soundExpression.mysterious), music.PlaybackMode.UntilDone)
-            } else if (num == 5) {
-                music.play(music.builtinPlayableSoundEffect(soundExpression.sad), music.PlaybackMode.UntilDone)
-            } else if (num == 6) {
-                music.play(music.builtinPlayableSoundEffect(soundExpression.slide), music.PlaybackMode.UntilDone)
-            } else if (num == 7) {
-                music.play(music.builtinPlayableSoundEffect(soundExpression.soaring), music.PlaybackMode.UntilDone)
-            } else if (num == 8) {
-                music.play(music.builtinPlayableSoundEffect(soundExpression.spring), music.PlaybackMode.UntilDone)
-            } else if (num == 9) {
-                music.play(music.builtinPlayableSoundEffect(soundExpression.twinkle), music.PlaybackMode.UntilDone)
-            } else {
-                music.play(music.builtinPlayableSoundEffect(soundExpression.yawn), music.PlaybackMode.UntilDone)
-            }
+            break;
         }
         unid_if_1_23()
+        if (scroll_interval == 1) {
+            basic.pause(300)
+        }
+        while(true){
+            if (input.buttonIsPressed(Button.A)) {
+                scroll_interval = 1
+                if (num == 1) {
+                    num = 10
+                } else {
+                    num += -1
+                }
+                break;
+            }
+            if (input.buttonIsPressed(Button.B)) {
+                scroll_interval = 45
+                if (num == 10) {
+                    num = 1
+                } else {
+                    num += 1
+                }
+                break;
+            }
+            if (input.logoIsPressed()) {
+                scroll_interval = 1
+                basic.showIcon(IconNames.Yes)
+                if (num == 1) {
+                    music.play(music.builtinPlayableSoundEffect(soundExpression.giggle), music.PlaybackMode.UntilDone)
+                } else if (num == 2) {
+                    music.play(music.builtinPlayableSoundEffect(soundExpression.happy), music.PlaybackMode.UntilDone)
+                } else if (num == 3) {
+                    music.play(music.builtinPlayableSoundEffect(soundExpression.hello), music.PlaybackMode.UntilDone)
+                } else if (num == 4) {
+                    music.play(music.builtinPlayableSoundEffect(soundExpression.mysterious), music.PlaybackMode.UntilDone)
+                } else if (num == 5) {
+                    music.play(music.builtinPlayableSoundEffect(soundExpression.sad), music.PlaybackMode.UntilDone)
+                } else if (num == 6) {
+                    music.play(music.builtinPlayableSoundEffect(soundExpression.slide), music.PlaybackMode.UntilDone)
+                } else if (num == 7) {
+                    music.play(music.builtinPlayableSoundEffect(soundExpression.soaring), music.PlaybackMode.UntilDone)
+                } else if (num == 8) {
+                    music.play(music.builtinPlayableSoundEffect(soundExpression.spring), music.PlaybackMode.UntilDone)
+                } else if (num == 9) {
+                    music.play(music.builtinPlayableSoundEffect(soundExpression.twinkle), music.PlaybackMode.UntilDone)
+                } else {
+                    music.play(music.builtinPlayableSoundEffect(soundExpression.yawn), music.PlaybackMode.UntilDone)
+                }
+                break;
+            }
+        }
     }}
 function music_sFX() { //Built in sFX.
     music.setBuiltInSpeakerEnabled(true)
@@ -6483,45 +6590,59 @@ function music_sFX() { //Built in sFX.
     num = 1
     unid_type = 1
     while (true) {
-        if (input.buttonIsPressed(Button.A)) {
-            if (num == 1) {
-                num = 10
-            } else {
-                num += -1
-            }
-        }
-        if (input.buttonIsPressed(Button.B)) {
-            if (num == 10) {
-                num = 1
-            } else {
-                num += 1
-            }
-        }
         if (input.logoIsPressed()) {
-            basic.showIcon(IconNames.Yes)
-            if (num == 1) {
-                music.play(music.createSoundExpression(WaveShape.Square, 1600, 1, 255, 0, 300, SoundExpressionEffect.None, InterpolationCurve.Curve), music.PlaybackMode.UntilDone)
-            } else if (num == 2) {
-                music.play(music.createSoundExpression(WaveShape.Noise, 500, 499, 255, 0, 750, SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.UntilDone)
-            } else if (num == 3) {
-                music.play(music.createSoundExpression(WaveShape.Square, 400, 600, 255, 0, 100, SoundExpressionEffect.Warble, InterpolationCurve.Linear), music.PlaybackMode.UntilDone)
-            } else if (num == 4) {
-                music.play(music.createSoundExpression(WaveShape.Sine, 200, 600, 255, 0, 150, SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.UntilDone)
-            } else if (num == 5) {
-                music.play(music.createSoundExpression(WaveShape.Square, 200, 1, 255, 0, 100, SoundExpressionEffect.None, InterpolationCurve.Curve), music.PlaybackMode.UntilDone)
-            } else if (num == 6) {
-                music.play(music.createSoundExpression(WaveShape.Triangle, 300, 200, 255, 0, 75, SoundExpressionEffect.None, InterpolationCurve.Curve), music.PlaybackMode.UntilDone)
-            } else if (num == 7) {
-                music.play(music.createSoundExpression(WaveShape.Noise, 523, 1, 255, 0, 100, SoundExpressionEffect.Warble, InterpolationCurve.Logarithmic), music.PlaybackMode.UntilDone)
-            } else if (num == 8) {
-                music.play(music.createSoundExpression(WaveShape.Noise, 500, 1, 255, 0, 10, SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.UntilDone)
-            } else if (num == 9) {
-                music.play(music.createSoundExpression(WaveShape.Sine, 500, 500, 255, 0, 50, SoundExpressionEffect.Vibrato, InterpolationCurve.Linear), music.PlaybackMode.UntilDone)
-            } else {
-                music.play(music.createSoundExpression(WaveShape.Noise, 54, 54, 255, 0, 500, SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.UntilDone)
-            }
+            break;
         }
         unid_if_1_23()
+        if (scroll_interval == 1) {
+            basic.pause(300)
+        }
+        while(true){
+            if (input.buttonIsPressed(Button.A)) {
+                scroll_interval = 1
+                if (num == 1) {
+                    num = 10
+                } else {
+                    num += -1
+                }
+                break;
+            }
+            if (input.buttonIsPressed(Button.B)) {
+                scroll_interval = 45
+                if (num == 10) {
+                    num = 1
+                } else {
+                    num += 1
+                }
+                break;
+            }
+            if (input.logoIsPressed()) {
+                scroll_interval = 1
+                basic.showIcon(IconNames.Yes)
+                if (num == 1) {
+                    music.play(music.createSoundExpression(WaveShape.Square, 1600, 1, 255, 0, 300, SoundExpressionEffect.None, InterpolationCurve.Curve), music.PlaybackMode.UntilDone)
+                } else if (num == 2) {
+                    music.play(music.createSoundExpression(WaveShape.Noise, 500, 499, 255, 0, 750, SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.UntilDone)
+                } else if (num == 3) {
+                    music.play(music.createSoundExpression(WaveShape.Square, 400, 600, 255, 0, 100, SoundExpressionEffect.Warble, InterpolationCurve.Linear), music.PlaybackMode.UntilDone)
+                } else if (num == 4) {
+                    music.play(music.createSoundExpression(WaveShape.Sine, 200, 600, 255, 0, 150, SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.UntilDone)
+                } else if (num == 5) {
+                    music.play(music.createSoundExpression(WaveShape.Square, 200, 1, 255, 0, 100, SoundExpressionEffect.None, InterpolationCurve.Curve), music.PlaybackMode.UntilDone)
+                } else if (num == 6) {
+                    music.play(music.createSoundExpression(WaveShape.Triangle, 300, 200, 255, 0, 75, SoundExpressionEffect.None, InterpolationCurve.Curve), music.PlaybackMode.UntilDone)
+                } else if (num == 7) {
+                    music.play(music.createSoundExpression(WaveShape.Noise, 523, 1, 255, 0, 100, SoundExpressionEffect.Warble, InterpolationCurve.Logarithmic), music.PlaybackMode.UntilDone)
+                } else if (num == 8) {
+                    music.play(music.createSoundExpression(WaveShape.Noise, 500, 1, 255, 0, 10, SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.UntilDone)
+                } else if (num == 9) {
+                    music.play(music.createSoundExpression(WaveShape.Sine, 500, 500, 255, 0, 50, SoundExpressionEffect.Vibrato, InterpolationCurve.Linear), music.PlaybackMode.UntilDone)
+                } else {
+                    music.play(music.createSoundExpression(WaveShape.Noise, 54, 54, 255, 0, 500, SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.UntilDone)
+                }
+                break;
+            }
+        }
     }}
 
 function tune() { //Tune selection.
@@ -6532,7 +6653,7 @@ function tune() { //Tune selection.
     num = 1
     unid_type = 1
     while (true) {
-        if (input.buttonIsPressed(Button.AB)) {
+        if (input.pinIsPressed(TouchPin.P2)) {
             music.play(music.tonePlayable(tonelist[num], music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
         }
         if (input.buttonIsPressed(Button.A)) {
@@ -6711,42 +6832,57 @@ function beat() { //Beat selection.
     num = 1
     unid_type = 1
     while (true) {
-        if (input.buttonIsPressed(Button.AB)) {
-            if (num == 1) {
-                music.play(music.tonePlayable(tune_music, music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
-            } else if (num == 2) {
-                music.play(music.tonePlayable(tune_music, music.beat(BeatFraction.Half)), music.PlaybackMode.UntilDone)
-            } else if (num == 3) {
-                music.play(music.tonePlayable(tune_music, music.beat(BeatFraction.Quarter)), music.PlaybackMode.UntilDone)
-            } else if (num == 4) {
-                music.play(music.tonePlayable(tune_music, music.beat(BeatFraction.Eighth)), music.PlaybackMode.UntilDone)
-            } else if (num == 5) {
-                music.play(music.tonePlayable(tune_music, music.beat(BeatFraction.Sixteenth)), music.PlaybackMode.UntilDone)
-            } else if (num == 6) {
-                music.play(music.tonePlayable(tune_music, music.beat(BeatFraction.Double)), music.PlaybackMode.UntilDone)
-            } else if (num == 7) {
-                music.play(music.tonePlayable(tune_music, music.beat(BeatFraction.Breve)), music.PlaybackMode.UntilDone)
-            }
-        }
-        if (input.buttonIsPressed(Button.A)) {
-            if (num == 1) {
-                num = 7
-            } else {
-                num += -1
-            }
-        }
-        if (input.buttonIsPressed(Button.B)) {
-            if (num == 7) {
-                num = 1
-            } else {
-                num += 1
-            }
-        }
         if (input.logoIsPressed()) {
-            custom_music_beat.push(num)
             break;
         }
         unid_if_1_4()
+        if (scroll_interval == 1) {
+            basic.pause(300)
+        }
+        while(true){
+            if (input.pinIsPressed(TouchPin.P2)) {
+                scroll_interval = 1
+                if (num == 1) {
+                    music.play(music.tonePlayable(tune_music, music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
+                } else if (num == 2) {
+                    music.play(music.tonePlayable(tune_music, music.beat(BeatFraction.Half)), music.PlaybackMode.UntilDone)
+                } else if (num == 3) {
+                    music.play(music.tonePlayable(tune_music, music.beat(BeatFraction.Quarter)), music.PlaybackMode.UntilDone)
+                } else if (num == 4) {
+                    music.play(music.tonePlayable(tune_music, music.beat(BeatFraction.Eighth)), music.PlaybackMode.UntilDone)
+                } else if (num == 5) {
+                    music.play(music.tonePlayable(tune_music, music.beat(BeatFraction.Sixteenth)), music.PlaybackMode.UntilDone)
+                } else if (num == 6) {
+                    music.play(music.tonePlayable(tune_music, music.beat(BeatFraction.Double)), music.PlaybackMode.UntilDone)
+                } else if (num == 7) {
+                    music.play(music.tonePlayable(tune_music, music.beat(BeatFraction.Breve)), music.PlaybackMode.UntilDone)
+                }
+                break;
+            }
+            if (input.buttonIsPressed(Button.A)) {
+                scroll_interval = 1
+                if (num == 1) {
+                    num = 7
+                } else {
+                    num += -1
+                }
+                break;
+            }
+            if (input.buttonIsPressed(Button.B)) {
+                scroll_interval = 45
+                if (num == 7) {
+                    num = 1
+                } else {
+                    num += 1
+                }
+                break;
+            }
+            if (input.logoIsPressed()) {
+                scroll_interval = 1
+                custom_music_beat.push(num)
+                break;
+            }
+        }
     }
     basic.pause(200)
     custom_music_selection()}
@@ -6758,42 +6894,57 @@ function rest() { //Rest selection.
     num = 1
     unid_type = 1
     while (true) {
-        if (input.buttonIsPressed(Button.AB)) {
-            if (num == 1) {
-                music.play(music.tonePlayable(330, music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
-            } else if (num == 2) {
-                music.play(music.tonePlayable(330, music.beat(BeatFraction.Half)), music.PlaybackMode.UntilDone)
-            } else if (num == 3) {
-                music.play(music.tonePlayable(330, music.beat(BeatFraction.Quarter)), music.PlaybackMode.UntilDone)
-            } else if (num == 4) {
-                music.play(music.tonePlayable(330, music.beat(BeatFraction.Eighth)), music.PlaybackMode.UntilDone)
-            } else if (num == 5) {
-                music.play(music.tonePlayable(330, music.beat(BeatFraction.Sixteenth)), music.PlaybackMode.UntilDone)
-            } else if (num == 6) {
-                music.play(music.tonePlayable(330, music.beat(BeatFraction.Double)), music.PlaybackMode.UntilDone)
-            } else if (num == 7) {
-                music.play(music.tonePlayable(330, music.beat(BeatFraction.Breve)), music.PlaybackMode.UntilDone)
-            }
-        }
-        if (input.buttonIsPressed(Button.A)) {
-            if (num == 1) {
-                num = 7
-            } else {
-                num += -1
-            }
-        }
-        if (input.buttonIsPressed(Button.B)) {
-            if (num == 7) {
-                num = 1
-            } else {
-                num += 1
-            }
-        }
         if (input.logoIsPressed()) {
-            custom_beat.push(num)
             break;
         }
         unid_if_1_4()
+        if (scroll_interval == 1) {
+            basic.pause(300)
+        }
+        while(true){
+            if (input.pinIsPressed(TouchPin.P2)) {
+                scroll_interval = 1
+                if (num == 1) {
+                    music.play(music.tonePlayable(330, music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
+                } else if (num == 2) {
+                    music.play(music.tonePlayable(330, music.beat(BeatFraction.Half)), music.PlaybackMode.UntilDone)
+                } else if (num == 3) {
+                    music.play(music.tonePlayable(330, music.beat(BeatFraction.Quarter)), music.PlaybackMode.UntilDone)
+                } else if (num == 4) {
+                    music.play(music.tonePlayable(330, music.beat(BeatFraction.Eighth)), music.PlaybackMode.UntilDone)
+                } else if (num == 5) {
+                    music.play(music.tonePlayable(330, music.beat(BeatFraction.Sixteenth)), music.PlaybackMode.UntilDone)
+                } else if (num == 6) {
+                    music.play(music.tonePlayable(330, music.beat(BeatFraction.Double)), music.PlaybackMode.UntilDone)
+                } else if (num == 7) {
+                    music.play(music.tonePlayable(330, music.beat(BeatFraction.Breve)), music.PlaybackMode.UntilDone)
+                }
+                break;
+            }
+            if (input.buttonIsPressed(Button.A)) {
+                scroll_interval = 1
+                if (num == 1) {
+                    num = 7
+                } else {
+                    num += -1
+                }
+                break;
+            }
+            if (input.buttonIsPressed(Button.B)) {
+                scroll_interval = 45
+                if (num == 7) {
+                    num = 1
+                } else {
+                    num += 1
+                }
+                break;
+            }
+            if (input.logoIsPressed()) {
+                scroll_interval = 1
+                custom_beat.push(num)
+                break;
+            }
+        }
     }
     basic.pause(200)
     custom_music_selection()}
@@ -7020,64 +7171,85 @@ function send_string() { //Send string via serial or bluetooth.
     basic.clearScreen()
     basic.pause(200)
     while (true) {
-        if (input.buttonIsPressed(Button.A)) {
-            if (abc_id == 1) {
-                abc_id = 38
-            } else {
-                abc_id += -1
-            }
-        }
-        if (input.buttonIsPressed(Button.B)) {
-            if (abc_id == 38) {
-                abc_id = 1
-            } else {
-                abc_id += 1
-            }
-        }
-        if (input.logoIsPressed()) {
-            basic.showIcon(IconNames.Yes)
-            if (selected_uart == true) {
-                uckb_if()
-                bluetooth.uartWriteString(uckb)
-            } else {
-                uckb_if()
-                serial.writeString(uckb)
-            }
-            music.play(music.tonePlayable(523, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
-            basic.pause(100)
-        }
         usid_if()
+        if (scroll_interval == 1) {
+            basic.pause(300)
+        }
+        while(true){
+            if (input.buttonIsPressed(Button.A)) {
+                scroll_interval = 1
+                if (abc_id == 1) {
+                    abc_id = 38
+                } else {
+                    abc_id += -1
+                }
+                break;
+            }
+            if (input.buttonIsPressed(Button.B)) {
+                scroll_interval = 45
+                if (abc_id == 38) {
+                    abc_id = 1
+                } else {
+                    abc_id += 1
+                }
+                break;
+            }
+            if (input.logoIsPressed()) {
+                scroll_interval = 1
+                basic.showIcon(IconNames.Yes)
+                if (selected_uart == true) {
+                    uckb_if()
+                    bluetooth.uartWriteString(uckb)
+                } else {
+                    uckb_if()
+                    serial.writeString(uckb)
+                }
+                music.play(music.tonePlayable(523, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
+                basic.pause(100)
+                break;
+            }
+        }
     }}
-function send_numer() { //Send number via serial or bluetooth.
+function send_number() { //Send number via serial or bluetooth.
     basic.clearScreen()
     basic.pause(500)
     num = 0
     while (true) {
-        if (input.buttonIsPressed(Button.A)) {
-            if (num == 0) {
-                num = 9
-            } else {
-                num += -1
-            }
-        }
-        if (input.buttonIsPressed(Button.B)) {
-            if (num == 9) {
-                num = 0
-            } else {
-                num += 1
-            }
-        }
-        if (input.logoIsPressed()) {
-            basic.showIcon(IconNames.Yes)
-            if (selected_uart == true) {
-                bluetooth.uartWriteNumber(num)
-            } else {
-                serial.writeNumber(num)
-            }
-            music.play(music.tonePlayable(349, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
-        }
-
         unid_if_0_9()
+        if (scroll_interval == 1) {
+            basic.pause(300)
+        }
+        while(true){
+            if (input.buttonIsPressed(Button.A)) {
+                scroll_interval = 1
+                if (num == 0) {
+                    num = 9
+                } else {
+                    num += -1
+                }
+                break;
+            }
+            if (input.buttonIsPressed(Button.B)) {
+                scroll_interval = 45
+                if (num == 9) {
+                    num = 0
+                } else {
+                    num += 1
+                }
+                break;
+            }
+            if (input.logoIsPressed()) {
+                scroll_interval = 1
+                basic.showIcon(IconNames.Yes)
+                if (selected_uart == true) {
+                    bluetooth.uartWriteNumber(num)
+                } else {
+                    serial.writeNumber(num)
+                }
+                music.play(music.tonePlayable(349, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
+                break;
+            }
+        }
     }}
 
 function settings_test_input() { //Test all inputs.
