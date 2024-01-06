@@ -4485,24 +4485,29 @@ function tool_record() { //Record and play sound files // Selected_tool = 8
         } else if (tool_type == 3) {
             if (tool_record_volume == 1) {
                 image_volume.scrollImage(1, scroll_interval)
+                record.setSampleRate(4400)
                 led.plotBrightness(2, 1, 20)
             } else if (tool_record_volume == 2) {
                 image_volume.scrollImage(1, scroll_interval)
+                record.setSampleRate(8800)
                 led.plotBrightness(2, 1, 20)
                 led.plotBrightness(3, 2, 20)
             } else if (tool_record_volume == 3) {
                 image_volume.scrollImage(1, scroll_interval)
+                record.setSampleRate(13200)
                 led.plotBrightness(2, 1, 20)
                 led.plotBrightness(3, 2, 20)
                 led.plotBrightness(3, 3, 20)
             } else if (tool_record_volume == 4) {
                 image_volume.scrollImage(1, scroll_interval)
+                record.setSampleRate(17600)
                 led.plotBrightness(2, 1, 20)
                 led.plotBrightness(3, 2, 20)
                 led.plotBrightness(3, 3, 20)
                 led.plotBrightness(2, 4, 20)
             } else {
                 image_volume_full.scrollImage(1, scroll_interval)
+                record.setSampleRate(22000)
             }
         }
         if (scroll_interval == 1) {
