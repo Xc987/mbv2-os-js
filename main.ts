@@ -35,17 +35,12 @@ function loading_animation() { //Draw loading animation.
     led.plot(1, 0)
     basic.pause(30)
     led.unplot(1, 0)}
-
 function draw_menu() { //Draw navigation bar at the top.
     led.plotBrightness(0, 0, 20)
     led.plotBrightness(1, 0, 20)
     led.plotBrightness(2, 0, 20)
     led.plotBrightness(3, 0, 20)
     led.plotBrightness(4, 0, 20)}
-function draw_mini_menu() {//Draw mini navigation bar at the top.
-    led.plotBrightness(1, 0, 20)
-    led.plotBrightness(2, 0, 20)
-    led.plotBrightness(3, 0, 20)}
 function waiting_for_connection() { //Waiting for the bluetooth connection.
     waiting_for_input = true
     if (bluetooth_type == 1) {
@@ -1240,7 +1235,7 @@ function menu_select_menu() { //Menu selection at the start.
             led.unplot(1, 0)
         } else if (selected_menu == 4) {
             led.unplot(2, 0)
-        } else if (selected_menu == 9) {
+        } else if (selected_menu == 8) {
             led.unplot(3, 0)
         } else {
             led.unplot(2, 0)
@@ -1257,14 +1252,12 @@ function menu_select_menu() { //Menu selection at the start.
         } else if (selected_menu == 5) {
             image_create.scrollImage(1, scroll_interval)
         } else if (selected_menu == 6) {
-            image_pins.scrollImage(1, scroll_interval)
-        } else if (selected_menu == 7) {
             image_send.scrollImage(1, scroll_interval)
+        } else if (selected_menu == 7) {
+            image_uart.scrollImage(1, scroll_interval)
         } else if (selected_menu == 8) {
-                image_uart.scrollImage(1, scroll_interval)
-        } else if (selected_menu == 9) {
             image_log.scrollImage(1, scroll_interval)
-        } else if (selected_menu == 10) {
+        } else if (selected_menu == 9) {
             image_settings.scrollImage(1, scroll_interval)
             ckeck_hold_b()
         }
@@ -1276,9 +1269,9 @@ function menu_select_menu() { //Menu selection at the start.
             led.plot(0, 0)
         } else if (selected_menu == 2) {
             led.plot(1, 0)
-        } else if (selected_menu == 9) {
+        } else if (selected_menu == 8) {
             led.plot(3, 0)
-        } else if (selected_menu == 10) {
+        } else if (selected_menu == 9) {
             led.plot(4, 0)
         } else {
             led.plot(2, 0)
@@ -1286,7 +1279,7 @@ function menu_select_menu() { //Menu selection at the start.
         while (true) {
             if (input.buttonIsPressed(Button.A)) {
                 if (selected_menu == 1) {
-                    selected_menu = 10
+                    selected_menu = 9
                 } else {
                     selected_menu += -1
                 }
@@ -1298,7 +1291,7 @@ function menu_select_menu() { //Menu selection at the start.
                 } else {
                     scroll_interval = 1
                 }
-                if (selected_menu == 10) {
+                if (selected_menu == 9) {
                     selected_menu = 1
                     scroll_interval = 1
                 } else {
@@ -1325,16 +1318,14 @@ function menu_select_menu() { //Menu selection at the start.
     } else if (selected_menu == 5) {
         create_select_menu()
     } else if (selected_menu == 6) {
-        pins_select_menu()
-    } else if (selected_menu == 7) {
         selected_serial_if = true
         send_select_menu()
-    } else if (selected_menu == 8) {
+    } else if (selected_menu == 7) {
         selected_uart = true
         send_select_menu()
-    } else if (selected_menu == 9) {
+    } else if (selected_menu == 8) {
         data_logging_freq_menu()
-    } else if (selected_menu == 10) {
+    } else if (selected_menu == 9) {
         settings_select_menu()
     }}
 function game_select_menu() { //Game selection.
@@ -1639,18 +1630,20 @@ function tool_select_menu() { //Tool selection.
     }}
 function tool_calculator_menu() { //Calculator type selection.
     while (true) {
-        if (selected_math == 1) {
+        if (selected_math == 0) {
             led.unplot(0, 0)
-        } else if (selected_math == 2) {
+        } else if (selected_math == 1) {
             led.unplot(1, 0)
         } else if (selected_math == 11) {
             led.unplot(3, 0)
         } else {
             led.unplot(2, 0)
         }
-            if (selected_math == 1) {
-                image_plus.scrollImage(1, scroll_interval)
-                ckeck_hold_a()
+            if (selected_math == 0) {
+            image_back.scrollImage(1, scroll_interval)
+            ckeck_hold_a()
+            } else if (selected_math == 1){
+            image_plus.scrollImage(1, scroll_interval)
             } else if (selected_math == 2) {
                 image_minus.scrollImage(1, scroll_interval)
             } else if (selected_math == 3) {
@@ -1677,9 +1670,9 @@ function tool_calculator_menu() { //Calculator type selection.
             basic.pause(300)
         }
         draw_menu()
-        if (selected_math == 1) {
+        if (selected_math == 0) {
             led.plot(0, 0)
-        } else if (selected_math == 2) {
+        } else if (selected_math == 1) {
             led.plot(1, 0)
         } else if (selected_math == 10) {
             led.plot(3, 0)
@@ -1690,7 +1683,7 @@ function tool_calculator_menu() { //Calculator type selection.
         }
         while (waiting_for_input == true) {
             if (input.buttonIsPressed(Button.A)) {
-                if (selected_math == 1) {
+                if (selected_math == 0) {
                     selected_math = 11
                 } else {
                     selected_math += -1
@@ -1704,7 +1697,7 @@ function tool_calculator_menu() { //Calculator type selection.
                     scroll_interval = 1
                 }
                 if (selected_math == 11) {
-                    selected_math = 1
+                    selected_math = 0
                     scroll_interval = 1
                 } else {
                     selected_math += 1
@@ -1726,6 +1719,8 @@ function tool_calculator_menu() { //Calculator type selection.
         basic.clearScreen()
         basic.showNumber(Math.PI)
         tool_calculator_menu()
+    } else if (selected_math == 0) {
+        tool_select_menu()
     }}
 function tool_clock_menu() { //Clock type selection.
     while (true) {
@@ -1807,6 +1802,8 @@ function tool_clock_menu() { //Clock type selection.
         timer()
     } else if (selected_clock == 4) {
         clock()
+    } else if (selected_clock == 0) {
+        tool_select_menu()
     }}
 function turtle_main() { //Turtle extension.
     music.setBuiltInSpeakerEnabled(true)
@@ -2092,8 +2089,10 @@ function custom_music_selection() { //Custom music selection.
     while (true) {
         if (selected_create_music == 1) {
             led.unplot(3, 0)
+            led.unplot(4, 0)
         } else if (selected_create_music == 2) {
             led.unplot(1, 0)
+            led.unplot(0, 0)
         } else if (selected_create_music == 3) {
             led.unplot(2, 0)
         }
@@ -2109,13 +2108,15 @@ function custom_music_selection() { //Custom music selection.
         if (scroll_interval == 1) {
             basic.pause(300)
         }
-        draw_mini_menu()
+        draw_menu()
         if (selected_create_music == 1) {
+            led.plot(0, 0)
             led.plot(1, 0)
         } else if (selected_create_music == 2) {
             led.plot(2, 0)
         } else if (selected_create_music == 3) {
             led.plot(3, 0)
+            led.plot(4, 0)
         }
         while (true) {
             if (input.buttonIsPressed(Button.A)) {
@@ -2237,223 +2238,15 @@ function create_music_menu() { //Built-in music selection.
         scroll_interval = 1
         custom_music_selection()
     }}
-function pins_select_menu() { //Pin selection.
-    while (true) {
-        if (selected_pins == 0) {
-            led.unplot(4, 0)
-        } else if (selected_pins == 1) {
-            led.unplot(0, 0)
-        } else if (selected_pins == 2) {
-            led.unplot(1, 0)
-        } else if (selected_pins == 3) {
-            led.unplot(2, 0)
-        } else if (selected_pins == 4) {
-            led.unplot(3, 0)
-        }
-        if (selected_pins == 0) {
-            image_back.scrollImage(1, scroll_interval)
-            ckeck_hold_a()
-            } else if (selected_pins == 1) {
-                image_zero.scrollImage(1, scroll_interval)
-            } else if (selected_pins == 2) {
-                image_numberone.scrollImage(1, scroll_interval)
-            } else if (selected_pins == 3) {
-            image_two.scrollImage(1, scroll_interval)
-            } else if (selected_pins == 4) {
-            image_3v.scrollImage(1, scroll_interval)
-            ckeck_hold_b()
-            }
-        if (scroll_interval == 1) {
-            basic.pause(300)
-        }
-        draw_menu()
-        if (selected_pins == 0) {
-            led.plot(0, 0)
-        } else if (selected_pins == 1) {
-            led.plot(1, 0)
-        } else if (selected_pins == 2) {
-            led.plot(2, 0)
-        } else if (selected_pins == 3) {
-            led.plot(3, 0)
-        } else if (selected_pins == 4) {
-            led.plot(4, 0)
-        }
-        while (waiting_for_input == true) {
-            if (input.buttonIsPressed(Button.A)) {
-                if (selected_pins == 0) {
-                    selected_pins = 4
-                } else {
-                    selected_pins += -1
-                }
-                scroll_interval = 1
-                break;
-            } else if (input.buttonIsPressed(Button.B)) {
-                if (animation_scroll == 1) {
-                    scroll_interval = 45
-                } else {
-                    scroll_interval = 1
-                }
-                if (selected_pins == 4) {
-                    selected_pins = 0
-                    scroll_interval = 1
-                } else {
-                    selected_pins += 1
-                }
-                break;
-            } else if (input.logoIsPressed()) {
-                break;
-            }
-        }
-        if (input.logoIsPressed()) {
-            break;
-        }
-    }
-    scroll_interval = 1
-    if (selected_pins == 0) {
-        menu_select_menu()
-    } else if (selected_pins == 1) {
-        pins_type_select_menu()
-    } else if (selected_pins == 2) {
-        pins_type_select_menu()
-    } else if (selected_pins == 3) {
-        pins_type_select_menu()
-    } else {
 
-    }}
-function pins_type_select_menu() { //Pin type selection.
-    while (true) {
-        if (selected_pins_type == 0) {
-            led.unplot(4, 0)
-        } else if (selected_pins_type == 1) {
-            led.unplot(0, 0)
-        } else if (selected_pins_type == 2) {
-            led.unplot(1, 0)
-        } else if (selected_pins_type == 3) {
-            led.unplot(2, 0)
-        } else if (selected_pins_type == 4) {
-            led.unplot(3, 0)
-        }
-        if (selected_pins_type == 0) {
-            image_back.scrollImage(1, scroll_interval)
-            ckeck_hold_a()
-            } else if (selected_pins_type == 1) {
-                image_analog.scrollImage(1, scroll_interval)
-            } else if (selected_pins_type == 2) {
-                image_digital.scrollImage(1, scroll_interval)
-            } else if (selected_pins_type == 3) {
-                image_note.scrollImage(1, scroll_interval)
-            } else if (selected_pins_type == 4) {
-            image_capacitive.scrollImage(1, scroll_interval)
-            ckeck_hold_b()
-            }
-        if (scroll_interval == 1) {
-            basic.pause(300)
-        }
-        draw_menu()
-        if (selected_pins_type == 0) {
-            led.plot(0, 0)
-        } else if (selected_pins_type == 1) {
-            led.plot(1, 0)
-        } else if (selected_pins_type == 2) {
-            led.plot(2, 0)
-        } else if (selected_pins_type == 3) {
-            led.plot(3, 0)
-        } else if (selected_pins_type == 4) {
-            led.plot(4, 0)
-        }
-        while (true) {
-            if (input.buttonIsPressed(Button.A)) {
-                if (selected_pins_type == 0) {
-                    selected_pins_type = 4
-                } else {
-                    selected_pins_type += -1
-                }
-                scroll_interval = 1
-                break;
-            } else if (input.buttonIsPressed(Button.B)) {
-                if (animation_scroll == 1) {
-                    scroll_interval = 45
-                } else {
-                    scroll_interval = 1
-                }
-                if (selected_pins_type == 4) {
-                    selected_pins_type = 0
-                    scroll_interval = 1
-                } else {
-                    selected_pins_type += 1
-                }
-                break;
-            } else if (input.logoIsPressed()) {
-                if (selected_pins_type == 3) {
-                    if (pin_music_mode == false) {
-                        if (selected_pins == 1) {
-                            pins.setAudioPinEnabled(true)
-                            pins.setAudioPin(AnalogPin.P0)
-                        } else if (selected_pins == 2) {
-                            pins.setAudioPinEnabled(true)
-                            pins.setAudioPin(AnalogPin.P1)
-                        } else if (selected_pins == 3) {
-                            pins.setAudioPinEnabled(true)
-                            pins.setAudioPin(AnalogPin.P2)
-                        }
-                    } else {
-                        pins.setAudioPinEnabled(false)
-                    }
-                    basic.showIcon(IconNames.Yes)
-                    break;
-                    basic.clearScreen()
-                } else if (selected_pins_type == 4) {
-                    if (pin_toch_mode == 0) {
-                        if (selected_pins == 1) {
-                            pins.touchSetMode(TouchTarget.P0, TouchTargetMode.Capacitive)
-                        } else if (selected_pins == 2) {
-                            pins.touchSetMode(TouchTarget.P1, TouchTargetMode.Capacitive)
-                        } else if (selected_pins == 3) {
-                            pins.touchSetMode(TouchTarget.P2, TouchTargetMode.Capacitive)
-                        }
-                        pin_toch_mode = 1
-                    } else {
-                        if (selected_pins == 1) {
-                            pins.touchSetMode(TouchTarget.P0, TouchTargetMode.Resistive)
-                        } else if (selected_pins == 2) {
-                            pins.touchSetMode(TouchTarget.P1, TouchTargetMode.Resistive)
-                        } else if (selected_pins == 3) {
-                            pins.touchSetMode(TouchTarget.P2, TouchTargetMode.Resistive)
-                        }
-                        pin_toch_mode = 0
-                    }
-                    basic.showIcon(IconNames.Yes)
-                    break;
-                    basic.clearScreen()
-                } else {
-                    break;
-                }
-            }
-        }
-        if (input.logoIsPressed()) {
-            if (selected_pins_type == 1) {
-                break;
-            } else if (selected_pins_type == 2) {
-                break;
-            } else if (selected_pins_type == 0) {
-                break;
-            }
-        }
-    }
-    if (selected_pins_type == 0) {
-        scroll_interval = 1
-        pins_select_menu()
-    } else if (selected_pins_type == 1) {
-        pins_analog()
-    } else if (selected_pins_type == 2) {
-        pins_digital()
-    }}
 function send_select_menu() { //Send selection.
     while (true) {
         if (selected_serial == 0) {
             led.unplot(3, 0)
+            led.unplot(4, 0)
         } else if (selected_serial == 1) {
             led.unplot(1, 0)
+            led.unplot(0, 0)
         } else if (selected_serial == 2) {
             led.unplot(2, 0)
         }
@@ -2469,13 +2262,15 @@ function send_select_menu() { //Send selection.
         if (scroll_interval == 1) {
             basic.pause(300)
         }
-        draw_mini_menu()
+        draw_menu()
         if (selected_serial == 0) {
+            led.plot(0, 0)
             led.plot(1, 0)
         } else if (selected_serial == 1) {
             led.plot(2, 0)
         } else if (selected_serial == 2) {
             led.plot(3, 0)
+            led.plot(4, 0)
         }
         while (true) {
             if (input.buttonIsPressed(Button.A)) {
@@ -3343,15 +3138,13 @@ let scroll_interval = 1
 let game_mode = 0
 let selected_tool = 0
 let selected_setting = 0
-let selected_math = 1
+let selected_math = 0
 let selected_clock = 0
 let tool_type = 1
 let bluetooth_type = 0
 let bluetooth_keyboard_type = 0
 let create_type = 0
 let selected_create_music = 1
-let selected_pins = 0
-let selected_pins_type = 0
 let selected_serial = 0
 let selected_uart = false
 let selected_serial_if = false
@@ -3430,7 +3223,6 @@ let tonelist = [0, 131, 147, 165, 175, 196, 220, 247, 262, 294, 330, 349, 392, 4
 let music_playing = false
 let line_sent = false
 let uart_send = ""
-let pin_toch_mode = 0
 let pin_music_mode = false
 let logging_freq = 0
 let rotate_display = parseFloat(flashstorage.getOrDefault("display", "1"))
@@ -4679,9 +4471,11 @@ function tool_record() { //Record and play sound files // Selected_tool = 8
     while (true) {
         if (tool_type == 1) {
             led.unplot(3, 0)
-        } else if (selected_clock == 2) {
+            led.unplot(4, 0)
+        } else if (tool_type == 2) {
             led.unplot(1, 0)
-        } else if (selected_clock == 3) {
+            led.unplot(0, 0)
+        } else if (tool_type == 3) {
             led.unplot(2, 0)
         }
         if (tool_type == 1) {
@@ -4714,20 +4508,22 @@ function tool_record() { //Record and play sound files // Selected_tool = 8
         if (scroll_interval == 1) {
             basic.pause(300)
         }
-        draw_mini_menu()
+        draw_menu()
         if (tool_type == 1) {
+            led.plot(0, 0)
             led.plot(1, 0)
         } else if (tool_type == 2) {
             led.plot(2, 0)
         } else if (tool_type == 3) {
             led.plot(3, 0)
+            led.plot(4, 0)
         }
         waiting_for_input = true
         while (waiting_for_input == true) {
             if (input.buttonIsPressed(Button.A)) {
                 scroll_interval = 1
                 if (tool_type == 1) {
-                    tool_type = 1
+                    tool_type = 3
                     waiting_for_input = false
                 } else {
                     tool_type += -1
@@ -4737,7 +4533,7 @@ function tool_record() { //Record and play sound files // Selected_tool = 8
             if (input.buttonIsPressed(Button.B)) {
                 scroll_interval = 45
                 if (tool_type == 3) {
-                    tool_type = 3
+                    tool_type = 1
                     scroll_interval = 1
                     waiting_for_input = false
                 } else {
@@ -4786,8 +4582,8 @@ function math_xy() { //Calculator with 2 variables // Selected_tool = 9
             basic.pause(300)
         }
         while(true){
+            scroll_interval = 1
             if (input.pinIsPressed(TouchPin.P2)) {
-                scroll_interval = 1
                 if (numberx.length == 1) {
                     mathx = numberx[0]
                 } else if (numberx.length == 2) {
@@ -4807,19 +4603,16 @@ function math_xy() { //Calculator with 2 variables // Selected_tool = 9
                 } else {
                     basic.showIcon(IconNames.No)
                 }
-                basic.clearScreen()
                 break;
-            }
-            if (input.buttonIsPressed(Button.A)) {
-                scroll_interval = 1
+                basic.clearScreen()
+            } else if (input.buttonIsPressed(Button.A)){
                 if (num == 0) {
                     num = 9
                 } else {
                     num += -1
                 }
                 break;
-            }
-            if (input.buttonIsPressed(Button.B)) {
+            } else if (input.buttonIsPressed(Button.B)) {
                 scroll_interval = 45
                 if (num == 9) {
                     num = 0
@@ -4827,15 +4620,12 @@ function math_xy() { //Calculator with 2 variables // Selected_tool = 9
                     num += 1
                 }
                 break;
-            }
-            if (input.logoIsPressed()) {
-                scroll_interval = 1
+            } else if (input.logoIsPressed()) {
                 music.play(music.tonePlayable(349, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
                 numberx.push(numberlist[num])
                 basic.showIcon(IconNames.Yes)
                 break;
-            }
-            
+            } 
         }
         
     }
@@ -4851,8 +4641,8 @@ function math_xy() { //Calculator with 2 variables // Selected_tool = 9
             basic.pause(300)
         }
         while(true){
+            scroll_interval = 1
             if (input.pinIsPressed(TouchPin.P2)) {
-                scroll_interval = 1
                 if (numbery.length == 1) {
                     mathy = numbery[0]
                 } else if (numbery.length == 2) {
@@ -4874,17 +4664,14 @@ function math_xy() { //Calculator with 2 variables // Selected_tool = 9
                 }
                 basic.clearScreen()
                 break;
-            }
-            if (input.buttonIsPressed(Button.A)) {
-                scroll_interval = 1
+            } else if (input.buttonIsPressed(Button.A)) {
                 if (num == 0) {
                     num = 9
                 } else {
                     num += -1
                 }
                 break;
-            }
-            if (input.buttonIsPressed(Button.B)) {
+            } else if (input.buttonIsPressed(Button.B)) {
                 scroll_interval = 45
                 if (num == 9) {
                     num = 0
@@ -4892,9 +4679,7 @@ function math_xy() { //Calculator with 2 variables // Selected_tool = 9
                     num += 1
                 }
                 break;
-            }
-            if (input.logoIsPressed()) {
-                scroll_interval = 1
+            } else if (input.logoIsPressed()) {
                 basic.showIcon(IconNames.Yes)
                 music.play(music.tonePlayable(349, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
                 numbery.push(numberlist[num])
@@ -4937,8 +4722,8 @@ function math_x() { //Calculator with 1 variable // Selected_tool = 9
             basic.pause(300)
         }
         while(true){
+            scroll_interval = 1
             if (input.pinIsPressed(TouchPin.P2)) {
-                scroll_interval = 1
                 if (numberx.length == 1) {
                     mathx = numberx[0]
                 } else if (numberx.length == 2) {
@@ -4960,17 +4745,14 @@ function math_x() { //Calculator with 1 variable // Selected_tool = 9
                 }
                 basic.clearScreen()
                 break;
-            }
-            if (input.buttonIsPressed(Button.A)) {
-                scroll_interval = 1
+            } else if (input.buttonIsPressed(Button.A)) {
                 if (num == 0) {
                     num = 9
                 } else {
                     num += -1
                 }
                 break;
-            }
-            if (input.buttonIsPressed(Button.B)) {
+            } else if (input.buttonIsPressed(Button.B)) {
                 scroll_interval = 45
                 if (num == 9) {
                     num = 0
@@ -4978,9 +4760,7 @@ function math_x() { //Calculator with 1 variable // Selected_tool = 9
                     num += 1
                 }
                 break;
-            }
-            if (input.logoIsPressed()) {
-                scroll_interval = 1
+            } else if (input.logoIsPressed()) {
                 music.play(music.tonePlayable(349, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
                 numberx.push(numberlist[num])
                 basic.showIcon(IconNames.Yes)
@@ -5022,16 +4802,15 @@ function signal() { //Signal / Alarm clock // Selected_tool = 10
             basic.pause(300)
         }
         while(true){
+            scroll_interval = 1
             if (input.buttonIsPressed(Button.A)) {
-                scroll_interval = 1
                 if (hour == 0) {
                     hour = 23
                 } else {
                     hour += -1
                 }
                 break;
-            }
-            if (input.buttonIsPressed(Button.B)) {
+            } else if (input.buttonIsPressed(Button.B)) {
                 scroll_interval = 45
                 if (hour == 23) {
                     hour = 0
@@ -5039,9 +4818,7 @@ function signal() { //Signal / Alarm clock // Selected_tool = 10
                     hour += 1
                 }
                 break;
-            }
-            if (input.logoIsPressed()) {
-                scroll_interval = 1
+            } else if (input.logoIsPressed()) {
                 music.play(music.tonePlayable(349, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
                 basic.showIcon(IconNames.Yes)
                 break;
@@ -5062,16 +4839,15 @@ function signal() { //Signal / Alarm clock // Selected_tool = 10
             basic.pause(300)
         }
         while(true){
+            scroll_interval = 1
             if (input.buttonIsPressed(Button.A)) {
-                scroll_interval = 1
                 if (minute == 0) {
                     minute = 55
                 } else {
                     minute += -5
                 }
                 break;
-            }
-            if (input.buttonIsPressed(Button.B)) {
+            } else if (input.buttonIsPressed(Button.B)) {
                 scroll_interval = 45
                 if (minute == 55) {
                     minute = 0
@@ -5079,9 +4855,7 @@ function signal() { //Signal / Alarm clock // Selected_tool = 10
                     minute += 5
                 }
                 break;
-            }
-            if (input.logoIsPressed()) {
-                scroll_interval = 1
+            }else if (input.logoIsPressed()) {
                 music.play(music.tonePlayable(349, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
                 basic.showIcon(IconNames.Yes)
                 break;
@@ -5090,7 +4864,7 @@ function signal() { //Signal / Alarm clock // Selected_tool = 10
     }
     basic.clearScreen()
     basic.pause(200)
-    basic.showString("HS")
+    basic.showString("SIG-H")
     basic.clearScreen()
     unid_type = 5
     while (true) {
@@ -5102,16 +4876,15 @@ function signal() { //Signal / Alarm clock // Selected_tool = 10
             basic.pause(300)
         }
         while(true){
+            scroll_interval = 1
             if (input.buttonIsPressed(Button.A)) {
-                scroll_interval = 1
                 if (signal_hour == 0) {
                     signal_hour = 23
                 } else {
                     signal_hour += -1
                 }
                 break;
-            }
-            if (input.buttonIsPressed(Button.B)) {
+            } else if (input.buttonIsPressed(Button.B)) {
                 scroll_interval = 45
                 if (signal_hour == 23) {
                     signal_hour = 0
@@ -5119,18 +4892,15 @@ function signal() { //Signal / Alarm clock // Selected_tool = 10
                     signal_hour += 1
                 }
                 break;
-            }
-            if (input.logoIsPressed()) {
-                scroll_interval = 1
+            } else if (input.logoIsPressed()) {
                 music.play(music.tonePlayable(349, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
                 basic.showIcon(IconNames.Yes)
-                break;
             }
         }
     }
     basic.clearScreen()
     basic.pause(200)
-    basic.showString("MS")
+    basic.showString("SIG-M")
     basic.clearScreen()
     unid_type = 6
     while (true) {
@@ -5142,16 +4912,15 @@ function signal() { //Signal / Alarm clock // Selected_tool = 10
             basic.pause(300)
         }
         while(true){
+            scroll_interval = 1
             if (input.buttonIsPressed(Button.A)) {
-                scroll_interval = 1
                 if (signal_minute == 0) {
                     signal_minute = 55
                 } else {
                     signal_minute += -5
                 }
                 break;
-            }
-            if (input.buttonIsPressed(Button.B)) {
+            } else if (input.buttonIsPressed(Button.B)) {
                 scroll_interval = 45
                 if (signal_minute == 55) {
                     signal_minute = 0
@@ -5159,9 +4928,7 @@ function signal() { //Signal / Alarm clock // Selected_tool = 10
                     signal_minute += 5
                 }
                 break;
-            }
-            if (input.logoIsPressed()) {
-                scroll_interval = 1
+            } else if (input.logoIsPressed()) {
                 music.play(music.tonePlayable(349, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
                 basic.showIcon(IconNames.Yes)
                 break;
@@ -5228,7 +4995,7 @@ function chronometer() { // Chronometer // Selected_tool = 10
             basic.showIcon(IconNames.No)
         }
     }}
-function timer() { // Timer // Selected_tool = 10
+function timer() { // Timer // Selected_tool = 10LAST
     basic.clearScreen()
     music.setBuiltInSpeakerEnabled(true)
     basic.pause(200)
@@ -5247,8 +5014,8 @@ function timer() { // Timer // Selected_tool = 10
             basic.pause(300)
         }
         while(true){
+            scroll_interval = 1
             if (input.pinIsPressed(TouchPin.P2)) {
-                scroll_interval = 1
                 if (list.length == 1) {
                     hour = list[0]
                 } else if (list.length == 2) {
@@ -5257,17 +5024,14 @@ function timer() { // Timer // Selected_tool = 10
                     basic.showIcon(IconNames.No)
                 }
                 break;
-            }
-            if (input.buttonIsPressed(Button.A)) {
-                scroll_interval = 1
+            } else if (input.buttonIsPressed(Button.A)) {
                 if (num == 0) {
                     num = 9
                 } else {
                     num += -1
                 }
                 break;
-            }
-            if (input.buttonIsPressed(Button.B)) {
+            } else if (input.buttonIsPressed(Button.B)) {
                 scroll_interval = 45
                 if (num == 9) {
                     num = 0
@@ -5275,9 +5039,7 @@ function timer() { // Timer // Selected_tool = 10
                     num += 1
                 }
                 break;
-            }
-            if (input.logoIsPressed()) {
-                scroll_interval = 1
+            } else if (input.logoIsPressed()) {
                 music.play(music.tonePlayable(349, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
                 list.push(numberlist[num])
                 basic.showIcon(IconNames.Yes)
@@ -5300,8 +5062,8 @@ function timer() { // Timer // Selected_tool = 10
             basic.pause(300)
         }
         while(true){
+            scroll_interval = 1
             if (input.pinIsPressed(TouchPin.P2)) {
-                scroll_interval = 1
                 if (list.length == 1) {
                     minute = list[0]
                 } else if (list.length == 2) {
@@ -5310,17 +5072,14 @@ function timer() { // Timer // Selected_tool = 10
                     basic.showIcon(IconNames.No)
                 }
                 break;
-            }
-            if (input.buttonIsPressed(Button.A)) {
-                scroll_interval = 1
+            } else if (input.buttonIsPressed(Button.A)) {
                 if (num == 0) {
                     num = 9
                 } else {
                     num += -1
                 }
                 break;
-            }
-            if (input.buttonIsPressed(Button.B)) {
+            } else if (input.buttonIsPressed(Button.B)) {
                 scroll_interval = 45
                 if (num == 9) {
                     num = 0
@@ -5328,13 +5087,10 @@ function timer() { // Timer // Selected_tool = 10
                     num += 1
                 }
                 break;
-            }
-            if (input.logoIsPressed()) {
-                scroll_interval = 1
+            } else if (input.logoIsPressed()) {
                 music.play(music.tonePlayable(349, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
                 list.push(numberlist[num])
                 basic.showIcon(IconNames.Yes)
-                break;
             }
         }
     }
@@ -5353,8 +5109,8 @@ function timer() { // Timer // Selected_tool = 10
             basic.pause(300)
         }
         while(true){
+            scroll_interval = 1
             if (input.pinIsPressed(TouchPin.P2)) {
-                scroll_interval = 1
                 if (list.length == 1) {
                     second = list[0]
                 } else if (list.length == 2) {
@@ -5363,17 +5119,14 @@ function timer() { // Timer // Selected_tool = 10
                     basic.showIcon(IconNames.No)
                 }
                 break;
-            }
-            if (input.buttonIsPressed(Button.A)) {
-                scroll_interval = 1
+            } else if (input.buttonIsPressed(Button.A)) {
                 if (num == 0) {
                     num = 9
                 } else {
                     num += -1
                 }
                 break;
-            }
-            if (input.buttonIsPressed(Button.B)) {
+            } else if (input.buttonIsPressed(Button.B)) {
                 scroll_interval = 45
                 if (num == 9) {
                     num = 0
@@ -5381,9 +5134,7 @@ function timer() { // Timer // Selected_tool = 10
                     num += 1
                 }
                 break;
-            }
-            if (input.logoIsPressed()) {
-                scroll_interval = 1
+            } else if (input.logoIsPressed()) {
                 music.play(music.tonePlayable(349, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
                 list.push(numberlist[num])
                 basic.showIcon(IconNames.Yes)
@@ -6988,117 +6739,7 @@ function melody_play() { //Play the created melody.
         }
         custom_music.removeAt(0)
     }}
-function pins_analog() { //Analog read pin.
-    graph_var2 = 1023
-    while (true) {
-        if (tool_type == 1) {
-            if (selected_pins == 1) {
-                basic.showNumber(pins.analogReadPin(AnalogPin.P0))
-            } else if (selected_pins == 2) {
-                basic.showNumber(pins.analogReadPin(AnalogPin.P1))
-            } else if (selected_pins == 3) {
-                basic.showNumber(pins.analogReadPin(AnalogPin.P2))
-            }
-            basic.pause(50)
-            if (input.logoIsPressed()) {
-                basic.clearScreen()
-                tool_type = 2
-                game.addScore(1)
-                basic.pause(500)
-            }
-        }
-        if (tool_type == 2) {
-            if (selected_pins == 1) {
-                graph_var1 = pins.analogReadPin(AnalogPin.P0)
-                plot_graph()
-                if (custom_graph == 9) {
-                    basic.pause(iter)
-                } else {
-                    basic.pause(50)
-                }
-                basic.clearScreen()
-            } else if (selected_pins == 2) {
-                graph_var1 = pins.analogReadPin(AnalogPin.P1)
-                plot_graph()
-                if (custom_graph == 9) {
-                    basic.pause(iter)
-                } else {
-                    basic.pause(50)
-                }
-                basic.clearScreen()
-            } else if (selected_pins == 3) {
-                graph_var1 = pins.analogReadPin(AnalogPin.P2)
-                plot_graph()
-                if (custom_graph == 9) {
-                    basic.pause(iter)
-                } else {
-                    basic.pause(50)
-                }
-                basic.clearScreen()
-            }
-            if (input.logoIsPressed()) {
-                basic.clearScreen()
-                tool_type = 1
-                game.addScore(1)
-                basic.pause(500)
-            }
-            basic.pause(50)
-        }
-    }}
-function pins_digital() { //Digital read pin.
-    graph_var2 = 1
-    while (true) {
-        if (tool_type == 1) {
-            if (selected_pins == 1) {
-                basic.showNumber(pins.digitalReadPin(DigitalPin.P0))
-            } else if (selected_pins == 2) {
-                basic.showNumber(pins.digitalReadPin(DigitalPin.P1))
-            } else if (selected_pins == 3) {
-                basic.showNumber(pins.digitalReadPin(DigitalPin.P2))
-            }
-            basic.pause(50)
-            if (input.logoIsPressed()) {
-                basic.clearScreen()
-                tool_type = 2
-                game.addScore(1)
-                basic.pause(500)
-            }
-        }
-        if (tool_type == 2) {
-            if (selected_pins == 1) {
-                graph_var1 = pins.digitalReadPin(DigitalPin.P0)
-                plot_graph()
-                if (custom_graph == 9) {
-                    basic.pause(iter)
-                } else {
-                    basic.pause(50)
-                }
-            } else if (selected_pins == 2) {
-                graph_var1 = pins.digitalReadPin(DigitalPin.P0)
-                plot_graph()
-                if (custom_graph == 9) {
-                    basic.pause(iter)
-                } else {
-                    basic.pause(50)
-                }
-            } else if (selected_pins == 3) {
-                graph_var1 = pins.digitalReadPin(DigitalPin.P0)
-                plot_graph()
-                if (custom_graph == 9) {
-                    basic.pause(iter)
-                } else {
-                    basic.pause(50)
-                }
-            }
-            basic.pause(50)
-            if (input.logoIsPressed()) {
-                basic.clearScreen()
-                tool_type = 1
-                game.addScore(1)
-                basic.pause(500)
-            }
-        }
-    }}
+
 function send_input() { //Send input via serial or bluetooth.
     basic.clearScreen()
     while (true) {
@@ -7252,7 +6893,7 @@ function send_number() { //Send number via serial or bluetooth.
         }
     }}
 
-function settings_test_input() { //Test all inputs.
+function settings_test_input() { //Test all inputs.7239
     while (true) {
         if (input.buttonIsPressed(Button.A)) {
             led.plot(0, 2)
