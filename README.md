@@ -95,7 +95,7 @@
   * Use Pin 2 in settins
 
 
-## Don't use this as Extension
+## Use this as Extension
 
 This repository can be added as an **extension** in MakeCode.
 
