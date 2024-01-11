@@ -1278,6 +1278,8 @@ function menu_select_menu() { //Menu selection at the start.
         }
         while (true) {
             if (input.buttonIsPressed(Button.A)) {
+                led.fadeOut(fade_int)
+                led.fadeIn(fade_int)
                 if (selected_menu == 1) {
                     selected_menu = 9
                 } else {
@@ -1307,6 +1309,8 @@ function menu_select_menu() { //Menu selection at the start.
         }
     }
     scroll_interval = 1
+    led.fadeOut(fade_int)
+    led.fadeIn(fade_int)
     if (selected_menu == 1) {
         game_select_menu()
     } else if (selected_menu == 2) {
@@ -1381,6 +1385,8 @@ function game_select_menu() { //Game selection.
         }
         while (true) {
             if (input.buttonIsPressed(Button.A)) {
+                led.fadeOut(fade_int)
+                led.fadeIn(fade_int)
                 if (game_mode == 0) {
                     game_mode = 9
                 } else {
@@ -1410,6 +1416,8 @@ function game_select_menu() { //Game selection.
         }
     }
     scroll_interval = 1
+    led.fadeOut(fade_int)
+    led.fadeIn(fade_int)
     if (game_mode == 0) {
         menu_select_menu()
     } else if (game_mode == 1) {
@@ -1521,6 +1529,8 @@ function tool_select_menu() { //Tool selection.
         }
         while (true) {
             if (input.buttonIsPressed(Button.A)) {
+                led.fadeOut(fade_int)
+                led.fadeIn(fade_int)
                 if (selected_tool == 0) {
                     selected_tool = 10
                 } else {
@@ -1550,6 +1560,8 @@ function tool_select_menu() { //Tool selection.
         }
     }
     scroll_interval = 1
+    led.fadeOut(fade_int)
+    led.fadeIn(fade_int)
     basic.clearScreen()
     let tool_type = 1
     if (selected_tool == 0) {
@@ -1683,6 +1695,8 @@ function tool_calculator_menu() { //Calculator type selection.
         }
         while (waiting_for_input == true) {
             if (input.buttonIsPressed(Button.A)) {
+                led.fadeOut(fade_int)
+                led.fadeIn(fade_int)
                 if (selected_math == 0) {
                     selected_math = 11
                 } else {
@@ -1711,6 +1725,8 @@ function tool_calculator_menu() { //Calculator type selection.
             break;
         }
     }
+    led.fadeOut(fade_int)
+    led.fadeIn(fade_int)
     if (selected_math == 1 || selected_math == 2 || selected_math == 3 || selected_math == 4 || selected_math == 5 || selected_math == 11) {
         math_xy()
     } else if (selected_math == 6 || selected_math == 7 || selected_math == 8 || selected_math == 9) {
@@ -1766,6 +1782,8 @@ function tool_clock_menu() { //Clock type selection.
         }
         while (true) {
             if (input.buttonIsPressed(Button.A)) {
+                led.fadeOut(fade_int)
+                led.fadeIn(fade_int)
                 if (selected_clock == 0) {
                     selected_clock = 4
                 } else {
@@ -1794,6 +1812,8 @@ function tool_clock_menu() { //Clock type selection.
             break;
         }
     }
+    led.fadeOut(fade_int)
+    led.fadeIn(fade_int)
     if (selected_clock == 1) {
         signal()
     } else if (selected_clock == 2) {
@@ -1883,6 +1903,8 @@ function bluetooth_select_menu() { //Bluetooth send type selection.
         }
         while (true) {
             if (input.buttonIsPressed(Button.A)) {
+                led.fadeOut(fade_int)
+                led.fadeIn(fade_int)
                 if (bluetooth_type == 0) {
                     bluetooth_type = 4
                 } else {
@@ -1914,6 +1936,8 @@ function bluetooth_select_menu() { //Bluetooth send type selection.
         }
     }
     scroll_interval = 1
+    led.fadeOut(fade_int)
+    led.fadeIn(fade_int)
     basic.clearScreen()
     if (bluetooth_type == 0) {
         menu_select_menu()
@@ -1965,6 +1989,8 @@ function bluetooth_keyboard_menu() { //Bluetooth keyboard type selection.
         }
         while (true) {
             if (input.buttonIsPressed(Button.A)) {
+                led.fadeOut(fade_int)
+                led.fadeIn(fade_int)
                 if (bluetooth_keyboard_type == 0) {
                     bluetooth_keyboard_type = 4
                 } else {
@@ -1995,6 +2021,8 @@ function bluetooth_keyboard_menu() { //Bluetooth keyboard type selection.
             break;
         }
     }
+    led.fadeOut(fade_int)
+    led.fadeIn(fade_int)
     basic.clearScreen()
     if (bluetooth_keyboard_type == 0) {
         scroll_interval = 1
@@ -2045,6 +2073,8 @@ function create_select_menu() { //Create type selection.
         }
         while (true) {
             if (input.buttonIsPressed(Button.A)) {
+                led.fadeOut(fade_int)
+                led.fadeIn(fade_int)
                 if (create_type == 0) {
                     create_type = 4
                 } else {
@@ -2074,6 +2104,8 @@ function create_select_menu() { //Create type selection.
         }
     }
     scroll_interval = 1
+    led.fadeOut(fade_int)
+    led.fadeIn(fade_int)
     if (create_type == 1) {
         create_number()
     } else if (create_type == 2) {
@@ -2120,6 +2152,8 @@ function custom_music_selection() { //Custom music selection.
         }
         while (true) {
             if (input.buttonIsPressed(Button.A)) {
+                led.fadeOut(fade_int)
+                led.fadeIn(fade_int)
                 if (selected_create_music == 1) {
                     selected_create_music = 3
                 } else {
@@ -2148,6 +2182,8 @@ function custom_music_selection() { //Custom music selection.
             break;
         }
     }
+    led.fadeOut(fade_int)
+    led.fadeIn(fade_int)
     if (selected_create_music == 1) {
         tune()
     } else if (selected_create_music == 2) {
@@ -2198,6 +2234,8 @@ function create_music_menu() { //Built-in music selection.
         }
         while (true) {
             if (input.buttonIsPressed(Button.A)) {
+                led.fadeOut(fade_int)
+                led.fadeIn(fade_int)
                 if (selected_music == 1) {
                     selected_music = 5
                 } else {
@@ -2226,6 +2264,8 @@ function create_music_menu() { //Built-in music selection.
             break;
         }
     }
+    led.fadeOut(fade_int)
+    led.fadeIn(fade_int)
     if (selected_music == 1) {
         music_melody8()
     } else if (selected_music == 2) {
@@ -2274,6 +2314,8 @@ function send_select_menu() { //Send selection.
         }
         while (true) {
             if (input.buttonIsPressed(Button.A)) {
+                led.fadeOut(fade_int)
+                led.fadeIn(fade_int)
                 if (selected_serial == 0) {
                     selected_serial = 2
                 } else {
@@ -2302,6 +2344,8 @@ function send_select_menu() { //Send selection.
             break;
         }
     }
+    led.fadeOut(fade_int)
+    led.fadeIn(fade_int)
     basic.clearScreen()
     scroll_interval = 1
     if (selected_serial == 0) {
@@ -2366,6 +2410,8 @@ function send_type_select_menu() { //Send types selection.
         }
         while (true) {
             if (input.buttonIsPressed(Button.A)) {
+                led.fadeOut(fade_int)
+                led.fadeIn(fade_int)
                 if (selected_serial_send == 0) {
                     selected_serial_send = 10
                 } else {
@@ -2394,6 +2440,8 @@ function send_type_select_menu() { //Send types selection.
             break;
         }
     }
+    led.fadeOut(fade_int)
+    led.fadeIn(fade_int)
     basic.clearScreen()
     if (selected_serial_send == 0) {
         scroll_interval = 1
@@ -2473,6 +2521,8 @@ function data_logging_freq_menu() { //Data logging freq selection
         }
         while (true) {
             if (input.buttonIsPressed(Button.A)) {
+                led.fadeOut(fade_int)
+                led.fadeIn(fade_int)
                 if (logging_freq == 0) {
                     logging_freq = 4
                 } else {
@@ -2505,6 +2555,8 @@ function data_logging_freq_menu() { //Data logging freq selection
     }
     datalogger.deleteLog(datalogger.DeleteType.Full)
     scroll_interval = 1
+    led.fadeOut(fade_int)
+    led.fadeIn(fade_int)
     basic.clearScreen()
     if (logging_freq == 1) {
         datalogger.includeTimestamp(FlashLogTimeStampFormat.Milliseconds)
@@ -2578,6 +2630,8 @@ function data_logger_menu() {  //Log input data.
         }
         while (true) {
             if (input.buttonIsPressed(Button.A)) {
+                led.fadeOut(fade_int)
+                led.fadeIn(fade_int)
                 if (selected_log_tool == 0) {
                     selected_log_tool = 7
                 } else {
@@ -2607,6 +2661,8 @@ function data_logger_menu() {  //Log input data.
         }
     }
     basic.clearScreen()
+    led.fadeOut(fade_int)
+    led.fadeIn(fade_int)
     let tool_type = 1
     if (selected_log_tool == 0) {
         menu_select_menu()
@@ -2755,6 +2811,8 @@ function settings_select_menu() { //Settings selection.
         }
         while (true) {
             if (input.buttonIsPressed(Button.A)) {
+                led.fadeOut(fade_int)
+                led.fadeIn(fade_int)
                 if (selected_setting == 0) {
                     selected_setting = 10
                 } else {
@@ -2776,6 +2834,8 @@ function settings_select_menu() { //Settings selection.
                 }
                 break;
             } else if (input.logoIsPressed()) {
+                led.fadeOut(fade_int)
+                led.fadeIn(fade_int)
                 scroll_interval = 1
                 if (selected_setting == 1) {
                     if (settings_music == 0) {
@@ -3245,6 +3305,7 @@ let startpos = 0
 let p2press = parseFloat(flashstorage.getOrDefault("p2p", "1"))
 let num_list = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
 let symb_list = [")", "!", "@", "#", "$", "%", "^", "&", "*", "("]
+let fade_int = 100
 let image_games = images.createImage(`
     . . . . .
     . . # . .
@@ -3853,61 +3914,60 @@ loading_animation()
 menu_select_menu()
 basic.forever(function () { //Space Invaders game. // game_Mode = 1
     if (game_mode == 1) {
-        led.plotBrightness(px_1, py_1, 255)
-        for (let index2 = 0; index2 <= 4; index2++) {
-            if (killed_1[index2] == 0) {
-                led.unplot(enemyX_1[index2], enemyY_1[index2] - 1)
-                led.plot(enemyX_1[index2], enemyY_1[index2])
-            }
-        }
-        if (shoot_1 == 1) {
-            led.plotBrightness(px_1, my_1, 20)
-            for (let index3 = 0; index3 <= 4; index3++) {
-                if (killed_1[index3] == 0 && (px_1 == enemyX_1[index3] && my_1 == enemyY_1[index3])) {
-                    killed_1[index3] = 1
-                    music.play(music.createSoundExpression(WaveShape.Noise,2294,2294,238,0,200,SoundExpressionEffect.None,InterpolationCurve.Linear), music.PlaybackMode.InBackground)
+            led.plotBrightness(px_1, py_1, 255)
+            for (let index2 = 0; index2 <= 4; index2++) {
+                if (killed_1[index2] == 0) {
+                    led.unplot(enemyX_1[index2], enemyY_1[index2] - 1)
+                    led.plot(enemyX_1[index2], enemyY_1[index2])
                 }
             }
-            basic.pause(25)
-            led.unplot(px_1, my_1)
-            my_1 += -1
-        }
-        if (time_1 > speed_1) {
-            time_1 = 0
-            acc_1 += 1
-            for (let index4 = 0; index4 <= 4; index4++) {
-                enemyY_1[index4] = enemyY_1[index4] + 1
+            if (shoot_1 == 1) {
+                led.plotBrightness(px_1, my_1, 20)
+                for (let index3 = 0; index3 <= 4; index3++) {
+                    if (killed_1[index3] == 0 && (px_1 == enemyX_1[index3] && my_1 == enemyY_1[index3])) {
+                        killed_1[index3] = 1
+                        music.play(music.createSoundExpression(WaveShape.Noise, 2294, 2294, 238, 0, 200, SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.InBackground)
+                    }
+                }
+                basic.pause(25)
+                led.unplot(px_1, my_1)
+                my_1 += -1
             }
-        }
-        if (my_1 < 0) {
-            shoot_1 = 0
-            my_1 = 5
-        }
-        for (let index5 = 0; index5 <= 4; index5++) {
-            if (killed_1[index5] == 0) {
-                if (enemyY_1[index5] > 4) {
-                    basic.clearScreen()
-                    music.play(music.createSoundExpression(WaveShape.Sawtooth,321,0,255,0,100,SoundExpressionEffect.None,InterpolationCurve.Linear), music.PlaybackMode.InBackground)
-                    datalogger.log(datalogger.createCV("Space Invaders", acc_1))
-                    basic.showString("S:")
-                    basic.showNumber(acc_1)
-                    control.reset()
+            if (time_1 > speed_1) {
+                time_1 = 0
+                acc_1 += 1
+                for (let index4 = 0; index4 <= 4; index4++) {
+                    enemyY_1[index4] = enemyY_1[index4] + 1
                 }
             }
-        }
-        time_1 += 1
-        if (acc_1 % 5 == 0) {
-            speed_1 += -3
-            acc_1 += 1
-        }
-        for (let index6 = 0; index6 <= 4; index6++) {
-            if (enemyY_1[index6] > 4) {
-                enemyY_1[index6] = -1
-                enemyX_1[index6] = randint(0, 4)
-                killed_1[index6] = 0
+            if (my_1 < 0) {
+                shoot_1 = 0
+                my_1 = 5
             }
-        }
-
+            for (let index5 = 0; index5 <= 4; index5++) {
+                if (killed_1[index5] == 0) {
+                    if (enemyY_1[index5] > 4) {
+                        basic.clearScreen()
+                        music.play(music.createSoundExpression(WaveShape.Sawtooth, 321, 0, 255, 0, 100, SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.InBackground)
+                        datalogger.log(datalogger.createCV("Space Invaders", acc_1))
+                        basic.showString("S:")
+                        basic.showNumber(acc_1)
+                        control.reset()
+                    }
+                }
+            }
+            time_1 += 1
+            if (acc_1 % 5 == 0) {
+                speed_1 += -3
+                acc_1 += 1
+            }
+            for (let index6 = 0; index6 <= 4; index6++) {
+                if (enemyY_1[index6] > 4) {
+                    enemyY_1[index6] = -1
+                    enemyX_1[index6] = randint(0, 4)
+                    killed_1[index6] = 0
+                }
+            }
     }})
 function game_mode_2() { //Flappy Bird game. // game_mode = 2
     while (obstacles_2.length > 0 && obstacles_2[0].get(LedSpriteProperty.X) == 0) {
@@ -4526,6 +4586,8 @@ function tool_record() { //Record and play sound files // Selected_tool = 8
         waiting_for_input = true
         while (waiting_for_input == true) {
             if (input.buttonIsPressed(Button.A)) {
+                led.fadeOut(fade_int)
+                led.fadeIn(fade_int)
                 scroll_interval = 1
                 if (tool_type == 1) {
                     tool_type = 3
@@ -4611,6 +4673,8 @@ function math_xy() { //Calculator with 2 variables // Selected_tool = 9
                 break;
                 basic.clearScreen()
             } else if (input.buttonIsPressed(Button.A)){
+                led.fadeOut(fade_int)
+                led.fadeIn(fade_int)
                 if (num == 0) {
                     num = 9
                 } else {
@@ -4670,6 +4734,8 @@ function math_xy() { //Calculator with 2 variables // Selected_tool = 9
                 basic.clearScreen()
                 break;
             } else if (input.buttonIsPressed(Button.A)) {
+                led.fadeOut(fade_int)
+                led.fadeIn(fade_int)
                 if (num == 0) {
                     num = 9
                 } else {
@@ -4751,6 +4817,8 @@ function math_x() { //Calculator with 1 variable // Selected_tool = 9
                 basic.clearScreen()
                 break;
             } else if (input.buttonIsPressed(Button.A)) {
+                led.fadeOut(fade_int)
+                led.fadeIn(fade_int)
                 if (num == 0) {
                     num = 9
                 } else {
@@ -4809,6 +4877,8 @@ function signal() { //Signal / Alarm clock // Selected_tool = 10
         while(true){
             scroll_interval = 1
             if (input.buttonIsPressed(Button.A)) {
+                led.fadeOut(fade_int)
+                led.fadeIn(fade_int)
                 if (hour == 0) {
                     hour = 23
                 } else {
@@ -4846,6 +4916,8 @@ function signal() { //Signal / Alarm clock // Selected_tool = 10
         while(true){
             scroll_interval = 1
             if (input.buttonIsPressed(Button.A)) {
+                led.fadeOut(fade_int)
+                led.fadeIn(fade_int)
                 if (minute == 0) {
                     minute = 55
                 } else {
@@ -4883,6 +4955,8 @@ function signal() { //Signal / Alarm clock // Selected_tool = 10
         while(true){
             scroll_interval = 1
             if (input.buttonIsPressed(Button.A)) {
+                led.fadeOut(fade_int)
+                led.fadeIn(fade_int)
                 if (signal_hour == 0) {
                     signal_hour = 23
                 } else {
@@ -4919,6 +4993,8 @@ function signal() { //Signal / Alarm clock // Selected_tool = 10
         while(true){
             scroll_interval = 1
             if (input.buttonIsPressed(Button.A)) {
+                led.fadeOut(fade_int)
+                led.fadeIn(fade_int)
                 if (signal_minute == 0) {
                     signal_minute = 55
                 } else {
@@ -5030,6 +5106,8 @@ function timer() { // Timer // Selected_tool = 10LAST
                 }
                 break;
             } else if (input.buttonIsPressed(Button.A)) {
+                led.fadeOut(fade_int)
+                led.fadeIn(fade_int)
                 if (num == 0) {
                     num = 9
                 } else {
@@ -5078,6 +5156,8 @@ function timer() { // Timer // Selected_tool = 10LAST
                 }
                 break;
             } else if (input.buttonIsPressed(Button.A)) {
+                led.fadeOut(fade_int)
+                led.fadeIn(fade_int)
                 if (num == 0) {
                     num = 9
                 } else {
@@ -5125,6 +5205,8 @@ function timer() { // Timer // Selected_tool = 10LAST
                 }
                 break;
             } else if (input.buttonIsPressed(Button.A)) {
+                led.fadeOut(fade_int)
+                led.fadeIn(fade_int)
                 if (num == 0) {
                     num = 9
                 } else {
@@ -5213,6 +5295,8 @@ function clock() { // Clock // Selected_tool = 10
                 break;
             }
             if (input.buttonIsPressed(Button.A)) {
+                led.fadeOut(fade_int)
+                led.fadeIn(fade_int)
                 scroll_interval = 1
                 if (num == 0) {
                     num = 9
@@ -5266,6 +5350,8 @@ function clock() { // Clock // Selected_tool = 10
                 break;
             }
             if (input.buttonIsPressed(Button.A)) {
+                led.fadeOut(fade_int)
+                led.fadeIn(fade_int)
                 scroll_interval = 1
                 if (num == 0) {
                     num = 9
@@ -5319,6 +5405,8 @@ function clock() { // Clock // Selected_tool = 10
                 break;
             }
             if (input.buttonIsPressed(Button.A)) {
+                led.fadeOut(fade_int)
+                led.fadeIn(fade_int)
                 scroll_interval = 1
                 if (num == 0) {
                     num = 9
@@ -5556,6 +5644,8 @@ function bluetooth_keyboard() { //Send any keyboard input via bluetooth
                     break;
                 }
                 if (input.buttonIsPressed(Button.A)) {
+                    led.fadeOut(fade_int)
+                    led.fadeIn(fade_int)
                     scroll_interval = 1
                     if (abc_id == 1) {
                         abc_id = 38
@@ -5605,6 +5695,8 @@ function bluetooth_keyboard_number() { //Send keyboard numbers via bluetooth.
                     break;
                 }
                 if (input.buttonIsPressed(Button.A)) {
+                    led.fadeOut(fade_int)
+                    led.fadeIn(fade_int)
                     scroll_interval = 1
                     if (num == 0) {
                         num = 9
@@ -5716,6 +5808,8 @@ function bluetooth_keyboard_custom() { // Custom keyboard input.
                     break;
                 }
                 if (input.buttonIsPressed(Button.A)) {
+                    led.fadeOut(fade_int)
+                    led.fadeIn(fade_int)
                     scroll_interval = 1
                     if (abc_id == 1) {
                         abc_id = 38
@@ -5770,6 +5864,8 @@ function bluetooth_keyboard_custom() { // Custom keyboard input.
                     break;
                 }
                 if (input.buttonIsPressed(Button.A)) {
+                    led.fadeOut(fade_int)
+                    led.fadeIn(fade_int)
                     scroll_interval = 1
                     if (abc_id == 1) {
                         abc_id = 38
@@ -5822,6 +5918,8 @@ function bluetooth_keyboard_custom() { // Custom keyboard input.
                     break;
                 }
                 if (input.buttonIsPressed(Button.A)) {
+                    led.fadeOut(fade_int)
+                    led.fadeIn(fade_int)
                     scroll_interval = 1
                     if (abc_id == 1) {
                         abc_id = 38
@@ -5904,6 +6002,8 @@ function create_strig() { //Create a temp-saved string.
                 break;
             }
             if (input.buttonIsPressed(Button.A)) {
+                led.fadeOut(fade_int)
+                led.fadeIn(fade_int)
                 scroll_interval = 1
                 if (abc_id == 1) {
                     abc_id = 38
@@ -5982,6 +6082,8 @@ function create_number() { //Create a temp-saved number.
                 break;
             }
             if (input.buttonIsPressed(Button.A)) {
+                led.fadeOut(fade_int)
+                led.fadeIn(fade_int)
                 scroll_interval = 1
                 if (num == 0) {
                     num = 9
@@ -6146,6 +6248,8 @@ function music_melody8() { //Built in mucic 8.
         }
         while(true){
             if (input.buttonIsPressed(Button.A)) {
+                led.fadeOut(fade_int)
+                led.fadeIn(fade_int)
                 scroll_interval = 1
                 if (num == 1) {
                     num = 10
@@ -6210,6 +6314,8 @@ function music_melody() { //Built in music.
         }
         while(true){
             if (input.buttonIsPressed(Button.A)) {
+                led.fadeOut(fade_int)
+                led.fadeIn(fade_int)
                 scroll_interval = 1
                 if (num == 1) {
                     num = 20
@@ -6294,6 +6400,8 @@ function music_melodyV2() { //Built in music V2.
         }
         while(true){
             if (input.buttonIsPressed(Button.A)) {
+                led.fadeOut(fade_int)
+                led.fadeIn(fade_int)
                 scroll_interval = 1
                 if (num == 1) {
                     num = 10
@@ -6355,6 +6463,8 @@ function music_sFX() { //Built in sFX.
         }
         while(true){
             if (input.buttonIsPressed(Button.A)) {
+                led.fadeOut(fade_int)
+                led.fadeIn(fade_int)
                 scroll_interval = 1
                 if (num == 1) {
                     num = 10
@@ -6413,6 +6523,8 @@ function tune() { //Tune selection.
             music.play(music.tonePlayable(tonelist[num], music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
         }
         if (input.buttonIsPressed(Button.A)) {
+            led.fadeOut(fade_int)
+            led.fadeIn(fade_int)
             if (num == 1) {
                 num = 21
             } else {
@@ -6616,6 +6728,8 @@ function beat() { //Beat selection.
                 break;
             }
             if (input.buttonIsPressed(Button.A)) {
+                led.fadeOut(fade_int)
+                led.fadeIn(fade_int)
                 scroll_interval = 1
                 if (num == 1) {
                     num = 7
@@ -6678,6 +6792,8 @@ function rest() { //Rest selection.
                 break;
             }
             if (input.buttonIsPressed(Button.A)) {
+                led.fadeOut(fade_int)
+                led.fadeIn(fade_int)
                 scroll_interval = 1
                 if (num == 1) {
                     num = 7
@@ -6823,6 +6939,8 @@ function send_string() { //Send string via serial or bluetooth.
         }
         while(true){
             if (input.buttonIsPressed(Button.A)) {
+                led.fadeOut(fade_int)
+                led.fadeIn(fade_int)
                 scroll_interval = 1
                 if (abc_id == 1) {
                     abc_id = 38
@@ -6867,6 +6985,8 @@ function send_number() { //Send number via serial or bluetooth.
         }
         while(true){
             if (input.buttonIsPressed(Button.A)) {
+                led.fadeOut(fade_int)
+                led.fadeIn(fade_int)
                 scroll_interval = 1
                 if (num == 0) {
                     num = 9
