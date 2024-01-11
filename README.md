@@ -21,8 +21,8 @@
   * Acceleration Z
   * Audio recording
     * Record audio
-      * Play audio
-      * Change sample rate
+    * Play audio
+    * Change sample rate
   * Calculator
     * plus
     * minus
