@@ -59,7 +59,7 @@
       * Note
       * Rest
       * Play
-  * Audio
+  * Image via turtle
 * Serial / uart
   * Send
     * A/B/LOGO buttons
