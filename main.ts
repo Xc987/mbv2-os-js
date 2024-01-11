@@ -2834,8 +2834,6 @@ function settings_select_menu() { //Settings selection.
                 }
                 break;
             } else if (input.logoIsPressed()) {
-                led.fadeOut(fade_int)
-                led.fadeIn(fade_int)
                 scroll_interval = 1
                 if (selected_setting == 1) {
                     if (settings_music == 0) {
