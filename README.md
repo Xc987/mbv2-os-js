@@ -72,6 +72,7 @@
     * Acceleration Z
     * Number
     * Text
+ * Receive
 * Data logging
   * Every 1ms/1s/1m/1h
     * Temperature
