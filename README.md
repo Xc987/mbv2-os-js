@@ -60,7 +60,7 @@
       * Rest
       * Play
   * Image via turtle
-* Serial / uart
+* Serial / Bluetooth
   * Send
     * A/B/LOGO buttons
     * Temperature
