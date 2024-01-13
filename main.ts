@@ -835,6 +835,8 @@ function menu_select_menu() { //Menu selection at the start.
                 if (selected_menu == 9) {
                     selected_menu = 1
                     scroll_interval = 1
+                    led.fadeOut(fade_int)
+                    led.fadeIn(fade_int)
                 } else {
                     selected_menu += 1
                 }
@@ -942,6 +944,8 @@ function game_select_menu() { //Game selection.
                 if (game_mode == 9) {
                     game_mode = 0
                     scroll_interval = 1
+                    led.fadeOut(fade_int)
+                    led.fadeIn(fade_int)
                 } else {
                     game_mode += 1
                 }
@@ -1086,6 +1090,8 @@ function tool_select_menu() { //Tool selection.
                 if (selected_tool == 10) {
                     selected_tool = 0
                     scroll_interval = 1
+                    led.fadeOut(fade_int)
+                    led.fadeIn(fade_int)
                 } else {
                     selected_tool += 1
                 }
@@ -1250,6 +1256,8 @@ function tool_calculator_menu() { //Calculator type selection.
                 if (selected_math == 11) {
                     selected_math = 0
                     scroll_interval = 1
+                    led.fadeOut(fade_int)
+                    led.fadeIn(fade_int)
                 } else {
                     selected_math += 1
                 }
@@ -1337,6 +1345,8 @@ function tool_clock_menu() { //Clock type selection.
                 if (selected_clock == 4) {
                     selected_clock = 0
                     scroll_interval = 1
+                    led.fadeOut(fade_int)
+                    led.fadeIn(fade_int)
                 } else {
                     selected_clock += 1
                 }
@@ -1459,6 +1469,8 @@ function bluetooth_select_menu() { //Bluetooth send type selection.
                 if (bluetooth_type == 4) {
                     bluetooth_type = 0
                     scroll_interval = 1
+                    led.fadeOut(fade_int)
+                    led.fadeIn(fade_int)
                 } else {
                     bluetooth_type += 1
                 }
@@ -1545,6 +1557,8 @@ function bluetooth_keyboard_menu() { //Bluetooth keyboard type selection.
                 if (bluetooth_keyboard_type == 4) {
                     bluetooth_keyboard_type = 0
                     scroll_interval = 1
+                    led.fadeOut(fade_int)
+                    led.fadeIn(fade_int)
                 } else {
                     bluetooth_keyboard_type += 1
                 }
@@ -1628,6 +1642,8 @@ function create_select_menu() { //Create type selection.
                 if (create_type == 4) {
                     create_type = 0
                     scroll_interval = 1
+                    led.fadeOut(fade_int)
+                    led.fadeIn(fade_int)
                 } else {
                     create_type += 1
                 }
@@ -1707,6 +1723,8 @@ function custom_music_selection() { //Custom music selection.
                 if (selected_create_music == 3) {
                     selected_create_music = 1
                     scroll_interval = 1
+                    led.fadeOut(fade_int)
+                    led.fadeIn(fade_int)
                 } else {
                     selected_create_music += 1
                 }
@@ -1789,6 +1807,8 @@ function create_music_menu() { //Built-in music selection.
                 if (selected_music == 5) {
                     selected_music = 1
                     scroll_interval = 1
+                    led.fadeOut(fade_int)
+                    led.fadeIn(fade_int)
                 } else {
                     selected_music += 1
                 }
@@ -1869,6 +1889,8 @@ function send_select_menu() { //Send selection.
                 if (selected_serial == 2) {
                     selected_serial = 0
                     scroll_interval = 1
+                    led.fadeOut(fade_int)
+                    led.fadeIn(fade_int)
                 } else {
                     selected_serial += 1
                 }
@@ -1965,6 +1987,8 @@ function send_type_select_menu() { //Send types selection.
                 if (selected_serial_send == 10) {
                     selected_serial_send = 0
                     scroll_interval = 1
+                    led.fadeOut(fade_int)
+                    led.fadeIn(fade_int)
                 } else {
                     selected_serial_send += 1
                 }
@@ -2077,6 +2101,8 @@ function data_logging_freq_menu() { //Data logging freq selection
                 if (logging_freq == 4) {
                     logging_freq = 0
                     scroll_interval = 1
+                    led.fadeOut(fade_int)
+                    led.fadeIn(fade_int)
                 } else {
                     logging_freq += 1
                 }
@@ -2185,6 +2211,8 @@ function data_logger_menu() {  //Log input data.
                 if (selected_log_tool == 7) {
                     selected_log_tool = 0
                     scroll_interval = 1
+                    led.fadeOut(fade_int)
+                    led.fadeIn(fade_int)
                 } else {
                     selected_log_tool += 1
                 }
@@ -2372,6 +2400,8 @@ function settings_select_menu() { //Settings selection.
                 if (selected_setting == 10) {
                     selected_setting = 0
                     scroll_interval = 1
+                    led.fadeOut(fade_int)
+                    led.fadeIn(fade_int)
                 } else {
                     selected_setting += 1
                 }
@@ -4160,6 +4190,8 @@ function tool_record() { //Record and play sound files // Selected_tool = 8
                 if (tool_type == 3) {
                     tool_type = 1
                     scroll_interval = 1
+                    led.fadeOut(fade_int)
+                    led.fadeIn(fade_int)
                     waiting_for_input = false
                 } else {
                     tool_type += 1
