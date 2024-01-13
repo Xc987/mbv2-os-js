@@ -730,501 +730,40 @@ function plot_graph() { //Plot a bar graph system/custom.
     if (custom_graph == 1) {
         led.plotBarGraph(graph_var1, graph_var2)
     } else {
-        proc = graph_var1 / graph_var2
-        proc = proc * 100
-        proc = Math.trunc(proc)
+        if (custom_graph != 12) {
+            meter.show(graph_var1)
+        }
         if (custom_graph == 2) {
-            bar_c()
+            meter.use(meter.Styles.Bar, 0, graph_var2)
         } else if (custom_graph == 3) {
-            blob()
+            meter.use(meter.Styles.Blob, 0, graph_var2)
         } else if (custom_graph == 4) {
-            spiral()
+            meter.use(meter.Styles.Spiral, 0, graph_var2)
         } else if (custom_graph == 5) {
-            speedometer()
+            meter.use(meter.Styles.Dial, 0, graph_var2)
         } else if (custom_graph == 6) {
-            wave()
+            meter.use(meter.Styles.Needle, 0, graph_var2)
         } else if (custom_graph == 7) {
-            signal_bar()
+            meter.use(meter.Styles.Tidal, 0, graph_var2)
         } else if (custom_graph == 8) {
-            needle()
+            meter.use2(meter.Styles2.Speedometer, 0, graph_var2)
         } else if (custom_graph == 9) {
-            music.setBuiltInSpeakerEnabled(true)
-            procbar()
+            meter.use2(meter.Styles2.Needlerev, 0, graph_var2)
+        } else if (custom_graph == 10) {
+            meter.use2(meter.Styles2.Signal, 0, graph_var2)
+        } else if (custom_graph == 11) {
+            meter.use2(meter.Styles2.Water, 0, graph_var2)
+        } else if (custom_graph == 12) {
+            if (input.buttonIsPressed(Button.A)) {
+                inter += -5
+            }
+            if (input.buttonIsPressed(Button.B)) {
+                inter += 5
+            }
+            meter.animateduse(graph_var1, graph_var2, inter)
         }
     }}
-function bar_c() { //System bar graph, for 7600> lines or more.
-    led.plot(2, 4)
-    if (proc >= 6.5) {
-        led.plot(2, 4)
-    }
-    if (proc >= 13) {
-        led.plot(1, 4)
-        led.plot(3, 4)
-    }
-    if (proc >= 20) {
-        led.plot(0, 4)
-        led.plot(4, 4)
-    }
-    if (proc >= 26.5) {
-        led.plot(2, 3)
-    }
-    if (proc >= 33) {
-        led.plot(1, 3)
-        led.plot(3, 3)
-    }
-    if (proc >= 40) {
-        led.plot(0, 3)
-        led.plot(4, 3)
-    }
-    if (proc >= 46.5) {
-        led.plot(2, 2)
-    }
-    if (proc >= 53) {
-        led.plot(1, 2)
-        led.plot(3, 2)
-    }
-    if (proc >= 60) {
-        led.plot(0, 2)
-        led.plot(4, 2)
-    }
-    if (proc >= 66.5) {
-        led.plot(2, 1)
-    }
-    if (proc >= 73) {
-        led.plot(1, 1)
-        led.plot(3, 1)
-    }
-    if (proc >= 80) {
-        led.plot(0, 1)
-        led.plot(4, 1)
-    }
-    if (proc >= 86) {
-        led.plot(2, 0)
-    }
-    if (proc >= 93) {
-        led.plot(1, 0)
-        led.plot(3, 0)
-    }
-    if (proc >= 98) {
-        led.plot(0, 0)
-        led.plot(4, 0)
-    }}
-function blob() { //Custom bar graph, blob.
-    led.plot(2, 2)
-    if (proc >= 12.5) {
-        led.plot(2, 2)
-    }
-    if (proc >= 25) {
-        led.plot(2, 2)
-    }
-    if (proc >= 37.5) {
-        led.plot(1, 2)
-        led.plot(3, 2)
-        led.plot(2, 1)
-        led.plot(2, 3)
-    }
-    if (proc >= 50) {
-        led.plot(1, 1)
-        led.plot(3, 1)
-        led.plot(1, 3)
-        led.plot(3, 3)
-    }
-    if (proc >= 62.5) {
-        led.plot(2, 0)
-        led.plot(4, 2)
-        led.plot(0, 2)
-        led.plot(2, 4)
-    }
-    if (proc >= 75) {
-        led.plot(1, 0)
-        led.plot(4, 1)
-        led.plot(0, 3)
-        led.plot(3, 4)
-    }
-    if (proc >= 87.5) {
-        led.plot(3, 0)
-        led.plot(4, 3)
-        led.plot(0, 1)
-        led.plot(1, 4)
-    }
-    if (proc >= 99) {
-        led.plot(0, 0)
-        led.plot(4, 0)
-        led.plot(4, 4)
-        led.plot(0, 4)
-    }}
-function spiral() { //Custom bar graph, spiral/snake.
-    led.plot(2, 2)
-    if (proc >= 4) {
-        led.plot(2, 2)
-    }
-    if (proc >= 8) {
-        led.plot(2, 1)
-    }
-    if (proc >= 12) {
-        led.plot(3, 1)
-    }
-    if (proc >= 16) {
-        led.plot(3, 2)
-    }
-    if (proc >= 20) {
-        led.plot(3, 3)
-    }
-    if (proc >= 24) {
-        led.plot(2, 3)
-    }
-    if (proc >= 28) {
-        led.plot(1, 3)
-    }
-    if (proc >= 32) {
-        led.plot(1, 2)
-    }
-    if (proc >= 36) {
-        led.plot(1, 1)
-    }
-    if (proc >= 40) {
-        led.plot(1, 0)
-    }
-    if (proc >= 44) {
-        led.plot(2, 0)
-    }
-    if (proc >= 48) {
-        led.plot(3, 0)
-    }
-    if (proc >= 52) {
-        led.plot(4, 0)
-    }
-    if (proc >= 56) {
-        led.plot(4, 1)
-    }
-    if (proc >= 60) {
-        led.plot(4, 2)
-    }
-    if (proc >= 64) {
-        led.plot(4, 3)
-    }
-    if (proc >= 68) {
-        led.plot(4, 4)
-    }
-    if (proc >= 72) {
-        led.plot(3, 4)
-    }
-    if (proc >= 76) {
-        led.plot(2, 4)
-    }
-    if (proc >= 80) {
-        led.plot(1, 4)
-    }
-    if (proc >= 84) {
-        led.plot(0, 4)
-    }
-    if (proc >= 88) {
-        led.plot(0, 3)
-    }
-    if (proc >= 92) {
-        led.plot(0, 2)
-    }
-    if (proc >= 96) {
-        led.plot(0, 1)
-    }
-    if (proc >= 99) {
-        led.plot(0, 0)
-    }}
-function speedometer() { //Custom bar graph, speedometer.
-    led.plot(2, 2)
-    if (proc <= 6.5 && proc < 7) {
-        led.plot(1, 3)
-        led.plot(1, 4)
-    } else if (proc <= 13 && proc < 14) {
-        led.plot(1, 3)
-        led.plot(0, 4)
-    } else if (proc <= 19.5 && proc < 20) {
-        led.plot(1, 3)
-        led.plot(0, 3)
-    } else if (proc <= 26 && proc < 27) {
-        led.plot(1, 2)
-        led.plot(0, 2)
-    } else if (proc <= 32.5 && proc < 33) {
-        led.plot(1, 1)
-        led.plot(0, 1)
-    } else if (proc <= 39 && proc < 40) {
-        led.plot(1, 1)
-        led.plot(0, 0)
-    } else if (proc <= 45.5 && proc < 46) {
-        led.plot(1, 1)
-        led.plot(1, 0)
-    } else if (proc <= 52 && proc < 53) {
-        led.plot(2, 0)
-        led.plot(2, 1)
-    } else if (proc <= 57.6 && proc < 58) {
-        led.plot(3, 1)
-        led.plot(3, 0)
-    } else if (proc <= 64.1 && proc < 65) {
-        led.plot(3, 1)
-        led.plot(4, 0)
-    } else if (proc <= 70.6 && proc < 71) {
-        led.plot(3, 1)
-        led.plot(4, 1)
-    } else if (proc <= 77.1 && proc >= 72) {
-        led.plot(3, 2)
-        led.plot(4, 2)
-    } else if (proc <= 83.6 && proc < 84) {
-        led.plot(3, 3)
-        led.plot(4, 3)
-    } else if (proc <= 94.1 && proc < 91) {
-        led.plot(3, 3)
-        led.plot(4, 4)
-    } else if (proc <= 99.9 || proc == 100) {
-        led.plot(3, 3)
-        led.plot(3, 4)
-    }}
-function wave() { //Custom bar graph, wave.
-    led.plot(0, 4)
-    if (proc >= 4) {
-        led.plot(1, 4)
-    }
-    if (proc >= 8) {
-        led.plot(0, 3)
-    }
-    if (proc >= 12) {
-        led.plot(0, 2)
-    }
-    if (proc >= 16) {
-        led.plot(1, 3)
-    }
-    if (proc >= 20) {
-        led.plot(2, 4)
-    }
-    if (proc >= 24) {
-        led.plot(3, 4)
-    }
-    if (proc >= 28) {
-        led.plot(2, 3)
-    }
-    if (proc >= 32) {
-        led.plot(1, 3)
-    }
-    if (proc >= 36) {
-        led.plot(1, 2)
-    }
-    if (proc >= 40) {
-        led.plot(0, 1)
-    }
-    if (proc >= 44) {
-        led.plot(0, 0)
-    }
-    if (proc >= 48) {
-        led.plot(1, 1)
-    }
-    if (proc >= 52) {
-        led.plot(2, 2)
-    }
-    if (proc >= 56) {
-        led.plot(3, 3)
-    }
-    if (proc >= 60) {
-        led.plot(4, 4)
-    }
-    if (proc >= 64) {
-        led.plot(4, 3)
-    }
-    if (proc >= 68) {
-        led.plot(3, 2)
-    }
-    if (proc >= 72) {
-        led.plot(2, 1)
-    }
-    if (proc >= 76) {
-        led.plot(1, 0)
-    }
-    if (proc >= 80) {
-        led.plot(2, 0)
-    }
-    if (proc >= 84) {
-        led.plot(3, 1)
-    }
-    if (proc >= 88) {
-        led.plot(4, 2)
-    }
-    if (proc >= 92) {
-        led.plot(4, 1)
-    }
-    if (proc >= 96) {
-        led.plot(3, 0)
-    }
-    if (proc >= 99) {
-        led.plot(4, 0)
-    }}
-function signal_bar() { //Custom bar graph, signal bar.
-    led.plot(0, 4)
-    if (proc >= 20) {
-        led.plot(0, 4)
-    }
-    if (proc >= 40) {
-        led.plot(1, 3)
-        led.plot(1, 4)
-    }
-    if (proc >= 60) {
-        led.plot(2, 2)
-        led.plot(2, 3)
-        led.plot(2, 4)
-    }
-    if (proc >= 80) {
-        led.plot(3, 1)
-        led.plot(3, 2)
-        led.plot(3, 3)
-        led.plot(3, 4)
-    }
-    if (proc >= 90) {
-        led.plot(4, 0)
-        led.plot(4, 1)
-        led.plot(4, 2)
-        led.plot(4, 3)
-        led.plot(4, 4)
-    }}
-function needle() { //Custom bar graph, needle.
-    led.plot(0, 4)
-    if (proc <= 6.25 && proc < 7) {
-        led.plot(1, 4)
-        led.plot(2, 4)
-        led.plot(3, 4)
-        led.plot(4, 4)
-    } else if (proc <= 12.5 && proc < 13) {
-        led.plot(1, 4)
-        led.plot(2, 4)
-        led.plot(3, 4)
-        led.plot(4, 3)
-    } else if (proc <= 18.75 && proc < 19) {
-        led.plot(1, 4)
-        led.plot(2, 4)
-        led.plot(3, 3)
-        led.plot(4, 3)
-    } else if (proc <= 25 && proc < 26) {
-        led.plot(1, 3)
-        led.plot(2, 3)
-        led.plot(3, 3)
-        led.plot(4, 3)
-    } else if (proc <= 31.25 && proc < 32) {
-        led.plot(1, 3)
-        led.plot(2, 3)
-        led.plot(3, 3)
-        led.plot(4, 2)
-    } else if (proc <= 37.5 && proc < 38) {
-        led.plot(1, 3)
-        led.plot(2, 3)
-        led.plot(3, 2)
-        led.plot(4, 2)
-    } else if (proc <= 43.75 && proc < 44) {
-        led.plot(1, 3)
-        led.plot(2, 2)
-        led.plot(3, 2)
-        led.plot(4, 1)
-    } else if (proc <= 50 && proc < 51) {
-        led.plot(1, 3)
-        led.plot(2, 2)
-        led.plot(3, 1)
-        led.plot(4, 0)
-    } else if (proc <= 56.25 && proc < 57) {
-        led.plot(1, 3)
-        led.plot(2, 2)
-        led.plot(2, 1)
-        led.plot(3, 0)
-    } else if (proc <= 62.5 && proc < 63) {
-        led.plot(1, 3)
-        led.plot(1, 2)
-        led.plot(2, 1)
-        led.plot(3, 0)
-    } else if (proc <= 68.75 && proc < 69) {
-        led.plot(1, 3)
-        led.plot(1, 2)
-        led.plot(2, 1)
-        led.plot(2, 0)
-    } else if (proc <= 75 && proc < 76) {
-        led.plot(1, 3)
-        led.plot(1, 2)
-        led.plot(1, 1)
-        led.plot(2, 0)
-    } else if (proc <= 81.25 && proc < 82) {
-        led.plot(0, 3)
-        led.plot(1, 2)
-        led.plot(1, 1)
-        led.plot(1, 0)
-    } else if (proc <= 87.5 && proc < 88) {
-        led.plot(0, 3)
-        led.plot(0, 2)
-        led.plot(1, 1)
-        led.plot(1, 0)
-    } else if (proc <= 93.75 || proc < 94) {
-        led.plot(0, 3)
-        led.plot(0, 2)
-        led.plot(0, 1)
-        led.plot(1, 0)
-    } else if (proc <= 99.5 || proc == 100) {
-        led.plot(0, 3)
-        led.plot(0, 2)
-        led.plot(0, 1)
-        led.plot(0, 0)
-    }}
-function procbar() { //Custom bar graph, procbar.
-    if (proc <= 20 && proc < 21) {
-        startpos = 4
-        led.plot(4, 4)
-    } else if (proc <= 40 && proc < 41) {
-        startpos = 3
-        led.plot(4, 3)
-    } else if (proc <= 60 && proc < 61) {
-        startpos = 2
-        led.plot(4, 2)
-    } else if (proc <= 80 && proc < 81) {
-        startpos = 1
-        led.plot(4, 1)
-    } else if (proc <= 90 || proc == 100) {
-        startpos = 0
-        led.plot(4, 0)
-    }
-    poslist[stage] = startpos
-    stage += 1
-    if (stage == 5) {
-        stage = 0
-    }
-    if (stage == 0) {
-        led.plot(3, poslist[3])
-        led.plot(2, poslist[2])
-        led.plot(1, poslist[1])
-        led.plot(0, poslist[0])
-    }
-    if (stage == 1) {
-        led.plot(3, poslist[4])
-        led.plot(2, poslist[3])
-        led.plot(1, poslist[2])
-        led.plot(0, poslist[1])
-    }
-    if (stage == 2) {
-        led.plot(3, poslist[0])
-        led.plot(2, poslist[4])
-        led.plot(1, poslist[3])
-        led.plot(0, poslist[2])
-    }
-    if (stage == 3) {
-        led.plot(3, poslist[1])
-        led.plot(2, poslist[0])
-        led.plot(1, poslist[4])
-        led.plot(0, poslist[3])
-    }
-    if (stage == 4) {
-        led.plot(3, poslist[2])
-        led.plot(2, poslist[1])
-        led.plot(1, poslist[0])
-        led.plot(0, poslist[4])
-    }
-    if (input.buttonIsPressed(Button.A)) {
-        iter += -5
-        music.play(music.tonePlayable(262, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
-    }
-    if (input.buttonIsPressed(Button.B)) {
-        iter += 5
-        music.play(music.tonePlayable(523, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
-    }}
+
 function menu_select_menu() { //Menu selection at the start.
     while (true) {
         if (selected_menu == 1) {
@@ -1625,9 +1164,7 @@ function tool_select_menu() { //Tool selection.
                     graph_var1 = input.acceleration(Dimension.Z)
                 }
                 plot_graph()
-                if (custom_graph == 9) {
-                    basic.pause(iter)
-                } else {
+                if (custom_graph != 12) {
                     basic.pause(50)
                 }
                 basic.clearScreen()
@@ -2780,14 +2317,20 @@ function settings_select_menu() { //Settings selection.
             } else if (custom_graph == 4) {
                 image_spiral.scrollImage(1, scroll_interval)
             } else if (custom_graph == 5) {
-                image_speedometer.scrollImage(1, scroll_interval)
+                image_dial.scrollImage(1, scroll_interval)
             } else if (custom_graph == 6) {
-                image_wave.scrollImage(1, scroll_interval)
-            } else if (custom_graph == 7) {
-                image_signal_small.scrollImage(1, scroll_interval)
-            } else if (custom_graph == 8) {
                 image_needle.scrollImage(1, scroll_interval)
+            } else if (custom_graph == 7) {
+                image_wave.scrollImage(1, scroll_interval)
+            } else if (custom_graph == 8) {
+                image_speedometer.scrollImage(1, scroll_interval)
             } else if (custom_graph == 9) {
+                image_needle_c.scrollImage(1, scroll_interval)
+            } else if (custom_graph == 10) {
+                image_radio.scrollImage(1, scroll_interval)
+            } else if (custom_graph == 11) {
+                image_water.scrollImage(1, scroll_interval)
+            } else if (custom_graph == 12) {
                 image_procbar.scrollImage(1, scroll_interval)
             }
         } else if (selected_setting == 10) {
@@ -2899,7 +2442,7 @@ function settings_select_menu() { //Settings selection.
                     }
                     flashstorage.put("scroll", convertToText(animation_scroll))
                 } else if (selected_setting == 9) {
-                    if (custom_graph == 9) {
+                    if (custom_graph == 12) {
                         custom_graph = 1
                     } else {
                         custom_graph += 1
@@ -3295,15 +2838,14 @@ if (rotate_display == 1) {
 let custom_graph = parseFloat(flashstorage.getOrDefault("graph", "1"))
 let graph_var1 = 50
 let graph_var2 = 50
-let proc = 0
 let poslist = [4, 4, 4, 4, 4]
-let iter = 50
 let stage = 0
 let startpos = 0
 let p2press = parseFloat(flashstorage.getOrDefault("p2p", "1"))
 let num_list = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
 let symb_list = [")", "!", "@", "#", "$", "%", "^", "&", "*", "("]
 let fade_int = 100
+let inter = 50
 let image_games = images.createImage(`
     . . . . .
     . . # . .
@@ -3812,16 +3354,34 @@ let image_signal_small = images.createImage(`
     . # # # #`)
 let image_needle = images.createImage(`
     . . . . .
-    . . . # .
-    . . # . .
     . # . . .
-    # . . . .`)
+    . . # . .
+    . . . # .
+    . . . . #`)
+let image_needle_c = images.createImage(`
+    . . . . .
+    . # . . .
+    . # . # #
+    . # . # .
+    # . . # #`)
 let image_procbar = images.createImage(`
     . . . . .
     . . . . .
     . . . . .
     . # # . #
     # . . # .`)
+let image_dial = images.createImage(`
+    . . . . .
+    . . . # #
+    . . # . .
+    . . . . .
+    . . . . .`)
+let image_water = images.createImage(`
+    . . . . .
+    . . . . .
+    # # . . .
+    # # # # #
+    # # # # #`)
 let image_yes = images.createImage(`
     . . . . .
     . . . . #
@@ -6910,9 +6470,7 @@ function send_compass() { //Send compass heading via serial or bluetooth.
         if (tool_type == 2) {
             graph_var1 = input.compassHeading()
             plot_graph()
-            if (custom_graph == 9) {
-                basic.pause(iter)
-            } else {
+            if (custom_graph != 12) {
                 basic.pause(50)
             }
             basic.clearScreen()
