@@ -7,12 +7,12 @@
         "microphone": "*",
         "datalogger": "*",
         "audio-recording": "*",
-        "microturtle": "github:microsoft/pxt-microturtle#v0.0.9",
         "microbit-pxt-timeanddate": "github:bsiever/microbit-pxt-timeanddate#v2.0.33",
         "microbit-pxt-blehid": "github:bsiever/microbit-pxt-blehid#v0.0.24",
         "microbit-pxt-rotate": "github:bsiever/microbit-pxt-rotate#v0.1.6",
         "microbit-pxt-flashstorage": "github:bsiever/microbit-pxt-flashstorage#v0.1.4",
-        "pxt-meter": "github:Xc987/pxt-extended-meter#2d1b977cf2be85ade28998f63de3ff1ccaf09b71"
+        "pxt-meter": "github:Xc987/pxt-extended-meter#2d1b977cf2be85ade28998f63de3ff1ccaf09b71",
+        "dot": "github:Xc987/noradio-dot#89255fe7f27326893be67b2bec72c019197d2414"
     },
     "files": [
         "main.ts",

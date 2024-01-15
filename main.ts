@@ -1393,36 +1393,35 @@ function tool_clock_menu() { //Clock type selection.
     }}
 function turtle_main() { //Turtle extension.
     music.setBuiltInSpeakerEnabled(true)
+    basic.clearScreen()
     let pen_up = false
-    turtle.setPosition(2, 2)
-    turtle.setBrightness(20)
-    turtle.pen(TurtlePenMode.Down)
-    turtle.home()
+    dot.home()
+    dot.penDown()
     while (true) {
         if (input.buttonIsPressed(Button.A)) {
-            turtle.turnLeft()
+            dot.turnLeft()
             music.play(music.tonePlayable(220, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
         }
         if (input.buttonIsPressed(Button.B)) {
-            turtle.turnRight()
+            dot.turnRight()
             music.play(music.tonePlayable(220, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
         }
         if (input.buttonIsPressed(Button.AB)) {
             if (pen_up == false) {
                 music.play(music.tonePlayable(880, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
                 pen_up = true
-                turtle.pen(TurtlePenMode.Up)
+                dot.penUp()
             } else {
                 music.play(music.tonePlayable(880, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
                 pen_up = false
-                turtle.pen(TurtlePenMode.Down)
+                dot.penDown()
             }
         }
         if (input.logoIsPressed()) {
-            turtle.forward(1)
+        dot.moveForward()
         }
         if (input.pinIsPressed(TouchPin.P2)) {
-            turtle.back(1)
+        dot.moveBackward()
         }
         basic.pause(200)
     }}
@@ -5755,21 +5754,24 @@ function create_number() { //Create a temp-saved number.
         }
     }}
 function create_image() { //Create a temp-saved image.
+    music.setBuiltInSpeakerEnabled(true)
+    basic.clearScreen()
     let pen_up = false
-    turtle.setPosition(2, 2)
-    turtle.setBrightness(20)
-    turtle.pen(TurtlePenMode.Down)
-    turtle.home()
+    dot.erase()
+    dot.home()
+    dot.penDown()
     let turtle_input: number[] = []
     while (true) {
         if (input.buttonIsPressed(Button.AB)) {
-            basic.showLeds(`
-            . . . . #
-            . . . # .
-            . . # . .
-            # . . . .
-            # # . . .
-            `)
+            if (pen_up == false) {
+                music.play(music.tonePlayable(880, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
+                pen_up = true
+                dot.penUp()
+            } else {
+                music.play(music.tonePlayable(880, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
+                pen_up = false
+                dot.penDown()
+            }
             turtle_input.push(2)
             if (pen_up == false) {
                 music.play(music.tonePlayable(880, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
@@ -5779,56 +5781,32 @@ function create_image() { //Create a temp-saved image.
         }
         if (input.buttonIsPressed(Button.A)) {
             turtle_input.push(0)
-            basic.showLeds(`
-            . . # . .
-            . # . . .
-            # # # # #
-            . # . . .
-            . . # . .
-            `)
+            dot.turnLeft()
             music.play(music.tonePlayable(220, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
         }
         if (input.buttonIsPressed(Button.B)) {
             turtle_input.push(1)
-            basic.showLeds(`
-            . . # . .
-            . . . # .
-            # # # # #
-            . . . # .
-            . . # . .
-            `)
+            dot.turnRight()
             music.play(music.tonePlayable(220, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
         }
         if (input.logoIsPressed()) {
             turtle_input.push(3)
-            basic.showLeds(`
-            . . # . .
-            . # # # .
-            # . # . #
-            . . # . .
-            . . # . .
-            `)
             music.play(music.tonePlayable(220, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
-        }
-        if (input.isGesture(Gesture.Shake)) {
-            turtle_input.push(4)
-            basic.showLeds(`
-            . . # . .
-            . . # . .
-            # . # . #
-            . # # # .
-            . . # . .
-            `)
-            music.play(music.tonePlayable(220, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
+            dot.moveForward()
         }
         if (input.pinIsPressed(TouchPin.P2)) {
+            turtle_input.push(4)
+            music.play(music.tonePlayable(220, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
+            dot.moveBackward()
+        }
+        if (input.pinIsPressed(TouchPin.P1)) {
             break;
         }
-        basic.clearScreen()
         basic.pause(200)
     }
     basic.clearScreen()
-    turtle.setPosition(2, 2)
+    dot.home()
+    dot.erase()
     while (true) {
         basic.showLeds(`
         . . . . .
@@ -5838,27 +5816,29 @@ function create_image() { //Create a temp-saved image.
         . . . . .
         `)
         if (input.buttonIsPressed(Button.A) || input.buttonIsPressed(Button.B) || input.logoIsPressed()) {
+            basic.clearScreen()
+            dot.speed(8)
             while (true) {
                 if (turtle_input[0] == 0) {
-                    turtle.turnLeft()
+                    dot.turnLeft()
                 }
                 if (turtle_input[0] == 1) {
-                    turtle.turnRight()
+                    dot.turnRight()
                 }
                 if (turtle_input[0] == 2) {
                     if (pen_up == false) {
                         pen_up = true
-                        turtle.pen(TurtlePenMode.Up)
+                        dot.penUp()
                     } else {
                         pen_up = false
-                        turtle.pen(TurtlePenMode.Down)
+                        dot.penDown()
                     }
                 }
                 if (turtle_input[0] == 3) {
-                    turtle.forward(1)
+                dot.moveForward()
                 }
                 if (turtle_input[0] == 4) {
-                    turtle.back(1)
+                    dot.moveBackward()
                 }
                 turtle_input.removeAt(0)
             }
