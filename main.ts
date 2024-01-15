@@ -1,38 +1,38 @@
 function loading_animation() { //Draw loading animation.
-    led.plot(2, 0)
+    led.plotBrightness(2, 0, 5)
     basic.pause(30)
     led.unplot(2, 0)
-    led.plot(3, 0)
+    led.plotBrightness(3, 0, 10)
     basic.pause(30)
     led.unplot(3, 0)
-    led.plot(4, 1)
+    led.plotBrightness(4, 1, 15)
     basic.pause(30)
     led.unplot(4, 1)
-    led.plot(4, 2)
+    led.plotBrightness(4, 2, 20)
     basic.pause(30)
     led.unplot(4, 2)
-    led.plot(4, 3)
+    led.plotBrightness(4, 3, 30)
     basic.pause(30)
     led.unplot(4, 3)
-    led.plot(3, 4)
+    led.plotBrightness(3, 4, 60)
     basic.pause(30)
     led.unplot(3, 4)
-    led.plot(2, 4)
+    led.plotBrightness(2, 4, 100)
     basic.pause(30)
     led.unplot(2, 4)
-    led.plot(1, 4)
+    led.plotBrightness(1, 4, 140)
     basic.pause(30)
     led.unplot(1, 4)
-    led.plot(0, 3)
+    led.plotBrightness(0, 3, 180)
     basic.pause(30)
     led.unplot(0, 3)
-    led.plot(0, 2)
+    led.plotBrightness(0, 2, 210)
     basic.pause(30)
     led.unplot(0, 2)
-    led.plot(0, 1)
+    led.plotBrightness(0, 1, 230)
     basic.pause(30)
     led.unplot(0, 1)
-    led.plot(1, 0)
+    led.plotBrightness(1, 0, 255)
     basic.pause(30)
     led.unplot(1, 0)}
 function draw_menu() { //Draw navigation bar at the top.
@@ -3518,6 +3518,7 @@ let bj_my_hand = 0
 let bj_dealer_card = 0
 let random_card = 0
 let score_10 = 0
+basic.clearScreen()
 loading_animation()
 menu_select_menu()
 basic.forever(function () { //Space Invaders game. // game_Mode = 1
@@ -4370,19 +4371,26 @@ function math_xy() { //Calculator with 2 variables // Selected_tool = 9
     }
     game.addScore(1)
     basic.pause(400)
-    if (selected_math == 1) {
-        basic.showNumber(mathx + mathy)
-    } else if (selected_math == 2) {
-        basic.showNumber(mathx - mathy)
-    } else if (selected_math == 3) {
-        basic.showNumber(mathx * mathy)
-    } else if (selected_math == 4) {
-        basic.showNumber(mathx / mathy)
-    } else if (selected_math == 5) {
-        basic.showNumber(mathx ** mathy)
-    } else if (selected_math == 11) {
-        while (true) {
-            if (input.buttonIsPressed(Button.A) || input.buttonIsPressed(Button.B) || input.logoIsPressed()) {
+    while (true) {
+        basic.showLeds(`
+        . . . . .
+        . # # # .
+        . # . # .
+        . # # # .
+        . . . . .
+        `)
+        if (input.buttonIsPressed(Button.A) || input.buttonIsPressed(Button.B) || input.logoIsPressed()) {
+            if (selected_math == 1) {
+                basic.showNumber(mathx + mathy)
+            } else if (selected_math == 2) {
+                basic.showNumber(mathx - mathy)
+            } else if (selected_math == 3) {
+                basic.showNumber(mathx * mathy)
+            } else if (selected_math == 4) {
+                basic.showNumber(mathx / mathy)
+            } else if (selected_math == 5) {
+                basic.showNumber(mathx ** mathy)
+            } else if (selected_math == 11) {
                 basic.showNumber(randint(mathx, mathy))
             }
             basic.clearScreen()
@@ -4452,17 +4460,27 @@ function math_x() { //Calculator with 1 variable // Selected_tool = 9
         }
     }
     game.addScore(1)
-    basic.pause(500)
-    num = 0
-
-    if (selected_math == 6) {
-        basic.showNumber(Math.sqrt(mathx))
-    } else if (selected_math == 7) {
-        basic.showNumber(Math.sin(mathx * Math.PI / 180))
-    } else if (selected_math == 8) {
-        basic.showNumber(Math.cos(mathx * Math.PI / 180))
-    } else if (selected_math == 9) {
-        basic.showNumber(Math.tan(mathx * Math.PI / 180))
+    basic.pause(400)
+    while (true) {
+        basic.showLeds(`
+        . . . . .
+        . # # # .
+        . # . # .
+        . # # # .
+        . . . . .
+        `)
+        if (input.buttonIsPressed(Button.A) || input.buttonIsPressed(Button.B) || input.logoIsPressed()) {
+            if (selected_math == 6) {
+                basic.showNumber(Math.sqrt(mathx))
+            } else if (selected_math == 7) {
+                basic.showNumber(Math.sin(mathx * Math.PI / 180))
+            } else if (selected_math == 8) {
+                basic.showNumber(Math.cos(mathx * Math.PI / 180))
+            } else if (selected_math == 9) {
+                basic.showNumber(Math.tan(mathx * Math.PI / 180))
+            }
+            basic.clearScreen()
+        }
     }}
 function signal() { //Signal / Alarm clock // Selected_tool = 10
     basic.clearScreen()
@@ -5598,7 +5616,8 @@ function bluetooth_keyboard_custom() { // Custom keyboard input.
     bluetooth_keyboard_custom()}
 function create_strig() { //Create a temp-saved string.
     basic.clearScreen()
-    basic.pause(500)
+    basic.pause(300)
+    fade_int = 50
     while (true) {
         if (input.pinIsPressed(TouchPin.P2)) {
             break;
@@ -5623,7 +5642,7 @@ function create_strig() { //Create a temp-saved string.
                 break;
             }
             if (input.buttonIsPressed(Button.B)) {
-                scroll_interval = 45
+                scroll_interval = 30
                 if (abc_id == 38) {
                     abc_id = 1
                 } else {
@@ -6541,8 +6560,9 @@ function send_compass() { //Send compass heading via serial or bluetooth.
         }
     }}
 function send_string() { //Send string via serial or bluetooth.
+    fade_int = 50
     basic.clearScreen()
-    basic.pause(200)
+    basic.pause(300)
     while (true) {
         usid_if()
         if (scroll_interval == 1) {
@@ -6561,7 +6581,7 @@ function send_string() { //Send string via serial or bluetooth.
                 break;
             }
             if (input.buttonIsPressed(Button.B)) {
-                scroll_interval = 45
+                scroll_interval = 30
                 if (abc_id == 38) {
                     abc_id = 1
                 } else {
