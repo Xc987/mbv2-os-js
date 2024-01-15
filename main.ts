@@ -1153,6 +1153,15 @@ function tool_select_menu() { //Tool selection.
                     tool_type = 2
                     game.addScore(1)
                     basic.pause(500)
+                if (input.pinIsPressed(TouchPin.P2)) {
+                    if (custom_graph == 12) {
+                        custom_graph = 1
+                    } else {
+                        custom_graph += 1
+                    }
+                    flashstorage.put("graph", convertToText(custom_graph))
+                    basic.pause(150)
+                }
                 }
             }
             if (tool_type == 2) {
@@ -1179,6 +1188,15 @@ function tool_select_menu() { //Tool selection.
                     tool_type = 1
                     game.addScore(1)
                     basic.pause(500)
+                }
+                if (input.pinIsPressed(TouchPin.P2)) {
+                    if (custom_graph == 12) {
+                        custom_graph = 1
+                    } else {
+                        custom_graph += 1
+                    }
+                    flashstorage.put("graph", convertToText(custom_graph))
+                    basic.pause(150)
                 }
             }
         }
@@ -1272,6 +1290,7 @@ function tool_calculator_menu() { //Calculator type selection.
     }
     led.fadeOut(fade_int)
     led.fadeIn(fade_int)
+    scroll_interval = 1
     if (selected_math == 1 || selected_math == 2 || selected_math == 3 || selected_math == 4 || selected_math == 5 || selected_math == 11) {
         math_xy()
     } else if (selected_math == 6 || selected_math == 7 || selected_math == 8 || selected_math == 9) {
@@ -1402,7 +1421,7 @@ function turtle_main() { //Turtle extension.
         if (input.logoIsPressed()) {
             turtle.forward(1)
         }
-        if (input.isGesture(Gesture.Shake)) {
+        if (input.pinIsPressed(TouchPin.P2)) {
             turtle.back(1)
         }
         basic.pause(200)
@@ -1737,6 +1756,7 @@ function custom_music_selection() { //Custom music selection.
             break;
         }
     }
+    scroll_interval = 1
     led.fadeOut(fade_int)
     led.fadeIn(fade_int)
     if (selected_create_music == 1) {
