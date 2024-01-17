@@ -79,77 +79,21 @@ function waiting_for_connection() { //Waiting for the bluetooth connection.
     }}
 function unid_if_0_9() { //Function to draw numbers from 0 to 9
     unid = num
-    if (unid == 0) {
-        images.createImage(`
-            . # # # .
-            . # . # .
-            . # . # .
-            . # . # .
-            . # # # .`).scrollImage(1, scroll_interval)
-    } else if (unid == 1) {
-        images.createImage(`
-            . . . # .
-            . . # # .
-            . . . # .
-            . . . # .
-            . . . # .`).scrollImage(1, scroll_interval)
-    } else if (unid == 2) {
-        images.createImage(`
-            . # # # .
-            . . . # .
-            . # # # .
-            . # . . .
-            . # # # .`).scrollImage(1, scroll_interval)
-    } else if (unid == 3) {
-        images.createImage(`
-            . # # # .
-            . . . # .
-            . # # # .
-            . . . # .
-            . # # # .`).scrollImage(1, scroll_interval)
-    } else if (unid == 4) {
-        images.createImage(`
-            . # . # .
-            . # . # .
-            . # # # .
-            . . . # .
-            . . . # .`).scrollImage(1, scroll_interval)
-    } else if (unid == 5) {
-        images.createImage(`
-            . # # # .
-            . # . . .
-            . # # # .
-            . . . # .
-            . # # # .`).scrollImage(1, scroll_interval)
-    } else if (unid == 6) {
-        images.createImage(`
-            . # # # .
-            . # . . .
-            . # # # .
-            . # . # .
-            . # # # .`).scrollImage(1, scroll_interval)
-    } else if (unid == 7) {
-        images.createImage(`
-            . # # # .
-            . . . # .
-            . . . # .
-            . . . # .
-            . . . # .`).scrollImage(1, scroll_interval)
-    } else if (unid == 8) {
-        images.createImage(`
-            . # # # .
-            . # . # .
-            . # # # .
-            . # . # .
-            . # # # .`).scrollImage(1, scroll_interval)
-    } else if (unid == 9) {
-        images.createImage(`
-            . # # # .
-            . # . # .
-            . # # # .
-            . . . # .
-            . # # # .`).scrollImage(1, scroll_interval)
-    }}
+    let bitmap = unid09[unid]
+    let currimage = led.screenshot()
+    currimage.scrollImage(5, 1)
+    basic.clearScreen()
+    for (let x = 0; x < 5; x++) { 
+        for (let y2 = 0; y2 < 5; y2++) {
+            if (bitmap & 1) {
+                led.toggle(x, y2);
+            }
+            bitmap >>= 1;
+        }
+    }
+    currimage = led.screenshot()
+    currimage.scrollImage(1, scroll_interval)
+    }
 function unid_if_1_23() { //Function to draw numbers from 0 to 55 (1-23)
     if (unid_type == 1) {
         unid = num
@@ -164,224 +108,26 @@ function unid_if_1_23() { //Function to draw numbers from 0 to 55 (1-23)
     } else if (unid_type == 6) {
         unid = signal_minute
     }
-    if (unid == 1) {
-        images.createImage(`
-            . . . # .
-            . . # # .
-            . . . # .
-            . . . # .
-            . . . # .`).scrollImage(1, scroll_interval)
-    } else if (unid == 2) {
-        images.createImage(`
-            . # # # .
-            . . . # .
-            . # # # .
-            . # . . .
-            . # # # .`).scrollImage(1, scroll_interval)
-    } else if (unid == 3) {
-        images.createImage(`
-            . # # # .
-            . . . # .
-            . # # # .
-            . . . # .
-            . # # # .`).scrollImage(1, scroll_interval)
-    } else if (unid == 4) {
-        images.createImage(`
-            . # . # .
-            . # . # .
-            . # # # .
-            . . . # .
-            . . . # .`).scrollImage(1, scroll_interval)
-    } else if (unid == 5) {
-        images.createImage(`
-            . # # # .
-            . # . . .
-            . # # # .
-            . . . # .
-            . # # # .`).scrollImage(1, scroll_interval)
-    } else if (unid == 6) {
-        images.createImage(`
-            . # # # .
-            . # . . .
-            . # # # .
-            . # . # .
-            . # # # .`).scrollImage(1, scroll_interval)
-    } else if (unid == 7) {
-        images.createImage(`
-            . # # # .
-            . . . # .
-            . . . # .
-            . . . # .
-            . . . # .`).scrollImage(1, scroll_interval)
-    } else if (unid == 8) {
-        images.createImage(`
-            . # # # .
-            . # . # .
-            . # # # .
-            . # . # .
-            . # # # .`).scrollImage(1, scroll_interval)
-    } else if (unid == 9) {
-        images.createImage(`
-            . # # # .
-            . # . # .
-            . # # # .
-            . . . # .
-            . # # # .`).scrollImage(1, scroll_interval)
-    } else if (unid == 10) {
-        images.createImage(`
-            # . # # #
-            # . # . #
-            # . # . #
-            # . # . #
-            # . # # #`).scrollImage(1, scroll_interval)
-    } else if (unid == 11) {
-        images.createImage(`
-            # . . . #
-            # . . # #
-            # . . . #
-            # . . . #
-            # . . . #`).scrollImage(1, scroll_interval)
-    } else if (unid == 12) {
-        images.createImage(`
-            # . # # #
-            # . . . #
-            # . # # #
-            # . # . .
-            # . # # #`).scrollImage(1, scroll_interval)
-    } else if (unid == 13) {
-        images.createImage(`
-            # . # # #
-            # . . . #
-            # . # # #
-            # . . . #
-            # . # # #`).scrollImage(1, scroll_interval)
-    } else if (unid == 14) {
-        images.createImage(`
-            # . # . #
-            # . # . #
-            # . # # #
-            # . . . #
-            # . . . #`).scrollImage(1, scroll_interval)
-    } else if (unid == 15) {
-        images.createImage(`
-            # . # # #
-            # . # . .
-            # . # # #
-            # . . . #
-            # . # # #`).scrollImage(1, scroll_interval)
-    } else if (unid == 16) {
-        images.createImage(`
-            # . # # #
-            # . # . .
-            # . # # #
-            # . # . #
-            # . # # #`).scrollImage(1, scroll_interval)
-    } else if (unid == 17) {
-        images.createImage(`
-            # . # # #
-            # . . . #
-            # . . . #
-            # . . . #
-            # . . . #`).scrollImage(1, scroll_interval)
-    } else if (unid == 18) {
-        images.createImage(`
-            # . # # #
-            # . # . #
-            # . # # #
-            # . # . #
-            # . # # #`).scrollImage(1, scroll_interval)
-    } else if (unid == 19) {
-        images.createImage(`
-            # . # # #
-            # . # . #
-            # . # # #
-            # . . . #
-            # . # # #`).scrollImage(1, scroll_interval)
-    } else if (unid == 20) {
-        images.createImage(`
-            # # # # #
-            . # # . #
-            # # # . #
-            # . # . #
-            # # # # #`).scrollImage(1, scroll_interval)
-    } else if (unid == 0) {
-        images.createImage(`
-            . # # # .
-            . # . # .
-            . # . # .
-            . # . # .
-            . # # # .`).scrollImage(1, scroll_interval)
-    } else if (unid == 25) {
-        images.createImage(`
-            # # . # #
-            . # . # .
-            # # . # #
-            # . . . #
-            # # . # #`).scrollImage(1, scroll_interval)
-    } else if (unid == 30) {
-        images.createImage(`
-            # # # # #
-            . # # . #
-            # # # . #
-            . # # . #
-            # # # # #`).scrollImage(1, scroll_interval)
-    } else if (unid == 35) {
-        images.createImage(`
-            # # . # #
-            . # . # .
-            # # . # #
-            . # . . #
-            # # . # #`).scrollImage(1, scroll_interval)
-    } else if (unid == 40) {
-        images.createImage(`
-            # . # # #
-            # . # . #
-            # # # . #
-            . # # . #
-            . # # # #`).scrollImage(1, scroll_interval)
-    } else if (unid == 45) {
-        images.createImage(`
-            # . . # #
-            # . . # .
-            # # . # #
-            . # . . #
-            . # . # #`).scrollImage(1, scroll_interval)
-    } else if (unid == 50) {
-        images.createImage(`
-            # # # # #
-            # . # . #
-            # # # . #
-            . # # . #
-            # # # # #`).scrollImage(1, scroll_interval)
-    } else if (unid == 55) {
-        images.createImage(`
-            # # . # #
-            # . . # .
-            # # . # #
-            . # . . #
-            # # . # #`).scrollImage(1, scroll_interval)
-    } else if (unid == 21) {
-        images.createImage(`
-            # # . . #
-            . # . # #
-            # # . . #
-            # . . . #
-            # # . . #`).scrollImage(1, scroll_interval)
-    } else if (unid == 22) {
-        images.createImage(`
-            # # . # #
-            . # . . #
-            # # . # #
-            # . . # .
-            # # . # #`).scrollImage(1, scroll_interval)
-    } else if (unid == 23) {
-        images.createImage(`
-            # # . # #
-            . # . . #
-            # # . # #
-            # . . . #
-            # # . # #`).scrollImage(1, scroll_interval)
-    }}
+    let bitmap = 0
+    if (unid > 23) {
+        bitmap = unid123ex[unid / 5 - 5]
+    } else {
+        bitmap = unid123[unid]
+    }
+    let currimage = led.screenshot()
+    currimage.scrollImage(5, 1)
+    basic.clearScreen()
+    for (let x = 0; x < 5; x++) {
+        for (let y2 = 0; y2 < 5; y2++) {
+            if (bitmap & 1) {
+                led.toggle(x, y2);
+            }
+            bitmap >>= 1;
+        }
+    }
+    currimage = led.screenshot()
+    currimage.scrollImage(1, scroll_interval)
+    }
 function unid_if_1_4() { //Function to draw numbers from 1 to 4
     if (num == 1) {
         images.createImage(`
@@ -1291,6 +1037,7 @@ function tool_calculator_menu() { //Calculator type selection.
     led.fadeOut(fade_int)
     led.fadeIn(fade_int)
     scroll_interval = 1
+    basic.clearScreen()
     if (selected_math == 1 || selected_math == 2 || selected_math == 3 || selected_math == 4 || selected_math == 5 || selected_math == 11) {
         math_xy()
     } else if (selected_math == 6 || selected_math == 7 || selected_math == 8 || selected_math == 9) {
@@ -2895,6 +2642,10 @@ let num_list = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
 let symb_list = [")", "!", "@", "#", "$", "%", "^", "&", "*", "("]
 let fade_int = 100
 let inter = 50
+let bitmap = 0
+let unid09 = [0xFC7E0, 0xF8800, 0xBD7A0, 0xFD6A0, 0xF90E0, 0xED6E0, 0xED7E0, 0xF8420, 0xFD7E0, 0xFD6E0]
+let unid123 = [0xFC7E0, 0xF8800, 0xBD7A0, 0xFD6A0, 0xF90E0, 0xED6E0, 0xED7E0, 0xF8420, 0xFD7E0, 0xFD6E0, 0x1F8FC1F, 0x1F1001F, 0x17AF41F, 0x1FAD41F, 0x1F21C1F, 0x1DADC1F, 0x1DAFC1F, 0x1F0841F, 0x1FAFC1F, 0x1FADC1F, 0x1F8FEFD, 0x1F102FD, 0x17E82FD, 0x1FA82FD]
+let unid123ex = [0x1DB82FD, 0x1F8FFF5, 0x1DB83F5, 0x1F8FF87, 0x1DB8387, 0x1F8FFB7, 0x1DB83B7]
 let image_games = images.createImage(`
     . . . . .
     . . # . .
@@ -4601,6 +4352,7 @@ function signal() { //Signal / Alarm clock // Selected_tool = 10
             } else if (input.logoIsPressed()) {
                 music.play(music.tonePlayable(349, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
                 basic.showIcon(IconNames.Yes)
+                break;
             }
         }
     }
