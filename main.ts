@@ -86,6 +86,13 @@ function decrypt() {
             bitmap >>= 1;
         }
     }}
+function scrollbit() {
+    let currimage = led.screenshot()
+    currimage.scrollImage(5, 1)
+    basic.clearScreen()
+    decrypt()
+    currimage = led.screenshot()
+    currimage.scrollImage(1, scroll_interval)}
 function unid_if_0_9() { //Function to draw numbers from 0 to 9
     unid = num
     bitmap = unid09[unid]
@@ -207,39 +214,27 @@ function plot_graph() { //Plot a bar graph system/custom.
 function menu_select_menu() { //Menu selection at the start.
     while (true) {
         if (selected_menu == 1) {
-            led.unplot(4, 0)
-        } else if (selected_menu == 2) {
-            led.unplot(0, 0)
-        } else if (selected_menu == 3) {
-            led.unplot(1, 0)
-        } else if (selected_menu == 4) {
-            led.unplot(2, 0)
-        } else if (selected_menu == 8) {
-            led.unplot(3, 0)
-        } else {
-            led.unplot(2, 0)
-        }
-        if (selected_menu == 1) {
-            image_games.scrollImage(1, scroll_interval)
+            bitmap = sysimages[0]
             ckeck_hold_a()
         } else if (selected_menu == 2) {
-            image_tools.scrollImage(1, scroll_interval)
+            bitmap = sysimages[1]
         } else if (selected_menu == 3) {
-            image_turtle.scrollImage(1, scroll_interval)
+            bitmap = sysimages[2]
         } else if (selected_menu == 4) {
-            image_radio.scrollImage(1, scroll_interval)
+            bitmap = sysimages[3]
         } else if (selected_menu == 5) {
-            image_create.scrollImage(1, scroll_interval)
+            bitmap = sysimages[4]
         } else if (selected_menu == 6) {
-            image_send.scrollImage(1, scroll_interval)
+            bitmap = sysimages[6]
         } else if (selected_menu == 7) {
-            image_uart.scrollImage(1, scroll_interval)
+            bitmap = sysimages[7]
         } else if (selected_menu == 8) {
-            image_log.scrollImage(1, scroll_interval)
+            bitmap = sysimages[61]
         } else if (selected_menu == 9) {
-            image_settings.scrollImage(1, scroll_interval)
+            bitmap = sysimages[8]
             ckeck_hold_b()
         }
+        scrollbit()
         if (scroll_interval == 1) {
             basic.pause(300)
         }
@@ -316,39 +311,29 @@ function menu_select_menu() { //Menu selection at the start.
 function game_select_menu() { //Game selection.
     while (true) {
         if (game_mode == 0) {
-            led.unplot(4, 0)
-        } else if (game_mode == 1) {
-            led.unplot(0, 0)
-        } else if (game_mode == 2) {
-            led.unplot(1, 0)
-        } else if (game_mode == 9) {
-            led.unplot(3, 0)
-        } else {
-            led.unplot(2, 0)
-        }
-        if (game_mode == 0) {
-            image_back.scrollImage(1, scroll_interval)
+            bitmap = sysimages[9]
             ckeck_hold_a()
             } else if (game_mode == 1) {
-            image_space_invaders.scrollImage(1, scroll_interval)
+            bitmap = sysimages[10]
             } else if (game_mode == 2) {
-            image_flappy_bird.scrollImage(1, scroll_interval)
+            bitmap = sysimages[11]
             } else if (game_mode == 3) {
-            image_pong.scrollImage(1, scroll_interval)
+            bitmap = sysimages[12]
             } else if (game_mode == 4) {
-            image_cars_game.scrollImage(1, scroll_interval)
+            bitmap = sysimages[13]
             } else if (game_mode == 5) {
-            image_dino_game.scrollImage(1, scroll_interval)
+            bitmap = sysimages[14]
             } else if (game_mode == 6) {
-            image_jumping_rope.scrollImage(1, scroll_interval)
+            bitmap = sysimages[15]
             } else if (game_mode == 7) {
-            image_pac_man.scrollImage(1, scroll_interval)
+            bitmap = sysimages[16]
             } else if (game_mode == 8) {
-            image_tetris.scrollImage(1, scroll_interval)
+            bitmap = sysimages[17]
             } else if (game_mode == 9) {
-            image_ttt.scrollImage(1, scroll_interval)
+            bitmap = sysimages[18]
             ckeck_hold_b()
             }
+            scrollbit()
         if (scroll_interval == 1) {
             basic.pause(300)
         }
@@ -459,42 +444,32 @@ function game_select_menu() { //Game selection.
 
 function tool_select_menu() { //Tool selection.
     while (true) {
-        if (selected_tool == 0) {
-            led.unplot(4, 0)
-        } else if (selected_tool == 1) {
-            led.unplot(0, 0)
-        } else if (selected_tool == 2) {
-            led.unplot(1, 0)
-        } else if (selected_tool == 10) {
-            led.unplot(3, 0)
-        } else {
-            led.unplot(2, 0)
-        }
             if (selected_tool == 0) {
-                image_back.scrollImage(1, scroll_interval)
+                bitmap = sysimages[9]
                 ckeck_hold_a()
             } else if (selected_tool == 1) {
-                image_tempereture.scrollImage(1, scroll_interval)
+                bitmap = sysimages[19]
             } else if (selected_tool == 2) {
-                image_light.scrollImage(1, scroll_interval)
+                bitmap = sysimages[20]
             } else if (selected_tool == 3) {
-                image_sound.scrollImage(1, scroll_interval)
+                bitmap = sysimages[21]
             } else if (selected_tool == 4) {
-                image_north.scrollImage(1, scroll_interval)
+                bitmap = sysimages[22]
             } else if (selected_tool == 5) {
-                image_x.scrollImage(1, scroll_interval)
+                bitmap = sysimages[23]
             } else if (selected_tool == 6) {
-                image_y.scrollImage(1, scroll_interval)
+                bitmap = sysimages[24]
             } else if (selected_tool == 7) {
-                image_z.scrollImage(1, scroll_interval)
+                bitmap = sysimages[25]
             } else if (selected_tool == 8) {
-                image_note.scrollImage(1, scroll_interval)
+                bitmap = sysimages[26]
             } else if (selected_tool == 9) {
-                image_calculator.scrollImage(1, scroll_interval)
+                bitmap = sysimages[27]
             } else if (selected_tool == 10) {
-                image_clock.scrollImage(1, scroll_interval)
+                bitmap = sysimages[28]
                 ckeck_hold_b()
             }
+        scrollbit()
         if (scroll_interval == 1) {
             basic.pause(300)
         }
@@ -643,42 +618,34 @@ function tool_select_menu() { //Tool selection.
     }}
 function tool_calculator_menu() { //Calculator type selection.
     while (true) {
-        if (selected_math == 0) {
-            led.unplot(0, 0)
-        } else if (selected_math == 1) {
-            led.unplot(1, 0)
-        } else if (selected_math == 11) {
-            led.unplot(3, 0)
-        } else {
-            led.unplot(2, 0)
-        }
             if (selected_math == 0) {
-            image_back.scrollImage(1, scroll_interval)
+            bitmap = sysimages[9]
             ckeck_hold_a()
             } else if (selected_math == 1){
-            image_plus.scrollImage(1, scroll_interval)
+                bitmap = sysimages[29]
             } else if (selected_math == 2) {
-                image_minus.scrollImage(1, scroll_interval)
+                bitmap = sysimages[30]
             } else if (selected_math == 3) {
-                image_times.scrollImage(1, scroll_interval)
+                bitmap = sysimages[31]
             } else if (selected_math == 4) {
-                image_divide.scrollImage(1, scroll_interval)
+                bitmap = sysimages[32]
             } else if (selected_math == 5) {
-                image_caret.scrollImage(1, scroll_interval)
+                bitmap = sysimages[33]
             } else if (selected_math == 6) {
-                image_sqr.scrollImage(1, scroll_interval)
+                bitmap = sysimages[34]
             } else if (selected_math == 7) {
-                image_sin.scrollImage(1, scroll_interval)
+                bitmap = sysimages[35]
             } else if (selected_math == 8) {
-                image_cosin.scrollImage(1, scroll_interval)
+                bitmap = sysimages[36]
             } else if (selected_math == 9) {
-                image_tangent.scrollImage(1, scroll_interval)
+                bitmap = sysimages[37]
             } else if (selected_math == 10) {
-                image_pi.scrollImage(1, scroll_interval)
+                bitmap = sysimages[38]
             } else if (selected_math == 11) {
-                image_random.scrollImage(1, scroll_interval)
+                bitmap = sysimages[39]
                 ckeck_hold_b()
             }
+        scrollbit()
         if (scroll_interval == 1) {
             basic.pause(300)
         }
@@ -746,30 +713,20 @@ function tool_calculator_menu() { //Calculator type selection.
 function tool_clock_menu() { //Clock type selection.
     while (true) {
         if (selected_clock == 0) {
-            led.unplot(4, 0)
-        } else if (selected_clock == 1) {
-            led.unplot(0, 0)
-        } else if (selected_clock == 2) {
-            led.unplot(1, 0)
-        } else if (selected_clock == 4) {
-            led.unplot(3, 0)
-        } else {
-            led.unplot(2, 0)
-        }
-        if (selected_clock == 0) {
-            image_back.scrollImage(1, scroll_interval)
+            bitmap = sysimages[9]
             ckeck_hold_a()
         } else if (selected_clock == 1) {
-            image_signal.scrollImage(1, scroll_interval)
+            bitmap = sysimages[40]
             ckeck_hold_a()
         } else if (selected_clock == 2) {
-            image_chronometer.scrollImage(1, scroll_interval)
+            bitmap = sysimages[41]
         } else if (selected_clock == 3) {
-            image_timer.scrollImage(1, scroll_interval)
+            bitmap = sysimages[42]
         } else if (selected_clock == 4) {
-            image_clock.scrollImage(1, scroll_interval)
+            bitmap = sysimages[28]
             ckeck_hold_b()
         }
+        scrollbit()
         if (scroll_interval == 1) {
             basic.pause(300)
         }
@@ -869,29 +826,19 @@ function turtle_main() { //Turtle extension.
 function bluetooth_select_menu() { //Bluetooth send type selection.
     while (true) {
         if (bluetooth_type == 0) {
-            led.unplot(4, 0)
-        } else if (bluetooth_type == 1) {
-            led.unplot(0, 0)
-        } else if (bluetooth_type == 2) {
-            led.unplot(1, 0)
-        } else if (bluetooth_type == 3) {
-            led.unplot(2, 0)
-        } else if (bluetooth_type == 4) {
-            led.unplot(3, 0)
-        }
-        if (bluetooth_type == 0) {
-            image_back.scrollImage(1, scroll_interval)
+            bitmap = sysimages[9]
             ckeck_hold_a()
             } else if (bluetooth_type == 1) {
-                image_note.scrollImage(1, scroll_interval)
+            bitmap = sysimages[26]
             } else if (bluetooth_type == 2) {
-            image_mouse.scrollImage(1, scroll_interval)
+            bitmap = sysimages[43]
             } else if (bluetooth_type == 3) {
-            image_gamepad.scrollImage(1, scroll_interval)
+            bitmap = sysimages[44]
             } else if (bluetooth_type == 4) {
-            image_keyboard.scrollImage(1, scroll_interval)
+            bitmap = sysimages[45]
             ckeck_hold_b()
             }
+        scrollbit()
         if (scroll_interval == 1) {
             basic.pause(300)
         }
@@ -957,29 +904,19 @@ function bluetooth_select_menu() { //Bluetooth send type selection.
 function bluetooth_keyboard_menu() { //Bluetooth keyboard type selection.
     while (true) {
         if (bluetooth_keyboard_type == 0) {
-            led.unplot(4, 0)
-        } else if (bluetooth_keyboard_type == 1) {
-            led.unplot(0, 0)
-        } else if (bluetooth_keyboard_type == 2) {
-            led.unplot(1, 0)
-        } else if (bluetooth_keyboard_type == 3) {
-            led.unplot(2, 0)
-        } else if (bluetooth_keyboard_type == 4) {
-            led.unplot(3, 0)
-        }
-        if (bluetooth_keyboard_type == 0) {
-            image_back.scrollImage(1, scroll_interval)
+            bitmap = sysimages[9]
             ckeck_hold_a()
             } else if (bluetooth_keyboard_type == 1) {
-            image_keyboard.scrollImage(1, scroll_interval)
+            bitmap = sysimages[45]
             } else if (bluetooth_keyboard_type == 2) {
-            image_numbers.scrollImage(1, scroll_interval)
+            bitmap = sysimages[46]
             } else if (bluetooth_keyboard_type == 3) {
-            image_arrows.scrollImage(1, scroll_interval)
+            bitmap = sysimages[47]
             } else if (bluetooth_keyboard_type == 4) {
-            image_cosin.scrollImage(1, scroll_interval)
+            bitmap = sysimages[36]
             ckeck_hold_b()
             }
+        scrollbit()
         if (scroll_interval == 1) {
             basic.pause(300)
         }
@@ -1043,29 +980,19 @@ function bluetooth_keyboard_menu() { //Bluetooth keyboard type selection.
 function create_select_menu() { //Create type selection.
     while (true) {
         if (create_type == 0) {
-            led.unplot(4, 0)
-        } else if (create_type == 1) {
-            led.unplot(0, 0)
-        } else if (create_type == 2) {
-            led.unplot(1, 0)
-        } else if (create_type == 3) {
-            led.unplot(2, 0)
-        } else if (create_type == 4) {
-            led.unplot(3, 0)
-        }
-        if (create_type == 0) {
-            image_back.scrollImage(1, scroll_interval)
+            bitmap = sysimages[9]
             ckeck_hold_a()
             } else if (create_type == 1) {
-            image_numberone.scrollImage(1, scroll_interval)
+            bitmap = sysimages[48]
             } else if (create_type == 2) {
-                image_text.scrollImage(1, scroll_interval)
+            bitmap = sysimages[49]
             } else if (create_type == 3) {
-                image_note.scrollImage(1, scroll_interval)
+            bitmap = sysimages[26]
             } else if (create_type == 4) {
-            image_image.scrollImage(1, scroll_interval)
+            bitmap = sysimages[50]
             ckeck_hold_b()
             }
+        scrollbit()
         if (scroll_interval == 1) {
             basic.pause(300)
         }
@@ -1132,23 +1059,15 @@ function create_select_menu() { //Create type selection.
 function custom_music_selection() { //Custom music selection.
     while (true) {
         if (selected_create_music == 1) {
-            led.unplot(3, 0)
-            led.unplot(4, 0)
-        } else if (selected_create_music == 2) {
-            led.unplot(1, 0)
-            led.unplot(0, 0)
-        } else if (selected_create_music == 3) {
-            led.unplot(2, 0)
-        }
-        if (selected_create_music == 1) {
-            image_note.scrollImage(1, scroll_interval)
+            bitmap = sysimages[26]
             ckeck_hold_a()
             } else if (selected_create_music == 2) {
-            image_rest.scrollImage(1, scroll_interval)
+            bitmap = sysimages[65]
             } else if (selected_create_music == 3) {
-            image_play.scrollImage(1, scroll_interval)
+            bitmap = sysimages[64]
             ckeck_hold_b()
             }
+        scrollbit()
         if (scroll_interval == 1) {
             basic.pause(300)
         }
@@ -1209,29 +1128,19 @@ function custom_music_selection() { //Custom music selection.
 function create_music_menu() { //Built-in music selection.
     while (true) {
         if (selected_music == 1) {
-            led.unplot(4, 0)
-        } else if (selected_music == 2) {
-            led.unplot(0, 0)
-        } else if (selected_music == 3) {
-            led.unplot(1, 0)
-        } else if (selected_music == 4) {
-            led.unplot(2, 0)
-        } else if (selected_music == 5) {
-            led.unplot(3, 0)
-        }
-        if (selected_music == 1) {
-            image_music8.scrollImage(1, scroll_interval)
+            bitmap = sysimages[51]
             ckeck_hold_a()
             } else if (selected_music == 2) {
-            image_note.scrollImage(1, scroll_interval)
+            bitmap = sysimages[26]
             } else if (selected_music == 3) {
-            image_musicv2.scrollImage(1, scroll_interval)
+            bitmap = sysimages[52]
             } else if (selected_music == 4) {
-            image_musicfx.scrollImage(1, scroll_interval)
+            bitmap = sysimages[53]
             } else if (selected_music == 5) {
-            image_create.scrollImage(1, scroll_interval)
+            bitmap = sysimages[4]
             ckeck_hold_b()
             }
+        scrollbit()
         if (scroll_interval == 1) {
             basic.pause(300)
         }
@@ -1299,23 +1208,15 @@ function create_music_menu() { //Built-in music selection.
 function send_select_menu() { //Send selection.
     while (true) {
         if (selected_serial == 0) {
-            led.unplot(3, 0)
-            led.unplot(4, 0)
-        } else if (selected_serial == 1) {
-            led.unplot(1, 0)
-            led.unplot(0, 0)
-        } else if (selected_serial == 2) {
-            led.unplot(2, 0)
-        }
-        if (selected_serial == 0) {
-            image_back.scrollImage(1, scroll_interval)
+            bitmap = sysimages[9]
             ckeck_hold_a()
             } else if (selected_serial == 1) {
-                image_north.scrollImage(1, scroll_interval)
+            bitmap = sysimages[22]
             } else if (selected_serial == 2) {
-            image_send.scrollImage(1, scroll_interval)
+            bitmap = sysimages[6]
             ckeck_hold_b()
             }
+        scrollbit()
         if (scroll_interval == 1) {
             basic.pause(300)
         }
@@ -1377,41 +1278,31 @@ function send_select_menu() { //Send selection.
 function send_type_select_menu() { //Send types selection.
     while (true) {
         if (selected_serial_send == 0) {
-            led.unplot(4, 0)
-        } else if (selected_serial_send == 1) {
-            led.unplot(0, 0)
-        } else if (selected_serial_send == 2) {
-            led.unplot(1, 0)
-        } else if (selected_serial_send == 10) {
-            led.unplot(3, 0)
-        } else {
-            led.unplot(2, 0)
-        }
-        if (selected_serial_send == 0) {
-            image_back.scrollImage(1, scroll_interval)
+            bitmap = sysimages[9]
             ckeck_hold_a()
             } else if (selected_serial_send == 1) {
-                image_arrows.scrollImage(1, scroll_interval)
+            bitmap = sysimages[47]
             } else if (selected_serial_send == 2) {
-                image_tempereture.scrollImage(1, scroll_interval)
+            bitmap = sysimages[19]
             } else if (selected_serial_send == 3) {
-                image_light.scrollImage(1, scroll_interval)
+            bitmap = sysimages[20]
             } else if (selected_serial_send == 4) {
-            image_sound.scrollImage(1, scroll_interval)
+            bitmap = sysimages[21]
             } else if (selected_serial_send == 5) {
-            image_north.scrollImage(1, scroll_interval)
+            bitmap = sysimages[22]
             } else if (selected_serial_send == 6) {
-                image_x.scrollImage(1, scroll_interval)
+            bitmap = sysimages[23]
             } else if (selected_serial_send == 7) {
-                image_y.scrollImage(1, scroll_interval)
+            bitmap = sysimages[24]
             } else if (selected_serial_send == 8) {
-                image_z.scrollImage(1, scroll_interval)
+            bitmap = sysimages[25]
             } else if (selected_serial_send == 9) {
-                image_numberone.scrollImage(1, scroll_interval)
+            bitmap = sysimages[48]
             } else if (selected_serial_send == 10) {
-            image_text.scrollImage(1, scroll_interval)
+            bitmap = sysimages[49]
             ckeck_hold_b()
             }
+        scrollbit()
         if (scroll_interval == 1) {
             basic.pause(300)
         }
@@ -1502,29 +1393,19 @@ function send_type_select_menu() { //Send types selection.
 function data_logging_freq_menu() { //Data logging freq selection
     while (true) {
         if (logging_freq == 0) {
-            led.unplot(4, 0)
-        } else if (logging_freq == 1) {
-            led.unplot(0, 0)
-        } else if (logging_freq == 2) {
-            led.unplot(1, 0)
-        } else if (logging_freq == 3) {
-            led.unplot(2, 0)
-        } else if (logging_freq == 4) {
-            led.unplot(3, 0)
-        }
-        if (logging_freq == 0) {
-            image_back.scrollImage(1, scroll_interval)
+            bitmap = sysimages[9]
             ckeck_hold_a()
         } else if (logging_freq == 1) {
-            image_milisecond.scrollImage(1, scroll_interval)
+            bitmap = sysimages[66]
         } else if (logging_freq == 2) {
-            image_second.scrollImage(1, scroll_interval)
+            bitmap = sysimages[67]
         } else if (logging_freq == 3) {
-            image_minute.scrollImage(1, scroll_interval)
+            bitmap = sysimages[68]
         } else if (logging_freq == 4) {
-            image_hour.scrollImage(1, scroll_interval)
+            bitmap = sysimages[69]
             ckeck_hold_b()
         }
+        scrollbit()
         if (scroll_interval == 1) {
             basic.pause(300)
         }
@@ -1607,35 +1488,25 @@ function data_logging_freq_menu() { //Data logging freq selection
 function data_logger_menu() {  //Log input data.
     while (true) {
         if (selected_log_tool == 0) {
-            led.unplot(4, 0)
-        } else if (selected_log_tool == 1) {
-            led.unplot(0, 0)
-        } else if (selected_log_tool == 2) {
-            led.unplot(1, 0)
-        } else if (selected_log_tool == 7) {
-            led.unplot(3, 0)
-        } else {
-            led.unplot(2, 0)
-        }
-        if (selected_log_tool == 0) {
-            image_back.scrollImage(1, scroll_interval)
+            bitmap = sysimages[9]
             ckeck_hold_a()
         } else if (selected_log_tool == 1) {
-            image_tempereture.scrollImage(1, scroll_interval)
+            bitmap = sysimages[19]
         } else if (selected_log_tool == 2) {
-            image_light.scrollImage(1, scroll_interval)
+            bitmap = sysimages[20]
         } else if (selected_log_tool == 3) {
-            image_sound.scrollImage(1, scroll_interval)
+            bitmap = sysimages[21]
         } else if (selected_log_tool == 4) {
-            image_north.scrollImage(1, scroll_interval)
+            bitmap = sysimages[22]
         } else if (selected_log_tool == 5) {
-            image_x.scrollImage(1, scroll_interval)
+            bitmap = sysimages[23]
         } else if (selected_log_tool == 6) {
-            image_y.scrollImage(1, scroll_interval)
+            bitmap = sysimages[24]
         } else if (selected_log_tool == 7) {
-            image_z.scrollImage(1, scroll_interval)
+            bitmap = sysimages[25]
             ckeck_hold_b()
         }
+        scrollbit()
         if (scroll_interval == 1) {
             basic.pause(300)
         }
@@ -1722,108 +1593,115 @@ function data_logger_menu() {  //Log input data.
 function settings_select_menu() { //Settings selection.
     while (true) {
         if (selected_setting == 0) {
-            led.unplot(4, 0)
-        } else if (selected_setting == 1) {
-            led.unplot(0, 0)
-        } else if (selected_setting == 2) {
-            led.unplot(1, 0)
-        } else if (selected_setting == 10) {
-            led.unplot(3, 0)
-        } else {
-            led.unplot(2, 0)
-        }
-        if (selected_setting == 0) {
-            image_back.scrollImage(1, scroll_interval)
+            bitmap = sysimages[9]
             ckeck_hold_a()
         } else if (selected_setting == 1) {
-            image_note.scrollImage(1, scroll_interval)
+            bitmap = sysimages[26]
         } else if (selected_setting == 2) {
             if (settings_volume == 1) {
-                image_volume.scrollImage(1, scroll_interval)
+                bitmap = sysimages[54]
                 led.plotBrightness(2, 1, 20)
                 music.setVolume(50)
             } else if(settings_volume == 2) {
-                image_volume.scrollImage(1, scroll_interval)
+                bitmap = sysimages[54]
                 led.plotBrightness(2, 1, 20)
                 led.plotBrightness(3, 2, 20)
                 music.setVolume(100)
             } else if (settings_volume == 3) {
-                image_volume.scrollImage(1, scroll_interval)
+                bitmap = sysimages[54]
                 led.plotBrightness(2, 1, 20)
                 led.plotBrightness(3, 2, 20)
                 led.plotBrightness(3, 3, 20)
                 music.setVolume(150)
             } else if (settings_volume == 4) {
-                image_volume.scrollImage(1, scroll_interval)
+                bitmap = sysimages[54]
                 led.plotBrightness(2, 1, 20)
                 led.plotBrightness(3, 2, 20)
                 led.plotBrightness(3, 3, 20)
                 led.plotBrightness(2, 4, 20)
                 music.setVolume(200)
             } else {
-                image_volume_full.scrollImage(1, scroll_interval)
+                bitmap = sysimages[55]
                 music.setVolume(255)
             }
         } else if (selected_setting == 3) {
             if (settings_brightness == 1) {
                 led.setBrightness(50)
-                image_brightness1.scrollImage(1, scroll_interval)
+                bitmap = sysimages[56]
             } else if (settings_brightness == 2) {
                 led.setBrightness(100)
-                image_brightness2.scrollImage(1, scroll_interval)
+                bitmap = sysimages[57]
             } else if (settings_brightness == 3) {
                 led.setBrightness(150)
-                image_brightness3.scrollImage(1, scroll_interval)
+                bitmap = sysimages[58]
             } else if (settings_brightness == 4) {
                 led.setBrightness(200)
-                image_brightness4.scrollImage(1, scroll_interval)
+                bitmap = sysimages[59]
             } else if (settings_brightness == 5) {
                 led.setBrightness(255)
-                image_brightness5.scrollImage(1, scroll_interval)
+                bitmap = sysimages[60]
             }
         } else if (selected_setting == 4) {
             if (logged_data == 0) {
-                image_log.scrollImage(1, scroll_interval)
+                bitmap = sysimages[61]
             } else {
-                image_yes.scrollImage(1, scroll_interval)
+                bitmap = sysimages[82]
             }
         } else if (selected_setting == 5) {
-            image_compass.scrollImage(1, scroll_interval)
+            bitmap = sysimages[62]
         } else if (selected_setting == 6) {
-            image_input.scrollImage(1, scroll_interval)
+            bitmap = sysimages[63]
         } else if (selected_setting == 7) {
-            image_rotate.scrollImage(1, scroll_interval)
+            bitmap = sysimages[70]
         } else if (selected_setting == 8) {
-            image_play.scrollImage(1, scroll_interval)
+            bitmap = sysimages[64]
         } else if (selected_setting == 9) {
             if (custom_graph == 1) {
-                image_bar.scrollImage(1, scroll_interval)
+                bitmap = sysimages[71]
             } else if (custom_graph == 2) {
-                image_bar_custom.scrollImage(1, scroll_interval)
+                bitmap = sysimages[72]
             } else if (custom_graph == 3) {
-                image_create.scrollImage(1, scroll_interval)
+                bitmap = sysimages[4]
             } else if (custom_graph == 4) {
-                image_spiral.scrollImage(1, scroll_interval)
+                bitmap = sysimages[73]
             } else if (custom_graph == 5) {
-                image_dial.scrollImage(1, scroll_interval)
+                bitmap = sysimages[80]
             } else if (custom_graph == 6) {
-                image_needle.scrollImage(1, scroll_interval)
+                bitmap = sysimages[77]
             } else if (custom_graph == 7) {
-                image_wave.scrollImage(1, scroll_interval)
+                bitmap = sysimages[75]
             } else if (custom_graph == 8) {
-                image_speedometer.scrollImage(1, scroll_interval)
+                bitmap = sysimages[74]
             } else if (custom_graph == 9) {
-                image_needle_c.scrollImage(1, scroll_interval)
+                bitmap = sysimages[78]
             } else if (custom_graph == 10) {
-                image_radio.scrollImage(1, scroll_interval)
+                bitmap = sysimages[3]
             } else if (custom_graph == 11) {
-                image_water.scrollImage(1, scroll_interval)
+                bitmap = sysimages[81]
             } else if (custom_graph == 12) {
-                image_procbar.scrollImage(1, scroll_interval)
+                bitmap = sysimages[79]
             }
         } else if (selected_setting == 10) {
-            image_send.scrollImage(1, scroll_interval)
+            bitmap = sysimages[6]
             ckeck_hold_b()
+        }
+        scrollbit()
+        if (selected_setting == 2) {
+            if (settings_volume == 1) {
+                led.plotBrightness(2, 1, 20)
+            } else if (settings_volume == 2) {
+                led.plotBrightness(2, 1, 20)
+                led.plotBrightness(3, 2, 20)
+            } else if (settings_volume == 3) {
+                led.plotBrightness(2, 1, 20)
+                led.plotBrightness(3, 2, 20)
+                led.plotBrightness(3, 3, 20)
+            } else if (settings_volume == 4) {
+                led.plotBrightness(2, 1, 20)
+                led.plotBrightness(3, 2, 20)
+                led.plotBrightness(3, 3, 20)
+                led.plotBrightness(2, 4, 20)
+            }
         }
         if (scroll_interval == 1) {
             basic.pause(300)
@@ -1899,7 +1777,7 @@ function settings_select_menu() { //Settings selection.
                 } else if (selected_setting == 4) {
                     if (logged_data == 0) {
                         logged_data = 1
-                        image_yes.scrollImage(1, scroll_interval)
+                        bitmap = sysimages[82]
                         datalogger.deleteLog(datalogger.DeleteType.Full)
                         datalogger.includeTimestamp(FlashLogTimeStampFormat.Minutes)
                         datalogger.setColumnTitles("Space Invaders", "Flappy Bird", "Pong", "Cars Game", "Dinasour Game", "Jumping Rope", "Pac-Man")
@@ -2343,554 +2221,19 @@ let unid123ex = [0x1DB82FD, 0x1F8FFF5, 0x1DB83F5, 0x1F8FF87, 0x1DB8387, 0x1F8FFB
 let unid14 = [0xF8800, 0x17E801F, 0x1F21C1F, 0x1FAFC1F, 0x1DAFC1F, 0xBD7A0, 0xF90E0]
 let usidaz = [0x10F4A4C, 0x10ED6A8, 0x4529F, 0x4A4C, 0x52A8, 0xFD288, 0x956AE, 0x7056BF, 0x97C4, 0x7D6A2, 0x1E563F, 0xC109F, 0x7400, 0xF420, 0x3610, 0x8289F, 0x48289F, 0x843E0, 0x1843E0, 0x1E1105E, 0xE085E, 0x1E085E, 0x64A4C, 0x2295E, 0x1089E, 0x12A90, 0x12A91, 0xA51E0, 0x10F420E, 0x10E462C, 0x644106, 0x95B52, 0x195B52, 0xC4210C, 0x2000, 0x2200, 0x5C00, 0x22D422]
 let tunecb = [0x118FC10, 0xE8FC10, 0x15AFC10, 0x52FC10, 0x1DAFC10, 0x1F2FC10, 0x1BAFC10, 0x118FC18, 0xE8FC18, 0x15AFC18, 0x52FC18, 0x1DAFC18, 0xF97C18, 0x1BAFC18, 0x118FC1C, 0xE8FC1C, 0x15AFC1C, 0x52FC1C, 0x1DAFC1C, 0x1F2FC1C, 0x1BAFC1C]
-let image_games = images.createImage(`
-    . . . . .
-    . . # . .
-    . # # # .
-    # # # # #
-    # . . . #`)
-let image_tools = images.createImage(`
-    . . . . .
-    . # . . .
-    # . . . .
-    . # . # .
-    # . # . .`)
-let image_turtle = images.createImage(`
-    . . . . .
-    . . # . .
-    # # # # #
-    . # # # .
-    # . # . #`)
-let image_radio = images.createImage(`
-    . . . . .
-    . . . . #
-    . . . . #
-    . . # . #
-    # . # . #`)
-let image_create = images.createImage(`
-    . . . . .
-    . . # . .
-    . # # # .
-    . . # . .
-    . . . . .`)
-let image_pins = images.createImage(`
-    . . . . .
-    . . . . .
-    . . . . .
-    # # # # #
-    # . # . #`)
-let image_send = images.createImage(`
-    . . . . .
-    . . # . .
-    # . # . #
-    . # # # .
-    . . # . .`)
-let image_uart = images.createImage(`
-    . . . . .
-    . . # . .
-    # . # # .
-    . # # . #
-    # . # # .`)
-let image_settings = images.createImage(`
-    . . . . .
-    . . . . .
-    # # . # #
-    . # # # .
-    # # . # #`)
-let image_back = images.createImage(`
-    . . . . .
-    . # . . .
-    # # # # #
-    . # . . #
-    . . . # #`)
-let image_space_invaders = images.createImage(`
-    . . . . .
-    . . # . .
-    . . . . .
-    . . . . .
-    . . # . .`)
-let image_flappy_bird = images.createImage(`
-    . . . . .
-    . . . # .
-    . . . # .
-    . # . . .
-    . . . # .`)
-let image_pong = images.createImage(`
-    . . . . .
-    . . . . .
-    . . . . .
-    . . . . .
-    . # # . .`)
-let image_cars_game = images.createImage(`
-    . . . . .
-    . . . . .
-    . . . . .
-    . . . . .
-    . . # . .`)
-let image_dino_game = images.createImage(`
-    . . . . .
-    . . . . .
-    . . . # .
-    # . . . .
-    # . . . .`)
-let image_jumping_rope = images.createImage(`
-    . . . . .
-    . . . . #
-    . . . . .
-    . . . . .
-    . . # . .`)
-let image_pac_man = images.createImage(`
-    . . . . .
-    . . . . .
-    . . # . .
-    . . . . .
-    # . . . .`)
-let image_tetris = images.createImage(`
-    . . . . .
-    . . . . .
-    # . . . .
-    # # . . #
-    # # . # #`)
-let image_ttt = images.createImage(`
-    . . . . .
-    . . . . .
-    # # # . #
-    . # . . #
-    . # . . #`)
-let image_cards = images.createImage(`
-    . . . . .
-    # # # . .
-    # . # # #
-    # # # . #
-    . . # # #`)
-let image_tempereture = images.createImage(`
-    . . . . .
-    . # # . #
-    # . . . .
-    # . . . .
-    . # # . .`)
-let image_light = images.createImage(`
-    . . . . .
-    . # # # .
-    # . . . #
-    . # . # .
-    . # # # .`)
-let image_sound = images.createImage(`
-    . . . . .
-    . # . # .
-    . # . . .
-    # # # . .
-    . # . . .`)
-let image_north = images.createImage(`
-    . . . . .
-    . . # . .
-    . # # # .
-    # . # . #
-    . . # . .`)
-let image_x = images.createImage(`
-    . . . . .
-    . . . . .
-    # . # . .
-    . # . . .
-    # . # . .`)
-let image_y = images.createImage(`
-    . . . . .
-    # . # . .
-    # . # . .
-    . # . . .
-    # # . . .`)
-let image_z = images.createImage(`
-    . . . . .
-    # # # . .
-    . # . . .
-    # . . . .
-    # # # . .`)
-let image_note = images.createImage(`
-    . . . . .
-    . . # # .
-    . . # . #
-    # # # . .
-    # # # . .`)
-let image_calculator = images.createImage(`
-    . . . . .
-    . # . . .
-    # # # . .
-    . # . . .
-    . . . # #`)
-let image_clock = images.createImage(`
-    . . . . .
-    # . # . #
-    # . # # #
-    # . . . #
-    . # # # .`)
-let image_plus = images.createImage(`
-    . . . . .
-    . . . . .
-    . # . . .
-    # # # . .
-    . # . . .`)
-let image_minus = images.createImage(`
-    . . . . .
-    . . . . .
-    . . . . .
-    # # # . .
-    . . . . .`)
-let image_times = images.createImage(`
-    . . . . .
-    . . . . .
-    # . # . .
-    . # . . .
-    # . # . .`)
-let image_divide = images.createImage(`
-    . . . . .
-    . . . . .
-    . . # . .
-    . # . . .
-    # . . . .`)
-let image_caret = images.createImage(`
-    . . . . .
-    . . . . .
-    . . . . .
-    . # . . .
-    # . # . .`)
-let image_sqr = images.createImage(`
-    . . . . .
-    . # # # #
-    . # . . #
-    # # . . .
-    . # . . .`)
-let image_sin = images.createImage(`
-    . . . . .
-    . . # # .
-    . # . . .
-    . . # . .
-    # # . . .`)
-let image_cosin = images.createImage(`
-    . . . . .
-    . # # . .
-    # . . . .
-    # . . . .
-    . # # . .`)
-let image_tangent = images.createImage(`
-    . . . . .
-    . # . . .
-    # # # . .
-    . # . . .
-    . # . . .`)
-let image_pi = images.createImage(`
-    . . . . .
-    # # # . #
-    # . # . #
-    # # # . #
-    # . . . #`)
-let image_random = images.createImage(`
-    . . . . .
-    . # # # .
-    # . . . #
-    . . # # .
-    . . # . .`)
-let image_signal = images.createImage(`
-    . . . . .
-    # # . # #
-    # # # # #
-    . # . # .
-    . # # # .`)
-let image_chronometer = images.createImage(`
-    . . . . .
-    . . # . .
-    . . # # #
-    . . . . .
-    . . . . .`)
-let image_timer = images.createImage(`
-    . . . . .
-    . . . . .
-    # # . # #
-    # . # . #
-    # # . # #`)
-let image_mouse = images.createImage(`
-    . . . . .
-    # # # . .
-    # . . # .
-    # . # . .
-    . # . # .`)
-let image_gamepad = images.createImage(`
-    . . . . .
-    . . . # #
-    . # . . .
-    # # # . .
-    . # . . .`)
-let image_keyboard = images.createImage(`
-    . . . . .
-    . # . # .
-    # . # . #
-    . . . . .
-    . # # # .`)
-let image_numbers = images.createImage(`
-    . . . . .
-    # . # # #
-    # . # . #
-    # . # . #
-    # . # # #`)
-let image_arrows = images.createImage(`
-    . . . . .
-    . # . # .
-    # # # # #
-    . # . # .
-    . . . . .`)
-let image_numberone = images.createImage(`
-    . . . . .
-    . . # . .
-    . # # . .
-    . . # . .
-    . . # . .`)
-let image_text = images.createImage(`
-    . . . . .
-    . . . . .
-    # . . . #
-    # # # # #
-    . . . . .`)
-let image_image = images.createImage(`
-    . . . . .
-    # # # # #
-    # # . . #
-    # . . # #
-    # # # # #`)
-let image_music8 = images.createImage(`
-    . . . . .
-    . # . . .
-    . . # . #
-    # . . . .
-    . . . # .`)
-let image_musicv2 = images.createImage(`
-    . . . . .
-    # . # . .
-    # . # . .
-    . # . . #
-    . . . . #`)
-let image_musicfx = images.createImage(`
-    . . . . .
-    # # . . .
-    # . # . #
-    # # . # .
-    # . # . #`)
-let image_zero = images.createImage(`
-    . . . . .
-    . # # # .
-    . # . # .
-    . # . # .
-    . # # # .`)
-let image_two = images.createImage(`
-    . . . . .
-    . # # # .
-    . . . # .
-    . . # . .
-    . # # # .`)
-let image_3v = images.createImage(`
-    . . . . .
-    . # . . .
-    # # # . #
-    . # # . #
-    # # . # .`)
-let image_volume = images.createImage(`
-    . . . . .
-    . . . . .
-    # . . . .
-    # . . . .
-    . . . . .`)
-
-let image_volume_full = images.createImage(`
-    . . . . .
-    . . # . .
-    # . . # .
-    # . . # .
-    . . # . .`)
-let image_brightness1 = images.createImage(`
-    . . . . .
-    . . . . .
-    # . . . .
-    . # . # .
-    . # # # .`)
-let image_brightness2 = images.createImage(`
-    . . . . .
-    . # . . .
-    # . . . .
-    . # . # .
-    . # # # .`)
-let image_brightness3 = images.createImage(`
-    . . . . .
-    . # # . .
-    # . . . .
-    . # . # .
-    . # # # .`)
-let image_brightness4 = images.createImage(`
-    . . . . .
-    . # # # .
-    # . . . .
-    . # . # .
-    . # # # .`)
-let image_brightness5 = images.createImage(`
-    . . . . .
-    . # # # .
-    # . . . #
-    . # . # .
-    . # # # .`)
-
-let image_log = images.createImage(`
-    . . . . .
-    # . # . #
-    # # # # #
-    # . # . #
-    # # # # #`)
-let image_compass = images.createImage(`
-    . . . . .
-    . # # . #
-    # . . # .
-    # . . # .
-    . # # . .`)
-let image_input = images.createImage(`
-    . . . . .
-    . # # # .
-    . # . # .
-    . # # # .
-    . . . . .`)
-let image_play = images.createImage(`
-    . . . . .
-    . . . # .
-    # # # # #
-    . . . # .
-    . . . . .`)
-let image_rest = images.createImage(`
-    . . . . .
-    . . . . .
-    . # # # .
-    # . . . #
-    # . . . #`)
-let image_analog = images.createImage(`
-    . . . . .
-    . # . . .
-    # . # . #
-    . . # . #
-    . . . # .`)
-let image_digital = images.createImage(`
-    . . . . .
-    # # # . .
-    # . # . #
-    . . # . #
-    . . # # #`)
-let image_capacitive = images.createImage(`
-    . . . . .
-    . # # # .
-    # . . . #
-    # . . . #
-    . # # # .`)
-let image_milisecond = images.createImage(`
-    . . . . .
-    # . . # #
-    . . # . .
-    . . . # .
-    . # # . .`)
-let image_second = images.createImage(`
-    . . . . .
-    . . # # .
-    . # . . .
-    . . # . .
-    # # . . .`)
-let image_minute = images.createImage(`
-    . . . . .
-    # # . # #
-    # . # . #
-    # . . . #
-    # . . . #`)
-let image_hour = images.createImage(`
-    . . . . .
-    . # . # .
-    . # # # .
-    . # . # .
-    . # . # .`)
-let image_rotate = images.createImage(`
-    . . . . .
-    . . . # .
-    # # # # #
-    # . . # .
-    # . . . .`)
-let image_bar = images.createImage(`
-    . . . . .
-    . . . . .
-    . . . . .
-    . # . . .
-    # # # . .`)
-let image_bar_custom = images.createImage(`
-    . . . . .
-    . . . # #
-    . . . # .
-    . # . # #
-    # # # . .`)
-let image_spiral = images.createImage(`
-    . . . . .
-    # . # # #
-    # . # . #
-    # . . . #
-    # # # # #`)
-let image_speedometer = images.createImage(`
-    . . . . .
-    . . . . .
-    . . # . .
-    . # . . .
-    . # . . .`)
-let image_wave = images.createImage(`
-    . . . . .
-    # . . . .
-    # # . . .
-    # # # . .
-    # # # # .`)
-let image_signal_small = images.createImage(`
-    . . . . .
-    . . . . #
-    . . . # #
-    . . # # #
-    . # # # #`)
-let image_needle = images.createImage(`
-    . . . . .
-    . # . . .
-    . . # . .
-    . . . # .
-    . . . . #`)
-let image_needle_c = images.createImage(`
-    . . . . .
-    . # . . .
-    . # . # #
-    . # . # .
-    # . . # #`)
-let image_procbar = images.createImage(`
-    . . . . .
-    . . . . .
-    . . . . .
-    . # # . #
-    # . . # .`)
-let image_dial = images.createImage(`
-    . . . . .
-    . . . # #
-    . . # . .
-    . . . . .
-    . . . . .`)
-let image_water = images.createImage(`
-    . . . . .
-    . . . . .
-    # # . . .
-    # # # # #
-    # # # # #`)
-let image_yes = images.createImage(`
-    . . . . .
-    . . . . #
-    . . . # .
-    # . # . .
-    . # . . .`)
-let image_blank = images.createImage(`
-    . . . . .
-    . . . . .
-    . . . . .
-    . . . . .
-    . . . . .`)
+let sysimages = [0x1863998, 0x44154, 0x1467994, 0x1E06010, 0x23880,
+    0x1846118, 0x447904, 0x8A7914, 0x14E2394, 0x1CA11C4, 0x4800,
+    0xB0100, 0x4200, 0x4000, 0x20018, 0x204000, 0x1010, 0x188031C,
+    0x1C01384, 0x204A4C, 0x4D4B44, 0x123C8, 0x827888, 0x5114, 0x1B16,
+    0x4ADA, 0x417B18, 0x10811C4, 0xEA5A0E, 0x2388, 0x2108, 0x5114,
+    0x1110, 0x4110, 0x610BC8, 0x12A90, 0x4A4C, 0x13C4, 0x1E0395E,
+    0x456844, 0x6F53C6, 0x421800, 0x1CA229C, 0xA2A4E, 0x212388,
+    0x495244, 0x1E9781E, 0x4711C4, 0x7880, 0xC4210C, 0x1ED4ADE,
+    0x481048, 0x1801906, 0x144515E, 0xC, 0x6480C, 0xC4304, 0xC4344,
+    0xC4B44, 0xD4B44, 0x4D4B44, 0x1EA7A9E, 0x264A4C, 0x729C0, 0x471084,
+    0x1821098, 0x255202, 0x12A90, 0x1E1105E, 0xF13C0, 0x47109C,
+    0x4310, 0xA74310, 0x1E95A1E, 0x1300, 0x8639E, 0x1EE6200, 0x1041040,
+    0x14E01D0, 0x822110, 0x211000, 0x18C639C, 0x222208]
 let acc_1 = 0
 let time_1 = 0
 let killed_1: number[] = []
@@ -3595,37 +2938,38 @@ function tool_record() { //Record and play sound files // Selected_tool = 8
             led.unplot(2, 0)
         }
         if (tool_type == 1) {
-            image_sound.scrollImage(1, scroll_interval)
+            bitmap = sysimages[21]
         } else if (tool_type == 2) {
-            image_note.scrollImage(1, scroll_interval)
+            bitmap = sysimages[26]
         } else if (tool_type == 3) {
             if (tool_record_volume == 1) {
-                image_volume.scrollImage(1, scroll_interval)
+                bitmap = sysimages[54]
                 record.setSampleRate(4400)
                 led.plotBrightness(2, 1, 20)
             } else if (tool_record_volume == 2) {
-                image_volume.scrollImage(1, scroll_interval)
+                bitmap = sysimages[54]
                 record.setSampleRate(8800)
                 led.plotBrightness(2, 1, 20)
                 led.plotBrightness(3, 2, 20)
             } else if (tool_record_volume == 3) {
-                image_volume.scrollImage(1, scroll_interval)
+                bitmap = sysimages[54]
                 record.setSampleRate(13200)
                 led.plotBrightness(2, 1, 20)
                 led.plotBrightness(3, 2, 20)
                 led.plotBrightness(3, 3, 20)
             } else if (tool_record_volume == 4) {
-                image_volume.scrollImage(1, scroll_interval)
+                bitmap = sysimages[54]
                 record.setSampleRate(17600)
                 led.plotBrightness(2, 1, 20)
                 led.plotBrightness(3, 2, 20)
                 led.plotBrightness(3, 3, 20)
                 led.plotBrightness(2, 4, 20)
             } else {
-                image_volume_full.scrollImage(1, scroll_interval)
+                bitmap = sysimages[55]
                 record.setSampleRate(22000)
             }
         }
+        scrollbit()
         if (scroll_interval == 1) {
             basic.pause(300)
         }
