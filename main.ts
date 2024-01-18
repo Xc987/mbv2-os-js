@@ -141,7 +141,6 @@ function usid_if() { //Function to draw letters from "a" to "?"
     decrypt()
     currimage = led.screenshot()
     currimage.scrollImage(1, scroll_interval)
-
     }
 function uckb_if() { //Function to map keyboard buttons to input buttons.
     let kblist = ["NUL","a", "a", "b", "c", "c", "d", "e", "e", "f", "g", "g", "h", "i", "i", "j", "k", "k", "l", "l", "m", "n", "n", "o", "p", "r", "s", "s", "t", "u", "u", "v", "z", "z", " ", ".", ",", "!", "?"]
@@ -2343,6 +2342,7 @@ let unid123 = [0xFC7E0, 0xF8800, 0xBD7A0, 0xFD6A0, 0xF90E0, 0xED6E0, 0xED7E0, 0x
 let unid123ex = [0x1DB82FD, 0x1F8FFF5, 0x1DB83F5, 0x1F8FF87, 0x1DB8387, 0x1F8FFB7, 0x1DB83B7]
 let unid14 = [0xF8800, 0x17E801F, 0x1F21C1F, 0x1FAFC1F, 0x1DAFC1F, 0xBD7A0, 0xF90E0]
 let usidaz = [0x10F4A4C, 0x10ED6A8, 0x4529F, 0x4A4C, 0x52A8, 0xFD288, 0x956AE, 0x7056BF, 0x97C4, 0x7D6A2, 0x1E563F, 0xC109F, 0x7400, 0xF420, 0x3610, 0x8289F, 0x48289F, 0x843E0, 0x1843E0, 0x1E1105E, 0xE085E, 0x1E085E, 0x64A4C, 0x2295E, 0x1089E, 0x12A90, 0x12A91, 0xA51E0, 0x10F420E, 0x10E462C, 0x644106, 0x95B52, 0x195B52, 0xC4210C, 0x2000, 0x2200, 0x5C00, 0x22D422]
+let tunecb = [0x118FC10, 0xE8FC10, 0x15AFC10, 0x52FC10, 0x1DAFC10, 0x1F2FC10, 0x1BAFC10, 0x118FC18, 0xE8FC18, 0x15AFC18, 0x52FC18, 0x1DAFC18, 0xF97C18, 0x1BAFC18, 0x118FC1C, 0xE8FC1C, 0x15AFC1C, 0x52FC1C, 0x1DAFC1C, 0x1F2FC1C, 0x1BAFC1C]
 let image_games = images.createImage(`
     . . . . .
     . . # . .
@@ -5580,177 +5580,48 @@ function tune() { //Tune selection.
     num = 1
     unid_type = 1
     while (true) {
-        if (input.pinIsPressed(TouchPin.P2)) {
-            music.play(music.tonePlayable(tonelist[num], music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
-        }
-        if (input.buttonIsPressed(Button.A)) {
-            led.fadeOut(fade_int)
-            led.fadeIn(fade_int)
-            if (num == 1) {
-                num = 21
-            } else {
-                num += -1
+        bitmap = tunecb[num - 1]
+        let currimage = led.screenshot()
+        currimage.scrollImage(5, 1)
+        basic.clearScreen()
+        decrypt()
+        currimage = led.screenshot()
+        currimage.scrollImage(1, scroll_interval)
+        while (true) {
+            scroll_interval = 1
+            if (input.pinIsPressed(TouchPin.P2)) {
+                music.play(music.tonePlayable(tonelist[num], music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
+                break;
             }
-        }
-        if (input.buttonIsPressed(Button.B)) {
-            if (num == 21) {
-                num = 1
-            } else {
-                num += 1
+            if (input.buttonIsPressed(Button.A)) {
+                led.fadeOut(fade_int)
+                led.fadeIn(fade_int)
+                if (num == 1) {
+                    num = 21
+                } else {
+                    num += -1
+                }
+                break;
+            }
+            if (input.buttonIsPressed(Button.B)) {
+                scroll_interval = 45
+                if (num == 21) {
+                    num = 1
+                } else {
+                    num += 1
+                }
+                break;
+            }
+            if (input.logoIsPressed()) {
+                custom_music_tune.push(num)
+                tune_music = tonelist[num]
+                break;
             }
         }
         if (input.logoIsPressed()) {
             custom_music_tune.push(num)
             tune_music = tonelist[num]
             break;
-        }
-        if (num == 1) {
-            basic.showLeds(`
-            . . # # #
-            . . # . .
-            . . # . .
-            . . # . .
-            # . # # #`)
-        } else if (num == 2) {
-            basic.showLeds(`
-            . . # # .
-            . . # . #
-            . . # . #
-            . . # . #
-            # . # # .`)
-        } else if (num == 3) {
-            basic.showLeds(`
-            . . # # #
-            . . # . .
-            . . # # #
-            . . # . .
-            # . # # #`)
-        } else if (num == 4) {
-            basic.showLeds(`
-            . . # # #
-            . . # . .
-            . . # # #
-            . . # . .
-            # . # . .`)
-        } else if (num == 5) {
-            basic.showLeds(`
-            . . # # #
-            . . # . .
-            . . # # #
-            . . # . #
-            # . # # #`)
-        } else if (num == 6) {
-            basic.showLeds(`
-            . . # # #
-            . . # . #
-            . . # # #
-            . . # . #
-            # . # . #`)
-        } else if (num == 7) {
-            basic.showLeds(`
-            . . # # #
-            . . # . #
-            . . # # .
-            . . # . #
-            # . # # #`)
-        } else if (num == 8) {
-            basic.showLeds(`
-            . . # # #
-            . . # . .
-            . . # . .
-            # . # . .
-            # . # # #`)
-        } else if (num == 9) {
-            basic.showLeds(`
-            . . # # .
-            . . # . #
-            . . # . #
-            # . # . #
-            # . # # .`)
-        } else if (num == 10) {
-            basic.showLeds(`
-            . . # # #
-            . . # . .
-            . . # # #
-            # . # . .
-            # . # # #`)
-        } else if (num == 11) {
-            basic.showLeds(`
-            . . # # #
-            . . # . .
-            . . # # #
-            # . # . .
-            # . # . .`)
-        } else if (num == 12) {
-            basic.showLeds(`
-            . . # # #
-            . . # . .
-            . . # # #
-            # . # . #
-            # . # # #`)
-        } else if (num == 13) {
-            basic.showLeds(`
-            . . # # #
-            . . # . #
-            . . # # #
-            # . # . #
-            # . # . #`)
-        } else if (num == 14) {
-            basic.showLeds(`
-            . . # # #
-            . . # . #
-            . . # # .
-            # . # . #
-            # . # # #`)
-        } else if (num == 15) {
-            basic.showLeds(`
-            . . # # #
-            . . # . .
-            # . # . .
-            # . # . .
-            # . # # #`)
-        } else if (num == 16) {
-            basic.showLeds(`
-            . . # # .
-            . . # . #
-            # . # . #
-            # . # . #
-            # . # # .`)
-        } else if (num == 17) {
-            basic.showLeds(`
-            . . # # #
-            . . # . .
-            # . # # #
-            # . # . .
-            # . # # #`)
-        } else if (num == 18) {
-            basic.showLeds(`
-            . . # # #
-            . . # . .
-            # . # # #
-            # . # . .
-            # . # . .`)
-        } else if (num == 19) {
-            basic.showLeds(`
-            . . # # #
-            . . # . .
-            # . # # #
-            # . # . #
-            # . # # #`)
-        } else if (num == 20) {
-            basic.showLeds(`
-            . . # # #
-            . . # . #
-            # . # # #
-            # . # . #
-            # . # . #`)
-        } else if (num == 21) {
-            basic.showLeds(`
-            . . # # #
-            . . # . #
-            # . # # .
-            # . # . #
-            # . # # #`)
         }
     }
     beat()}
