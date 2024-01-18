@@ -77,20 +77,22 @@ function waiting_for_connection() { //Waiting for the bluetooth connection.
             loading_animation()
         }
     }}
-function unid_if_0_9() { //Function to draw numbers from 0 to 9
-    unid = num
-    let bitmap = unid09[unid]
-    let currimage = led.screenshot()
-    currimage.scrollImage(5, 1)
-    basic.clearScreen()
-    for (let x = 0; x < 5; x++) { 
+function decrypt() {
+    for (let x = 0; x < 5; x++) {
         for (let y2 = 0; y2 < 5; y2++) {
             if (bitmap & 1) {
                 led.toggle(x, y2);
             }
             bitmap >>= 1;
         }
-    }
+    }}
+function unid_if_0_9() { //Function to draw numbers from 0 to 9
+    unid = num
+    bitmap = unid09[unid]
+    let currimage = led.screenshot()
+    currimage.scrollImage(5, 1)
+    basic.clearScreen()
+    decrypt()
     currimage = led.screenshot()
     currimage.scrollImage(1, scroll_interval)
     }
@@ -108,7 +110,7 @@ function unid_if_1_23() { //Function to draw numbers from 0 to 55 (1-23)
     } else if (unid_type == 6) {
         unid = signal_minute
     }
-    let bitmap = 0
+    bitmap = 0
     if (unid > 23) {
         bitmap = unid123ex[unid / 5 - 5]
     } else {
@@ -117,337 +119,30 @@ function unid_if_1_23() { //Function to draw numbers from 0 to 55 (1-23)
     let currimage = led.screenshot()
     currimage.scrollImage(5, 1)
     basic.clearScreen()
-    for (let x = 0; x < 5; x++) {
-        for (let y2 = 0; y2 < 5; y2++) {
-            if (bitmap & 1) {
-                led.toggle(x, y2);
-            }
-            bitmap >>= 1;
-        }
-    }
+    decrypt()
     currimage = led.screenshot()
     currimage.scrollImage(1, scroll_interval)
     }
 function unid_if_1_4() { //Function to draw numbers from 1 to 4
-    if (num == 1) {
-        images.createImage(`
-            . . . # .
-            . . # # .
-            . . . # .
-            . . . # .
-            . . . # .`).scrollImage(1, scroll_interval)
-    } else if (num == 2) {
-        images.createImage(`
-            # . . # #
-            # . . . #
-            # . . # #
-            # . . # .
-            # . . # #`).scrollImage(1, scroll_interval)
-    } else if (num == 3) {
-        images.createImage(`
-            # . # . #
-            # . # . #
-            # . # # #
-            # . . . #
-            # . . . #`).scrollImage(1, scroll_interval)
-    } else if (num == 4) {
-        images.createImage(`
-            # . # # #
-            # . # . #
-            # . # # #
-            # . # . #
-            # . # # #`).scrollImage(1, scroll_interval)
-    } else if (num == 5) {
-        images.createImage(`
-            # . # # #
-            # . # . .
-            # . # # #
-            # . # . #
-            # . # # #`).scrollImage(1, scroll_interval)
-    } else if (num == 6) {
-        images.createImage(`
-            . # # # .
-            . . . # .
-            . # # # .
-            . # . . .
-            . # # # .`).scrollImage(1, scroll_interval)
-    } else if (num == 7) {
-        images.createImage(`
-            . # . # .
-            . # . # .
-            . # # # .
-            . . . # .
-            . . . # .`).scrollImage(1, scroll_interval)
-    }}
-function usid_if() { //Function to draw letters from a to "?"
+    bitmap = unid14[num - 1]
+    let currimage = led.screenshot()
+    currimage.scrollImage(5, 1)
+    basic.clearScreen()
+    decrypt()
+    currimage = led.screenshot()
+    currimage.scrollImage(1, scroll_interval)
+    }
+function usid_if() { //Function to draw letters from "a" to "?"
     usid = abc_id
-    if (usid == 1) {
-        images.createImage(`
-                . . . . .
-                . # # # .
-                # . . # .
-                # . . # .
-                . # # # #`).scrollImage(1, scroll_interval)
-    } else if (usid == 2) {
-        images.createImage(`
-                . # # # .
-                . . . . .
-                . # # # .
-                # . . # .
-                . # # # #`).scrollImage(1, scroll_interval)
-    } else if (usid == 3) {
-        images.createImage(`
-                # . . . .
-                # . . . .
-                # # # . .
-                # . . # .
-                # # # . .`).scrollImage(1, scroll_interval)
-    } else if (usid == 4) {
-        images.createImage(`
-                . . . . .
-                . # # . .
-                # . . . .
-                # . . . .
-                . # # . .`).scrollImage(1, scroll_interval)
-    } else if (usid == 5) {
-        images.createImage(`
-                . # . . .
-                . . . . .
-                . # # . .
-                # . . . .
-                . # # . .`).scrollImage(1, scroll_interval)
-    } else if (usid == 6) {
-        images.createImage(`
-                . . . # .
-                . . . # .
-                . # # # .
-                # . . # .
-                . # # # .`).scrollImage(1, scroll_interval)
-    } else if (usid == 7) {
-        images.createImage(`
-                . # # . .
-                # . . # .
-                # # # . .
-                # . . . .
-                . # # # .`).scrollImage(1, scroll_interval)
-    } else if (usid == 8) {
-        images.createImage(`
-                # # # . #
-                # . . . #
-                # # # . #
-                # . . . .
-                # # # . .`).scrollImage(1, scroll_interval)
-    } else if (usid == 9) {
-        images.createImage(`
-                . . # # .
-                . # . . .
-                # # # . .
-                . # . . .
-                . # . . .`).scrollImage(1, scroll_interval)
-    } else if (usid == 10) {
-        images.createImage(`
-                . # # # .
-                # . . # .
-                . # # # .
-                . . . # .
-                . # # . .`).scrollImage(1, scroll_interval)
-    } else if (usid == 11) {
-        images.createImage(`
-                # # # . #
-                # . . . .
-                # . # # .
-                # . . # .
-                # # # # .`).scrollImage(1, scroll_interval)
-    } else if (usid == 12) {
-        images.createImage(`
-                # . . . .
-                # . . . .
-                # # # . .
-                # . . # .
-                # . . # .`).scrollImage(1, scroll_interval)
-    } else if (usid == 13) {
-        images.createImage(`
-                . . # . .
-                . . . . .
-                . . # . .
-                . . # . .
-                . . # . .`).scrollImage(1, scroll_interval)
-    } else if (usid == 14) {
-        images.createImage(`
-                . # # # .
-                . . . . .
-                . . # . .
-                . . # . .
-                . . # . .`).scrollImage(1, scroll_interval)
-    } else if (usid == 15) {
-        images.createImage(`
-                . . # . .
-                . . . . .
-                . . # . .
-                . . # . .
-                # # . . .`).scrollImage(1, scroll_interval)
-    } else if (usid == 16) {
-        images.createImage(`
-                # . . . .
-                # . # . .
-                # # . . .
-                # . # . .
-                # . . # .`).scrollImage(1, scroll_interval)
-    } else if (usid == 17) {
-        images.createImage(`
-                # . . . .
-                # . # . .
-                # # . . #
-                # . # . .
-                # . . # .`).scrollImage(1, scroll_interval)
-    } else if (usid == 18) {
-        images.createImage(`
-                . # . . .
-                . # . . .
-                . # . . .
-                . # . . .
-                . # # # .`).scrollImage(1, scroll_interval)
-    } else if (usid == 19) {
-        images.createImage(`
-                . # . . #
-                . # . . .
-                . # . . .
-                . # . . .
-                . # # # .`).scrollImage(1, scroll_interval)
-    } else if (usid == 20) {
-        images.createImage(`
-                . . . . .
-                # # . # #
-                # . # . #
-                # . . . #
-                # . . . #`).scrollImage(1, scroll_interval)
-    } else if (usid == 21) {
-        images.createImage(`
-                . . . . .
-                # # # . .
-                # . . # .
-                # . . # .
-                # . . # .`).scrollImage(1, scroll_interval)
-    } else if (usid == 22) {
-        images.createImage(`
-                . . . . #
-                # # # . .
-                # . . # .
-                # . . # .
-                # . . # .`).scrollImage(1, scroll_interval)
-    } else if (usid == 23) {
-        images.createImage(`
-                . . . . .
-                . # # . .
-                # . . # .
-                # . . # .
-                . # # . .`).scrollImage(1, scroll_interval)
-    } else if (usid == 24) {
-        images.createImage(`
-                . . . . .
-                # # # . .
-                # . . # .
-                # # # . .
-                # . . . .`).scrollImage(1, scroll_interval)
-    } else if (usid == 25) {
-        images.createImage(`
-                . . . . .
-                # . # # .
-                # # . . .
-                # . . . .
-                # . . . .`).scrollImage(1, scroll_interval)
-    } else if (usid == 26) {
-        images.createImage(`
-                . . . . .
-                . . # # .
-                . # . . .
-                . . # . .
-                # # . . .`).scrollImage(1, scroll_interval)
-    } else if (usid == 27) {
-        images.createImage(`
-                # . . . .
-                . . # # .
-                . # . . .
-                . . # . .
-                # # . . .`).scrollImage(1, scroll_interval)
-    } else if (usid == 28) {
-        images.createImage(`
-                . # . . .
-                . # . . .
-                . # # # .
-                . # . . .
-                . . # # .`).scrollImage(1, scroll_interval)
-    } else if (usid == 29) {
-        images.createImage(`
-                . . . . .
-                # . . # .
-                # . . # .
-                # . . # .
-                . # # # #`).scrollImage(1, scroll_interval)
-    } else if (usid == 30) {
-        images.createImage(`
-                . # # . .
-                . . . . .
-                # . . # .
-                # . . # .
-                . # # # #`).scrollImage(1, scroll_interval)
-    } else if (usid == 31) {
-        images.createImage(`
-                . . . . .
-                # . . . #
-                # . . . #
-                . # . # .
-                . . # . .`).scrollImage(1, scroll_interval)
-    } else if (usid == 32) {
-        images.createImage(`
-                . . . . .
-                # # # # .
-                . . # . .
-                . # . . .
-                # # # # .`).scrollImage(1, scroll_interval)
-    } else if (usid == 33) {
-        images.createImage(`
-                . . . . #
-                # # # # .
-                . . # . .
-                . # . . .
-                # # # # .`).scrollImage(1, scroll_interval)
-    } else if (usid == 34) {
-        images.createImage(`
-                . . . . .
-                . . . . .
-                # . . . #
-                # # # # #
-                . . . . .`).scrollImage(1, scroll_interval)
-    } else if (usid == 35) {
-        images.createImage(`
-                . . . . .
-                . . . . .
-                . . . . .
-                . . # . .
-                . . . . .`).scrollImage(1, scroll_interval)
-    } else if (usid == 36) {
-        images.createImage(`
-                . . . . .
-                . . . . .
-                . . . . .
-                . . # . .
-                . # . . .`).scrollImage(1, scroll_interval)
-    } else if (usid == 37) {
-        images.createImage(`
-                . . # . .
-                . . # . .
-                . . # . .
-                . . . . .
-                . . # . .`).scrollImage(1, scroll_interval)
-    } else {
-        images.createImage(`
-                . # # # .
-                # . . . #
-                . . # # .
-                . . . . .
-                . . # . .`).scrollImage(1, scroll_interval)
-    }}
+    bitmap = usidaz[usid - 1]
+    let currimage = led.screenshot()
+    currimage.scrollImage(5, 1)
+    basic.clearScreen()
+    decrypt()
+    currimage = led.screenshot()
+    currimage.scrollImage(1, scroll_interval)
+
+    }
 function uckb_if() { //Function to map keyboard buttons to input buttons.
     let kblist = ["NUL","a", "a", "b", "c", "c", "d", "e", "e", "f", "g", "g", "h", "i", "i", "j", "k", "k", "l", "l", "m", "n", "n", "o", "p", "r", "s", "s", "t", "u", "u", "v", "z", "z", " ", ".", ",", "!", "?"]
     let kbshiftlist = ["NUL","A", "A", "B", "C", "C", "D", "E", "E", "F", "G", "G", "H", "I", "I", "J", "K", "K", "L", "L", "M", "N", "N", "O", "P", "R", "S", "S", "T", "U", "U", "V", "Z", "Z"]
@@ -2646,6 +2341,8 @@ let bitmap = 0
 let unid09 = [0xFC7E0, 0xF8800, 0xBD7A0, 0xFD6A0, 0xF90E0, 0xED6E0, 0xED7E0, 0xF8420, 0xFD7E0, 0xFD6E0]
 let unid123 = [0xFC7E0, 0xF8800, 0xBD7A0, 0xFD6A0, 0xF90E0, 0xED6E0, 0xED7E0, 0xF8420, 0xFD7E0, 0xFD6E0, 0x1F8FC1F, 0x1F1001F, 0x17AF41F, 0x1FAD41F, 0x1F21C1F, 0x1DADC1F, 0x1DAFC1F, 0x1F0841F, 0x1FAFC1F, 0x1FADC1F, 0x1F8FEFD, 0x1F102FD, 0x17E82FD, 0x1FA82FD]
 let unid123ex = [0x1DB82FD, 0x1F8FFF5, 0x1DB83F5, 0x1F8FF87, 0x1DB8387, 0x1F8FFB7, 0x1DB83B7]
+let unid14 = [0xF8800, 0x17E801F, 0x1F21C1F, 0x1FAFC1F, 0x1DAFC1F, 0xBD7A0, 0xF90E0]
+let usidaz = [0x10F4A4C, 0x10ED6A8, 0x4529F, 0x4A4C, 0x52A8, 0xFD288, 0x956AE, 0x7056BF, 0x97C4, 0x7D6A2, 0x1E563F, 0xC109F, 0x7400, 0xF420, 0x3610, 0x8289F, 0x48289F, 0x843E0, 0x1843E0, 0x1E1105E, 0xE085E, 0x1E085E, 0x64A4C, 0x2295E, 0x1089E, 0x12A90, 0x12A91, 0xA51E0, 0x10F420E, 0x10E462C, 0x644106, 0x95B52, 0x195B52, 0xC4210C, 0x2000, 0x2200, 0x5C00, 0x22D422]
 let image_games = images.createImage(`
     . . . . .
     . . # . .
