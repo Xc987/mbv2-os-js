@@ -2905,22 +2905,29 @@ function showall() { //Tic-Tac-Toe // game_mode = 9
     }}
 function tool_compass() { //Compass // Selected_tool = 4
     while (true) {
-        if (input.compassHeading() <= 45 && input.compassHeading() <= 46){
-            images.arrowImage(ArrowNames.North).showImage(0)
-        }else if (input.compassHeading() <= 90 && input.compassHeading() <= 91) {
-            images.arrowImage(ArrowNames.NorthEast).showImage(0)
-        } else if (input.compassHeading() <= 135 && input.compassHeading() <= 136) {
-            images.arrowImage(ArrowNames.East).showImage(0)
-        } else if (input.compassHeading() <= 180 && input.compassHeading() <= 181) {
-            images.arrowImage(ArrowNames.SouthEast).showImage(0)
-        } else if (input.compassHeading() <= 225 && input.compassHeading() <= 226) {
-            images.arrowImage(ArrowNames.South).showImage(0)
-        } else if (input.compassHeading() <= 270 && input.compassHeading() <= 271) {
-            images.arrowImage(ArrowNames.SouthWest).showImage(0)
-        } else if (input.compassHeading() <= 315 && input.compassHeading() <= 316) {
-            images.arrowImage(ArrowNames.West).showImage(0)
-        } else if (input.compassHeading() <= 350 && input.compassHeading() <= 351) {
-            images.arrowImage(ArrowNames.NorthWest).showImage(0)
+        if (Math.constrain(input.compassHeading(), 0, 45) == input.compassHeading()) {
+            basic.showArrow(ArrowNames.North)
+        }
+        if (Math.constrain(input.compassHeading(), 45, 90) == input.compassHeading()) {
+            basic.showArrow(ArrowNames.NorthEast)
+        }
+        if (Math.constrain(input.compassHeading(), 90, 135) == input.compassHeading()) {
+            basic.showArrow(ArrowNames.East)
+        }
+        if (Math.constrain(input.compassHeading(), 135, 180) == input.compassHeading()) {
+            basic.showArrow(ArrowNames.SouthEast)
+        }
+        if (Math.constrain(input.compassHeading(), 180, 225) == input.compassHeading()) {
+            basic.showArrow(ArrowNames.South)
+        }
+        if (Math.constrain(input.compassHeading(), 225, 270) == input.compassHeading()) {
+            basic.showArrow(ArrowNames.SouthWest)
+        }
+        if (Math.constrain(input.compassHeading(), 270, 315) == input.compassHeading()) {
+            basic.showArrow(ArrowNames.West)
+        }
+        if (Math.constrain(input.compassHeading(), 315, 360) == input.compassHeading()) {
+            basic.showArrow(ArrowNames.NorthWest)
         }
     }}
 
@@ -3282,38 +3289,52 @@ function signal() { //Signal / Alarm clock // Selected_tool = 10
     hour = 0
     minute = 0
     second = 0
-    unid_type = 2
     signal_hour = 0
     signal_minute = 0
     while (true) {
-        if (input.logoIsPressed()) {
+        if (input.pinIsPressed(TouchPin.P2)) {
             break;
         }
-        unid_if_1_23()
+        unid_if_0_9()
         if (scroll_interval == 1) {
             basic.pause(300)
         }
-        while(true){
-            scroll_interval = 1
+        while (true) {
+            if (input.pinIsPressed(TouchPin.P2)) {
+                scroll_interval = 1
+                if (list.length == 1) {
+                    hour = list[0]
+                } else if (list.length == 2) {
+                    hour = list[0] * 10 + list[1]
+                } else {
+                    basic.showIcon(IconNames.No)
+                }
+                break;
+            }
             if (input.buttonIsPressed(Button.A)) {
                 led.fadeOut(fade_int)
                 led.fadeIn(fade_int)
-                if (hour == 0) {
-                    hour = 23
+                scroll_interval = 1
+                if (num == 0) {
+                    num = 9
                 } else {
-                    hour += -1
+                    num += -1
                 }
                 break;
-            } else if (input.buttonIsPressed(Button.B)) {
+            }
+            if (input.buttonIsPressed(Button.B)) {
                 scroll_interval = 45
-                if (hour == 23) {
-                    hour = 0
+                if (num == 9) {
+                    num = 0
                 } else {
-                    hour += 1
+                    num += 1
                 }
                 break;
-            } else if (input.logoIsPressed()) {
+            }
+            if (input.logoIsPressed()) {
+                scroll_interval = 1
                 music.play(music.tonePlayable(349, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
+                list.push(numberlist[num])
                 basic.showIcon(IconNames.Yes)
                 break;
             }
@@ -3323,36 +3344,52 @@ function signal() { //Signal / Alarm clock // Selected_tool = 10
     basic.pause(200)
     basic.showString("M")
     basic.clearScreen()
-    unid_type = 3
+    num = 0
+    list = []
     while (true) {
-        if (input.logoIsPressed()) {
+        if (input.pinIsPressed(TouchPin.P2)) {
             break;
         }
-        unid_if_1_23()
+        unid_if_0_9()
         if (scroll_interval == 1) {
             basic.pause(300)
         }
-        while(true){
-            scroll_interval = 1
+        while (true) {
+            if (input.pinIsPressed(TouchPin.P2)) {
+                scroll_interval = 1
+                if (list.length == 1) {
+                    minute = list[0]
+                } else if (list.length == 2) {
+                    minute = list[0] * 10 + list[1]
+                } else {
+                    basic.showIcon(IconNames.No)
+                }
+                break;
+            }
             if (input.buttonIsPressed(Button.A)) {
                 led.fadeOut(fade_int)
                 led.fadeIn(fade_int)
-                if (minute == 0) {
-                    minute = 55
+                scroll_interval = 1
+                if (num == 0) {
+                    num = 9
                 } else {
-                    minute += -5
+                    num += -1
                 }
                 break;
-            } else if (input.buttonIsPressed(Button.B)) {
+            }
+            if (input.buttonIsPressed(Button.B)) {
                 scroll_interval = 45
-                if (minute == 55) {
-                    minute = 0
+                if (num == 9) {
+                    num = 0
                 } else {
-                    minute += 5
+                    num += 1
                 }
                 break;
-            }else if (input.logoIsPressed()) {
+            }
+            if (input.logoIsPressed()) {
+                scroll_interval = 1
                 music.play(music.tonePlayable(349, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
+                list.push(numberlist[num])
                 basic.showIcon(IconNames.Yes)
                 break;
             }
@@ -3362,36 +3399,52 @@ function signal() { //Signal / Alarm clock // Selected_tool = 10
     basic.pause(200)
     basic.showString("SIG-H")
     basic.clearScreen()
-    unid_type = 5
+    num = 0
+    list = []
     while (true) {
-        if (input.logoIsPressed()) {
+        if (input.pinIsPressed(TouchPin.P2)) {
             break;
         }
-        unid_if_1_23()
+        unid_if_0_9()
         if (scroll_interval == 1) {
             basic.pause(300)
         }
-        while(true){
-            scroll_interval = 1
+        while (true) {
+            if (input.pinIsPressed(TouchPin.P2)) {
+                scroll_interval = 1
+                if (list.length == 1) {
+                    signal_hour = list[0]
+                } else if (list.length == 2) {
+                    signal_hour = list[0] * 10 + list[1]
+                } else {
+                    basic.showIcon(IconNames.No)
+                }
+                break;
+            }
             if (input.buttonIsPressed(Button.A)) {
                 led.fadeOut(fade_int)
                 led.fadeIn(fade_int)
-                if (signal_hour == 0) {
-                    signal_hour = 23
+                scroll_interval = 1
+                if (num == 0) {
+                    num = 9
                 } else {
-                    signal_hour += -1
+                    num += -1
                 }
                 break;
-            } else if (input.buttonIsPressed(Button.B)) {
+            }
+            if (input.buttonIsPressed(Button.B)) {
                 scroll_interval = 45
-                if (signal_hour == 23) {
-                    signal_hour = 0
+                if (num == 9) {
+                    num = 0
                 } else {
-                    signal_hour += 1
+                    num += 1
                 }
                 break;
-            } else if (input.logoIsPressed()) {
+            }
+            if (input.logoIsPressed()) {
+                scroll_interval = 1
                 music.play(music.tonePlayable(349, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
+                list.push(numberlist[num])
                 basic.showIcon(IconNames.Yes)
                 break;
             }
@@ -3401,36 +3454,52 @@ function signal() { //Signal / Alarm clock // Selected_tool = 10
     basic.pause(200)
     basic.showString("SIG-M")
     basic.clearScreen()
-    unid_type = 6
+    num = 0
+    list = []
     while (true) {
-        if (input.logoIsPressed()) {
+        if (input.pinIsPressed(TouchPin.P2)) {
             break;
         }
-        unid_if_1_23()
+        unid_if_0_9()
         if (scroll_interval == 1) {
             basic.pause(300)
         }
-        while(true){
-            scroll_interval = 1
+        while (true) {
+            if (input.pinIsPressed(TouchPin.P2)) {
+                scroll_interval = 1
+                if (list.length == 1) {
+                    signal_minute = list[0]
+                } else if (list.length == 2) {
+                    signal_minute = list[0] * 10 + list[1]
+                } else {
+                    basic.showIcon(IconNames.No)
+                }
+                break;
+            }
             if (input.buttonIsPressed(Button.A)) {
                 led.fadeOut(fade_int)
                 led.fadeIn(fade_int)
-                if (signal_minute == 0) {
-                    signal_minute = 55
+                scroll_interval = 1
+                if (num == 0) {
+                    num = 9
                 } else {
-                    signal_minute += -5
+                    num += -1
                 }
                 break;
-            } else if (input.buttonIsPressed(Button.B)) {
+            }
+            if (input.buttonIsPressed(Button.B)) {
                 scroll_interval = 45
-                if (signal_minute == 55) {
-                    signal_minute = 0
+                if (num == 9) {
+                    num = 0
                 } else {
-                    signal_minute += 5
+                    num += 1
                 }
                 break;
-            } else if (input.logoIsPressed()) {
+            }
+            if (input.logoIsPressed()) {
+                scroll_interval = 1
                 music.play(music.tonePlayable(349, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
+                list.push(numberlist[num])
                 basic.showIcon(IconNames.Yes)
                 break;
             }
@@ -3702,7 +3771,7 @@ function clock() { // Clock // Selected_tool = 10
         if (scroll_interval == 1) {
             basic.pause(300)
         }
-        while(true){
+        while (true) {
             if (input.pinIsPressed(TouchPin.P2)) {
                 scroll_interval = 1
                 if (list.length == 1) {
