@@ -158,7 +158,65 @@ function uckb_if() { //Function to map keyboard buttons to input buttons.
     } else {
         uckb = kblist[abc_id]
     }}
-
+function uns_loop() {
+    while (true) {
+    if (input.pinIsPressed(TouchPin.P2)) {
+        break;
+    }
+    unid_if_0_9()
+    if (scroll_interval == 1) {
+        basic.pause(300)
+    }
+    while (true) {
+        scroll_interval = 1
+        if (input.pinIsPressed(TouchPin.P2)) {
+            if (unslist.length == 1) {
+                uns = unslist[0]
+            } else if (unslist.length == 2) {
+                uns = unslist[0] * 10 + unslist[1]
+            } else if (unslist.length == 3) {
+                uns = unslist[0] * 100 + unslist[1] * 10 + unslist[2]
+            } else if (unslist.length == 4) {
+                uns = unslist[0] * 1000 + unslist[1] * 100 + unslist[2] * 10 + unslist[3]
+            } else if (unslist.length == 5) {
+                uns = unslist[0] * 10000 + unslist[1] * 1000 + unslist[2] * 100 + unslist[3] * 10 + unslist[4]
+            } else if (unslist.length == 6) {
+                uns = unslist[0] * 100000 + unslist[1] * 10000 + unslist[2] * 1000 + unslist[3] * 100 + unslist[4] * 10 + unslist[5]
+            } else if (unslist.length == 7) {
+                uns = unslist[0] * 1000000 + unslist[1] * 100000 + unslist[2] * 10000 + unslist[3] * 1000 + unslist[4] * 100 + unslist[5] * 10 + unslist[6]
+            } else if (unslist.length == 8) {
+                uns = unslist[0] * 10000000 + unslist[1] * 1000000 + unslist[2] * 100000 + unslist[3] * 10000 + unslist[4] * 1000 + unslist[5] * 100 + unslist[6] * 10 + unslist[7]
+            } else {
+                basic.showIcon(IconNames.No)
+            }
+            break;
+            basic.clearScreen()
+        } else if (input.buttonIsPressed(Button.A)) {
+            led.fadeOut(fade_int)
+            led.fadeIn(fade_int)
+            if (num == 0) {
+                num = 9
+            } else {
+                num += -1
+            }
+            break;
+        } else if (input.buttonIsPressed(Button.B)) {
+            scroll_interval = 45
+            if (num == 9) {
+                num = 0
+            } else {
+                num += 1
+            }
+            break;
+        } else if (input.logoIsPressed()) {
+            music.play(music.tonePlayable(349, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
+            unslist.push(numberlist[num])
+            basic.showIcon(IconNames.Yes)
+            break;
+        }
+    }
+    }
+}
 function ckeck_hold_a() { //Check if button A is held.
     while (input.buttonIsPressed(Button.A)) {
         basic.pause(1)
@@ -2207,14 +2265,14 @@ let custom_graph = parseFloat(flashstorage.getOrDefault("graph", "1"))
 let graph_var1 = 50
 let graph_var2 = 50
 let poslist = [4, 4, 4, 4, 4]
-let stage = 0
-let startpos = 0
 let p2press = parseFloat(flashstorage.getOrDefault("p2p", "1"))
 let num_list = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
 let symb_list = [")", "!", "@", "#", "$", "%", "^", "&", "*", "("]
 let fade_int = 100
 let inter = 50
 let bitmap = 0
+let uns = 0
+let unslist: number[] = []
 let unid09 = [0xFC7E0, 0xF8800, 0xBD7A0, 0xFD6A0, 0xF90E0, 0xED6E0, 0xED7E0, 0xF8420, 0xFD7E0, 0xFD6E0]
 let unid123 = [0xFC7E0, 0xF8800, 0xBD7A0, 0xFD6A0, 0xF90E0, 0xED6E0, 0xED7E0, 0xF8420, 0xFD7E0, 0xFD6E0, 0x1F8FC1F, 0x1F1001F, 0x17AF41F, 0x1FAD41F, 0x1F21C1F, 0x1DADC1F, 0x1DAFC1F, 0x1F0841F, 0x1FAFC1F, 0x1FADC1F, 0x1F8FEFD, 0x1F102FD, 0x17E82FD, 0x1FA82FD]
 let unid123ex = [0x1DB82FD, 0x1F8FFF5, 0x1DB83F5, 0x1F8FF87, 0x1DB8387, 0x1F8FFB7, 0x1DB83B7]
@@ -3049,124 +3107,15 @@ function math_xy() { //Calculator with 2 variables // Selected_tool = 9
     mathx = 0
     mathy = 0
     num = 0
-    while (true) {
-        if (input.pinIsPressed(TouchPin.P2)) {
-            break;
-        }
-        unid_if_0_9()
-        if (scroll_interval == 1) {
-            basic.pause(300)
-        }
-        while(true){
-            scroll_interval = 1
-            if (input.pinIsPressed(TouchPin.P2)) {
-                if (numberx.length == 1) {
-                    mathx = numberx[0]
-                } else if (numberx.length == 2) {
-                    mathx = numberx[0] * 10 + numberx[1]
-                } else if (numberx.length == 3) {
-                    mathx = numberx[0] * 100 + numberx[1] * 10 + numberx[2]
-                } else if (numberx.length == 4) {
-                    mathx = numberx[0] * 1000 + numberx[1] * 100 + numberx[2] * 10 + numberx[3]
-                } else if (numberx.length == 5) {
-                    mathx = numberx[0] * 10000 + numberx[1] * 1000 + numberx[2] * 100 + numberx[3] * 10 + numberx[4]
-                } else if (numberx.length == 6) {
-                    mathx = numberx[0] * 100000 + numberx[1] * 10000 + numberx[2] * 1000 + numberx[3] * 100 + numberx[4] * 10 + numberx[5]
-                } else if (numberx.length == 7) {
-                    mathx = numberx[0] * 1000000 + numberx[1] * 100000 + numberx[2] * 10000 + numberx[3] * 1000 + numberx[4] * 100 + numberx[5] * 10 + numberx[6]
-                } else if (numberx.length == 8) {
-                    mathx = numberx[0] * 10000000 + numberx[1] * 1000000 + numberx[2] * 100000 + numberx[3] * 10000 + numberx[4] * 1000 + numberx[5] * 100 + numberx[6] * 10 + numberx[7]
-                } else {
-                    basic.showIcon(IconNames.No)
-                }
-                break;
-                basic.clearScreen()
-            } else if (input.buttonIsPressed(Button.A)){
-                led.fadeOut(fade_int)
-                led.fadeIn(fade_int)
-                if (num == 0) {
-                    num = 9
-                } else {
-                    num += -1
-                }
-                break;
-            } else if (input.buttonIsPressed(Button.B)) {
-                scroll_interval = 45
-                if (num == 9) {
-                    num = 0
-                } else {
-                    num += 1
-                }
-                break;
-            } else if (input.logoIsPressed()) {
-                music.play(music.tonePlayable(349, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
-                numberx.push(numberlist[num])
-                basic.showIcon(IconNames.Yes)
-                break;
-            } 
-        }
-        
-    }
+    uns_loop()
+    mathx = uns
+    uns = 0
+    unslist = []
     game.addScore(1)
     basic.pause(500)
     num = 0
-    while (true) {
-        if (input.pinIsPressed(TouchPin.P2)) {
-            break;
-        }
-        unid_if_0_9()
-        if (scroll_interval == 1) {
-            basic.pause(300)
-        }
-        while(true){
-            scroll_interval = 1
-            if (input.pinIsPressed(TouchPin.P2)) {
-                if (numbery.length == 1) {
-                    mathy = numbery[0]
-                } else if (numbery.length == 2) {
-                    mathy = numbery[0] * 10 + numbery[1]
-                } else if (numbery.length == 3) {
-                    mathy = numbery[0] * 100 + numbery[1] * 10 + numbery[2]
-                } else if (numbery.length == 4) {
-                    mathy = numbery[0] * 1000 + numbery[1] * 100 + numbery[2] * 10 + numbery[3]
-                } else if (numbery.length == 5) {
-                    mathy = numbery[0] * 10000 + numbery[1] * 1000 + numbery[2] * 100 + numbery[3] * 10 + numbery[4]
-                } else if (numbery.length == 6) {
-                    mathy = numbery[0] * 100000 + numbery[1] * 10000 + numbery[2] * 1000 + numbery[3] * 100 + numbery[4] * 10 + numbery[5]
-                } else if (numbery.length == 7) {
-                    mathy = numbery[0] * 1000000 + numbery[1] * 100000 + numbery[2] * 10000 + numbery[3] * 1000 + numbery[4] * 100 + numbery[5] * 10 + numbery[6]
-                } else if (numbery.length == 8) {
-                    mathy = numbery[0] * 10000000 + numbery[1] * 1000000 + numbery[2] * 100000 + numbery[3] * 10000 + numbery[4] * 1000 + numbery[5] * 100 + numberx[6] * 10 + numbery[7]
-                } else {
-                    basic.showIcon(IconNames.No)
-                }
-                basic.clearScreen()
-                break;
-            } else if (input.buttonIsPressed(Button.A)) {
-                led.fadeOut(fade_int)
-                led.fadeIn(fade_int)
-                if (num == 0) {
-                    num = 9
-                } else {
-                    num += -1
-                }
-                break;
-            } else if (input.buttonIsPressed(Button.B)) {
-                scroll_interval = 45
-                if (num == 9) {
-                    num = 0
-                } else {
-                    num += 1
-                }
-                break;
-            } else if (input.logoIsPressed()) {
-                basic.showIcon(IconNames.Yes)
-                music.play(music.tonePlayable(349, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
-                numbery.push(numberlist[num])
-                break;
-            }
-        }
-    }
+    uns_loop()
+    mathy = uns
     game.addScore(1)
     basic.pause(400)
     while (true) {
@@ -3200,63 +3149,8 @@ function math_x() { //Calculator with 1 variable // Selected_tool = 9
     mathx = 0
     mathy = 0
     num = 0
-    while (true) {
-        if (input.pinIsPressed(TouchPin.P2)) {
-            break;
-        }
-        unid_if_0_9()
-        if (scroll_interval == 1) {
-            basic.pause(300)
-        }
-        while(true){
-            scroll_interval = 1
-            if (input.pinIsPressed(TouchPin.P2)) {
-                if (numberx.length == 1) {
-                    mathx = numberx[0]
-                } else if (numberx.length == 2) {
-                    mathx = numberx[0] * 10 + numberx[1]
-                } else if (numberx.length == 3) {
-                    mathx = numberx[0] * 100 + numberx[1] * 10 + numberx[2]
-                } else if (numberx.length == 4) {
-                    mathx = numberx[0] * 1000 + numberx[1] * 100 + numberx[2] * 10 + numberx[3]
-                } else if (numberx.length == 5) {
-                    mathx = numberx[0] * 10000 + numberx[1] * 1000 + numberx[2] * 100 + numberx[3] * 10 + numberx[4]
-                } else if (numberx.length == 6) {
-                    mathx = numberx[0] * 100000 + numberx[1] * 10000 + numberx[2] * 1000 + numberx[3] * 100 + numberx[4] * 10 + numberx[5]
-                } else if (numberx.length == 7) {
-                    mathx = numberx[0] * 1000000 + numberx[1] * 100000 + numberx[2] * 10000 + numberx[3] * 1000 + numberx[4] * 100 + numberx[5] * 10 + numberx[6]
-                } else if (numberx.length == 8) {
-                    mathx = numberx[0] * 10000000 + numberx[1] * 1000000 + numberx[2] * 100000 + numberx[3] * 10000 + numberx[4] * 1000 + numberx[5] * 100 + numberx[6] * 10 + numberx[7]
-                } else {
-                    basic.showIcon(IconNames.No)
-                }
-                basic.clearScreen()
-                break;
-            } else if (input.buttonIsPressed(Button.A)) {
-                led.fadeOut(fade_int)
-                led.fadeIn(fade_int)
-                if (num == 0) {
-                    num = 9
-                } else {
-                    num += -1
-                }
-                break;
-            } else if (input.buttonIsPressed(Button.B)) {
-                scroll_interval = 45
-                if (num == 9) {
-                    num = 0
-                } else {
-                    num += 1
-                }
-                break;
-            } else if (input.logoIsPressed()) {
-                music.play(music.tonePlayable(349, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
-                numberx.push(numberlist[num])
-                basic.showIcon(IconNames.Yes)
-                break;
-            }
-        }
-    }
+    uns_loop()
+    mathx = uns
     game.addScore(1)
     basic.pause(400)
     while (true) {
@@ -3291,220 +3185,40 @@ function signal() { //Signal / Alarm clock // Selected_tool = 10
     second = 0
     signal_hour = 0
     signal_minute = 0
-    while (true) {
-        if (input.pinIsPressed(TouchPin.P2)) {
-            break;
-        }
-        unid_if_0_9()
-        if (scroll_interval == 1) {
-            basic.pause(300)
-        }
-        while (true) {
-            if (input.pinIsPressed(TouchPin.P2)) {
-                scroll_interval = 1
-                if (list.length == 1) {
-                    hour = list[0]
-                } else if (list.length == 2) {
-                    hour = list[0] * 10 + list[1]
-                } else {
-                    basic.showIcon(IconNames.No)
-                }
-                break;
-            }
-            if (input.buttonIsPressed(Button.A)) {
-                led.fadeOut(fade_int)
-                led.fadeIn(fade_int)
-                scroll_interval = 1
-                if (num == 0) {
-                    num = 9
-                } else {
-                    num += -1
-                }
-                break;
-            }
-            if (input.buttonIsPressed(Button.B)) {
-                scroll_interval = 45
-                if (num == 9) {
-                    num = 0
-                } else {
-                    num += 1
-                }
-                break;
-            }
-            if (input.logoIsPressed()) {
-                scroll_interval = 1
-                music.play(music.tonePlayable(349, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
-                list.push(numberlist[num])
-                basic.showIcon(IconNames.Yes)
-                break;
-            }
-        }
-    }
+    uns_loop()
+    hour = uns
+    uns = 0
+    unslist = []
+    num = 0
     basic.clearScreen()
     basic.pause(200)
     basic.showString("M")
     basic.clearScreen()
-    num = 0
     list = []
-    while (true) {
-        if (input.pinIsPressed(TouchPin.P2)) {
-            break;
-        }
-        unid_if_0_9()
-        if (scroll_interval == 1) {
-            basic.pause(300)
-        }
-        while (true) {
-            if (input.pinIsPressed(TouchPin.P2)) {
-                scroll_interval = 1
-                if (list.length == 1) {
-                    minute = list[0]
-                } else if (list.length == 2) {
-                    minute = list[0] * 10 + list[1]
-                } else {
-                    basic.showIcon(IconNames.No)
-                }
-                break;
-            }
-            if (input.buttonIsPressed(Button.A)) {
-                led.fadeOut(fade_int)
-                led.fadeIn(fade_int)
-                scroll_interval = 1
-                if (num == 0) {
-                    num = 9
-                } else {
-                    num += -1
-                }
-                break;
-            }
-            if (input.buttonIsPressed(Button.B)) {
-                scroll_interval = 45
-                if (num == 9) {
-                    num = 0
-                } else {
-                    num += 1
-                }
-                break;
-            }
-            if (input.logoIsPressed()) {
-                scroll_interval = 1
-                music.play(music.tonePlayable(349, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
-                list.push(numberlist[num])
-                basic.showIcon(IconNames.Yes)
-                break;
-            }
-        }
-    }
+    uns_loop()
+    minute = uns
+    uns = 0
+    unslist = []
+    num = 0
     basic.clearScreen()
     basic.pause(200)
     basic.showString("SIG-H")
     basic.clearScreen()
     num = 0
     list = []
-    while (true) {
-        if (input.pinIsPressed(TouchPin.P2)) {
-            break;
-        }
-        unid_if_0_9()
-        if (scroll_interval == 1) {
-            basic.pause(300)
-        }
-        while (true) {
-            if (input.pinIsPressed(TouchPin.P2)) {
-                scroll_interval = 1
-                if (list.length == 1) {
-                    signal_hour = list[0]
-                } else if (list.length == 2) {
-                    signal_hour = list[0] * 10 + list[1]
-                } else {
-                    basic.showIcon(IconNames.No)
-                }
-                break;
-            }
-            if (input.buttonIsPressed(Button.A)) {
-                led.fadeOut(fade_int)
-                led.fadeIn(fade_int)
-                scroll_interval = 1
-                if (num == 0) {
-                    num = 9
-                } else {
-                    num += -1
-                }
-                break;
-            }
-            if (input.buttonIsPressed(Button.B)) {
-                scroll_interval = 45
-                if (num == 9) {
-                    num = 0
-                } else {
-                    num += 1
-                }
-                break;
-            }
-            if (input.logoIsPressed()) {
-                scroll_interval = 1
-                music.play(music.tonePlayable(349, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
-                list.push(numberlist[num])
-                basic.showIcon(IconNames.Yes)
-                break;
-            }
-        }
-    }
+    uns_loop()
+    signal_hour = uns
+    uns = 0
+    unslist = []
+    num = 0
     basic.clearScreen()
     basic.pause(200)
     basic.showString("SIG-M")
     basic.clearScreen()
     num = 0
     list = []
-    while (true) {
-        if (input.pinIsPressed(TouchPin.P2)) {
-            break;
-        }
-        unid_if_0_9()
-        if (scroll_interval == 1) {
-            basic.pause(300)
-        }
-        while (true) {
-            if (input.pinIsPressed(TouchPin.P2)) {
-                scroll_interval = 1
-                if (list.length == 1) {
-                    signal_minute = list[0]
-                } else if (list.length == 2) {
-                    signal_minute = list[0] * 10 + list[1]
-                } else {
-                    basic.showIcon(IconNames.No)
-                }
-                break;
-            }
-            if (input.buttonIsPressed(Button.A)) {
-                led.fadeOut(fade_int)
-                led.fadeIn(fade_int)
-                scroll_interval = 1
-                if (num == 0) {
-                    num = 9
-                } else {
-                    num += -1
-                }
-                break;
-            }
-            if (input.buttonIsPressed(Button.B)) {
-                scroll_interval = 45
-                if (num == 9) {
-                    num = 0
-                } else {
-                    num += 1
-                }
-                break;
-            }
-            if (input.logoIsPressed()) {
-                scroll_interval = 1
-                music.play(music.tonePlayable(349, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
-                list.push(numberlist[num])
-                basic.showIcon(IconNames.Yes)
-                break;
-            }
-        }
-    }
+    uns_loop()
+    signal_minute = uns
     basic.clearScreen()
     while (true) {
         if (hour == signal_hour) {
@@ -3575,148 +3289,28 @@ function timer() { // Timer // Selected_tool = 10LAST
     minute = 0
     second = 0
     num = 0
-    while (true) {
-        if (input.pinIsPressed(TouchPin.P2)) {
-            break;
-        }
-        unid_if_0_9()
-        if (scroll_interval == 1) {
-            basic.pause(300)
-        }
-        while(true){
-            scroll_interval = 1
-            if (input.pinIsPressed(TouchPin.P2)) {
-                if (list.length == 1) {
-                    hour = list[0]
-                } else if (list.length == 2) {
-                    hour = list[0] * 10 + list[1]
-                } else {
-                    basic.showIcon(IconNames.No)
-                }
-                break;
-            } else if (input.buttonIsPressed(Button.A)) {
-                led.fadeOut(fade_int)
-                led.fadeIn(fade_int)
-                if (num == 0) {
-                    num = 9
-                } else {
-                    num += -1
-                }
-                break;
-            } else if (input.buttonIsPressed(Button.B)) {
-                scroll_interval = 45
-                if (num == 9) {
-                    num = 0
-                } else {
-                    num += 1
-                }
-                break;
-            } else if (input.logoIsPressed()) {
-                music.play(music.tonePlayable(349, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
-                list.push(numberlist[num])
-                basic.showIcon(IconNames.Yes)
-                break;
-            }
-        }
-    }
+    uns_loop()
+    hour = uns
+    uns = 0
+    unslist = []
+    num = 0
     basic.clearScreen()
     basic.pause(200)
     basic.showString("M")
     basic.clearScreen()
-    num = 0
     list = []
-    while (true) {
-        if (input.pinIsPressed(TouchPin.P2)) {
-            break;
-        }
-        unid_if_0_9()
-        if (scroll_interval == 1) {
-            basic.pause(300)
-        }
-        while(true){
-            scroll_interval = 1
-            if (input.pinIsPressed(TouchPin.P2)) {
-                if (list.length == 1) {
-                    minute = list[0]
-                } else if (list.length == 2) {
-                    minute = list[0] * 10 + list[1]
-                } else {
-                    basic.showIcon(IconNames.No)
-                }
-                break;
-            } else if (input.buttonIsPressed(Button.A)) {
-                led.fadeOut(fade_int)
-                led.fadeIn(fade_int)
-                if (num == 0) {
-                    num = 9
-                } else {
-                    num += -1
-                }
-                break;
-            } else if (input.buttonIsPressed(Button.B)) {
-                scroll_interval = 45
-                if (num == 9) {
-                    num = 0
-                } else {
-                    num += 1
-                }
-                break;
-            } else if (input.logoIsPressed()) {
-                music.play(music.tonePlayable(349, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
-                list.push(numberlist[num])
-                basic.showIcon(IconNames.Yes)
-            }
-        }
-    }
+    uns_loop()
+    minute = uns
+    uns = 0
+    unslist = []
+    num = 0
     basic.clearScreen()
     basic.pause(200)
     basic.showString("S")
     basic.clearScreen()
-    num = 0
     list = []
-    while (true) {
-        if (input.pinIsPressed(TouchPin.P2)) {
-            break;
-        }
-        unid_if_0_9()
-        if (scroll_interval == 1) {
-            basic.pause(300)
-        }
-        while(true){
-            scroll_interval = 1
-            if (input.pinIsPressed(TouchPin.P2)) {
-                if (list.length == 1) {
-                    second = list[0]
-                } else if (list.length == 2) {
-                    second = list[0] * 10 + list[1]
-                } else {
-                    basic.showIcon(IconNames.No)
-                }
-                break;
-            } else if (input.buttonIsPressed(Button.A)) {
-                led.fadeOut(fade_int)
-                led.fadeIn(fade_int)
-                if (num == 0) {
-                    num = 9
-                } else {
-                    num += -1
-                }
-                break;
-            } else if (input.buttonIsPressed(Button.B)) {
-                scroll_interval = 45
-                if (num == 9) {
-                    num = 0
-                } else {
-                    num += 1
-                }
-                break;
-            } else if (input.logoIsPressed()) {
-                music.play(music.tonePlayable(349, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
-                list.push(numberlist[num])
-                basic.showIcon(IconNames.Yes)
-            }
-        }
-    }
+    uns_loop()
+    second = uns
     basic.clearScreen()
     while (true) {
         if (hour == 0) {
@@ -3763,165 +3357,28 @@ function clock() { // Clock // Selected_tool = 10
     minute = 0
     second = 0
     num = 0
-    while (true) {
-        if (input.pinIsPressed(TouchPin.P2)) {
-            break;
-        }
-        unid_if_0_9()
-        if (scroll_interval == 1) {
-            basic.pause(300)
-        }
-        while (true) {
-            if (input.pinIsPressed(TouchPin.P2)) {
-                scroll_interval = 1
-                if (list.length == 1) {
-                    hour = list[0]
-                } else if (list.length == 2) {
-                    hour = list[0] * 10 + list[1]
-                } else {
-                    basic.showIcon(IconNames.No)
-                }
-                break;
-            }
-            if (input.buttonIsPressed(Button.A)) {
-                led.fadeOut(fade_int)
-                led.fadeIn(fade_int)
-                scroll_interval = 1
-                if (num == 0) {
-                    num = 9
-                } else {
-                    num += -1
-                }
-                break;
-            }
-            if (input.buttonIsPressed(Button.B)) {
-                scroll_interval = 45
-                if (num == 9) {
-                    num = 0
-                } else {
-                    num += 1
-                }
-                break;
-            }
-            if (input.logoIsPressed()) {
-                scroll_interval = 1
-                music.play(music.tonePlayable(349, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
-                list.push(numberlist[num])
-                basic.showIcon(IconNames.Yes)
-                break;
-            }
-        }
-    }
+    uns_loop()
+    hour = uns
+    uns = 0
+    unslist = []
+    num = 0
     basic.clearScreen()
     basic.pause(200)
     basic.showString("M")
     basic.clearScreen()
-    num = 0
     list = []
-    while (true) {
-        if (input.pinIsPressed(TouchPin.P2)) {
-            break;
-        }
-        unid_if_0_9()
-        if (scroll_interval == 1) {
-            basic.pause(300)
-        }
-        while(true){
-            if (input.pinIsPressed(TouchPin.P2)) {
-                scroll_interval = 1
-                if (list.length == 1) {
-                    minute = list[0]
-                } else if (list.length == 2) {
-                    minute = list[0] * 10 + list[1]
-                } else {
-                    basic.showIcon(IconNames.No)
-                }
-                break;
-            }
-            if (input.buttonIsPressed(Button.A)) {
-                led.fadeOut(fade_int)
-                led.fadeIn(fade_int)
-                scroll_interval = 1
-                if (num == 0) {
-                    num = 9
-                } else {
-                    num += -1
-                }
-                break;
-            }
-            if (input.buttonIsPressed(Button.B)) {
-                scroll_interval = 45
-                if (num == 9) {
-                    num = 0
-                } else {
-                    num += 1
-                }
-                break;
-            }
-            if (input.logoIsPressed()) {
-                scroll_interval = 1
-                music.play(music.tonePlayable(349, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
-                list.push(numberlist[num])
-                basic.showIcon(IconNames.Yes)
-                break;
-            }
-        }
-    }
+    uns_loop()
+    minute = uns
+    uns = 0
+    unslist = []
+    num = 0
     basic.clearScreen()
     basic.pause(200)
     basic.showString("S")
     basic.clearScreen()
-    num = 0
     list = []
-    while (true) {
-        if (input.pinIsPressed(TouchPin.P2)) {
-            break;
-        }
-        unid_if_0_9()
-        if (scroll_interval == 1) {
-            basic.pause(300)
-        }
-        while(true){
-            if (input.pinIsPressed(TouchPin.P2)) {
-                scroll_interval = 1
-                if (list.length == 1) {
-                    second = list[0]
-                } else if (list.length == 2) {
-                    second = list[0] * 10 + list[1]
-                } else {
-                    basic.showIcon(IconNames.No)
-                }
-                break;
-            }
-            if (input.buttonIsPressed(Button.A)) {
-                led.fadeOut(fade_int)
-                led.fadeIn(fade_int)
-                scroll_interval = 1
-                if (num == 0) {
-                    num = 9
-                } else {
-                    num += -1
-                }
-                break;
-            }
-            if (input.buttonIsPressed(Button.B)) {
-                scroll_interval = 45
-                if (num == 9) {
-                    num = 0
-                } else {
-                    num += 1
-                }
-                break;
-            }
-            if (input.logoIsPressed()) {
-                scroll_interval = 1
-                music.play(music.tonePlayable(349, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
-                list.push(numberlist[num])
-                basic.showIcon(IconNames.Yes)
-                break;
-            }
-        }
-    }
+    uns_loop()
+    second = uns
     basic.clearScreen()
     timeanddate.set24HourTime(hour, minute, second)
     while (true) {
@@ -4371,7 +3828,8 @@ function bluetooth_keyboard_custom() { // Custom keyboard input.
                         abc_id += 1
                     }
                     break;
-                }                if (input.logoIsPressed()) {
+                }                
+                if (input.logoIsPressed()) {
                     scroll_interval = 1
                     basic.showIcon(IconNames.Yes)
                     uckb_if()
@@ -4542,67 +4000,8 @@ function create_number() { //Create a temp-saved number.
     basic.pause(500)
     num = 0
     let number_send = 0
-    while (true) {
-        if (input.pinIsPressed(TouchPin.P2)) {
-            break;
-        }
-        unid_if_0_9()
-        if (scroll_interval == 1) {
-            basic.pause(300)
-        }
-        while(true){
-            if (input.pinIsPressed(TouchPin.P2)) {
-                scroll_interval = 1
-                if (list.length == 1) {
-                    number_send = list[0]
-                } else if (list.length == 2) {
-                    number_send = list[0] * 10 + list[1]
-                } else if (list.length == 3) {
-                    number_send = list[0] * 100 + list[1] * 10 + list[2]
-                } else if (list.length == 4) {
-                    number_send = list[0] * 1000 + list[1] * 100 + list[2] * 10 + list[3]
-                } else if (list.length == 5) {
-                    number_send = list[0] * 10000 + list[1] * 1000 + list[2] * 100 + list[3] * 10 + list[4]
-                } else if (list.length == 6) {
-                    number_send = list[0] * 100000 + list[1] * 10000 + list[2] * 1000 + list[3] * 100 + list[4] * 10 + list[5]
-                } else if (list.length == 7) {
-                    number_send = list[0] * 1000000 + list[1] * 100000 + list[2] * 10000 + list[3] * 1000 + list[4] * 100 + list[5] * 10 + list[6]
-                } else if (list.length == 8) {
-                    number_send = list[0] * 10000000 + list[1] * 1000000 + list[2] * 100000 + list[3] * 10000 + list[4] * 1000 + list[5] * 100 + list[6] * 10 + list[7]
-                } else {
-                    basic.showIcon(IconNames.No)
-                }
-                break;
-            }
-            if (input.buttonIsPressed(Button.A)) {
-                led.fadeOut(fade_int)
-                led.fadeIn(fade_int)
-                scroll_interval = 1
-                if (num == 0) {
-                    num = 9
-                } else {
-                    num += -1
-                }
-                break;
-            }
-            if (input.buttonIsPressed(Button.B)) {
-                scroll_interval = 45
-                if (num == 9) {
-                    num = 0
-                } else {
-                    num += 1
-                }
-                break;
-            }
-            if (input.logoIsPressed()) {
-                scroll_interval = 1
-                basic.showIcon(IconNames.Yes)
-                music.play(music.tonePlayable(349, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
-                list.push(numberlist[num])
-                break;
-            }
-        }
-    }
+    uns_loop()
+    number_send = uns
     while (true) {
         basic.showLeds(`
         . . . . .
