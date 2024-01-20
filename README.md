@@ -1,6 +1,9 @@
 
 > Open this page at [https://xc987.github.io/mbv2-os-js/](https://xc987.github.io/mbv2-os-js/)
 # Microbit V2 OS
+
+Outdated
+
 * Games
   * Space ivaders
   * Flappy bird
