@@ -1,6 +1,6 @@
 {
     "name": "MBV2-OS JS",
-    "version": "7.0.0",
+    "version": "8.0.0",
     "description": "",
     "dependencies": {
         "core": "*",
