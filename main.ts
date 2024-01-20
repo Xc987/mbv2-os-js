@@ -77,7 +77,7 @@ function waiting_for_connection() { //Waiting for the bluetooth connection.
             loading_animation()
         }
     }}
-function decrypt() {
+function decrypt() { //Draw / decrypt an image
     for (let x = 0; x < 5; x++) {
         for (let y2 = 0; y2 < 5; y2++) {
             if (bitmap & 1) {
@@ -86,7 +86,7 @@ function decrypt() {
             bitmap >>= 1;
         }
     }}
-function scrollbit() {
+function scrollbit() { //Scroll the decrypted image
     let currimage = led.screenshot()
     currimage.scrollImage(5, 1)
     basic.clearScreen()
@@ -158,7 +158,7 @@ function uckb_if() { //Function to map keyboard buttons to input buttons.
     } else {
         uckb = kblist[abc_id]
     }}
-function uns_loop() {
+function uns_loop() { //Number select
     while (true) {
     if (input.pinIsPressed(TouchPin.P2)) {
         break;
@@ -215,8 +215,7 @@ function uns_loop() {
             break;
         }
     }
-    }
-}
+    }}
 function ckeck_hold_a() { //Check if button A is held.
     while (input.buttonIsPressed(Button.A)) {
         basic.pause(1)
@@ -393,9 +392,11 @@ function game_select_menu() { //Game selection.
             bitmap = sysimages[17]
             } else if (game_mode == 9) {
             bitmap = sysimages[18]
+            } else if (game_mode == 10) {
+            bitmap = sysimages[83]
             ckeck_hold_b()
-            }
-            scrollbit()
+        }
+        scrollbit()
         if (scroll_interval == 1) {
             basic.pause(300)
         }
@@ -404,9 +405,9 @@ function game_select_menu() { //Game selection.
             led.plot(0, 0)
         } else if (game_mode == 1) {
             led.plot(1, 0)
-        } else if (game_mode == 8) {
-            led.plot(3, 0)
         } else if (game_mode == 9) {
+            led.plot(3, 0)
+        } else if (game_mode == 10) {
             led.plot(4, 0)
         } else {
             led.plot(2, 0)
@@ -416,7 +417,7 @@ function game_select_menu() { //Game selection.
                 led.fadeOut(fade_int)
                 led.fadeIn(fade_int)
                 if (game_mode == 0) {
-                    game_mode = 9
+                    game_mode = 10
                 } else {
                     game_mode += -1
                 }
@@ -428,7 +429,7 @@ function game_select_menu() { //Game selection.
                 } else {
                     scroll_interval = 1
                 }
-                if (game_mode == 9) {
+                if (game_mode == 10) {
                     game_mode = 0
                     scroll_interval = 1
                     led.fadeOut(fade_int)
@@ -502,6 +503,9 @@ function game_select_menu() { //Game selection.
         control.reset()
     } else if (game_mode == 9) {
         game_mode_9()
+    } else if (game_mode == 10) {
+        inits()
+        basic.clearScreen()
     }}
 
 function tool_select_menu() { //Tool selection.
@@ -1266,7 +1270,7 @@ function create_music_menu() { //Built-in music selection.
         scroll_interval = 1
         custom_music_selection()
     }}
-function billy_select_menu() {
+function billy_select_menu() { //Billy TTS selection
     while (true) {
         if (selected_serial == 0) {
             bitmap = sysimages[9]
@@ -1362,8 +1366,7 @@ function billy_select_menu() {
         menu_select_menu()
     } else if (selected_serial == 1) {
         billy_say()
-    }
-}
+    }}
 function send_select_menu() { //Send selection.
     while (true) {
         if (selected_serial == 0) {
@@ -2151,6 +2154,19 @@ input.onButtonPressed(Button.A, function () { //On button A pressed.
             currX_9 = 2
             currY_9 = 2
         }
+    }
+    if (game_mode == 10) {
+        if (state == 2) {
+            if (direction == 0) {
+                direction = 3
+            } else if (direction == 1) {
+                direction = 0
+            } else if (direction == 2) {
+                direction = 1
+            } else if (direction == 3) {
+                direction = 2
+            }
+        }
     }})
 input.onButtonPressed(Button.B, function () { //On button B pressed.
     if (game_mode == 1) {
@@ -2220,6 +2236,19 @@ input.onButtonPressed(Button.B, function () { //On button B pressed.
             currX_9 = 2
             currY_9 = 2
         }
+    }
+    if (game_mode == 10) {
+        if (state == 2) {
+            if (direction == 0) {
+                direction = 1
+            } else if (direction == 1) {
+                direction = 2
+            } else if (direction == 2) {
+                direction = 3
+            } else if (direction == 3) {
+                direction = 0
+            }
+        }
     }})
 input.onButtonPressed(Button.AB, function () { //On button AB pressed.
     if (game_mode == 1) {
@@ -2237,6 +2266,15 @@ input.onButtonPressed(Button.AB, function () { //On button AB pressed.
     }
     if (game_mode == 9) {
         state_9 = 1
+    }
+    if (game_mode == 10) {
+        if (state == 0) {
+            snakeX[0] = 0
+            snakeY[0] = 0
+            led.plot(snakeX[0], snakeY[0])
+            basic.clearScreen()
+            state = 1
+        }
     }})
 
 bluetooth.onBluetoothConnected(function () { //On bluetooth connected.
@@ -2352,7 +2390,6 @@ let tonelist = [0, 131, 147, 165, 175, 196, 220, 247, 262, 294, 330, 349, 392, 4
 let music_playing = false
 let line_sent = false
 let uart_send = ""
-let pin_music_mode = false
 let logging_freq = 0
 let rotate_display = parseFloat(flashstorage.getOrDefault("display", "1"))
 if (rotate_display == 1) {
@@ -2366,7 +2403,6 @@ if (rotate_display == 1) {
 let custom_graph = parseFloat(flashstorage.getOrDefault("graph", "1"))
 let graph_var1 = 50
 let graph_var2 = 50
-let poslist = [4, 4, 4, 4, 4]
 let p2press = parseFloat(flashstorage.getOrDefault("p2p", "1"))
 let num_list = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
 let symb_list = [")", "!", "@", "#", "$", "%", "^", "&", "*", "("]
@@ -2395,7 +2431,7 @@ let sysimages = [0x1863998, 0x44154, 0x1467994, 0x1E06010, 0x23880,
     0xC4B44, 0xD4B44, 0x4D4B44, 0x1EA7A9E, 0x264A4C, 0x729C0, 0x471084,
     0x1821098, 0x255202, 0x12A90, 0x1E1105E, 0xF13C0, 0x47109C,
     0x4310, 0xA74310, 0x1E95A1E, 0x1300, 0x8639E, 0x1EE6200, 0x1041040,
-    0x14E01D0, 0x822110, 0x211000, 0x18C639C, 0x222208]
+    0x14E01D0, 0x822110, 0x211000, 0x18C639C, 0x222208, 0x1E13900]
 let acc_1 = 0
 let time_1 = 0
 let killed_1: number[] = []
@@ -2465,11 +2501,18 @@ let state_9 = 0
 state_9 = -1
 winX_9 = [1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 1, 1, 2, 2, 2, 3, 3, 3, 1, 2, 3, 1, 2, 3]
 winY_9 = [1, 1, 1, 2, 2, 2, 3, 3, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 3, 2, 1]
-let bj_dealer_hand = 0
-let bj_my_hand = 0
-let bj_dealer_card = 0
-let random_card = 0
-let score_10 = 0
+let level = 0
+let show = 0
+let snake_length = 0
+let foodY = 0
+let foodX = 0
+let direction = 0
+let score = 0
+let state = 0
+let snakeY: number[] = []
+let snakeX: number[] = []
+snakeX = [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1]
+snakeY = [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1]
 basic.clearScreen()
 loading_animation()
 menu_select_menu()
@@ -3064,6 +3107,120 @@ function showall() { //Tic-Tac-Toe // game_mode = 9
     for (let i = 0; i <= 4; i++) {
         led.plotBrightness(ax_9[i], ay_9[i], brightnessA_9)
         led.plotBrightness(bx_9[i], by_9[i], brightnessB_9)
+    }}
+basic.forever(function () { //Snake // game_mode = 10
+    if (game_mode == 10) {
+        if (state == 1) {
+            gen_food()
+            state = 2
+        } else if (state == 2) {
+            led.toggle(foodX, foodY)
+            if (show == 0) {
+                show = 5 - level
+                show_snake()
+            } else {
+                show += -1
+            }
+        } else {
+
+        }
+        basic.pause(100)
+    }})
+function finish(num: number) {  //Snake // game_mode = 10
+    state = 3
+    basic.clearScreen()
+    if (num == 0) {
+        basic.showString("LOSE")
+    } else {
+        basic.showString("WIN")
+    }
+    basic.showString("S:")
+    basic.showNumber(score)
+    control.reset()
+    inits()}
+function inits() { //Snake // game_mode = 10
+    foodX = -1
+    foodY = -1
+    direction = 0
+    snake_length = 1
+    show = 5 - level
+    score = 0
+    level = 0
+    for (let index = 0; index <= 9; index++) {
+        snakeX[index] = -1
+        snakeY[index] = -1
+    }
+    state = 0}
+function gen_food() { //Snake // game_mode = 10
+    while (true) {
+        foodX = randint(0, 4)
+        foodY = randint(0, 4)
+        if (led.point(foodX, foodY) == false) {
+            break;
+        }
+    }}
+function show_snake() { //Snake // game_mode = 10
+    led.unplot(snakeX[snake_length - 1], snakeY[snake_length - 1])
+    if (snake_length > 1) {
+        for (let index = 0; index <= snake_length - 2; index++) {
+            snakeX[snake_length - 1 - index] = snakeX[snake_length - 2 - index]
+            snakeY[snake_length - 1 - index] = snakeY[snake_length - 2 - index]
+        }
+    }
+    if (direction == 0 && snakeX[0] < 4) {
+        snakeX[0] = snakeX[0] + 1
+    } else if (direction == 1 && snakeY[0] < 4) {
+        snakeY[0] = snakeY[0] + 1
+    } else if (direction == 2 && snakeX[0] > 0) {
+        snakeX[0] = snakeX[0] - 1
+    } else if (direction == 3 && snakeY[0] > 0) {
+        snakeY[0] = snakeY[0] - 1
+    } else {
+        finish(0)
+    }
+    if (state == 2) {
+        eat_food()
+        led.plot(snakeX[0], snakeY[0])
+    }}
+function eat_food() { //Snake // game_mode = 10
+    if (snakeX[0] == foodX && snakeY[0] == foodY) {
+        if (snake_length >= 10) {
+            snake_length = 1
+            level += 1
+            for (let index = 0; index < 3; index++) {
+                basic.showLeds(`
+                    # # # # #
+                    # # # # #
+                    # # # # #
+                    # # # # #
+                    # # # # #
+                    `)
+                basic.pause(200)
+                basic.clearScreen()
+                basic.pause(200)
+            }
+            if (level >= 5) {
+                finish(1)
+            } else {
+                for (let index = 0; index <= 9; index++) {
+                    snakeX[index] = -1
+                    snakeY[index] = -1
+                }
+                snakeX[0] = 0
+                snakeY[0] = 0
+                led.plot(snakeX[0], snakeY[0])
+                direction = 0
+                state = 1
+            }
+        } else {
+            snake_length += 1
+            score += 1
+            state = 1
+        }
+    } else {
+        if (led.point(snakeX[0], snakeY[0]) == true) {
+            finish(0)
+        }
     }}
 function tool_compass() { //Compass // Selected_tool = 4
     while (true) {
@@ -4106,7 +4263,7 @@ function create_strig() { //Create a temp-saved string.
             basic.showString(text)
         }
     }}
-function billy_say() { 
+function billy_say() { //Say custom text
     basic.clearScreen()
     basic.pause(300)
     fade_int = 50
@@ -4167,8 +4324,7 @@ function billy_say() {
         if (input.buttonIsPressed(Button.A) || input.buttonIsPressed(Button.B) || input.logoIsPressed()) {
             billy.say(text)
         }
-    }
-}
+    }}
 function create_number() { //Create a temp-saved number.
     basic.clearScreen()
     basic.pause(500)
