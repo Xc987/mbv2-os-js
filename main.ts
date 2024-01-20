@@ -2352,9 +2352,6 @@ let abc = ["NUL", "a", "A", "b", "c", "C", "d", "e", "E", "f", "g", "G", "h", "i
 let numberlist = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 let inputlist: string[] = []
 let text = ""
-let list: number[] = []
-let numberx: number[] = []
-let numbery: number[] = []
 let mathx = 0
 let mathy = 0
 let waiting_for_input = true
@@ -3462,7 +3459,6 @@ function signal() { //Signal / Alarm clock // Selected_tool = 10
     basic.pause(200)
     basic.showString("M")
     basic.clearScreen()
-    list = []
     uns_loop()
     minute = uns
     uns = 0
@@ -3473,7 +3469,6 @@ function signal() { //Signal / Alarm clock // Selected_tool = 10
     basic.showString("SIG-H")
     basic.clearScreen()
     num = 0
-    list = []
     uns_loop()
     signal_hour = uns
     uns = 0
@@ -3484,7 +3479,6 @@ function signal() { //Signal / Alarm clock // Selected_tool = 10
     basic.showString("SIG-M")
     basic.clearScreen()
     num = 0
-    list = []
     uns_loop()
     signal_minute = uns
     basic.clearScreen()
@@ -3566,7 +3560,6 @@ function timer() { // Timer // Selected_tool = 10LAST
     basic.pause(200)
     basic.showString("M")
     basic.clearScreen()
-    list = []
     uns_loop()
     minute = uns
     uns = 0
@@ -3576,7 +3569,6 @@ function timer() { // Timer // Selected_tool = 10LAST
     basic.pause(200)
     basic.showString("S")
     basic.clearScreen()
-    list = []
     uns_loop()
     second = uns
     basic.clearScreen()
@@ -3634,7 +3626,6 @@ function clock() { // Clock // Selected_tool = 10
     basic.pause(200)
     basic.showString("M")
     basic.clearScreen()
-    list = []
     uns_loop()
     minute = uns
     uns = 0
@@ -3644,7 +3635,6 @@ function clock() { // Clock // Selected_tool = 10
     basic.pause(200)
     basic.showString("S")
     basic.clearScreen()
-    list = []
     uns_loop()
     second = uns
     basic.clearScreen()
@@ -5091,7 +5081,7 @@ function send_number() { //Send number via serial or bluetooth.
         }
     }}
 
-function settings_test_input() { //Test all inputs.7239
+function settings_test_input() { //Test all inputs.
     while (true) {
         if (input.buttonIsPressed(Button.A)) {
             led.plot(0, 2)
@@ -5231,4 +5221,5 @@ function settings_test_input() { //Test all inputs.7239
         led.unplot(0, 4)
         led.unplot(2, 4)
         led.unplot(4, 4)
-    }}
+    }
+}
