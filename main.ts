@@ -283,12 +283,14 @@ function menu_select_menu() { //Menu selection at the start.
         } else if (selected_menu == 5) {
             bitmap = sysimages[4]
         } else if (selected_menu == 6) {
-            bitmap = sysimages[6]
+            bitmap = sysimages[55]
         } else if (selected_menu == 7) {
-            bitmap = sysimages[7]
+            bitmap = sysimages[6]
         } else if (selected_menu == 8) {
-            bitmap = sysimages[61]
+            bitmap = sysimages[7]
         } else if (selected_menu == 9) {
+            bitmap = sysimages[61]
+        } else if (selected_menu == 10) {
             bitmap = sysimages[8]
             ckeck_hold_b()
         }
@@ -301,9 +303,9 @@ function menu_select_menu() { //Menu selection at the start.
             led.plot(0, 0)
         } else if (selected_menu == 2) {
             led.plot(1, 0)
-        } else if (selected_menu == 8) {
-            led.plot(3, 0)
         } else if (selected_menu == 9) {
+            led.plot(3, 0)
+        } else if (selected_menu == 10) {
             led.plot(4, 0)
         } else {
             led.plot(2, 0)
@@ -313,7 +315,7 @@ function menu_select_menu() { //Menu selection at the start.
                 led.fadeOut(fade_int)
                 led.fadeIn(fade_int)
                 if (selected_menu == 1) {
-                    selected_menu = 9
+                    selected_menu = 10
                 } else {
                     selected_menu += -1
                 }
@@ -325,7 +327,7 @@ function menu_select_menu() { //Menu selection at the start.
                 } else {
                     scroll_interval = 1
                 }
-                if (selected_menu == 9) {
+                if (selected_menu == 10) {
                     selected_menu = 1
                     scroll_interval = 1
                     led.fadeOut(fade_int)
@@ -356,14 +358,16 @@ function menu_select_menu() { //Menu selection at the start.
     } else if (selected_menu == 5) {
         create_select_menu()
     } else if (selected_menu == 6) {
+        billy_select_menu()
+    } else if (selected_menu == 7) {
         selected_serial_if = true
         send_select_menu()
-    } else if (selected_menu == 7) {
+    } else if (selected_menu == 8) {
         selected_uart = true
         send_select_menu()
-    } else if (selected_menu == 8) {
-        data_logging_freq_menu()
     } else if (selected_menu == 9) {
+        data_logging_freq_menu()
+    } else if (selected_menu == 10) {
         settings_select_menu()
     }}
 function game_select_menu() { //Game selection.
@@ -1262,7 +1266,104 @@ function create_music_menu() { //Built-in music selection.
         scroll_interval = 1
         custom_music_selection()
     }}
-
+function billy_select_menu() {
+    while (true) {
+        if (selected_serial == 0) {
+            bitmap = sysimages[9]
+            ckeck_hold_a()
+        } else if (selected_serial == 1) {
+            bitmap = sysimages[49]
+        } else if (selected_serial == 2) {
+            bitmap = sys17[voicepreset]
+            if (voicepreset == 0) {
+                billy.voicePreset(BillyVoicePreset.Elf)
+            } else if (voicepreset == 1) {
+                billy.voicePreset(BillyVoicePreset.LittleRobot)
+            } else if (voicepreset == 2) {
+                billy.voicePreset(BillyVoicePreset.StuffyGuy)
+            } else if (voicepreset == 3) {
+                billy.voicePreset(BillyVoicePreset.LittleOldLady)
+            } else if (voicepreset == 4) {
+                billy.voicePreset(BillyVoicePreset.ExtraTerrestrial)
+            } else if (voicepreset == 5) {
+                billy.voicePreset(BillyVoicePreset.Sam)
+            } else if (voicepreset == 6) {
+                billy.voicePreset(BillyVoicePreset.Dalek)
+            }
+            ckeck_hold_b()
+        }
+        scrollbit()
+        if (scroll_interval == 1) {
+            basic.pause(300)
+        }
+        draw_menu()
+        if (selected_serial == 0) {
+            led.plot(0, 0)
+            led.plot(1, 0)
+        } else if (selected_serial == 1) {
+            led.plot(2, 0)
+        } else if (selected_serial == 2) {
+            led.plot(3, 0)
+            led.plot(4, 0)
+        }
+        while (true) {
+            if (input.buttonIsPressed(Button.A)) {
+                led.fadeOut(fade_int)
+                led.fadeIn(fade_int)
+                if (selected_serial == 0) {
+                    selected_serial = 2
+                } else {
+                    selected_serial += -1
+                }
+                scroll_interval = 1
+                break;
+            } else if (input.buttonIsPressed(Button.B)) {
+                if (animation_scroll == 1) {
+                    scroll_interval = 45
+                } else {
+                    scroll_interval = 1
+                }
+                if (selected_serial == 2) {
+                    selected_serial = 0
+                    scroll_interval = 1
+                    led.fadeOut(fade_int)
+                    led.fadeIn(fade_int)
+                } else {
+                    selected_serial += 1
+                }
+                break;
+            } else if (input.logoIsPressed()) {
+                if (selected_serial == 2) {
+                    scroll_interval = 1
+                    led.fadeOut(fade_int)
+                    led.fadeIn(fade_int)
+                    if (voicepreset == 6) {
+                        voicepreset = 0
+                    } else {
+                        voicepreset += 1
+                    }
+                } else {
+                    break;
+                }
+                break;
+            }
+        }
+        if (input.logoIsPressed()) {
+            if (selected_serial != 2) {
+                break;
+            }
+        }
+    }
+    led.fadeOut(fade_int)
+    led.fadeIn(fade_int)
+    basic.clearScreen()
+    scroll_interval = 1
+    if (selected_serial == 0) {
+        menu_select_menu()
+    } else if (selected_serial == 1) {
+        billy_say()
+    }
+}
 function send_select_menu() { //Send selection.
     while (true) {
         if (selected_serial == 0) {
@@ -2172,6 +2273,7 @@ let bluetooth_type = 0
 let bluetooth_keyboard_type = 0
 let create_type = 0
 let selected_create_music = 1
+let selected_billy = 0
 let selected_serial = 0
 let selected_uart = false
 let selected_serial_if = false
@@ -2273,12 +2375,14 @@ let inter = 50
 let bitmap = 0
 let uns = 0
 let unslist: number[] = []
+let voicepreset = 0
 let unid09 = [0xFC7E0, 0xF8800, 0xBD7A0, 0xFD6A0, 0xF90E0, 0xED6E0, 0xED7E0, 0xF8420, 0xFD7E0, 0xFD6E0]
 let unid123 = [0xFC7E0, 0xF8800, 0xBD7A0, 0xFD6A0, 0xF90E0, 0xED6E0, 0xED7E0, 0xF8420, 0xFD7E0, 0xFD6E0, 0x1F8FC1F, 0x1F1001F, 0x17AF41F, 0x1FAD41F, 0x1F21C1F, 0x1DADC1F, 0x1DAFC1F, 0x1F0841F, 0x1FAFC1F, 0x1FADC1F, 0x1F8FEFD, 0x1F102FD, 0x17E82FD, 0x1FA82FD]
 let unid123ex = [0x1DB82FD, 0x1F8FFF5, 0x1DB83F5, 0x1F8FF87, 0x1DB8387, 0x1F8FFB7, 0x1DB83B7]
 let unid14 = [0xF8800, 0x17E801F, 0x1F21C1F, 0x1FAFC1F, 0x1DAFC1F, 0xBD7A0, 0xF90E0]
 let usidaz = [0x10F4A4C, 0x10ED6A8, 0x4529F, 0x4A4C, 0x52A8, 0xFD288, 0x956AE, 0x7056BF, 0x97C4, 0x7D6A2, 0x1E563F, 0xC109F, 0x7400, 0xF420, 0x3610, 0x8289F, 0x48289F, 0x843E0, 0x1843E0, 0x1E1105E, 0xE085E, 0x1E085E, 0x64A4C, 0x2295E, 0x1089E, 0x12A90, 0x12A91, 0xA51E0, 0x10F420E, 0x10E462C, 0x644106, 0x95B52, 0x195B52, 0xC4210C, 0x2000, 0x2200, 0x5C00, 0x22D422]
 let tunecb = [0x118FC10, 0xE8FC10, 0x15AFC10, 0x52FC10, 0x1DAFC10, 0x1F2FC10, 0x1BAFC10, 0x118FC18, 0xE8FC18, 0x15AFC18, 0x52FC18, 0x1DAFC18, 0xF97C18, 0x1BAFC18, 0x118FC1C, 0xE8FC1C, 0x15AFC1C, 0x52FC1C, 0x1DAFC1C, 0x1F2FC1C, 0x1BAFC1C]
+let sys17 = [0xF1000, 0xB6A40, 0xF6A40, 0xF10C0, 0x96AC0, 0xD4BC0, 0xF0840]
 let sysimages = [0x1863998, 0x44154, 0x1467994, 0x1E06010, 0x23880,
     0x1846118, 0x447904, 0x8A7914, 0x14E2394, 0x1CA11C4, 0x4800,
     0xB0100, 0x4200, 0x4000, 0x20018, 0x204000, 0x1010, 0x188031C,
@@ -3010,31 +3114,38 @@ function tool_record() { //Record and play sound files // Selected_tool = 8
             if (tool_record_volume == 1) {
                 bitmap = sysimages[54]
                 record.setSampleRate(4400)
-                led.plotBrightness(2, 1, 20)
             } else if (tool_record_volume == 2) {
                 bitmap = sysimages[54]
                 record.setSampleRate(8800)
-                led.plotBrightness(2, 1, 20)
-                led.plotBrightness(3, 2, 20)
             } else if (tool_record_volume == 3) {
                 bitmap = sysimages[54]
                 record.setSampleRate(13200)
-                led.plotBrightness(2, 1, 20)
-                led.plotBrightness(3, 2, 20)
-                led.plotBrightness(3, 3, 20)
             } else if (tool_record_volume == 4) {
                 bitmap = sysimages[54]
                 record.setSampleRate(17600)
-                led.plotBrightness(2, 1, 20)
-                led.plotBrightness(3, 2, 20)
-                led.plotBrightness(3, 3, 20)
-                led.plotBrightness(2, 4, 20)
             } else {
                 bitmap = sysimages[55]
                 record.setSampleRate(22000)
             }
         }
         scrollbit()
+        if (tool_type == 3) {
+            if (tool_record_volume == 1) {
+                led.plotBrightness(2, 1, 20)
+            } else if (tool_record_volume == 2) {
+                led.plotBrightness(2, 1, 20)
+                led.plotBrightness(3, 2, 20)
+            } else if (tool_record_volume == 3) {
+                led.plotBrightness(2, 1, 20)
+                led.plotBrightness(3, 2, 20)
+                led.plotBrightness(3, 3, 20)
+            } else if (tool_record_volume == 4) {
+                led.plotBrightness(2, 1, 20)
+                led.plotBrightness(3, 2, 20)
+                led.plotBrightness(3, 3, 20)
+                led.plotBrightness(2, 4, 20)
+            }
+        }
         if (scroll_interval == 1) {
             basic.pause(300)
         }
@@ -3995,6 +4106,69 @@ function create_strig() { //Create a temp-saved string.
             basic.showString(text)
         }
     }}
+function billy_say() { 
+    basic.clearScreen()
+    basic.pause(300)
+    fade_int = 50
+    while (true) {
+        if (input.pinIsPressed(TouchPin.P2)) {
+            break;
+        }
+        usid_if()
+        if (scroll_interval == 1) {
+            basic.pause(300)
+        }
+        while (true) {
+            if (input.pinIsPressed(TouchPin.P2)) {
+                break;
+            }
+            if (input.buttonIsPressed(Button.A)) {
+                led.fadeOut(fade_int)
+                led.fadeIn(fade_int)
+                scroll_interval = 1
+                if (abc_id == 1) {
+                    abc_id = 38
+                } else {
+                    abc_id += -1
+                }
+                break;
+            }
+            if (input.buttonIsPressed(Button.B)) {
+                scroll_interval = 30
+                if (abc_id == 38) {
+                    abc_id = 1
+                } else {
+                    abc_id += 1
+                }
+                break;
+            }
+            if (input.logoIsPressed()) {
+                scroll_interval = 1
+                basic.showIcon(IconNames.Yes)
+                inputlist.push(abc[abc_id])
+                music.play(music.tonePlayable(523, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
+                basic.pause(100)
+                break;
+            }
+        }
+    }
+    while (inputlist.length != 0) {
+        text = "" + text + inputlist[0]
+        inputlist.shift()
+    }
+    while (true) {
+        basic.showLeds(`
+        . . . . .
+        . # # # .
+        . # . # .
+        . # # # .
+        . . . . .
+        `)
+        if (input.buttonIsPressed(Button.A) || input.buttonIsPressed(Button.B) || input.logoIsPressed()) {
+            billy.say(text)
+        }
+    }
+}
 function create_number() { //Create a temp-saved number.
     basic.clearScreen()
     basic.pause(500)
