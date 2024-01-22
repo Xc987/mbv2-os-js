@@ -4751,8 +4751,6 @@ function tune() { //Tune selection.
             }
         }
         if (input.logoIsPressed()) {
-            custom_music_tune.push(num)
-            tune_music = tonelist[num]
             break;
         }
     }
