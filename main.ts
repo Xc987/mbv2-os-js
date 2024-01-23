@@ -2379,9 +2379,6 @@ let custom_b_button = ""
 let custom_logo_button = ""
 let uckb = ""
 let custom_music: number[] = []
-let custom_music_tune: number[] = []
-let custom_music_beat: number[] = []
-let custom_beat: number[] = []
 let tune_music = 131
 let tonelist = [0, 131, 147, 165, 175, 196, 220, 247, 262, 294, 330, 349, 392, 440, 494, 523, 587, 659, 698, 784, 880, 998]
 let music_playing = false
@@ -4745,7 +4742,7 @@ function tune() { //Tune selection.
                 break;
             }
             if (input.logoIsPressed()) {
-                custom_music_tune.push(num)
+                custom_music.push(num)
                 tune_music = tonelist[num]
                 break;
             }
@@ -4811,7 +4808,7 @@ function beat() { //Beat selection.
             }
             if (input.logoIsPressed()) {
                 scroll_interval = 1
-                custom_music_beat.push(num)
+                custom_music.push(num)
                 break;
             }
         }
@@ -4875,7 +4872,7 @@ function rest() { //Rest selection.
             }
             if (input.logoIsPressed()) {
                 scroll_interval = 1
-                custom_beat.push(num)
+                custom_music.push(num)
                 break;
             }
         }
@@ -4883,45 +4880,54 @@ function rest() { //Rest selection.
     basic.pause(200)
     custom_music_selection()}
 function melody_play() { //Play the created melody.
+    let bcm = custom_music.slice()
     while (true) {
         if (custom_music[0] == 1) {
-            if (custom_music_beat[0] == 1) {
-                music.play(music.tonePlayable(tonelist[custom_music_tune[0]], music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
-            } else if (custom_music_beat[0] == 2) {
-                music.play(music.tonePlayable(tonelist[custom_music_tune[0]], music.beat(BeatFraction.Half)), music.PlaybackMode.UntilDone)
-            } else if (custom_music_beat[0] == 3) {
-                music.play(music.tonePlayable(tonelist[custom_music_tune[0]], music.beat(BeatFraction.Quarter)), music.PlaybackMode.UntilDone)
-            } else if (custom_music_beat[0] == 4) {
-                music.play(music.tonePlayable(tonelist[custom_music_tune[0]], music.beat(BeatFraction.Eighth)), music.PlaybackMode.UntilDone)
-            } else if (custom_music_beat[0] == 5) {
-                music.play(music.tonePlayable(tonelist[custom_music_tune[0]], music.beat(BeatFraction.Sixteenth)), music.PlaybackMode.UntilDone)
-            } else if (custom_music_beat[0] == 6) {
-                music.play(music.tonePlayable(tonelist[custom_music_tune[0]], music.beat(BeatFraction.Double)), music.PlaybackMode.UntilDone)
-            } else if (custom_music_beat[0] == 7) {
-                music.play(music.tonePlayable(tonelist[custom_music_tune[0]], music.beat(BeatFraction.Breve)), music.PlaybackMode.UntilDone)
+            custom_music.removeAt(0)
+            if (custom_music[1] == 1) {
+                music.play(music.tonePlayable(tonelist[custom_music[0]], music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
+            } else if (custom_music[1] == 2) {
+                music.play(music.tonePlayable(tonelist[custom_music[0]], music.beat(BeatFraction.Half)), music.PlaybackMode.UntilDone)
+            } else if (custom_music[1] == 3) {
+                music.play(music.tonePlayable(tonelist[custom_music[0]], music.beat(BeatFraction.Quarter)), music.PlaybackMode.UntilDone)
+            } else if (custom_music[1] == 4) {
+                music.play(music.tonePlayable(tonelist[custom_music[0]], music.beat(BeatFraction.Eighth)), music.PlaybackMode.UntilDone)
+            } else if (custom_music[1] == 5) {
+                music.play(music.tonePlayable(tonelist[custom_music[0]], music.beat(BeatFraction.Sixteenth)), music.PlaybackMode.UntilDone)
+            } else if (custom_music[1] == 6) {
+                music.play(music.tonePlayable(tonelist[custom_music[0]], music.beat(BeatFraction.Double)), music.PlaybackMode.UntilDone)
+            } else if (custom_music[1] == 7) {
+                music.play(music.tonePlayable(tonelist[custom_music[0]], music.beat(BeatFraction.Breve)), music.PlaybackMode.UntilDone)
             }
-            custom_music_tune.removeAt(0)
+            custom_music.removeAt(0)
+            custom_music.removeAt(0)
         }
         if (custom_music[0] == 2) {
-            if (custom_beat[0] == 1) {
+            custom_music.removeAt(0)
+            if (custom_music[0] == 1) {
                 music.rest(music.beat(BeatFraction.Whole))
-            } else if (custom_beat[0] == 2) {
+            } else if (custom_music[0] == 2) {
                 music.rest(music.beat(BeatFraction.Half))
-            } else if (custom_beat[0] == 3) {
+            } else if (custom_music[0] == 3) {
                 music.rest(music.beat(BeatFraction.Quarter))
-            } else if (custom_beat[0] == 4) {
+            } else if (custom_music[0] == 4) {
                 music.rest(music.beat(BeatFraction.Eighth))
-            } else if (custom_beat[0] == 5) {
+            } else if (custom_music[0] == 5) {
                 music.rest(music.beat(BeatFraction.Sixteenth))
-            } else if (custom_beat[0] == 6) {
+            } else if (custom_music[0] == 6) {
                 music.rest(music.beat(BeatFraction.Double))
-            } else if (custom_beat[0] == 7) {
+            } else if (custom_music[0] == 7) {
                 music.rest(music.beat(BeatFraction.Breve))
             }
-            custom_beat.removeAt(0)
+            custom_music.removeAt(0)
         }
-        custom_music.removeAt(0)
-    }}
+        if (custom_music.length == 0) {
+            break;
+        }
+    }
+    custom_music = bcm
+    custom_music_selection()
+    }
 
 function send_input() { //Send input via serial or bluetooth.
     basic.clearScreen()
