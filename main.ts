@@ -1193,9 +1193,11 @@ function custom_music_selection() { //Custom music selection.
     }}
 function create_music_menu() { //Built-in music selection.
     while (true) {
-        if (selected_music == 1) {
-            bitmap = sysimages[51]
+        if (selected_music == 0) {
+            bitmap = sysimages[9]
             ckeck_hold_a()
+        } else if (selected_music == 1) {
+            bitmap = sysimages[51]
             } else if (selected_music == 2) {
             bitmap = sysimages[26]
             } else if (selected_music == 3) {
@@ -1211,22 +1213,22 @@ function create_music_menu() { //Built-in music selection.
             basic.pause(300)
         }
         draw_menu()
-        if (selected_music == 1) {
+        if (selected_music == 0) {
             led.plot(0, 0)
-        } else if (selected_music == 2) {
+        } else if (selected_music == 1) {
             led.plot(1, 0)
-        } else if (selected_music == 3) {
-            led.plot(2, 0)
         } else if (selected_music == 4) {
             led.plot(3, 0)
         } else if (selected_music == 5) {
             led.plot(4, 0)
+        } else {
+            led.plot(2, 0)
         }
         while (true) {
             if (input.buttonIsPressed(Button.A)) {
                 led.fadeOut(fade_int)
                 led.fadeIn(fade_int)
-                if (selected_music == 1) {
+                if (selected_music == 0) {
                     selected_music = 5
                 } else {
                     selected_music += -1
@@ -1240,7 +1242,7 @@ function create_music_menu() { //Built-in music selection.
                     scroll_interval = 1
                 }
                 if (selected_music == 5) {
-                    selected_music = 1
+                    selected_music = 0
                     scroll_interval = 1
                     led.fadeOut(fade_int)
                     led.fadeIn(fade_int)
@@ -1258,7 +1260,9 @@ function create_music_menu() { //Built-in music selection.
     }
     led.fadeOut(fade_int)
     led.fadeIn(fade_int)
-    if (selected_music == 1) {
+    if (selected_music == 0) {
+        create_select_menu()
+    } else if (selected_music == 1) {
         music_melody8()
     } else if (selected_music == 2) {
         music_melody()
@@ -2317,7 +2321,7 @@ let selected_uart = false
 let selected_serial_if = false
 let selected_log_tool = 0
 let selected_serial_send = 0
-let selected_music = 1
+let selected_music = 0
 let settings_brightness = parseFloat(flashstorage.getOrDefault("brightness", "5"))
 if (settings_brightness == 1) {
     led.setBrightness(50)
