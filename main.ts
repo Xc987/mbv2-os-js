@@ -1124,35 +1124,41 @@ function create_select_menu() { //Create type selection.
     }}
 function custom_music_selection() { //Custom music selection.
     while (true) {
-        if (selected_create_music == 1) {
-            bitmap = sysimages[26]
+        if (selected_create_music == 0) {
+            bitmap = sysimages[9]
             ckeck_hold_a()
-            } else if (selected_create_music == 2) {
+        } else if (selected_create_music == 1) {
+            bitmap = sysimages[26]
+        } else if (selected_create_music == 2) {
             bitmap = sysimages[65]
-            } else if (selected_create_music == 3) {
+        } else if (selected_create_music == 3) {
+            bitmap = sysimages[84]
+        } else if (selected_create_music == 4) {
             bitmap = sysimages[64]
             ckeck_hold_b()
-            }
+        }
         scrollbit()
         if (scroll_interval == 1) {
             basic.pause(300)
         }
         draw_menu()
-        if (selected_create_music == 1) {
+        if (selected_create_music == 0) {
             led.plot(0, 0)
+        } else if (selected_create_music == 1) {
             led.plot(1, 0)
         } else if (selected_create_music == 2) {
             led.plot(2, 0)
         } else if (selected_create_music == 3) {
             led.plot(3, 0)
+        } else if (selected_create_music == 4) {
             led.plot(4, 0)
         }
         while (true) {
             if (input.buttonIsPressed(Button.A)) {
                 led.fadeOut(fade_int)
                 led.fadeIn(fade_int)
-                if (selected_create_music == 1) {
-                    selected_create_music = 3
+                if (selected_create_music == 0) {
+                    selected_create_music = 4
                 } else {
                     selected_create_music += -1
                 }
@@ -1164,8 +1170,8 @@ function custom_music_selection() { //Custom music selection.
                 } else {
                     scroll_interval = 1
                 }
-                if (selected_create_music == 3) {
-                    selected_create_music = 1
+                if (selected_create_music == 4) {
+                    selected_create_music = 0
                     scroll_interval = 1
                     led.fadeOut(fade_int)
                     led.fadeIn(fade_int)
@@ -1174,11 +1180,26 @@ function custom_music_selection() { //Custom music selection.
                 }
                 break;
             } else if (input.logoIsPressed()) {
+                if (selected_create_music == 3) {
+                        while (true) {
+                            if (custom_music[custom_music.length - 1] == 50) {
+                                custom_music.pop()
+                                break;
+                            } else if (custom_music[custom_music.length - 1] == 100) {
+                                custom_music.pop()
+                                break;
+                            } else {
+                                custom_music.pop()
+                            }
+                        }
+                }
                 break;
             }
         }
         if (input.logoIsPressed()) {
-            break;
+            if (selected_create_music != 3) {
+                break;
+            }
         }
     }
     scroll_interval = 1
@@ -1188,7 +1209,7 @@ function custom_music_selection() { //Custom music selection.
         tune()
     } else if (selected_create_music == 2) {
         rest()
-    } else {
+    } else if (selected_create_music == 4){
         melody_play()
     }}
 function create_music_menu() { //Built-in music selection.
@@ -2314,7 +2335,7 @@ let tool_type = 1
 let bluetooth_type = 0
 let bluetooth_keyboard_type = 0
 let create_type = 0
-let selected_create_music = 1
+let selected_create_music = 0
 let selected_billy = 0
 let selected_serial = 0
 let selected_uart = false
@@ -2429,7 +2450,8 @@ let sysimages = [0x1863998, 0x44154, 0x1467994, 0x1E06010, 0x23880,
     0xC4B44, 0xD4B44, 0x4D4B44, 0x1EA7A9E, 0x264A4C, 0x729C0, 0x471084,
     0x1821098, 0x255202, 0x12A90, 0x1E1105E, 0xF13C0, 0x47109C,
     0x4310, 0xA74310, 0x1E95A1E, 0x1300, 0x8639E, 0x1EE6200, 0x1041040,
-    0x14E01D0, 0x822110, 0x211000, 0x18C639C, 0x222208, 0x1E13900]
+    0x14E01D0, 0x822110, 0x211000, 0x18C639C, 0x222208, 0x1E13900, 
+    0x1C2288A]
 let acc_1 = 0
 let time_1 = 0
 let killed_1: number[] = []
@@ -4709,7 +4731,7 @@ function tune() { //Tune selection.
     music.setBuiltInSpeakerEnabled(true)
     basic.clearScreen()
     basic.pause(300)
-    custom_music.push(1)
+    custom_music.push(50)
     num = 1
     unid_type = 1
     while (true) {
@@ -4822,7 +4844,7 @@ function beat() { //Beat selection.
 function rest() { //Rest selection.
     music.setBuiltInSpeakerEnabled(true)
     basic.clearScreen()
-    custom_music.push(2)
+    custom_music.push(100)
     basic.pause(300)
     num = 1
     unid_type = 1
@@ -4886,7 +4908,7 @@ function rest() { //Rest selection.
 function melody_play() { //Play the created melody.
     let bcm = custom_music.slice()
     while (true) {
-        if (custom_music[0] == 1) {
+        if (custom_music[0] == 50) {
             custom_music.removeAt(0)
             if (custom_music[1] == 1) {
                 music.play(music.tonePlayable(tonelist[custom_music[0]], music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
@@ -4906,7 +4928,7 @@ function melody_play() { //Play the created melody.
             custom_music.removeAt(0)
             custom_music.removeAt(0)
         }
-        if (custom_music[0] == 2) {
+        if (custom_music[0] == 100) {
             custom_music.removeAt(0)
             if (custom_music[0] == 1) {
                 music.rest(music.beat(BeatFraction.Whole))
