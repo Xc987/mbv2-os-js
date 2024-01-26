@@ -1182,7 +1182,9 @@ function custom_music_selection() { //Custom music selection.
     }
     scroll_interval = 1
     fade()
-    if (selected_create_music == 1) {
+    if (selected_create_music == 0) {
+        create_music_menu()
+    } else if (selected_create_music == 1) {
         tune()
     } else if (selected_create_music == 2) {
         rest()
