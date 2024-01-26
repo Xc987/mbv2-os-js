@@ -1,8 +1,7 @@
 
 > Open this page at [https://xc987.github.io/mbv2-os-js/](https://xc987.github.io/mbv2-os-js/)
-# Microbit V2 OS
 
-Outdated
+# Microbit V2 OS
 
 * Games
   * Space ivaders
@@ -14,6 +13,7 @@ Outdated
   * Pac man
   * Tetris
   * Tic Tac Toe
+  * Snake
 * Tools
   * Temperature
   * Light level
@@ -26,6 +26,7 @@ Outdated
     * Record audio
     * Play audio
     * Change sample rate
+    * Change gain
   * Calculator
     * plus
     * minus
@@ -61,8 +62,12 @@ Outdated
     * Create
       * Note
       * Rest
+      * Delete previous note / rest
       * Play
   * Image via turtle
+* Billy TTS
+  * Text
+  * Change voice preset
 * Serial / Bluetooth
   * Send
     * A/B/LOGO buttons
