@@ -4,7 +4,7 @@
 # Microbit V2 OS
 
 * Games
-  * Space ivaders
+  * Space ivaders // A / B - move // AB - shoot
   * Flappy bird
   * Ping pong
   * Cars game
