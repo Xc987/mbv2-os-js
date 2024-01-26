@@ -93,12 +93,11 @@ function scrollbit() { //Scroll the decrypted image
     decrypt()
     currimage = led.screenshot()
     currimage.scrollImage(1, scroll_interval)}
-function fade() {
+function fade() { //Fade in / out effect on max brightness.
     if (settings_brightness == 5) {
         led.fadeOut(fade_int)
         led.fadeIn(fade_int)
-    }
-}
+    }}
 function unid_if_0_9() { //Function to draw numbers from 0 to 9
     unid = num
     bitmap = unid09[unid]
@@ -1746,25 +1745,15 @@ function settings_select_menu() { //Settings selection.
         } else if (selected_setting == 2) {
             if (settings_volume == 1) {
                 bitmap = sysimages[54]
-                led.plotBrightness(2, 1, 20)
                 music.setVolume(50)
             } else if(settings_volume == 2) {
                 bitmap = sysimages[54]
-                led.plotBrightness(2, 1, 20)
-                led.plotBrightness(3, 2, 20)
                 music.setVolume(100)
             } else if (settings_volume == 3) {
                 bitmap = sysimages[54]
-                led.plotBrightness(2, 1, 20)
-                led.plotBrightness(3, 2, 20)
-                led.plotBrightness(3, 3, 20)
                 music.setVolume(150)
             } else if (settings_volume == 4) {
                 bitmap = sysimages[54]
-                led.plotBrightness(2, 1, 20)
-                led.plotBrightness(3, 2, 20)
-                led.plotBrightness(3, 3, 20)
-                led.plotBrightness(2, 4, 20)
                 music.setVolume(200)
             } else {
                 bitmap = sysimages[55]
@@ -2407,7 +2396,7 @@ let sysimages = [0x1863998, 0x44154, 0x1467994, 0x1E06010, 0x23880,
     0x1821098, 0x255202, 0x12A90, 0x1E1105E, 0xF13C0, 0x47109C,
     0x4310, 0xA74310, 0x1E95A1E, 0x1300, 0x8639E, 0x1EE6200, 0x1041040,
     0x14E01D0, 0x822110, 0x211000, 0x18C639C, 0x222208, 0x1E13900, 
-    0x1C2288A]
+    0x1C2288A, 0x10023C8, 0x18023C8, 0x1C023C8]
 let acc_1 = 0
 let time_1 = 0
 let killed_1: number[] = []
@@ -3228,22 +3217,18 @@ function tool_compass() { //Compass // Selected_tool = 4
 
 function tool_record() { //Record and play sound files // Selected_tool = 8
     let tool_record_volume = 5
+    let tool_gain = 1
+    record.setMicGain(record.AudioLevels.Low)
     record.setSampleRate(22000)
     while (true) {
         if (tool_type == 1) {
-            led.unplot(3, 0)
-            led.unplot(4, 0)
+            bitmap = sysimages[9]
+            ckeck_hold_a()
         } else if (tool_type == 2) {
-            led.unplot(1, 0)
-            led.unplot(0, 0)
-        } else if (tool_type == 3) {
-            led.unplot(2, 0)
-        }
-        if (tool_type == 1) {
             bitmap = sysimages[21]
-        } else if (tool_type == 2) {
-            bitmap = sysimages[26]
         } else if (tool_type == 3) {
+            bitmap = sysimages[26]
+        } else if (tool_type == 4) {
             if (tool_record_volume == 1) {
                 bitmap = sysimages[54]
                 record.setSampleRate(4400)
@@ -3260,9 +3245,21 @@ function tool_record() { //Record and play sound files // Selected_tool = 8
                 bitmap = sysimages[55]
                 record.setSampleRate(22000)
             }
+        } else if (tool_type == 5) {
+            if (tool_gain == 1) {
+                bitmap = sysimages[85]
+                record.setMicGain(record.AudioLevels.Low)
+            } else if (tool_gain == 2) {
+                bitmap = sysimages[86]
+                record.setMicGain(record.AudioLevels.Medium)
+            } else if (tool_gain == 3) {
+                bitmap = sysimages[87]
+                record.setMicGain(record.AudioLevels.High)
+            }
+            ckeck_hold_b()
         }
         scrollbit()
-        if (tool_type == 3) {
+        if (tool_type == 4) {
             if (tool_record_volume == 1) {
                 led.plotBrightness(2, 1, 20)
             } else if (tool_record_volume == 2) {
@@ -3285,64 +3282,85 @@ function tool_record() { //Record and play sound files // Selected_tool = 8
         draw_menu()
         if (tool_type == 1) {
             led.plot(0, 0)
-            led.plot(1, 0)
         } else if (tool_type == 2) {
-            led.plot(2, 0)
-        } else if (tool_type == 3) {
+            led.plot(1, 0)
+        } else if (tool_type == 4) {
             led.plot(3, 0)
+        } else if (tool_type == 5) {
             led.plot(4, 0)
+        } else {
+            led.plot(2, 0)
         }
-        waiting_for_input = true
-        while (waiting_for_input == true) {
+        while (true) {
             if (input.buttonIsPressed(Button.A)) {
                 fade()
-                scroll_interval = 1
                 if (tool_type == 1) {
-                    tool_type = 3
-                    waiting_for_input = false
+                    tool_type = 5
                 } else {
                     tool_type += -1
-                    waiting_for_input = false
                 }
-            }
-            if (input.buttonIsPressed(Button.B)) {
-                scroll_interval = 45
-                if (tool_type == 3) {
+                scroll_interval = 1
+                break;
+            } else if (input.buttonIsPressed(Button.B)) {
+                if (animation_scroll == 1) {
+                    scroll_interval = 45
+                } else {
+                    scroll_interval = 1
+                }
+                if (tool_type == 5) {
                     tool_type = 1
                     scroll_interval = 1
                     fade()
-                    waiting_for_input = false
                 } else {
                     tool_type += 1
-                    waiting_for_input = false
                 }
-            }
-            if (input.logoIsPressed()) {
+                break;
+            } else if (input.logoIsPressed()) {
                 scroll_interval = 1
                 if (tool_type == 1) {
+                    break;
+                }
+                if (tool_type == 2) {
                     record.startRecording(record.BlockingState.Nonblocking)
                     basic.clearScreen()
                     while (record.audioStatus(record.AudioStatus.Recording)) {
                         loading_animation()
                     }
                 }
-                if (tool_type == 2) {
+                if (tool_type == 3) {
                     record.playAudio(record.BlockingState.Nonblocking)
                     basic.clearScreen()
                     while (record.audioStatus(record.AudioStatus.Playing)) {
                         loading_animation()
                     }
                 }
-                if (tool_type == 3) {
+                if (tool_type == 4) {
                     if (tool_record_volume == 5) {
                         tool_record_volume = 1
                     } else {
                         tool_record_volume += 1
                     }
                 }
-                waiting_for_input = false
+                if (tool_type == 5) {
+                    if (tool_gain == 3) {
+                        tool_gain = 1
+                    } else {
+                        tool_gain += 1
+                    }
+                }
+                break;
             }
         }
+        if (input.logoIsPressed()) {
+            if (tool_type == 1) {
+                break;
+            }
+        }
+    }
+    scroll_interval = 1
+    fade()
+    if (tool_type == 1) {
+        tool_select_menu()
     }}
 function math_xy() { //Calculator with 2 variables // Selected_tool = 9
     basic.pause(200)
