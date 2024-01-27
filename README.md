@@ -3,9 +3,12 @@
 
 # Microbit V2 OS
 
-Use LOGO to select the program / game
-At any time select the back option to exit the current sub menu
+How to use:
+ Use LOGO to select the program / game.
+ At any time select the back option to exit the current sub menu.
+ Press Pin 1 if you dont know what is the selected option.
 
+Features:
 * Games
   * Space ivaders `A / B - move` `AB - shoot`
   * Flappy bird `A - move down` `B - move up`
@@ -99,13 +102,15 @@ At any time select the back option to exit the current sub menu
   * Brightness `Change the brightness from 50 to 255` `SETTING WILL BE SAVED`
   * Data logging `Enable data logging for games` `SETTING WILL BE SAVED`
   * Calibrate compass `Calibrate the compass`
-  * Test input `Test all inputs`
+  * Test input `Test all inputs` `REMOVED IN 8.3.0`
   * Rotate display `Rotate the display` `SETTING WILL BE SAVED`
-  * Disable/Enable animation `Disable / Enable the scrolling moving animation`
+  * Disable/Enable animation `Disable / Enable the scrolling moving animation` `REMOVED IN 8.3.0`
   * Custom bar graphs `Change the custom bar graphs` `moving bar graph change speed by presing A B buttons`
   * Use Pin 2 in settins `Use the P2 to decrease the volume / brightness / Bar graph value`
 
-
+Notes:
+ Stock bar graph is broken in 8.3.0, change the bar graph in settings or once showing the selected input bar graph - Press Pin 2 to change bar graphs.
+ Some sent serial data will be corrupted / broken in 8.3.0
 
 ## Use this as Extension
 
