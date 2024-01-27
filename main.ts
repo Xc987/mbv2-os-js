@@ -48,8 +48,10 @@ function waiting_for_connection() { //Waiting for the bluetooth connection.
     } else if (bluetooth_type == 2) {
         mouse.startMouseService()
     } else if (bluetooth_type == 3) {
+        mouse.startMouseService()
+    } else if (bluetooth_type == 4){
         gamepad.startGamepadService()
-    } else {
+    } else if (bluetooth_type == 5) {
         keyboard.startKeyboardService()
     }
     while (waiting_for_input == true) {
@@ -62,6 +64,8 @@ function waiting_for_connection() { //Waiting for the bluetooth connection.
             } else if (bluetooth_type == 2) {
                 bluetooth_mouse()
             } else if (bluetooth_type == 3) {
+                bluetooth_mouse_buttons()
+            } else if (bluetooth_type == 4) {
                 bluetooth_gamepad()
             }
             if (bluetooth_keyboard_type == 1) {
@@ -888,11 +892,13 @@ function bluetooth_select_menu() { //Bluetooth send type selection.
             } else if (bluetooth_type == 2) {
             bitmap = sysimages[43]
             } else if (bluetooth_type == 3) {
-            bitmap = sysimages[44]
+            bitmap = sysimages[88]
             } else if (bluetooth_type == 4) {
+            bitmap = sysimages[44]
+        } else if (bluetooth_type == 5) {
             bitmap = sysimages[45]
             ckeck_hold_b()
-            }
+        }
         scrollbit()
         if (scroll_interval == 1) {
             basic.pause(300)
@@ -902,18 +908,18 @@ function bluetooth_select_menu() { //Bluetooth send type selection.
             led.plot(0, 0)
         } else if (bluetooth_type == 1) {
             led.plot(1, 0)
-        } else if (bluetooth_type == 2) {
-            led.plot(2, 0)
-        } else if (bluetooth_type == 3) {
-            led.plot(3, 0)
         } else if (bluetooth_type == 4) {
+            led.plot(3, 0)
+        } else if (bluetooth_type == 5) {
             led.plot(4, 0)
+        } else {
+            led.plot(2, 0)
         }
         while (true) {
             if (input.buttonIsPressed(Button.A)) {
                 fade()
                 if (bluetooth_type == 0) {
-                    bluetooth_type = 4
+                    bluetooth_type = 5
                 } else {
                     bluetooth_type += -1
                 }
@@ -926,7 +932,7 @@ function bluetooth_select_menu() { //Bluetooth send type selection.
                 } else {
                     scroll_interval = 1
                 }
-                if (bluetooth_type == 4) {
+                if (bluetooth_type == 5) {
                     bluetooth_type = 0
                     scroll_interval = 1
                     fade()
@@ -948,7 +954,7 @@ function bluetooth_select_menu() { //Bluetooth send type selection.
     basic.clearScreen()
     if (bluetooth_type == 0) {
         menu_select_menu()
-    } else if (bluetooth_type == 4) {
+    } else if (bluetooth_type == 5) {
         bluetooth_keyboard_menu()
     } else {
         waiting_for_connection()
@@ -2398,7 +2404,7 @@ let sysimages = [0x1863998, 0x44154, 0x1467994, 0x1E06010, 0x23880,
     0x1821098, 0x255202, 0x12A90, 0x1E1105E, 0xF13C0, 0x47109C,
     0x4310, 0xA74310, 0x1E95A1E, 0x1300, 0x8639E, 0x1EE6200, 0x1041040,
     0x14E01D0, 0x822110, 0x211000, 0x18C639C, 0x222208, 0x1E13900, 
-    0x1C2288A, 0x10023C8, 0x18023C8, 0x1C023C8]
+    0x1C2288A, 0x10023C8, 0x18023C8, 0x1C023C8, 0xA3BCE]
 let acc_1 = 0
 let time_1 = 0
 let killed_1: number[] = []
@@ -3741,6 +3747,100 @@ function bluetooth_mouse() { //Control the mouse via bluetooth.
         )
         x = 0.4 * x + 0.4 * newx
         y = 0.4 * y + 0.4 * newx
+    }
+    loading_animation()
+    bluetooth_mouse()}
+function bluetooth_mouse_buttons() { //Control the mouse via bluetooth using buttons.
+    let var12 = 1
+    pins.touchSetMode(TouchTarget.P1, TouchTargetMode.Capacitive)
+    pins.touchSetMode(TouchTarget.P0, TouchTargetMode.Capacitive)
+    for (let index = 0; index <= 4; index++) {
+        led.plot(index, 4)
+    }
+    while (bluetooth_online == true) {
+        if (input.isGesture(Gesture.TiltLeft)) {
+            if (var12 == 1) {
+                var12 = 5
+            } else {
+                var12 += -1
+            }
+            basic.pause(200)
+            basic.clearScreen()
+            if (var12 == 1) {
+                for (let index = 0; index <= 4; index++) {
+                    led.plot(index, 4)
+                }
+            } else if (var12 == 2) {
+                for (let index2 = 0; index2 <= 4; index2++) {
+                    led.plot(index2, 3)
+                }
+            } else if (var12 == 3) {
+                for (let index3 = 0; index3 <= 4; index3++) {
+                    led.plot(index3, 2)
+                }
+            } else if (var12 == 4) {
+                for (let index4 = 0; index4 <= 4; index4++) {
+                    led.plot(index4, 1)
+                }
+            } else if (var12 == 5) {
+                for (let index5 = 0; index5 <= 4; index5++) {
+                    led.plot(index5, 0)
+                }
+            }
+        }
+        if (input.isGesture(Gesture.TiltRight)) {
+            if (var12 == 5) {
+                var12 = 1
+            } else {
+                var12 += 1
+            }
+            basic.pause(200)
+            basic.clearScreen()
+            if (var12 == 1) {
+                for (let index = 0; index <= 4; index++) {
+                    led.plot(index, 4)
+                }
+            } else if (var12 == 2) {
+                for (let index2 = 0; index2 <= 4; index2++) {
+                    led.plot(index2, 3)
+                }
+            } else if (var12 == 3) {
+                for (let index3 = 0; index3 <= 4; index3++) {
+                    led.plot(index3, 2)
+                }
+            } else if (var12 == 4) {
+                for (let index4 = 0; index4 <= 4; index4++) {
+                    led.plot(index4, 1)
+                }
+            } else if (var12 == 5) {
+                for (let index5 = 0; index5 <= 4; index5++) {
+                    led.plot(index5, 0)
+                }
+            }
+        }
+        if (input.buttonIsPressed(Button.A)) {
+            x = -5 * var12
+        }
+        if (input.buttonIsPressed(Button.B)) {
+            x = 5 * var12
+        }
+        if (input.pinIsPressed(TouchPin.P2)) {
+            y = 5 * var12
+        }
+        if (input.logoIsPressed()) {
+            y = -5 * var12
+        }
+        mouse.send(
+            x,
+            y,
+            input.pinIsPressed(TouchPin.P0),
+            false,
+            input.pinIsPressed(TouchPin.P1),
+            0,
+            false
+        )
+        x = 0
+        y = 0
     }
     loading_animation()
     bluetooth_mouse()}
