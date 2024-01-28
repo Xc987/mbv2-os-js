@@ -3,11 +3,13 @@
 
 # Microbit V2 OS
 
-How to use:
- Use LOGO to select the program / game.
- At any time select the back option to exit the current sub menu.
+### How to use
+* Press A to move left
+* Press B to move right
+* Press LOGO to select the submenu / program / game
+* In settings press P2 to decrease the selected value (Volume, brightness, rotate display, bar graph)
 
-Features:
+### Features
 * Games
   * Space ivaders `A / B - move` `AB - shoot`
   * Flappy bird `A - move down` `B - move up`
@@ -39,6 +41,7 @@ Features:
     * divide
     * exponent
     * square root
+    * factorial
     * sin
     * cos
     * tan
@@ -53,6 +56,7 @@ Features:
 * Bluetooth
   * Media `A - volume down` `B - volume up` `P2 - mute` `LOGO - start / pause` `HOLD AB - previous track`
   * Mouse `Use accelerometer to move` `A - left click` `B - right click`
+  * Mousev2 `Use A B LOGO P2 to move` `P0 - left click` `P1 - right click` `Tilt left / right - change mouse sensitivity`
   * Gamepad `A B P2 LOGO - buttons` `AB - start` `P0 - left shoulder` `P1 - right shoulder` `accelerometer - x y`
   * Keyboard
     * Letter keys `use LOGO to send selected letter`
@@ -79,7 +83,7 @@ Features:
     * Temperature
     * Light level
     * Sound level
-    * Compass
+    * Compass `....`
     * Acceleration X
     * Acceleration Y
     * Acceleration Z
@@ -107,6 +111,13 @@ Features:
   * Custom bar graphs `Change the custom bar graphs` `moving bar graph change speed by presing A B buttons`
   * Use Pin 2 in settins `Use the P2 to decrease the volume / brightness / Bar graph value`
 
+### Notes
+* Reflash hex file if settings aren't saved
+* Restart bluetooth service (restart microbit) if you can't see you'r microbit
+* You might need to remove the microbit (in phone / laptop bluetooth settings) if you want to use bluetooth services again
+* Data logging frequency could be wrong (in milliseconds)
+* **There might be bugs**
+
 ## Use this as Extension
 
 This repository can be added as an **extension** in MakeCode.
@@ -123,8 +134,4 @@ To edit this repository in MakeCode.
 * open [https://makecode.microbit.org/](https://makecode.microbit.org/)
 * click on **Import** then click on **Import URL**
 * paste **https://github.com/xc987/mbv2-os-js** and click import
-
-#### Metadata (used for search, rendering)
-
-* for PXT/microbit
-<script src="https://makecode.com/gh-pages-embed.js"></script><script>makeCodeRender("{{ site.makecode.home_url }}", "{{ site.github.owner_name }}/{{ site.github.repository_name }}");</script>
+* roast my terrible coding skills to medium rare
