@@ -201,7 +201,6 @@ function uns_loop() { //Number select
             break;
             basic.clearScreen()
         } else if (input.buttonIsPressed(Button.A)) {
-            fade()
             if (num == 0) {
                 num = 9
             } else {
@@ -699,14 +698,16 @@ function tool_calculator_menu() { //Calculator type selection.
             } else if (selected_math == 6) {
                 bitmap = sysimages[34]
             } else if (selected_math == 7) {
-                bitmap = sysimages[35]
+                bitmap = sysimages[89]
             } else if (selected_math == 8) {
-                bitmap = sysimages[36]
+                bitmap = sysimages[35]
             } else if (selected_math == 9) {
-                bitmap = sysimages[37]
+                bitmap = sysimages[36]
             } else if (selected_math == 10) {
-                bitmap = sysimages[38]
+                bitmap = sysimages[37]
             } else if (selected_math == 11) {
+                bitmap = sysimages[38]
+            } else if (selected_math == 12) {
                 bitmap = sysimages[39]
                 ckeck_hold_b()
             }
@@ -719,9 +720,9 @@ function tool_calculator_menu() { //Calculator type selection.
             led.plot(0, 0)
         } else if (selected_math == 1) {
             led.plot(1, 0)
-        } else if (selected_math == 10) {
-            led.plot(3, 0)
         } else if (selected_math == 11) {
+            led.plot(3, 0)
+        } else if (selected_math == 12) {
             led.plot(4, 0)
         } else {
             led.plot(2, 0)
@@ -730,7 +731,7 @@ function tool_calculator_menu() { //Calculator type selection.
             if (input.buttonIsPressed(Button.A)) {
                 fade()
                 if (selected_math == 0) {
-                    selected_math = 11
+                    selected_math = 12
                 } else {
                     selected_math += -1
                 }
@@ -742,7 +743,7 @@ function tool_calculator_menu() { //Calculator type selection.
                 } else {
                     scroll_interval = 1
                 }
-                if (selected_math == 11) {
+                if (selected_math == 12) {
                     selected_math = 0
                     scroll_interval = 1
                     fade()
@@ -761,11 +762,11 @@ function tool_calculator_menu() { //Calculator type selection.
     fade()
     scroll_interval = 1
     basic.clearScreen()
-    if (selected_math == 1 || selected_math == 2 || selected_math == 3 || selected_math == 4 || selected_math == 5 || selected_math == 11) {
+    if (selected_math == 1 || selected_math == 2 || selected_math == 3 || selected_math == 4 || selected_math == 5 || selected_math == 12) {
         math_xy()
-    } else if (selected_math == 6 || selected_math == 7 || selected_math == 8 || selected_math == 9) {
+    } else if (selected_math == 6 || selected_math == 7 || selected_math == 8 || selected_math == 9 || selected_math == 10) {
         math_x()
-    } else if (selected_math == 10) {
+    } else if (selected_math == 11) {
         basic.clearScreen()
         basic.showNumber(Math.PI)
         tool_calculator_menu()
@@ -2404,7 +2405,7 @@ let sysimages = [0x1863998, 0x44154, 0x1467994, 0x1E06010, 0x23880,
     0x1821098, 0x255202, 0x12A90, 0x1E1105E, 0xF13C0, 0x47109C,
     0x4310, 0xA74310, 0x1E95A1E, 0x1300, 0x8639E, 0x1EE6200, 0x1041040,
     0x14E01D0, 0x822110, 0x211000, 0x18C639C, 0x222208, 0x1E13900, 
-    0x1C2288A, 0x10023C8, 0x18023C8, 0x1C023C8, 0xA3BCE]
+    0x1C2288A, 0x10023C8, 0x18023C8, 0x1C023C8, 0xA3BCE, 0x1605114]
 let acc_1 = 0
 let time_1 = 0
 let killed_1: number[] = []
@@ -3405,7 +3406,7 @@ function math_xy() { //Calculator with 2 variables // Selected_tool = 9
                 basic.showNumber(mathx / mathy)
             } else if (selected_math == 5) {
                 basic.showNumber(mathx ** mathy)
-            } else if (selected_math == 11) {
+            } else if (selected_math == 12) {
                 basic.showNumber(randint(mathx, mathy))
             }
             basic.clearScreen()
@@ -3433,10 +3434,15 @@ function math_x() { //Calculator with 1 variable // Selected_tool = 9
             if (selected_math == 6) {
                 basic.showNumber(Math.sqrt(mathx))
             } else if (selected_math == 7) {
-                basic.showNumber(Math.sin(mathx * Math.PI / 180))
+                for (let i = mathx - 1; i >= 1; i--) {
+                    mathx *= i;
+                }
+                basic.showNumber(mathx)
             } else if (selected_math == 8) {
-                basic.showNumber(Math.cos(mathx * Math.PI / 180))
+                basic.showNumber(Math.sin(mathx * Math.PI / 180))
             } else if (selected_math == 9) {
+                basic.showNumber(Math.cos(mathx * Math.PI / 180))
+            } else if (selected_math == 10) {
                 basic.showNumber(Math.tan(mathx * Math.PI / 180))
             }
             basic.clearScreen()
@@ -3945,7 +3951,6 @@ function bluetooth_keyboard() { //Send any keyboard input via bluetooth
                     break;
                 }
                 if (input.buttonIsPressed(Button.A)) {
-                    fade()
                     scroll_interval = 1
                     if (abc_id == 1) {
                         abc_id = 42
@@ -3995,7 +4000,6 @@ function bluetooth_keyboard_number() { //Send keyboard numbers via bluetooth.
                     break;
                 }
                 if (input.buttonIsPressed(Button.A)) {
-                    fade()
                     scroll_interval = 1
                     if (num == 0) {
                         num = 9
@@ -4107,7 +4111,6 @@ function bluetooth_keyboard_custom() { // Custom keyboard input.
                     break;
                 }
                 if (input.buttonIsPressed(Button.A)) {
-                    fade()
                     scroll_interval = 1
                     if (abc_id == 1) {
                         abc_id = 42
@@ -4162,7 +4165,6 @@ function bluetooth_keyboard_custom() { // Custom keyboard input.
                     break;
                 }
                 if (input.buttonIsPressed(Button.A)) {
-                    fade()
                     scroll_interval = 1
                     if (abc_id == 1) {
                         abc_id = 42
@@ -4216,7 +4218,6 @@ function bluetooth_keyboard_custom() { // Custom keyboard input.
                     break;
                 }
                 if (input.buttonIsPressed(Button.A)) {
-                    fade()
                     scroll_interval = 1
                     if (abc_id == 1) {
                         abc_id = 42
@@ -4286,7 +4287,6 @@ function bluetooth_keyboard_custom() { // Custom keyboard input.
 function create_strig() { //Create a temp-saved string.
     basic.clearScreen()
     basic.pause(300)
-    fade_int = 50
     while (true) {
         if (input.pinIsPressed(TouchPin.P2)) {
             break;
@@ -4300,7 +4300,6 @@ function create_strig() { //Create a temp-saved string.
                 break;
             }
             if (input.buttonIsPressed(Button.A)) {
-                fade()
                 scroll_interval = 1
                 if (abc_id == 1) {
                     abc_id = 42
@@ -4347,7 +4346,6 @@ function create_strig() { //Create a temp-saved string.
 function billy_say() { //Say custom text
     basic.clearScreen()
     basic.pause(300)
-    fade_int = 50
     while (true) {
         if (input.pinIsPressed(TouchPin.P2)) {
             break;
@@ -4361,7 +4359,6 @@ function billy_say() { //Say custom text
                 break;
             }
             if (input.buttonIsPressed(Button.A)) {
-                fade()
                 scroll_interval = 1
                 if (abc_id == 1) {
                     abc_id = 42
@@ -4531,7 +4528,6 @@ function music_melody8() { //Built in mucic 8.
         }
         while(true){
             if (input.buttonIsPressed(Button.A)) {
-                fade()
                 scroll_interval = 1
                 if (num == 1) {
                     num = 10
@@ -4596,7 +4592,6 @@ function music_melody() { //Built in music.
         }
         while(true){
             if (input.buttonIsPressed(Button.A)) {
-                fade()
                 scroll_interval = 1
                 if (num == 1) {
                     num = 20
@@ -4681,7 +4676,6 @@ function music_melodyV2() { //Built in music V2.
         }
         while(true){
             if (input.buttonIsPressed(Button.A)) {
-                fade()
                 scroll_interval = 1
                 if (num == 1) {
                     num = 10
@@ -4743,7 +4737,6 @@ function music_sFX() { //Built in sFX.
         }
         while(true){
             if (input.buttonIsPressed(Button.A)) {
-                fade()
                 scroll_interval = 1
                 if (num == 1) {
                     num = 10
@@ -4812,7 +4805,6 @@ function tune() { //Tune selection.
                 break;
             }
             if (input.buttonIsPressed(Button.A)) {
-                fade()
                 if (num == 1) {
                     num = 21
                 } else {
@@ -4875,7 +4867,6 @@ function beat() { //Beat selection.
                 break;
             }
             if (input.buttonIsPressed(Button.A)) {
-                fade()
                 scroll_interval = 1
                 if (num == 1) {
                     num = 7
@@ -4938,7 +4929,6 @@ function rest() { //Rest selection.
                 break;
             }
             if (input.buttonIsPressed(Button.A)) {
-                fade()
                 scroll_interval = 1
                 if (num == 1) {
                     num = 7
@@ -5082,7 +5072,6 @@ function send_compass() { //Send compass heading via serial or bluetooth.
         }
     }}
 function send_string() { //Send string via serial or bluetooth.
-    fade_int = 50
     basic.clearScreen()
     basic.pause(300)
     while (true) {
@@ -5092,7 +5081,6 @@ function send_string() { //Send string via serial or bluetooth.
         }
         while(true){
             if (input.buttonIsPressed(Button.A)) {
-                fade()
                 scroll_interval = 1
                 if (abc_id == 1) {
                     abc_id = 42
@@ -5137,7 +5125,6 @@ function send_number() { //Send number via serial or bluetooth.
         }
         while(true){
             if (input.buttonIsPressed(Button.A)) {
-                fade()
                 scroll_interval = 1
                 if (num == 0) {
                     num = 9
@@ -5192,115 +5179,6 @@ function settings_test_input() { //Test all inputs.
         }
         if (input.pinIsPressed(TouchPin.P2)) {
             led.plot(4, 4)
-        }
-        if (input.lightLevel() <= 50) {
-            led.plotBrightness(0, 0, 20)
-        } else if (input.lightLevel() <= 100) {
-            led.plotBrightness(0, 0, 100)
-        } else if (input.lightLevel() <= 150) {
-            led.plotBrightness(0, 0, 150)
-        } else if (input.lightLevel() <= 200) {
-            led.plotBrightness(0, 0, 200)
-        } else {
-            led.plotBrightness(0, 0, 255)
-        }
-        if (input.soundLevel() <= 50) {
-            led.plotBrightness(4, 0, 20)
-        } else if (input.soundLevel() <= 100) {
-            led.plotBrightness(4, 0, 100)
-        } else if (input.soundLevel() <= 150) {
-            led.plotBrightness(4, 0, 150)
-        } else if (input.soundLevel() <= 200) {
-            led.plotBrightness(4, 0, 200)
-        } else {
-            led.plotBrightness(4, 0, 255)
-        }
-        if (input.acceleration(Dimension.X) >= 0) {
-            if (input.acceleration(Dimension.X) <= 300) {
-                led.plot(1, 3)
-                led.unplot(1, 2)
-                led.unplot(1, 1)
-            } else if (input.acceleration(Dimension.X) <= 600) {
-                led.plot(1, 2)
-                led.unplot(1, 3)
-                led.unplot(1, 1)
-            } else {
-                led.plot(1, 1)
-                led.unplot(1, 3)
-                led.unplot(1, 2)
-            }
-        } else {
-            if (input.acceleration(Dimension.X) >= -300) {
-                led.plot(1, 3)
-                led.unplot(1, 2)
-                led.unplot(1, 1)
-            } else if (input.acceleration(Dimension.X) >= -600) {
-                led.plot(1, 2)
-                led.unplot(1, 3)
-                led.unplot(1, 1)
-            } else {
-                led.plot(1, 1)
-                led.unplot(1, 3)
-                led.unplot(1, 2)
-            }
-        }
-        if (input.acceleration(Dimension.Y) >= 0) {
-            if (input.acceleration(Dimension.Y) <= 300) {
-                led.plot(2, 3)
-                led.unplot(2, 2)
-                led.unplot(2, 1)
-            } else if (input.acceleration(Dimension.Y) <= 600) {
-                led.plot(2, 2)
-                led.unplot(2, 3)
-                led.unplot(2, 1)
-            } else {
-                led.plot(2, 1)
-                led.unplot(2, 3)
-                led.unplot(2, 2)
-            }
-        } else {
-            if (input.acceleration(Dimension.Y) >= -300) {
-                led.plot(2, 3)
-                led.unplot(2, 2)
-                led.unplot(2, 1)
-            } else if (input.acceleration(Dimension.Y) >= -600) {
-                led.plot(2, 2)
-                led.unplot(2, 3)
-                led.unplot(2, 1)
-            } else {
-                led.plot(2, 1)
-                led.unplot(2, 3)
-                led.unplot(2, 2)
-            }
-        }
-        if (input.acceleration(Dimension.Z) >= 0) {
-            if (input.acceleration(Dimension.Z) <= 300) {
-                led.plot(3, 3)
-                led.unplot(3, 2)
-                led.unplot(3, 1)
-            } else if (input.acceleration(Dimension.Z) <= 600) {
-                led.plot(3, 2)
-                led.unplot(3, 3)
-                led.unplot(3, 1)
-            } else {
-                led.plot(3, 1)
-                led.unplot(3, 3)
-                led.unplot(3, 2)
-            }
-        } else {
-            if (input.acceleration(Dimension.Z) >= -300) {
-                led.plot(3, 3)
-                led.unplot(3, 2)
-                led.unplot(3, 1)
-            } else if (input.acceleration(Dimension.Z) >= -600) {
-                led.plot(3, 2)
-                led.unplot(3, 3)
-                led.unplot(3, 1)
-            } else {
-                led.plot(3, 1)
-                led.unplot(3, 3)
-                led.unplot(3, 2)
-            }
         }
         basic.pause(100)
         led.unplot(2, 0)
