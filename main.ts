@@ -237,7 +237,7 @@ function ckeck_hold_b() { //Check if button B is held.
             break;
         }
     }}
-function menu_moving(menul: number, min: number, max: number) {
+function menu_moving(menul: number, min: number, max: number) { //Move the menu
     if (input.buttonIsPressed(Button.A)) {
         fade()
         if (menul == min) {
@@ -260,8 +260,7 @@ function menu_moving(menul: number, min: number, max: number) {
             menul += 1
         }
     }
-    menu = menul
-}
+    menu = menul}
 function plot_graph() { //Plot a bar graph system/custom.
     if (custom_graph == 1) {
         led.plotBarGraph(graph_var1, graph_var2)
@@ -869,12 +868,12 @@ function bluetooth_select_menu() { //Bluetooth send type selection.
         while (true) {
             if (input.buttonIsPressed(Button.A)) {
                 menu_moving(bluetooth_type, 0, 5)
-                selected_clock = menu
+                bluetooth_type = menu
                 break;
             }
             if (input.buttonIsPressed(Button.B)) {
                 menu_moving(bluetooth_type, 0, 5)
-                selected_clock = menu
+                bluetooth_type = menu
                 break;
             }
             if (input.logoIsPressed()) {
@@ -2064,7 +2063,6 @@ pins.setAudioPinEnabled(false)
 pins.touchSetMode(TouchTarget.P2, TouchTargetMode.Capacitive)
 serial.setBaudRate(BaudRate.BaudRate115200)
 bluetooth.startUartService()
-let minus = 0
 let menu = 0
 let selected_menu = 1
 let scroll_interval = 1
