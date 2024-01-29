@@ -237,6 +237,31 @@ function ckeck_hold_b() { //Check if button B is held.
             break;
         }
     }}
+function menu_moving(menul: number, min: number, max: number) {
+    if (input.buttonIsPressed(Button.A)) {
+        fade()
+        if (menul == min) {
+            menul = max
+        } else {
+            menul += -1
+        }
+        scroll_interval = 1
+    } else if (input.buttonIsPressed(Button.B)) {
+        if (animation_scroll == 1) {
+            scroll_interval = 45
+        } else {
+            scroll_interval = 1
+        }
+        if (menul == max) {
+            menul = min
+            scroll_interval = 1
+            fade()
+        } else {
+            menul += 1
+        }
+    }
+    menu = menul
+}
 function plot_graph() { //Plot a bar graph system/custom.
     if (custom_graph == 1) {
         led.plotBarGraph(graph_var1, graph_var2)
@@ -318,27 +343,12 @@ function menu_select_menu() { //Menu selection at the start.
         }
         while (true) {
             if (input.buttonIsPressed(Button.A)) {
-                fade()
-                if (selected_menu == 1) {
-                    selected_menu = 10
-                } else {
-                    selected_menu += -1
-                }
-                scroll_interval = 1
+                menu_moving(selected_menu, 1, 10)
+                selected_menu = menu
                 break;
             } else if (input.buttonIsPressed(Button.B)) {
-                if (animation_scroll == 1) {
-                    scroll_interval = 45
-                } else {
-                    scroll_interval = 1
-                }
-                if (selected_menu == 10) {
-                    selected_menu = 1
-                    scroll_interval = 1
-                    fade()
-                } else {
-                    selected_menu += 1
-                }
+                menu_moving(selected_menu, 1, 10)
+                selected_menu = menu
                 break;
             } else if (input.logoIsPressed()) {
                 break;
@@ -418,27 +428,12 @@ function game_select_menu() { //Game selection.
         }
         while (true) {
             if (input.buttonIsPressed(Button.A)) {
-                fade()
-                if (game_mode == 0) {
-                    game_mode = 10
-                } else {
-                    game_mode += -1
-                }
-                scroll_interval = 1
+                menu_moving(game_mode, 0, 10)
+                game_mode = menu
                 break;
             } else if (input.buttonIsPressed(Button.B)) {
-                if (animation_scroll == 1) {
-                    scroll_interval = 45
-                } else {
-                    scroll_interval = 1
-                }
-                if (game_mode == 10) {
-                    game_mode = 0
-                    scroll_interval = 1
-                    fade()
-                } else {
-                    game_mode += 1
-                }
+                menu_moving(game_mode, 0, 10)
+                game_mode = menu
                 break;
             } else if (input.logoIsPressed()) {
                 break;
@@ -554,27 +549,12 @@ function tool_select_menu() { //Tool selection.
         }
         while (true) {
             if (input.buttonIsPressed(Button.A)) {
-                fade()
-                if (selected_tool == 0) {
-                    selected_tool = 10
-                } else {
-                    selected_tool += -1
-                }
-                scroll_interval = 1
+                menu_moving(selected_tool, 0, 10)
+                selected_tool = menu
                 break;
             } else if (input.buttonIsPressed(Button.B)) {
-                if (animation_scroll == 1) {
-                    scroll_interval = 45
-                } else {
-                    scroll_interval = 1
-                }
-                if (selected_tool == 10) {
-                    selected_tool = 0
-                    scroll_interval = 1
-                    fade()
-                } else {
-                    selected_tool += 1
-                }
+                menu_moving(selected_tool, 0, 10)
+                selected_tool = menu
                 break;
             } else if (input.logoIsPressed()) {
                 break;
@@ -729,27 +709,12 @@ function tool_calculator_menu() { //Calculator type selection.
         }
         while (waiting_for_input == true) {
             if (input.buttonIsPressed(Button.A)) {
-                fade()
-                if (selected_math == 0) {
-                    selected_math = 12
-                } else {
-                    selected_math += -1
-                }
-                scroll_interval = 1
+                menu_moving(selected_math, 0, 12)
+                selected_math = menu
                 break;
             } else if (input.buttonIsPressed(Button.B)) {
-                if (animation_scroll == 1) {
-                    scroll_interval = 45
-                } else {
-                    scroll_interval = 1
-                }
-                if (selected_math == 12) {
-                    selected_math = 0
-                    scroll_interval = 1
-                    fade()
-                } else {
-                    selected_math += 1
-                }
+                menu_moving(selected_math, 0, 12)
+                selected_math = menu
                 break;
             } else if (input.logoIsPressed()) {
                 break;
@@ -807,27 +772,12 @@ function tool_clock_menu() { //Clock type selection.
         }
         while (true) {
             if (input.buttonIsPressed(Button.A)) {
-                fade()
-                if (selected_clock == 0) {
-                    selected_clock = 4
-                } else {
-                    selected_clock += -1
-                }
-                scroll_interval = 1
+                menu_moving(selected_clock, 0, 4)
+                selected_clock = menu
                 break;
             } else if (input.buttonIsPressed(Button.B)) {
-                if (animation_scroll == 1) {
-                    scroll_interval = 45
-                } else {
-                    scroll_interval = 1
-                }
-                if (selected_clock == 4) {
-                    selected_clock = 0
-                    scroll_interval = 1
-                    fade()
-                } else {
-                    selected_clock += 1
-                }
+                menu_moving(selected_clock, 0, 4)
+                selected_clock = menu
                 break;
             } else if (input.logoIsPressed()) {
                 break;
@@ -918,28 +868,13 @@ function bluetooth_select_menu() { //Bluetooth send type selection.
         }
         while (true) {
             if (input.buttonIsPressed(Button.A)) {
-                fade()
-                if (bluetooth_type == 0) {
-                    bluetooth_type = 5
-                } else {
-                    bluetooth_type += -1
-                }
-                scroll_interval = 1
+                menu_moving(bluetooth_type, 0, 5)
+                selected_clock = menu
                 break;
             }
             if (input.buttonIsPressed(Button.B)) {
-                if (animation_scroll == 1) {
-                    scroll_interval = 45
-                } else {
-                    scroll_interval = 1
-                }
-                if (bluetooth_type == 5) {
-                    bluetooth_type = 0
-                    scroll_interval = 1
-                    fade()
-                } else {
-                    bluetooth_type += 1
-                }
+                menu_moving(bluetooth_type, 0, 5)
+                selected_clock = menu
                 break;
             }
             if (input.logoIsPressed()) {
@@ -993,28 +928,13 @@ function bluetooth_keyboard_menu() { //Bluetooth keyboard type selection.
         }
         while (true) {
             if (input.buttonIsPressed(Button.A)) {
-                fade()
-                if (bluetooth_keyboard_type == 0) {
-                    bluetooth_keyboard_type = 4
-                } else {
-                    bluetooth_keyboard_type += -1
-                }
-                scroll_interval = 1
+                menu_moving(bluetooth_keyboard_type, 0, 4)
+                bluetooth_keyboard_type = menu
                 break;
             }
             if (input.buttonIsPressed(Button.B)) {
-                if (animation_scroll == 1) {
-                    scroll_interval = 45
-                } else {
-                    scroll_interval = 1
-                }
-                if (bluetooth_keyboard_type == 4) {
-                    bluetooth_keyboard_type = 0
-                    scroll_interval = 1
-                    fade()
-                } else {
-                    bluetooth_keyboard_type += 1
-                }
+                menu_moving(bluetooth_keyboard_type, 0, 4)
+                bluetooth_keyboard_type = menu
                 break;
             }
             if (input.logoIsPressed()) {
@@ -1066,27 +986,12 @@ function create_select_menu() { //Create type selection.
         }
         while (true) {
             if (input.buttonIsPressed(Button.A)) {
-                fade()
-                if (create_type == 0) {
-                    create_type = 4
-                } else {
-                    create_type += -1
-                }
-                scroll_interval = 1
+                menu_moving(create_type, 0, 4)
+                create_type = menu
                 break;
             } else if (input.buttonIsPressed(Button.B)) {
-                if (animation_scroll == 1) {
-                    scroll_interval = 45
-                } else {
-                    scroll_interval = 1
-                }
-                if (create_type == 4) {
-                    create_type = 0
-                    scroll_interval = 1
-                    fade()
-                } else {
-                    create_type += 1
-                }
+                menu_moving(create_type, 0, 4)
+                create_type = menu
                 break;
             } else if (input.logoIsPressed()) {
                 break;
@@ -1142,27 +1047,12 @@ function custom_music_selection() { //Custom music selection.
         }
         while (true) {
             if (input.buttonIsPressed(Button.A)) {
-                fade()
-                if (selected_create_music == 0) {
-                    selected_create_music = 4
-                } else {
-                    selected_create_music += -1
-                }
-                scroll_interval = 1
+                menu_moving(selected_create_music, 0, 4)
+                selected_create_music = menu
                 break;
             } else if (input.buttonIsPressed(Button.B)) {
-                if (animation_scroll == 1) {
-                    scroll_interval = 45
-                } else {
-                    scroll_interval = 1
-                }
-                if (selected_create_music == 4) {
-                    selected_create_music = 0
-                    scroll_interval = 1
-                    fade()
-                } else {
-                    selected_create_music += 1
-                }
+                menu_moving(selected_create_music, 0, 4)
+                selected_create_music = menu
                 break;
             } else if (input.logoIsPressed()) {
                 if (selected_create_music == 3) {
@@ -1233,27 +1123,12 @@ function create_music_menu() { //Built-in music selection.
         }
         while (true) {
             if (input.buttonIsPressed(Button.A)) {
-                fade()
-                if (selected_music == 0) {
-                    selected_music = 5
-                } else {
-                    selected_music += -1
-                }
-                scroll_interval = 1
+                menu_moving(selected_music, 0, 5)
+                selected_music = menu
                 break;
             } else if (input.buttonIsPressed(Button.B)) {
-                if (animation_scroll == 1) {
-                    scroll_interval = 45
-                } else {
-                    scroll_interval = 1
-                }
-                if (selected_music == 5) {
-                    selected_music = 0
-                    scroll_interval = 1
-                    fade()
-                } else {
-                    selected_music += 1
-                }
+                menu_moving(selected_music, 0, 5)
+                selected_music = menu
                 break;
             } else if (input.logoIsPressed()) {
                 break;
@@ -1320,27 +1195,12 @@ function billy_select_menu() { //Billy TTS selection
         }
         while (true) {
             if (input.buttonIsPressed(Button.A)) {
-                fade()
-                if (selected_serial == 0) {
-                    selected_serial = 2
-                } else {
-                    selected_serial += -1
-                }
-                scroll_interval = 1
+                menu_moving(selected_serial, 0, 2)
+                selected_serial = menu
                 break;
             } else if (input.buttonIsPressed(Button.B)) {
-                if (animation_scroll == 1) {
-                    scroll_interval = 45
-                } else {
-                    scroll_interval = 1
-                }
-                if (selected_serial == 2) {
-                    selected_serial = 0
-                    scroll_interval = 1
-                    fade()
-                } else {
-                    selected_serial += 1
-                }
+                menu_moving(selected_serial, 0, 2)
+                selected_serial = menu
                 break;
             } else if (input.logoIsPressed()) {
                 if (selected_serial == 2) {
@@ -1398,27 +1258,12 @@ function send_select_menu() { //Send selection.
         }
         while (true) {
             if (input.buttonIsPressed(Button.A)) {
-                fade()
-                if (selected_serial == 0) {
-                    selected_serial = 2
-                } else {
-                    selected_serial += -1
-                }
-                scroll_interval = 1
+                menu_moving(selected_serial, 0, 2)
+                selected_serial = menu
                 break;
             } else if (input.buttonIsPressed(Button.B)) {
-                if (animation_scroll == 1) {
-                    scroll_interval = 45
-                } else {
-                    scroll_interval = 1
-                }
-                if (selected_serial == 2) {
-                    selected_serial = 0
-                    scroll_interval = 1
-                    fade()
-                } else {
-                    selected_serial += 1
-                }
+                menu_moving(selected_serial, 0, 2)
+                selected_serial = menu
                 break;
             } else if (input.logoIsPressed()) {
                 break;
@@ -1483,27 +1328,12 @@ function send_type_select_menu() { //Send types selection.
         }
         while (true) {
             if (input.buttonIsPressed(Button.A)) {
-                fade()
-                if (selected_serial_send == 0) {
-                    selected_serial_send = 10
-                } else {
-                    selected_serial_send += -1
-                }
-                scroll_interval = 1
+                menu_moving(selected_serial_send, 0, 10)
+                selected_serial_send = menu
                 break;
             } else if (input.buttonIsPressed(Button.B)) {
-                if (animation_scroll == 1) {
-                    scroll_interval = 45
-                } else {
-                    scroll_interval = 1
-                }
-                if (selected_serial_send == 10) {
-                    selected_serial_send = 0
-                    scroll_interval = 1
-                    fade()
-                } else {
-                    selected_serial_send += 1
-                }
+                menu_moving(selected_serial_send, 0, 10)
+                selected_serial_send = menu
                 break;
             } else if (input.logoIsPressed()) {
                 break;
@@ -1583,28 +1413,13 @@ function data_logging_freq_menu() { //Data logging freq selection
         }
         while (true) {
             if (input.buttonIsPressed(Button.A)) {
-                fade()
-                if (logging_freq == 0) {
-                    logging_freq = 4
-                } else {
-                    logging_freq += -1
-                }
-                scroll_interval = 1
+                menu_moving(logging_freq, 0, 4)
+                logging_freq = menu
                 break;
             }
             if (input.buttonIsPressed(Button.B)) {
-                if (animation_scroll == 1) {
-                    scroll_interval = 45
-                } else {
-                    scroll_interval = 1
-                }
-                if (logging_freq == 4) {
-                    logging_freq = 0
-                    scroll_interval = 1
-                    fade()
-                } else {
-                    logging_freq += 1
-                }
+                menu_moving(logging_freq, 0, 4)
+                logging_freq = menu
                 break;
             }
             if (input.logoIsPressed()) {
@@ -1681,27 +1496,12 @@ function data_logger_menu() {  //Log input data.
         }
         while (true) {
             if (input.buttonIsPressed(Button.A)) {
-                fade()
-                if (selected_log_tool == 0) {
-                    selected_log_tool = 7
-                } else {
-                    selected_log_tool += -1
-                }
-                scroll_interval = 1
+                menu_moving(selected_log_tool, 0, 7)
+                selected_log_tool = menu
                 break;
             } else if (input.buttonIsPressed(Button.B)) {
-                if (animation_scroll == 1) {
-                    scroll_interval = 45
-                } else {
-                    scroll_interval = 1
-                }
-                if (selected_log_tool == 7) {
-                    selected_log_tool = 0
-                    scroll_interval = 1
-                    fade()
-                } else {
-                    selected_log_tool += 1
-                }
+                menu_moving(selected_log_tool, 0, 7)
+                selected_log_tool = menu
                 break;
             } else if (input.logoIsPressed()) {
                 break;
@@ -1864,27 +1664,12 @@ function settings_select_menu() { //Settings selection.
         }
         while (true) {
             if (input.buttonIsPressed(Button.A)) {
-                fade()
-                if (selected_setting == 0) {
-                    selected_setting = 10
-                } else {
-                    selected_setting += -1
-                }
-                scroll_interval = 1
+                menu_moving(selected_setting, 0, 10)
+                selected_setting = menu
                 break;
             } else if (input.buttonIsPressed(Button.B)) {
-                if (animation_scroll == 1) {
-                    scroll_interval = 45
-                } else {
-                    scroll_interval = 1
-                }
-                if (selected_setting == 10) {
-                    selected_setting = 0
-                    scroll_interval = 1
-                    fade()
-                } else {
-                    selected_setting += 1
-                }
+                menu_moving(selected_setting, 0, 10)
+                selected_setting = menu
                 break;
             } else if (input.logoIsPressed()) {
                 scroll_interval = 1
@@ -2279,6 +2064,8 @@ pins.setAudioPinEnabled(false)
 pins.touchSetMode(TouchTarget.P2, TouchTargetMode.Capacitive)
 serial.setBaudRate(BaudRate.BaudRate115200)
 bluetooth.startUartService()
+let minus = 0
+let menu = 0
 let selected_menu = 1
 let scroll_interval = 1
 let game_mode = 0
@@ -3302,27 +3089,12 @@ function tool_record() { //Record and play sound files // Selected_tool = 8
         }
         while (true) {
             if (input.buttonIsPressed(Button.A)) {
-                fade()
-                if (tool_type == 1) {
-                    tool_type = 5
-                } else {
-                    tool_type += -1
-                }
-                scroll_interval = 1
+                menu_moving(tool_type, 1, 5)
+                tool_type = menu
                 break;
             } else if (input.buttonIsPressed(Button.B)) {
-                if (animation_scroll == 1) {
-                    scroll_interval = 45
-                } else {
-                    scroll_interval = 1
-                }
-                if (tool_type == 5) {
-                    tool_type = 1
-                    scroll_interval = 1
-                    fade()
-                } else {
-                    tool_type += 1
-                }
+                menu_moving(tool_type, 1, 5)
+                tool_type = menu
                 break;
             } else if (input.logoIsPressed()) {
                 scroll_interval = 1
