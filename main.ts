@@ -238,7 +238,7 @@ function ckeck_hold_b() { //Check if button B is held.
         }
     }}
 function menu_moving(menul: number, min: number, max: number) { //Move the menu
-    if (input.buttonIsPressed(Button.A)) {
+    if (input.buttonIsPressed(Button.A) && rotate_display == 1 || input.buttonIsPressed(Button.B) && rotate_display == 3) {
         fade()
         if (menul == min) {
             menul = max
@@ -246,7 +246,7 @@ function menu_moving(menul: number, min: number, max: number) { //Move the menu
             menul += -1
         }
         scroll_interval = 1
-    } else if (input.buttonIsPressed(Button.B)) {
+    } else if (input.buttonIsPressed(Button.B) && rotate_display == 1 || input.buttonIsPressed(Button.A) && rotate_display == 3) {
         if (animation_scroll == 1) {
             scroll_interval = 45
         } else {
@@ -289,10 +289,10 @@ function plot_graph() { //Plot a bar graph system/custom.
         } else if (custom_graph == 11) {
             meter.use2(meter.Styles2.Water, 0, graph_var2)
         } else if (custom_graph == 12) {
-            if (input.buttonIsPressed(Button.A)) {
+            if (input.buttonIsPressed(Button.A) && rotate_display == 1 || input.buttonIsPressed(Button.B) && rotate_display == 3) {
                 inter += -5
             }
-            if (input.buttonIsPressed(Button.B)) {
+            if (input.buttonIsPressed(Button.B) && rotate_display == 1 || input.buttonIsPressed(Button.A) && rotate_display == 3) {
                 inter += 5
             }
             meter.animateduse(graph_var1, graph_var2, inter)
@@ -341,11 +341,11 @@ function menu_select_menu() { //Menu selection at the start.
             led.plot(2, 0)
         }
         while (true) {
-            if (input.buttonIsPressed(Button.A)) {
+            if (input.buttonIsPressed(Button.A) && rotate_display == 1 || input.buttonIsPressed(Button.B) && rotate_display == 3) {
                 menu_moving(selected_menu, 1, 10)
                 selected_menu = menu
                 break;
-            } else if (input.buttonIsPressed(Button.B)) {
+            } else if (input.buttonIsPressed(Button.B) && rotate_display == 1 || input.buttonIsPressed(Button.A) && rotate_display == 3) {
                 menu_moving(selected_menu, 1, 10)
                 selected_menu = menu
                 break;
@@ -426,11 +426,11 @@ function game_select_menu() { //Game selection.
             led.plot(2, 0)
         }
         while (true) {
-            if (input.buttonIsPressed(Button.A)) {
+            if (input.buttonIsPressed(Button.A) && rotate_display == 1 || input.buttonIsPressed(Button.B) && rotate_display == 3) {
                 menu_moving(game_mode, 0, 10)
                 game_mode = menu
                 break;
-            } else if (input.buttonIsPressed(Button.B)) {
+            } else if (input.buttonIsPressed(Button.B) && rotate_display == 1 || input.buttonIsPressed(Button.A) && rotate_display == 3) {
                 menu_moving(game_mode, 0, 10)
                 game_mode = menu
                 break;
@@ -547,11 +547,11 @@ function tool_select_menu() { //Tool selection.
             led.plot(2, 0)
         }
         while (true) {
-            if (input.buttonIsPressed(Button.A)) {
+            if (input.buttonIsPressed(Button.A) && rotate_display == 1 || input.buttonIsPressed(Button.B) && rotate_display == 3) {
                 menu_moving(selected_tool, 0, 10)
                 selected_tool = menu
                 break;
-            } else if (input.buttonIsPressed(Button.B)) {
+            } else if (input.buttonIsPressed(Button.B) && rotate_display == 1 || input.buttonIsPressed(Button.A) && rotate_display == 3) {
                 menu_moving(selected_tool, 0, 10)
                 selected_tool = menu
                 break;
@@ -707,11 +707,11 @@ function tool_calculator_menu() { //Calculator type selection.
             led.plot(2, 0)
         }
         while (waiting_for_input == true) {
-            if (input.buttonIsPressed(Button.A)) {
+            if (input.buttonIsPressed(Button.A) && rotate_display == 1 || input.buttonIsPressed(Button.B) && rotate_display == 3) {
                 menu_moving(selected_math, 0, 12)
                 selected_math = menu
                 break;
-            } else if (input.buttonIsPressed(Button.B)) {
+            } else if (input.buttonIsPressed(Button.B) && rotate_display == 1 || input.buttonIsPressed(Button.A) && rotate_display == 3) {
                 menu_moving(selected_math, 0, 12)
                 selected_math = menu
                 break;
@@ -770,11 +770,11 @@ function tool_clock_menu() { //Clock type selection.
             led.plot(2, 0)
         }
         while (true) {
-            if (input.buttonIsPressed(Button.A)) {
+            if (input.buttonIsPressed(Button.A) && rotate_display == 1 || input.buttonIsPressed(Button.B) && rotate_display == 3) {
                 menu_moving(selected_clock, 0, 4)
                 selected_clock = menu
                 break;
-            } else if (input.buttonIsPressed(Button.B)) {
+            } else if (input.buttonIsPressed(Button.B) && rotate_display == 1 || input.buttonIsPressed(Button.A) && rotate_display == 3) {
                 menu_moving(selected_clock, 0, 4)
                 selected_clock = menu
                 break;
@@ -805,11 +805,11 @@ function turtle_main() { //Turtle extension.
     dot.home()
     dot.penDown()
     while (true) {
-        if (input.buttonIsPressed(Button.A)) {
+        if (input.buttonIsPressed(Button.A) && rotate_display == 1 || input.buttonIsPressed(Button.B) && rotate_display == 3) {
             dot.turnLeft()
             music.play(music.tonePlayable(220, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
         }
-        if (input.buttonIsPressed(Button.B)) {
+        if (input.buttonIsPressed(Button.B) && rotate_display == 1 || input.buttonIsPressed(Button.A) && rotate_display == 3) {
             dot.turnRight()
             music.play(music.tonePlayable(220, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
         }
@@ -866,12 +866,12 @@ function bluetooth_select_menu() { //Bluetooth send type selection.
             led.plot(2, 0)
         }
         while (true) {
-            if (input.buttonIsPressed(Button.A)) {
+            if (input.buttonIsPressed(Button.A) && rotate_display == 1 || input.buttonIsPressed(Button.B) && rotate_display == 3) {
                 menu_moving(bluetooth_type, 0, 5)
                 bluetooth_type = menu
                 break;
             }
-            if (input.buttonIsPressed(Button.B)) {
+            if (input.buttonIsPressed(Button.B) && rotate_display == 1 || input.buttonIsPressed(Button.A) && rotate_display == 3) {
                 menu_moving(bluetooth_type, 0, 5)
                 bluetooth_type = menu
                 break;
@@ -926,12 +926,12 @@ function bluetooth_keyboard_menu() { //Bluetooth keyboard type selection.
             led.plot(4, 0)
         }
         while (true) {
-            if (input.buttonIsPressed(Button.A)) {
+            if (input.buttonIsPressed(Button.A) && rotate_display == 1 || input.buttonIsPressed(Button.B) && rotate_display == 3) {
                 menu_moving(bluetooth_keyboard_type, 0, 4)
                 bluetooth_keyboard_type = menu
                 break;
             }
-            if (input.buttonIsPressed(Button.B)) {
+            if (input.buttonIsPressed(Button.B) && rotate_display == 1 || input.buttonIsPressed(Button.A) && rotate_display == 3) {
                 menu_moving(bluetooth_keyboard_type, 0, 4)
                 bluetooth_keyboard_type = menu
                 break;
@@ -984,11 +984,11 @@ function create_select_menu() { //Create type selection.
             led.plot(4, 0)
         }
         while (true) {
-            if (input.buttonIsPressed(Button.A)) {
+            if (input.buttonIsPressed(Button.A) && rotate_display == 1 || input.buttonIsPressed(Button.B) && rotate_display == 3) {
                 menu_moving(create_type, 0, 4)
                 create_type = menu
                 break;
-            } else if (input.buttonIsPressed(Button.B)) {
+            } else if (input.buttonIsPressed(Button.B) && rotate_display == 1 || input.buttonIsPressed(Button.A) && rotate_display == 3) {
                 menu_moving(create_type, 0, 4)
                 create_type = menu
                 break;
@@ -1045,11 +1045,11 @@ function custom_music_selection() { //Custom music selection.
             led.plot(4, 0)
         }
         while (true) {
-            if (input.buttonIsPressed(Button.A)) {
+            if (input.buttonIsPressed(Button.A) && rotate_display == 1 || input.buttonIsPressed(Button.B) && rotate_display == 3) {
                 menu_moving(selected_create_music, 0, 4)
                 selected_create_music = menu
                 break;
-            } else if (input.buttonIsPressed(Button.B)) {
+            } else if (input.buttonIsPressed(Button.B) && rotate_display == 1 || input.buttonIsPressed(Button.A) && rotate_display == 3) {
                 menu_moving(selected_create_music, 0, 4)
                 selected_create_music = menu
                 break;
@@ -1121,11 +1121,11 @@ function create_music_menu() { //Built-in music selection.
             led.plot(2, 0)
         }
         while (true) {
-            if (input.buttonIsPressed(Button.A)) {
+            if (input.buttonIsPressed(Button.A) && rotate_display == 1 || input.buttonIsPressed(Button.B) && rotate_display == 3) {
                 menu_moving(selected_music, 0, 5)
                 selected_music = menu
                 break;
-            } else if (input.buttonIsPressed(Button.B)) {
+            } else if (input.buttonIsPressed(Button.B) && rotate_display == 1 || input.buttonIsPressed(Button.A) && rotate_display == 3) {
                 menu_moving(selected_music, 0, 5)
                 selected_music = menu
                 break;
@@ -1193,11 +1193,11 @@ function billy_select_menu() { //Billy TTS selection
             led.plot(4, 0)
         }
         while (true) {
-            if (input.buttonIsPressed(Button.A)) {
+            if (input.buttonIsPressed(Button.A) && rotate_display == 1 || input.buttonIsPressed(Button.B) && rotate_display == 3) {
                 menu_moving(selected_serial, 0, 2)
                 selected_serial = menu
                 break;
-            } else if (input.buttonIsPressed(Button.B)) {
+            } else if (input.buttonIsPressed(Button.B) && rotate_display == 1 || input.buttonIsPressed(Button.A) && rotate_display == 3) {
                 menu_moving(selected_serial, 0, 2)
                 selected_serial = menu
                 break;
@@ -1256,11 +1256,11 @@ function send_select_menu() { //Send selection.
             led.plot(4, 0)
         }
         while (true) {
-            if (input.buttonIsPressed(Button.A)) {
+            if (input.buttonIsPressed(Button.A) && rotate_display == 1 || input.buttonIsPressed(Button.B) && rotate_display == 3) {
                 menu_moving(selected_serial, 0, 2)
                 selected_serial = menu
                 break;
-            } else if (input.buttonIsPressed(Button.B)) {
+            } else if (input.buttonIsPressed(Button.B) && rotate_display == 1 || input.buttonIsPressed(Button.A) && rotate_display == 3) {
                 menu_moving(selected_serial, 0, 2)
                 selected_serial = menu
                 break;
@@ -1326,11 +1326,11 @@ function send_type_select_menu() { //Send types selection.
             led.plot(2, 0)
         }
         while (true) {
-            if (input.buttonIsPressed(Button.A)) {
+            if (input.buttonIsPressed(Button.A) && rotate_display == 1 || input.buttonIsPressed(Button.B) && rotate_display == 3) {
                 menu_moving(selected_serial_send, 0, 10)
                 selected_serial_send = menu
                 break;
-            } else if (input.buttonIsPressed(Button.B)) {
+            } else if (input.buttonIsPressed(Button.B) && rotate_display == 1 || input.buttonIsPressed(Button.A) && rotate_display == 3) {
                 menu_moving(selected_serial_send, 0, 10)
                 selected_serial_send = menu
                 break;
@@ -1411,12 +1411,12 @@ function data_logging_freq_menu() { //Data logging freq selection
             led.plot(4, 0)
         }
         while (true) {
-            if (input.buttonIsPressed(Button.A)) {
+            if (input.buttonIsPressed(Button.A) && rotate_display == 1 || input.buttonIsPressed(Button.B) && rotate_display == 3) {
                 menu_moving(logging_freq, 0, 4)
                 logging_freq = menu
                 break;
             }
-            if (input.buttonIsPressed(Button.B)) {
+            if (input.buttonIsPressed(Button.B) && rotate_display == 1 || input.buttonIsPressed(Button.A) && rotate_display == 3) {
                 menu_moving(logging_freq, 0, 4)
                 logging_freq = menu
                 break;
@@ -1494,11 +1494,11 @@ function data_logger_menu() {  //Log input data.
             led.plot(2, 0)
         }
         while (true) {
-            if (input.buttonIsPressed(Button.A)) {
+            if (input.buttonIsPressed(Button.A) && rotate_display == 1 || input.buttonIsPressed(Button.B) && rotate_display == 3) {
                 menu_moving(selected_log_tool, 0, 7)
                 selected_log_tool = menu
                 break;
-            } else if (input.buttonIsPressed(Button.B)) {
+            } else if (input.buttonIsPressed(Button.B) && rotate_display == 1 || input.buttonIsPressed(Button.A) && rotate_display == 3) {
                 menu_moving(selected_log_tool, 0, 7)
                 selected_log_tool = menu
                 break;
@@ -1662,11 +1662,11 @@ function settings_select_menu() { //Settings selection.
             led.plot(2, 0)
         }
         while (true) {
-            if (input.buttonIsPressed(Button.A)) {
+            if (input.buttonIsPressed(Button.A) && rotate_display == 1 || input.buttonIsPressed(Button.B) && rotate_display == 3) {
                 menu_moving(selected_setting, 0, 10)
                 selected_setting = menu
                 break;
-            } else if (input.buttonIsPressed(Button.B)) {
+            } else if (input.buttonIsPressed(Button.B) && rotate_display == 1 || input.buttonIsPressed(Button.A) && rotate_display == 3) {
                 menu_moving(selected_setting, 0, 10)
                 selected_setting = menu
                 break;
@@ -3086,11 +3086,11 @@ function tool_record() { //Record and play sound files // Selected_tool = 8
             led.plot(2, 0)
         }
         while (true) {
-            if (input.buttonIsPressed(Button.A)) {
+            if (input.buttonIsPressed(Button.A) && rotate_display == 1 || input.buttonIsPressed(Button.B) && rotate_display == 3) {
                 menu_moving(tool_type, 1, 5)
                 tool_type = menu
                 break;
-            } else if (input.buttonIsPressed(Button.B)) {
+            } else if (input.buttonIsPressed(Button.B) && rotate_display == 1 || input.buttonIsPressed(Button.A) && rotate_display == 3) {
                 menu_moving(tool_type, 1, 5)
                 tool_type = menu
                 break;
@@ -3449,9 +3449,9 @@ function bluetooth_media() { //Control media via bluetooth.
             . # . . .
             `)
         }
-        if (input.buttonIsPressed(Button.A)) {
+        if (input.buttonIsPressed(Button.A) && rotate_display == 1 || input.buttonIsPressed(Button.B) && rotate_display == 3) {
             basic.pause(200)
-            if (input.buttonIsPressed(Button.A)) {
+            if (input.buttonIsPressed(Button.A) && rotate_display == 1 || input.buttonIsPressed(Button.B) && rotate_display == 3) {
                 media.sendCode(media.keys(media._MediaKey.previous))
                 basic.showLeds(`
                 . . # . #
@@ -3471,9 +3471,9 @@ function bluetooth_media() { //Control media via bluetooth.
                 `)
             }
         }
-        if (input.buttonIsPressed(Button.B)) {
+        if (input.buttonIsPressed(Button.B) && rotate_display == 1 || input.buttonIsPressed(Button.A) && rotate_display == 3) {
             basic.pause(200)
-            if (input.buttonIsPressed(Button.B)) {
+            if (input.buttonIsPressed(Button.B) && rotate_display == 1 || input.buttonIsPressed(Button.A) && rotate_display == 3) {
                 media.sendCode(media.keys(media._MediaKey.next))
                 basic.showLeds(`
                 # . # . .
@@ -3515,9 +3515,9 @@ function bluetooth_mouse() { //Control the mouse via bluetooth.
         mouse.send(
             0.5 * (newx - x),
             0.5 * (newy - y),
-            input.buttonIsPressed(Button.A),
+            input.buttonIsPressed(Button.A) && rotate_display == 1 || input.buttonIsPressed(Button.B) && rotate_display == 3,
             input.logoIsPressed(),
-            input.buttonIsPressed(Button.B),
+            input.buttonIsPressed(Button.B) && rotate_display == 1 || input.buttonIsPressed(Button.A) && rotate_display == 3,
             0,
             false
         )
@@ -3594,10 +3594,10 @@ function bluetooth_mouse_buttons() { //Control the mouse via bluetooth using but
                 }
             }
         }
-        if (input.buttonIsPressed(Button.A)) {
+        if (input.buttonIsPressed(Button.A) && rotate_display == 1 || input.buttonIsPressed(Button.B) && rotate_display == 3) {
             x = -5 * var12
         }
-        if (input.buttonIsPressed(Button.B)) {
+        if (input.buttonIsPressed(Button.B) && rotate_display == 1 || input.buttonIsPressed(Button.A) && rotate_display == 3) {
             x = 5 * var12
         }
         if (input.pinIsPressed(TouchPin.P2)) {
@@ -3623,7 +3623,7 @@ function bluetooth_mouse_buttons() { //Control the mouse via bluetooth using but
 function bluetooth_gamepad() { //Control the gamepad via bluetooth.
     while (bluetooth_online == true) {
         gamepad.send(
-            gamepad._buttons(GameButton.A, input.buttonIsPressed(Button.B)),
+            gamepad._buttons(GameButton.A, input.buttonIsPressed(Button.B) && rotate_display == 1 || input.buttonIsPressed(Button.A) && rotate_display == 3),
             Math.map(input.acceleration(Dimension.X), -1023, 1023, -126, 126),
             Math.map(input.acceleration(Dimension.Y), -1023, 1023, -126, 126),
             gamepad._dpad(GameDirection.up),
@@ -3640,7 +3640,7 @@ function bluetooth_gamepad() { //Control the gamepad via bluetooth.
                 0
             )
         }
-        if (input.buttonIsPressed(Button.A)) {
+        if (input.buttonIsPressed(Button.A) && rotate_display == 1 || input.buttonIsPressed(Button.B) && rotate_display == 3) {
             gamepad.send(
                 gamepad._buttons(GameButton.Y, true),
                 Math.map(input.acceleration(Dimension.X), -1023, 1023, -126, 126),
@@ -3650,7 +3650,7 @@ function bluetooth_gamepad() { //Control the gamepad via bluetooth.
                 0
             )
         }
-        if (input.buttonIsPressed(Button.B)) {
+        if (input.buttonIsPressed(Button.B) && rotate_display == 1 || input.buttonIsPressed(Button.A) && rotate_display == 3) {
             gamepad.send(
                 gamepad._buttons(GameButton.A, true),
                 Math.map(input.acceleration(Dimension.X), -1023, 1023, -126, 126),
@@ -3720,7 +3720,7 @@ function bluetooth_keyboard() { //Send any keyboard input via bluetooth
                     music.play(music.tonePlayable(220, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
                     break;
                 }
-                if (input.buttonIsPressed(Button.A)) {
+                if (input.buttonIsPressed(Button.A) && rotate_display == 1 || input.buttonIsPressed(Button.B) && rotate_display == 3) {
                     scroll_interval = 1
                     if (abc_id == 1) {
                         abc_id = 42
@@ -3729,7 +3729,7 @@ function bluetooth_keyboard() { //Send any keyboard input via bluetooth
                     }
                     break;
                 }
-                if (input.buttonIsPressed(Button.B)) {
+                if (input.buttonIsPressed(Button.B) && rotate_display == 1 || input.buttonIsPressed(Button.A) && rotate_display == 3) {
                     scroll_interval = 45
                     if (abc_id == 42) {
                         abc_id = 1
@@ -3769,7 +3769,7 @@ function bluetooth_keyboard_number() { //Send keyboard numbers via bluetooth.
                     music.play(music.tonePlayable(220, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
                     break;
                 }
-                if (input.buttonIsPressed(Button.A)) {
+                if (input.buttonIsPressed(Button.A) && rotate_display == 1 || input.buttonIsPressed(Button.B) && rotate_display == 3) {
                     scroll_interval = 1
                     if (num == 0) {
                         num = 9
@@ -3778,7 +3778,7 @@ function bluetooth_keyboard_number() { //Send keyboard numbers via bluetooth.
                     }
                     break;
                 }
-                if (input.buttonIsPressed(Button.B)) {
+                if (input.buttonIsPressed(Button.B) && rotate_display == 1 || input.buttonIsPressed(Button.A) && rotate_display == 3) {
                     scroll_interval = 45
                     if (num == 9) {
                         num = 0
@@ -3806,7 +3806,7 @@ function bluetooth_keyboard_number() { //Send keyboard numbers via bluetooth.
     bluetooth_keyboard_number()}
 function bluetooth_keyboard_arrows() { // Control arrow keys via bluetooth.
     while (bluetooth_online == true) {
-        if (input.buttonIsPressed(Button.A)) {
+        if (input.buttonIsPressed(Button.A) && rotate_display == 1 || input.buttonIsPressed(Button.B) && rotate_display == 3) {
             keyboard.sendString(keyboard.keys(keyboard._Key.left))
             basic.showLeds(`
             . . # . .
@@ -3817,7 +3817,7 @@ function bluetooth_keyboard_arrows() { // Control arrow keys via bluetooth.
             `)
             basic.pause(150)
         }
-        if (input.buttonIsPressed(Button.B)) {
+        if (input.buttonIsPressed(Button.B) && rotate_display == 1 || input.buttonIsPressed(Button.A) && rotate_display == 3) {
             keyboard.sendString(keyboard.keys(keyboard._Key.right))
             basic.showLeds(`
             . . # . .
@@ -3880,7 +3880,7 @@ function bluetooth_keyboard_custom() { // Custom keyboard input.
                     music.play(music.tonePlayable(220, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
                     break;
                 }
-                if (input.buttonIsPressed(Button.A)) {
+                if (input.buttonIsPressed(Button.A) && rotate_display == 1 || input.buttonIsPressed(Button.B) && rotate_display == 3) {
                     scroll_interval = 1
                     if (abc_id == 1) {
                         abc_id = 42
@@ -3889,7 +3889,7 @@ function bluetooth_keyboard_custom() { // Custom keyboard input.
                     }
                     break;
                 }
-                if (input.buttonIsPressed(Button.B)) {
+                if (input.buttonIsPressed(Button.B) && rotate_display == 1 || input.buttonIsPressed(Button.A) && rotate_display == 3) {
                     scroll_interval = 45
                     if (abc_id == 42) {
                         abc_id = 1
@@ -3934,7 +3934,7 @@ function bluetooth_keyboard_custom() { // Custom keyboard input.
                     music.play(music.tonePlayable(220, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
                     break;
                 }
-                if (input.buttonIsPressed(Button.A)) {
+                if (input.buttonIsPressed(Button.A) && rotate_display == 1 || input.buttonIsPressed(Button.B) && rotate_display == 3) {
                     scroll_interval = 1
                     if (abc_id == 1) {
                         abc_id = 42
@@ -3943,7 +3943,7 @@ function bluetooth_keyboard_custom() { // Custom keyboard input.
                     }
                     break;
                 }
-                if (input.buttonIsPressed(Button.B)) {
+                if (input.buttonIsPressed(Button.B) && rotate_display == 1 || input.buttonIsPressed(Button.A) && rotate_display == 3) {
                     scroll_interval = 45
                     if (abc_id == 42) {
                         abc_id = 1
@@ -3987,7 +3987,7 @@ function bluetooth_keyboard_custom() { // Custom keyboard input.
                     music.play(music.tonePlayable(220, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
                     break;
                 }
-                if (input.buttonIsPressed(Button.A)) {
+                if (input.buttonIsPressed(Button.A) && rotate_display == 1 || input.buttonIsPressed(Button.B) && rotate_display == 3) {
                     scroll_interval = 1
                     if (abc_id == 1) {
                         abc_id = 42
@@ -3996,7 +3996,7 @@ function bluetooth_keyboard_custom() { // Custom keyboard input.
                     }
                     break;
                 }
-                if (input.buttonIsPressed(Button.B)) {
+                if (input.buttonIsPressed(Button.B) && rotate_display == 1 || input.buttonIsPressed(Button.A) && rotate_display == 3) {
                     scroll_interval = 45
                     if (abc_id == 42) {
                         abc_id = 1
@@ -4018,7 +4018,7 @@ function bluetooth_keyboard_custom() { // Custom keyboard input.
         basic.pause(200)
         basic.clearScreen()
         while (true) {
-            if (input.buttonIsPressed(Button.A)) {
+            if (input.buttonIsPressed(Button.A) && rotate_display == 1 || input.buttonIsPressed(Button.B) && rotate_display == 3) {
                 basic.showLeds(`
                 . . # . .
                 . # . . .
@@ -4028,7 +4028,7 @@ function bluetooth_keyboard_custom() { // Custom keyboard input.
                 `)
                 keyboard.sendString(custom_a_button)
             }
-            if (input.buttonIsPressed(Button.B)) {
+            if (input.buttonIsPressed(Button.B) && rotate_display == 1 || input.buttonIsPressed(Button.A) && rotate_display == 3) {
                 basic.showLeds(`
                 . . # . .
                 . . . # .
@@ -4069,7 +4069,7 @@ function create_strig() { //Create a temp-saved string.
             if (input.pinIsPressed(TouchPin.P2)) {
                 break;
             }
-            if (input.buttonIsPressed(Button.A)) {
+            if (input.buttonIsPressed(Button.A) && rotate_display == 1 || input.buttonIsPressed(Button.B) && rotate_display == 3) {
                 scroll_interval = 1
                 if (abc_id == 1) {
                     abc_id = 42
@@ -4078,7 +4078,7 @@ function create_strig() { //Create a temp-saved string.
                 }
                 break;
             }
-            if (input.buttonIsPressed(Button.B)) {
+            if (input.buttonIsPressed(Button.B) && rotate_display == 1 || input.buttonIsPressed(Button.A) && rotate_display == 3) {
                 scroll_interval = 30
                 if (abc_id == 42) {
                     abc_id = 1
@@ -4128,7 +4128,7 @@ function billy_say() { //Say custom text
             if (input.pinIsPressed(TouchPin.P2)) {
                 break;
             }
-            if (input.buttonIsPressed(Button.A)) {
+            if (input.buttonIsPressed(Button.A) && rotate_display == 1 || input.buttonIsPressed(Button.B) && rotate_display == 3) {
                 scroll_interval = 1
                 if (abc_id == 1) {
                     abc_id = 42
@@ -4137,7 +4137,7 @@ function billy_say() { //Say custom text
                 }
                 break;
             }
-            if (input.buttonIsPressed(Button.B)) {
+            if (input.buttonIsPressed(Button.B) && rotate_display == 1 || input.buttonIsPressed(Button.A) && rotate_display == 3) {
                 scroll_interval = 30
                 if (abc_id == 42) {
                     abc_id = 1
@@ -4217,12 +4217,12 @@ function create_image() { //Create a temp-saved image.
                 music.play(music.tonePlayable(880, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
             }
         }
-        if (input.buttonIsPressed(Button.A)) {
+        if (input.buttonIsPressed(Button.A) && rotate_display == 1 || input.buttonIsPressed(Button.B) && rotate_display == 3) {
             turtle_input.push(0)
             dot.turnLeft()
             music.play(music.tonePlayable(220, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
         }
-        if (input.buttonIsPressed(Button.B)) {
+        if (input.buttonIsPressed(Button.B) && rotate_display == 1 || input.buttonIsPressed(Button.A) && rotate_display == 3) {
             turtle_input.push(1)
             dot.turnRight()
             music.play(music.tonePlayable(220, music.beat(BeatFraction.Eighth)), music.PlaybackMode.InBackground)
@@ -4297,7 +4297,7 @@ function music_melody8() { //Built in mucic 8.
             basic.pause(300)
         }
         while(true){
-            if (input.buttonIsPressed(Button.A)) {
+            if (input.buttonIsPressed(Button.A) && rotate_display == 1 || input.buttonIsPressed(Button.B) && rotate_display == 3) {
                 scroll_interval = 1
                 if (num == 1) {
                     num = 10
@@ -4306,7 +4306,7 @@ function music_melody8() { //Built in mucic 8.
                 }
                 break;
             }
-            if (input.buttonIsPressed(Button.B)) {
+            if (input.buttonIsPressed(Button.B) && rotate_display == 1 || input.buttonIsPressed(Button.A) && rotate_display == 3) {
                 scroll_interval = 45
                 if (num == 10) {
                     num = 1
@@ -4361,7 +4361,7 @@ function music_melody() { //Built in music.
             basic.pause(300)
         }
         while(true){
-            if (input.buttonIsPressed(Button.A)) {
+            if (input.buttonIsPressed(Button.A) && rotate_display == 1 || input.buttonIsPressed(Button.B) && rotate_display == 3) {
                 scroll_interval = 1
                 if (num == 1) {
                     num = 20
@@ -4370,7 +4370,7 @@ function music_melody() { //Built in music.
                 }
                 break;
             }
-            if (input.buttonIsPressed(Button.B)) {
+            if (input.buttonIsPressed(Button.B) && rotate_display == 1 || input.buttonIsPressed(Button.A) && rotate_display == 3) {
                 scroll_interval = 45
                 if (num == 20) {
                     num = 1
@@ -4445,7 +4445,7 @@ function music_melodyV2() { //Built in music V2.
             basic.pause(300)
         }
         while(true){
-            if (input.buttonIsPressed(Button.A)) {
+            if (input.buttonIsPressed(Button.A) && rotate_display == 1 || input.buttonIsPressed(Button.B) && rotate_display == 3) {
                 scroll_interval = 1
                 if (num == 1) {
                     num = 10
@@ -4454,7 +4454,7 @@ function music_melodyV2() { //Built in music V2.
                 }
                 break;
             }
-            if (input.buttonIsPressed(Button.B)) {
+            if (input.buttonIsPressed(Button.B) && rotate_display == 1 || input.buttonIsPressed(Button.A) && rotate_display == 3) {
                 scroll_interval = 45
                 if (num == 10) {
                     num = 1
@@ -4506,7 +4506,7 @@ function music_sFX() { //Built in sFX.
             basic.pause(300)
         }
         while(true){
-            if (input.buttonIsPressed(Button.A)) {
+            if (input.buttonIsPressed(Button.A) && rotate_display == 1 || input.buttonIsPressed(Button.B) && rotate_display == 3) {
                 scroll_interval = 1
                 if (num == 1) {
                     num = 10
@@ -4515,7 +4515,7 @@ function music_sFX() { //Built in sFX.
                 }
                 break;
             }
-            if (input.buttonIsPressed(Button.B)) {
+            if (input.buttonIsPressed(Button.B) && rotate_display == 1 || input.buttonIsPressed(Button.A) && rotate_display == 3) {
                 scroll_interval = 45
                 if (num == 10) {
                     num = 1
@@ -4574,7 +4574,7 @@ function tune() { //Tune selection.
                 music.play(music.tonePlayable(tonelist[num], music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
                 break;
             }
-            if (input.buttonIsPressed(Button.A)) {
+            if (input.buttonIsPressed(Button.A) && rotate_display == 1 || input.buttonIsPressed(Button.B) && rotate_display == 3) {
                 if (num == 1) {
                     num = 21
                 } else {
@@ -4582,7 +4582,7 @@ function tune() { //Tune selection.
                 }
                 break;
             }
-            if (input.buttonIsPressed(Button.B)) {
+            if (input.buttonIsPressed(Button.B) && rotate_display == 1 || input.buttonIsPressed(Button.A) && rotate_display == 3) {
                 scroll_interval = 45
                 if (num == 21) {
                     num = 1
@@ -4636,7 +4636,7 @@ function beat() { //Beat selection.
                 }
                 break;
             }
-            if (input.buttonIsPressed(Button.A)) {
+            if (input.buttonIsPressed(Button.A) && rotate_display == 1 || input.buttonIsPressed(Button.B) && rotate_display == 3) {
                 scroll_interval = 1
                 if (num == 1) {
                     num = 7
@@ -4645,7 +4645,7 @@ function beat() { //Beat selection.
                 }
                 break;
             }
-            if (input.buttonIsPressed(Button.B)) {
+            if (input.buttonIsPressed(Button.B) && rotate_display == 1 || input.buttonIsPressed(Button.A) && rotate_display == 3) {
                 scroll_interval = 45
                 if (num == 7) {
                     num = 1
@@ -4698,7 +4698,7 @@ function rest() { //Rest selection.
                 }
                 break;
             }
-            if (input.buttonIsPressed(Button.A)) {
+            if (input.buttonIsPressed(Button.A) && rotate_display == 1 || input.buttonIsPressed(Button.B) && rotate_display == 3) {
                 scroll_interval = 1
                 if (num == 1) {
                     num = 7
@@ -4707,7 +4707,7 @@ function rest() { //Rest selection.
                 }
                 break;
             }
-            if (input.buttonIsPressed(Button.B)) {
+            if (input.buttonIsPressed(Button.B) && rotate_display == 1 || input.buttonIsPressed(Button.A) && rotate_display == 3) {
                 scroll_interval = 45
                 if (num == 7) {
                     num = 1
@@ -4778,7 +4778,7 @@ function melody_play() { //Play the created melody.
 function send_input() { //Send input via serial or bluetooth.
     basic.clearScreen()
     while (true) {
-        if (input.buttonIsPressed(Button.A)) {
+        if (input.buttonIsPressed(Button.A) && rotate_display == 1 || input.buttonIsPressed(Button.B) && rotate_display == 3) {
             if (selected_uart == true) {
                 bluetooth.uartWriteLine("a")
             } else {
@@ -4792,7 +4792,7 @@ function send_input() { //Send input via serial or bluetooth.
                 serial.writeLine("logo")
             }
         }
-        if (input.buttonIsPressed(Button.B)) {
+        if (input.buttonIsPressed(Button.B) && rotate_display == 1 || input.buttonIsPressed(Button.A) && rotate_display == 3) {
             if (selected_uart == true) {
                 bluetooth.uartWriteLine("b")
             } else {
@@ -4850,7 +4850,7 @@ function send_string() { //Send string via serial or bluetooth.
             basic.pause(300)
         }
         while(true){
-            if (input.buttonIsPressed(Button.A)) {
+            if (input.buttonIsPressed(Button.A) && rotate_display == 1 || input.buttonIsPressed(Button.B) && rotate_display == 3) {
                 scroll_interval = 1
                 if (abc_id == 1) {
                     abc_id = 42
@@ -4859,7 +4859,7 @@ function send_string() { //Send string via serial or bluetooth.
                 }
                 break;
             }
-            if (input.buttonIsPressed(Button.B)) {
+            if (input.buttonIsPressed(Button.B) && rotate_display == 1 || input.buttonIsPressed(Button.A) && rotate_display == 3) {
                 scroll_interval = 30
                 if (abc_id == 42) {
                     abc_id = 1
@@ -4894,7 +4894,7 @@ function send_number() { //Send number via serial or bluetooth.
             basic.pause(300)
         }
         while(true){
-            if (input.buttonIsPressed(Button.A)) {
+            if (input.buttonIsPressed(Button.A) && rotate_display == 1 || input.buttonIsPressed(Button.B) && rotate_display == 3) {
                 scroll_interval = 1
                 if (num == 0) {
                     num = 9
@@ -4903,7 +4903,7 @@ function send_number() { //Send number via serial or bluetooth.
                 }
                 break;
             }
-            if (input.buttonIsPressed(Button.B)) {
+            if (input.buttonIsPressed(Button.B) && rotate_display == 1 || input.buttonIsPressed(Button.A) && rotate_display == 3) {
                 scroll_interval = 45
                 if (num == 9) {
                     num = 0
@@ -4928,10 +4928,10 @@ function send_number() { //Send number via serial or bluetooth.
 
 function settings_test_input() { //Test all inputs.
     while (true) {
-        if (input.buttonIsPressed(Button.A)) {
+        if (input.buttonIsPressed(Button.A) && rotate_display == 1 || input.buttonIsPressed(Button.B) && rotate_display == 3) {
             led.plot(0, 2)
         }
-        if (input.buttonIsPressed(Button.B)) {
+        if (input.buttonIsPressed(Button.B) && rotate_display == 1 || input.buttonIsPressed(Button.A) && rotate_display == 3) {
             led.plot(4, 2)
         }
         if (input.logoIsPressed()) {
@@ -4958,4 +4958,4 @@ function settings_test_input() { //Test all inputs.
         led.unplot(2, 4)
         led.unplot(4, 4)
     }
-}
+} //End
