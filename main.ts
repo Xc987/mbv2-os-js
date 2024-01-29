@@ -178,24 +178,8 @@ function uns_loop() { //Number select
     while (true) {
         scroll_interval = 1
         if (input.pinIsPressed(TouchPin.P2)) {
-            if (unslist.length == 1) {
-                uns = unslist[0]
-            } else if (unslist.length == 2) {
-                uns = unslist[0] * 10 + unslist[1]
-            } else if (unslist.length == 3) {
-                uns = unslist[0] * 100 + unslist[1] * 10 + unslist[2]
-            } else if (unslist.length == 4) {
-                uns = unslist[0] * 1000 + unslist[1] * 100 + unslist[2] * 10 + unslist[3]
-            } else if (unslist.length == 5) {
-                uns = unslist[0] * 10000 + unslist[1] * 1000 + unslist[2] * 100 + unslist[3] * 10 + unslist[4]
-            } else if (unslist.length == 6) {
-                uns = unslist[0] * 100000 + unslist[1] * 10000 + unslist[2] * 1000 + unslist[3] * 100 + unslist[4] * 10 + unslist[5]
-            } else if (unslist.length == 7) {
-                uns = unslist[0] * 1000000 + unslist[1] * 100000 + unslist[2] * 10000 + unslist[3] * 1000 + unslist[4] * 100 + unslist[5] * 10 + unslist[6]
-            } else if (unslist.length == 8) {
-                uns = unslist[0] * 10000000 + unslist[1] * 1000000 + unslist[2] * 100000 + unslist[3] * 10000 + unslist[4] * 1000 + unslist[5] * 100 + unslist[6] * 10 + unslist[7]
-            } else {
-                basic.showIcon(IconNames.No)
+            for (let i = 0; i < unslist.length ; i++) {
+                uns = unslist[i] + 10*uns
             }
             break;
             basic.clearScreen()
