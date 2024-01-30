@@ -1837,6 +1837,16 @@ input.onButtonPressed(Button.A, function () { //On button A pressed.
     }
     if (game_mode == 5) {
         if (player_move_5 == true) {
+            music.play(music.createSoundExpression(
+                WaveShape.Sawtooth,
+                891,
+                1198,
+                255,
+                0,
+                200,
+                SoundExpressionEffect.None,
+                InterpolationCurve.Linear
+            ), music.PlaybackMode.InBackground)
             if (!(is_game_over_5)) {
                 if (!(is_game_over_5)) {
                     player_5[1].change(LedSpriteProperty.Y, -1)
@@ -1953,6 +1963,7 @@ input.onButtonPressed(Button.B, function () { //On button B pressed.
     }
     if (game_mode == 5) {
         if (player_move_5 == true) {
+            music.play(music.createSoundExpression(WaveShape.Square, 223, 1, 79, 39, 150, SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.InBackground)
             if (!(is_game_over_5)) {
                 player_5[0].change(LedSpriteProperty.Y, 1)
                 basic.pause(750)
@@ -2659,8 +2670,9 @@ function checkFullRow() { //Tetris. // game_mode = 8
         }
     }
     if (rowFull_8) {
-        delay_8 += -20
+        delay_8 += -10
         score_8 += 1
+        music.play(music.createSoundExpression(WaveShape.Noise, 2294, 2294, 238, 0, 200, SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.InBackground)
         for (let xx2 = 0; xx2 <= 5 - 1; xx2++) {
             led.unplot(xx2, 4)
         }
@@ -2861,6 +2873,16 @@ basic.forever(function () { //Snake // game_mode = 10
 function finish(num: number) {  //Snake // game_mode = 10
     state = 3
     basic.clearScreen()
+    music.play(music.createSoundExpression(
+        WaveShape.Sawtooth,
+        321,
+        0,
+        255,
+        0,
+        100,
+        SoundExpressionEffect.None,
+        InterpolationCurve.Linear
+    ), music.PlaybackMode.InBackground)
     if (num == 0) {
         basic.showString("LOSE")
     } else {
@@ -2945,6 +2967,7 @@ function eat_food() { //Snake // game_mode = 10
                 state = 1
             }
         } else {
+            music.play(music.createSoundExpression(WaveShape.Noise, 2294, 2294, 238, 0, 200, SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.InBackground)
             snake_length += 1
             score += 1
             state = 1
