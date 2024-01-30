@@ -43,15 +43,15 @@ function draw_menu() { //Draw navigation bar at the top.
     led.plotBrightness(4, 0, 20)}
 function waiting_for_connection() { //Waiting for the bluetooth connection.
     waiting_for_input = true
-    if (bluetooth_type == 1) {
+    if (submenu1 == 1) {
         media.startMediaService()
-    } else if (bluetooth_type == 2) {
+    } else if (submenu1 == 2) {
         mouse.startMouseService()
-    } else if (bluetooth_type == 3) {
+    } else if (submenu1 == 3) {
         mouse.startMouseService()
-    } else if (bluetooth_type == 4){
+    } else if (submenu1 == 4){
         gamepad.startGamepadService()
-    } else if (bluetooth_type == 5) {
+    } else if (submenu1 == 5) {
         keyboard.startKeyboardService()
     }
     while (waiting_for_input == true) {
@@ -59,22 +59,22 @@ function waiting_for_connection() { //Waiting for the bluetooth connection.
             waiting_for_input = false
             basic.showIcon(IconNames.Yes)
             basic.clearScreen()
-            if (bluetooth_type == 1) {
+            if (submenu1 == 1) {
                 bluetooth_media()
-            } else if (bluetooth_type == 2) {
+            } else if (submenu1 == 2) {
                 bluetooth_mouse()
-            } else if (bluetooth_type == 3) {
+            } else if (submenu1 == 3) {
                 bluetooth_mouse_buttons()
-            } else if (bluetooth_type == 4) {
+            } else if (submenu1 == 4) {
                 bluetooth_gamepad()
             }
-            if (bluetooth_keyboard_type == 1) {
+            if (submenu2 == 1) {
                 bluetooth_keyboard()
-            } else if (bluetooth_keyboard_type == 2) {
+            } else if (submenu2 == 2) {
                 bluetooth_keyboard_number()
-            } else if (bluetooth_keyboard_type == 3) {
+            } else if (submenu2 == 3) {
                 bluetooth_keyboard_arrows()
-            } else if (bluetooth_keyboard_type == 4) {
+            } else if (submenu2 == 4) {
                 bluetooth_keyboard_custom()
             }
         } else {
@@ -488,28 +488,28 @@ function game_select_menu() { //Game selection.
 
 function tool_select_menu() { //Tool selection.
     while (true) {
-            if (selected_tool == 0) {
+        if (submenu1 == 0) {
                 bitmap = sysimages[9]
                 ckeck_hold_a()
-            } else if (selected_tool == 1) {
+        } else if (submenu1 == 1) {
                 bitmap = sysimages[19]
-            } else if (selected_tool == 2) {
+        } else if (submenu1 == 2) {
                 bitmap = sysimages[20]
-            } else if (selected_tool == 3) {
+        } else if (submenu1 == 3) {
                 bitmap = sysimages[21]
-            } else if (selected_tool == 4) {
+            } else if (submenu1 == 4) {
                 bitmap = sysimages[22]
-            } else if (selected_tool == 5) {
+            } else if (submenu1 == 5) {
                 bitmap = sysimages[23]
-            } else if (selected_tool == 6) {
+            } else if (submenu1 == 6) {
                 bitmap = sysimages[24]
-            } else if (selected_tool == 7) {
+        } else if (submenu1 == 7) {
                 bitmap = sysimages[25]
-            } else if (selected_tool == 8) {
+        } else if (submenu1 == 8) {
                 bitmap = sysimages[26]
-            } else if (selected_tool == 9) {
+        } else if (submenu1 == 9) {
                 bitmap = sysimages[27]
-            } else if (selected_tool == 10) {
+        } else if (submenu1 == 10) {
                 bitmap = sysimages[28]
                 ckeck_hold_b()
             }
@@ -518,25 +518,25 @@ function tool_select_menu() { //Tool selection.
             basic.pause(300)
         }
         draw_menu()
-        if (selected_tool == 0) {
+        if (submenu1 == 0) {
             led.plot(0, 0)
-        } else if (selected_tool == 1) {
+        } else if (submenu1 == 1) {
             led.plot(1, 0)
-        } else if (selected_tool == 9) {
+        } else if (submenu1 == 9) {
             led.plot(3, 0)
-        } else if (selected_tool == 10) {
+        } else if (submenu1 == 10) {
             led.plot(4, 0)
         } else {
             led.plot(2, 0)
         }
         while (true) {
             if (input.buttonIsPressed(Button.A)) {
-                menu_moving(selected_tool, 0, 10)
-                selected_tool = menu
+                menu_moving(submenu1, 0, 10)
+                submenu1 = menu
                 break;
             } else if (input.buttonIsPressed(Button.B)) {
-                menu_moving(selected_tool, 0, 10)
-                selected_tool = menu
+                menu_moving(submenu1, 0, 10)
+                submenu1 = menu
                 break;
             } else if (input.logoIsPressed()) {
                 break;
@@ -550,43 +550,43 @@ function tool_select_menu() { //Tool selection.
     fade()
     basic.clearScreen()
     let tool_type = 1
-    if (selected_tool == 0) {
+    if (submenu1 == 0) {
         menu_select_menu()
-    } else if (selected_tool == 4) {
+    } else if (submenu1 == 4) {
         tool_compass()
-    } else if (selected_tool == 8) {
+    } else if (submenu1 == 8) {
         tool_record()
-    } else if (selected_tool == 9) {
+    } else if (submenu1 == 9) {
         tool_calculator_menu()
-    } else if (selected_tool == 10) {
+    } else if (submenu1 == 10) {
         tool_clock_menu()
     } else {
-        if (selected_tool == 1) {
+        if (submenu1 == 1) {
             graph_var2 = 50
-        } else if (selected_tool == 2) {
+        } else if (submenu1 == 2) {
             graph_var2 = 255
-        } else if (selected_tool == 3) {
+        } else if (submenu1 == 3) {
             graph_var2 = 255
-        } else if (selected_tool == 5) {
+        } else if (submenu1 == 5) {
             graph_var2 = 1023
-        } else if (selected_tool == 6) {
+        } else if (submenu1 == 6) {
             graph_var2 = 1023
-        } else if (selected_tool == 7) {
+        } else if (submenu1 == 7) {
             graph_var2 = 1023
         }
         while (true) {
             if (tool_type == 1) {
-                if (selected_tool == 1) {
+                if (submenu1 == 1) {
                     basic.showNumber(input.temperature())
-                } else if (selected_tool == 2) {
+                } else if (submenu1 == 2) {
                     basic.showNumber(input.lightLevel())
-                } else if (selected_tool == 3) {
+                } else if (submenu1 == 3) {
                     basic.showNumber(input.soundLevel())
-                } else if (selected_tool == 5) {
+                } else if (submenu1 == 5) {
                     basic.showNumber(input.acceleration(Dimension.X))
-                } else if (selected_tool == 6) {
+                } else if (submenu1 == 6) {
                     basic.showNumber(input.acceleration(Dimension.Y))
-                } else if (selected_tool == 7) {
+                } else if (submenu1 == 7) {
                     basic.showNumber(input.acceleration(Dimension.Z))
                 }
                 if (input.logoIsPressed()) {
@@ -606,17 +606,17 @@ function tool_select_menu() { //Tool selection.
                 }
             }
             if (tool_type == 2) {
-                if (selected_tool == 1) {
+                if (submenu1 == 1) {
                     graph_var1 = input.temperature()
-                } else if (selected_tool == 2) {
+                } else if (submenu1 == 2) {
                     graph_var1 = input.lightLevel()
-                } else if (selected_tool == 3) {
+                } else if (submenu1 == 3) {
                     graph_var1 = input.soundLevel()
-                } else if (selected_tool == 5) {
+                } else if (submenu1 == 5) {
                     graph_var1 = input.acceleration(Dimension.X)
-                } else if (selected_tool == 6) {
+                } else if (submenu1 == 6) {
                     graph_var1 = input.acceleration(Dimension.Y)
-                } else if (selected_tool == 7) {
+                } else if (submenu1 == 7) {
                     graph_var1 = input.acceleration(Dimension.Z)
                 }
                 plot_graph()
@@ -644,32 +644,32 @@ function tool_select_menu() { //Tool selection.
     }}
 function tool_calculator_menu() { //Calculator type selection.
     while (true) {
-            if (selected_math == 0) {
+        if (submenu2 == 0) {
             bitmap = sysimages[9]
             ckeck_hold_a()
-            } else if (selected_math == 1){
+        } else if (submenu2 == 1){
                 bitmap = sysimages[29]
-            } else if (selected_math == 2) {
+        } else if (submenu2 == 2) {
                 bitmap = sysimages[30]
-            } else if (selected_math == 3) {
+        } else if (submenu2 == 3) {
                 bitmap = sysimages[31]
-            } else if (selected_math == 4) {
+        } else if (submenu2 == 4) {
                 bitmap = sysimages[32]
-            } else if (selected_math == 5) {
+        } else if (submenu2 == 5) {
                 bitmap = sysimages[33]
-            } else if (selected_math == 6) {
+            } else if (submenu2 == 6) {
                 bitmap = sysimages[34]
-            } else if (selected_math == 7) {
+        } else if (submenu2 == 7) {
                 bitmap = sysimages[89]
-            } else if (selected_math == 8) {
+        } else if (submenu2 == 8) {
                 bitmap = sysimages[35]
-            } else if (selected_math == 9) {
+        } else if (submenu2 == 9) {
                 bitmap = sysimages[36]
-            } else if (selected_math == 10) {
+        } else if (submenu2 == 10) {
                 bitmap = sysimages[37]
-            } else if (selected_math == 11) {
+            } else if (submenu2 == 11) {
                 bitmap = sysimages[38]
-            } else if (selected_math == 12) {
+        } else if (submenu2 == 12) {
                 bitmap = sysimages[39]
                 ckeck_hold_b()
             }
@@ -678,25 +678,25 @@ function tool_calculator_menu() { //Calculator type selection.
             basic.pause(300)
         }
         draw_menu()
-        if (selected_math == 0) {
+        if (submenu2 == 0) {
             led.plot(0, 0)
-        } else if (selected_math == 1) {
+        } else if (submenu2 == 1) {
             led.plot(1, 0)
-        } else if (selected_math == 11) {
+        } else if (submenu2 == 11) {
             led.plot(3, 0)
-        } else if (selected_math == 12) {
+        } else if (submenu2 == 12) {
             led.plot(4, 0)
         } else {
             led.plot(2, 0)
         }
         while (waiting_for_input == true) {
             if (input.buttonIsPressed(Button.A)) {
-                menu_moving(selected_math, 0, 12)
-                selected_math = menu
+                menu_moving(submenu2, 0, 12)
+                submenu2 = menu
                 break;
             } else if (input.buttonIsPressed(Button.B)) {
-                menu_moving(selected_math, 0, 12)
-                selected_math = menu
+                menu_moving(submenu2, 0, 12)
+                submenu2 = menu
                 break;
             } else if (input.logoIsPressed()) {
                 break;
@@ -709,30 +709,30 @@ function tool_calculator_menu() { //Calculator type selection.
     fade()
     scroll_interval = 1
     basic.clearScreen()
-    if (selected_math == 1 || selected_math == 2 || selected_math == 3 || selected_math == 4 || selected_math == 5 || selected_math == 12) {
+    if (submenu2 == 1 || submenu2 == 2 || submenu2 == 3 || submenu2 == 4 || submenu2 == 5 || submenu2 == 12) {
         math_xy()
-    } else if (selected_math == 6 || selected_math == 7 || selected_math == 8 || selected_math == 9 || selected_math == 10) {
+    } else if (submenu2 == 6 || submenu2 == 7 || submenu2 == 8 || submenu2 == 9 || submenu2 == 10) {
         math_x()
-    } else if (selected_math == 11) {
+    } else if (submenu2 == 11) {
         basic.clearScreen()
         basic.showNumber(Math.PI)
         tool_calculator_menu()
-    } else if (selected_math == 0) {
+    } else if (submenu2 == 0) {
         tool_select_menu()
     }}
 function tool_clock_menu() { //Clock type selection.
     while (true) {
-        if (selected_clock == 0) {
+        if (submenu2 == 0) {
             bitmap = sysimages[9]
             ckeck_hold_a()
-        } else if (selected_clock == 1) {
+        } else if (submenu2 == 1) {
             bitmap = sysimages[40]
             ckeck_hold_a()
-        } else if (selected_clock == 2) {
+        } else if (submenu2 == 2) {
             bitmap = sysimages[41]
-        } else if (selected_clock == 3) {
+        } else if (submenu2 == 3) {
             bitmap = sysimages[42]
-        } else if (selected_clock == 4) {
+        } else if (submenu2 == 4) {
             bitmap = sysimages[28]
             ckeck_hold_b()
         }
@@ -741,25 +741,25 @@ function tool_clock_menu() { //Clock type selection.
             basic.pause(300)
         }
         draw_menu()
-        if (selected_clock == 0) {
+        if (submenu2 == 0) {
             led.plot(0, 0)
-        } else if (selected_clock == 1) {
+        } else if (submenu2 == 1) {
             led.plot(1, 0)
-        } else if (selected_clock == 3) {
+        } else if (submenu2 == 3) {
             led.plot(3, 0)
-        } else if (selected_clock == 4) {
+        } else if (submenu2 == 4) {
             led.plot(4, 0)
         } else {
             led.plot(2, 0)
         }
         while (true) {
             if (input.buttonIsPressed(Button.A)) {
-                menu_moving(selected_clock, 0, 4)
-                selected_clock = menu
+                menu_moving(submenu2, 0, 4)
+                submenu2 = menu
                 break;
             } else if (input.buttonIsPressed(Button.B)) {
-                menu_moving(selected_clock, 0, 4)
-                selected_clock = menu
+                menu_moving(submenu2, 0, 4)
+                submenu2 = menu
                 break;
             } else if (input.logoIsPressed()) {
                 break;
@@ -770,15 +770,15 @@ function tool_clock_menu() { //Clock type selection.
         }
     }
     fade()
-    if (selected_clock == 1) {
+    if (submenu2 == 1) {
         signal()
-    } else if (selected_clock == 2) {
+    } else if (submenu2 == 2) {
         chronometer()
-    } else if (selected_clock == 3) {
+    } else if (submenu2 == 3) {
         timer()
-    } else if (selected_clock == 4) {
+    } else if (submenu2 == 4) {
         clock()
-    } else if (selected_clock == 0) {
+    } else if (submenu2 == 0) {
         tool_select_menu()
     }}
 function turtle_main() { //Turtle extension.
@@ -817,18 +817,18 @@ function turtle_main() { //Turtle extension.
     }}
 function bluetooth_select_menu() { //Bluetooth send type selection.
     while (true) {
-        if (bluetooth_type == 0) {
+        if (submenu1 == 0) {
             bitmap = sysimages[9]
             ckeck_hold_a()
-            } else if (bluetooth_type == 1) {
+        } else if (submenu1 == 1) {
             bitmap = sysimages[26]
-            } else if (bluetooth_type == 2) {
+        } else if (submenu1 == 2) {
             bitmap = sysimages[43]
-            } else if (bluetooth_type == 3) {
+            } else if (submenu1 == 3) {
             bitmap = sysimages[88]
-            } else if (bluetooth_type == 4) {
+        } else if (submenu1 == 4) {
             bitmap = sysimages[44]
-        } else if (bluetooth_type == 5) {
+        } else if (submenu1 == 5) {
             bitmap = sysimages[45]
             ckeck_hold_b()
         }
@@ -837,26 +837,26 @@ function bluetooth_select_menu() { //Bluetooth send type selection.
             basic.pause(300)
         }
         draw_menu()
-        if (bluetooth_type == 0) {
+        if (submenu1 == 0) {
             led.plot(0, 0)
-        } else if (bluetooth_type == 1) {
+        } else if (submenu1 == 1) {
             led.plot(1, 0)
-        } else if (bluetooth_type == 4) {
+        } else if (submenu1 == 4) {
             led.plot(3, 0)
-        } else if (bluetooth_type == 5) {
+        } else if (submenu1 == 5) {
             led.plot(4, 0)
         } else {
             led.plot(2, 0)
         }
         while (true) {
             if (input.buttonIsPressed(Button.A)) {
-                menu_moving(bluetooth_type, 0, 5)
-                bluetooth_type = menu
+                menu_moving(submenu1, 0, 5)
+                submenu1 = menu
                 break;
             }
             if (input.buttonIsPressed(Button.B)) {
-                menu_moving(bluetooth_type, 0, 5)
-                bluetooth_type = menu
+                menu_moving(submenu1, 0, 5)
+                submenu1 = menu
                 break;
             }
             if (input.logoIsPressed()) {
@@ -870,25 +870,25 @@ function bluetooth_select_menu() { //Bluetooth send type selection.
     scroll_interval = 1
     fade()
     basic.clearScreen()
-    if (bluetooth_type == 0) {
+    if (submenu1 == 0) {
         menu_select_menu()
-    } else if (bluetooth_type == 5) {
+    } else if (submenu1 == 5) {
         bluetooth_keyboard_menu()
     } else {
         waiting_for_connection()
     }}
 function bluetooth_keyboard_menu() { //Bluetooth keyboard type selection.
     while (true) {
-        if (bluetooth_keyboard_type == 0) {
+        if (submenu2 == 0) {
             bitmap = sysimages[9]
             ckeck_hold_a()
-            } else if (bluetooth_keyboard_type == 1) {
+        } else if (submenu2 == 1) {
             bitmap = sysimages[45]
-            } else if (bluetooth_keyboard_type == 2) {
+        } else if (submenu2 == 2) {
             bitmap = sysimages[46]
-            } else if (bluetooth_keyboard_type == 3) {
+        } else if (submenu2 == 3) {
             bitmap = sysimages[47]
-            } else if (bluetooth_keyboard_type == 4) {
+        } else if (submenu2 == 4) {
             bitmap = sysimages[36]
             ckeck_hold_b()
             }
@@ -897,26 +897,26 @@ function bluetooth_keyboard_menu() { //Bluetooth keyboard type selection.
             basic.pause(300)
         }
         draw_menu()
-        if (bluetooth_keyboard_type == 0) {
+        if (submenu2 == 0) {
             led.plot(0, 0)
-        } else if (bluetooth_keyboard_type == 1) {
+        } else if (submenu2 == 1) {
             led.plot(1, 0)
-        } else if (bluetooth_keyboard_type == 2) {
+        } else if (submenu2 == 2) {
             led.plot(2, 0)
-        } else if (bluetooth_keyboard_type == 3) {
+        } else if (submenu2 == 3) {
             led.plot(3, 0)
-        } else if (bluetooth_keyboard_type == 4) {
+        } else if (submenu2 == 4) {
             led.plot(4, 0)
         }
         while (true) {
             if (input.buttonIsPressed(Button.A)) {
-                menu_moving(bluetooth_keyboard_type, 0, 4)
-                bluetooth_keyboard_type = menu
+                menu_moving(submenu2, 0, 4)
+                submenu2 = menu
                 break;
             }
             if (input.buttonIsPressed(Button.B)) {
-                menu_moving(bluetooth_keyboard_type, 0, 4)
-                bluetooth_keyboard_type = menu
+                menu_moving(submenu2, 0, 4)
+                submenu2 = menu
                 break;
             }
             if (input.logoIsPressed()) {
@@ -929,7 +929,7 @@ function bluetooth_keyboard_menu() { //Bluetooth keyboard type selection.
     }
     fade()
     basic.clearScreen()
-    if (bluetooth_keyboard_type == 0) {
+    if (submenu2 == 0) {
         scroll_interval = 1
         bluetooth_select_menu()
     } else {
@@ -937,16 +937,16 @@ function bluetooth_keyboard_menu() { //Bluetooth keyboard type selection.
     }}
 function create_select_menu() { //Create type selection.
     while (true) {
-        if (create_type == 0) {
+        if (submenu1 == 0) {
             bitmap = sysimages[9]
             ckeck_hold_a()
-            } else if (create_type == 1) {
+        } else if (submenu1 == 1) {
             bitmap = sysimages[48]
-            } else if (create_type == 2) {
+        } else if (submenu1 == 2) {
             bitmap = sysimages[49]
-            } else if (create_type == 3) {
+        } else if (submenu1 == 3) {
             bitmap = sysimages[26]
-            } else if (create_type == 4) {
+        } else if (submenu1 == 4) {
             bitmap = sysimages[50]
             ckeck_hold_b()
             }
@@ -955,25 +955,25 @@ function create_select_menu() { //Create type selection.
             basic.pause(300)
         }
         draw_menu()
-        if (create_type == 0) {
+        if (submenu1 == 0) {
             led.plot(0, 0)
-        } else if (create_type == 1) {
+        } else if (submenu1 == 1) {
             led.plot(1, 0)
-        } else if (create_type == 2) {
+        } else if (submenu1 == 2) {
             led.plot(2, 0)
-        } else if (create_type == 3) {
+        } else if (submenu1 == 3) {
             led.plot(3, 0)
-        } else if (create_type == 4) {
+        } else if (submenu1 == 4) {
             led.plot(4, 0)
         }
         while (true) {
             if (input.buttonIsPressed(Button.A)) {
-                menu_moving(create_type, 0, 4)
-                create_type = menu
+                menu_moving(submenu1, 0, 4)
+                submenu1 = menu
                 break;
             } else if (input.buttonIsPressed(Button.B)) {
-                menu_moving(create_type, 0, 4)
-                create_type = menu
+                menu_moving(submenu1, 0, 4)
+                submenu1 = menu
                 break;
             } else if (input.logoIsPressed()) {
                 break;
@@ -985,29 +985,29 @@ function create_select_menu() { //Create type selection.
     }
     scroll_interval = 1
     fade()
-    if (create_type == 1) {
+    if (submenu1 == 1) {
         create_number()
-    } else if (create_type == 2) {
+    } else if (submenu1 == 2) {
         create_strig()
-    } else if (create_type == 3) {
+    } else if (submenu1 == 3) {
         create_music_menu()
-    } else if (create_type == 4) {
+    } else if (submenu1 == 4) {
         create_image()
     } else {
         menu_select_menu()
     }}
 function custom_music_selection() { //Custom music selection.
     while (true) {
-        if (selected_create_music == 0) {
+        if (submenu3 == 0) {
             bitmap = sysimages[9]
             ckeck_hold_a()
-        } else if (selected_create_music == 1) {
+        } else if (submenu3 == 1) {
             bitmap = sysimages[26]
-        } else if (selected_create_music == 2) {
+        } else if (submenu3 == 2) {
             bitmap = sysimages[65]
-        } else if (selected_create_music == 3) {
+        } else if (submenu3 == 3) {
             bitmap = sysimages[84]
-        } else if (selected_create_music == 4) {
+        } else if (submenu3 == 4) {
             bitmap = sysimages[64]
             ckeck_hold_b()
         }
@@ -1016,28 +1016,28 @@ function custom_music_selection() { //Custom music selection.
             basic.pause(300)
         }
         draw_menu()
-        if (selected_create_music == 0) {
+        if (submenu3 == 0) {
             led.plot(0, 0)
-        } else if (selected_create_music == 1) {
+        } else if (submenu3 == 1) {
             led.plot(1, 0)
-        } else if (selected_create_music == 2) {
+        } else if (submenu3 == 2) {
             led.plot(2, 0)
-        } else if (selected_create_music == 3) {
+        } else if (submenu3 == 3) {
             led.plot(3, 0)
-        } else if (selected_create_music == 4) {
+        } else if (submenu3 == 4) {
             led.plot(4, 0)
         }
         while (true) {
             if (input.buttonIsPressed(Button.A)) {
-                menu_moving(selected_create_music, 0, 4)
-                selected_create_music = menu
+                menu_moving(submenu3, 0, 4)
+                submenu3 = menu
                 break;
             } else if (input.buttonIsPressed(Button.B)) {
-                menu_moving(selected_create_music, 0, 4)
-                selected_create_music = menu
+                menu_moving(submenu3, 0, 4)
+                submenu3 = menu
                 break;
             } else if (input.logoIsPressed()) {
-                if (selected_create_music == 3) {
+                if (submenu3 == 3) {
                         while (true) {
                             if (custom_music[custom_music.length - 1] == 50) {
                                 custom_music.pop()
@@ -1054,36 +1054,36 @@ function custom_music_selection() { //Custom music selection.
             }
         }
         if (input.logoIsPressed()) {
-            if (selected_create_music != 3) {
+            if (submenu3 != 3) {
                 break;
             }
         }
     }
     scroll_interval = 1
     fade()
-    if (selected_create_music == 0) {
+    if (submenu3 == 0) {
         create_music_menu()
-    } else if (selected_create_music == 1) {
+    } else if (submenu3 == 1) {
         tune()
-    } else if (selected_create_music == 2) {
+    } else if (submenu3 == 2) {
         rest()
-    } else if (selected_create_music == 4){
+    } else if (submenu3 == 4){
         melody_play()
     }}
 function create_music_menu() { //Built-in music selection.
     while (true) {
-        if (selected_music == 0) {
+        if (submenu2 == 0) {
             bitmap = sysimages[9]
             ckeck_hold_a()
-        } else if (selected_music == 1) {
+        } else if (submenu2 == 1) {
             bitmap = sysimages[51]
-            } else if (selected_music == 2) {
+        } else if (submenu2 == 2) {
             bitmap = sysimages[26]
-            } else if (selected_music == 3) {
+        } else if (submenu2 == 3) {
             bitmap = sysimages[52]
-            } else if (selected_music == 4) {
+        } else if (submenu2 == 4) {
             bitmap = sysimages[53]
-            } else if (selected_music == 5) {
+        } else if (submenu2 == 5) {
             bitmap = sysimages[4]
             ckeck_hold_b()
             }
@@ -1092,25 +1092,25 @@ function create_music_menu() { //Built-in music selection.
             basic.pause(300)
         }
         draw_menu()
-        if (selected_music == 0) {
+        if (submenu2 == 0) {
             led.plot(0, 0)
-        } else if (selected_music == 1) {
+        } else if (submenu2 == 1) {
             led.plot(1, 0)
-        } else if (selected_music == 4) {
+        } else if (submenu2 == 4) {
             led.plot(3, 0)
-        } else if (selected_music == 5) {
+        } else if (submenu2 == 5) {
             led.plot(4, 0)
         } else {
             led.plot(2, 0)
         }
         while (true) {
             if (input.buttonIsPressed(Button.A)) {
-                menu_moving(selected_music, 0, 5)
-                selected_music = menu
+                menu_moving(submenu2, 0, 5)
+                submenu2 = menu
                 break;
             } else if (input.buttonIsPressed(Button.B)) {
-                menu_moving(selected_music, 0, 5)
-                selected_music = menu
+                menu_moving(submenu2, 0, 5)
+                submenu2 = menu
                 break;
             } else if (input.logoIsPressed()) {
                 break;
@@ -1121,15 +1121,15 @@ function create_music_menu() { //Built-in music selection.
         }
     }
     fade()
-    if (selected_music == 0) {
+    if (submenu2 == 0) {
         create_select_menu()
-    } else if (selected_music == 1) {
+    } else if (submenu2 == 1) {
         music_melody8()
-    } else if (selected_music == 2) {
+    } else if (submenu2 == 2) {
         music_melody()
-    } else if (selected_music == 3) {
+    } else if (submenu2 == 3) {
         music_melodyV2()
-    } else if (selected_music == 4) {
+    } else if (submenu2 == 4) {
         music_sFX()
     } else {
         scroll_interval = 1
@@ -1137,12 +1137,12 @@ function create_music_menu() { //Built-in music selection.
     }}
 function billy_select_menu() { //Billy TTS selection
     while (true) {
-        if (selected_serial == 0) {
+        if (submenu1 == 0) {
             bitmap = sysimages[9]
             ckeck_hold_a()
-        } else if (selected_serial == 1) {
+        } else if (submenu1 == 1) {
             bitmap = sysimages[49]
-        } else if (selected_serial == 2) {
+        } else if (submenu1 == 2) {
             bitmap = sys17[voicepreset]
             if (voicepreset == 0) {
                 billy.voicePreset(BillyVoicePreset.Elf)
@@ -1166,26 +1166,26 @@ function billy_select_menu() { //Billy TTS selection
             basic.pause(300)
         }
         draw_menu()
-        if (selected_serial == 0) {
+        if (submenu1 == 0) {
             led.plot(0, 0)
             led.plot(1, 0)
-        } else if (selected_serial == 1) {
+        } else if (submenu1 == 1) {
             led.plot(2, 0)
-        } else if (selected_serial == 2) {
+        } else if (submenu1 == 2) {
             led.plot(3, 0)
             led.plot(4, 0)
         }
         while (true) {
             if (input.buttonIsPressed(Button.A)) {
-                menu_moving(selected_serial, 0, 2)
-                selected_serial = menu
+                menu_moving(submenu1, 0, 2)
+                submenu1 = menu
                 break;
             } else if (input.buttonIsPressed(Button.B)) {
-                menu_moving(selected_serial, 0, 2)
-                selected_serial = menu
+                menu_moving(submenu1, 0, 2)
+                submenu1 = menu
                 break;
             } else if (input.logoIsPressed()) {
-                if (selected_serial == 2) {
+                if (submenu1 == 2) {
                     scroll_interval = 1
                     fade()
                     if (voicepreset == 6) {
@@ -1200,7 +1200,7 @@ function billy_select_menu() { //Billy TTS selection
             }
         }
         if (input.logoIsPressed()) {
-            if (selected_serial != 2) {
+            if (submenu1 != 2) {
                 break;
             }
         }
@@ -1208,19 +1208,19 @@ function billy_select_menu() { //Billy TTS selection
     fade()
     basic.clearScreen()
     scroll_interval = 1
-    if (selected_serial == 0) {
+    if (submenu1 == 0) {
         menu_select_menu()
-    } else if (selected_serial == 1) {
+    } else if (submenu1 == 1) {
         billy_say()
     }}
 function send_select_menu() { //Send selection.
     while (true) {
-        if (selected_serial == 0) {
+        if (submenu1 == 0) {
             bitmap = sysimages[9]
             ckeck_hold_a()
-            } else if (selected_serial == 1) {
+        } else if (submenu1 == 1) {
             bitmap = sysimages[22]
-            } else if (selected_serial == 2) {
+        } else if (submenu1 == 2) {
             bitmap = sysimages[6]
             ckeck_hold_b()
             }
@@ -1229,23 +1229,23 @@ function send_select_menu() { //Send selection.
             basic.pause(300)
         }
         draw_menu()
-        if (selected_serial == 0) {
+        if (submenu1 == 0) {
             led.plot(0, 0)
             led.plot(1, 0)
-        } else if (selected_serial == 1) {
+        } else if (submenu1 == 1) {
             led.plot(2, 0)
-        } else if (selected_serial == 2) {
+        } else if (submenu1 == 2) {
             led.plot(3, 0)
             led.plot(4, 0)
         }
         while (true) {
             if (input.buttonIsPressed(Button.A)) {
-                menu_moving(selected_serial, 0, 2)
-                selected_serial = menu
+                menu_moving(submenu1, 0, 2)
+                submenu1 = menu
                 break;
             } else if (input.buttonIsPressed(Button.B)) {
-                menu_moving(selected_serial, 0, 2)
-                selected_serial = menu
+                menu_moving(submenu1, 0, 2)
+                submenu1 = menu
                 break;
             } else if (input.logoIsPressed()) {
                 break;
@@ -1258,37 +1258,37 @@ function send_select_menu() { //Send selection.
     fade()
     basic.clearScreen()
     scroll_interval = 1
-    if (selected_serial == 0) {
+    if (submenu1 == 0) {
         menu_select_menu()
-    } else if (selected_serial == 1) {
+    } else if (submenu1 == 1) {
         send_type_select_menu()
-    } else if (selected_serial == 2) {
+    } else if (submenu1 == 2) {
         line_sent = true
     }}
 function send_type_select_menu() { //Send types selection.
     while (true) {
-        if (selected_serial_send == 0) {
+        if (submenu2 == 0) {
             bitmap = sysimages[9]
             ckeck_hold_a()
-            } else if (selected_serial_send == 1) {
+            } else if (submenu2 == 1) {
             bitmap = sysimages[47]
-            } else if (selected_serial_send == 2) {
+        } else if (submenu2 == 2) {
             bitmap = sysimages[19]
-            } else if (selected_serial_send == 3) {
+        } else if (submenu2 == 3) {
             bitmap = sysimages[20]
-            } else if (selected_serial_send == 4) {
+        } else if (submenu2 == 4) {
             bitmap = sysimages[21]
-            } else if (selected_serial_send == 5) {
+        } else if (submenu2 == 5) {
             bitmap = sysimages[22]
-            } else if (selected_serial_send == 6) {
+        } else if (submenu2 == 6) {
             bitmap = sysimages[23]
-            } else if (selected_serial_send == 7) {
+        } else if (submenu2 == 7) {
             bitmap = sysimages[24]
-            } else if (selected_serial_send == 8) {
+        } else if (submenu2 == 8) {
             bitmap = sysimages[25]
-            } else if (selected_serial_send == 9) {
+        } else if (submenu2 == 9) {
             bitmap = sysimages[48]
-            } else if (selected_serial_send == 10) {
+        } else if (submenu2 == 10) {
             bitmap = sysimages[49]
             ckeck_hold_b()
             }
@@ -1297,25 +1297,25 @@ function send_type_select_menu() { //Send types selection.
             basic.pause(300)
         }
         draw_menu()
-        if (selected_serial_send == 0) {
+        if (submenu2 == 0) {
             led.plot(0, 0)
-        } else if (selected_serial_send == 1) {
+        } else if (submenu2 == 1) {
             led.plot(1, 0)
-        } else if (selected_serial_send == 9) {
+        } else if (submenu2 == 9) {
             led.plot(3, 0)
-        } else if (selected_serial_send == 10) {
+        } else if (submenu2 == 10) {
             led.plot(4, 0)
         } else {
             led.plot(2, 0)
         }
         while (true) {
             if (input.buttonIsPressed(Button.A)) {
-                menu_moving(selected_serial_send, 0, 10)
-                selected_serial_send = menu
+                menu_moving(submenu2, 0, 10)
+                submenu2 = menu
                 break;
             } else if (input.buttonIsPressed(Button.B)) {
-                menu_moving(selected_serial_send, 0, 10)
-                selected_serial_send = menu
+                menu_moving(submenu2, 0, 10)
+                submenu2 = menu
                 break;
             } else if (input.logoIsPressed()) {
                 break;
@@ -1327,31 +1327,31 @@ function send_type_select_menu() { //Send types selection.
     }
     fade()
     basic.clearScreen()
-    if (selected_serial_send == 0) {
+    if (submenu2 == 0) {
         scroll_interval = 1
         send_select_menu()
-    } else if (selected_serial_send == 1) {
+    } else if (submenu2 == 1) {
         send_input()
-    } else if (selected_serial_send == 9) {
+    } else if (submenu2 == 9) {
         send_number()
-    } else if (selected_serial_send == 10) {
+    } else if (submenu2 == 10) {
         send_string()
     } else {
         let send_id = 0
         while (true) {
-            if (selected_serial_send == 2) {
+            if (submenu2 == 2) {
                 send_id = input.temperature()
-            } else if (selected_serial_send == 3) {
+            } else if (submenu2 == 3) {
                 send_id = input.lightLevel()
-            } else if (selected_serial_send == 4) {
+            } else if (submenu2 == 4) {
                 send_id = input.soundLevel()
-            } else if (selected_serial_send == 5) {
+            } else if (submenu2 == 5) {
                 send_id = input.compassHeading()
-            } else if (selected_serial_send == 6) {
+            } else if (submenu2 == 6) {
                 send_id = input.acceleration(Dimension.X)
-            } else if (selected_serial_send == 7) {
+            } else if (submenu2 == 7) {
                 send_id = input.acceleration(Dimension.Y)
-            } else if (selected_serial_send == 8) {
+            } else if (submenu2 == 8) {
                 send_id = input.acceleration(Dimension.Z)
             }
             if (selected_uart == true) {
@@ -1441,22 +1441,22 @@ function data_logging_freq_menu() { //Data logging freq selection
     }}
 function data_logger_menu() {  //Log input data.
     while (true) {
-        if (selected_log_tool == 0) {
+        if (submenu1 == 0) {
             bitmap = sysimages[9]
             ckeck_hold_a()
-        } else if (selected_log_tool == 1) {
+        } else if (submenu1 == 1) {
             bitmap = sysimages[19]
-        } else if (selected_log_tool == 2) {
+        } else if (submenu1 == 2) {
             bitmap = sysimages[20]
-        } else if (selected_log_tool == 3) {
+        } else if (submenu1 == 3) {
             bitmap = sysimages[21]
-        } else if (selected_log_tool == 4) {
+        } else if (submenu1 == 4) {
             bitmap = sysimages[22]
-        } else if (selected_log_tool == 5) {
+        } else if (submenu1 == 5) {
             bitmap = sysimages[23]
-        } else if (selected_log_tool == 6) {
+        } else if (submenu1 == 6) {
             bitmap = sysimages[24]
-        } else if (selected_log_tool == 7) {
+        } else if (submenu1 == 7) {
             bitmap = sysimages[25]
             ckeck_hold_b()
         }
@@ -1465,25 +1465,25 @@ function data_logger_menu() {  //Log input data.
             basic.pause(300)
         }
         draw_menu()
-        if (selected_log_tool == 0) {
+        if (submenu1 == 0) {
             led.plot(0, 0)
-        } else if (selected_log_tool == 1) {
+        } else if (submenu1 == 1) {
             led.plot(1, 0)
-        } else if (selected_log_tool == 6) {
+        } else if (submenu1 == 6) {
             led.plot(3, 0)
-        } else if (selected_log_tool == 7) {
+        } else if (submenu1 == 7) {
             led.plot(4, 0)
         } else {
             led.plot(2, 0)
         }
         while (true) {
             if (input.buttonIsPressed(Button.A)) {
-                menu_moving(selected_log_tool, 0, 7)
-                selected_log_tool = menu
+                menu_moving(submenu1, 0, 7)
+                submenu1 = menu
                 break;
             } else if (input.buttonIsPressed(Button.B)) {
-                menu_moving(selected_log_tool, 0, 7)
-                selected_log_tool = menu
+                menu_moving(submenu1, 0, 7)
+                submenu1 = menu
                 break;
             } else if (input.logoIsPressed()) {
                 break;
@@ -1496,23 +1496,23 @@ function data_logger_menu() {  //Log input data.
     basic.clearScreen()
     fade()
     let tool_type = 1
-    if (selected_log_tool == 0) {
+    if (submenu1 == 0) {
         menu_select_menu()
     } else {
         while (true) {
-            if (selected_log_tool == 1) {
+            if (submenu1 == 1) {
                 datalogger.log(datalogger.createCV("Temperature", input.temperature()))
-            } else if (selected_log_tool == 2) {
+            } else if (submenu1 == 2) {
                 datalogger.log(datalogger.createCV("Light level", input.lightLevel()))
-            } else if (selected_log_tool == 3) {
+            } else if (submenu1 == 3) {
                 datalogger.log(datalogger.createCV("Sound level", input.soundLevel()))
-            } else if (selected_log_tool == 4) {
+            } else if (submenu1 == 4) {
                 datalogger.log(datalogger.createCV("Compass heading", input.compassHeading()))
-            } else if (selected_log_tool == 5) {
+            } else if (submenu1 == 5) {
                 datalogger.log(datalogger.createCV("Acceleration X", input.acceleration(Dimension.X)))
-            } else if (selected_log_tool == 6) {
+            } else if (submenu1 == 6) {
                 datalogger.log(datalogger.createCV("Acceleration Y", input.acceleration(Dimension.Y)))
-            } else if (selected_log_tool == 7) {
+            } else if (submenu1 == 7) {
                 datalogger.log(datalogger.createCV("Acceleration Z", input.acceleration(Dimension.Z)))
             }
             if (logging_freq == 1) {
@@ -1528,12 +1528,12 @@ function data_logger_menu() {  //Log input data.
     }}
 function settings_select_menu() { //Settings selection.
     while (true) {
-        if (selected_setting == 0) {
+        if (submenu1 == 0) {
             bitmap = sysimages[9]
             ckeck_hold_a()
-        } else if (selected_setting == 1) {
+        } else if (submenu1 == 1) {
             bitmap = sysimages[26]
-        } else if (selected_setting == 2) {
+        } else if (submenu1 == 2) {
             if (settings_volume == 1) {
                 bitmap = sysimages[54]
                 music.setVolume(50)
@@ -1550,7 +1550,7 @@ function settings_select_menu() { //Settings selection.
                 bitmap = sysimages[55]
                 music.setVolume(255)
             }
-        } else if (selected_setting == 3) {
+        } else if (submenu1 == 3) {
             if (settings_brightness == 1) {
                 led.setBrightness(50)
                 bitmap = sysimages[56]
@@ -1567,21 +1567,21 @@ function settings_select_menu() { //Settings selection.
                 led.setBrightness(250)
                 bitmap = sysimages[60]
             }
-        } else if (selected_setting == 4) {
+        } else if (submenu1 == 4) {
             if (logged_data == 0) {
                 bitmap = sysimages[61]
             } else {
                 bitmap = sysimages[82]
             }
-        } else if (selected_setting == 5) {
+        } else if (submenu1 == 5) {
             bitmap = sysimages[62]
-        } else if (selected_setting == 6) {
+        } else if (submenu1 == 6) {
             bitmap = sysimages[63]
-        } else if (selected_setting == 7) {
+        } else if (submenu1 == 7) {
             bitmap = sysimages[70]
-        } else if (selected_setting == 8) {
+        } else if (submenu1 == 8) {
             bitmap = sysimages[64]
-        } else if (selected_setting == 9) {
+        } else if (submenu1 == 9) {
             if (custom_graph == 1) {
                 bitmap = sysimages[71]
             } else if (custom_graph == 2) {
@@ -1607,12 +1607,12 @@ function settings_select_menu() { //Settings selection.
             } else if (custom_graph == 12) {
                 bitmap = sysimages[79]
             }
-        } else if (selected_setting == 10) {
+        } else if (submenu1 == 10) {
             bitmap = sysimages[6]
             ckeck_hold_b()
         }
         scrollbit()
-        if (selected_setting == 2) {
+        if (submenu1 == 2) {
             if (settings_volume == 1) {
                 led.plotBrightness(2, 1, 20)
             } else if (settings_volume == 2) {
@@ -1633,29 +1633,29 @@ function settings_select_menu() { //Settings selection.
             basic.pause(300)
         }
         draw_menu()
-        if (selected_setting == 0) {
+        if (submenu1 == 0) {
             led.plot(0, 0)
-        } else if (selected_setting == 1) {
+        } else if (submenu1 == 1) {
             led.plot(1, 0)
-        } else if (selected_setting == 9) {
+        } else if (submenu1 == 9) {
             led.plot(3, 0)
-        } else if (selected_setting == 10) {
+        } else if (submenu1 == 10) {
             led.plot(4, 0)
         } else {
             led.plot(2, 0)
         }
         while (true) {
             if (input.buttonIsPressed(Button.A)) {
-                menu_moving(selected_setting, 0, 10)
-                selected_setting = menu
+                menu_moving(submenu1, 0, 10)
+                submenu1 = menu
                 break;
             } else if (input.buttonIsPressed(Button.B)) {
-                menu_moving(selected_setting, 0, 10)
-                selected_setting = menu
+                menu_moving(submenu1, 0, 10)
+                submenu1 = menu
                 break;
             } else if (input.logoIsPressed()) {
                 scroll_interval = 1
-                if (selected_setting == 1) {
+                if (submenu1 == 1) {
                     if (settings_music == 0) {
                         music.setBuiltInSpeakerEnabled(true)
                         music.play(music.tonePlayable(294, music.beat(BeatFraction.Quarter)), music.PlaybackMode.UntilDone)
@@ -1669,21 +1669,21 @@ function settings_select_menu() { //Settings selection.
                         settings_music = 0
                         flashstorage.put("music", convertToText(settings_music))
                     }
-                } else if (selected_setting == 2) {
+                } else if (submenu1 == 2) {
                     if (settings_volume == 5) {
                         settings_volume = 1
                     } else {
                         settings_volume += 1
                     }
                     flashstorage.put("volume", convertToText(settings_volume))
-                } else if (selected_setting == 3) {
+                } else if (submenu1 == 3) {
                     if (settings_brightness == 5) {
                         settings_brightness = 1
                     } else {
                         settings_brightness += 1
                     }
                     flashstorage.put("brightness", convertToText(settings_brightness))
-                } else if (selected_setting == 4) {
+                } else if (submenu1 == 4) {
                     if (logged_data == 0) {
                         logged_data = 1
                         bitmap = sysimages[82]
@@ -1694,9 +1694,9 @@ function settings_select_menu() { //Settings selection.
                         basic.showIcon(IconNames.No)
                     }
                     flashstorage.put("log", convertToText(logged_data))
-                } else if (selected_setting == 5) {
+                } else if (submenu1 == 5) {
                     input.calibrateCompass()
-                } else if (selected_setting == 7) {
+                } else if (submenu1 == 7) {
                     if (rotate_display == 1) {
                         rotate_display = 2
                         display.rotateTo(display.Direction.LogoToLeft)
@@ -1711,21 +1711,21 @@ function settings_select_menu() { //Settings selection.
                         display.rotateTo(display.Direction.Normal)
                     }
                     flashstorage.put("display", convertToText(rotate_display))
-                } else if (selected_setting == 8) {
+                } else if (submenu1 == 8) {
                     if (animation_scroll == 1) {
                         animation_scroll = 0
                     } else {
                         animation_scroll = 1
                     }
                     flashstorage.put("scroll", convertToText(animation_scroll))
-                } else if (selected_setting == 9) {
+                } else if (submenu1 == 9) {
                     if (custom_graph == 12) {
                         custom_graph = 1
                     } else {
                         custom_graph += 1
                     }
                     flashstorage.put("graph", convertToText(custom_graph))
-                } else if (selected_setting == 10) {
+                } else if (submenu1 == 10) {
                     if (p2press == 0) {
                         pins.touchSetMode(TouchTarget.P2, TouchTargetMode.Capacitive)
                         p2press = 1
@@ -1741,21 +1741,21 @@ function settings_select_menu() { //Settings selection.
             } else if (input.pinIsPressed(TouchPin.P2)) {
                 if (p2press == 1) {
                     scroll_interval = 1
-                    if (selected_setting == 2) {
+                    if (submenu1 == 2) {
                         if (settings_volume == 1) {
                             settings_volume = 5
                         } else {
                             settings_volume += -1
                         }
                         flashstorage.put("volume", convertToText(settings_volume))
-                    } else if (selected_setting == 3) {
+                    } else if (submenu1 == 3) {
                         if (settings_brightness == 1) {
                             settings_brightness = 5
                         } else {
                             settings_brightness += -1
                         }
                         flashstorage.put("brightness", convertToText(settings_brightness))
-                    } else if (selected_setting == 7) {
+                    } else if (submenu1 == 7) {
                         if (rotate_display == 1) {
                             rotate_display = 4
                             display.rotateTo(display.Direction.LogoToRight)
@@ -1771,7 +1771,7 @@ function settings_select_menu() { //Settings selection.
                             display.rotateTo(display.Direction.UpsideDown)
                         }
                         flashstorage.put("display", convertToText(rotate_display))
-                     }else if (selected_setting == 9) {
+                    } else if (submenu1 == 9) {
                         if (custom_graph == 1) {
                             custom_graph = 9
                         } else {
@@ -1786,16 +1786,16 @@ function settings_select_menu() { //Settings selection.
             }
         }
         if (input.logoIsPressed()) {
-            if (selected_setting == 0) {
+            if (submenu1 == 0) {
                 break;
-            } else if (selected_setting == 6) {
+            } else if (submenu1 == 6) {
                 break;
             }
     }}
-    if (selected_setting == 0) {
+    if (submenu1 == 0) {
         menu_select_menu()
     }
-    if (selected_setting == 6) {
+    if (submenu1 == 6) {
         basic.clearScreen()
         settings_test_input()
     }}
@@ -2050,22 +2050,12 @@ let menu = 0
 let selected_menu = 1
 let scroll_interval = 1
 let game_mode = 0
-let selected_tool = 0
-let selected_setting = 0
-let selected_math = 0
-let selected_clock = 0
+let submenu1 = 0
+let submenu2 = 0
+let submenu3 = 0
 let tool_type = 1
-let bluetooth_type = 0
-let bluetooth_keyboard_type = 0
-let create_type = 0
-let selected_create_music = 0
-let selected_billy = 0
-let selected_serial = 0
 let selected_uart = false
 let selected_serial_if = false
-let selected_log_tool = 0
-let selected_serial_send = 0
-let selected_music = 0
 let settings_brightness = parseFloat(flashstorage.getOrDefault("brightness", "5"))
 if (settings_brightness == 1) {
     led.setBrightness(50)
@@ -3149,17 +3139,17 @@ function math_xy() { //Calculator with 2 variables // Selected_tool = 9
         . . . . .
         `)
         if (input.buttonIsPressed(Button.A) || input.buttonIsPressed(Button.B) || input.logoIsPressed()) {
-            if (selected_math == 1) {
+            if (submenu2 == 1) {
                 basic.showNumber(mathx + mathy)
-            } else if (selected_math == 2) {
+            } else if (submenu2 == 2) {
                 basic.showNumber(mathx - mathy)
-            } else if (selected_math == 3) {
+            } else if (submenu2 == 3) {
                 basic.showNumber(mathx * mathy)
-            } else if (selected_math == 4) {
+            } else if (submenu2 == 4) {
                 basic.showNumber(mathx / mathy)
-            } else if (selected_math == 5) {
+            } else if (submenu2 == 5) {
                 basic.showNumber(mathx ** mathy)
-            } else if (selected_math == 12) {
+            } else if (submenu2 == 12) {
                 basic.showNumber(randint(mathx, mathy))
             }
             basic.clearScreen()
@@ -3184,18 +3174,18 @@ function math_x() { //Calculator with 1 variable // Selected_tool = 9
         . . . . .
         `)
         if (input.buttonIsPressed(Button.A) || input.buttonIsPressed(Button.B) || input.logoIsPressed()) {
-            if (selected_math == 6) {
+            if (submenu2 == 6) {
                 basic.showNumber(Math.sqrt(mathx))
-            } else if (selected_math == 7) {
+            } else if (submenu2 == 7) {
                 for (let i = mathx - 1; i >= 1; i--) {
                     mathx *= i;
                 }
                 basic.showNumber(mathx)
-            } else if (selected_math == 8) {
+            } else if (submenu2 == 8) {
                 basic.showNumber(Math.sin(mathx * Math.PI / 180))
-            } else if (selected_math == 9) {
+            } else if (submenu2 == 9) {
                 basic.showNumber(Math.cos(mathx * Math.PI / 180))
-            } else if (selected_math == 10) {
+            } else if (submenu2 == 10) {
                 basic.showNumber(Math.tan(mathx * Math.PI / 180))
             }
             basic.clearScreen()
