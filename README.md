@@ -77,6 +77,12 @@
 * Billy TTS
   * Text `use LOGO to add letter` `P2 finish selecting` `after ANY INPUT - hear the text`
   * Change voice preset `Change the voice preset`
+* Pins
+  * Pins 0/1/2/3v `3v pin submenu hasn't been added yet`
+      * Analog read pin `SHAKE to change the bar graph`
+      * Digital read pin `SHAKE to change the bar graph`
+      * Set the selected pin to audio pin `SETTING WILL BE SAVED`
+      * Change the selected pin between capacitive and resistive `SETTING WILL BE SAVED`
 * Serial / Bluetooth
   * Send `Send the selected input via serial or UART`
     * A/B/LOGO buttons
