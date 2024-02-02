@@ -298,12 +298,14 @@ function menu_select_menu() { //Menu selection at the start.
         } else if (selected_menu == 6) {
             bitmap = sysimages[55]
         } else if (selected_menu == 7) {
-            bitmap = sysimages[6]
+            bitmap = sysimages[5]
         } else if (selected_menu == 8) {
-            bitmap = sysimages[7]
+            bitmap = sysimages[6]
         } else if (selected_menu == 9) {
-            bitmap = sysimages[61]
+            bitmap = sysimages[7]
         } else if (selected_menu == 10) {
+            bitmap = sysimages[61]
+        } else if (selected_menu == 11) {
             bitmap = sysimages[8]
             ckeck_hold_b()
         }
@@ -316,20 +318,20 @@ function menu_select_menu() { //Menu selection at the start.
             led.plot(0, 0)
         } else if (selected_menu == 2) {
             led.plot(1, 0)
-        } else if (selected_menu == 9) {
-            led.plot(3, 0)
         } else if (selected_menu == 10) {
+            led.plot(3, 0)
+        } else if (selected_menu == 11) {
             led.plot(4, 0)
         } else {
             led.plot(2, 0)
         }
         while (true) {
             if (input.buttonIsPressed(Button.A)) {
-                menu_moving(selected_menu, 1, 10)
+                menu_moving(selected_menu, 1, 11)
                 selected_menu = menu
                 break;
             } else if (input.buttonIsPressed(Button.B)) {
-                menu_moving(selected_menu, 1, 10)
+                menu_moving(selected_menu, 1, 11)
                 selected_menu = menu
                 break;
             } else if (input.logoIsPressed()) {
@@ -355,14 +357,16 @@ function menu_select_menu() { //Menu selection at the start.
     } else if (selected_menu == 6) {
         billy_select_menu()
     } else if (selected_menu == 7) {
+        pin_select_menu()
+    } else if (selected_menu == 8) {
         selected_serial_if = true
         send_select_menu()
-    } else if (selected_menu == 8) {
+    } else if (selected_menu == 9) {
         selected_uart = true
         send_select_menu()
-    } else if (selected_menu == 9) {
-        data_logging_freq_menu()
     } else if (selected_menu == 10) {
+        data_logging_freq_menu()
+    } else if (selected_menu == 11) {
         settings_select_menu()
     }}
 function game_select_menu() { //Game selection.
@@ -594,15 +598,6 @@ function tool_select_menu() { //Tool selection.
                     tool_type = 2
                     game.addScore(1)
                     basic.pause(500)
-                if (input.pinIsPressed(TouchPin.P2)) {
-                    if (custom_graph == 12) {
-                        custom_graph = 1
-                    } else {
-                        custom_graph += 1
-                    }
-                    flashstorage.put("graph", convertToText(custom_graph))
-                    basic.pause(150)
-                }
                 }
             }
             if (tool_type == 2) {
@@ -782,7 +777,6 @@ function tool_clock_menu() { //Clock type selection.
         tool_select_menu()
     }}
 function turtle_main() { //Turtle extension.
-    music.setBuiltInSpeakerEnabled(true)
     basic.clearScreen()
     let pen_up = false
     dot.home()
@@ -1213,6 +1207,169 @@ function billy_select_menu() { //Billy TTS selection
     } else if (submenu1 == 1) {
         billy_say()
     }}
+function pin_select_menu() {
+    while (true) {
+        if (submenu1 == 0) {
+            bitmap = sysimages[9]
+            ckeck_hold_a()
+        } else if (submenu1 == 1) {
+            bitmap = sysimages[91]
+        } else if (submenu1 == 2) {
+            bitmap = sys17[submenu1 - 2]
+        } else if (submenu1 == 3) {
+            bitmap = sys17[submenu1 - 2]
+        } else if (submenu1 == 4) {
+            bitmap = sysimages[90]
+            ckeck_hold_b()
+        }
+        scrollbit()
+        if (scroll_interval == 1) {
+            basic.pause(300)
+        }
+        draw_menu()
+        if (submenu1 == 0) {
+            led.plot(0, 0)
+        } else if (submenu1 == 1) {
+            led.plot(1, 0)
+        } else if (submenu1 == 2) {
+            led.plot(2, 0)
+        } else if (submenu1 == 3) {
+            led.plot(3, 0)
+        } else if (submenu1 == 4) {
+            led.plot(4, 0)
+        }
+        while (true) {
+            if (input.buttonIsPressed(Button.A)) {
+                menu_moving(submenu1, 0, 4)
+                submenu1 = menu
+                break;
+            } else if (input.buttonIsPressed(Button.B)) {
+                menu_moving(submenu1, 0, 4)
+                submenu1 = menu
+                break;
+            } else if (input.logoIsPressed()) {
+                break;
+            }
+        }
+        if (input.logoIsPressed()) {
+            break;
+        }
+    }
+    scroll_interval = 1
+    fade()
+    if (submenu1 == 0) {
+        menu_select_menu()
+    } else if (submenu1 == 4){
+        control.reset()
+    } else {
+        datapin_select_menu()
+    }}
+function datapin_select_menu() {
+    while (true) {
+        if (submenu2 == 0) {
+            bitmap = sysimages[9]
+            ckeck_hold_a()
+        } else if (submenu2 == 1) {
+            bitmap = sysimages[92]
+        } else if (submenu2 == 2) {
+            bitmap = sysimages[93]
+        } else if (submenu2 == 3) {
+            bitmap = sysimages[26]
+        } else if (submenu2 == 4) {
+            bitmap = sysimages[94]
+            ckeck_hold_b()
+        }
+        scrollbit()
+        if (scroll_interval == 1) {
+            basic.pause(300)
+        }
+        draw_menu()
+        if (submenu2 == 0) {
+            led.plot(0, 0)
+        } else if (submenu2 == 1) {
+            led.plot(1, 0)
+        } else if (submenu2 == 2) {
+            led.plot(2, 0)
+        } else if (submenu2 == 3) {
+            led.plot(3, 0)
+        } else if (submenu2 == 4) {
+            led.plot(4, 0)
+        }
+        while (true) {
+            if (input.buttonIsPressed(Button.A)) {
+                menu_moving(submenu2, 0, 4)
+                submenu2 = menu
+                break;
+            } else if (input.buttonIsPressed(Button.B)) {
+                menu_moving(submenu2, 0, 4)
+                submenu2 = menu
+                break;
+            } else if (input.logoIsPressed()) {
+                scroll_interval = 1
+                if (submenu2 == 3) {
+                    basic.showIcon(IconNames.Yes)
+                    if (submenu1 == 1) {
+                        pins.setAudioPin(AnalogPin.P0)
+                        flashstorage.put("soundpin", convertToText(0))
+                    } else if (submenu1 == 2) {
+                        pins.setAudioPin(AnalogPin.P1)
+                        flashstorage.put("soundpin", convertToText(1))
+                    } else if (submenu1 == 3) {
+                        pins.setAudioPin(AnalogPin.P2)
+                        pins.touchSetMode(TouchTarget.P2, TouchTargetMode.Resistive)
+                        flashstorage.put("soundpin", convertToText(2))
+                    }
+                }
+                if (submenu2 == 4) {
+                    basic.showIcon(IconNames.Yes)
+                    if (submenu1 == 1) {
+                        if (cpin0 == 0) {
+                            pins.touchSetMode(TouchTarget.P0, TouchTargetMode.Resistive)
+                            cpin0 = 1
+                        } else {
+                            pins.touchSetMode(TouchTarget.P0, TouchTargetMode.Capacitive)
+                            cpin0 = 0
+                        }
+                        flashstorage.put("cpin0", convertToText(cpin0))
+                    } else if (submenu1 == 2) {
+                        if (cpin1 == 0) {
+                            pins.touchSetMode(TouchTarget.P1, TouchTargetMode.Resistive)
+                            cpin1 = 1
+                        } else {
+                            pins.touchSetMode(TouchTarget.P1, TouchTargetMode.Capacitive)
+                            cpin1 = 0
+                        }
+                        flashstorage.put("cpin1", convertToText(cpin1))
+                    } else if (submenu1 == 3) {
+                        if (cpin2 == 0) {
+                            pins.touchSetMode(TouchTarget.P2, TouchTargetMode.Resistive)
+                            cpin2 = 1
+                        } else {
+                            pins.touchSetMode(TouchTarget.P2, TouchTargetMode.Capacitive)
+                            cpin2 = 0
+                        }
+                        flashstorage.put("cpin2", convertToText(cpin2))
+                    }
+                }
+                break;
+            }
+        }
+        if (input.logoIsPressed()) {
+            if (submenu2 == 0 || 1 || 2) {
+                break;
+            }
+        }
+    }
+    scroll_interval = 1
+    fade()
+    if (submenu2 == 0) {
+        submenu1 = 0
+        menu_select_menu()
+    } else if (submenu2 == 1) {
+        analogread()
+    } else if (submenu2 == 2) {
+        digitalread()
+    }}
 function send_select_menu() { //Send selection.
     while (true) {
         if (submenu1 == 0) {
@@ -1532,7 +1689,11 @@ function settings_select_menu() { //Settings selection.
             bitmap = sysimages[9]
             ckeck_hold_a()
         } else if (submenu1 == 1) {
-            bitmap = sysimages[26]
+            if (settings_music_board == 1) {
+                bitmap = sysimages[26]
+            } else {
+                bitmap = sysimages[63]
+            }
         } else if (submenu1 == 2) {
             if (settings_volume == 1) {
                 bitmap = sysimages[54]
@@ -1657,7 +1818,11 @@ function settings_select_menu() { //Settings selection.
                 scroll_interval = 1
                 if (submenu1 == 1) {
                     if (settings_music == 0) {
-                        music.setBuiltInSpeakerEnabled(true)
+                        if (settings_music_board == 1) {
+                            music.setBuiltInSpeakerEnabled(true)
+                        } else {
+                            pins.setAudioPinEnabled(true)
+                        }
                         music.play(music.tonePlayable(294, music.beat(BeatFraction.Quarter)), music.PlaybackMode.UntilDone)
                         music.play(music.tonePlayable(494, music.beat(BeatFraction.Quarter)), music.PlaybackMode.UntilDone)
                         settings_music = 1
@@ -1665,7 +1830,11 @@ function settings_select_menu() { //Settings selection.
                     } else {
                         music.play(music.tonePlayable(494, music.beat(BeatFraction.Quarter)), music.PlaybackMode.UntilDone)
                         music.play(music.tonePlayable(294, music.beat(BeatFraction.Quarter)), music.PlaybackMode.UntilDone)
-                        music.setBuiltInSpeakerEnabled(false)
+                        if (settings_music_board == 1) {
+                            music.setBuiltInSpeakerEnabled(false)
+                        } else {
+                            pins.setAudioPinEnabled(false)
+                        }
                         settings_music = 0
                         flashstorage.put("music", convertToText(settings_music))
                     }
@@ -1741,7 +1910,14 @@ function settings_select_menu() { //Settings selection.
             } else if (input.pinIsPressed(TouchPin.P2)) {
                 if (p2press == 1) {
                     scroll_interval = 1
-                    if (submenu1 == 2) {
+                    if (submenu1 == 1) {
+                        if (settings_music_board == 1) {
+                            settings_music_board = 0
+                        } else {
+                            settings_music_board = 1
+                        }
+                        flashstorage.put("musicboard", convertToText(settings_music_board))
+                    } else if (submenu1 == 2) {
                         if (settings_volume == 1) {
                             settings_volume = 5
                         } else {
@@ -2052,10 +2228,8 @@ bluetooth.onUartDataReceived(serial.delimiters(Delimiters.NewLine), function on_
         basic.showString(bluetooth.uartReadUntil(serial.delimiters(Delimiters.NewLine)))
     }})
 
-music.setBuiltInSpeakerEnabled(false)
-pins.setAudioPinEnabled(false)
-pins.touchSetMode(TouchTarget.P2, TouchTargetMode.Capacitive)
 serial.setBaudRate(BaudRate.BaudRate115200)
+music.setBuiltInSpeakerEnabled(false)
 bluetooth.startUartService()
 let menu = 0
 let selected_menu = 1
@@ -2079,10 +2253,31 @@ if (settings_brightness == 1) {
 } else if (settings_brightness == 5) {
     led.setBrightness(255)}
 let settings_music = parseFloat(flashstorage.getOrDefault("music", "0"))
-if (settings_music == 1) {
-    music.setBuiltInSpeakerEnabled(true)
+let settings_music_board = parseFloat(flashstorage.getOrDefault("musicboard", "1"))
+let sound_pin = parseFloat(flashstorage.getOrDefault("soundpin", "0"))
+if (sound_pin == 0) {
+    pins.setAudioPin(AnalogPin.P0)
+} else if (sound_pin == 1) {
+    pins.setAudioPin(AnalogPin.P1)
 } else {
-    music.setBuiltInSpeakerEnabled(false)}
+    pins.touchSetMode(TouchTarget.P2, TouchTargetMode.Resistive)
+    pins.setAudioPin(AnalogPin.P2)}
+if (settings_music == 1) {
+    if (settings_music_board == 1) {
+        pins.setAudioPinEnabled(false)
+        music.setBuiltInSpeakerEnabled(true)
+    } else {
+        pins.setAudioPinEnabled(true)
+    }
+} else {
+    if (settings_music_board == 1) {
+        pins.setAudioPinEnabled(false)
+        music.setBuiltInSpeakerEnabled(false)
+    } else {
+        pins.setAudioPinEnabled(false)
+    }}
+
+
 let settings_volume = parseFloat(flashstorage.getOrDefault("volume", "5"))
 if (settings_volume == 1) {
     music.setVolume(50)
@@ -2095,6 +2290,21 @@ if (settings_volume == 1) {
 } else {
     music.setVolume(255)}
 let logged_data = parseFloat(flashstorage.getOrDefault("log", "0"))
+let cpin0 = parseFloat(flashstorage.getOrDefault("cpin0", "0"))
+let cpin1 = parseFloat(flashstorage.getOrDefault("cpin1", "0"))
+let cpin2 = parseFloat(flashstorage.getOrDefault("cpin2", "1"))
+if (cpin0 == 0) {
+    pins.touchSetMode(TouchTarget.P0, TouchTargetMode.Resistive)
+} else {
+    pins.touchSetMode(TouchTarget.P0, TouchTargetMode.Capacitive)}
+if (cpin1 == 0) {
+    pins.touchSetMode(TouchTarget.P1, TouchTargetMode.Resistive)
+} else {
+    pins.touchSetMode(TouchTarget.P1, TouchTargetMode.Capacitive)}
+if (cpin2 == 0) {
+    pins.touchSetMode(TouchTarget.P2, TouchTargetMode.Resistive)
+} else {
+    pins.touchSetMode(TouchTarget.P2, TouchTargetMode.Capacitive)}
 let abc_id = 1
 let abc = ["NUL", "a", "A", "b", "c", "C", "d", "e", "E", "f", "g", "G", "h", "i", "I", "j", "k", "K", "l", "L", "m", "n", "N", "o", "p", "q", "r", "s", "S", "t", "u", "U", "v", "w", "x", "y", "z", "Z", " ", ".", ",", "!", "?"]
 let numberlist = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
@@ -2174,7 +2384,8 @@ let sysimages = [0x1863998, 0x44154, 0x1467994, 0x1E06010, 0x23880,
     0x1821098, 0x255202, 0x12A90, 0x1E1105E, 0xF13C0, 0x47109C,
     0x4310, 0xA74310, 0x1E95A1E, 0x1300, 0x8639E, 0x1EE6200, 0x1041040,
     0x14E01D0, 0x822110, 0x211000, 0x18C639C, 0x222208, 0x1E13900, 
-    0x1C2288A, 0x10023C8, 0x18023C8, 0x1C023C8, 0xA3BCE, 0x1605114]
+    0x1C2288A, 0x10023C8, 0x18023C8, 0x1C023C8, 0xA3BCE, 0x1605114,
+    0xC833DA, 0xF4BC0, 0x88304C, 0x188784E, 0xC94A4C]
 let acc_1 = 0
 let time_1 = 0
 let killed_1: number[] = []
@@ -3216,7 +3427,6 @@ function math_x() { //Calculator with 1 variable // Selected_tool = 9
     }}
 function signal() { //Signal / Alarm clock // Selected_tool = 10
     basic.clearScreen()
-    music.setBuiltInSpeakerEnabled(true)
     basic.pause(200)
     basic.showString("H")
     basic.clearScreen()
@@ -3318,7 +3528,6 @@ function chronometer() { // Chronometer // Selected_tool = 10
     }}
 function timer() { // Timer // Selected_tool = 10LAST
     basic.clearScreen()
-    music.setBuiltInSpeakerEnabled(true)
     basic.pause(200)
     basic.showString("H")
     basic.clearScreen()
@@ -3384,7 +3593,6 @@ function timer() { // Timer // Selected_tool = 10LAST
     }}
 function clock() { // Clock // Selected_tool = 10
     basic.clearScreen()
-    music.setBuiltInSpeakerEnabled(true)
     basic.pause(200)
     basic.showString("H")
     basic.clearScreen()
@@ -4168,6 +4376,63 @@ function billy_say() { //Say custom text
             billy.say(text)
         }
     }}
+function analogread() {
+    graph_var2 = 1023
+    while (true) {
+        if (tool_type == 1) {
+            if (submenu1 == 1) {
+                graph_var1 = pins.analogReadPin(AnalogPin.P0)
+            } else if (submenu1 == 2) {
+                graph_var1 = pins.analogReadPin(AnalogPin.P1)
+            } else if (submenu1 == 3) {
+                graph_var1 = pins.analogReadPin(AnalogPin.P2)
+            }
+            plot_graph()
+            if (custom_graph != 12) {
+                basic.pause(50)
+            }
+            basic.clearScreen()
+            if (input.isGesture(Gesture.Shake)) {
+                if (custom_graph == 12) {
+                    custom_graph = 1
+                } else {
+                    custom_graph += 1
+                }
+                flashstorage.put("graph", convertToText(custom_graph))
+                basic.pause(150)
+            }
+        }
+    }}
+function digitalread() {
+    graph_var2 = 1
+    pins.touchSetMode(TouchTarget.P0, TouchTargetMode.Capacitive)
+    pins.touchSetMode(TouchTarget.P1, TouchTargetMode.Capacitive)
+    pins.touchSetMode(TouchTarget.P2, TouchTargetMode.Capacitive)
+    while (true) {
+        if (tool_type == 1) {
+            if (submenu1 == 1) {
+                graph_var1 = pins.digitalReadPin(DigitalPin.P0)
+            } else if (submenu1 == 2) {
+                graph_var1 = pins.digitalReadPin(DigitalPin.P1)
+            } else if (submenu1 == 3) {
+                graph_var1 = pins.digitalReadPin(DigitalPin.P2)
+            }
+            plot_graph()
+            if (custom_graph != 12) {
+                basic.pause(50)
+            }
+            basic.clearScreen()
+            if (input.pinIsPressed(TouchPin.P2)) {
+                if (custom_graph == 12) {
+                    custom_graph = 1
+                } else {
+                    custom_graph += 1
+                }
+                flashstorage.put("graph", convertToText(custom_graph))
+                basic.pause(150)
+            }
+        }
+    }}
 function create_number() { //Create a temp-saved number.
     basic.clearScreen()
     basic.pause(500)
@@ -4188,7 +4453,6 @@ function create_number() { //Create a temp-saved number.
         }
     }}
 function create_image() { //Create a temp-saved image.
-    music.setBuiltInSpeakerEnabled(true)
     basic.clearScreen()
     let pen_up = false
     dot.erase()
@@ -4279,7 +4543,6 @@ function create_image() { //Create a temp-saved image.
         }
     }}
 function music_melody8() { //Built in mucic 8.
-    music.setBuiltInSpeakerEnabled(true)
     basic.clearScreen()
     basic.pause(300)
     num = 1
@@ -4343,7 +4606,6 @@ function music_melody8() { //Built in mucic 8.
         }
     }}
 function music_melody() { //Built in music.
-    music.setBuiltInSpeakerEnabled(true)
     basic.clearScreen()
     basic.pause(300)
     num = 1
@@ -4427,7 +4689,6 @@ function music_melody() { //Built in music.
         }
     }}
 function music_melodyV2() { //Built in music V2.
-    music.setBuiltInSpeakerEnabled(true)
     basic.clearScreen()
     basic.pause(300)
     num = 1
@@ -4488,7 +4749,6 @@ function music_melodyV2() { //Built in music V2.
         }
     }}
 function music_sFX() { //Built in sFX.
-    music.setBuiltInSpeakerEnabled(true)
     basic.clearScreen()
     basic.pause(300)
     num = 1
@@ -4550,7 +4810,6 @@ function music_sFX() { //Built in sFX.
     }}
 
 function tune() { //Tune selection.
-    music.setBuiltInSpeakerEnabled(true)
     basic.clearScreen()
     basic.pause(300)
     custom_music.push(50)
@@ -4599,7 +4858,6 @@ function tune() { //Tune selection.
     }
     beat()}
 function beat() { //Beat selection.
-    music.setBuiltInSpeakerEnabled(true)
     basic.clearScreen()
     basic.pause(300)
     num = 1
@@ -4660,7 +4918,6 @@ function beat() { //Beat selection.
     basic.pause(200)
     custom_music_selection()}
 function rest() { //Rest selection.
-    music.setBuiltInSpeakerEnabled(true)
     basic.clearScreen()
     custom_music.push(100)
     basic.pause(300)
