@@ -581,17 +581,17 @@ function tool_select_menu() { //Tool selection.
         while (true) {
             if (tool_type == 1) {
                 if (submenu1 == 1) {
-                    basic.showNumber(input.temperature())
+                    basic.showNumber(input.temperature(), 75)
                 } else if (submenu1 == 2) {
-                    basic.showNumber(input.lightLevel())
+                    basic.showNumber(input.lightLevel(), 75)
                 } else if (submenu1 == 3) {
-                    basic.showNumber(input.soundLevel())
+                    basic.showNumber(input.soundLevel(), 75)
                 } else if (submenu1 == 5) {
-                    basic.showNumber(input.acceleration(Dimension.X))
+                    basic.showNumber(input.acceleration(Dimension.X), 75)
                 } else if (submenu1 == 6) {
-                    basic.showNumber(input.acceleration(Dimension.Y))
+                    basic.showNumber(input.acceleration(Dimension.Y), 75)
                 } else if (submenu1 == 7) {
-                    basic.showNumber(input.acceleration(Dimension.Z))
+                    basic.showNumber(input.acceleration(Dimension.Z), 75)
                 }
                 if (input.logoIsPressed()) {
                     basic.clearScreen()
