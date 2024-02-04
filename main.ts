@@ -486,10 +486,11 @@ function game_select_menu() { //Game selection.
     } else if (game_mode == 9) {
         game_mode_9()
     } else if (game_mode == 10) {
-        inits()
         basic.clearScreen()
+        led.plot(currentX, currentY)
+        snake()
+        getNewDot()
     }}
-
 function tool_select_menu() { //Tool selection.
     while (true) {
         if (submenu1 == 0) {
@@ -2086,19 +2087,17 @@ input.onButtonPressed(Button.A, function () { //On button A pressed.
             user_9 = 1
             currX_9 = 2
             currY_9 = 2
-        }
-    }
+        }}
     if (game_mode == 10) {
-        if (state == 2) {
-            if (direction == 0) {
-                direction = 3
-            } else if (direction == 1) {
-                direction = 0
-            } else if (direction == 2) {
-                direction = 1
-            } else if (direction == 3) {
-                direction = 2
-            }
+        switch (currentDirection) {
+            case Dir.Up:
+                currentDirection = Dir.Left; break
+            case Dir.Right:
+                currentDirection = Dir.Up; break
+            case Dir.Down:
+                currentDirection = Dir.Right; break
+            case Dir.Left:
+                currentDirection = Dir.Down; break
         }
     }})
 input.onButtonPressed(Button.B, function () { //On button B pressed.
@@ -2172,16 +2171,15 @@ input.onButtonPressed(Button.B, function () { //On button B pressed.
         }
     }
     if (game_mode == 10) {
-        if (state == 2) {
-            if (direction == 0) {
-                direction = 1
-            } else if (direction == 1) {
-                direction = 2
-            } else if (direction == 2) {
-                direction = 3
-            } else if (direction == 3) {
-                direction = 0
-            }
+        switch (currentDirection) {
+            case Dir.Up:
+                currentDirection = Dir.Right; break
+            case Dir.Right:
+                currentDirection = Dir.Down; break
+            case Dir.Down:
+                currentDirection = Dir.Left; break
+            case Dir.Left:
+                currentDirection = Dir.Up; break
         }
     }})
 input.onButtonPressed(Button.AB, function () { //On button AB pressed.
@@ -2200,15 +2198,6 @@ input.onButtonPressed(Button.AB, function () { //On button AB pressed.
     }
     if (game_mode == 9) {
         state_9 = 1
-    }
-    if (game_mode == 10) {
-        if (state == 0) {
-            snakeX[0] = 0
-            snakeY[0] = 0
-            led.plot(snakeX[0], snakeY[0])
-            basic.clearScreen()
-            state = 1
-        }
     }})
 
 bluetooth.onBluetoothConnected(function () { //On bluetooth connected.
@@ -2455,18 +2444,20 @@ let state_9 = 0
 state_9 = -1
 winX_9 = [1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 1, 1, 2, 2, 2, 3, 3, 3, 1, 2, 3, 1, 2, 3]
 winY_9 = [1, 1, 1, 2, 2, 2, 3, 3, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 3, 2, 1]
-let level = 0
-let show = 0
-let snake_length = 0
-let foodY = 0
-let foodX = 0
-let direction = 0
+enum Dir { Up = 0, Down, Left, Right }
+let gameSpeed = 800
+let gameRunning = true
+let currentDirection: Dir
+currentDirection = Dir.Right
+let currentX = 0
+let currentY = 2
+let dotX: number = 0
+let dotY: number = 0
 let score = 0
-let state = 0
-let snakeY: number[] = []
-let snakeX: number[] = []
-snakeX = [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1]
-snakeY = [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1]
+let snakePartsX: number[]
+snakePartsX = [0]
+let snakePartsY: number[]
+snakePartsY = [2]
 basic.clearScreen()
 loading_animation()
 menu_select_menu()
@@ -3063,131 +3054,90 @@ function showall() { //Tic-Tac-Toe // game_mode = 9
         led.plotBrightness(ax_9[i], ay_9[i], brightnessA_9)
         led.plotBrightness(bx_9[i], by_9[i], brightnessB_9)
     }}
-basic.forever(function () { //Snake // game_mode = 10
-    if (game_mode == 10) {
-        if (state == 1) {
-            gen_food()
-            state = 2
-        } else if (state == 2) {
-            led.toggle(foodX, foodY)
-            if (show == 0) {
-                show = 5 - level
-                show_snake()
-            } else {
-                show += -1
+function snake() { //Snake // game_mode = 10
+    loops.everyInterval(gameSpeed, () => {
+        if (gameRunning) {
+            let nextX = currentX
+            let nextY = currentY
+            switch (currentDirection) {
+                case Dir.Up:
+                    nextY--; break
+                case Dir.Right:
+                    nextX++; break
+                case Dir.Down:
+                    nextY++; break
+                case Dir.Left:
+                    nextX--; break
             }
-        } else {
-
-        }
-        basic.pause(100)
-    }})
-function finish(num: number) {  //Snake // game_mode = 10
-    state = 3
-    basic.clearScreen()
-    music.play(music.createSoundExpression(
-        WaveShape.Sawtooth,
-        321,
-        0,
-        255,
-        0,
-        100,
-        SoundExpressionEffect.None,
-        InterpolationCurve.Linear
-    ), music.PlaybackMode.InBackground)
-    if (num == 0) {
-        basic.showString("LOSE")
-    } else {
-        basic.showString("WIN")
-    }
-    basic.showString("S:")
-    basic.showNumber(score)
-    control.reset()
-    inits()}
-function inits() { //Snake // game_mode = 10
-    foodX = -1
-    foodY = -1
-    direction = 0
-    snake_length = 1
-    show = 5 - level
-    score = 0
-    level = 0
-    for (let index = 0; index <= 9; index++) {
-        snakeX[index] = -1
-        snakeY[index] = -1
-    }
-    state = 0}
-function gen_food() { //Snake // game_mode = 10
-    while (true) {
-        foodX = randint(0, 4)
-        foodY = randint(0, 4)
-        if (led.point(foodX, foodY) == false) {
-            break;
-        }
-    }}
-function show_snake() { //Snake // game_mode = 10
-    led.unplot(snakeX[snake_length - 1], snakeY[snake_length - 1])
-    if (snake_length > 1) {
-        for (let index = 0; index <= snake_length - 2; index++) {
-            snakeX[snake_length - 1 - index] = snakeX[snake_length - 2 - index]
-            snakeY[snake_length - 1 - index] = snakeY[snake_length - 2 - index]
-        }
-    }
-    if (direction == 0 && snakeX[0] < 4) {
-        snakeX[0] = snakeX[0] + 1
-    } else if (direction == 1 && snakeY[0] < 4) {
-        snakeY[0] = snakeY[0] + 1
-    } else if (direction == 2 && snakeX[0] > 0) {
-        snakeX[0] = snakeX[0] - 1
-    } else if (direction == 3 && snakeY[0] > 0) {
-        snakeY[0] = snakeY[0] - 1
-    } else {
-        finish(0)
-    }
-    if (state == 2) {
-        eat_food()
-        led.plot(snakeX[0], snakeY[0])
-    }}
-function eat_food() { //Snake // game_mode = 10
-    if (snakeX[0] == foodX && snakeY[0] == foodY) {
-        if (snake_length >= 10) {
-            snake_length = 1
-            level += 1
-            for (let index = 0; index < 3; index++) {
-                basic.showLeds(`
-                    # # # # #
-                    # # # # #
-                    # # # # #
-                    # # # # #
-                    # # # # #
-                    `)
-                basic.pause(200)
-                basic.clearScreen()
-                basic.pause(200)
-            }
-            if (level >= 5) {
-                finish(1)
+            if (!hitDot(nextX, nextY) && led.point(nextX, nextY)) {
+                loseGame()
             } else {
-                for (let index = 0; index <= 9; index++) {
-                    snakeX[index] = -1
-                    snakeY[index] = -1
+                currentX = nextX
+                currentY = nextY
+                if (currentX == 5) {
+                    currentX = 0
                 }
-                snakeX[0] = 0
-                snakeY[0] = 0
-                led.plot(snakeX[0], snakeY[0])
-                direction = 0
-                state = 1
+                if (currentY == 5) {
+                    currentY = 0
+                }
+                if (currentX == -1) {
+                    currentX = 4
+                }
+                if (currentY == -1) {
+                    currentY = 4
+                }
+                led.plot(currentX, currentY)
+                snakePartsX.push(currentX);
+                snakePartsY.push(currentY);
+                if (hitDot(currentX, currentY)) {
+                    score++
+                    music.play(music.createSoundExpression(WaveShape.Noise, 2294, 2294, 238, 0, 200, SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.InBackground)
+                    getNewDot()
+                    if (score % 1 == 0 && gameSpeed > 500) {
+                        gameSpeed = gameSpeed - 25
+                    } else {
+                        dropTail()
+                    }
+                } else {
+                    dropTail()
+                }
             }
-        } else {
-            music.play(music.createSoundExpression(WaveShape.Noise, 2294, 2294, 238, 0, 200, SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.InBackground)
-            snake_length += 1
-            score += 1
-            state = 1
         }
-    } else {
-        if (led.point(snakeX[0], snakeY[0]) == true) {
-            finish(0)
-        }
-    }}
+        basic.pause(gameSpeed)
+    })}  
+function getNewDot() { //Snake // game_mode = 10
+    let pointTail = getNotLit()
+    dotX = pointTail.X;
+    dotY = pointTail.Y;
+    led.plotBrightness(dotX, dotY, 100)}
+function getNotLit(): { X: number, Y: number } { //Snake // game_mode = 10
+    let x = randint(0, 4)
+    let y = randint(0, 4)
+    while (led.point(x, y)) {
+        x = randint(0, 4)
+        y = randint(0, 4)
+    }
+    return { X: x, Y: y }}
+function hitDot(x: number, y: number) { //Snake // game_mode = 10
+    return x == dotX && y == dotY}
+function dropTail() { //Snake // game_mode = 10
+    led.unplot(snakePartsX[0], snakePartsY[0])
+    snakePartsX.shift()
+    snakePartsY.shift()}
+function loseGame() { //Snake // game_mode = 10
+    music.play(music.createSoundExpression(WaveShape.Sawtooth, 321, 0, 255, 0, 100, SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.InBackground)
+    basic.showAnimation(`
+        ..... ..... ..... ..... #####
+        ..... ..... ..... ##### ##### 
+        ..... ..... ##### ##### ##### 
+        ..... ##### ##### ##### ##### 
+        ##### ##### ##### ##### ##### 
+        `, 80)
+        basic.clearScreen()
+    basic.pause(300)
+    basic.showString("S:")
+    basic.showNumber(score, 100)
+    control.reset()}
 function tool_compass() { //Compass // Selected_tool = 4
     while (true) {
         if (Math.constrain(input.compassHeading(), 0, 45) == input.compassHeading()) {
