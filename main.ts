@@ -1862,7 +1862,9 @@ function settings_select_menu() { //Settings selection.
                         datalogger.includeTimestamp(FlashLogTimeStampFormat.Minutes)
                         datalogger.setColumnTitles("Space Invaders", "Flappy Bird", "Pong", "Cars Game", "Dinasour Game", "Jumping Rope", "Pac-Man", "Tetris", "Snake")
                     } else {
-                        basic.showIcon(IconNames.No)
+                        logged_data = 0
+                        bitmap = sysimages[82]
+                        datalogger.deleteLog(datalogger.DeleteType.Full)
                     }
                     flashstorage.put("log", convertToText(logged_data))
                 } else if (submenu1 == 5) {
