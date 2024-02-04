@@ -510,15 +510,17 @@ function tool_select_menu() { //Tool selection.
             } else if (submenu1 == 6) {
                 bitmap = sysimages[24]
         } else if (submenu1 == 7) {
-                bitmap = sysimages[25]
+            bitmap = sysimages[25]
         } else if (submenu1 == 8) {
-                bitmap = sysimages[26]
+            bitmap = sysimages[95]
         } else if (submenu1 == 9) {
-                bitmap = sysimages[27]
+            bitmap = sysimages[26]
         } else if (submenu1 == 10) {
-                bitmap = sysimages[28]
-                ckeck_hold_b()
-            }
+            bitmap = sysimages[27]
+        } else if (submenu1 == 11) {
+            bitmap = sysimages[28]
+            ckeck_hold_b()
+        }
         scrollbit()
         if (scroll_interval == 1) {
             basic.pause(300)
@@ -528,20 +530,20 @@ function tool_select_menu() { //Tool selection.
             led.plot(0, 0)
         } else if (submenu1 == 1) {
             led.plot(1, 0)
-        } else if (submenu1 == 9) {
-            led.plot(3, 0)
         } else if (submenu1 == 10) {
+            led.plot(3, 0)
+        } else if (submenu1 == 11) {
             led.plot(4, 0)
         } else {
             led.plot(2, 0)
         }
         while (true) {
             if (input.buttonIsPressed(Button.A)) {
-                menu_moving(submenu1, 0, 10)
+                menu_moving(submenu1, 0, 11)
                 submenu1 = menu
                 break;
             } else if (input.buttonIsPressed(Button.B)) {
-                menu_moving(submenu1, 0, 10)
+                menu_moving(submenu1, 0, 11)
                 submenu1 = menu
                 break;
             } else if (input.logoIsPressed()) {
@@ -561,10 +563,15 @@ function tool_select_menu() { //Tool selection.
     } else if (submenu1 == 4) {
         tool_compass()
     } else if (submenu1 == 8) {
-        tool_record()
+        while (true) {
+            led.plotBarGraph(
+                input.magneticForce(Dimension.Strength) / 2000,
+                0)}
     } else if (submenu1 == 9) {
-        tool_calculator_menu()
+        tool_record()
     } else if (submenu1 == 10) {
+        tool_calculator_menu()
+    } else if (submenu1 == 11) {
         tool_clock_menu()
     } else {
         if (submenu1 == 1) {
@@ -2377,7 +2384,7 @@ let sysimages = [0x1863998, 0x44154, 0x1467994, 0x1E06010, 0x23880,
     0x4310, 0xA74310, 0x1E95A1E, 0x1300, 0x8639E, 0x1EE6200, 0x1041040,
     0x14E01D0, 0x822110, 0x211000, 0x18C639C, 0x222208, 0x1E13900, 
     0x1C2288A, 0x10023C8, 0x18023C8, 0x1C023C8, 0xA3BCE, 0x1605114,
-    0xC833DA, 0xF4BC0, 0x88304C, 0x188784E, 0xC94A4C]
+    0xC833DA, 0xF4BC0, 0x88304C, 0x188784E, 0xC94A4C, 0x391E]
 let acc_1 = 0
 let time_1 = 0
 let killed_1: number[] = []
