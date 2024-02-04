@@ -480,6 +480,7 @@ function game_select_menu() { //Game selection.
             }
         }
         basic.clearScreen()
+        datalogger.log(datalogger.createCV("Tetris", score_8))
         basic.showString("S:")
         basic.showNumber(score_8)
         control.reset()
@@ -1859,7 +1860,7 @@ function settings_select_menu() { //Settings selection.
                         bitmap = sysimages[82]
                         datalogger.deleteLog(datalogger.DeleteType.Full)
                         datalogger.includeTimestamp(FlashLogTimeStampFormat.Minutes)
-                        datalogger.setColumnTitles("Space Invaders", "Flappy Bird", "Pong", "Cars Game", "Dinasour Game", "Jumping Rope", "Pac-Man")
+                        datalogger.setColumnTitles("Space Invaders", "Flappy Bird", "Pong", "Cars Game", "Dinasour Game", "Jumping Rope", "Pac-Man", "Tetris", "Snake")
                     } else {
                         basic.showIcon(IconNames.No)
                     }
@@ -3134,6 +3135,8 @@ function loseGame() { //Snake // game_mode = 10
         ##### ##### ##### ##### ##### 
         `, 80)
         basic.clearScreen()
+    datalogger.log(datalogger.createCV("Snake", score))
+
     basic.pause(300)
     basic.showString("S:")
     basic.showNumber(score, 100)
