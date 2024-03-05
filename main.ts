@@ -148,18 +148,9 @@ function unid_if_1_4() { //Function to draw numbers from 1 to 4
     currimage = led.screenshot()
     currimage.scrollImage(1, scroll_interval)
     }
-function usid_if() { //Function to draw letters from "a" to "?"
-    usid = abc_id
-    bitmap = usidaz[usid - 1]
-    let currimage = led.screenshot()
-    currimage.scrollImage(5, 1)
-    basic.clearScreen()
-    decrypt()
-    currimage = led.screenshot()
-    currimage.scrollImage(1, scroll_interval)
-    }
+
 function uckb_if() { //Function to map keyboard buttons to input buttons.
-    let kbshiftlist = ["NUL", "A", "A", "B", "C", "C", "D", "E", "E", "F", "G", "G", "H", "I", "I", "J", "K", "K", "L", "L", "M", "N", "N", "O", "P", "Q", "R", "S", "S", "T", "U", "U", "V", "W", "X", "Y", "Z", "Z"]
+    let kbshiftlist = ["NUL", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
     if (shift == true) {
         uckb = kbshiftlist[abc_id]
         shift = false
@@ -1001,80 +992,7 @@ function create_select_menu() { //Create type selection.
     } else {
         menu_select_menu()
     }}
-function custom_music_selection() { //Custom music selection.
-    while (true) {
-        if (submenu3 == 0) {
-            bitmap = sysimages[9]
-            ckeck_hold_a()
-        } else if (submenu3 == 1) {
-            bitmap = sysimages[26]
-        } else if (submenu3 == 2) {
-            bitmap = sysimages[65]
-        } else if (submenu3 == 3) {
-            bitmap = sysimages[84]
-        } else if (submenu3 == 4) {
-            bitmap = sysimages[64]
-            ckeck_hold_b()
-        }
-        scrollbit()
-        if (scroll_interval == 1) {
-            basic.pause(300)
-        }
-        draw_menu()
-        if (submenu3 == 0) {
-            led.plot(0, 0)
-        } else if (submenu3 == 1) {
-            led.plot(1, 0)
-        } else if (submenu3 == 2) {
-            led.plot(2, 0)
-        } else if (submenu3 == 3) {
-            led.plot(3, 0)
-        } else if (submenu3 == 4) {
-            led.plot(4, 0)
-        }
-        while (true) {
-            if (input.buttonIsPressed(Button.A)) {
-                menu_moving(submenu3, 0, 4)
-                submenu3 = menu
-                break;
-            } else if (input.buttonIsPressed(Button.B)) {
-                menu_moving(submenu3, 0, 4)
-                submenu3 = menu
-                break;
-            } else if (input.logoIsPressed()) {
-                if (submenu3 == 3) {
-                        while (true) {
-                            if (custom_music[custom_music.length - 1] == 50) {
-                                custom_music.pop()
-                                break;
-                            } else if (custom_music[custom_music.length - 1] == 100) {
-                                custom_music.pop()
-                                break;
-                            } else {
-                                custom_music.pop()
-                            }
-                        }
-                }
-                break;
-            }
-        }
-        if (input.logoIsPressed()) {
-            if (submenu3 != 3) {
-                break;
-            }
-        }
-    }
-    scroll_interval = 1
-    fade()
-    if (submenu3 == 0) {
-        create_music_menu()
-    } else if (submenu3 == 1) {
-        tune()
-    } else if (submenu3 == 2) {
-        rest()
-    } else if (submenu3 == 4){
-        melody_play()
-    }}
+
 function create_music_menu() { //Built-in music selection.
     while (true) {
         if (submenu2 == 0) {
@@ -1088,10 +1006,8 @@ function create_music_menu() { //Built-in music selection.
             bitmap = sysimages[52]
         } else if (submenu2 == 4) {
             bitmap = sysimages[53]
-        } else if (submenu2 == 5) {
-            bitmap = sysimages[4]
             ckeck_hold_b()
-            }
+        }
         scrollbit()
         if (scroll_interval == 1) {
             basic.pause(300)
@@ -1101,20 +1017,20 @@ function create_music_menu() { //Built-in music selection.
             led.plot(0, 0)
         } else if (submenu2 == 1) {
             led.plot(1, 0)
-        } else if (submenu2 == 4) {
+        } else if (submenu2 == 3) {
             led.plot(3, 0)
-        } else if (submenu2 == 5) {
+        } else if (submenu2 == 4) {
             led.plot(4, 0)
         } else {
             led.plot(2, 0)
         }
         while (true) {
             if (input.buttonIsPressed(Button.A)) {
-                menu_moving(submenu2, 0, 5)
+                menu_moving(submenu2, 0, 4)
                 submenu2 = menu
                 break;
             } else if (input.buttonIsPressed(Button.B)) {
-                menu_moving(submenu2, 0, 5)
+                menu_moving(submenu2, 0, 4)
                 submenu2 = menu
                 break;
             } else if (input.logoIsPressed()) {
@@ -1136,9 +1052,6 @@ function create_music_menu() { //Built-in music selection.
         music_melodyV2()
     } else if (submenu2 == 4) {
         music_sFX()
-    } else {
-        scroll_interval = 1
-        custom_music_selection()
     }}
 function billy_select_menu() { //Billy TTS selection
     while (true) {
@@ -2124,7 +2037,7 @@ if (settings_volume == 1) {
     music.setVolume(255)}
 let logged_data = parseFloat(flashstorage.getOrDefault("log", "0"))
 let abc_id = 1
-let abc = ["NUL", "a", "A", "b", "c", "C", "d", "e", "E", "f", "g", "G", "h", "i", "I", "j", "k", "K", "l", "L", "m", "n", "N", "o", "p", "q", "r", "s", "S", "t", "u", "U", "v", "w", "x", "y", "z", "Z", " ", ".", ",", "!", "?"]
+let abc = ["NUL", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", " ", ".", ",", "!", "?"]
 let numberlist = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 let inputlist: string[] = []
 let text = ""
@@ -2136,7 +2049,6 @@ let captured = ""
 let crhonometer_run = false
 let animation_scroll = 1
 let unid = 0
-let usid = 0
 let num = 0
 let hour = 0
 let minute = 0
@@ -2154,9 +2066,6 @@ let custom_a_button = ""
 let custom_b_button = ""
 let custom_logo_button = ""
 let uckb = ""
-let custom_music: number[] = []
-let tune_music = 131
-let tonelist = [0, 131, 147, 165, 175, 196, 220, 247, 262, 294, 330, 349, 392, 440, 494, 523, 587, 659, 698, 784, 880, 998]
 let music_playing = false
 let line_sent = false
 let uart_send = ""
@@ -2186,8 +2095,6 @@ let unid09 = [0xFC7E0, 0xF8800, 0xBD7A0, 0xFD6A0, 0xF90E0, 0xED6E0, 0xED7E0, 0xF
 let unid123 = [0xFC7E0, 0xF8800, 0xBD7A0, 0xFD6A0, 0xF90E0, 0xED6E0, 0xED7E0, 0xF8420, 0xFD7E0, 0xFD6E0, 0x1F8FC1F, 0x1F1001F, 0x17AF41F, 0x1FAD41F, 0x1F21C1F, 0x1DADC1F, 0x1DAFC1F, 0x1F0841F, 0x1FAFC1F, 0x1FADC1F, 0x1F8FEFD, 0x1F102FD, 0x17E82FD, 0x1FA82FD]
 let unid123ex = [0x1DB82FD, 0x1F8FFF5, 0x1DB83F5, 0x1F8FF87, 0x1DB8387, 0x1F8FFB7, 0x1DB83B7]
 let unid14 = [0xF8800, 0x17E801F, 0x1F21C1F, 0x1FAFC1F, 0x1DAFC1F, 0xBD7A0, 0xF90E0]
-let usidaz = [0x10F4A4C, 0x10ED6A8, 0x4529F, 0x4A4C, 0x52A8, 0xFD288, 0x956AE, 0x7056BF, 0x97C4, 0x7D6A2, 0x1E563F, 0xC109F, 0x7400, 0xF420, 0x3610, 0x8289F, 0x48289F, 0x843E0, 0x1843E0, 0x1E1105E, 0xE085E, 0x1E085E, 0x64A4C, 0x2295E, 0xF2944, 0x1089E, 0x12A90, 0x12A91, 0xA51E0, 0x10F420E, 0x10E462C, 0x644106, 0x1E8221E, 0x93192, 0x222292, 0x95B52, 0x195B52, 0xC4210C, 0x2000, 0x2200, 0x5C00, 0x22D422]
-let tunecb = [0x118FC10, 0xE8FC10, 0x15AFC10, 0x52FC10, 0x1DAFC10, 0x1F2FC10, 0x1BAFC10, 0x118FC18, 0xE8FC18, 0x15AFC18, 0x52FC18, 0x1DAFC18, 0xF97C18, 0x1BAFC18, 0x118FC1C, 0xE8FC1C, 0x15AFC1C, 0x52FC1C, 0x1DAFC1C, 0x1F2FC1C, 0x1BAFC1C]
 let sys17 = [0xF1000, 0xB6A40, 0xF6A40, 0xF10C0, 0x96AC0, 0xD4BC0, 0xF0840]
 let sysimages = [0x1863998, 0x44154, 0x1467994, 0x1E06010, 0x23880,
     0x1846118, 0x447904, 0x8A7914, 0x14E2394, 0x1CA11C4, 0x4800,
@@ -3992,10 +3899,8 @@ function bluetooth_keyboard() { //Send any keyboard input via bluetooth
         basic.clearScreen()
         basic.pause(500)
         while (true) {
-            usid_if()
-            if (scroll_interval == 1) {
-                basic.pause(300)
-            }
+            basic.showString(abc[abc_id], 20)
+            basic.pause(40)
             while(true){
                 if (input.pinIsPressed(TouchPin.P2)) {
                     scroll_interval = 1
@@ -4006,7 +3911,7 @@ function bluetooth_keyboard() { //Send any keyboard input via bluetooth
                 if (input.buttonIsPressed(Button.A)) {
                     scroll_interval = 1
                     if (abc_id == 1) {
-                        abc_id = 42
+                        abc_id = 31
                     } else {
                         abc_id += -1
                     }
@@ -4014,7 +3919,7 @@ function bluetooth_keyboard() { //Send any keyboard input via bluetooth
                 }
                 if (input.buttonIsPressed(Button.B)) {
                     scroll_interval = 45
-                    if (abc_id == 42) {
+                    if (abc_id == 31) {
                         abc_id = 1
                     } else {
                         abc_id += 1
@@ -4152,10 +4057,8 @@ function bluetooth_keyboard_custom() { // Custom keyboard input.
             if (input.logoIsPressed()) {
                 break;
             }
-            usid_if()
-            if (scroll_interval == 1) {
-                basic.pause(300)
-            }
+            basic.showString(abc[abc_id], 20)
+            basic.pause(40)
             while(true){
                 if (input.pinIsPressed(TouchPin.P2)) {
                     scroll_interval = 1
@@ -4166,7 +4069,7 @@ function bluetooth_keyboard_custom() { // Custom keyboard input.
                 if (input.buttonIsPressed(Button.A)) {
                     scroll_interval = 1
                     if (abc_id == 1) {
-                        abc_id = 42
+                        abc_id = 31
                     } else {
                         abc_id += -1
                     }
@@ -4174,7 +4077,7 @@ function bluetooth_keyboard_custom() { // Custom keyboard input.
                 }
                 if (input.buttonIsPressed(Button.B)) {
                     scroll_interval = 45
-                    if (abc_id == 42) {
+                    if (abc_id == 31) {
                         abc_id = 1
                     } else {
                         abc_id += 1
@@ -4206,10 +4109,8 @@ function bluetooth_keyboard_custom() { // Custom keyboard input.
             if (input.logoIsPressed()) {
                 break;
             }
-            usid_if()
-            if (scroll_interval == 1) {
-                basic.pause(300)
-            }
+            basic.showString(abc[abc_id], 20)
+            basic.pause(40)
             while(true){
                 if (input.pinIsPressed(TouchPin.P2)) {
                     scroll_interval = 1
@@ -4220,7 +4121,7 @@ function bluetooth_keyboard_custom() { // Custom keyboard input.
                 if (input.buttonIsPressed(Button.A)) {
                     scroll_interval = 1
                     if (abc_id == 1) {
-                        abc_id = 42
+                        abc_id = 31
                     } else {
                         abc_id += -1
                     }
@@ -4228,7 +4129,7 @@ function bluetooth_keyboard_custom() { // Custom keyboard input.
                 }
                 if (input.buttonIsPressed(Button.B)) {
                     scroll_interval = 45
-                    if (abc_id == 42) {
+                    if (abc_id == 31) {
                         abc_id = 1
                     } else {
                         abc_id += 1
@@ -4259,10 +4160,8 @@ function bluetooth_keyboard_custom() { // Custom keyboard input.
             if (input.logoIsPressed()) {
                 break;
             }
-            usid_if()
-            if (scroll_interval == 1) {
-                basic.pause(300)
-            }
+            basic.showString(abc[abc_id], 20)
+            basic.pause(40)
             while(true){
                 if (input.pinIsPressed(TouchPin.P2)) {
                     scroll_interval = 1
@@ -4273,7 +4172,7 @@ function bluetooth_keyboard_custom() { // Custom keyboard input.
                 if (input.buttonIsPressed(Button.A)) {
                     scroll_interval = 1
                     if (abc_id == 1) {
-                        abc_id = 42
+                        abc_id = 31
                     } else {
                         abc_id += -1
                     }
@@ -4281,7 +4180,7 @@ function bluetooth_keyboard_custom() { // Custom keyboard input.
                 }
                 if (input.buttonIsPressed(Button.B)) {
                     scroll_interval = 45
-                    if (abc_id == 42) {
+                    if (abc_id == 31) {
                         abc_id = 1
                     } else {
                         abc_id += 1
@@ -4344,10 +4243,8 @@ function create_strig() { //Create a temp-saved string.
         if (input.pinIsPressed(TouchPin.P2)) {
             break;
         }
-        usid_if()
-        if (scroll_interval == 1) {
-            basic.pause(300)
-        }
+        basic.showString(abc[abc_id], 20)
+        basic.pause(40)
         while(true){
             if (input.pinIsPressed(TouchPin.P2)) {
                 break;
@@ -4355,7 +4252,7 @@ function create_strig() { //Create a temp-saved string.
             if (input.buttonIsPressed(Button.A)) {
                 scroll_interval = 1
                 if (abc_id == 1) {
-                    abc_id = 42
+                    abc_id = 31
                 } else {
                     abc_id += -1
                 }
@@ -4363,7 +4260,7 @@ function create_strig() { //Create a temp-saved string.
             }
             if (input.buttonIsPressed(Button.B)) {
                 scroll_interval = 30
-                if (abc_id == 42) {
+                if (abc_id == 31) {
                     abc_id = 1
                 } else {
                     abc_id += 1
@@ -4403,10 +4300,8 @@ function billy_say() { //Say custom text
         if (input.pinIsPressed(TouchPin.P2)) {
             break;
         }
-        usid_if()
-        if (scroll_interval == 1) {
-            basic.pause(300)
-        }
+        basic.showString(abc[abc_id], 20)
+        basic.pause(40)
         while (true) {
             if (input.pinIsPressed(TouchPin.P2)) {
                 break;
@@ -4414,7 +4309,7 @@ function billy_say() { //Say custom text
             if (input.buttonIsPressed(Button.A)) {
                 scroll_interval = 1
                 if (abc_id == 1) {
-                    abc_id = 42
+                    abc_id = 31
                 } else {
                     abc_id += -1
                 }
@@ -4422,7 +4317,7 @@ function billy_say() { //Say custom text
             }
             if (input.buttonIsPressed(Button.B)) {
                 scroll_interval = 30
-                if (abc_id == 42) {
+                if (abc_id == 31) {
                     abc_id = 1
                 } else {
                     abc_id += 1
@@ -4833,224 +4728,6 @@ function music_sFX() { //Built in sFX.
         }
     }}
 
-function tune() { //Tune selection.
-    basic.clearScreen()
-    basic.pause(300)
-    custom_music.push(50)
-    num = 1
-    unid_type = 1
-    while (true) {
-        bitmap = tunecb[num - 1]
-        let currimage = led.screenshot()
-        currimage.scrollImage(5, 1)
-        basic.clearScreen()
-        decrypt()
-        currimage = led.screenshot()
-        currimage.scrollImage(1, scroll_interval)
-        while (true) {
-            scroll_interval = 1
-            if (input.pinIsPressed(TouchPin.P2)) {
-                music.play(music.tonePlayable(tonelist[num], music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
-                break;
-            }
-            if (input.buttonIsPressed(Button.A)) {
-                if (num == 1) {
-                    num = 21
-                } else {
-                    num += -1
-                }
-                break;
-            }
-            if (input.buttonIsPressed(Button.B)) {
-                scroll_interval = 45
-                if (num == 21) {
-                    num = 1
-                } else {
-                    num += 1
-                }
-                break;
-            }
-            if (input.logoIsPressed()) {
-                custom_music.push(num)
-                tune_music = tonelist[num]
-                break;
-            }
-        }
-        if (input.logoIsPressed()) {
-            break;
-        }
-    }
-    beat()}
-function beat() { //Beat selection.
-    basic.clearScreen()
-    basic.pause(300)
-    num = 1
-    unid_type = 1
-    while (true) {
-        if (input.logoIsPressed()) {
-            break;
-        }
-        unid_if_1_4()
-        if (scroll_interval == 1) {
-            basic.pause(300)
-        }
-        while(true){
-            if (input.pinIsPressed(TouchPin.P2)) {
-                scroll_interval = 1
-                if (num == 1) {
-                    music.play(music.tonePlayable(tune_music, music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
-                } else if (num == 2) {
-                    music.play(music.tonePlayable(tune_music, music.beat(BeatFraction.Half)), music.PlaybackMode.UntilDone)
-                } else if (num == 3) {
-                    music.play(music.tonePlayable(tune_music, music.beat(BeatFraction.Quarter)), music.PlaybackMode.UntilDone)
-                } else if (num == 4) {
-                    music.play(music.tonePlayable(tune_music, music.beat(BeatFraction.Eighth)), music.PlaybackMode.UntilDone)
-                } else if (num == 5) {
-                    music.play(music.tonePlayable(tune_music, music.beat(BeatFraction.Sixteenth)), music.PlaybackMode.UntilDone)
-                } else if (num == 6) {
-                    music.play(music.tonePlayable(tune_music, music.beat(BeatFraction.Double)), music.PlaybackMode.UntilDone)
-                } else if (num == 7) {
-                    music.play(music.tonePlayable(tune_music, music.beat(BeatFraction.Breve)), music.PlaybackMode.UntilDone)
-                }
-                break;
-            }
-            if (input.buttonIsPressed(Button.A)) {
-                scroll_interval = 1
-                if (num == 1) {
-                    num = 7
-                } else {
-                    num += -1
-                }
-                break;
-            }
-            if (input.buttonIsPressed(Button.B)) {
-                scroll_interval = 45
-                if (num == 7) {
-                    num = 1
-                } else {
-                    num += 1
-                }
-                break;
-            }
-            if (input.logoIsPressed()) {
-                scroll_interval = 1
-                custom_music.push(num)
-                break;
-            }
-        }
-    }
-    basic.pause(200)
-    custom_music_selection()}
-function rest() { //Rest selection.
-    basic.clearScreen()
-    custom_music.push(100)
-    basic.pause(300)
-    num = 1
-    unid_type = 1
-    while (true) {
-        if (input.logoIsPressed()) {
-            break;
-        }
-        unid_if_1_4()
-        if (scroll_interval == 1) {
-            basic.pause(300)
-        }
-        while(true){
-            if (input.pinIsPressed(TouchPin.P2)) {
-                scroll_interval = 1
-                if (num == 1) {
-                    music.play(music.tonePlayable(330, music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
-                } else if (num == 2) {
-                    music.play(music.tonePlayable(330, music.beat(BeatFraction.Half)), music.PlaybackMode.UntilDone)
-                } else if (num == 3) {
-                    music.play(music.tonePlayable(330, music.beat(BeatFraction.Quarter)), music.PlaybackMode.UntilDone)
-                } else if (num == 4) {
-                    music.play(music.tonePlayable(330, music.beat(BeatFraction.Eighth)), music.PlaybackMode.UntilDone)
-                } else if (num == 5) {
-                    music.play(music.tonePlayable(330, music.beat(BeatFraction.Sixteenth)), music.PlaybackMode.UntilDone)
-                } else if (num == 6) {
-                    music.play(music.tonePlayable(330, music.beat(BeatFraction.Double)), music.PlaybackMode.UntilDone)
-                } else if (num == 7) {
-                    music.play(music.tonePlayable(330, music.beat(BeatFraction.Breve)), music.PlaybackMode.UntilDone)
-                }
-                break;
-            }
-            if (input.buttonIsPressed(Button.A)) {
-                scroll_interval = 1
-                if (num == 1) {
-                    num = 7
-                } else {
-                    num += -1
-                }
-                break;
-            }
-            if (input.buttonIsPressed(Button.B)) {
-                scroll_interval = 45
-                if (num == 7) {
-                    num = 1
-                } else {
-                    num += 1
-                }
-                break;
-            }
-            if (input.logoIsPressed()) {
-                scroll_interval = 1
-                custom_music.push(num)
-                break;
-            }
-        }
-    }
-    basic.pause(200)
-    custom_music_selection()}
-function melody_play() { //Play the created melody.
-    let bcm = custom_music.slice()
-    while (true) {
-        if (custom_music[0] == 50) {
-            custom_music.removeAt(0)
-            if (custom_music[1] == 1) {
-                music.play(music.tonePlayable(tonelist[custom_music[0]], music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
-            } else if (custom_music[1] == 2) {
-                music.play(music.tonePlayable(tonelist[custom_music[0]], music.beat(BeatFraction.Half)), music.PlaybackMode.UntilDone)
-            } else if (custom_music[1] == 3) {
-                music.play(music.tonePlayable(tonelist[custom_music[0]], music.beat(BeatFraction.Quarter)), music.PlaybackMode.UntilDone)
-            } else if (custom_music[1] == 4) {
-                music.play(music.tonePlayable(tonelist[custom_music[0]], music.beat(BeatFraction.Eighth)), music.PlaybackMode.UntilDone)
-            } else if (custom_music[1] == 5) {
-                music.play(music.tonePlayable(tonelist[custom_music[0]], music.beat(BeatFraction.Sixteenth)), music.PlaybackMode.UntilDone)
-            } else if (custom_music[1] == 6) {
-                music.play(music.tonePlayable(tonelist[custom_music[0]], music.beat(BeatFraction.Double)), music.PlaybackMode.UntilDone)
-            } else if (custom_music[1] == 7) {
-                music.play(music.tonePlayable(tonelist[custom_music[0]], music.beat(BeatFraction.Breve)), music.PlaybackMode.UntilDone)
-            }
-            custom_music.removeAt(0)
-            custom_music.removeAt(0)
-        }
-        if (custom_music[0] == 100) {
-            custom_music.removeAt(0)
-            if (custom_music[0] == 1) {
-                music.rest(music.beat(BeatFraction.Whole))
-            } else if (custom_music[0] == 2) {
-                music.rest(music.beat(BeatFraction.Half))
-            } else if (custom_music[0] == 3) {
-                music.rest(music.beat(BeatFraction.Quarter))
-            } else if (custom_music[0] == 4) {
-                music.rest(music.beat(BeatFraction.Eighth))
-            } else if (custom_music[0] == 5) {
-                music.rest(music.beat(BeatFraction.Sixteenth))
-            } else if (custom_music[0] == 6) {
-                music.rest(music.beat(BeatFraction.Double))
-            } else if (custom_music[0] == 7) {
-                music.rest(music.beat(BeatFraction.Breve))
-            }
-            custom_music.removeAt(0)
-        }
-        if (custom_music.length == 0) {
-            break;
-        }
-    }
-    custom_music = bcm
-    custom_music_selection()
-    }
 
 function send_input() { //Send input via serial or bluetooth.
     basic.clearScreen()
@@ -5082,15 +4759,13 @@ function send_string() { //Send string via serial or bluetooth.
     basic.clearScreen()
     basic.pause(300)
     while (true) {
-        usid_if()
-        if (scroll_interval == 1) {
-            basic.pause(300)
-        }
+        basic.showString(abc[abc_id], 20)
+        basic.pause(40)
         while(true){
             if (input.buttonIsPressed(Button.A)) {
                 scroll_interval = 1
                 if (abc_id == 1) {
-                    abc_id = 42
+                    abc_id = 31
                 } else {
                     abc_id += -1
                 }
@@ -5098,7 +4773,7 @@ function send_string() { //Send string via serial or bluetooth.
             }
             if (input.buttonIsPressed(Button.B)) {
                 scroll_interval = 30
-                if (abc_id == 42) {
+                if (abc_id == 31) {
                     abc_id = 1
                 } else {
                     abc_id += 1
@@ -5194,5 +4869,5 @@ function settings_test_input() { //Test all inputs.
         led.unplot(0, 4)
         led.unplot(2, 4)
         led.unplot(4, 4)
-    }
+        }
 }
