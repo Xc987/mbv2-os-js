@@ -298,14 +298,12 @@ function menu_select_menu() { //Menu selection at the start.
         } else if (selected_menu == 6) {
             bitmap = sysimages[55]
         } else if (selected_menu == 7) {
-            bitmap = sysimages[5]
-        } else if (selected_menu == 8) {
             bitmap = sysimages[6]
-        } else if (selected_menu == 9) {
+        } else if (selected_menu == 8) {
             bitmap = sysimages[7]
-        } else if (selected_menu == 10) {
+        } else if (selected_menu == 9) {
             bitmap = sysimages[61]
-        } else if (selected_menu == 11) {
+        } else if (selected_menu == 10) {
             bitmap = sysimages[8]
             ckeck_hold_b()
         }
@@ -318,20 +316,20 @@ function menu_select_menu() { //Menu selection at the start.
             led.plot(0, 0)
         } else if (selected_menu == 2) {
             led.plot(1, 0)
-        } else if (selected_menu == 10) {
+        } else if (selected_menu == 9) {
             led.plot(3, 0)
-        } else if (selected_menu == 11) {
+        } else if (selected_menu == 10) {
             led.plot(4, 0)
         } else {
             led.plot(2, 0)
         }
         while (true) {
             if (input.buttonIsPressed(Button.A)) {
-                menu_moving(selected_menu, 1, 11)
+                menu_moving(selected_menu, 1, 10)
                 selected_menu = menu
                 break;
             } else if (input.buttonIsPressed(Button.B)) {
-                menu_moving(selected_menu, 1, 11)
+                menu_moving(selected_menu, 1, 10)
                 selected_menu = menu
                 break;
             } else if (input.logoIsPressed()) {
@@ -357,16 +355,14 @@ function menu_select_menu() { //Menu selection at the start.
     } else if (selected_menu == 6) {
         billy_select_menu()
     } else if (selected_menu == 7) {
-        pin_select_menu()
-    } else if (selected_menu == 8) {
         selected_serial_if = true
         send_select_menu()
-    } else if (selected_menu == 9) {
+    } else if (selected_menu == 8) {
         selected_uart = true
         send_select_menu()
-    } else if (selected_menu == 10) {
+    } else if (selected_menu == 9) {
         data_logging_freq_menu()
-    } else if (selected_menu == 11) {
+    } else if (selected_menu == 10) {
         settings_select_menu()
     }}
 function game_select_menu() { //Game selection.
@@ -395,7 +391,10 @@ function game_select_menu() { //Game selection.
             } else if (game_mode == 10) {
             bitmap = sysimages[83]
             ckeck_hold_b()
-        }
+        } else if (game_mode == 11) {
+        bitmap = sysimages[96]
+        ckeck_hold_b()
+    }
         scrollbit()
         if (scroll_interval == 1) {
             basic.pause(300)
@@ -405,20 +404,20 @@ function game_select_menu() { //Game selection.
             led.plot(0, 0)
         } else if (game_mode == 1) {
             led.plot(1, 0)
-        } else if (game_mode == 9) {
-            led.plot(3, 0)
         } else if (game_mode == 10) {
+            led.plot(3, 0)
+        } else if (game_mode == 11) {
             led.plot(4, 0)
         } else {
             led.plot(2, 0)
         }
         while (true) {
             if (input.buttonIsPressed(Button.A)) {
-                menu_moving(game_mode, 0, 10)
+                menu_moving(game_mode, 0, 11)
                 game_mode = menu
                 break;
             } else if (input.buttonIsPressed(Button.B)) {
-                menu_moving(game_mode, 0, 10)
+                menu_moving(game_mode, 0, 11)
                 game_mode = menu
                 break;
             } else if (input.logoIsPressed()) {
@@ -491,6 +490,9 @@ function game_select_menu() { //Game selection.
         led.plot(currentX, currentY)
         snake()
         getNewDot()
+    } else if (game_mode == 11) {
+        createnewblocks()
+        drawgrid()
     }}
 function tool_select_menu() { //Tool selection.
     while (true) {
@@ -1216,169 +1218,8 @@ function billy_select_menu() { //Billy TTS selection
     } else if (submenu1 == 1) {
         billy_say()
     }}
-function pin_select_menu() {
-    while (true) {
-        if (submenu1 == 0) {
-            bitmap = sysimages[9]
-            ckeck_hold_a()
-        } else if (submenu1 == 1) {
-            bitmap = sysimages[91]
-        } else if (submenu1 == 2) {
-            bitmap = sys17[submenu1 - 2]
-        } else if (submenu1 == 3) {
-            bitmap = sys17[submenu1 - 2]
-        } else if (submenu1 == 4) {
-            bitmap = sysimages[90]
-            ckeck_hold_b()
-        }
-        scrollbit()
-        if (scroll_interval == 1) {
-            basic.pause(300)
-        }
-        draw_menu()
-        if (submenu1 == 0) {
-            led.plot(0, 0)
-        } else if (submenu1 == 1) {
-            led.plot(1, 0)
-        } else if (submenu1 == 2) {
-            led.plot(2, 0)
-        } else if (submenu1 == 3) {
-            led.plot(3, 0)
-        } else if (submenu1 == 4) {
-            led.plot(4, 0)
-        }
-        while (true) {
-            if (input.buttonIsPressed(Button.A)) {
-                menu_moving(submenu1, 0, 4)
-                submenu1 = menu
-                break;
-            } else if (input.buttonIsPressed(Button.B)) {
-                menu_moving(submenu1, 0, 4)
-                submenu1 = menu
-                break;
-            } else if (input.logoIsPressed()) {
-                break;
-            }
-        }
-        if (input.logoIsPressed()) {
-            break;
-        }
-    }
-    scroll_interval = 1
-    fade()
-    if (submenu1 == 0) {
-        menu_select_menu()
-    } else if (submenu1 == 4){
-        control.reset()
-    } else {
-        datapin_select_menu()
-    }}
-function datapin_select_menu() {
-    while (true) {
-        if (submenu2 == 0) {
-            bitmap = sysimages[9]
-            ckeck_hold_a()
-        } else if (submenu2 == 1) {
-            bitmap = sysimages[92]
-        } else if (submenu2 == 2) {
-            bitmap = sysimages[93]
-        } else if (submenu2 == 3) {
-            bitmap = sysimages[26]
-        } else if (submenu2 == 4) {
-            bitmap = sysimages[94]
-            ckeck_hold_b()
-        }
-        scrollbit()
-        if (scroll_interval == 1) {
-            basic.pause(300)
-        }
-        draw_menu()
-        if (submenu2 == 0) {
-            led.plot(0, 0)
-        } else if (submenu2 == 1) {
-            led.plot(1, 0)
-        } else if (submenu2 == 2) {
-            led.plot(2, 0)
-        } else if (submenu2 == 3) {
-            led.plot(3, 0)
-        } else if (submenu2 == 4) {
-            led.plot(4, 0)
-        }
-        while (true) {
-            if (input.buttonIsPressed(Button.A)) {
-                menu_moving(submenu2, 0, 4)
-                submenu2 = menu
-                break;
-            } else if (input.buttonIsPressed(Button.B)) {
-                menu_moving(submenu2, 0, 4)
-                submenu2 = menu
-                break;
-            } else if (input.logoIsPressed()) {
-                scroll_interval = 1
-                if (submenu2 == 3) {
-                    basic.showIcon(IconNames.Yes)
-                    if (submenu1 == 1) {
-                        pins.setAudioPin(AnalogPin.P0)
-                        flashstorage.put("soundpin", convertToText(0))
-                    } else if (submenu1 == 2) {
-                        pins.setAudioPin(AnalogPin.P1)
-                        flashstorage.put("soundpin", convertToText(1))
-                    } else if (submenu1 == 3) {
-                        pins.setAudioPin(AnalogPin.P2)
-                        pins.touchSetMode(TouchTarget.P2, TouchTargetMode.Resistive)
-                        flashstorage.put("soundpin", convertToText(2))
-                    }
-                }
-                if (submenu2 == 4) {
-                    basic.showIcon(IconNames.Yes)
-                    if (submenu1 == 1) {
-                        if (cpin0 == 0) {
-                            pins.touchSetMode(TouchTarget.P0, TouchTargetMode.Resistive)
-                            cpin0 = 1
-                        } else {
-                            pins.touchSetMode(TouchTarget.P0, TouchTargetMode.Capacitive)
-                            cpin0 = 0
-                        }
-                        flashstorage.put("cpin0", convertToText(cpin0))
-                    } else if (submenu1 == 2) {
-                        if (cpin1 == 0) {
-                            pins.touchSetMode(TouchTarget.P1, TouchTargetMode.Resistive)
-                            cpin1 = 1
-                        } else {
-                            pins.touchSetMode(TouchTarget.P1, TouchTargetMode.Capacitive)
-                            cpin1 = 0
-                        }
-                        flashstorage.put("cpin1", convertToText(cpin1))
-                    } else if (submenu1 == 3) {
-                        if (cpin2 == 0) {
-                            pins.touchSetMode(TouchTarget.P2, TouchTargetMode.Resistive)
-                            cpin2 = 1
-                        } else {
-                            pins.touchSetMode(TouchTarget.P2, TouchTargetMode.Capacitive)
-                            cpin2 = 0
-                        }
-                        flashstorage.put("cpin2", convertToText(cpin2))
-                    }
-                }
-                break;
-            }
-        }
-        if (input.logoIsPressed()) {
-            if (submenu2 == 0 || 1 || 2) {
-                break;
-            }
-        }
-    }
-    scroll_interval = 1
-    fade()
-    if (submenu2 == 0) {
-        submenu1 = 0
-        menu_select_menu()
-    } else if (submenu2 == 1) {
-        analogread()
-    } else if (submenu2 == 2) {
-        digitalread()
-    }}
+
+
 function send_select_menu() { //Send selection.
     while (true) {
         if (submenu1 == 0) {
@@ -2228,6 +2069,7 @@ bluetooth.onUartDataReceived(serial.delimiters(Delimiters.NewLine), function on_
     }})
 
 serial.setBaudRate(BaudRate.BaudRate115200)
+pins.touchSetMode(TouchTarget.P2, TouchTargetMode.Capacitive)
 music.setBuiltInSpeakerEnabled(false)
 bluetooth.startUartService()
 let menu = 0
@@ -2253,14 +2095,6 @@ if (settings_brightness == 1) {
     led.setBrightness(255)}
 let settings_music = parseFloat(flashstorage.getOrDefault("music", "0"))
 let settings_music_board = parseFloat(flashstorage.getOrDefault("musicboard", "1"))
-let sound_pin = parseFloat(flashstorage.getOrDefault("soundpin", "0"))
-if (sound_pin == 0) {
-    pins.setAudioPin(AnalogPin.P0)
-} else if (sound_pin == 1) {
-    pins.setAudioPin(AnalogPin.P1)
-} else {
-    pins.touchSetMode(TouchTarget.P2, TouchTargetMode.Resistive)
-    pins.setAudioPin(AnalogPin.P2)}
 if (settings_music == 1) {
     if (settings_music_board == 1) {
         pins.setAudioPinEnabled(false)
@@ -2289,21 +2123,6 @@ if (settings_volume == 1) {
 } else {
     music.setVolume(255)}
 let logged_data = parseFloat(flashstorage.getOrDefault("log", "0"))
-let cpin0 = parseFloat(flashstorage.getOrDefault("cpin0", "0"))
-let cpin1 = parseFloat(flashstorage.getOrDefault("cpin1", "0"))
-let cpin2 = parseFloat(flashstorage.getOrDefault("cpin2", "1"))
-if (cpin0 == 0) {
-    pins.touchSetMode(TouchTarget.P0, TouchTargetMode.Resistive)
-} else {
-    pins.touchSetMode(TouchTarget.P0, TouchTargetMode.Capacitive)}
-if (cpin1 == 0) {
-    pins.touchSetMode(TouchTarget.P1, TouchTargetMode.Resistive)
-} else {
-    pins.touchSetMode(TouchTarget.P1, TouchTargetMode.Capacitive)}
-if (cpin2 == 0) {
-    pins.touchSetMode(TouchTarget.P2, TouchTargetMode.Resistive)
-} else {
-    pins.touchSetMode(TouchTarget.P2, TouchTargetMode.Capacitive)}
 let abc_id = 1
 let abc = ["NUL", "a", "A", "b", "c", "C", "d", "e", "E", "f", "g", "G", "h", "i", "I", "j", "k", "K", "l", "L", "m", "n", "N", "o", "p", "q", "r", "s", "S", "t", "u", "U", "v", "w", "x", "y", "z", "Z", " ", ".", ",", "!", "?"]
 let numberlist = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
@@ -2384,7 +2203,7 @@ let sysimages = [0x1863998, 0x44154, 0x1467994, 0x1E06010, 0x23880,
     0x4310, 0xA74310, 0x1E95A1E, 0x1300, 0x8639E, 0x1EE6200, 0x1041040,
     0x14E01D0, 0x822110, 0x211000, 0x18C639C, 0x222208, 0x1E13900, 
     0x1C2288A, 0x10023C8, 0x18023C8, 0x1C023C8, 0xA3BCE, 0x1605114,
-    0xC833DA, 0xF4BC0, 0x88304C, 0x188784E, 0xC94A4C, 0x391E]
+    0xC833DA, 0xF4BC0, 0x88304C, 0x188784E, 0xC94A4C, 0x391E, 0x4D025A]
 let acc_1 = 0
 let time_1 = 0
 let killed_1: number[] = []
@@ -2468,6 +2287,19 @@ let snakePartsX: number[]
 snakePartsX = [0]
 let snakePartsY: number[]
 snakePartsY = [2]
+let grid = [255,
+    0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0]
+let indexrow = 1
+let movegrid = 0
+let movegridy = 1
+let mergebrighness = 0
+let winstate = false
+let movecount = 0
+let winblink = false
 basic.clearScreen()
 loading_animation()
 menu_select_menu()
@@ -3150,6 +2982,291 @@ function loseGame() { //Snake // game_mode = 10
     basic.showString("S:")
     basic.showNumber(score, 100)
     control.reset()}
+
+basic.forever(function() {
+    if (game_mode == 11) {
+        if (input.buttonIsPressed(Button.B)) {
+            if (winblink == false) {
+                movecount += 1
+                movegrid = 4
+                movegridy = 0
+                for (let index = 0; index < 5; index++) {
+                    movegrid = 4
+                    for (let index1 = 0; index1 < 4; index1++) {
+                        movegrid = 4
+                        for (let index2 = 0; index2 < 4; index2++) {
+                            if (grid[movegrid + (5 * movegridy)] != 0) {
+                                checkmerge()
+                                if (grid[movegrid + (5 * movegridy)] == grid[movegrid + (5 * movegridy) + 1]) {
+                                    grid[movegrid + (5 * movegridy) + 1] = grid[movegrid + (5 * movegridy)] + mergebrighness
+                                    grid[movegrid + (5 * movegridy)] = 0
+                                } else {
+                                    if (grid[movegrid + (5 * movegridy) + 1] == 0) {
+                                        grid[movegrid + (5 * movegridy) + 1] = grid[movegrid + (5 * movegridy)] + mergebrighness
+                                        grid[movegrid + (5 * movegridy)] = 0
+                                    }
+                                }
+                            }
+                            movegrid += -1
+                        }
+                    }
+                    movegridy += 1
+                }
+                basic.clearScreen()
+                drawgrid()
+            }
+        }
+        if (input.buttonIsPressed(Button.A)) {
+            if (winblink == false) {
+                movecount += 1
+                movegrid = 2
+                movegridy = 0
+                for (let index = 0; index < 5; index++) {
+                    movegrid = 2
+                    for (let index1 = 0; index1 < 4; index1++) {
+                        movegrid = 2
+                        for (let index2 = 0; index2 < 4; index2++) {
+                            if (grid[movegrid + (5 * movegridy)] != 0) {
+                                checkmerge1()
+                                if (grid[movegrid + (5 * movegridy)] == grid[movegrid + (5 * movegridy) - 1]) {
+                                    grid[movegrid + (5 * movegridy) - 1] = grid[movegrid + (5 * movegridy)] + mergebrighness
+                                    grid[movegrid + (5 * movegridy)] = 0
+                                } else {
+                                    if (grid[movegrid + (5 * movegridy) - 1] == 0) {
+                                        grid[movegrid + (5 * movegridy) - 1] = grid[movegrid + (5 * movegridy)] + mergebrighness
+                                        grid[movegrid + (5 * movegridy)] = 0
+                                    }
+                                }
+                            }
+                            movegrid += 1
+                        }
+                    }
+                    movegridy += 1
+                }
+                drawgrid()
+            }
+        }
+        if (input.logoIsPressed()) {
+            if (winblink == false) {
+                movecount += 1
+                movegrid = 5
+                movegridy = 0
+                for (let index = 0; index < 5; index++) {
+                    movegrid = 5
+                    for (let index1 = 0; index1 < 4; index1++) {
+                        movegrid = 5
+                        for (let index2 = 0; index2 < 4; index2++) {
+                            if (grid[movegrid + (1 + movegridy)] != 0) {
+                                checkmerge2()
+                                if (grid[movegrid + (1 + movegridy)] == grid[movegrid + (1 + movegridy) - 5]) {
+                                    grid[movegrid + (1 + movegridy) - 5] = grid[movegrid + (1 + movegridy)] + mergebrighness
+                                    grid[movegrid + (1 + movegridy)] = 0
+                                } else {
+                                    if (grid[movegrid + (1 + movegridy) - 5] == 0) {
+                                        grid[movegrid + (1 + movegridy) - 5] = grid[movegrid + (1 + movegridy)] + mergebrighness
+                                        grid[movegrid + (1 + movegridy)] = 0
+                                    }
+                                }
+                            }
+                            movegrid += 5
+                        }
+                    }
+                    movegridy += 1
+                }
+                drawgrid()
+            }
+        }
+        if (input.pinIsPressed(TouchPin.P2)) {
+            if (winblink == false) {
+                movecount += 1
+                movegrid = 15
+                movegridy = 0
+                for (let index = 0; index < 5; index++) {
+                    movegrid = 15
+                    for (let index1 = 0; index1 < 4; index1++) {
+                        movegrid = 15
+                        for (let index2 = 0; index2 < 4; index2++) {
+                            if (grid[movegrid + (1 + movegridy)] != 0) {
+                                checkmerge3()
+                                if (grid[movegrid + (1 + movegridy)] == grid[movegrid + (1 + movegridy) + 5]) {
+                                    grid[movegrid + (1 + movegridy) + 5] = grid[movegrid + (1 + movegridy)] + mergebrighness
+                                    grid[movegrid + (1 + movegridy)] = 0
+                                } else {
+                                    if (grid[movegrid + (1 + movegridy) + 5] == 0) {
+                                        grid[movegrid + (1 + movegridy) + 5] = grid[movegrid + (1 + movegridy)] + mergebrighness
+                                        grid[movegrid + (1 + movegridy)] = 0
+                                    }
+                                }
+                            }
+                            movegrid += -5
+                        }
+                    }
+                    movegridy += 1
+                }
+                drawgrid()
+            }
+        }
+        basic.pause(200)
+    }
+})
+function checkmerge() {
+    mergebrighness = 0
+    if (grid[movegrid + (5 * movegridy)] == 1 && grid[movegrid + (5 * movegridy) + 1] == 1) {
+        mergebrighness = 19
+    }
+    if (grid[movegrid + (5 * movegridy)] == 20 && grid[movegrid + (5 * movegridy) + 1] == 20) {
+        mergebrighness = 30
+    }
+    if (grid[movegrid + (5 * movegridy)] == 50 && grid[movegrid + (5 * movegridy) + 1] == 50) {
+        mergebrighness = 50
+    }
+    if (grid[movegrid + (5 * movegridy)] == 100 && grid[movegrid + (5 * movegridy) + 1] == 100) {
+        mergebrighness = 50
+    }
+    if (grid[movegrid + (5 * movegridy)] == 150 && grid[movegrid + (5 * movegridy) + 1] == 150) {
+        mergebrighness = 50
+    }
+    if (grid[movegrid + (5 * movegridy)] == 200 && grid[movegrid + (5 * movegridy) + 1] == 200) {
+        mergebrighness = 55
+    }
+    if (grid[movegrid + (5 * movegridy)] == 255 && grid[movegrid + (5 * movegridy) + 1] == 255) {
+        mergebrighness = -200
+        winstate = true
+    }
+}
+function checkmerge1() {
+    mergebrighness = 0
+    if (grid[movegrid + (5 * movegridy)] == 1 && grid[movegrid + (5 * movegridy) - 1] == 1) {
+        mergebrighness = 19
+    }
+    if (grid[movegrid + (5 * movegridy)] == 20 && grid[movegrid + (5 * movegridy) - 1] == 20) {
+        mergebrighness = 30
+    }
+    if (grid[movegrid + (5 * movegridy)] == 50 && grid[movegrid + (5 * movegridy) - 1] == 50) {
+        mergebrighness = 50
+    }
+    if (grid[movegrid + (5 * movegridy)] == 100 && grid[movegrid + (5 * movegridy) - 1] == 100) {
+        mergebrighness = 50
+    }
+    if (grid[movegrid + (5 * movegridy)] == 150 && grid[movegrid + (5 * movegridy) - 1] == 150) {
+        mergebrighness = 50
+    }
+    if (grid[movegrid + (5 * movegridy)] == 200 && grid[movegrid + (5 * movegridy) - 1] == 200) {
+        mergebrighness = 55
+    }
+    if (grid[movegrid + (5 * movegridy)] == 255 && grid[movegrid + (5 * movegridy) - 1] == 255) {
+        mergebrighness = -200
+        winstate = true
+    }
+}
+function checkmerge2() {
+    mergebrighness = 0
+    if (grid[movegrid + (1 + movegridy)] == 1 && grid[movegrid + (1 + movegridy) - 5] == 1) {
+        mergebrighness = 19
+    }
+    if (grid[movegrid + (1 + movegridy)] == 20 && grid[movegrid + (1 + movegridy) - 5] == 20) {
+        mergebrighness = 30
+    }
+    if (grid[movegrid + (1 + movegridy)] == 50 && grid[movegrid + (1 + movegridy) - 5] == 50) {
+        mergebrighness = 50
+    }
+    if (grid[movegrid + (1 + movegridy)] == 100 && grid[movegrid + (1 + movegridy) - 5] == 100) {
+        mergebrighness = 50
+    }
+    if (grid[movegrid + (1 + movegridy)] == 150 && grid[movegrid + (1 + movegridy) - 5] == 150) {
+        mergebrighness = 50
+    }
+    if (grid[movegrid + (1 + movegridy)] == 200 && grid[movegrid + (1 + movegridy) - 5] == 200) {
+        mergebrighness = 55
+    }
+    if (grid[movegrid + (1 + movegridy)] == 255 && grid[movegrid + (1 + movegridy) - 5] == 255) {
+        mergebrighness = -200
+        winstate = true
+    }
+}
+function checkmerge3() {
+    mergebrighness = 0
+    if (grid[movegrid + (1 + movegridy)] == 1 && grid[movegrid + (1 + movegridy) + 5] == 1) {
+        mergebrighness = 19
+    }
+    if (grid[movegrid + (1 + movegridy)] == 20 && grid[movegrid + (1 + movegridy) + 5] == 20) {
+        mergebrighness = 30
+    }
+    if (grid[movegrid + (1 + movegridy)] == 50 && grid[movegrid + (1 + movegridy) + 5] == 50) {
+        mergebrighness = 50
+    }
+    if (grid[movegrid + (1 + movegridy)] == 100 && grid[movegrid + (1 + movegridy) + 5] == 100) {
+        mergebrighness = 50
+    }
+    if (grid[movegrid + (1 + movegridy)] == 150 && grid[movegrid + (1 + movegridy) + 5] == 150) {
+        mergebrighness = 50
+    }
+    if (grid[movegrid + (1 + movegridy)] == 200 && grid[movegrid + (1 + movegridy) + 5] == 200) {
+        mergebrighness = 55
+    }
+    if (grid[movegrid + (1 + movegridy)] == 255 && grid[movegrid + (1 + movegridy) + 5] == 255) {
+        mergebrighness = -200
+        winstate = true
+    }
+}
+function drawgrid() {
+    basic.clearScreen()
+    indexrow = 1
+    for (let y = 0; y < 5; y++) {
+        for (let x = 0; x < 5; x++) {
+            led.plotBrightness(x, y, grid[indexrow])
+            indexrow += 1
+        }
+    }
+    indexrow = 1
+    if (winstate == true) {
+        wingame()
+    }
+    createnewblocks()
+}
+function createnewblocks() {
+    while (true) {
+        newx = randint(1, 5)
+        newy = randint(1, 5)
+        indexrow = 0
+        while (newy != 1) {
+            newy += -1
+            indexrow += 5
+            while (newx != 0) {
+                newx += -1
+                indexrow += 1
+            }
+        }
+        while (newx != 0) {
+            newx += -1
+            indexrow += 1
+
+        }
+        if (grid[indexrow] == 0) {
+            grid[indexrow] = 1
+            break;
+        }
+    }
+}
+function wingame() {
+    indexrow = 1
+    for (let y = 0; y < 5; y++) {
+        for (let x = 0; x < 5; x++) {
+            if (grid[indexrow] == 55) {
+                winblink = true
+                for (let index = 0; index < 40; index++) {
+                    led.toggle(x, y)
+                    basic.pause(50)
+                }
+                basic.clearScreen()
+                basic.showString("Moves:", 100)
+                basic.showNumber(movecount)
+                control.reset()
+            }
+            indexrow += 1
+        }
+    }
+}
 function tool_compass() { //Compass // Selected_tool = 4
     while (true) {
         if (Math.constrain(input.compassHeading(), 0, 45) == input.compassHeading()) {
@@ -4338,63 +4455,8 @@ function billy_say() { //Say custom text
             billy.say(text)
         }
     }}
-function analogread() {
-    graph_var2 = 1023
-    while (true) {
-        if (tool_type == 1) {
-            if (submenu1 == 1) {
-                graph_var1 = pins.analogReadPin(AnalogPin.P0)
-            } else if (submenu1 == 2) {
-                graph_var1 = pins.analogReadPin(AnalogPin.P1)
-            } else if (submenu1 == 3) {
-                graph_var1 = pins.analogReadPin(AnalogPin.P2)
-            }
-            plot_graph()
-            if (custom_graph != 12) {
-                basic.pause(50)
-            }
-            basic.clearScreen()
-            if (input.isGesture(Gesture.Shake)) {
-                if (custom_graph == 12) {
-                    custom_graph = 1
-                } else {
-                    custom_graph += 1
-                }
-                flashstorage.put("graph", convertToText(custom_graph))
-                basic.pause(150)
-            }
-        }
-    }}
-function digitalread() {
-    graph_var2 = 1
-    pins.touchSetMode(TouchTarget.P0, TouchTargetMode.Capacitive)
-    pins.touchSetMode(TouchTarget.P1, TouchTargetMode.Capacitive)
-    pins.touchSetMode(TouchTarget.P2, TouchTargetMode.Capacitive)
-    while (true) {
-        if (tool_type == 1) {
-            if (submenu1 == 1) {
-                graph_var1 = pins.digitalReadPin(DigitalPin.P0)
-            } else if (submenu1 == 2) {
-                graph_var1 = pins.digitalReadPin(DigitalPin.P1)
-            } else if (submenu1 == 3) {
-                graph_var1 = pins.digitalReadPin(DigitalPin.P2)
-            }
-            plot_graph()
-            if (custom_graph != 12) {
-                basic.pause(50)
-            }
-            basic.clearScreen()
-            if (input.pinIsPressed(TouchPin.P2)) {
-                if (custom_graph == 12) {
-                    custom_graph = 1
-                } else {
-                    custom_graph += 1
-                }
-                flashstorage.put("graph", convertToText(custom_graph))
-                basic.pause(150)
-            }
-        }
-    }}
+
+
 function create_number() { //Create a temp-saved number.
     basic.clearScreen()
     basic.pause(500)
