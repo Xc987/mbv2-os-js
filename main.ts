@@ -113,19 +113,7 @@ function unid_if_0_9() { //Function to draw numbers from 0 to 9
     currimage.scrollImage(1, scroll_interval)
     }
 function unid_if_1_23() { //Function to draw numbers from 0 to 55 (1-23)
-    if (unid_type == 1) {
-        unid = num
-    } else if (unid_type == 2) {
-        unid = hour
-    } else if (unid_type == 3) {
-        unid = minute
-    } else if (unid_type == 4) {
-        unid = second
-    } else if (unid_type == 5) {
-        unid = signal_hour
-    } else if (unid_type == 6) {
-        unid = signal_minute
-    }
+    unid = num
     bitmap = 0
     if (unid > 23) {
         bitmap = unid123ex[unid / 5 - 5]
@@ -2143,7 +2131,6 @@ let minute = 0
 let second = 0
 let signal_hour = 0
 let signal_minute = 0
-let unid_type = 0
 let bluetooth_online = false
 let x = 0
 let y = 0
@@ -4570,7 +4557,6 @@ function music_melody8() { //Built in mucic 8.
     basic.clearScreen()
     basic.pause(300)
     num = 1
-    unid_type = 1
     while (true) {
         if (input.logoIsPressed()) {
             break;
@@ -4633,7 +4619,6 @@ function music_melody() { //Built in music.
     basic.clearScreen()
     basic.pause(300)
     num = 1
-    unid_type = 1
     while (true) {
         if (input.logoIsPressed()) {
             break;
@@ -4716,7 +4701,6 @@ function music_melodyV2() { //Built in music V2.
     basic.clearScreen()
     basic.pause(300)
     num = 1
-    unid_type = 1
     while (true) {
         if (input.logoIsPressed()) {
             break;
@@ -4776,7 +4760,6 @@ function music_sFX() { //Built in sFX.
     basic.clearScreen()
     basic.pause(300)
     num = 1
-    unid_type = 1
     while (true) {
         if (input.logoIsPressed()) {
             break;
@@ -4838,7 +4821,6 @@ function tune() { //Tune selection.
     basic.pause(300)
     custom_music.push(50)
     num = 1
-    unid_type = 1
     while (true) {
         bitmap = tunecb[num - 1]
         let currimage = led.screenshot()
@@ -4885,7 +4867,6 @@ function beat() { //Beat selection.
     basic.clearScreen()
     basic.pause(300)
     num = 1
-    unid_type = 1
     while (true) {
         if (input.logoIsPressed()) {
             break;
@@ -4946,7 +4927,6 @@ function rest() { //Rest selection.
     custom_music.push(100)
     basic.pause(300)
     num = 1
-    unid_type = 1
     while (true) {
         if (input.logoIsPressed()) {
             break;
